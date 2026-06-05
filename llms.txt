@@ -1,0 +1,38 @@
+# Ecosystem Intelligence Group — AI Context File
+# https://www.ecosystemintelligencegroup.com/llms.txt
+
+## About Ecosystem Intelligence Group
+
+Ecosystem Intelligence Group (EIG) is an advisory firm that helps organisations, industries and governments transform data, expertise and insight into measurable value, stronger performance and better decisions.
+
+EIG operates at the intersection of Ecosystem Intelligence, Artificial Intelligence, Sustainability Economics, Value Creation, Supply Chain & Procurement, and Transformation & Leadership.
+
+EIG is part of the SIB Group and is based in Dubai, United Arab Emirates.
+
+Contact: Team@EIG.com
+
+## What EIG Does
+
+- Ecosystem Intelligence: Mapping the full operating environment to reveal hidden value, risk and opportunity
+- AI Architecture: Building the intelligence foundations that make AI investments create real business value  
+- Value Creation: Identifying and unlocking where value is created, captured and lost
+- Sustainability Economics: Transforming sustainability from compliance into commercial advantage
+- Supply Chain Intelligence: Building resilient, intelligent supply chains as strategic assets
+- Transformation & Leadership: Delivering transformation programmes that create measurable outcomes
+
+## Key Concepts
+
+Ecosystem Intelligence is the practice of connecting data, technology, operations, sustainability, supply chains, markets and leadership insight to create a complete understanding of organisational performance.
+
+Intelligence Architecture is the layer that connects data, operations, AI and decision-making — what makes AI investments deliver real business value rather than accelerating existing inefficiencies.
+
+Better Intelligence. Better Decisions. Better Outcomes. Where Intelligence Creates Value.
+
+## Website Structure
+
+- Homepage: index.html
+- Intelligence Pages: intel-ecosystem.html, intel-value.html, intel-ai.html, intel-sustainability.html, intel-supply.html
+- Service Pages: service-ecosystem.html, service-ai.html, service-value.html, service-sustainability.html, service-supply.html, service-transformation.html
+- About: about.html
+- Leadership: leadership.html
+- Contact: contact.html
