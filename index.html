@@ -120,38 +120,38 @@ h1.ph em{font-style:italic;font-weight:400;color:var(--brand)}
 @media(max-width:900px){.nav-links,.nav-cta-w{display:none}.hb{display:flex}}
 @media(max-width:580px){.fg{grid-template-columns:1fr}.stat-inner{grid-template-columns:1fr 1fr}.cta-acts{flex-direction:column;align-items:center}}
 
-.hero{position:relative;min-height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding-top:70px;padding-bottom:2rem}
+.hero{position:relative;min-height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;padding-top:70px;padding-bottom:2rem;align-items:stretch}
 .hero-bg{position:absolute;inset:0;z-index:0;background-size:cover;background-position:center}
 .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(105deg,rgba(10,10,15,.82) 0%,rgba(10,10,15,.65) 38%,rgba(10,10,15,.18) 62%,rgba(10,10,15,.35) 100%),linear-gradient(to bottom,rgba(10,10,15,.55) 0%,rgba(10,10,15,0) 20%,rgba(10,10,15,0) 78%,rgba(10,10,15,.72) 100%)}
 .hero-tint{position:absolute;inset:0;z-index:1;background:radial-gradient(ellipse 55% 60% at 68% 45%,rgba(0,122,255,.07) 0%,transparent 65%)}
 .hero-grid{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(0,122,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(0,122,255,.022) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 70% 70% at 60% 50%,black,transparent)}
 .hero-edge{position:absolute;left:0;top:0;bottom:0;z-index:2;width:3px;background:linear-gradient(to bottom,transparent 5%,var(--brand) 35%,rgba(0,122,255,.2) 65%,transparent)}
-.hero-content{position:relative;z-index:3;max-width:var(--max);margin:0 auto;padding:2.5rem 2.5rem;width:100%;display:grid;grid-template-columns:55% 45%;gap:4rem;align-items:center}
-.hero-live{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-size:.75rem;font-weight:600;letter-spacing:.06em;color:var(--status-red);background:rgba(255,59,48,.1);border:1px solid rgba(255,59,48,.3);padding:.45rem 1.1rem;border-radius:100px;margin-bottom:2rem;animation:redpulse 2.5s ease-in-out infinite;margin-bottom:1.25rem}
+.hero-content{position:relative;z-index:3;max-width:var(--max);margin:0 auto;padding:2rem 2.5rem 3rem;width:100%;display:grid;grid-template-columns:55% 45%;gap:4rem;align-items:start;text-align:left}
+.hero-live{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-size:.75rem;font-weight:600;letter-spacing:.06em;color:var(--status-red);background:rgba(255,59,48,.1);border:1px solid rgba(255,59,48,.3);padding:.45rem 1.1rem;border-radius:100px;margin-bottom:2rem;animation:redpulse 2.5s ease-in-out infinite;margin-bottom:1.75rem;margin-left:0;align-self:flex-start}
 .live-dot{width:7px;height:7px;background:var(--status-red);border-radius:50%;flex-shrink:0;animation:kp 1.2s ease-in-out infinite;box-shadow:0 0 0 2px rgba(255,59,48,.25)}
-.hero-kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-size:.68rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--brand);margin-bottom:1.25rem}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-size:.68rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--brand);margin-bottom:1.5rem;text-align:left;margin-left:0}
 .kd{width:6px;height:6px;background:var(--brand);border-radius:50%;animation:kp 2s ease-in-out infinite}
-h1.hero-h{font-family:var(--serif);font-size:clamp(3.2rem,5.5vw,6.5rem);font-weight:600;line-height:1.0;letter-spacing:-.025em;color:var(--tp);margin-bottom:1.25rem;text-shadow:0 2px 24px rgba(0,0,0,.9),0 4px 48px rgba(0,0,0,.7)}
+h1.hero-h{font-family:var(--serif);font-size:clamp(3.2rem,5.5vw,6.5rem);font-weight:600;line-height:1.0;letter-spacing:-.025em;color:var(--tp);margin-bottom:1.75rem;text-shadow:0 2px 24px rgba(0,0,0,.9),0 4px 48px rgba(0,0,0,.7)}
 h1.hero-h em{font-style:italic;font-weight:400;color:var(--brand);text-shadow:0 2px 24px rgba(0,0,0,.9),0 0 40px rgba(0,122,255,.3)}
 h1.hero-h .stroke{display:block;color:var(--tp);text-shadow:0 2px 20px rgba(0,0,0,.8),0 0 60px rgba(0,0,0,.6)}
 .hero-body{font-family:var(--body);font-size:1rem;font-weight:300;color:var(--ts);line-height:1.85;max-width:460px;margin-bottom:1.5rem}
-.hero-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:2.5rem}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.75rem}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:3rem}
 .hero-metrics{display:flex;gap:0;border-top:1px solid rgba(255,255,255,.07)}
-.hm{flex:1;padding:1.75rem 0 0;border-right:1px solid rgba(255,255,255,.06)}
-.hm:last-child{border-right:none}
+.hm{flex:1;padding:1.75rem 2rem 0 0;border-right:1px solid rgba(255,255,255,.06)}
+.hm:last-child{border-right:none}.hm+.hm{padding-left:2rem}
 .hm-num{font-family:var(--serif);font-size:2.8rem;font-weight:600;color:var(--tp);line-height:1;margin-bottom:4px}
 .hm-num .u{font-family:var(--body);font-size:1.4rem;font-weight:300;color:var(--brand)}
 .hm-lbl{font-family:var(--body);font-size:.71rem;font-weight:300;color:var(--hint);letter-spacing:.05em;line-height:1.45}
-.hero-right{display:flex;align-items:center;justify-content:flex-end}
-.h-panel{width:100%;max-width:370px;border:1px solid rgba(0,122,255,.2);background:rgba(10,10,15,.52);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:relative;overflow:hidden;border-radius:2px}
+.hero-right{display:flex;align-items:flex-start;justify-content:flex-end;padding-top:0}
+.h-panel{width:100%;max-width:400px;border:1px solid rgba(0,122,255,.35);background:rgba(8,8,14,.75);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);position:relative;overflow:hidden;border-radius:4px;box-shadow:0 0 0 1px rgba(0,122,255,.08),0 32px 64px rgba(0,0,0,.6),0 0 80px rgba(0,122,255,.06)}
 .h-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--brand),transparent);opacity:.7}
 .h-panel::after{content:'';position:absolute;bottom:0;right:0;width:48px;height:48px;border-bottom:1px solid rgba(0,122,255,.3);border-right:1px solid rgba(0,122,255,.3)}
 .hp-head{padding:1.75rem 2rem 1.25rem;border-bottom:1px solid rgba(255,255,255,.05)}
 .hp-lbl{font-family:var(--body);font-size:.6rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:rgba(0,122,255,.65);margin-bottom:.4rem}
 .hp-title{font-family:var(--serif);font-size:1.1rem;font-weight:600;font-style:italic;color:var(--tp);line-height:1.35}
 .hp-rows{padding:.5rem 0}
-.hp-row{display:flex;align-items:center;gap:1rem;padding:.65rem 2rem;border-bottom:1px solid rgba(255,255,255,.04);transition:background .2s}
+.hp-row{display:flex;align-items:center;gap:1rem;padding:.65rem 2rem;border-bottom:1px solid rgba(255,255,255,.04);transition:background .2s;cursor:pointer}
 .hp-row:last-child{border-bottom:none}
 .hp-row:hover{background:rgba(0,122,255,.06)}
 .hp-dot{width:5px;height:5px;border-radius:50%;background:var(--brand);flex-shrink:0;animation:kp 2s ease-in-out infinite}
@@ -317,6 +317,68 @@ h1.hero-h .stroke{display:block;color:var(--tp);text-shadow:0 2px 20px rgba(0,0,
   transform:scale(1.04);
 }
 
+
+/* HERO LEFT COLUMN — force left alignment */
+.hero-content > div:first-child {
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  text-align:left;
+}
+
+
+.hero-body-2{font-family:var(--body);font-size:1rem;font-weight:300;color:var(--ts);line-height:1.85;max-width:460px;margin-bottom:1.75rem;opacity:.85}
+
+/* UPGRADED PANEL */
+.h-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 0%,var(--brand) 40%,rgba(0,122,255,.4) 100%);opacity:1}
+.hp-row{display:flex;align-items:center;gap:1rem;padding:.75rem 2rem;border-bottom:1px solid rgba(255,255,255,.05);transition:background .2s,padding-left .2s;cursor:pointer}
+.hp-row:last-child{border-bottom:none}
+.hp-row:hover{background:rgba(0,122,255,.08);padding-left:2.25rem}
+.hp-rv a{transition:letter-spacing .2s}
+.hp-row:hover .hp-rv a{letter-spacing:.14em}
+
+/* GATED MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(5,5,12,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s var(--ease)}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal-box{background:var(--s1);border:1px solid rgba(0,122,255,.25);max-width:480px;width:90%;padding:3rem;position:relative;box-shadow:0 0 0 1px rgba(0,122,255,.08),0 40px 80px rgba(0,0,0,.7);transform:translateY(20px);transition:transform .35s var(--ease);border-radius:4px}
+.modal-overlay.open .modal-box{transform:translateY(0)}
+.modal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--brand),transparent)}
+.modal-close{position:absolute;top:1.25rem;right:1.25rem;background:none;border:none;color:var(--hint);font-size:1.2rem;cursor:pointer;padding:.25rem;line-height:1;transition:color .2s}
+.modal-close:hover{color:var(--tp)}
+.modal-kicker{font-family:var(--body);font-size:.62rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--brand);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.modal-kicker::before{content:'';width:14px;height:1px;background:var(--brand);display:block}
+.modal-title{font-family:var(--serif);font-size:1.75rem;font-weight:600;color:var(--tp);margin-bottom:.5rem;line-height:1.2}
+.modal-title em{font-style:italic;font-weight:400;color:var(--brand)}
+.modal-sub{font-family:var(--body);font-size:.88rem;font-weight:300;color:var(--ts);line-height:1.7;margin-bottom:2rem}
+.modal-topic{display:inline-flex;align-items:center;gap:6px;font-family:var(--body);font-size:.72rem;font-weight:600;color:var(--brand);background:var(--brand-light);border:1px solid rgba(0,122,255,.25);padding:.3rem .9rem;border-radius:100px;margin-bottom:1.75rem}
+.modal-topic-dot{width:5px;height:5px;background:var(--brand);border-radius:50%}
+.mf-g{margin-bottom:1.25rem}
+.mf-g label{display:block;font-family:var(--body);font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--hint);margin-bottom:.45rem}
+.mf-g input{width:100%;background:var(--s2);border:1px solid rgba(0,122,255,.12);padding:.8rem 1rem;font-family:var(--body);font-size:.9rem;font-weight:300;color:var(--tp);outline:none;transition:border-color .2s;border-radius:2px}
+.mf-g input::placeholder{color:var(--hint)}
+.mf-g input:focus{border-color:var(--brand)}
+.mf-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.modal-submit{width:100%;font-family:var(--body);font-size:.88rem;font-weight:600;color:#fff;background:var(--brand);border:none;padding:1rem;border-radius:6px;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s;margin-top:.25rem;display:flex;align-items:center;justify-content:center;gap:8px}
+.modal-submit:hover{background:var(--brand-hover);transform:translateY(-1px);box-shadow:0 6px 24px rgba(0,122,255,.4)}
+.modal-submit svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.5}
+.modal-priv{font-family:var(--body);font-size:.72rem;font-weight:300;color:var(--hint);margin-top:1rem;line-height:1.6;text-align:center}
+.modal-success{display:none;text-align:center;padding:2rem 0}
+.modal-success-ico{font-size:2.5rem;margin-bottom:1rem}
+.modal-success h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--tp);margin-bottom:.5rem}
+.modal-success p{font-family:var(--body);font-size:.9rem;font-weight:300;color:var(--ts);line-height:1.7}
+
+
+.hp-gated{cursor:pointer;transition:background .2s,padding-left .2s}
+.hp-gated:hover{background:rgba(0,122,255,.08);padding-left:2.25rem}
+.hp-lock{display:inline-flex;align-items:center;color:rgba(247,248,250,.35);transition:color .2s}
+.hp-gated:hover .hp-lock{color:var(--brand)}
+.hp-row{display:flex;align-items:center;gap:1rem;padding:.7rem 2rem;border-bottom:1px solid rgba(255,255,255,.04);transition:background .2s,padding-left .2s}
+.hp-row:last-child{border-bottom:none}
+.hp-row:hover{background:rgba(0,122,255,.08);padding-left:2.25rem}
+a.hp-row{color:inherit}
+a.hp-row .hp-rl{color:rgba(247,248,250,.5)}
+a.hp-row:hover .hp-rl{color:var(--tp)}
+
 </style>
 </head><body>
 <nav id="nav"><div class="nav-inner">
@@ -336,12 +398,13 @@ h1.hero-h .stroke{display:block;color:var(--tp);text-shadow:0 2px 20px rgba(0,0,
       <div class="hero-live fu"><span class="live-dot"></span>Live Engagements Active</div>
       <div class="hero-kicker fu d1"><span class="kd"></span>Ecosystem Intelligence Group</div>
       <h1 class="hero-h fu d2">Where<em> Intelligence</em><span class="stroke">Creates Value.</span></h1>
-      <p class="hero-body fu d3">A value creation and transformation advisory firm helping organisations, industries and governments improve performance, strengthen resilience and unlock measurable value.</p>
+      <p class="hero-body fu d3">The organisations that outperform are not those with the most technology. They are the organisations with the clearest understanding of how value is created.</p>
+      <p class="hero-body-2 fu d3">Ecosystem Intelligence Group helps organisations, industries and governments transform data, expertise and insight into measurable value, stronger performance and better decisions.</p>
       <div class="hero-tags fu d3">
-        <span class="tag brand"><span class="tag-dot"></span>Ecosystem Intelligence</span>
-        <span class="tag brand"><span class="tag-dot"></span>Value Creation</span>
-        <span class="tag brand"><span class="tag-dot"></span>AI Transformation</span>
-        <span class="tag brand"><span class="tag-dot"></span>Sustainability Economics</span>
+        <a href="intel-ecosystem.html" style="text-decoration:none"><span class="tag brand"><span class="tag-dot"></span>Ecosystem Intelligence</span></a>
+        <a href="intel-value.html" style="text-decoration:none"><span class="tag brand"><span class="tag-dot"></span>Value Creation</span></a>
+        <a href="intel-ai.html" style="text-decoration:none"><span class="tag brand"><span class="tag-dot"></span>AI Architecture</span></a>
+        <a href="intel-sustainability.html" style="text-decoration:none"><span class="tag brand"><span class="tag-dot"></span>Sustainability Economics</span></a>
       </div>
       <div class="hero-actions fu d4">
         <a href="contact.html" class="btn-blue">Schedule a Consultation <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -355,20 +418,23 @@ h1.hero-h .stroke{display:block;color:var(--tp);text-shadow:0 2px 20px rgba(0,0,
     </div>
     <div class="hero-right">
       <div class="h-panel">
-        <div class="hp-head"><div class="hp-lbl">Intelligence Architecture</div><div class="hp-title">"Better Intelligence.<br>Better Decisions.<br>Better Outcomes."</div></div>
+        <div class="hp-head"><div class="hp-lbl" style="display:flex;align-items:center;gap:8px">Intelligence Architecture <span style="width:6px;height:6px;background:var(--brand);border-radius:50%;display:inline-block;animation:kp 1.5s ease-in-out infinite"></span></div><div class="hp-title">"Better Intelligence.<br>Better Decisions.<br>Better Outcomes."</div></div>
         <div class="hp-rows">
-          <div class="hp-row"><div class="hp-dot"></div><div class="hp-rl">Ecosystem Intelligence</div><div class="hp-rv">Active</div></div>
-          <div class="hp-row"><div class="hp-dot live"></div><div class="hp-rl">AI &amp; Digital Transformation</div><div class="hp-rv live">Live</div></div>
-          <div class="hp-row"><div class="hp-dot"></div><div class="hp-rl">Value Creation</div><div class="hp-rv">Active</div></div>
-          <div class="hp-row"><div class="hp-dot live"></div><div class="hp-rl">Sustainability Economics</div><div class="hp-rv live">Live</div></div>
-          <div class="hp-row"><div class="hp-dot"></div><div class="hp-rl">Supply Chain &amp; Procurement</div><div class="hp-rv">Active</div></div>
-          <div class="hp-row"><div class="hp-dot red"></div><div class="hp-rl">Critical Alert Monitor</div><div class="hp-rv red">Alert</div></div>
+          <a href="intel-ecosystem.html" class="hp-row" style="text-decoration:none"><div class="hp-dot"></div><div class="hp-rl">Ecosystem Intelligence</div><div class="hp-rv">Active →</div></a>
+          <a href="intel-ai.html" class="hp-row" style="text-decoration:none"><div class="hp-dot live"></div><div class="hp-rl">AI &amp; Digital Transformation</div><div class="hp-rv live">Live →</div></a>
+          <a href="intel-value.html" class="hp-row" style="text-decoration:none"><div class="hp-dot"></div><div class="hp-rl">Value Creation</div><div class="hp-rv">Active →</div></a>
+          <a href="intel-sustainability.html" class="hp-row" style="text-decoration:none"><div class="hp-dot live"></div><div class="hp-rl">Sustainability Economics</div><div class="hp-rv live">Live →</div></a>
+          <a href="service-supply.html" class="hp-row" style="text-decoration:none"><div class="hp-dot"></div><div class="hp-rl">Supply Chain &amp; Procurement</div><div class="hp-rv">Active →</div></a>
+          <a href="contact.html" class="hp-row" style="text-decoration:none"><div class="hp-dot red"></div><div class="hp-rl">Critical Alert Monitor</div><div class="hp-rv red">Alert →</div></a>
         </div>
-        <div class="hp-btm"><div class="hp-trio">
-          <div class="hp-t"><div class="hp-td"></div><span class="hp-tt">Better Intelligence</span><span class="hp-ta">→</span></div>
-          <div class="hp-t"><div class="hp-td"></div><span class="hp-tt">Better Decisions</span><span class="hp-ta">→</span></div>
-          <div class="hp-t"><div class="hp-td"></div><span class="hp-tt">Better Outcomes</span><span class="hp-ta">→</span></div>
-        </div></div>
+        <div class="hp-btm">
+          <div style="font-family:var(--body);font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(0,122,255,.5);margin-bottom:.75rem">Intelligence Access</div>
+          <div class="hp-trio">
+            <div class="hp-t" style="cursor:pointer" onclick="openModal('Better Intelligence','Gain access to EIG's Better Intelligence framework — understanding how leading organisations transform data into competitive advantage.')"><div class="hp-td"></div><span class="hp-tt">Better Intelligence</span><span class="hp-ta" style="font-size:.7rem;opacity:.5">🔒 Access</span></div>
+            <div class="hp-t" style="cursor:pointer" onclick="openModal('Better Decisions','Gain access to EIG's Better Decisions framework — how intelligence-led organisations make faster, more accurate decisions at every level.')"><div class="hp-td"></div><span class="hp-tt">Better Decisions</span><span class="hp-ta" style="font-size:.7rem;opacity:.5">🔒 Access</span></div>
+            <div class="hp-t" style="cursor:pointer" onclick="openModal('Better Outcomes','Gain access to EIG's Better Outcomes framework — measurable performance improvement through intelligence, sustainability and transformation.')"><div class="hp-td"></div><span class="hp-tt">Better Outcomes</span><span class="hp-ta" style="font-size:.7rem;opacity:.5">🔒 Access</span></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -406,7 +472,7 @@ h1.hero-h .stroke{display:block;color:var(--tp);text-shadow:0 2px 20px rgba(0,0,
 </section>
 <section class="meth-sec">
   <div class="meth-inner">
-    <div class="meth-top rev"><div class="sk">Our Methodology</div><h2 class="sh">From Complexity to <em>Measurable Outcomes</em></h2><p class="sp" style="margin-top:1rem;max-width:480px">A structured four-stage process from baseline through sustained delivery.</p></div>
+    <div class="meth-top rev"><div class="sk">Our Methodology</div><h2 class="sh">From Complexity to <em>Measurable Outcomes</em></h2><p class="sp" style="margin-top:1rem;max-width:none;white-space:nowrap">A structured four-stage process from baseline through sustained delivery.</p></div>
     <div class="meth-steps">
       <div class="ms rev"><div class="ms-n">01</div><div class="ms-stage">Stage One</div><div class="ms-h">Understand</div><div class="ms-p">Assess the current state establishing a clear, evidence-based baseline.</div></div>
       <div class="ms rev"><div class="ms-n">02</div><div class="ms-stage">Stage Two</div><div class="ms-h">Diagnose</div><div class="ms-p">Identify bottlenecks, inefficiencies, risks and opportunities across interconnected systems.</div></div>
@@ -502,5 +568,61 @@ document.querySelectorAll("a[href^='#']").forEach(a=>{a.addEventListener("click"
 const io=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){en.target.style.transitionDelay=(en.target.dataset.d||0)+"s";en.target.classList.add("on");io.unobserve(en.target)}})},{threshold:.07,rootMargin:"0px 0px -30px 0px"});
 document.querySelectorAll(".rev").forEach((el,i)=>{el.dataset.d=(i%5)*.09;io.observe(el)});
 document.querySelectorAll(".tag").forEach(t=>t.addEventListener("click",()=>t.classList.toggle("checked")));
+
+function openModal(topic, desc) {
+  document.getElementById('modalTopicTitle').textContent = topic;
+  document.getElementById('modalTopicDesc').textContent = desc;
+  document.getElementById('modalTopicLabel').textContent = topic;
+  document.getElementById('modalForm').style.display = 'block';
+  document.getElementById('modalSuccess').style.display = 'none';
+  document.getElementById('accessModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('accessModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function submitModal() {
+  const first = document.getElementById('mfFirst').value.trim();
+  const email = document.getElementById('mfEmail').value.trim();
+  if (!first || !email) {
+    alert('Please enter your name and email to continue.');
+    return;
+  }
+  document.getElementById('modalForm').style.display = 'none';
+  document.getElementById('modalSuccess').style.display = 'block';
+  setTimeout(closeModal, 3500);
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
 </script>
+
+<!-- GATED ACCESS MODAL -->
+<div class="modal-overlay" id="accessModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-kicker">Intelligence Access</div>
+    <div class="modal-title">Request <em id="modalTopicTitle">Access</em></div>
+    <p class="modal-sub" id="modalTopicDesc">Complete the form below to receive access to this EIG intelligence framework.</p>
+    <div class="modal-topic"><span class="modal-topic-dot"></span><span id="modalTopicLabel">EIG Framework</span></div>
+    <div id="modalForm">
+      <div class="mf-row">
+        <div class="mf-g"><label>First Name</label><input type="text" placeholder="First name" id="mfFirst"></div>
+        <div class="mf-g"><label>Last Name</label><input type="text" placeholder="Last name" id="mfLast"></div>
+      </div>
+      <div class="mf-g"><label>Work Email</label><input type="email" placeholder="your@organisation.com" id="mfEmail"></div>
+      <div class="mf-g"><label>Organisation</label><input type="text" placeholder="Your organisation" id="mfOrg"></div>
+      <button class="modal-submit" onclick="submitModal()">
+        Request Access <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <p class="modal-priv">Your details are kept confidential and used only to provide you with the requested intelligence content.</p>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div class="modal-success-ico">✓</div>
+      <h3>Access Requested</h3>
+      <p>Thank you. A member of the EIG team will be in touch shortly with your intelligence access details.</p>
+    </div>
+  </div>
+</div>
+
 </body></html>
