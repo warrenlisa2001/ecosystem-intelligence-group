@@ -1,2012 +1,415 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Industries | Ecosystem Intelligence Group</title>
-  <meta
-    name="description"
-    content="EIG brings deep sector knowledge and ecosystem-level intelligence across government, healthcare, education, manufacturing, logistics, food & beverage, energy, infrastructure and financial services."
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <style>
-    :root{
-      --brand:#007AFF;
-      --brand-hover:#0066D6;
-      --brand-soft:rgba(0,122,255,.14);
-      --bg:#0A0A0F;
-      --bg-2:#0F1118;
-      --panel:#11141d;
-      --panel-2:#0d1018;
-      --text:#F7F8FA;
-      --text-soft:#B8BEC8;
-      --text-dim:#7E8795;
-      --border:rgba(255,255,255,.08);
-      --shadow-lg:0 22px 60px rgba(0,0,0,.34);
-      --shadow-md:0 12px 30px rgba(0,0,0,.24);
-      --serif:"Playfair Display", Georgia, serif;
-      --body:"Inter", system-ui, sans-serif;
-      --max:1280px;
-      --ease:cubic-bezier(.4,0,.2,1);
-    }
-
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:var(--body);
-      background:
-        radial-gradient(circle at top right, rgba(0,122,255,.08), transparent 28%),
-        linear-gradient(180deg, #090A0F 0%, #0B0D12 100%);
-      color:var(--text);
-      overflow-x:hidden;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-    }
-
-    img{max-width:100%;display:block}
-    a{text-decoration:none;color:inherit}
-    ::selection{background:var(--brand);color:#fff}
-
-    .container{
-      width:min(100%, var(--max));
-      margin:0 auto;
-      padding:0 1.5rem;
-    }
-
-    .section{
-      padding:6rem 0;
-      position:relative;
-    }
-
-    .section.alt{
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.015), rgba(255,255,255,0)),
-        #0C0F16;
-      border-top:1px solid rgba(255,255,255,.04);
-    }
-
-    .eyebrow{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:.85rem;
-      color:var(--brand);
-      font-size:.68rem;
-      font-weight:700;
-      letter-spacing:.24em;
-      text-transform:uppercase;
-    }
-
-    .eyebrow::before{
-      content:"";
-      width:18px;
-      height:1px;
-      background:var(--brand);
-      display:block;
-    }
-
-    .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:1.5rem;
-      flex-wrap:wrap;
-      margin-bottom:2.5rem;
-    }
-
-    .section-head-main{
-      max-width:840px;
-    }
-
-    h1,h2,h3,h4{
-      font-family:var(--serif);
-      letter-spacing:-.03em;
-    }
-
-    .display{
-      max-width:960px;
-      margin-bottom:1.15rem;
-      font-size:clamp(3rem, 6vw, 6rem);
-      font-weight:700;
-      line-height:.94;
-    }
-
-    .display em,
-    .title em{
-      font-style:italic;
-      font-weight:400;
-      color:var(--brand);
-    }
-
-    .title{
-      font-size:clamp(2.1rem, 4vw, 4rem);
-      font-weight:700;
-      line-height:1.02;
-      margin-bottom:1rem;
-    }
-
-    .lead,
-    .section-copy{
-      color:var(--text-soft);
-      font-size:1.02rem;
-      line-height:1.82;
-      max-width:760px;
-    }
-
-    .primary-btn,
-    .secondary-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:.55rem;
-      border-radius:12px;
-      font-weight:600;
-      transition:all .2s ease;
-      white-space:nowrap;
-    }
-
-    .primary-btn{
-      padding:.9rem 1.2rem;
-      background:linear-gradient(180deg, #1085ff 0%, #007AFF 100%);
-      color:#fff;
-      box-shadow:0 10px 24px rgba(0,122,255,.22);
-      font-size:.88rem;
-    }
-
-    .primary-btn:hover{
-      transform:translateY(-1px);
-      box-shadow:0 12px 26px rgba(0,122,255,.28);
-    }
-
-    .secondary-btn{
-      padding:.88rem 1.15rem;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      color:var(--text);
-      font-size:.86rem;
-    }
-
-    .secondary-btn:hover{
-      border-color:rgba(0,122,255,.28);
-      background:rgba(0,122,255,.06);
-    }
-
-    .tag-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.55rem;
-      margin-top:1.35rem;
-    }
-
-    .tag{
-      display:inline-flex;
-      align-items:center;
-      min-height:30px;
-      padding:.35rem .72rem;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.02);
-      color:var(--text-dim);
-      font-size:.68rem;
-      font-weight:700;
-      letter-spacing:.11em;
-      text-transform:uppercase;
-    }
-
-    /* NAV */
-    nav{
-      position:fixed;
-      top:0; left:0; right:0;
-      z-index:999;
-      height:74px;
-      border-bottom:1px solid transparent;
-      transition:background .35s ease, border-color .35s ease, box-shadow .35s ease;
-    }
-
-    nav.scrolled{
-      background:rgba(10,10,15,.84);
-      backdrop-filter:blur(18px);
-      border-color:rgba(255,255,255,.06);
-      box-shadow:0 10px 35px rgba(0,0,0,.22);
-    }
-
-    .nav-inner{
-      width:min(100%, var(--max));
-      height:100%;
-      margin:0 auto;
-      padding:0 1.5rem;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
-    }
-
-    .nav-logo{
-      display:flex;
-      align-items:center;
-      gap:.8rem;
-      flex-shrink:0;
-    }
-
-    .nav-mark{
-      width:38px;
-      height:38px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
-      background:linear-gradient(180deg, rgba(0,122,255,.22), rgba(0,122,255,.08));
-      border:1px solid rgba(0,122,255,.25);
-      box-shadow:0 8px 18px rgba(0,122,255,.12);
-      font-weight:700;
-      color:#fff;
-      letter-spacing:.04em;
-    }
-
-    .nav-wordmark{
-      display:flex;
-      flex-direction:column;
-      line-height:1.05;
-    }
-
-    .nav-wordmark strong{
-      font-size:.9rem;
-      font-weight:600;
-      color:var(--text);
-      letter-spacing:.01em;
-    }
-
-    .nav-wordmark span{
-      font-size:.68rem;
-      color:var(--text-dim);
-      letter-spacing:.12em;
-      text-transform:uppercase;
-    }
-
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap:.25rem;
-      list-style:none;
-      margin-left:auto;
-    }
-
-    .nav-links a{
-      position:relative;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:40px;
-      padding:.55rem .9rem;
-      border-radius:10px;
-      font-size:.82rem;
-      font-weight:500;
-      color:var(--text-soft);
-      transition:color .2s ease, background .2s ease;
-    }
-
-    .nav-links a::after{
-      content:"";
-      position:absolute;
-      left:12px; right:12px; bottom:7px;
-      height:1.5px;
-      background:var(--brand);
-      transform:scaleX(0);
-      transform-origin:left;
-      transition:transform .24s var(--ease);
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active{
-      color:var(--text);
-      background:rgba(255,255,255,.03);
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after{
-      transform:scaleX(1);
-    }
-
-    .nav-item.has-dropdown{
-      position:relative;
-    }
-
-    .nav-item.has-dropdown > a{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-    }
-
-    .nav-dropdown{
-      position:absolute;
-      top:calc(100% + 14px);
-      left:0;
-      min-width:300px;
-      background:rgba(12,14,20,.98);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:16px;
-      padding:.6rem;
-      display:flex;
-      flex-direction:column;
-      gap:.15rem;
-      opacity:0;
-      visibility:hidden;
-      transform:translateY(8px);
-      transition:all .2s ease;
-      box-shadow:0 18px 40px rgba(0,0,0,.28);
-      backdrop-filter:blur(18px);
-      z-index:1200;
-    }
-
-    .nav-dropdown a{
-      display:block;
-      padding:.78rem .9rem;
-      border-radius:10px;
-      color:var(--text-soft);
-      font-size:.84rem;
-      line-height:1.35;
-      white-space:nowrap;
-      background:none !important;
-    }
-
-    .nav-dropdown a::after{
-      display:none !important;
-    }
-
-    .nav-dropdown a:hover{
-      background:rgba(0,122,255,.08) !important;
-      color:var(--text) !important;
-    }
-
-    .nav-item.has-dropdown:hover .nav-dropdown{
-      opacity:1;
-      visibility:visible;
-      transform:translateY(0);
-    }
-
-    .nav-cta{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:42px;
-      padding:.72rem 1.15rem;
-      border-radius:12px;
-      background:linear-gradient(180deg, #1085ff 0%, #007AFF 100%);
-      color:#fff;
-      font-size:.82rem;
-      font-weight:600;
-      box-shadow:0 8px 20px rgba(0,122,255,.22);
-      transition:transform .2s ease, box-shadow .2s ease;
-    }
-
-    .nav-cta:hover{
-      transform:translateY(-1px);
-      box-shadow:0 10px 24px rgba(0,122,255,.28);
-    }
-
-    .hb{
-      display:none;
-      flex-direction:column;
-      justify-content:center;
-      gap:5px;
-      width:42px;
-      height:42px;
-      border:none;
-      border-radius:10px;
-      background:rgba(255,255,255,.03);
-      cursor:pointer;
-    }
-
-    .hb span{
-      display:block;
-      height:1.5px;
-      margin:0 auto;
-      background:var(--text);
-      border-radius:999px;
-    }
-
-    .hb span:nth-child(1){width:20px}
-    .hb span:nth-child(2){width:14px}
-    .hb span:nth-child(3){width:20px}
-
-    .mob-menu{
-      display:none;
-      position:fixed;
-      top:74px;
-      left:0; right:0;
-      z-index:998;
-      padding:1rem;
-      background:rgba(12,14,20,.98);
-      border-bottom:1px solid rgba(255,255,255,.06);
-      backdrop-filter:blur(20px);
-      flex-direction:column;
-      gap:.35rem;
-    }
-
-    .mob-menu.open{display:flex}
-
-    .mob-menu a{
-      color:var(--text-soft);
-      padding:.95rem 0;
-      border-bottom:1px solid rgba(255,255,255,.06);
-      font-size:.95rem;
-    }
-
-    .mob-menu a:last-child{
-      margin-top:.4rem;
-      border-bottom:none;
-      background:var(--brand);
-      color:#fff;
-      text-align:center;
-      padding:1rem 1.1rem;
-      border-radius:12px;
-      font-weight:600;
-    }
-
-    /* HERO */
-    .hero{
-      position:relative;
-      overflow:hidden;
-      padding:9rem 0 5.8rem;
-      border-bottom:1px solid rgba(255,255,255,.05);
-    }
-
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(ellipse 52% 60% at 88% 28%, rgba(0,122,255,.10), transparent 70%),
-        linear-gradient(180deg, rgba(255,255,255,.015), transparent 55%);
-      pointer-events:none;
-    }
-
-    .hero-grid{
-      position:absolute;
-      inset:0;
-      background-image:
-        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-      background-size:72px 72px;
-      mask-image:linear-gradient(180deg, rgba(0,0,0,.35), transparent 85%);
-      opacity:.24;
-      pointer-events:none;
-    }
-
-    .hero-edge{
-      position:absolute;
-      top:0; left:0; bottom:0;
-      width:4px;
-      background:linear-gradient(to bottom, transparent, var(--brand) 28%, rgba(0,122,255,.15) 76%, transparent);
-    }
-
-    .hero-inner{
-      position:relative;
-      z-index:2;
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:.75rem;
-      flex-wrap:wrap;
-      margin-top:1.6rem;
-    }
-
-    .hero-stats{
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0, 1fr));
-      gap:16px;
-      margin-top:2.2rem;
-    }
-
-    .stat-card{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:18px;
-      padding:1.2rem 1.15rem;
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      box-shadow:var(--shadow-md);
-    }
-
-    .stat-value{
-      font-family:var(--serif);
-      font-size:2rem;
-      line-height:1;
-      margin-bottom:.45rem;
-      color:var(--text);
-    }
-
-    .stat-label{
-      color:var(--text-soft);
-      font-size:.84rem;
-      line-height:1.55;
-    }
-
-    /* INDUSTRY GRID */
-    .industry-grid{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0,1fr));
-      gap:20px;
-    }
-
-    .industry-card{
-      display:flex;
-      flex-direction:column;
-      border:1px solid var(--border);
-      border-radius:22px;
-      overflow:hidden;
-      background:linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
-      box-shadow:var(--shadow-md);
-      transition:transform .24s ease, border-color .24s ease, box-shadow .24s ease;
-      scroll-margin-top:110px;
-    }
-
-    .industry-card:hover{
-      transform:translateY(-4px);
-      border-color:rgba(0,122,255,.22);
-      box-shadow:var(--shadow-lg);
-    }
-
-    .industry-visual{
-      aspect-ratio:16/10;
-      display:grid;
-      place-items:center;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(0,122,255,.12), transparent 35%),
-        linear-gradient(180deg, #0D1118 0%, #0A0D14 100%);
-      border-bottom:1px solid rgba(255,255,255,.06);
-      position:relative;
-      overflow:hidden;
-    }
-
-    .industry-visual svg{
-      width:72%;
-      height:72%;
-      opacity:.94;
-      transition:transform .35s var(--ease);
-    }
-
-    .industry-card:hover .industry-visual svg{
-      transform:scale(1.04);
-    }
-
-    .industry-body{
-      padding:1.35rem 1.25rem 1.35rem;
-      display:flex;
-      flex-direction:column;
-      flex:1;
-    }
-
-    .industry-body h3{
-      font-size:1.24rem;
-      margin-bottom:.55rem;
-    }
-
-    .industry-body p{
-      color:var(--text-soft);
-      font-size:.91rem;
-      line-height:1.72;
-      margin-bottom:1rem;
-      flex:1;
-    }
-
-    .bullet-list{
-      display:flex;
-      flex-direction:column;
-      gap:.5rem;
-      margin-bottom:1rem;
-    }
-
-    .bullet{
-      display:flex;
-      align-items:flex-start;
-      gap:.65rem;
-      color:var(--text-dim);
-      font-size:.82rem;
-      line-height:1.55;
-    }
-
-    .bullet::before{
-      content:"";
-      width:5px;
-      height:5px;
-      margin-top:.55rem;
-      border-radius:50%;
-      background:var(--brand);
-      opacity:.75;
-      flex-shrink:0;
-    }
-
-    /* FEATURED CASE */
-    .case-shell{
-      display:grid;
-      grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);
-      gap:22px;
-      align-items:start;
-    }
-
-    .case-main,
-    .case-side{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:28px;
-      background:linear-gradient(180deg, #11141d 0%, #0d1118 100%);
-      box-shadow:var(--shadow-md);
-    }
-
-    .case-main{
-      padding:2rem;
-    }
-
-    .case-side{
-      padding:1.5rem;
-      position:sticky;
-      top:96px;
-    }
-
-    .case-label{
-      display:inline-flex;
-      align-items:center;
-      gap:.5rem;
-      padding:.42rem .72rem;
-      border-radius:999px;
-      border:1px solid rgba(0,122,255,.24);
-      background:rgba(0,122,255,.08);
-      color:#cfe4ff;
-      font-size:.7rem;
-      font-weight:700;
-      letter-spacing:.1em;
-      text-transform:uppercase;
-      margin-bottom:1rem;
-    }
-
-    .case-main h2{
-      font-size:clamp(2rem, 3.2vw, 3.5rem);
-      line-height:1.04;
-      margin-bottom:1rem;
-    }
-
-    .case-main > p{
-      color:var(--text-soft);
-      line-height:1.82;
-      margin-bottom:1.1rem;
-    }
-
-    .quote-block{
-      margin:1.4rem 0 1.6rem;
-      padding:1.35rem 1.4rem;
-      border-left:3px solid var(--brand);
-      border-radius:0 18px 18px 0;
-      background:rgba(255,255,255,.03);
-      color:var(--text);
-      font-family:var(--serif);
-      font-size:1.35rem;
-      line-height:1.45;
-      font-style:italic;
-    }
-
-    .content-stack{
-      display:flex;
-      flex-direction:column;
-      gap:1.75rem;
-      margin-top:1.5rem;
-    }
-
-    .content-block h3{
-      font-size:1.45rem;
-      margin-bottom:.8rem;
-    }
-
-    .content-block h4{
-      font-size:1.05rem;
-      margin-bottom:.45rem;
-      color:var(--text);
-    }
-
-    .content-block p{
-      color:var(--text-soft);
-      line-height:1.8;
-    }
-
-    .content-block ul{
-      list-style:none;
-      display:flex;
-      flex-direction:column;
-      gap:.6rem;
-      margin-top:.8rem;
-    }
-
-    .content-block li{
-      position:relative;
-      padding-left:1rem;
-      color:var(--text-soft);
-      line-height:1.72;
-    }
-
-    .content-block li::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:.72rem;
-      width:5px;
-      height:5px;
-      border-radius:50%;
-      background:var(--brand);
-      opacity:.7;
-    }
-
-    .finding-grid,
-    .outcome-grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:14px;
-      margin-top:1rem;
-    }
-
-    .mini-card{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:18px;
-      padding:1rem;
-      background:rgba(255,255,255,.02);
-    }
-
-    .mini-card h4{
-      margin-bottom:.35rem;
-      font-size:1rem;
-    }
-
-    .mini-card p{
-      color:var(--text-dim);
-      font-size:.9rem;
-      line-height:1.65;
-    }
-
-    .case-stats{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:12px;
-      margin-bottom:1.4rem;
-    }
-
-    .case-stat{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:18px;
-      padding:1rem;
-      background:rgba(255,255,255,.02);
-    }
-
-    .case-stat strong{
-      display:block;
-      font-family:var(--serif);
-      font-size:1.4rem;
-      line-height:1;
-      margin-bottom:.35rem;
-      color:var(--text);
-    }
-
-    .case-stat span{
-      color:var(--text-soft);
-      font-size:.82rem;
-      line-height:1.55;
-      display:block;
-    }
-
-    .side-title{
-      font-size:1.25rem;
-      margin-bottom:.75rem;
-    }
-
-    .side-copy{
-      color:var(--text-soft);
-      line-height:1.75;
-      margin-bottom:1rem;
-      font-size:.94rem;
-    }
-
-    .side-stack{
-      display:flex;
-      flex-direction:column;
-      gap:.75rem;
-      margin-top:1rem;
-    }
-
-    .side-item{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:16px;
-      padding:.95rem;
-      background:rgba(255,255,255,.02);
-    }
-
-    .side-item strong{
-      display:block;
-      margin-bottom:.3rem;
-      font-size:.92rem;
-      color:var(--text);
-    }
-
-    .side-item span{
-      color:var(--text-dim);
-      font-size:.84rem;
-      line-height:1.6;
-      display:block;
-    }
-
-    /* USE CASE FILTER */
-    .uc-filter-bar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
-      flex-wrap:wrap;
-      margin-bottom:1.5rem;
-    }
-
-    .uc-filter-copy{
-      max-width:720px;
-    }
-
-    .uc-filter-copy p{
-      color:var(--text-soft);
-      line-height:1.8;
-      font-size:.98rem;
-    }
-
-    .uc-filter-control{
-      min-width:260px;
-    }
-
-    .uc-select{
-      width:100%;
-      appearance:none;
-      -webkit-appearance:none;
-      -moz-appearance:none;
-      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      color:var(--text);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:14px;
-      padding:1rem 1rem;
-      font-size:.92rem;
-      font-weight:600;
-      outline:none;
-      box-shadow:var(--shadow-md);
-    }
-
-    .uc-select:focus{
-      border-color:rgba(0,122,255,.35);
-      box-shadow:0 0 0 4px rgba(0,122,255,.12);
-    }
-
-    .uc-grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:18px;
-    }
-
-    .uc-card{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:24px;
-      padding:1.35rem;
-      background:linear-gradient(180deg, #10141d 0%, #0d1118 100%);
-      box-shadow:var(--shadow-md);
-      transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
-      scroll-margin-top:110px;
-    }
-
-    .uc-card:hover{
-      transform:translateY(-3px);
-      border-color:rgba(0,122,255,.22);
-      box-shadow:var(--shadow-lg);
-    }
-
-    .uc-top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:1rem;
-      margin-bottom:.85rem;
-      flex-wrap:wrap;
-    }
-
-    .uc-industry{
-      display:inline-flex;
-      align-items:center;
-      gap:.45rem;
-      padding:.38rem .7rem;
-      border-radius:999px;
-      background:rgba(0,122,255,.08);
-      border:1px solid rgba(0,122,255,.18);
-      color:#cfe4ff;
-      font-size:.68rem;
-      font-weight:700;
-      letter-spacing:.11em;
-      text-transform:uppercase;
-    }
-
-    .uc-geo{
-      display:inline-flex;
-      align-items:center;
-      gap:.45rem;
-      padding:.38rem .7rem;
-      border-radius:999px;
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(255,255,255,.08);
-      color:var(--text-dim);
-      font-size:.68rem;
-      font-weight:700;
-      letter-spacing:.11em;
-      text-transform:uppercase;
-    }
-
-    .uc-card h3{
-      font-family:var(--serif);
-      font-size:1.35rem;
-      line-height:1.15;
-      margin-bottom:.65rem;
-      letter-spacing:-.02em;
-    }
-
-    .uc-card p{
-      color:var(--text-soft);
-      font-size:.93rem;
-      line-height:1.75;
-      margin-bottom:.9rem;
-    }
-
-    .uc-sub{
-      font-family:var(--serif);
-      font-size:1rem;
-      margin:.85rem 0 .4rem;
-      color:var(--text);
-    }
-
-    .uc-points{
-      display:flex;
-      flex-direction:column;
-      gap:.48rem;
-      margin-bottom:.85rem;
-    }
-
-    .uc-point{
-      position:relative;
-      padding-left:1rem;
-      color:var(--text-dim);
-      font-size:.85rem;
-      line-height:1.65;
-    }
-
-    .uc-point::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:.72rem;
-      width:5px;
-      height:5px;
-      border-radius:50%;
-      background:var(--brand);
-      opacity:.75;
-    }
-
-    .uc-outcome{
-      margin-top:.8rem;
-      padding:1rem;
-      border-radius:16px;
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(255,255,255,.07);
-    }
-
-    .uc-outcome strong{
-      display:block;
-      margin-bottom:.3rem;
-      color:var(--text);
-      font-size:.88rem;
-    }
-
-    .uc-outcome span{
-      display:block;
-      color:var(--text-soft);
-      font-size:.88rem;
-      line-height:1.65;
-    }
-
-    .uc-empty{
-      display:none;
-      border:1px dashed rgba(255,255,255,.12);
-      border-radius:22px;
-      padding:1.4rem;
-      color:var(--text-dim);
-      text-align:center;
-      background:rgba(255,255,255,.02);
-    }
-
-    /* CROSS INDUSTRY */
-    .usecase-grid{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0,1fr));
-      gap:18px;
-    }
-
-    .usecase-card{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:22px;
-      padding:1.2rem;
-      background:linear-gradient(180deg, #10141d 0%, #0d1118 100%);
-      box-shadow:var(--shadow-md);
-    }
-
-    .usecase-card h3{
-      font-size:1.2rem;
-      margin-bottom:.55rem;
-    }
-
-    .usecase-card p{
-      color:var(--text-soft);
-      font-size:.92rem;
-      line-height:1.72;
-      margin-bottom:.8rem;
-    }
-
-    /* CTA */
-    .cta-card{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:28px;
-      padding:2rem;
-      background:
-        radial-gradient(circle at top right, rgba(0,122,255,.14), transparent 32%),
-        linear-gradient(180deg, #10141d 0%, #0D1118 100%);
-      box-shadow:var(--shadow-md);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1.5rem;
-      flex-wrap:wrap;
-    }
-
-    .cta-copy h2{
-      font-size:clamp(1.8rem, 3vw, 2.7rem);
-      line-height:1.05;
-      margin-bottom:.8rem;
-    }
-
-    .cta-copy p{
-      max-width:700px;
-      color:var(--text-soft);
-      line-height:1.8;
-    }
-
-    .cta-actions{
-      display:flex;
-      gap:.8rem;
-      flex-wrap:wrap;
-    }
-
-    footer{
-      padding:1.5rem 0 3rem;
-    }
-
-    .footer-line{
-      border-top:1px solid rgba(255,255,255,.06);
-      padding-top:1.25rem;
-      display:flex;
-      justify-content:space-between;
-      gap:1rem;
-      flex-wrap:wrap;
-      color:var(--text-dim);
-      font-size:.82rem;
-    }
-
-    @media (max-width: 1180px){
-      .hero-stats{grid-template-columns:repeat(2, minmax(0,1fr))}
-      .industry-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
-      .case-shell{grid-template-columns:1fr}
-      .case-side{position:static}
-      .usecase-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
-    }
-
-    @media (max-width: 980px){
-      nav{height:70px}
-      .nav-inner{padding:0 1rem}
-      .nav-links,.nav-cta{display:none}
-      .hb{display:flex}
-      .mob-menu{top:70px}
-      .hero{padding:7.75rem 0 4.8rem}
-      .section{padding:4.8rem 0}
-      .section-head{margin-bottom:2rem}
-      .uc-grid{grid-template-columns:1fr}
-      .nav-dropdown{display:none !important}
-    }
-
-    @media (max-width: 680px){
-      .container{padding:0 1rem}
-      .hero{padding:7.2rem 0 4rem}
-      .display{font-size:clamp(2.5rem, 12vw, 4.4rem);line-height:.98}
-      .title{font-size:clamp(1.9rem, 9vw, 2.8rem)}
-      .hero-stats,
-      .industry-grid,
-      .finding-grid,
-      .outcome-grid,
-      .usecase-grid,
-      .case-stats{
-        grid-template-columns:1fr;
-      }
-      .case-main,
-      .case-side,
-      .cta-card{
-        padding:1.3rem;
-      }
-      .quote-block{font-size:1.15rem}
-      .cta-actions{flex-direction:column;align-items:stretch}
-      .primary-btn,.secondary-btn{width:100%}
-      .uc-card{padding:1.15rem}
-    }
-
-    @media (max-width: 420px){
-      .nav-wordmark strong{font-size:.8rem}
-      .nav-wordmark span{font-size:.62rem}
-      .eyebrow{letter-spacing:.18em}
-    }
-  </style>
-</head>
-<body>
-  <nav id="nav">
-    <div class="nav-inner">
-      <a class="nav-logo" href="/">
-        <div class="nav-mark">EIG</div>
-        <div class="nav-wordmark">
-          <strong>Ecosystem Intelligence Group</strong>
-          <span>Industries</span>
-        </div>
-      </a>
-
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/approach">Approach</a></li>
-
-        <li class="nav-item has-dropdown">
-          <a href="#top" class="active">Industries</a>
-          <div class="nav-dropdown">
-            <a href="/industries">Industries Overview</a>
-            <a href="/case-government.html">Government &amp; Public Sector</a>
-            <a href="/case-healthcare.html">Healthcare</a>
-            <a href="/case-education.html">Education</a>
-            <a href="/case-manufacturing.html">Manufacturing</a>
-            <a href="/case-logistics.html">Logistics &amp; Supply Chain</a>
-            <a href="/case-food.html">Food &amp; Beverage</a>
-            <a href="/case-energy.html">Energy &amp; Utilities</a>
-            <a href="/case-infrastructure.html">Infrastructure</a>
-            <a href="/case-financial-services.html">Financial Services</a>
-            <a href="/industries#industry-use-cases">All Use Cases</a>
-          </div>
-        </li>
-
-        <li><a href="/insights">Insights</a></li>
-        <li><a href="/leadership">Leadership</a></li>
-        <li><a href="/contact">Contact</a></li>
-      </ul>
-
-      <a class="nav-cta" href="/contact">Schedule Consultation</a>
-
-      <button class="hb" id="hb" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <div class="mob-menu" id="mobMenu">
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/approach">Approach</a>
-    <a href="/industries">Industries Overview</a>
-    <a href="/case-government.html">Government &amp; Public Sector</a>
-    <a href="/case-healthcare.html">Healthcare</a>
-    <a href="/case-education.html">Education</a>
-    <a href="/case-manufacturing.html">Manufacturing</a>
-    <a href="/case-logistics.html">Logistics &amp; Supply Chain</a>
-    <a href="/case-food.html">Food &amp; Beverage</a>
-    <a href="/case-energy.html">Energy &amp; Utilities</a>
-    <a href="/case-infrastructure.html">Infrastructure</a>
-    <a href="/case-financial-services.html">Financial Services</a>
-    <a href="/industries#industry-use-cases">All Use Cases</a>
-    <a href="/insights">Insights</a>
-    <a href="/leadership">Leadership</a>
-    <a href="/contact">Contact</a>
-    <a href="/contact">Schedule Consultation</a>
-  </div>
-
-  <header class="hero" id="top">
-    <div class="hero-grid"></div>
-    <div class="hero-edge"></div>
-
-    <div class="container hero-inner">
-      <div class="eyebrow">Industries</div>
-      <h1 class="display">Deep sector knowledge. <em>Ecosystem-level thinking.</em></h1>
-      <p class="lead">
-        EIG brings sector intelligence, transformation thinking and AI readiness into one integrated model —
-        helping leaders connect data, decisions, value creation and execution across complex public and private ecosystems.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#featured-case" class="primary-btn">View Public Sector Use Case</a>
-        <a href="#industry-coverage" class="secondary-btn">Explore Industry Coverage</a>
-      </div>
-
-      <div class="hero-stats">
-        <div class="stat-card">
-          <div class="stat-value">9</div>
-          <div class="stat-label">Industries covered across public and private sector ecosystems</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">UAE-first</div>
-          <div class="stat-label">Sector positioning grounded in regional priorities with global transferability</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">Cross-sector</div>
-          <div class="stat-label">Visibility across policy, operations, supply, workforce, investment and performance</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">One view</div>
-          <div class="stat-label">Connected intelligence replacing fragmented reporting and isolated dashboards</div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="section" id="industry-coverage">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-head-main">
-            <div class="eyebrow">Industry Coverage</div>
-            <h2 class="title">Where intelligence creates <em>measurable value</em></h2>
-            <p class="section-copy">
-              EIG applies the same integrated methodology across different sectors — but always with the
-              realities of each industry in mind: regulatory pressure, operating complexity, fragmented data,
-              workforce dynamics, investment priorities and ecosystem dependencies.
-            </p>
-          </div>
-        </div>
-
-        <div class="industry-grid">
-          <article class="industry-card" id="government">
-            <div class="industry-visual">
-              <svg viewBox="0 0 300 180" fill="none">
-                <rect x="76" y="72" width="44" height="64" rx="6" stroke="#4EA3FF" stroke-width="2"/>
-                <rect x="128" y="54" width="44" height="82" rx="6" stroke="#4EA3FF" stroke-width="2"/>
-                <rect x="180" y="84" width="44" height="52" rx="6" stroke="#4EA3FF" stroke-width="2"/>
-                <path d="M98 72V52M150 54V34M202 84V64" stroke="#4EA3FF" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="industry-body">
-              <h3>Government & Public Sector</h3>
-              <p>
-                Connecting policy, investment, workforce, infrastructure and programme performance into a
-                single ecosystem view for faster, more evidence-based decisions.
-              </p>
-              <div class="bullet-list">
-                <div class="bullet">Economic ecosystem intelligence</div>
-                <div class="bullet">Programme impact measurement</div>
-                <div class="bullet">Cross-agency reporting transformation</div>
-              </div>
-              <div class="tag-row">
-                <span class="tag">Public Sector</span>
-                <span class="tag">Policy</span>
-                <span class="tag">Investment</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="industry-card" id="healthcare">
-            <div class="industry-visual">
-              <svg viewBox="0 0 300 180" fill="none">
-                <path d="M150 48C180 68 196 92 196 112C196 136 174 150 150 150C126 150 104 136 104 112C104 92 120 68 150 48Z" stroke="#4EA3FF" stroke-width="2"/>
-                <path d="M150 70V130M122 100H178" stroke="#4EA3FF" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="industry-body">
-              <h3>Healthcare</h3>
-              <p>
-                Improving visibility across demand, delivery, workforce, cost, patient pathways and service
-                performance in increasingly complex care ecosystems.
-              </p>
-              <div class="bullet-list">
-                <div class="bullet">Patient flow and capacity intelligence</div>
-                <div class="bullet">AI readiness across operations and reporting</div>
-                <div class="bullet">Value creation in service delivery</div>
-              </div>
-              <div class="tag-row">
-                <span class="tag">Care Systems</span>
-                <span class="tag">Capacity</span>
-                <span class="tag">Insight</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="industry-card" id="education">
-            <div class="industry-visual">
-              <svg viewBox="0 0 300 180" fill="none">
-                <rect x="84" y="62" width="132" height="78" rx="8" stroke="#4EA3FF" stroke-width="2"/>
-                <path d="M108 92H192M108 108H172" stroke="#4EA3FF" stroke-width="2"/>
-                <path d="M102 62V46H198V62" stroke="#4EA3FF" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="industry-body">
-              <h3>Education</h3>
-              <p>
-                Aligning institutional performance, learner outcomes, workforce capability, funding and
-                technology enablement across education ecosystems.
-              </p>
-              <div class="bullet-list">
-                <div class="bullet">Performance and enrolment intelligence</div>
-                <div class="bullet">Workforce and capability planning</div>
-                <div class="bullet">Digital and AI transformation roadmap</div>
-              </div>
-              <div class="tag-row">
-                <span class="tag">Education</span>
-                <span class="tag">Capability</span>
-                <span class="tag">Transformation</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="industry-card" id="manufacturing">
-            <div class="industry-visual">
-              <svg viewBox="0 0 300 180" fill="none">
-                <rect x="68" y="90" width="42" height="38" rx="4" stroke="#4EA3FF" stroke-width="2"/>
-                <rect x="126" y="72" width="42" height="56" rx="4" stroke="#4EA3FF" stroke-width="2"/>
-                <rect x="184" y="54" width="42" height="74" rx="4" stroke="#4EA3FF" stroke-width="2"/>
-                <path d="M66 128H234" stroke="#4EA3FF" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="industry-body">
-              <h3>Manufacturing</h3>
-              <p>
-                Helping manufacturers improve resilience, operational visibility, supply coordination and
-                productivity while connecting plant performance to wider ecosystem value creation.
-              </p>
-              <div class="bullet-list">
-                <div class="bullet">Operational performance visibility</div>
-                <div class="bullet">Supply and production coordination</div>
-                <div class="bullet">Continuous improvement through intelligence</div>
-              </div>
-              <div class="tag-row">
-                <span class="tag">Manufacturing</span>
-                <span class="tag">Operations</span>
-                <span class="tag">Productivity</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="industry-card" id="logistics">
-            <div class="industry-visual">
-              <svg viewBox="0 0 300 180" fill="none">
-                <rect x="60" y="88" width="54" height="34" rx="8" stroke="#4EA3FF" stroke-width="2"/>
-                <rect x="124" y="58" width="54" height="34" rx="8" stroke="#4EA3FF" stroke-width="2"/>
-                <rect x="188" y="88" width="54" height="34" rx="8" stroke="#4EA3FF" stroke-width="2"/>
-                <path d="M114 105H124M178 75H188" stroke="#4EA3FF" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="industry-body">
-              <h3>Logistics & Supply Chain</h3>
-              <p>
-                Strengthening end-to-end visibility across movement, inventory, suppliers, infrastructure and
-                service levels in fast-moving logistics ecosystems.
-              </p>
-              <div class="bullet-list">
-                <div class="bullet">End-to-end supply network visibility</div>
-                <div class="bullet">Risk and disruption monitoring</div>
-                <div class="bullet">Procurement and flow optimisation</div>
-              </div>
-              <div class="tag-row">
-                <span class="tag">Logistics</span>
-                <span class="tag">Supply Chain</span>
-                <span class="tag">Resilience</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="industry-card" id="food">
-            <div class="industry-visual">
-              <svg viewBox="0 0 300 180" fill="none">
-                <path d="M92 118C92 92 112 72 138 72C152 72 166 78 176 88C184 82 194 78 206 78C230 78 248 96 248 120C248 142 230 158 206 158H138C112 158 92 142 92 118Z" stroke="#4EA3FF" stroke-width="2"/>
-                <path d="M150 72V52M118 86L104 72M182 86L196 72" stroke="#4EA3FF" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="industry-body">
-              <h3>Food & Beverage</h3>
-              <p>
-                Connecting demand, sourcing, operations, sustainability and margin performance in industries
-                where volatility, quality and speed all matter.
-              </p>
-              <div class="bullet-list">
-                <div class="bullet">Margin and performance visibility</div>
-                <div class="bullet">Supply, sourcing and quality risk insight</div>
-                <div class="bullet">Waste and value leakage reduction</div>
-              </div>
-              <div class="tag-row">
-                <span class="tag">Food</span>
-                <span class="tag">Quality</span>
-                <span class="tag">Margin</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="industry-card" id="energy">
-            <div class="industry-visual">
-              <svg viewBox="0 0 300 180" fill="none">
-                <path d="M150 40L104 124H144L132 154L196 88H156L168 40H150Z" stroke="#4EA3FF" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="industry-body">
-              <h3>Energy & Utilities</h3>
-              <p>
-                Supporting decisions across infrastructure, sustainability, resilience, supply, investment and
-                system performance in asset-intensive environments.
-              </p>
-              <div class="bullet-list">
-                <div class="bullet">Energy transition and sustainability economics</div>
-                <div class="bullet">Asset and infrastructure intelligence</div>
-                <div class="bullet">Risk, resilience and performance monitoring</div>
-              </div>
-              <div class="tag-row">
-                <span class="tag">Energy</span>
-                <span class="tag">Infrastructure</span>
-                <span class="tag">Sustainability</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="industry-card" id="infrastructure">
-            <div class="industry-visual">
-              <svg viewBox="0 0 300 180" fill="none">
-                <path d="M78 130L114 72L150 130L186 58L222 130" stroke="#4EA3FF" stroke-width="2"/>
-                <path d="M60 130H240" stroke="#4EA3FF" stroke-width="2"/>
-                <circle cx="114" cy="72" r="5" stroke="#4EA3FF" stroke-width="2"/>
-                <circle cx="186" cy="58" r="5" stroke="#4EA3FF" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="industry-body">
-              <h3>Infrastructure</h3>
-              <p>
-                Linking capital projects, assets, service demand, resilience and long-term investment planning
-                into a clearer infrastructure decision model.
-              </p>
-              <div class="bullet-list">
-                <div class="bullet">Capital project and portfolio visibility</div>
-                <div class="bullet">Asset performance and service-demand intelligence</div>
-                <div class="bullet">Resilience and investment prioritisation</div>
-              </div>
-              <div class="tag-row">
-                <span class="tag">Infrastructure</span>
-                <span class="tag">Capital Projects</span>
-                <span class="tag">Resilience</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="industry-card" id="financial-services">
-            <div class="industry-visual">
-              <svg viewBox="0 0 300 180" fill="none">
-                <rect x="86" y="56" width="128" height="84" rx="10" stroke="#4EA3FF" stroke-width="2"/>
-                <path d="M104 92H196M104 110H170" stroke="#4EA3FF" stroke-width="2"/>
-                <circle cx="188" cy="118" r="10" stroke="#4EA3FF" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="industry-body">
-              <h3>Financial Services</h3>
-              <p>
-                Bringing together risk, customer, product, compliance and operational data to improve decision
-                quality, responsiveness and value creation.
-              </p>
-              <div class="bullet-list">
-                <div class="bullet">Intelligence-led performance management</div>
-                <div class="bullet">AI readiness and operating model support</div>
-                <div class="bullet">Risk, compliance and growth visibility</div>
-              </div>
-              <div class="tag-row">
-                <span class="tag">Finance</span>
-                <span class="tag">Risk</span>
-                <span class="tag">Growth</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt" id="featured-case">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-head-main">
-            <div class="eyebrow">Illustrative Public Sector Use Case</div>
-            <h2 class="title">Creating ecosystem intelligence across a <em>regional economy</em></h2>
-            <p class="section-copy">
-              A representative public sector example showing how fragmented data, cross-agency reporting and
-              delayed decision-making can be transformed into a connected intelligence capability.
-            </p>
-          </div>
-        </div>
-
-        <div class="case-shell">
-          <div class="case-main">
-            <div class="case-label">Government & Public Sector</div>
-            <h2>Creating Ecosystem Intelligence Across a Regional Economy</h2>
-            <p>
-              A regional authority supports businesses across multiple sectors including manufacturing,
-              logistics, technology, healthcare, education and professional services.
-            </p>
-            <p>
-              Data exists across licensing, investment, workforce development, infrastructure and economic
-              development programmes, but the information remains fragmented across departments, agencies and reporting systems.
-            </p>
-            <p>
-              Leadership lacks a single ecosystem view. Critical questions cannot be answered fast enough:
-              which sectors are creating the most value, where growth barriers are emerging, which initiatives
-              are producing measurable outcomes, where investment opportunities exist and which risks require earlier intervention.
-            </p>
-
-            <div class="quote-block">
-              “Data existed everywhere. Intelligence existed nowhere.”
-            </div>
-
-            <div class="content-stack">
-              <div class="content-block">
-                <h3>Challenge</h3>
-                <p>
-                  Reporting is largely retrospective, making it difficult to identify trends, opportunities
-                  and risks in real time. Leadership needs a way to connect fragmented information into a
-                  single decision-support environment reflecting the wider economy.
-                </p>
-              </div>
-
-              <div class="content-block">
-                <h3>EIG Assessment</h3>
-                <p>
-                  EIG would conduct a comprehensive Ecosystem Intelligence Assessment to understand how
-                  information, investment, businesses, infrastructure, workforce capability and policy interact
-                  across the wider economic system.
-                </p>
-                <ul>
-                  <li>Ecosystem mapping</li>
-                  <li>Stakeholder analysis</li>
-                  <li>Economic intelligence diagnostics</li>
-                  <li>Data maturity assessment</li>
-                  <li>Value leakage analysis</li>
-                  <li>AI readiness assessment</li>
-                  <li>Leadership decision-making review</li>
-                  <li>Reporting and governance assessment</li>
-                </ul>
-              </div>
-
-              <div class="content-block">
-                <h3>Key Findings</h3>
-                <div class="finding-grid">
-                  <div class="mini-card">
-                    <h4>Fragmented Intelligence</h4>
-                    <p>Information sits across multiple departments, creating inconsistent reporting and limiting leadership visibility.</p>
-                  </div>
-                  <div class="mini-card">
-                    <h4>Delayed Decision-Making</h4>
-                    <p>Reporting cycles focus on historical performance rather than emerging opportunities and risks.</p>
-                  </div>
-                  <div class="mini-card">
-                    <h4>Limited Ecosystem Visibility</h4>
-                    <p>There is no single view connecting investment, business performance, workforce capability and infrastructure development.</p>
-                  </div>
-                  <div class="mini-card">
-                    <h4>Hidden Value Leakages</h4>
-                    <p>Growth, efficiency and optimisation opportunities remain hard to identify because data is disconnected.</p>
-                  </div>
-                  <div class="mini-card">
-                    <h4>AI Readiness Gaps</h4>
-                    <p>Advanced analytics and automation opportunities exist, but foundational intelligence architecture is required first.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="content-block">
-                <h3>EIG Solution</h3>
-                <p>
-                  EIG would design an Ecosystem Intelligence Framework that connects multiple sources of
-                  information into a single decision-support environment.
-                </p>
-                <ul>
-                  <li>Executive intelligence dashboards</li>
-                  <li>Real-time ecosystem monitoring</li>
-                  <li>Sector performance tracking</li>
-                  <li>Economic value creation measurement</li>
-                  <li>Investment impact analysis</li>
-                  <li>Risk and opportunity indicators</li>
-                  <li>AI readiness roadmap</li>
-                  <li>Governance and intelligence framework</li>
-                </ul>
-              </div>
-
-              <div class="content-block">
-                <h3>Outcomes</h3>
-                <div class="outcome-grid">
-                  <div class="mini-card">
-                    <h4>Real-Time Visibility</h4>
-                    <p>Leadership gains access to live ecosystem intelligence dashboards across sectors, programmes and performance indicators.</p>
-                  </div>
-                  <div class="mini-card">
-                    <h4>Faster Strategic Decisions</h4>
-                    <p>Decision cycles are reduced through automated reporting and intelligence-driven insight.</p>
-                  </div>
-                  <div class="mini-card">
-                    <h4>Improved Investment Prioritisation</h4>
-                    <p>Investment decisions become more evidence-based through better visibility of impact and value creation opportunities.</p>
-                  </div>
-                  <div class="mini-card">
-                    <h4>Enhanced Performance Monitoring</h4>
-                    <p>Leadership can track performance, identify emerging risks and respond more proactively.</p>
-                  </div>
-                  <div class="mini-card">
-                    <h4>Foundation for Agentic AI</h4>
-                    <p>The intelligence architecture creates the basis for future AI-enabled decision support and ecosystem management.</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="content-block">
-                <h3>Strategic Impact</h3>
-                <p>
-                  The organisation moves beyond traditional siloed reporting and develops the capability to
-                  manage its economic ecosystem through connected intelligence — gaining visibility into the
-                  relationships, dependencies and value flows that shape long-term performance.
-                </p>
-              </div>
-
-              <div class="quote-block">
-                “The most competitive economies are not built on data alone. They are built on the ability to transform data into intelligence, intelligence into decisions and decisions into measurable value.”
-              </div>
-
-              <div class="content-block">
-                <h3>Ecosystem Intelligence Group</h3>
-                <p><strong>Transforming Data Into Intelligence. Intelligence Into Value.</strong></p>
-              </div>
-            </div>
-          </div>
-
-          <aside class="case-side">
-            <h3 class="side-title">Illustrative Snapshot</h3>
-            <p class="side-copy">
-              This example shows how EIG can apply ecosystem intelligence in the public sector — connecting
-              business, investment, workforce, infrastructure and policy into one measurable decision model.
-            </p>
-
-            <div class="case-stats">
-              <div class="case-stat">
-                <strong>Multi-sector</strong>
-                <span>Connected visibility across economy, programmes, investment and performance</span>
-              </div>
-              <div class="case-stat">
-                <strong>One view</strong>
-                <span>Unified leadership reporting replacing fragmented dashboards</span>
-              </div>
-              <div class="case-stat">
-                <strong>Real-time</strong>
-                <span>Ecosystem monitoring introduced for earlier intervention</span>
-              </div>
-              <div class="case-stat">
-                <strong>AI-ready</strong>
-                <span>Foundation created for future automation and intelligent decision support</span>
-              </div>
-            </div>
-
-            <div class="side-stack">
-              <div class="side-item">
-                <strong>Core challenge</strong>
-                <span>Data exists, but intelligence is fragmented across departments, agencies and reporting systems.</span>
-              </div>
-              <div class="side-item">
-                <strong>Primary intervention</strong>
-                <span>An Ecosystem Intelligence Framework with dashboards, monitoring, impact analysis and governance.</span>
-              </div>
-              <div class="side-item">
-                <strong>Value created</strong>
-                <span>Faster strategic decisions, better investment prioritisation and stronger visibility of risks and opportunities.</span>
-              </div>
-              <div class="side-item">
-                <strong>Future state</strong>
-                <span>Foundations established for advanced analytics, automation and agentic AI-enabled decision support.</span>
-              </div>
-            </div>
-
-            <div class="hero-actions" style="margin-top:1.2rem">
-              <a href="/contact" class="primary-btn">Discuss a Similar Challenge</a>
-              <a href="#industry-use-cases" class="secondary-btn">See More Use Cases</a>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="industry-use-cases">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-head-main">
-            <div class="eyebrow">Illustrative Use Cases</div>
-            <h2 class="title">Sector-specific examples with a <em>UAE-first lens</em></h2>
-            <p class="section-copy">
-              These are representative use cases designed to show how Ecosystem Intelligence Group could create
-              measurable value across different industries. Most are framed around UAE priorities, with some
-              transferable globally.
-            </p>
-          </div>
-        </div>
-
-        <div class="uc-filter-bar">
-          <div class="uc-filter-copy">
-            <p>
-              Use the filter to focus on one sector, or click directly from the Industries menu above to jump to the matching use case.
-            </p>
-          </div>
-
-          <div class="uc-filter-control">
-            <select class="uc-select" id="industryUseCaseFilter">
-              <option value="all">All industries</option>
-              <option value="government">Government & Public Sector</option>
-              <option value="healthcare">Healthcare</option>
-              <option value="education">Education</option>
-              <option value="manufacturing">Manufacturing</option>
-              <option value="logistics">Logistics & Supply Chain</option>
-              <option value="food">Food & Beverage / Food Security</option>
-              <option value="energy">Energy & Utilities</option>
-              <option value="infrastructure">Infrastructure</option>
-              <option value="finance">Financial Services</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="uc-grid" id="industryUseCaseGrid">
-          <article class="uc-card" id="use-case-government" data-industry="government">
-            <div class="uc-top">
-              <span class="uc-industry">Government &amp; Public Sector</span>
-              <span class="uc-geo">UAE / Regional Authority</span>
-            </div>
-            <h3>Connecting economic policy, programme performance and investment visibility</h3>
-            <p>
-              A government entity needs a clearer view across business support, investment attraction,
-              infrastructure delivery, workforce capability and economic outcomes.
-            </p>
-            <div class="uc-sub">How EIG would help</div>
-            <div class="uc-points">
-              <div class="uc-point">Create executive dashboards across sectors, programmes and public-value measures</div>
-              <div class="uc-point">Connect policy, funding, economic performance and stakeholder data</div>
-              <div class="uc-point">Build a governance and AI-readiness roadmap for leadership decision support</div>
-            </div>
-            <div class="uc-outcome">
-              <strong>Likely outcome</strong>
-              <span>Faster strategic decision-making, better programme prioritisation and stronger ecosystem visibility across the public sector.</span>
-            </div>
-            <a href="/case-government.html" class="primary-btn">Read Full Case Study</a>
-          </article>
-
-          <article class="uc-card" id="use-case-healthcare" data-industry="healthcare">
-            <div class="uc-top">
-              <span class="uc-industry">Healthcare</span>
-              <span class="uc-geo">UAE / Abu Dhabi</span>
-            </div>
-            <h3>Connecting patient flow, capacity and workforce visibility across a healthcare network</h3>
-            <p>
-              A health authority or provider group needs a clearer view of capacity gaps, patient demand,
-              service performance, workforce pressure and referral bottlenecks across multiple facilities.
-            </p>
-            <div class="uc-sub">How EIG would help</div>
-            <div class="uc-points">
-              <div class="uc-point">Build an ecosystem view across hospitals, clinics, specialties and support services</div>
-              <div class="uc-point">Create dashboards for patient flow, occupancy, waiting time and workforce pressure</div>
-              <div class="uc-point">Identify value leakage in scheduling, referrals, utilisation and reporting cycles</div>
-            </div>
-            <div class="uc-outcome">
-              <strong>Likely outcome</strong>
-              <span>Faster operational decisions, clearer service visibility and stronger value-for-money across the care network.</span>
-            </div>
-            <a href="/case-healthcare.html" class="primary-btn">Read Full Case Study</a>
-          </article>
-
-          <article class="uc-card" id="use-case-education" data-industry="education">
-            <div class="uc-top">
-              <span class="uc-industry">Education</span>
-              <span class="uc-geo">UAE</span>
-            </div>
-            <h3>Aligning higher education, employability and future skills through connected intelligence</h3>
-            <p>
-              A higher education group or public education authority wants better visibility into enrolment,
-              learner outcomes, faculty capacity, industry alignment and graduate employability.
-            </p>
-            <div class="uc-sub">How EIG would help</div>
-            <div class="uc-points">
-              <div class="uc-point">Connect academic, operational and labour-market data into one strategic reporting layer</div>
-              <div class="uc-point">Map programme performance against future skills demand and employer needs</div>
-              <div class="uc-point">Create an AI and digital transformation roadmap for institutional decision-making</div>
-            </div>
-            <div class="uc-outcome">
-              <strong>Likely outcome</strong>
-              <span>Stronger programme prioritisation, better workforce alignment and improved performance visibility.</span>
-            </div>
-            <a href="/case-education.html" class="primary-btn">Read Full Case Study</a>
-          </article>
-
-          <article class="uc-card" id="use-case-manufacturing" data-industry="manufacturing">
-            <div class="uc-top">
-              <span class="uc-industry">Manufacturing</span>
-              <span class="uc-geo">UAE / Industrial Clusters</span>
-            </div>
-            <h3>Improving industrial performance across a manufacturing ecosystem</h3>
-            <p>
-              An advanced manufacturing platform or industrial group needs to connect production performance,
-              supply resilience, energy use, workforce capability and investment decisions across sites.
-            </p>
-            <div class="uc-sub">How EIG would help</div>
-            <div class="uc-points">
-              <div class="uc-point">Build a unified intelligence layer across plant operations, suppliers and industrial support functions</div>
-              <div class="uc-point">Identify value leakage across downtime, planning, inventory, procurement and reporting</div>
-              <div class="uc-point">Prioritise AI, automation and advanced technology use cases linked to measurable productivity gains</div>
-            </div>
-            <div class="uc-outcome">
-              <strong>Likely outcome</strong>
-              <span>Better production visibility, stronger resilience and clearer capital prioritisation.</span>
-            </div>
-            <a href="/case-manufacturing.html" class="primary-btn">Read Full Case Study</a>
-          </article>
-
-          <article class="uc-card" id="use-case-logistics" data-industry="logistics">
-            <div class="uc-top">
-              <span class="uc-industry">Logistics &amp; Supply Chain</span>
-              <span class="uc-geo">UAE / Dubai + Global Trade</span>
-            </div>
-            <h3>Creating real-time supply chain visibility across ports, warehousing and inland distribution</h3>
-            <p>
-              A logistics operator or trade ecosystem leader needs a single view of cargo flow, capacity,
-              service levels, disruption risk, supplier performance and infrastructure constraints.
-            </p>
-            <div class="uc-sub">How EIG would help</div>
-            <div class="uc-points">
-              <div class="uc-point">Connect port, transport, warehousing and customer data into one operational intelligence model</div>
-              <div class="uc-point">Introduce disruption indicators and early-warning signals across the network</div>
-              <div class="uc-point">Support leadership with decision dashboards for flow, utilisation and service risk</div>
-            </div>
-            <div class="uc-outcome">
-              <strong>Likely outcome</strong>
-              <span>Faster response to disruption, stronger customer performance, better network coordination and improved end-to-end trade visibility.</span>
-            </div>
-            <a href="/case-logistics.html" class="primary-btn">Read Full Case Study</a>
-          </article>
-
-          <article class="uc-card" id="use-case-food" data-industry="food">
-            <div class="uc-top">
-              <span class="uc-industry">Food &amp; Beverage / Food Security</span>
-              <span class="uc-geo">UAE</span>
-            </div>
-            <h3>Strengthening food resilience through better visibility across sourcing, storage and local production</h3>
-            <p>
-              A food platform, agribusiness group or public-sector food-security programme needs to connect
-              supply risk, inventory, local production capability, water use, storage and market demand.
-            </p>
-            <div class="uc-sub">How EIG would help</div>
-            <div class="uc-points">
-              <div class="uc-point">Design ecosystem dashboards across imports, local production, storage and distribution</div>
-              <div class="uc-point">Identify where operational losses, waste and margin erosion occur</div>
-              <div class="uc-point">Create an intelligence layer for investment prioritisation in resilient food infrastructure</div>
-            </div>
-            <div class="uc-outcome">
-              <strong>Likely outcome</strong>
-              <span>Better resilience, lower value leakage, more evidence-based investment decisions and stronger long-term food system planning.</span>
-            </div>
-            <a href="/case-food.html" class="primary-btn">Read Full Case Study</a>
-          </article>
-
-          <article class="uc-card" id="use-case-energy" data-industry="energy">
-            <div class="uc-top">
-              <span class="uc-industry">Energy &amp; Utilities</span>
-              <span class="uc-geo">UAE + Global Transferability</span>
-            </div>
-            <h3>Connecting clean energy transition, asset performance and infrastructure decisions</h3>
-            <p>
-              A utility, infrastructure platform or energy developer needs a clearer view of asset performance,
-              project pipeline, demand growth, emissions, resilience risk and investment trade-offs.
-            </p>
-            <div class="uc-sub">How EIG would help</div>
-            <div class="uc-points">
-              <div class="uc-point">Connect energy-system performance, transition priorities and capital decisions in one intelligence layer</div>
-              <div class="uc-point">Create executive dashboards for asset utilisation, resilience risk, emissions visibility and project sequencing</div>
-              <div class="uc-point">Support AI, optimisation and analytics use cases linked to reliability, efficiency and long-term transition planning</div>
-            </div>
-            <div class="uc-outcome">
-              <strong>Likely outcome</strong>
-              <span>Clearer transition choices, stronger asset visibility and more confident investment prioritisation across the energy system.</span>
-            </div>
-            <a href="/case-energy.html" class="primary-btn">Read Full Case Study</a>
-          </article>
-
-          <article class="uc-card" id="use-case-infrastructure" data-industry="infrastructure">
-            <div class="uc-top">
-              <span class="uc-industry">Infrastructure</span>
-              <span class="uc-geo">UAE / GCC</span>
-            </div>
-            <h3>Connecting capital projects, asset performance and long-term infrastructure planning</h3>
-            <p>
-              An infrastructure authority, developer or operator needs a clearer view across capital projects,
-              asset condition, service demand, resilience risk, contractor performance and investment trade-offs.
-            </p>
-            <div class="uc-sub">How EIG would help</div>
-            <div class="uc-points">
-              <div class="uc-point">Create connected reporting across projects, assets, budgets, risk and service outcomes</div>
-              <div class="uc-point">Identify delivery bottlenecks, value leakage and prioritisation gaps across infrastructure portfolios</div>
-              <div class="uc-point">Support leadership with dashboards for resilience, asset performance and investment sequencing</div>
-            </div>
-            <div class="uc-outcome">
-              <strong>Likely outcome</strong>
-              <span>Better capital allocation, clearer portfolio visibility, improved delivery governance and stronger long-term infrastructure decision-making.</span>
-            </div>
-            <a href="/case-infrastructure.html" class="primary-btn">Read Full Case Study</a>
-          </article>
-
-          <article class="uc-card" id="use-case-financial-services" data-industry="finance">
-            <div class="uc-top">
-              <span class="uc-industry">Financial Services</span>
-              <span class="uc-geo">UAE / GCC</span>
-            </div>
-            <h3>Bringing together risk, customer, product, compliance and operational visibility</h3>
-            <p>
-              A financial institution needs a clearer enterprise view across customer performance, product economics,
-              risk exposure, compliance obligations and operating-model readiness for AI.
-            </p>
-            <div class="uc-sub">How EIG would help</div>
-            <div class="uc-points">
-              <div class="uc-point">Create intelligence-led performance management across customer, product and operational data</div>
-              <div class="uc-point">Improve visibility across risk, compliance and growth trade-offs for executive decision-making</div>
-              <div class="uc-point">Build AI-readiness and operating-model support without weakening governance and control</div>
-            </div>
-            <div class="uc-outcome">
-              <strong>Likely outcome</strong>
-              <span>Faster executive decisions, stronger enterprise visibility and a more connected model for balancing growth, risk and compliance.</span>
-            </div>
-            <a href="/case-financial-services.html" class="primary-btn">Read Full Case Study</a>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer style="border-top:1px solid rgba(255,255,255,.06);background:#0B0D12;padding:2rem 0 2.5rem;">
-    <div class="container" style="display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--text-dim);font-size:.85rem;">
-      <div>Ecosystem Intelligence Group</div>
-      <div>Industries overview and linked standalone case studies</div>
-    </div>
-  </footer>
-
-  <script>
-    const nav = document.getElementById('nav');
-    const hb = document.getElementById('hb');
-    const mobMenu = document.getElementById('mobMenu');
-    const onScroll = () => nav && nav.classList.toggle('scrolled', window.scrollY > 10);
-    onScroll();
-    window.addEventListener('scroll', onScroll);
-    if (hb && mobMenu) {
-      hb.addEventListener('click', () => mobMenu.classList.toggle('open'));
-      mobMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobMenu.classList.remove('open')));
-    }
-
-    const filter = document.getElementById('industryUseCaseFilter');
-    const grid = document.getElementById('industryUseCaseGrid');
-    if (filter && grid) {
-      const cards = Array.from(grid.querySelectorAll('.uc-card'));
-      const applyFilter = () => {
-        const v = filter.value;
-        cards.forEach(card => {
-          const match = v === 'all' || card.dataset.industry === v;
-          card.style.display = match ? '' : 'none';
-        });
-      };
-      filter.addEventListener('change', applyFilter);
-      applyFilter();
-    }
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industries | Ecosystem Intelligence Group</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="EIG works across government, healthcare, education, manufacturing, logistics, food & beverage, energy and financial services to create measurable value.">
+  <meta name="keywords" content="advisory government UAE, healthcare intelligence, manufacturing value creation, logistics supply chain, energy sustainability economics">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="author" content="Ecosystem Intelligence Group">
+  <meta name="geo.region" content="AE-DU">
+  <meta name="geo.placename" content="Dubai">
+  <link rel="canonical" href="https://www.ecosystemintelligencegroup.com/industries.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Industries — Ecosystem Intelligence Group">
+  <meta property="og:description" content="Sector-specific intelligence and advisory across eight industries.">
+  <meta property="og:url" content="https://www.ecosystemintelligencegroup.com/industries.html">
+  <meta property="og:site_name" content="Ecosystem Intelligence Group">
+  <meta property="og:locale" content="en_GB">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Industries — Ecosystem Intelligence Group">
+  <meta name="twitter:description" content="Sector-specific intelligence and advisory across eight industries.">
+  <meta name="twitter:site" content="@EIGroup">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Industries | Ecosystem Intelligence Group","description":"EIG works across government, healthcare, education, manufacturing, logistics, food & beverage, energy and financial services to create measurable value.","url":"https://www.ecosystemintelligencegroup.com/industries.html"}
   </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-</body>
-</html>
+
+  <!-- Breadcrumb Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.ecosystemintelligencegroup.com/index.html"},
+      {"@type":"ListItem","position":2,"name":"Industries","item":"https://www.ecosystemintelligencegroup.com/industries.html"}
+    ]
+  }
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX', {
+      'page_title': document.title,
+      'page_location': window.location.href,
+      'send_page_view': true
+    });
+  </script>
+  <!-- End Google Analytics 4 -->
+
+  <!-- HubSpot Tracking -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/YOUR_HUBSPOT_ID.js"></script>
+  <!-- End HubSpot Tracking -->
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "YOUR_CLARITY_ID");
+  </script>
+  <!-- End Microsoft Clarity (Bing) -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--brand:#007AFF;--brand-hover:#0066D6;--brand-light:rgba(0,122,255,.10);--status-red:#FF3B30;--hint:#8A8A8A;--tag-bg:#2E2E2E;--tag-cbg:#B3B3B3;--tag-cc:#FFFFFF;--s0:#0A0A0F;--s1:#0F0F18;--s2:#141420;--s3:#1A1A28;--lt0:#F7F8FA;--lt1:#EDEEF4;--lt2:#E2E4EB;--tp:#F7F8FA;--ts:#B8BEC8;--td:#0A0A0F;--tds:#40434A;--serif:'Playfair Display',Georgia,serif;--body:'Inter',system-ui,sans-serif;--max:1360px;--ease:cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--s0);color:var(--tp);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--brand);color:#fff}
+::-webkit-scrollbar{width:2px}::-webkit-scrollbar-track{background:var(--s0)}::-webkit-scrollbar-thumb{background:var(--brand)}
+.tag{display:inline-flex;align-items:center;gap:5px;font-family:var(--body);font-size:.68rem;font-weight:500;letter-spacing:.05em;cursor:pointer;user-select:none;color:#000;background:var(--tag-bg);border:1px solid rgba(255,255,255,.08);padding:.3rem .85rem;border-radius:100px;transition:background .2s,color .2s,border-color .2s}
+.tag:hover{background:rgba(0,122,255,.2);color:#fff;border-color:var(--brand)}
+.tag.checked{background:var(--tag-cbg);color:var(--tag-cc);border-color:transparent}
+.tag.brand{background:var(--brand-light);color:var(--brand);border-color:rgba(0,122,255,.3)}
+.tag.red{background:rgba(255,59,48,.10);color:var(--status-red);border-color:rgba(255,59,48,.3)}
+.tag-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;background:currentColor;opacity:.8}
+@keyframes redpulse{0%,100%{box-shadow:0 0 0 0 rgba(255,59,48,0)}50%{box-shadow:0 0 0 5px rgba(255,59,48,.12)}}
+@keyframes kp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
+@keyframes fuA{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes scrollp{0%,100%{opacity:.4}50%{opacity:1}}
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:70px;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(10,10,15,.96);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-color:rgba(0,122,255,.1);box-shadow:0 1px 32px rgba(0,0,0,.5)}
+.nav-inner{max-width:var(--max);margin:0 auto;padding:0 2.5rem;height:100%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-mark{width:38px;height:38px;border:1.5px solid rgba(0,122,255,.5);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:border-color .3s;flex-shrink:0}
+.logo-mark::before{content:'';position:absolute;inset:0;background:rgba(0,122,255,.06)}
+.logo-mark svg{width:20px;height:20px;position:relative;z-index:1}
+.logo-words{display:flex;flex-direction:column;line-height:1}
+.logo-eig{font-family:var(--serif);font-size:1.25rem;font-weight:600;letter-spacing:.1em;color:var(--tp);display:block;line-height:1}
+.logo-full{font-family:var(--body);font-size:.58rem;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--hint);margin-top:3px;display:block}
+.nav-links{display:flex;list-style:none}
+.nav-links a{font-family:var(--body);font-size:.8rem;font-weight:400;letter-spacing:.03em;color:var(--ts);text-decoration:none;padding:.5rem 1rem;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:1rem;right:1rem;height:1px;background:var(--brand);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease)}
+.nav-links a:hover,.nav-links a.active{color:var(--tp)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-cta{font-family:var(--body);font-size:.8rem;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--brand);text-decoration:none;padding:.65rem 1.75rem;border-radius:4px;transition:background .2s,transform .15s,box-shadow .2s;white-space:nowrap}
+.nav-cta:hover{background:var(--brand-hover);transform:translateY(-1px);box-shadow:0 4px 20px rgba(0,122,255,.35)}
+.hb{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hb span{display:block;height:1px;background:var(--ts);transition:all .3s}
+.hb span:nth-child(1){width:22px}.hb span:nth-child(2){width:15px}.hb span:nth-child(3){width:22px}
+.mob-menu{display:none;position:fixed;top:70px;left:0;right:0;background:var(--s1);border-bottom:1px solid rgba(0,122,255,.12);padding:1.5rem 2.5rem 2.5rem;z-index:299;flex-direction:column}
+.mob-menu.open{display:flex}
+.mob-menu a{font-size:.92rem;color:var(--ts);text-decoration:none;padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,.05);transition:color .2s}
+.mob-menu a:hover{color:var(--tp)}
+.mob-menu a:last-child{border:none;margin-top:1rem;background:var(--brand);color:#fff;text-align:center;padding:.9rem;font-weight:600;border-radius:4px}
+.sk{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-size:.65rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--brand);margin-bottom:1.75rem}
+.sk::before{content:'';width:18px;height:1px;background:var(--brand);display:block}
+h2.sh{font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,5rem);font-weight:600;line-height:.98;letter-spacing:-.025em;color:var(--tp);margin-bottom:1.5rem}
+h2.sh em{font-style:italic;font-weight:400;color:var(--brand)}
+h2.sh.dk{color:var(--td)}h2.sh.dk em{color:var(--brand)}
+.sp{font-family:var(--body);font-size:.97rem;font-weight:300;color:var(--ts);line-height:1.85;max-width:520px}
+.sp.dk{color:var(--tds)}
+.btn-blue{display:inline-flex;align-items:center;gap:9px;font-family:var(--body);font-size:.84rem;font-weight:600;letter-spacing:.03em;color:#fff;background:var(--brand);text-decoration:none;padding:1rem 2.4rem;border-radius:6px;transition:background .2s,transform .15s,box-shadow .2s}
+.btn-blue:hover{background:var(--brand-hover);transform:translateY(-2px);box-shadow:0 6px 28px rgba(0,122,255,.4)}
+.btn-blue svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.5;flex-shrink:0}
+.btn-ghost{display:inline-flex;align-items:center;gap:7px;font-family:var(--body);font-size:.84rem;font-weight:400;color:var(--ts);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2);padding-bottom:2px;transition:color .2s,border-color .2s}
+.btn-ghost:hover{color:var(--tp);border-color:var(--tp)}
+.btn-ghost svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2;transition:transform .2s}
+.btn-ghost:hover svg{transform:translateX(3px)}
+.btn-ol{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-size:.84rem;font-weight:500;color:var(--brand);text-decoration:none;border:1px solid rgba(0,122,255,.35);padding:.85rem 2rem;border-radius:6px;transition:background .2s,border-color .2s}
+.btn-ol:hover{background:var(--brand-light);border-color:var(--brand)}
+.btn-ol svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2}
+.ticker{background:var(--brand);height:42px;overflow:hidden;display:flex;align-items:center}
+.t-track{display:flex;white-space:nowrap;animation:tick 42s linear infinite}
+.t-item{font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8);padding:0 2.5rem;display:inline-flex;align-items:center;gap:2.5rem}
+.t-sep{color:rgba(255,255,255,.3)}
+.stat-band{padding:5rem 2.5rem;background:var(--brand);position:relative;overflow:hidden}
+.stat-band::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 71px,rgba(255,255,255,.05) 71px,rgba(255,255,255,.05) 72px)}
+.stat-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12)}
+.sb{background:var(--brand);padding:2.5rem 3rem}
+.sb-n{font-family:var(--serif);font-size:5rem;font-weight:600;letter-spacing:-.01em;color:#fff;line-height:1;margin-bottom:.4rem}
+.sb-u{font-family:var(--body);font-size:2.2rem;font-weight:300}
+.sb-l{font-family:var(--body);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.cta-sec{padding:10rem 2.5rem;background:var(--s0);position:relative;overflow:hidden;text-align:center}
+.cta-sec::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--brand),transparent)}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:600px;border-radius:50%;background:radial-gradient(ellipse,rgba(0,122,255,.09) 0%,transparent 65%);pointer-events:none}
+.cta-geo{position:absolute;inset:0;background-image:linear-gradient(rgba(0,122,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,122,255,.03) 1px,transparent 1px);background-size:60px 60px}
+.cta-inner{position:relative;z-index:2;max-width:860px;margin:0 auto}
+.cta-kk{display:inline-flex;align-items:center;gap:12px;font-family:var(--body);font-size:.65rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--brand);margin-bottom:2.5rem}
+.cta-kk::before,.cta-kk::after{content:'';width:28px;height:1px;background:var(--brand)}
+.cta-h{font-family:var(--serif);font-size:clamp(2.8rem,6vw,7rem);font-weight:600;letter-spacing:-.025em;line-height:.95;color:var(--tp);margin-bottom:1.75rem}
+.cta-h em{font-style:italic;font-weight:400;color:var(--brand)}
+.cta-p{font-family:var(--body);font-size:1rem;font-weight:300;color:var(--ts);line-height:1.85;max-width:520px;margin:0 auto 3rem}
+.cta-acts{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-cta{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-size:.88rem;font-weight:600;color:#fff;background:var(--brand);text-decoration:none;padding:1.1rem 3rem;border-radius:6px;transition:background .2s,transform .15s,box-shadow .2s}
+.btn-cta:hover{background:var(--brand-hover);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,122,255,.4)}
+.btn-cta svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.5}
+.btn-cta-o{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-size:.88rem;font-weight:300;color:var(--ts);text-decoration:none;padding:1.1rem 2.4rem;border:1px solid rgba(255,255,255,.1);border-radius:6px;transition:border-color .25s,color .25s,transform .2s}
+.btn-cta-o:hover{border-color:rgba(0,122,255,.45);color:var(--tp);transform:translateY(-2px)}
+footer{background:var(--s1);border-top:1px solid rgba(0,122,255,.08);padding:5rem 2.5rem 2.5rem}
+.fg{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem}
+.fb-tag{font-family:var(--body);font-size:.85rem;font-weight:300;color:rgba(255,255,255,.28);line-height:1.8;max-width:260px;margin-top:1.25rem}
+.fc h4{font-family:var(--body);font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,122,255,.6);margin-bottom:1.5rem}
+.fc ul{list-style:none}.fc li{margin-bottom:.6rem}
+.fc li a{font-family:var(--body);font-size:.83rem;font-weight:300;color:rgba(255,255,255,.28);text-decoration:none;transition:color .2s}
+.fc li a:hover{color:var(--brand)}
+.fbot{max-width:var(--max);margin:0 auto;padding-top:2rem;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.fcopy{font-family:var(--body);font-size:.75rem;font-weight:300;color:rgba(255,255,255,.2)}
+.fp{display:flex;gap:1.5rem;align-items:center}
+.fp span{font-family:var(--body);font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.15)}
+.fp .dot{width:3px;height:3px;background:rgba(0,122,255,.4);border-radius:50%;display:inline-block}
+.rev{opacity:0;transform:translateY(16px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rev.on{opacity:1;transform:none}
+.fu{animation:fuA .9s var(--ease) forwards;opacity:0}
+.d1{animation-delay:.05s}.d2{animation-delay:.2s}.d3{animation-delay:.35s}.d4{animation-delay:.5s}.d5{animation-delay:.65s}
+.page-hero{padding:10rem 2.5rem 6rem;background:var(--s0);position:relative;overflow:hidden;border-bottom:1px solid rgba(0,122,255,.08)}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 70% 50%,rgba(0,122,255,.06) 0%,transparent 65%)}
+.ph-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,122,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(0,122,255,.02) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 70% 70% at 70% 50%,black,transparent)}
+.ph-edge{position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,transparent 5%,var(--brand) 35%,rgba(0,122,255,.2) 65%,transparent)}
+.ph-inner{max-width:var(--max);margin:0 auto;position:relative;z-index:2}
+.ph-kicker{display:inline-flex;align-items:center;gap:8px;font-family:var(--body);font-size:.65rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--brand);margin-bottom:1.75rem}
+.ph-kicker::before{content:'';width:18px;height:1px;background:var(--brand);display:block}
+h1.ph{font-family:var(--serif);font-size:clamp(3rem,6vw,7rem);font-weight:600;line-height:.96;letter-spacing:-.03em;color:var(--tp);margin-bottom:1.75rem}
+h1.ph em{font-style:italic;font-weight:400;color:var(--brand)}
+.ph-sub{font-family:var(--body);font-size:1.05rem;font-weight:300;color:var(--ts);line-height:1.85;max-width:580px}
+@media(max-width:1200px){.fg{grid-template-columns:1fr 1fr;gap:3rem}.stat-inner{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.nav-links,.nav-cta-w{display:none}.hb{display:flex}}
+@media(max-width:580px){.fg{grid-template-columns:1fr}.stat-inner{grid-template-columns:1fr 1fr}.cta-acts{flex-direction:column;align-items:center}}
+
+.ind-intro{padding:6rem 2.5rem;background:var(--s1)}
+.ind-inner{max-width:var(--max);margin:0 auto}
+.ind-full-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;background:rgba(0,122,255,.06)}
+.icard{background:var(--s1);padding:4rem;position:relative;overflow:hidden;border-right:1px solid rgba(0,122,255,.08);border-bottom:1px solid rgba(0,122,255,.08);transition:background .3s}
+.icard:nth-child(2n){border-right:none}
+.icard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--brand);transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease)}
+.icard:hover::before{transform:scaleX(1)}
+.icard:hover{background:var(--s2)}
+.icard-num{font-family:var(--serif);font-size:4rem;font-weight:600;color:rgba(0,122,255,.06);line-height:1;position:absolute;right:2rem;top:2rem;pointer-events:none}
+.icard-ico{width:48px;height:48px;border:1px solid rgba(0,122,255,.2);display:flex;align-items:center;justify-content:center;margin-bottom:2rem;transition:background .3s,border-color .3s}
+.icard-ico svg{width:24px;height:24px;fill:none;stroke:var(--brand);stroke-width:1.3}
+.icard:hover .icard-ico{background:rgba(0,122,255,.1);border-color:rgba(0,122,255,.4)}
+.icard-tag{display:inline-block;font-family:var(--body);font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--brand);margin-bottom:.75rem}
+.icard-h{font-family:var(--serif);font-size:1.65rem;font-weight:600;color:var(--tp);margin-bottom:.85rem;line-height:1.25}
+.icard-p{font-family:var(--body);font-size:.88rem;font-weight:300;color:var(--ts);line-height:1.8;margin-bottom:1.75rem}
+.icard-uses{display:flex;flex-direction:column;gap:.4rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.06)}
+.icard-ul{font-family:var(--body);font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--brand);margin-bottom:.65rem}
+.icard-use{font-family:var(--body);font-size:.82rem;font-weight:300;color:rgba(247,248,250,.45);display:flex;align-items:flex-start;gap:.6rem}
+.icard-use::before{content:'';width:4px;height:4px;background:var(--brand);border-radius:50%;flex-shrink:0;margin-top:.45em;opacity:.5}
+@media(max-width:900px){.ind-full-grid{grid-template-columns:1fr}}
+
+/* SIB GROUP BAR */
+.sib-bar{max-width:var(--max);margin:0 auto;padding:1.5rem 0 1.25rem;border-top:1px solid rgba(0,122,255,.08);border-bottom:1px solid rgba(255,255,255,.04);display:flex;align-items:center;margin-bottom:1.75rem}
+.sib-link{display:inline-flex;align-items:center;gap:.55rem;text-decoration:none;transition:opacity .2s}
+.sib-link:hover{opacity:.75}
+.sib-label{font-family:var(--body);font-size:.75rem;font-weight:300;color:rgba(255,255,255,.3);letter-spacing:.04em}
+.sib-name{font-family:var(--body);font-size:.75rem;font-weight:600;color:var(--brand);letter-spacing:.06em}
+.sib-arrow{width:11px;height:11px;color:var(--brand);opacity:.7}
+
+/* Extra legibility layer behind headline */
+.hero-text-shadow-bg{
+  position:absolute;left:0;top:0;bottom:0;width:58%;z-index:2;
+  background:linear-gradient(90deg,rgba(10,10,15,.55) 0%,rgba(10,10,15,.35) 70%,transparent 100%);
+  pointer-events:none;
+}
+
+/* LOGO 4D TREATMENT */
+.nav-logo-img{
+  height:46px;
+  width:auto;
+  display:block;
+  object-fit:contain;
+  /* Multi-layer glow: blue outer, white inner core */
+  filter:
+    drop-shadow(0 0 8px rgba(0,122,255,0.9))
+    drop-shadow(0 0 18px rgba(0,122,255,0.55))
+    drop-shadow(0 0 36px rgba(0,122,255,0.25))
+    brightness(1.15)
+    contrast(1.08);
+  transition:filter .3s ease, transform .3s ease;
+}
+.nav-logo-img:hover{
+  filter:
+    drop-shadow(0 0 10px rgba(0,140,255,1))
+    drop-shadow(0 0 24px rgba(0,140,255,0.7))
+    drop-shadow(0 0 50px rgba(0,140,255,0.35))
+    brightness(1.25)
+    contrast(1.1);
+  transform:scale(1.05);
+}
+/* Footer logo — slightly smaller glow */
+.footer-logo-img{
+  height:38px;
+  width:auto;
+  display:block;
+  object-fit:contain;
+  filter:
+    drop-shadow(0 0 6px rgba(0,122,255,0.7))
+    drop-shadow(0 0 14px rgba(0,122,255,0.4))
+    brightness(1.1);
+  transition:filter .3s ease, transform .3s ease;
+  opacity:1;
+}
+.footer-logo-img:hover{
+  filter:
+    drop-shadow(0 0 10px rgba(0,140,255,1))
+    drop-shadow(0 0 24px rgba(0,140,255,0.65))
+    brightness(1.2);
+  transform:scale(1.04);
+}
+
+
+/* HERO LEFT COLUMN — force left alignment */
+.hero-content > div:first-child {
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  text-align:left;
+}
+
+
+/* LINKEDIN BUTTON */
+.li-btn{display:inline-flex;align-items:center;gap:6px;font-family:var(--body);font-size:.75rem;font-weight:500;color:var(--ts);text-decoration:none;border:1px solid rgba(0,122,255,.2);padding:.45rem 1rem;border-radius:4px;transition:background .2s,border-color .2s,color .2s;white-space:nowrap}
+.li-btn:hover{background:rgba(0,122,255,.1);border-color:var(--brand);color:var(--brand)}
+.li-btn svg{flex-shrink:0;transition:stroke .2s}
+.li-btn:hover svg{stroke:var(--brand)}
+
+
+/* CROSS-PAGE UX NAVIGATION */
+.explore-strip{padding:3.5rem 2.5rem;background:var(--s2);border-top:1px solid rgba(0,122,255,.08)}
+.explore-inner{max-width:var(--max);margin:0 auto}
+.explore-label{font-family:var(--body);font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,122,255,.6);margin-bottom:1.5rem;display:flex;align-items:center;gap:8px}
+.explore-label::before{content:"";width:18px;height:1px;background:var(--brand);display:block}
+.explore-cards{display:flex;gap:1rem;flex-wrap:wrap}
+.explore-card{display:inline-flex;align-items:center;gap:.75rem;font-family:var(--body);font-size:.84rem;font-weight:400;color:var(--ts);text-decoration:none;border:1px solid rgba(0,122,255,.12);padding:.75rem 1.25rem;border-radius:4px;background:var(--s1);transition:background .2s,border-color .2s,color .2s,transform .15s;white-space:nowrap}
+.explore-card:hover{background:rgba(0,122,255,.08);border-color:var(--brand);color:var(--tp);transform:translateY(-2px)}
+.explore-card svg{width:14px;height:14px;fill:none;stroke:var(--brand);stroke-width:1.5;flex-shrink:0}
+
+
+a.icard:hover{background:var(--lt1,#EDEEF4)!important}
+a.icard{color:inherit;text-decoration:none}
+</style>
+</head><body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<nav id="nav"><div class="nav-inner">
+<a href="index.html" class="nav-logo"><img src="data:image/png;base64,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" alt="EIG" class="nav-logo-img"></a>
+<ul class="nav-links"><li><a href="index.html" class="">Home</a></li><li><a href="about.html" class="">About</a></li><li><a href="approach.html" class="">Our Approach</a></li><li><a href="industries.html" class="active">Industries</a></li><li><a href="insights.html" class="">Insights</a></li><li><a href="leadership.html" class="">Leadership</a></li><li><a href="contact.html" class="">Contact</a></li></ul>
+<div class="nav-cta-w" style="display:flex"><a href="contact.html" class="nav-cta">Get in Touch</a></div>
+<button class="hb" onclick="toggleM()" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></nav>
+<div class="mob-menu" id="mobMenu"><a href="index.html" onclick="toggleM()">Home</a><a href="about.html" onclick="toggleM()">About</a><a href="approach.html" onclick="toggleM()">Our Approach</a><a href="industries.html" onclick="toggleM()">Industries</a><a href="insights.html" onclick="toggleM()">Insights</a><a href="leadership.html" onclick="toggleM()">Leadership</a><a href="contact.html" onclick="toggleM()">Contact</a><a href="contact.html" onclick="toggleM()">Get in Touch</a></div>
+
+<div class="page-hero"><div class="ph-grid"></div><div class="ph-edge"></div>
+  <div class="ph-inner">
+    <div class="ph-kicker">Industries</div>
+    <h1 class="ph">Deep Sector Knowledge.<br><em>Ecosystem-Level Thinking.</em></h1>
+    <p class="ph-sub">EIG brings proven expertise across eight sectors — combining deep industry knowledge with ecosystem-level intelligence to deliver outcomes function-specific advisors cannot replicate.</p>
+  </div>
+</div>
+<div class="ticker"><div class="t-track"><span class="t-item">Ecosystem Intelligence <span class="t-sep">·</span></span><span class="t-item">AI &amp; Digital Transformation <span class="t-sep">·</span></span><span class="t-item">Value Creation <span class="t-sep">·</span></span><span class="t-item">Sustainability Economics <span class="t-sep">·</span></span><span class="t-item">Supply Chain &amp; Procurement <span class="t-sep">·</span></span><span class="t-item">Transformation &amp; Leadership <span class="t-sep">·</span></span><span class="t-item">Where Intelligence Creates Value <span class="t-sep">·</span></span><span class="t-item">Ecosystem Intelligence <span class="t-sep">·</span></span><span class="t-item">AI &amp; Digital Transformation <span class="t-sep">·</span></span><span class="t-item">Value Creation <span class="t-sep">·</span></span><span class="t-item">Sustainability Economics <span class="t-sep">·</span></span><span class="t-item">Supply Chain &amp; Procurement <span class="t-sep">·</span></span><span class="t-item">Transformation &amp; Leadership <span class="t-sep">·</span></span><span class="t-item">Where Intelligence Creates Value <span class="t-sep">·</span></span></div></div>
+<section class="ind-intro"><div class="ind-inner"><div class="ind-full-grid">
+<div class="icard rev" id="government" onclick="window.location='industry-government.html'" style="cursor:pointer"><div class="icard-num">01</div><div class="icard-ico"><svg viewBox="0 0 24 24"><path d="M3 22V12l9-8 9 8v10"/><path d="M9 22V16h6v6"/></svg></div><a href="industry-government.html" class="icard" style="text-decoration:none;color:inherit;display:block;cursor:pointer"-tag">Public Sector</div><div class="icard-h">Government</div><div class="icard-p">Governments are navigating increasing complexity, rising citizen expectations and accelerating technological change. EIG helps public sector organisations improve performance and unlock ecosystem-level intelligence.</div><div class="icard-uses"><div class="icard-ul">Key Use Cases</div><div class="icard-use">Ecosystem Intelligence &amp; Economic Development</div><div class="icard-use">AI Readiness &amp; Government Transformation</div><div class="icard-use">Policy Performance &amp; Measurement</div><div class="icard-use">Public Sector Efficiency Reviews</div><div class="icard-use">Executive Intelligence Dashboards</div><div class="icard-use">Sustainability &amp; Impact Measurement</div></div>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(0,122,255,.08)">
+          <a href="industry-government.html" style="display:inline-flex;align-items:center;gap:5px;font-family:var(--body);font-size:.76rem;font-weight:600;color:#fff;background:var(--brand,#007AFF);text-decoration:none;padding:.55rem 1.1rem;border-radius:3px;transition:background .2s">Explore Sector →</a>
+          <a href="case-government.html" style="display:inline-flex;align-items:center;gap:5px;font-family:var(--body);font-size:.76rem;font-weight:400;color:var(--hint,#6B7280);text-decoration:none;padding:.55rem 1rem;border:1px solid rgba(0,0,0,.1);border-radius:3px;transition:border-color .2s,color .2s">Case Study</a>
+        </div>
+      </div>
+<div class="icard rev" id="healthcare" onclick="window.location='industry-healthcare.html'" style="cursor:pointer"><div class="icard-num">02</div><div class="icard-ico"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><a href="industry-healthcare.html" class="icard" style="text-decoration:none;color:inherit;display:block;cursor:pointer"-tag">Health Systems</div><div class="icard-h">Healthcare</div><div class="icard-p">Healthcare organisations face growing pressure to improve outcomes while managing costs, workforce challenges and technological change. EIG helps health systems improve performance and delivery.</div><div class="icard-uses"><div class="icard-ul">Key Use Cases</div><div class="icard-use">AI Readiness Assessment</div><div class="icard-use">Healthcare Operations Optimisation</div><div class="icard-use">Executive Decision Intelligence</div><div class="icard-use">Sustainability in Healthcare</div><div class="icard-use">Workforce Planning &amp; Capability</div><div class="icard-use">Digital Transformation Roadmaps</div></div></div>
+<div class="icard rev" id="education" onclick="window.location='industry-education.html'" style="cursor:pointer"><div class="icard-num">03</div><div class="icard-ico"><svg viewBox="0 0 24 24"><path d="M2 3h20v13H2z"/><path d="M8 21h8M12 17v4"/></svg></div><a href="industry-education.html" class="icard" style="text-decoration:none;color:inherit;display:block;cursor:pointer"-tag">Education Sector</div><div class="icard-h">Education</div><div class="icard-p">Educational institutions must prepare students, faculty and organisations for a rapidly changing future while maintaining institutional effectiveness and financial sustainability.</div><div class="icard-uses"><div class="icard-ul">Key Use Cases</div><div class="icard-use">AI in Education Strategy</div><div class="icard-use">Workforce Readiness Programmes</div><div class="icard-use">Institutional Performance Reviews</div><div class="icard-use">Digital Transformation</div><div class="icard-use">Sustainability Frameworks</div><div class="icard-use">Education Ecosystem Intelligence</div></div></div>
+<div class="icard rev" id="manufacturing" onclick="window.location='industry-manufacturing.html'" style="cursor:pointer"><div class="icard-num">04</div><div class="icard-ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div><a href="industry-manufacturing.html" class="icard" style="text-decoration:none;color:inherit;display:block;cursor:pointer"-tag">Manufacturing</div><div class="icard-h">Manufacturing</div><div class="icard-p">Manufacturers must improve productivity, strengthen resilience and remain competitive in increasingly complex environments. EIG helps manufacturers optimise operations and supply chains.</div><div class="icard-uses"><div class="icard-ul">Key Use Cases</div><div class="icard-use">Manufacturing Performance Reviews</div><div class="icard-use">Supply Chain Diagnostics</div><div class="icard-use">Procurement Excellence</div><div class="icard-use">AI Readiness &amp; Automation</div><div class="icard-use">Sustainability Optimisation</div><div class="icard-use">Operational Visibility Dashboards</div></div></div>
+<div class="icard rev" id="food" onclick="window.location='industry-food.html'" style="cursor:pointer"><div class="icard-num">05</div><div class="icard-ico"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><a href="industry-food.html" class="icard" style="text-decoration:none;color:inherit;display:block;cursor:pointer"-tag">Consumer Goods</div><div class="icard-h">Food &amp; Beverage</div><div class="icard-p">Food and beverage organisations require strong supply chains, procurement performance and operational efficiency to remain competitive and meet evolving sustainability expectations.</div><div class="icard-uses"><div class="icard-ul">Key Use Cases</div><div class="icard-use">Supply Chain Optimisation</div><div class="icard-use">Procurement Excellence</div><div class="icard-use">Sustainability Economics</div><div class="icard-use">Operational Efficiency Reviews</div><div class="icard-use">AI Readiness Assessment</div><div class="icard-use">Demand &amp; Inventory Intelligence</div></div></div>
+<div class="icard rev" id="logistics" onclick="window.location='industry-logistics.html'" style="cursor:pointer"><div class="icard-num">06</div><div class="icard-ico"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div><a href="industry-logistics.html" class="icard" style="text-decoration:none;color:inherit;display:block;cursor:pointer"-tag">Transport &amp; Logistics</div><div class="icard-h">Logistics</div><div class="icard-p">Logistics organisations require real-time visibility, resilient operations and intelligent decision-making to navigate disruption and improve service performance.</div><div class="icard-uses"><div class="icard-ul">Key Use Cases</div><div class="icard-use">Logistics Network Diagnostics</div><div class="icard-use">Operational Visibility</div><div class="icard-use">Supply Chain Intelligence</div><div class="icard-use">Procurement Optimisation</div><div class="icard-use">Sustainability Performance</div><div class="icard-use">AI Readiness &amp; Transformation</div></div></div>
+<div class="icard rev" id="infra" onclick="window.location='industry-infrastructure.html'" style="cursor:pointer"><div class="icard-num">07</div><div class="icard-ico"><svg viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h8M8 10h8M8 14h5"/></svg></div><a href="industry-infrastructure.html" class="icard" style="text-decoration:none;color:inherit;display:block;cursor:pointer"-tag">Infrastructure</div><div class="icard-h">Infrastructure</div><div class="icard-p">Infrastructure organisations require strong governance, operational oversight and long-term value creation to serve communities effectively and attract sustainable investment.</div><div class="icard-uses"><div class="icard-ul">Key Use Cases</div><div class="icard-use">Infrastructure Performance Reviews</div><div class="icard-use">Capital Project Intelligence</div><div class="icard-use">Sustainability Measurement</div><div class="icard-use">Supply Chain Excellence</div><div class="icard-use">Executive Decision Support</div><div class="icard-use">AI Readiness Assessment</div></div></div>
+<div class="icard rev" id="ecodev" onclick="window.location='industry-government.html'" style="cursor:pointer"><div class="icard-num">08</div><div class="icard-ico"><svg viewBox="0 0 24 24"><path d="M3 17l4-4 4 4 4-8 4 4"/></svg></div><a href="industry-government.html" class="icard" style="text-decoration:none;color:inherit;display:block;cursor:pointer"-tag">Economic Development</div><div class="icard-h">Economic Development &amp; Free Zones</div><div class="icard-p">EIG helps free zones, economic authorities and development agencies improve ecosystem performance, attract investment and unlock measurable economic value.</div><div class="icard-uses"><div class="icard-ul">Key Use Cases</div><div class="icard-use">Ecosystem Intelligence</div><div class="icard-use">Industry Benchmarking</div><div class="icard-use">Investment Attraction Strategy</div><div class="icard-use">SME Growth Programmes</div><div class="icard-use">AI Readiness Across Ecosystems</div><div class="icard-use">Sustainability &amp; Economic Impact Measurement</div></div></div>
+</div></div></section>
+<div class="stat-band"><div class="stat-inner">
+  <div class="sb"><div class="sb-n">8</div><div class="sb-l">Industries Served</div></div>
+  <div class="sb"><div class="sb-n">6</div><div class="sb-l">Areas of Expertise</div></div>
+  <div class="sb"><div class="sb-n">100<span class="sb-u">+</span></div><div class="sb-l">Years Leadership</div></div>
+  <div class="sb"><div class="sb-n">4</div><div class="sb-l">Stage Methodology</div></div>
+</div></div>
+<section class="cta-sec"><div class="cta-glow"></div><div class="cta-geo"></div>
+  <div class="cta-inner rev">
+    <div class="cta-kk">Work With EIG</div>
+    <h2 class="cta-h">Your Industry.<br><em>Our Expertise.</em></h2>
+    <p class="cta-p">Schedule a consultation to explore how EIG's sector expertise and ecosystem-level thinking can create measurable value in your organisation.</p>
+    <div class="cta-acts">
+      <a href="contact.html" class="btn-cta">Schedule a Consultation <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="approach.html" class="btn-cta-o">Our Approach</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<div style="padding:4rem 2.5rem;background:var(--s1);border-top:1px solid rgba(0,122,255,.08);border-bottom:1px solid rgba(0,122,255,.08)">
+  <div style="max-width:var(--max);margin:0 auto">
+    <div style="font-size:.6rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(0,122,255,.6);margin-bottom:2rem;display:flex;align-items:center;gap:8px"><span style="width:14px;height:1px;background:#007AFF;display:block"></span>Featured Case Study</div>
+    <div style="display:grid;grid-template-columns:1fr auto;gap:4rem;align-items:center">
+      <div>
+        <div style="font-family:var(--serif,'Playfair Display',Georgia,serif);font-size:clamp(1.6rem,3vw,2.8rem);font-weight:700;color:var(--tp,#F7F8FA);line-height:1.05;letter-spacing:-.02em;margin-bottom:.75rem">Creating Ecosystem Intelligence<br><em style="font-style:italic;font-weight:400;color:#007AFF">Across a Regional Economy</em></div>
+        <p style="font-size:.92rem;font-weight:300;color:var(--ts,#B8BEC8);line-height:1.8;max-width:620px;margin-bottom:1.5rem">A regional economic authority supporting 40,000+ businesses across manufacturing, logistics, technology, healthcare and education — with data everywhere and intelligence nowhere. How EIG built the system that changed that.</p>
+        <div style="display:flex;gap:.75rem;flex-wrap:wrap;align-items:center">
+          <span style="font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#007AFF;background:rgba(0,122,255,.1);border:1px solid rgba(0,122,255,.2);padding:.25rem .75rem">Government &amp; Public Sector</span>
+          <span style="font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--hint,#6B7280);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:.25rem .75rem">Ecosystem Intelligence</span>
+          <span style="font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--hint,#6B7280);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:.25rem .75rem">AI Readiness</span>
+        </div>
+      </div>
+      <div style="flex-shrink:0">
+        <a href="case-government.html" style="display:inline-flex;align-items:center;gap:10px;font-family:var(--body,'Inter',sans-serif);font-size:.88rem;font-weight:600;color:#fff;background:#007AFF;text-decoration:none;padding:1.1rem 2.5rem;border-radius:6px;white-space:nowrap;transition:background .2s,transform .15s" onmouseover="this.style.background='#0066D6';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#007AFF';this.style.transform='none'">Read Full Case Study <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="explore-strip">
+  <div class="explore-inner">
+    <div class="explore-label">Explore Further</div>
+    <div class="explore-cards"><a href="approach.html" class="explore-card"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Our Approach</a><a href="intel-ecosystem.html" class="explore-card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg>Ecosystem Intelligence</a><a href="intel-value.html" class="explore-card"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Value Creation</a><a href="intel-supply.html" class="explore-card"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/></svg>Supply Chain Intelligence</a><a href="contact.html" class="explore-card"><svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>Schedule Consultation</a></div>
+  </div>
+</div>
+<footer><div class="fg">
+<div><a href="index.html" style="display:flex;align-items:center;gap:12px;text-decoration:none"><img src="data:image/png;base64,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" alt="EIG" class="footer-logo-img"></a><p class="fb-tag">Where Intelligence Creates Value. Helping organisations, industries and governments improve performance and unlock measurable value.</p></div>
+<div class="fc"><h4>Expertise</h4><ul><li><a href="approach.html">Ecosystem Intelligence</a></li><li><a href="approach.html">AI &amp; Digital Transformation</a></li><li><a href="approach.html">Value Creation</a></li><li><a href="approach.html">Sustainability Economics</a></li><li><a href="approach.html">Supply Chain</a></li><li><a href="approach.html">Transformation</a></li></ul></div>
+<div class="fc"><h4>Industries</h4><ul><li><a href="industries.html">Government</a></li><li><a href="industries.html">Healthcare</a></li><li><a href="industries.html">Manufacturing</a></li><li><a href="industries.html">Food &amp; Beverage</a></li><li><a href="industries.html">Logistics</a></li><li><a href="industries.html">Energy</a></li></ul></div>
+<div class="fc"><h4>Company</h4><ul><li><a href="about.html">About EIG</a></li><li><a href="approach.html">Our Approach</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="insights.html">Insights</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+<div class="fc"><h4>Connect</h4><ul><li><a href="contact.html">Schedule Consultation</a></li><li><a href="insights.html">Latest Insights</a></li><li><a href="contact.html">Media Enquiries</a></li><li><a href="contact.html">Careers</a></li></ul></div>
+
+  <!-- SIB Group — Part of the SIB Group -->
+  <div class="sib-bar">
+    <a href="https://www.teamsib.com/" target="_blank" rel="noopener" class="sib-link">
+      <span class="sib-label">Part of the</span>
+      <span class="sib-name">SIB Group</span>
+      <svg class="sib-arrow" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 7h12M7 1l6 6-6 6"/></svg>
+    </a>
+  </div>
+</div><div class="fbot">
+  <div class="fcopy">© 2026 Ecosystem Intelligence Group. All rights reserved.</div>
+  <div class="f-legal"><a href="privacy.html">Privacy Policy</a><span class="f-legal-sep">|</span><a href="terms.html">Terms &amp; Conditions</a><span class="f-legal-sep">|</span><a href="contact.html">Contact</a></div>
+  <div style="display:flex;align-items:center;gap:1rem"><a href="https://www.linkedin.com/company/128274012" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(0,122,255,.2);border-radius:4px;transition:background .2s,border-color .2s" onmouseover="this.style.background='rgba(0,122,255,.12)';this.style.borderColor='rgba(0,122,255,.5)'" onmouseout="this.style.background='';this.style.borderColor='rgba(0,122,255,.2)'"><svg viewBox="0 0 24 24" fill="none" stroke="#007AFF" stroke-width="1.8" style="width:14px;height:14px"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a></div><div class="fp"><span>Better Intelligence</span><span class="dot"></span><span>Better Decisions</span><span class="dot"></span><span>Better Outcomes</span></div>
+</div>
+</footer>
+<script>
+const nav=document.getElementById("nav");
+window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>20),{passive:true});
+function toggleM(){document.getElementById("mobMenu").classList.toggle("open")}
+document.querySelectorAll("a[href^='#']").forEach(a=>{a.addEventListener("click",e=>{const id=a.getAttribute("href").slice(1);if(!id)return;const el=document.getElementById(id);if(el){e.preventDefault();el.scrollIntoView({behavior:"smooth",block:"start"})}})});
+const io=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){en.target.style.transitionDelay=(en.target.dataset.d||0)+"s";en.target.classList.add("on");io.unobserve(en.target)}})},{threshold:.07,rootMargin:"0px 0px -30px 0px"});
+document.querySelectorAll(".rev").forEach((el,i)=>{el.dataset.d=(i%5)*.09;io.observe(el)});
+document.querySelectorAll(".tag").forEach(t=>t.addEventListener("click",()=>t.classList.toggle("checked")));
+</script>
+</body></html>
