@@ -6,7 +6,7 @@
   <title>Industries | Ecosystem Intelligence Group</title>
   <meta
     name="description"
-    content="EIG brings deep sector knowledge and ecosystem-level intelligence across government, healthcare, education, manufacturing, logistics, food & beverage, energy and financial services."
+    content="EIG brings deep sector knowledge and ecosystem-level intelligence across government, healthcare, education, manufacturing, logistics, food & beverage, energy, infrastructure and financial services."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,27 +20,16 @@
       --brand:#007AFF;
       --brand-hover:#0066D6;
       --brand-soft:rgba(0,122,255,.14);
-
       --bg:#0A0A0F;
       --bg-2:#0F1118;
       --panel:#11141d;
       --panel-2:#0d1018;
-
       --text:#F7F8FA;
       --text-soft:#B8BEC8;
       --text-dim:#7E8795;
-
       --border:rgba(255,255,255,.08);
-      --border-strong:rgba(255,255,255,.14);
-
       --shadow-lg:0 22px 60px rgba(0,0,0,.34);
       --shadow-md:0 12px 30px rgba(0,0,0,.24);
-
-      --radius-sm:10px;
-      --radius-md:16px;
-      --radius-lg:22px;
-      --radius-xl:28px;
-
       --serif:"Playfair Display", Georgia, serif;
       --body:"Inter", system-ui, sans-serif;
       --max:1280px;
@@ -64,37 +53,8 @@
     a{text-decoration:none;color:inherit}
     ::selection{background:var(--brand);color:#fff}
 
-    .container{
-      width:min(100%, var(--max));
-      margin:0 auto;
-      padding:0 1.5rem;
-    }
-
-    .eyebrow{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:.85rem;
-      color:var(--brand);
-      font-size:.68rem;
-      font-weight:700;
-      letter-spacing:.24em;
-      text-transform:uppercase;
-    }
-
-    .eyebrow::before{
-      content:"";
-      width:18px;
-      height:1px;
-      background:var(--brand);
-      display:block;
-    }
-
-    .section{
-      padding:6rem 0;
-      position:relative;
-    }
-
+    .container{width:min(100%, var(--max));margin:0 auto;padding:0 1.5rem}
+    .section{padding:6rem 0;position:relative}
     .section.alt{
       background:
         linear-gradient(180deg, rgba(255,255,255,.015), rgba(255,255,255,0)),
@@ -102,1020 +62,343 @@
       border-top:1px solid rgba(255,255,255,.04);
     }
 
+    .eyebrow{
+      display:flex;align-items:center;gap:10px;margin-bottom:.85rem;color:var(--brand);
+      font-size:.68rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase
+    }
+    .eyebrow::before{content:"";width:18px;height:1px;background:var(--brand);display:block}
+
     .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:1.5rem;
-      flex-wrap:wrap;
-      margin-bottom:2.5rem;
+      display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;
+      flex-wrap:wrap;margin-bottom:2.5rem
     }
+    .section-head-main{max-width:840px}
 
-    .section-head-main{
-      max-width:840px;
-    }
-
-    h1, h2, h3, h4{
-      font-family:var(--serif);
-      letter-spacing:-.03em;
-    }
+    h1,h2,h3,h4{font-family:var(--serif);letter-spacing:-.03em}
 
     .display{
-      max-width:960px;
-      margin-bottom:1.15rem;
-      font-size:clamp(3rem, 6vw, 6.1rem);
-      font-weight:700;
-      line-height:.94;
+      max-width:960px;margin-bottom:1.15rem;font-size:clamp(3rem, 6vw, 6rem);
+      font-weight:700;line-height:.94
     }
-
-    .display em,
-    .title em{
-      font-style:italic;
-      font-weight:400;
-      color:var(--brand);
-    }
-
+    .display em,.title em{font-style:italic;font-weight:400;color:var(--brand)}
     .title{
-      font-size:clamp(2.2rem, 4vw, 4.2rem);
-      font-weight:700;
-      line-height:1.02;
-      margin-bottom:1rem;
+      font-size:clamp(2.1rem, 4vw, 4rem);
+      font-weight:700;line-height:1.02;margin-bottom:1rem
     }
 
-    .lead,
-    .section-copy{
-      color:var(--text-soft);
-      font-size:1.02rem;
-      line-height:1.82;
-      max-width:760px;
+    .lead,.section-copy{
+      color:var(--text-soft);font-size:1.02rem;line-height:1.82;max-width:760px
     }
 
-    .primary-btn,
-    .secondary-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:.55rem;
-      border-radius:12px;
-      font-weight:600;
-      transition:all .2s ease;
-      white-space:nowrap;
+    .primary-btn,.secondary-btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+      border-radius:12px;font-weight:600;transition:all .2s ease;white-space:nowrap
     }
-
     .primary-btn{
-      padding:.9rem 1.2rem;
-      background:linear-gradient(180deg, #1085ff 0%, #007AFF 100%);
-      color:#fff;
-      box-shadow:0 10px 24px rgba(0,122,255,.22);
-      font-size:.88rem;
+      padding:.9rem 1.2rem;background:linear-gradient(180deg, #1085ff 0%, #007AFF 100%);
+      color:#fff;box-shadow:0 10px 24px rgba(0,122,255,.22);font-size:.88rem
     }
-
-    .primary-btn:hover{
-      transform:translateY(-1px);
-      box-shadow:0 12px 26px rgba(0,122,255,.28);
-    }
-
+    .primary-btn:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(0,122,255,.28)}
     .secondary-btn{
-      padding:.88rem 1.15rem;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      color:var(--text);
-      font-size:.86rem;
+      padding:.88rem 1.15rem;border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);color:var(--text);font-size:.86rem
     }
+    .secondary-btn:hover{border-color:rgba(0,122,255,.28);background:rgba(0,122,255,.06)}
 
-    .secondary-btn:hover{
-      border-color:rgba(0,122,255,.28);
-      background:rgba(0,122,255,.06);
-    }
-
-    .tag-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.55rem;
-      margin-top:1.35rem;
-    }
-
+    .tag-row{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.35rem}
     .tag{
-      display:inline-flex;
-      align-items:center;
-      min-height:30px;
-      padding:.35rem .72rem;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.02);
-      color:var(--text-dim);
-      font-size:.68rem;
-      font-weight:700;
-      letter-spacing:.11em;
-      text-transform:uppercase;
+      display:inline-flex;align-items:center;min-height:30px;padding:.35rem .72rem;border-radius:999px;
+      border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);color:var(--text-dim);
+      font-size:.68rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase
     }
 
     /* NAV */
     nav{
-      position:fixed;
-      top:0; left:0; right:0;
-      z-index:999;
-      height:74px;
-      border-bottom:1px solid transparent;
-      transition:background .35s ease, border-color .35s ease, box-shadow .35s ease;
+      position:fixed;top:0;left:0;right:0;z-index:999;height:74px;border-bottom:1px solid transparent;
+      transition:background .35s ease,border-color .35s ease,box-shadow .35s ease
     }
-
     nav.scrolled{
-      background:rgba(10,10,15,.84);
-      backdrop-filter:blur(18px);
-      border-color:rgba(255,255,255,.06);
-      box-shadow:0 10px 35px rgba(0,0,0,.22);
+      background:rgba(10,10,15,.84);backdrop-filter:blur(18px);
+      border-color:rgba(255,255,255,.06);box-shadow:0 10px 35px rgba(0,0,0,.22)
     }
-
     .nav-inner{
-      width:min(100%, var(--max));
-      height:100%;
-      margin:0 auto;
-      padding:0 1.5rem;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
+      width:min(100%, var(--max));height:100%;margin:0 auto;padding:0 1.5rem;
+      display:flex;align-items:center;justify-content:space-between;gap:1rem
     }
-
-    .nav-logo{
-      display:flex;
-      align-items:center;
-      gap:.8rem;
-      flex-shrink:0;
-    }
-
+    .nav-logo{display:flex;align-items:center;gap:.8rem;flex-shrink:0}
     .nav-mark{
-      width:38px;
-      height:38px;
-      border-radius:12px;
-      display:grid;
-      place-items:center;
+      width:38px;height:38px;border-radius:12px;display:grid;place-items:center;
       background:linear-gradient(180deg, rgba(0,122,255,.22), rgba(0,122,255,.08));
-      border:1px solid rgba(0,122,255,.25);
-      box-shadow:0 8px 18px rgba(0,122,255,.12);
-      font-weight:700;
-      color:#fff;
-      letter-spacing:.04em;
+      border:1px solid rgba(0,122,255,.25);box-shadow:0 8px 18px rgba(0,122,255,.12);
+      font-weight:700;color:#fff;letter-spacing:.04em
     }
+    .nav-wordmark{display:flex;flex-direction:column;line-height:1.05}
+    .nav-wordmark strong{font-size:.9rem;font-weight:600;color:var(--text);letter-spacing:.01em}
+    .nav-wordmark span{font-size:.68rem;color:var(--text-dim);letter-spacing:.12em;text-transform:uppercase}
 
-    .nav-wordmark{
-      display:flex;
-      flex-direction:column;
-      line-height:1.05;
-    }
-
-    .nav-wordmark strong{
-      font-size:.9rem;
-      font-weight:600;
-      color:var(--text);
-      letter-spacing:.01em;
-    }
-
-    .nav-wordmark span{
-      font-size:.68rem;
-      color:var(--text-dim);
-      letter-spacing:.12em;
-      text-transform:uppercase;
-    }
-
-    .nav-links{
-      display:flex;
-      align-items:center;
-      gap:.25rem;
-      list-style:none;
-      margin-left:auto;
-    }
-
+    .nav-links{display:flex;align-items:center;gap:.25rem;list-style:none;margin-left:auto}
     .nav-links a{
-      position:relative;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:40px;
-      padding:.55rem .9rem;
-      border-radius:10px;
-      font-size:.82rem;
-      font-weight:500;
-      color:var(--text-soft);
-      transition:color .2s ease, background .2s ease;
+      position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:40px;
+      padding:.55rem .9rem;border-radius:10px;font-size:.82rem;font-weight:500;color:var(--text-soft);
+      transition:color .2s ease, background .2s ease
     }
-
     .nav-links a::after{
-      content:"";
-      position:absolute;
-      left:12px; right:12px; bottom:7px;
-      height:1.5px;
-      background:var(--brand);
-      transform:scaleX(0);
-      transform-origin:left;
-      transition:transform .24s var(--ease);
+      content:"";position:absolute;left:12px;right:12px;bottom:7px;height:1.5px;background:var(--brand);
+      transform:scaleX(0);transform-origin:left;transition:transform .24s var(--ease)
     }
+    .nav-links a:hover,.nav-links a.active{color:var(--text);background:rgba(255,255,255,.03)}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
 
-    .nav-links a:hover,
-    .nav-links a.active{
-      color:var(--text);
-      background:rgba(255,255,255,.03);
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after{
-      transform:scaleX(1);
-    }
-
-    /* ===== INDUSTRIES DROPDOWN NAV ===== */
-    .nav-item.has-dropdown{
-      position:relative;
-    }
-
-    .nav-item.has-dropdown > a{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-    }
-
+    .nav-item.has-dropdown{position:relative}
+    .nav-item.has-dropdown > a{display:inline-flex;align-items:center;gap:6px}
     .nav-dropdown{
-      position:absolute;
-      top:calc(100% + 14px);
-      left:0;
-      min-width:290px;
-      background:rgba(12,14,20,.98);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:16px;
-      padding:.6rem;
-      display:flex;
-      flex-direction:column;
-      gap:.15rem;
-      opacity:0;
-      visibility:hidden;
-      transform:translateY(8px);
-      transition:all .2s ease;
-      box-shadow:0 18px 40px rgba(0,0,0,.28);
-      backdrop-filter:blur(18px);
-      z-index:1200;
+      position:absolute;top:calc(100% + 14px);left:0;min-width:290px;background:rgba(12,14,20,.98);
+      border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:.6rem;display:flex;
+      flex-direction:column;gap:.15rem;opacity:0;visibility:hidden;transform:translateY(8px);
+      transition:all .2s ease;box-shadow:0 18px 40px rgba(0,0,0,.28);backdrop-filter:blur(18px);z-index:1200
     }
-
     .nav-dropdown a{
-      display:block;
-      padding:.78rem .9rem;
-      border-radius:10px;
-      color:var(--text-soft);
-      font-size:.84rem;
-      line-height:1.35;
-      white-space:nowrap;
-      background:none !important;
+      display:block;padding:.78rem .9rem;border-radius:10px;color:var(--text-soft);font-size:.84rem;
+      line-height:1.35;white-space:nowrap;background:none !important
     }
-
-    .nav-dropdown a::after{
-      display:none !important;
-    }
-
-    .nav-dropdown a:hover{
-      background:rgba(0,122,255,.08) !important;
-      color:var(--text) !important;
-    }
-
-    .nav-item.has-dropdown:hover .nav-dropdown{
-      opacity:1;
-      visibility:visible;
-      transform:translateY(0);
-    }
+    .nav-dropdown a::after{display:none !important}
+    .nav-dropdown a:hover{background:rgba(0,122,255,.08) !important;color:var(--text) !important}
+    .nav-item.has-dropdown:hover .nav-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
 
     .nav-cta{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:42px;
-      padding:.72rem 1.15rem;
-      border-radius:12px;
-      background:linear-gradient(180deg, #1085ff 0%, #007AFF 100%);
-      color:#fff;
-      font-size:.82rem;
-      font-weight:600;
-      box-shadow:0 8px 20px rgba(0,122,255,.22);
-      transition:transform .2s ease, box-shadow .2s ease;
+      display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:.72rem 1.15rem;
+      border-radius:12px;background:linear-gradient(180deg, #1085ff 0%, #007AFF 100%);
+      color:#fff;font-size:.82rem;font-weight:600;box-shadow:0 8px 20px rgba(0,122,255,.22);
+      transition:transform .2s ease, box-shadow .2s ease
     }
-
-    .nav-cta:hover{
-      transform:translateY(-1px);
-      box-shadow:0 10px 24px rgba(0,122,255,.28);
-    }
+    .nav-cta:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(0,122,255,.28)}
 
     .hb{
-      display:none;
-      flex-direction:column;
-      justify-content:center;
-      gap:5px;
-      width:42px;
-      height:42px;
-      border:none;
-      border-radius:10px;
-      background:rgba(255,255,255,.03);
-      cursor:pointer;
+      display:none;flex-direction:column;justify-content:center;gap:5px;width:42px;height:42px;border:none;
+      border-radius:10px;background:rgba(255,255,255,.03);cursor:pointer
     }
-
-    .hb span{
-      display:block;
-      height:1.5px;
-      margin:0 auto;
-      background:var(--text);
-      border-radius:999px;
-    }
-
-    .hb span:nth-child(1){width:20px}
-    .hb span:nth-child(2){width:14px}
-    .hb span:nth-child(3){width:20px}
+    .hb span{display:block;height:1.5px;margin:0 auto;background:var(--text);border-radius:999px}
+    .hb span:nth-child(1){width:20px}.hb span:nth-child(2){width:14px}.hb span:nth-child(3){width:20px}
 
     .mob-menu{
-      display:none;
-      position:fixed;
-      top:74px;
-      left:0; right:0;
-      z-index:998;
-      padding:1rem;
-      background:rgba(12,14,20,.98);
-      border-bottom:1px solid rgba(255,255,255,.06);
-      backdrop-filter:blur(20px);
-      flex-direction:column;
-      gap:.35rem;
+      display:none;position:fixed;top:74px;left:0;right:0;z-index:998;padding:1rem;background:rgba(12,14,20,.98);
+      border-bottom:1px solid rgba(255,255,255,.06);backdrop-filter:blur(20px);flex-direction:column;gap:.35rem
     }
-
     .mob-menu.open{display:flex}
-
     .mob-menu a{
-      color:var(--text-soft);
-      padding:.95rem 0;
-      border-bottom:1px solid rgba(255,255,255,.06);
-      font-size:.95rem;
+      color:var(--text-soft);padding:.95rem 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:.95rem
     }
-
     .mob-menu a:last-child{
-      margin-top:.4rem;
-      border-bottom:none;
-      background:var(--brand);
-      color:#fff;
-      text-align:center;
-      padding:1rem 1.1rem;
-      border-radius:12px;
-      font-weight:600;
+      margin-top:.4rem;border-bottom:none;background:var(--brand);color:#fff;text-align:center;padding:1rem 1.1rem;
+      border-radius:12px;font-weight:600
     }
 
     /* HERO */
     .hero{
-      position:relative;
-      overflow:hidden;
-      padding:9rem 0 5.8rem;
-      border-bottom:1px solid rgba(255,255,255,.05);
+      position:relative;overflow:hidden;padding:9rem 0 5.8rem;border-bottom:1px solid rgba(255,255,255,.05)
     }
-
     .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(ellipse 52% 60% at 88% 28%, rgba(0,122,255,.10), transparent 70%),
-        linear-gradient(180deg, rgba(255,255,255,.015), transparent 55%);
-      pointer-events:none;
+      content:"";position:absolute;inset:0;
+      background:radial-gradient(ellipse 52% 60% at 88% 28%, rgba(0,122,255,.10), transparent 70%),
+      linear-gradient(180deg, rgba(255,255,255,.015), transparent 55%);
+      pointer-events:none
     }
-
     .hero-grid{
-      position:absolute;
-      inset:0;
-      background-image:
-        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-      background-size:72px 72px;
-      mask-image:linear-gradient(180deg, rgba(0,0,0,.35), transparent 85%);
-      opacity:.24;
-      pointer-events:none;
+      position:absolute;inset:0;
+      background-image:linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size:72px 72px;mask-image:linear-gradient(180deg, rgba(0,0,0,.35), transparent 85%);
+      opacity:.24;pointer-events:none
     }
-
     .hero-edge{
-      position:absolute;
-      top:0; left:0; bottom:0;
-      width:4px;
-      background:linear-gradient(to bottom, transparent, var(--brand) 28%, rgba(0,122,255,.15) 76%, transparent);
+      position:absolute;top:0;left:0;bottom:0;width:4px;
+      background:linear-gradient(to bottom, transparent, var(--brand) 28%, rgba(0,122,255,.15) 76%, transparent)
     }
-
-    .hero-inner{
-      position:relative;
-      z-index:2;
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:.75rem;
-      flex-wrap:wrap;
-      margin-top:1.6rem;
-    }
-
-    .hero-stats{
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0, 1fr));
-      gap:16px;
-      margin-top:2.2rem;
-    }
-
+    .hero-inner{position:relative;z-index:2}
+    .hero-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.6rem}
+    .hero-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:2.2rem}
     .stat-card{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:18px;
-      padding:1.2rem 1.15rem;
-      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      box-shadow:var(--shadow-md);
+      border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:1.2rem 1.15rem;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));box-shadow:var(--shadow-md)
     }
+    .stat-value{font-family:var(--serif);font-size:2rem;line-height:1;margin-bottom:.45rem;color:var(--text)}
+    .stat-label{color:var(--text-soft);font-size:.84rem;line-height:1.55}
 
-    .stat-value{
-      font-family:var(--serif);
-      font-size:2rem;
-      line-height:1;
-      margin-bottom:.45rem;
-      color:var(--text);
-    }
-
-    .stat-label{
-      color:var(--text-soft);
-      font-size:.84rem;
-      line-height:1.55;
-    }
-
-    /* INDUSTRY GRID */
-    .industry-grid{
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0,1fr));
-      gap:20px;
-    }
-
+    /* GRID */
+    .industry-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
     .industry-card{
-      display:flex;
-      flex-direction:column;
-      border:1px solid var(--border);
-      border-radius:22px;
-      overflow:hidden;
-      background:linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
-      box-shadow:var(--shadow-md);
-      transition:transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+      display:flex;flex-direction:column;border:1px solid var(--border);border-radius:22px;overflow:hidden;
+      background:linear-gradient(180deg,var(--panel) 0%,var(--panel-2) 100%);box-shadow:var(--shadow-md);
+      transition:transform .24s ease,border-color .24s ease,box-shadow .24s ease;
+      scroll-margin-top:110px
     }
-
-    .industry-card:hover{
-      transform:translateY(-4px);
-      border-color:rgba(0,122,255,.22);
-      box-shadow:var(--shadow-lg);
-    }
-
+    .industry-card:hover{transform:translateY(-4px);border-color:rgba(0,122,255,.22);box-shadow:var(--shadow-lg)}
     .industry-visual{
-      aspect-ratio:16/10;
-      display:grid;
-      place-items:center;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(0,122,255,.12), transparent 35%),
-        linear-gradient(180deg, #0D1118 0%, #0A0D14 100%);
-      border-bottom:1px solid rgba(255,255,255,.06);
-      position:relative;
-      overflow:hidden;
+      aspect-ratio:16/10;display:grid;place-items:center;
+      background:radial-gradient(circle at 20% 20%, rgba(0,122,255,.12), transparent 35%),
+      linear-gradient(180deg, #0D1118 0%, #0A0D14 100%);
+      border-bottom:1px solid rgba(255,255,255,.06);position:relative;overflow:hidden
     }
+    .industry-visual svg{width:72%;height:72%;opacity:.94;transition:transform .35s var(--ease)}
+    .industry-card:hover .industry-visual svg{transform:scale(1.04)}
+    .industry-body{padding:1.35rem 1.25rem 1.35rem;display:flex;flex-direction:column;flex:1}
+    .industry-body h3{font-size:1.24rem;margin-bottom:.55rem}
+    .industry-body p{color:var(--text-soft);font-size:.91rem;line-height:1.72;margin-bottom:1rem;flex:1}
 
-    .industry-visual svg{
-      width:72%;
-      height:72%;
-      opacity:.94;
-      transition:transform .35s var(--ease);
-    }
-
-    .industry-card:hover .industry-visual svg{
-      transform:scale(1.04);
-    }
-
-    .industry-body{
-      padding:1.35rem 1.25rem 1.35rem;
-      display:flex;
-      flex-direction:column;
-      flex:1;
-    }
-
-    .industry-body h3{
-      font-size:1.24rem;
-      margin-bottom:.55rem;
-    }
-
-    .industry-body p{
-      color:var(--text-soft);
-      font-size:.91rem;
-      line-height:1.72;
-      margin-bottom:1rem;
-      flex:1;
-    }
-
-    .bullet-list{
-      display:flex;
-      flex-direction:column;
-      gap:.5rem;
-      margin-bottom:1rem;
-    }
-
+    .bullet-list{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem}
     .bullet{
-      display:flex;
-      align-items:flex-start;
-      gap:.65rem;
-      color:var(--text-dim);
-      font-size:.82rem;
-      line-height:1.55;
+      display:flex;align-items:flex-start;gap:.65rem;color:var(--text-dim);font-size:.82rem;line-height:1.55
     }
-
     .bullet::before{
-      content:"";
-      width:5px;
-      height:5px;
-      margin-top:.55rem;
-      border-radius:50%;
-      background:var(--brand);
-      opacity:.75;
-      flex-shrink:0;
+      content:"";width:5px;height:5px;margin-top:.55rem;border-radius:50%;background:var(--brand);opacity:.75;flex-shrink:0
     }
 
     /* FEATURED CASE */
-    .case-shell{
-      display:grid;
-      grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);
-      gap:22px;
-      align-items:start;
+    .case-shell{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:22px;align-items:start}
+    .case-main,.case-side{
+      border:1px solid rgba(255,255,255,.08);border-radius:28px;background:linear-gradient(180deg, #11141d 0%, #0d1118 100%);
+      box-shadow:var(--shadow-md)
     }
-
-    .case-main,
-    .case-side{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:28px;
-      background:linear-gradient(180deg, #11141d 0%, #0d1118 100%);
-      box-shadow:var(--shadow-md);
-    }
-
-    .case-main{
-      padding:2rem;
-    }
-
-    .case-side{
-      padding:1.5rem;
-      position:sticky;
-      top:96px;
-    }
-
+    .case-main{padding:2rem}
+    .case-side{padding:1.5rem;position:sticky;top:96px}
     .case-label{
-      display:inline-flex;
-      align-items:center;
-      gap:.5rem;
-      padding:.42rem .72rem;
-      border-radius:999px;
-      border:1px solid rgba(0,122,255,.24);
-      background:rgba(0,122,255,.08);
-      color:#cfe4ff;
-      font-size:.7rem;
-      font-weight:700;
-      letter-spacing:.1em;
-      text-transform:uppercase;
-      margin-bottom:1rem;
+      display:inline-flex;align-items:center;gap:.5rem;padding:.42rem .72rem;border-radius:999px;
+      border:1px solid rgba(0,122,255,.24);background:rgba(0,122,255,.08);color:#cfe4ff;font-size:.7rem;
+      font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem
     }
-
-    .case-main h2{
-      font-size:clamp(2rem, 3.2vw, 3.5rem);
-      line-height:1.04;
-      margin-bottom:1rem;
-    }
-
-    .case-main > p{
-      color:var(--text-soft);
-      line-height:1.82;
-      margin-bottom:1.1rem;
-    }
-
+    .case-main h2{font-size:clamp(2rem,3.2vw,3.5rem);line-height:1.04;margin-bottom:1rem}
+    .case-main>p{color:var(--text-soft);line-height:1.82;margin-bottom:1.1rem}
     .quote-block{
-      margin:1.4rem 0 1.6rem;
-      padding:1.35rem 1.4rem;
-      border-left:3px solid var(--brand);
-      border-radius:0 18px 18px 0;
-      background:rgba(255,255,255,.03);
-      color:var(--text);
-      font-family:var(--serif);
-      font-size:1.35rem;
-      line-height:1.45;
-      font-style:italic;
+      margin:1.4rem 0 1.6rem;padding:1.35rem 1.4rem;border-left:3px solid var(--brand);
+      border-radius:0 18px 18px 0;background:rgba(255,255,255,.03);color:var(--text);
+      font-family:var(--serif);font-size:1.35rem;line-height:1.45;font-style:italic
     }
-
-    .content-stack{
-      display:flex;
-      flex-direction:column;
-      gap:1.75rem;
-      margin-top:1.5rem;
-    }
-
-    .content-block h3{
-      font-size:1.45rem;
-      margin-bottom:.8rem;
-    }
-
-    .content-block h4{
-      font-size:1.05rem;
-      margin-bottom:.45rem;
-      color:var(--text);
-    }
-
-    .content-block p{
-      color:var(--text-soft);
-      line-height:1.8;
-    }
-
-    .content-block ul{
-      list-style:none;
-      display:flex;
-      flex-direction:column;
-      gap:.6rem;
-      margin-top:.8rem;
-    }
-
+    .content-stack{display:flex;flex-direction:column;gap:1.75rem;margin-top:1.5rem}
+    .content-block h3{font-size:1.45rem;margin-bottom:.8rem}
+    .content-block h4{font-size:1.05rem;margin-bottom:.45rem;color:var(--text)}
+    .content-block p{color:var(--text-soft);line-height:1.8}
+    .content-block ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-top:.8rem}
     .content-block li{
-      position:relative;
-      padding-left:1rem;
-      color:var(--text-soft);
-      line-height:1.72;
+      position:relative;padding-left:1rem;color:var(--text-soft);line-height:1.72
     }
-
     .content-block li::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:.72rem;
-      width:5px;
-      height:5px;
-      border-radius:50%;
-      background:var(--brand);
-      opacity:.7;
+      content:"";position:absolute;left:0;top:.72rem;width:5px;height:5px;border-radius:50%;
+      background:var(--brand);opacity:.7
     }
 
-    .finding-grid,
-    .outcome-grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:14px;
-      margin-top:1rem;
-    }
-
+    .finding-grid,.outcome-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:1rem}
     .mini-card{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:18px;
-      padding:1rem;
-      background:rgba(255,255,255,.02);
+      border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:1rem;background:rgba(255,255,255,.02)
     }
+    .mini-card h4{margin-bottom:.35rem;font-size:1rem}
+    .mini-card p{color:var(--text-dim);font-size:.9rem;line-height:1.65}
 
-    .mini-card h4{
-      margin-bottom:.35rem;
-      font-size:1rem;
-    }
-
-    .mini-card p{
-      color:var(--text-dim);
-      font-size:.9rem;
-      line-height:1.65;
-    }
-
-    .case-stats{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:12px;
-      margin-bottom:1.4rem;
-    }
-
+    .case-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:1.4rem}
     .case-stat{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:18px;
-      padding:1rem;
-      background:rgba(255,255,255,.02);
+      border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:1rem;background:rgba(255,255,255,.02)
     }
-
     .case-stat strong{
-      display:block;
-      font-family:var(--serif);
-      font-size:1.6rem;
-      line-height:1;
-      margin-bottom:.35rem;
-      color:var(--text);
+      display:block;font-family:var(--serif);font-size:1.4rem;line-height:1;margin-bottom:.35rem;color:var(--text)
     }
+    .case-stat span{color:var(--text-soft);font-size:.82rem;line-height:1.55;display:block}
 
-    .case-stat span{
-      color:var(--text-soft);
-      font-size:.82rem;
-      line-height:1.55;
-      display:block;
-    }
-
-    .side-title{
-      font-size:1.25rem;
-      margin-bottom:.75rem;
-    }
-
-    .side-copy{
-      color:var(--text-soft);
-      line-height:1.75;
-      margin-bottom:1rem;
-      font-size:.94rem;
-    }
-
-    .side-stack{
-      display:flex;
-      flex-direction:column;
-      gap:.75rem;
-      margin-top:1rem;
-    }
-
+    .side-title{font-size:1.25rem;margin-bottom:.75rem}
+    .side-copy{color:var(--text-soft);line-height:1.75;margin-bottom:1rem;font-size:.94rem}
+    .side-stack{display:flex;flex-direction:column;gap:.75rem;margin-top:1rem}
     .side-item{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:16px;
-      padding:.95rem;
-      background:rgba(255,255,255,.02);
+      border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:.95rem;background:rgba(255,255,255,.02)
     }
+    .side-item strong{display:block;margin-bottom:.3rem;font-size:.92rem;color:var(--text)}
+    .side-item span{color:var(--text-dim);font-size:.84rem;line-height:1.6;display:block}
 
-    .side-item strong{
-      display:block;
-      margin-bottom:.3rem;
-      font-size:.92rem;
-      color:var(--text);
-    }
-
-    .side-item span{
-      color:var(--text-dim);
-      font-size:.84rem;
-      line-height:1.6;
-      display:block;
-    }
-
-    /* USE CASE FILTER */
+    /* FILTER */
     .uc-filter-bar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
-      flex-wrap:wrap;
-      margin-bottom:1.5rem;
+      display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem
     }
-
-    .uc-filter-copy{
-      max-width:720px;
-    }
-
-    .uc-filter-copy p{
-      color:var(--text-soft);
-      line-height:1.8;
-      font-size:.98rem;
-    }
-
-    .uc-filter-control{
-      min-width:260px;
-    }
-
+    .uc-filter-copy{max-width:720px}
+    .uc-filter-copy p{color:var(--text-soft);line-height:1.8;font-size:.98rem}
+    .uc-filter-control{min-width:260px}
     .uc-select{
-      width:100%;
-      appearance:none;
-      -webkit-appearance:none;
-      -moz-appearance:none;
+      width:100%;appearance:none;-webkit-appearance:none;-moz-appearance:none;
       background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
-      color:var(--text);
-      border:1px solid rgba(255,255,255,.10);
-      border-radius:14px;
-      padding:1rem 1rem;
-      font-size:.92rem;
-      font-weight:600;
-      outline:none;
-      box-shadow:var(--shadow-md);
+      color:var(--text);border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:1rem 1rem;
+      font-size:.92rem;font-weight:600;outline:none;box-shadow:var(--shadow-md)
     }
+    .uc-select:focus{border-color:rgba(0,122,255,.35);box-shadow:0 0 0 4px rgba(0,122,255,.12)}
 
-    .uc-select:focus{
-      border-color:rgba(0,122,255,.35);
-      box-shadow:0 0 0 4px rgba(0,122,255,.12);
-    }
-
-    .uc-grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:18px;
-    }
-
+    .uc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
     .uc-card{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:24px;
-      padding:1.35rem;
-      background:linear-gradient(180deg, #10141d 0%, #0d1118 100%);
-      box-shadow:var(--shadow-md);
-      transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+      border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:1.35rem;
+      background:linear-gradient(180deg, #10141d 0%, #0d1118 100%);box-shadow:var(--shadow-md);
+      transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+      scroll-margin-top:110px
     }
-
-    .uc-card:hover{
-      transform:translateY(-3px);
-      border-color:rgba(0,122,255,.22);
-      box-shadow:var(--shadow-lg);
-    }
-
-    .uc-top{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:1rem;
-      margin-bottom:.85rem;
-      flex-wrap:wrap;
-    }
-
+    .uc-card:hover{transform:translateY(-3px);border-color:rgba(0,122,255,.22);box-shadow:var(--shadow-lg)}
+    .uc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.85rem;flex-wrap:wrap}
     .uc-industry{
-      display:inline-flex;
-      align-items:center;
-      gap:.45rem;
-      padding:.38rem .7rem;
-      border-radius:999px;
-      background:rgba(0,122,255,.08);
-      border:1px solid rgba(0,122,255,.18);
-      color:#cfe4ff;
-      font-size:.68rem;
-      font-weight:700;
-      letter-spacing:.11em;
-      text-transform:uppercase;
+      display:inline-flex;align-items:center;gap:.45rem;padding:.38rem .7rem;border-radius:999px;
+      background:rgba(0,122,255,.08);border:1px solid rgba(0,122,255,.18);color:#cfe4ff;
+      font-size:.68rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase
     }
-
     .uc-geo{
-      display:inline-flex;
-      align-items:center;
-      gap:.45rem;
-      padding:.38rem .7rem;
-      border-radius:999px;
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(255,255,255,.08);
-      color:var(--text-dim);
-      font-size:.68rem;
-      font-weight:700;
-      letter-spacing:.11em;
-      text-transform:uppercase;
+      display:inline-flex;align-items:center;gap:.45rem;padding:.38rem .7rem;border-radius:999px;
+      background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);color:var(--text-dim);
+      font-size:.68rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase
     }
-
-    .uc-card h3{
-      font-family:var(--serif);
-      font-size:1.35rem;
-      line-height:1.15;
-      margin-bottom:.65rem;
-      letter-spacing:-.02em;
-    }
-
-    .uc-card p{
-      color:var(--text-soft);
-      font-size:.93rem;
-      line-height:1.75;
-      margin-bottom:.9rem;
-    }
-
-    .uc-sub{
-      font-family:var(--serif);
-      font-size:1rem;
-      margin:.85rem 0 .4rem;
-      color:var(--text);
-    }
-
-    .uc-points{
-      display:flex;
-      flex-direction:column;
-      gap:.48rem;
-      margin-bottom:.85rem;
-    }
-
-    .uc-point{
-      position:relative;
-      padding-left:1rem;
-      color:var(--text-dim);
-      font-size:.85rem;
-      line-height:1.65;
-    }
-
+    .uc-card h3{font-family:var(--serif);font-size:1.35rem;line-height:1.15;margin-bottom:.65rem;letter-spacing:-.02em}
+    .uc-card p{color:var(--text-soft);font-size:.93rem;line-height:1.75;margin-bottom:.9rem}
+    .uc-sub{font-family:var(--serif);font-size:1rem;margin:.85rem 0 .4rem;color:var(--text)}
+    .uc-points{display:flex;flex-direction:column;gap:.48rem;margin-bottom:.85rem}
+    .uc-point{position:relative;padding-left:1rem;color:var(--text-dim);font-size:.85rem;line-height:1.65}
     .uc-point::before{
-      content:"";
-      position:absolute;
-      left:0;
-      top:.72rem;
-      width:5px;
-      height:5px;
-      border-radius:50%;
-      background:var(--brand);
-      opacity:.75;
+      content:"";position:absolute;left:0;top:.72rem;width:5px;height:5px;border-radius:50%;background:var(--brand);opacity:.75
     }
-
     .uc-outcome{
-      margin-top:.8rem;
-      padding:1rem;
-      border-radius:16px;
-      background:rgba(255,255,255,.03);
-      border:1px solid rgba(255,255,255,.07);
+      margin-top:.8rem;padding:1rem;border-radius:16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07)
     }
-
-    .uc-outcome strong{
-      display:block;
-      margin-bottom:.3rem;
-      color:var(--text);
-      font-size:.88rem;
-    }
-
-    .uc-outcome span{
-      display:block;
-      color:var(--text-soft);
-      font-size:.88rem;
-      line-height:1.65;
-    }
-
+    .uc-outcome strong{display:block;margin-bottom:.3rem;color:var(--text);font-size:.88rem}
+    .uc-outcome span{display:block;color:var(--text-soft);font-size:.88rem;line-height:1.65}
     .uc-empty{
-      display:none;
-      border:1px dashed rgba(255,255,255,.12);
-      border-radius:22px;
-      padding:1.4rem;
-      color:var(--text-dim);
-      text-align:center;
-      background:rgba(255,255,255,.02);
+      display:none;border:1px dashed rgba(255,255,255,.12);border-radius:22px;padding:1.4rem;
+      color:var(--text-dim);text-align:center;background:rgba(255,255,255,.02)
     }
 
-    /* CROSS INDUSTRY */
-    .usecase-grid{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0,1fr));
-      gap:18px;
-    }
-
+    /* CROSS-INDUSTRY */
+    .usecase-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
     .usecase-card{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:22px;
-      padding:1.2rem;
-      background:linear-gradient(180deg, #10141d 0%, #0d1118 100%);
-      box-shadow:var(--shadow-md);
+      border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:1.2rem;
+      background:linear-gradient(180deg, #10141d 0%, #0d1118 100%);box-shadow:var(--shadow-md)
     }
-
-    .usecase-card h3{
-      font-size:1.2rem;
-      margin-bottom:.55rem;
-    }
-
-    .usecase-card p{
-      color:var(--text-soft);
-      font-size:.92rem;
-      line-height:1.72;
-      margin-bottom:.8rem;
-    }
+    .usecase-card h3{font-size:1.2rem;margin-bottom:.55rem}
+    .usecase-card p{color:var(--text-soft);font-size:.92rem;line-height:1.72;margin-bottom:.8rem}
 
     /* CTA */
     .cta-card{
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:28px;
-      padding:2rem;
+      border:1px solid rgba(255,255,255,.08);border-radius:28px;padding:2rem;
       background:
         radial-gradient(circle at top right, rgba(0,122,255,.14), transparent 32%),
         linear-gradient(180deg, #10141d 0%, #0D1118 100%);
-      box-shadow:var(--shadow-md);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1.5rem;
-      flex-wrap:wrap;
+      box-shadow:var(--shadow-md);display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap
     }
+    .cta-copy h2{font-size:clamp(1.8rem,3vw,2.7rem);line-height:1.05;margin-bottom:.8rem}
+    .cta-copy p{max-width:700px;color:var(--text-soft);line-height:1.8}
+    .cta-actions{display:flex;gap:.8rem;flex-wrap:wrap}
 
-    .cta-copy h2{
-      font-size:clamp(1.8rem, 3vw, 2.7rem);
-      line-height:1.05;
-      margin-bottom:.8rem;
-    }
-
-    .cta-copy p{
-      max-width:700px;
-      color:var(--text-soft);
-      line-height:1.8;
-    }
-
-    .cta-actions{
-      display:flex;
-      gap:.8rem;
-      flex-wrap:wrap;
-    }
-
-    footer{
-      padding:1.5rem 0 3rem;
-    }
-
+    footer{padding:1.5rem 0 3rem}
     .footer-line{
-      border-top:1px solid rgba(255,255,255,.06);
-      padding-top:1.25rem;
-      display:flex;
-      justify-content:space-between;
-      gap:1rem;
-      flex-wrap:wrap;
-      color:var(--text-dim);
-      font-size:.82rem;
+      border-top:1px solid rgba(255,255,255,.06);padding-top:1.25rem;display:flex;
+      justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--text-dim);font-size:.82rem
     }
 
-    @media (max-width: 1180px){
-      .hero-stats{grid-template-columns:repeat(2, minmax(0,1fr))}
-      .industry-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+    @media (max-width:1180px){
+      .hero-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .industry-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
       .case-shell{grid-template-columns:1fr}
       .case-side{position:static}
-      .usecase-grid{grid-template-columns:repeat(2, minmax(0,1fr))}
+      .usecase-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     }
 
-    @media (max-width: 980px){
+    @media (max-width:980px){
       nav{height:70px}
       .nav-inner{padding:0 1rem}
       .nav-links,.nav-cta{display:none}
@@ -1128,31 +411,20 @@
       .nav-dropdown{display:none !important}
     }
 
-    @media (max-width: 680px){
+    @media (max-width:680px){
       .container{padding:0 1rem}
       .hero{padding:7.2rem 0 4rem}
-      .display{font-size:clamp(2.5rem, 12vw, 4.4rem);line-height:.98}
-      .title{font-size:clamp(1.9rem, 9vw, 2.8rem)}
-      .hero-stats,
-      .industry-grid,
-      .finding-grid,
-      .outcome-grid,
-      .usecase-grid,
-      .case-stats{
-        grid-template-columns:1fr;
-      }
-      .case-main,
-      .case-side,
-      .cta-card{
-        padding:1.3rem;
-      }
+      .display{font-size:clamp(2.5rem,12vw,4.4rem);line-height:.98}
+      .title{font-size:clamp(1.9rem,9vw,2.8rem)}
+      .hero-stats,.industry-grid,.finding-grid,.outcome-grid,.usecase-grid,.case-stats{grid-template-columns:1fr}
+      .case-main,.case-side,.cta-card{padding:1.3rem}
       .quote-block{font-size:1.15rem}
       .cta-actions{flex-direction:column;align-items:stretch}
       .primary-btn,.secondary-btn{width:100%}
       .uc-card{padding:1.15rem}
     }
 
-    @media (max-width: 420px){
+    @media (max-width:420px){
       .nav-wordmark strong{font-size:.8rem}
       .nav-wordmark span{font-size:.62rem}
       .eyebrow{letter-spacing:.18em}
@@ -1176,19 +448,19 @@
         <li><a href="/approach">Approach</a></li>
 
         <li class="nav-item has-dropdown">
-          <a href="/industries" class="active">Industries</a>
+          <a href="#top" class="active">Industries</a>
           <div class="nav-dropdown">
-            <a href="/industries">Industries Overview</a>
-            <a href="/industry-government">Government & Public Sector</a>
-            <a href="/industry-healthcare">Healthcare</a>
-            <a href="/industry-education">Education</a>
-            <a href="/industry-manufacturing">Manufacturing</a>
-            <a href="/industry-logistics">Logistics & Supply Chain</a>
-            <a href="/industry-food">Food & Beverage</a>
-            <a href="/industry-energy">Energy & Utilities</a>
-            <a href="/industry-infrastructure">Infrastructure</a>
-            <a href="/industry-financial-services">Financial Services</a>
-            <a href="/use-cases">Use Cases</a>
+            <a href="#top">Industries Overview</a>
+            <a href="#government">Government & Public Sector</a>
+            <a href="#healthcare">Healthcare</a>
+            <a href="#education">Education</a>
+            <a href="#manufacturing">Manufacturing</a>
+            <a href="#logistics">Logistics & Supply Chain</a>
+            <a href="#food">Food & Beverage</a>
+            <a href="#energy">Energy & Utilities</a>
+            <a href="#infrastructure">Infrastructure</a>
+            <a href="#financial-services">Financial Services</a>
+            <a href="#industry-use-cases">Use Cases</a>
           </div>
         </li>
 
@@ -1209,24 +481,24 @@
     <a href="/">Home</a>
     <a href="/about">About</a>
     <a href="/approach">Approach</a>
-    <a href="/industries">Industries Overview</a>
-    <a href="/industry-government">Government & Public Sector</a>
-    <a href="/industry-healthcare">Healthcare</a>
-    <a href="/industry-education">Education</a>
-    <a href="/industry-manufacturing">Manufacturing</a>
-    <a href="/industry-logistics">Logistics & Supply Chain</a>
-    <a href="/industry-food">Food & Beverage</a>
-    <a href="/industry-energy">Energy & Utilities</a>
-    <a href="/industry-infrastructure">Infrastructure</a>
-    <a href="/industry-financial-services">Financial Services</a>
-    <a href="/use-cases">Use Cases</a>
+    <a href="#top">Industries Overview</a>
+    <a href="#government">Government & Public Sector</a>
+    <a href="#healthcare">Healthcare</a>
+    <a href="#education">Education</a>
+    <a href="#manufacturing">Manufacturing</a>
+    <a href="#logistics">Logistics & Supply Chain</a>
+    <a href="#food">Food & Beverage</a>
+    <a href="#energy">Energy & Utilities</a>
+    <a href="#infrastructure">Infrastructure</a>
+    <a href="#financial-services">Financial Services</a>
+    <a href="#industry-use-cases">Use Cases</a>
     <a href="/insights">Insights</a>
     <a href="/leadership">Leadership</a>
     <a href="/contact">Contact</a>
     <a href="/contact">Schedule Consultation</a>
   </div>
 
-  <header class="hero">
+  <header class="hero" id="top">
     <div class="hero-grid"></div>
     <div class="hero-edge"></div>
 
@@ -1234,32 +506,31 @@
       <div class="eyebrow">Industries</div>
       <h1 class="display">Deep sector knowledge. <em>Ecosystem-level thinking.</em></h1>
       <p class="lead">
-        EIG brings proven expertise across public and private sectors — combining deep industry knowledge with
-        ecosystem intelligence, AI readiness, value creation and transformation capability to deliver outcomes
-        function-specific advisors cannot replicate.
+        EIG brings sector intelligence, transformation thinking and AI readiness into one integrated model —
+        helping leaders connect data, decisions, value creation and execution across complex public and private ecosystems.
       </p>
 
       <div class="hero-actions">
-        <a href="#featured-case" class="primary-btn">View Featured Case</a>
+        <a href="#featured-case" class="primary-btn">View Public Sector Use Case</a>
         <a href="#industry-coverage" class="secondary-btn">Explore Industry Coverage</a>
       </div>
 
       <div class="hero-stats">
         <div class="stat-card">
-          <div class="stat-value">8</div>
-          <div class="stat-label">Core industries covered across public and private sector ecosystems</div>
+          <div class="stat-value">9</div>
+          <div class="stat-label">Industries covered across public and private sector ecosystems</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value">40,000+</div>
-          <div class="stat-label">Businesses in scope in the featured regional economy case</div>
+          <div class="stat-value">UAE-first</div>
+          <div class="stat-label">Sector positioning grounded in regional priorities with global transferability</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value">6+</div>
-          <div class="stat-label">Sectors connected in the featured public sector ecosystem challenge</div>
+          <div class="stat-value">Cross-sector</div>
+          <div class="stat-label">Visibility across policy, operations, supply, workforce, investment and performance</div>
         </div>
         <div class="stat-card">
-          <div class="stat-value">1</div>
-          <div class="stat-label">Connected intelligence view replacing fragmented reporting</div>
+          <div class="stat-value">One view</div>
+          <div class="stat-label">Connected intelligence replacing fragmented reporting and isolated dashboards</div>
         </div>
       </div>
     </div>
@@ -1275,13 +546,13 @@
             <p class="section-copy">
               EIG applies the same integrated methodology across different sectors — but always with the
               realities of each industry in mind: regulatory pressure, operating complexity, fragmented data,
-              workforce dynamics, investment priorities and cross-ecosystem dependencies.
+              workforce dynamics, investment priorities and ecosystem dependencies.
             </p>
           </div>
         </div>
 
         <div class="industry-grid">
-          <article class="industry-card">
+          <article class="industry-card" id="government">
             <div class="industry-visual">
               <svg viewBox="0 0 300 180" fill="none">
                 <rect x="76" y="72" width="44" height="64" rx="6" stroke="#4EA3FF" stroke-width="2"/>
@@ -1294,7 +565,7 @@
               <h3>Government & Public Sector</h3>
               <p>
                 Connecting policy, investment, workforce, infrastructure and programme performance into a
-                single ecosystem view for faster and more evidence-based decisions.
+                single ecosystem view for faster, more evidence-based decisions.
               </p>
               <div class="bullet-list">
                 <div class="bullet">Economic ecosystem intelligence</div>
@@ -1309,7 +580,7 @@
             </div>
           </article>
 
-          <article class="industry-card">
+          <article class="industry-card" id="healthcare">
             <div class="industry-visual">
               <svg viewBox="0 0 300 180" fill="none">
                 <path d="M150 48C180 68 196 92 196 112C196 136 174 150 150 150C126 150 104 136 104 112C104 92 120 68 150 48Z" stroke="#4EA3FF" stroke-width="2"/>
@@ -1335,7 +606,7 @@
             </div>
           </article>
 
-          <article class="industry-card">
+          <article class="industry-card" id="education">
             <div class="industry-visual">
               <svg viewBox="0 0 300 180" fill="none">
                 <rect x="84" y="62" width="132" height="78" rx="8" stroke="#4EA3FF" stroke-width="2"/>
@@ -1362,7 +633,7 @@
             </div>
           </article>
 
-          <article class="industry-card">
+          <article class="industry-card" id="manufacturing">
             <div class="industry-visual">
               <svg viewBox="0 0 300 180" fill="none">
                 <rect x="68" y="90" width="42" height="38" rx="4" stroke="#4EA3FF" stroke-width="2"/>
@@ -1390,7 +661,7 @@
             </div>
           </article>
 
-          <article class="industry-card">
+          <article class="industry-card" id="logistics">
             <div class="industry-visual">
               <svg viewBox="0 0 300 180" fill="none">
                 <rect x="60" y="88" width="54" height="34" rx="8" stroke="#4EA3FF" stroke-width="2"/>
@@ -1418,7 +689,7 @@
             </div>
           </article>
 
-          <article class="industry-card">
+          <article class="industry-card" id="food">
             <div class="industry-visual">
               <svg viewBox="0 0 300 180" fill="none">
                 <path d="M92 118C92 92 112 72 138 72C152 72 166 78 176 88C184 82 194 78 206 78C230 78 248 96 248 120C248 142 230 158 206 158H138C112 158 92 142 92 118Z" stroke="#4EA3FF" stroke-width="2"/>
@@ -1444,7 +715,7 @@
             </div>
           </article>
 
-          <article class="industry-card">
+          <article class="industry-card" id="energy">
             <div class="industry-visual">
               <svg viewBox="0 0 300 180" fill="none">
                 <path d="M150 40L104 124H144L132 154L196 88H156L168 40H150Z" stroke="#4EA3FF" stroke-width="2"/>
@@ -1469,7 +740,35 @@
             </div>
           </article>
 
-          <article class="industry-card">
+          <article class="industry-card" id="infrastructure">
+            <div class="industry-visual">
+              <svg viewBox="0 0 300 180" fill="none">
+                <path d="M78 130L114 72L150 130L186 58L222 130" stroke="#4EA3FF" stroke-width="2"/>
+                <path d="M60 130H240" stroke="#4EA3FF" stroke-width="2"/>
+                <circle cx="114" cy="72" r="5" stroke="#4EA3FF" stroke-width="2"/>
+                <circle cx="186" cy="58" r="5" stroke="#4EA3FF" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="industry-body">
+              <h3>Infrastructure</h3>
+              <p>
+                Linking capital projects, assets, service demand, resilience and long-term investment planning
+                into a clearer infrastructure decision model.
+              </p>
+              <div class="bullet-list">
+                <div class="bullet">Capital project and portfolio visibility</div>
+                <div class="bullet">Asset performance and service-demand intelligence</div>
+                <div class="bullet">Resilience and investment prioritisation</div>
+              </div>
+              <div class="tag-row">
+                <span class="tag">Infrastructure</span>
+                <span class="tag">Capital Projects</span>
+                <span class="tag">Resilience</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="industry-card" id="financial-services">
             <div class="industry-visual">
               <svg viewBox="0 0 300 180" fill="none">
                 <rect x="86" y="56" width="128" height="84" rx="10" stroke="#4EA3FF" stroke-width="2"/>
@@ -1503,11 +802,11 @@
       <div class="container">
         <div class="section-head">
           <div class="section-head-main">
-            <div class="eyebrow">Featured Use Case</div>
+            <div class="eyebrow">Illustrative Public Sector Use Case</div>
             <h2 class="title">Creating ecosystem intelligence across a <em>regional economy</em></h2>
             <p class="section-copy">
-              A flagship public sector example showing how fragmented data, cross-agency reporting and delayed
-              decision-making can be transformed into a connected intelligence capability.
+              A representative public sector example showing how fragmented data, cross-agency reporting and
+              delayed decision-making can be transformed into a connected intelligence capability.
             </p>
           </div>
         </div>
@@ -1517,21 +816,17 @@
             <div class="case-label">Government & Public Sector</div>
             <h2>Creating Ecosystem Intelligence Across a Regional Economy</h2>
             <p>
-              A regional economic authority was responsible for supporting more than 40,000 businesses across
-              multiple sectors including manufacturing, logistics, technology, healthcare, education and
-              professional services.
+              A regional authority supported businesses across multiple sectors including manufacturing,
+              logistics, technology, healthcare, education and professional services.
             </p>
             <p>
-              While significant volumes of data existed across licensing, investment, workforce development,
-              infrastructure and economic development programmes, the information remained fragmented across
-              departments, agencies and reporting systems.
+              Data existed across licensing, investment, workforce development, infrastructure and economic
+              development programmes, but the information remained fragmented across departments, agencies and reporting systems.
             </p>
             <p>
-              Leadership lacked a single view of ecosystem performance. Critical questions could not be
-              answered quickly: which sectors were creating the most economic value, where businesses were
-              facing growth barriers, which initiatives were generating measurable outcomes, where investment
-              opportunities were emerging, and which risks required intervention before impacting economic
-              performance.
+              Leadership lacked a single ecosystem view. Critical questions could not be answered fast enough:
+              which sectors were creating the most value, where growth barriers were emerging, which initiatives
+              were producing measurable outcomes, where investment opportunities existed and which risks required earlier intervention.
             </p>
 
             <div class="quote-block">
@@ -1544,16 +839,16 @@
                 <p>
                   Reporting was largely retrospective, making it difficult to identify trends, opportunities
                   and risks in real time. Leadership needed a way to connect fragmented information into a
-                  single decision-support environment that reflected the true dynamics of the wider economy.
+                  single decision-support environment reflecting the wider economy.
                 </p>
               </div>
 
               <div class="content-block">
                 <h3>EIG Assessment</h3>
                 <p>
-                  EIG conducted a comprehensive Ecosystem Intelligence Assessment to understand how
-                  information, investment, businesses, infrastructure, workforce capability and policy
-                  interacted across the wider economic ecosystem.
+                  EIG would conduct a comprehensive Ecosystem Intelligence Assessment to understand how
+                  information, investment, businesses, infrastructure, workforce capability and policy interact
+                  across the wider economic system.
                 </p>
                 <ul>
                   <li>Ecosystem mapping</li>
@@ -1572,23 +867,23 @@
                 <div class="finding-grid">
                   <div class="mini-card">
                     <h4>Fragmented Intelligence</h4>
-                    <p>Information was spread across multiple departments, creating inconsistent reporting and limiting leadership visibility.</p>
+                    <p>Information sits across multiple departments, creating inconsistent reporting and limiting leadership visibility.</p>
                   </div>
                   <div class="mini-card">
                     <h4>Delayed Decision-Making</h4>
-                    <p>Reporting cycles focused on historical performance rather than emerging opportunities and risks.</p>
+                    <p>Reporting cycles focus on historical performance rather than emerging opportunities and risks.</p>
                   </div>
                   <div class="mini-card">
                     <h4>Limited Ecosystem Visibility</h4>
-                    <p>There was no single view connecting investment, business performance, workforce capability and infrastructure development.</p>
+                    <p>There is no single view connecting investment, business performance, workforce capability and infrastructure development.</p>
                   </div>
                   <div class="mini-card">
                     <h4>Hidden Value Leakages</h4>
-                    <p>Growth, efficiency and optimisation opportunities were difficult to identify due to disconnected data sources.</p>
+                    <p>Growth, efficiency and optimisation opportunities remain hard to identify because data is disconnected.</p>
                   </div>
                   <div class="mini-card">
                     <h4>AI Readiness Gaps</h4>
-                    <p>Opportunities existed to leverage advanced analytics, automation and agentic AI, but foundational intelligence architecture was required first.</p>
+                    <p>Advanced analytics and automation opportunities exist, but foundational intelligence architecture is required first.</p>
                   </div>
                 </div>
               </div>
@@ -1596,7 +891,7 @@
               <div class="content-block">
                 <h3>EIG Solution</h3>
                 <p>
-                  EIG designed an Ecosystem Intelligence Framework that connected multiple sources of
+                  EIG would design an Ecosystem Intelligence Framework that connects multiple sources of
                   information into a single decision-support environment.
                 </p>
                 <ul>
@@ -1616,23 +911,23 @@
                 <div class="outcome-grid">
                   <div class="mini-card">
                     <h4>Real-Time Visibility</h4>
-                    <p>Leadership gained access to live ecosystem intelligence dashboards across key sectors, programmes and performance indicators.</p>
+                    <p>Leadership gains access to live ecosystem intelligence dashboards across sectors, programmes and performance indicators.</p>
                   </div>
                   <div class="mini-card">
                     <h4>Faster Strategic Decisions</h4>
-                    <p>Decision-making cycles were reduced through automated reporting and intelligence-driven insight.</p>
+                    <p>Decision cycles are reduced through automated reporting and intelligence-driven insight.</p>
                   </div>
                   <div class="mini-card">
                     <h4>Improved Investment Prioritisation</h4>
-                    <p>Investment decisions became more evidence-based through better visibility of impact and value creation opportunities.</p>
+                    <p>Investment decisions become more evidence-based through better visibility of impact and value creation opportunities.</p>
                   </div>
                   <div class="mini-card">
                     <h4>Enhanced Performance Monitoring</h4>
-                    <p>Leadership could track performance, identify emerging risks and respond proactively to changing conditions.</p>
+                    <p>Leadership can track performance, identify emerging risks and respond more proactively.</p>
                   </div>
                   <div class="mini-card">
                     <h4>Foundation for Agentic AI</h4>
-                    <p>The intelligence architecture established the foundations for future AI-enabled decision support and ecosystem management.</p>
+                    <p>The intelligence architecture creates the basis for future AI-enabled decision support and ecosystem management.</p>
                   </div>
                 </div>
               </div>
@@ -1640,10 +935,9 @@
               <div class="content-block">
                 <h3>Strategic Impact</h3>
                 <p>
-                  The organisation moved beyond traditional reporting and developed the capability to actively
-                  manage its economic ecosystem through connected intelligence. Rather than viewing sectors,
-                  programmes and stakeholders individually, leadership gained visibility into the relationships,
-                  dependencies and value flows that drive long-term economic performance.
+                  The organisation moves beyond traditional siloed reporting and develops the capability to
+                  manage its economic ecosystem through connected intelligence — gaining visibility into the
+                  relationships, dependencies and value flows that shape long-term performance.
                 </p>
               </div>
 
@@ -1659,35 +953,35 @@
           </div>
 
           <aside class="case-side">
-            <h3 class="side-title">Case Snapshot</h3>
+            <h3 class="side-title">Illustrative Snapshot</h3>
             <p class="side-copy">
-              This use case shows how EIG applies ecosystem intelligence in the public sector — connecting
+              This example shows how EIG can apply ecosystem intelligence in the public sector — connecting
               business, investment, workforce, infrastructure and policy into one measurable decision model.
             </p>
 
             <div class="case-stats">
               <div class="case-stat">
-                <strong>40,000+</strong>
-                <span>Businesses supported across the regional economy</span>
+                <strong>Multi-sector</strong>
+                <span>Connected visibility across economy, programmes, investment and performance</span>
               </div>
               <div class="case-stat">
-                <strong>6+</strong>
-                <span>Sectors explicitly in scope across the ecosystem</span>
+                <strong>One view</strong>
+                <span>Unified leadership reporting replacing fragmented dashboards</span>
               </div>
               <div class="case-stat">
-                <strong>1</strong>
-                <span>Unified leadership view replacing fragmented reporting</span>
+                <strong>Real-time</strong>
+                <span>Ecosystem monitoring introduced for earlier intervention</span>
               </div>
               <div class="case-stat">
-                <strong>Real-Time</strong>
-                <span>Ecosystem monitoring introduced for faster intervention</span>
+                <strong>AI-ready</strong>
+                <span>Foundation created for future automation and intelligent decision support</span>
               </div>
             </div>
 
             <div class="side-stack">
               <div class="side-item">
                 <strong>Core challenge</strong>
-                <span>Data existed, but intelligence was fragmented across departments, agencies and reporting systems.</span>
+                <span>Data exists, but intelligence is fragmented across departments, agencies and reporting systems.</span>
               </div>
               <div class="side-item">
                 <strong>Primary intervention</strong>
@@ -1698,7 +992,7 @@
                 <span>Faster strategic decisions, better investment prioritisation and stronger visibility of risks and opportunities.</span>
               </div>
               <div class="side-item">
-                <strong>Strategic future state</strong>
+                <strong>Future state</strong>
                 <span>Foundations established for advanced analytics, automation and agentic AI-enabled decision support.</span>
               </div>
             </div>
@@ -1733,18 +1027,42 @@
           <div class="uc-filter-control">
             <select class="uc-select" id="industryUseCaseFilter">
               <option value="all">All industries</option>
+              <option value="government">Government & Public Sector</option>
               <option value="healthcare">Healthcare</option>
               <option value="education">Education</option>
               <option value="manufacturing">Manufacturing</option>
               <option value="logistics">Logistics & Supply Chain</option>
               <option value="food">Food & Beverage / Food Security</option>
               <option value="energy">Energy & Utilities</option>
+              <option value="infrastructure">Infrastructure</option>
               <option value="finance">Financial Services</option>
             </select>
           </div>
         </div>
 
         <div class="uc-grid" id="industryUseCaseGrid">
+          <article class="uc-card" data-industry="government">
+            <div class="uc-top">
+              <span class="uc-industry">Government & Public Sector</span>
+              <span class="uc-geo">UAE / Regional Authority</span>
+            </div>
+            <h3>Connecting economic policy, programme performance and investment visibility</h3>
+            <p>
+              A government entity needs a clearer view across business support, investment attraction,
+              infrastructure delivery, workforce capability and economic outcomes.
+            </p>
+            <div class="uc-sub">How EIG would help</div>
+            <div class="uc-points">
+              <div class="uc-point">Create executive dashboards across sectors, programmes and public-value measures</div>
+              <div class="uc-point">Connect policy, funding, economic performance and stakeholder data</div>
+              <div class="uc-point">Build a governance and AI-readiness roadmap for leadership decision support</div>
+            </div>
+            <div class="uc-outcome">
+              <strong>Likely outcome</strong>
+              <span>Faster strategic decision-making, better programme prioritisation and stronger ecosystem visibility across the public sector.</span>
+            </div>
+          </article>
+
           <article class="uc-card" data-industry="healthcare">
             <div class="uc-top">
               <span class="uc-industry">Healthcare</span>
@@ -1752,18 +1070,18 @@
             </div>
             <h3>Connecting patient flow, capacity and workforce visibility across a healthcare network</h3>
             <p>
-              A health authority or provider group needed a clearer view of capacity gaps, patient demand,
+              A health authority or provider group needs a clearer view of capacity gaps, patient demand,
               service performance, workforce pressure and referral bottlenecks across multiple facilities.
             </p>
             <div class="uc-sub">How EIG would help</div>
             <div class="uc-points">
               <div class="uc-point">Build an ecosystem view across hospitals, clinics, specialties and support services</div>
-              <div class="uc-point">Create executive dashboards for patient flow, occupancy, waiting time and workforce pressure</div>
+              <div class="uc-point">Create dashboards for patient flow, occupancy, waiting time and workforce pressure</div>
               <div class="uc-point">Identify value leakage in scheduling, referrals, utilisation and reporting cycles</div>
             </div>
             <div class="uc-outcome">
               <strong>Likely outcome</strong>
-              <span>Faster operational decisions, clearer visibility of service bottlenecks, stronger patient experience and better value-for-money across the care network.</span>
+              <span>Faster operational decisions, clearer service visibility and stronger value-for-money across the care network.</span>
             </div>
           </article>
 
@@ -1774,18 +1092,18 @@
             </div>
             <h3>Aligning higher education, employability and future skills through connected intelligence</h3>
             <p>
-              A higher education group or public education authority wanted better visibility into enrolment,
+              A higher education group or public education authority wants better visibility into enrolment,
               learner outcomes, faculty capacity, industry alignment and graduate employability.
             </p>
             <div class="uc-sub">How EIG would help</div>
             <div class="uc-points">
-              <div class="uc-point">Connect academic, operational and labour-market data into one strategic reporting layer</div>
+              <div class="uc-point">Connect academic, operational and labour-market data into one reporting layer</div>
               <div class="uc-point">Map programme performance against future skills demand and employer needs</div>
-              <div class="uc-point">Create an AI and digital transformation roadmap for learner services and institutional decision-making</div>
+              <div class="uc-point">Create an AI and digital transformation roadmap for institutional decision-making</div>
             </div>
             <div class="uc-outcome">
               <strong>Likely outcome</strong>
-              <span>Stronger programme prioritisation, better workforce alignment, improved performance visibility and a clearer case for digital transformation.</span>
+              <span>Stronger programme prioritisation, better workforce alignment and improved performance visibility.</span>
             </div>
           </article>
 
@@ -1796,18 +1114,18 @@
             </div>
             <h3>Improving industrial performance across a manufacturing ecosystem</h3>
             <p>
-              An advanced manufacturing platform or industrial group needed to connect production performance,
-              supply resilience, energy use, workforce capability and investment decisions across multiple sites.
+              An advanced manufacturing platform or industrial group needs to connect production performance,
+              supply resilience, energy use, workforce capability and investment decisions across sites.
             </p>
             <div class="uc-sub">How EIG would help</div>
             <div class="uc-points">
-              <div class="uc-point">Build a unified intelligence layer across plant operations, suppliers and industrial support functions</div>
+              <div class="uc-point">Build a unified intelligence layer across plant operations, suppliers and support functions</div>
               <div class="uc-point">Identify value leakage across downtime, planning, inventory, procurement and reporting</div>
-              <div class="uc-point">Prioritise AI, automation and advanced technology use cases linked to measurable productivity gains</div>
+              <div class="uc-point">Prioritise AI and automation use cases linked to measurable productivity gains</div>
             </div>
             <div class="uc-outcome">
               <strong>Likely outcome</strong>
-              <span>Better production visibility, stronger resilience, clearer capital prioritisation and improved competitiveness in line with industrial growth agendas.</span>
+              <span>Better production visibility, stronger resilience and clearer capital prioritisation.</span>
             </div>
           </article>
 
@@ -1818,106 +1136,4 @@
             </div>
             <h3>Creating real-time supply chain visibility across ports, warehousing and inland distribution</h3>
             <p>
-              A logistics operator or trade ecosystem leader needed a single view of cargo flow, capacity,
-              service levels, disruption risk, supplier performance and infrastructure constraints.
-            </p>
-            <div class="uc-sub">How EIG would help</div>
-            <div class="uc-points">
-              <div class="uc-point">Connect port, transport, warehousing and customer data into one operational intelligence model</div>
-              <div class="uc-point">Introduce disruption indicators and early-warning signals across the network</div>
-              <div class="uc-point">Support leadership with decision dashboards for flow, utilisation and service risk</div>
-            </div>
-            <div class="uc-outcome">
-              <strong>Likely outcome</strong>
-              <span>Faster response to disruption, stronger customer performance, better network coordination and improved end-to-end trade visibility.</span>
-            </div>
-          </article>
-
-          <article class="uc-card" data-industry="food">
-            <div class="uc-top">
-              <span class="uc-industry">Food & Beverage / Food Security</span>
-              <span class="uc-geo">UAE</span>
-            </div>
-            <h3>Strengthening food resilience through better visibility across sourcing, storage and local production</h3>
-            <p>
-              A food platform, agribusiness group or public-sector food-security programme needed to connect
-              supply risk, inventory, local production capability, water use, storage and market demand.
-            </p>
-            <div class="uc-sub">How EIG would help</div>
-            <div class="uc-points">
-              <div class="uc-point">Design ecosystem dashboards across imports, local production, storage and distribution</div>
-              <div class="uc-point">Identify where operational losses, waste and margin erosion occur</div>
-              <div class="uc-point">Create an intelligence layer for investment prioritisation in resilient food infrastructure</div>
-            </div>
-            <div class="uc-outcome">
-              <strong>Likely outcome</strong>
-              <span>Better resilience, lower value leakage, more evidence-based investment decisions and stronger long-term food system planning.</span>
-            </div>
-          </article>
-
-          <article class="uc-card" data-industry="energy">
-            <div class="uc-top">
-              <span class="uc-industry">Energy & Utilities</span>
-              <span class="uc-geo">UAE + Global Transferability</span>
-            </div>
-            <h3>Connecting clean energy transition, asset performance and infrastructure decisions</h3>
-            <p>
-              A utility, infrastructure platform or energy developer needed a clearer view of asset performance,
-              project pipeline, demand growth, emissions, resilience risk and investment trade-offs.
-            </p>
-            <div class="uc-sub">How EIG would help</div>
-            <div class="uc-points">
-              <div class="uc-point">Integrate operational, financial, sustainability and infrastructure data into one executive layer</div>
-              <div class="uc-point">Support decision-making across clean energy investments, asset utilisation and system resilience</div>
-              <div class="uc-point">Build a roadmap linking sustainability economics to measurable operational value</div>
-            </div>
-            <div class="uc-outcome">
-              <strong>Likely outcome</strong>
-              <span>Stronger visibility of transition priorities, better capital allocation, improved resilience and clearer measurement of clean-energy progress.</span>
-            </div>
-          </article>
-
-          <article class="uc-card" data-industry="finance">
-            <div class="uc-top">
-              <span class="uc-industry">Financial Services</span>
-              <span class="uc-geo">UAE / DIFC / Regional Hub</span>
-            </div>
-            <h3>Building an intelligence layer across growth, risk, innovation and client performance</h3>
-            <p>
-              A financial institution, innovation platform or regulated financial ecosystem needed better
-              visibility across product performance, customer segments, operational risk, compliance and innovation activity.
-            </p>
-            <div class="uc-sub">How EIG would help</div>
-            <div class="uc-points">
-              <div class="uc-point">Create connected reporting across revenue, risk, customer, product and operating-model data</div>
-              <div class="uc-point">Support innovation and AI-readiness decisions with stronger governance and measurable use-case prioritisation</div>
-              <div class="uc-point">Identify where faster decisions can improve growth, compliance efficiency and client value</div>
-            </div>
-            <div class="uc-outcome">
-              <strong>Likely outcome</strong>
-              <span>Better strategic visibility, improved risk and growth decision-making, and a clearer pathway for digital and AI-enabled transformation.</span>
-            </div>
-          </article>
-        </div>
-
-        <div class="uc-empty" id="industryUseCaseEmpty">
-          No use cases match this filter yet.
-        </div>
-      </div>
-    </section>
-
-    <section class="section alt" id="cross-industry-use-cases">
-      <div class="container">
-        <div class="section-head">
-          <div class="section-head-main">
-            <div class="eyebrow">Cross-Industry Use Cases</div>
-            <h2 class="title">How EIG creates value <em>across sectors</em></h2>
-            <p class="section-copy">
-              The same core disciplines can be applied differently depending on the environment — but the
-              outcome is consistent: better visibility, better decisions and better value creation.
-            </p>
-          </div>
-        </div>
-
-        <div class="usecase-grid">
-          <article
+              A logistics operator or trade ecosystem leader needs a single
