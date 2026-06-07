@@ -25,12 +25,10 @@
       --bg-2:#0F1118;
       --panel:#11141d;
       --panel-2:#0d1018;
-      --panel-hover:#151a26;
 
       --text:#F7F8FA;
       --text-soft:#B8BEC8;
       --text-dim:#7E8795;
-      --white:#FFFFFF;
 
       --border:rgba(255,255,255,.08);
       --border-strong:rgba(255,255,255,.14);
@@ -152,8 +150,6 @@
       max-width:760px;
     }
 
-    .kicker-btn,
-    .ghost-btn,
     .primary-btn,
     .secondary-btn{
       display:inline-flex;
@@ -179,9 +175,7 @@
       box-shadow:0 12px 26px rgba(0,122,255,.28);
     }
 
-    .secondary-btn,
-    .ghost-btn,
-    .kicker-btn{
+    .secondary-btn{
       padding:.88rem 1.15rem;
       border:1px solid rgba(255,255,255,.10);
       background:rgba(255,255,255,.03);
@@ -189,9 +183,7 @@
       font-size:.86rem;
     }
 
-    .secondary-btn:hover,
-    .ghost-btn:hover,
-    .kicker-btn:hover{
+    .secondary-btn:hover{
       border-color:rgba(0,122,255,.28);
       background:rgba(0,122,255,.06);
     }
@@ -700,8 +692,7 @@
     }
 
     .finding-grid,
-    .outcome-grid,
-    .usecase-grid{
+    .outcome-grid{
       display:grid;
       grid-template-columns:repeat(2, minmax(0,1fr));
       gap:14px;
@@ -796,8 +787,195 @@
       display:block;
     }
 
-    /* USE CASES */
+    /* USE CASE FILTER */
+    .uc-filter-bar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      flex-wrap:wrap;
+      margin-bottom:1.5rem;
+    }
+
+    .uc-filter-copy{
+      max-width:720px;
+    }
+
+    .uc-filter-copy p{
+      color:var(--text-soft);
+      line-height:1.8;
+      font-size:.98rem;
+    }
+
+    .uc-filter-control{
+      min-width:260px;
+    }
+
+    .uc-select{
+      width:100%;
+      appearance:none;
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      color:var(--text);
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:14px;
+      padding:1rem 1rem;
+      font-size:.92rem;
+      font-weight:600;
+      outline:none;
+      box-shadow:var(--shadow-md);
+    }
+
+    .uc-select:focus{
+      border-color:rgba(0,122,255,.35);
+      box-shadow:0 0 0 4px rgba(0,122,255,.12);
+    }
+
+    .uc-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:18px;
+    }
+
+    .uc-card{
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:24px;
+      padding:1.35rem;
+      background:linear-gradient(180deg, #10141d 0%, #0d1118 100%);
+      box-shadow:var(--shadow-md);
+      transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+    }
+
+    .uc-card:hover{
+      transform:translateY(-3px);
+      border-color:rgba(0,122,255,.22);
+      box-shadow:var(--shadow-lg);
+    }
+
+    .uc-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:1rem;
+      margin-bottom:.85rem;
+      flex-wrap:wrap;
+    }
+
+    .uc-industry{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.38rem .7rem;
+      border-radius:999px;
+      background:rgba(0,122,255,.08);
+      border:1px solid rgba(0,122,255,.18);
+      color:#cfe4ff;
+      font-size:.68rem;
+      font-weight:700;
+      letter-spacing:.11em;
+      text-transform:uppercase;
+    }
+
+    .uc-geo{
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.38rem .7rem;
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.08);
+      color:var(--text-dim);
+      font-size:.68rem;
+      font-weight:700;
+      letter-spacing:.11em;
+      text-transform:uppercase;
+    }
+
+    .uc-card h3{
+      font-family:var(--serif);
+      font-size:1.35rem;
+      line-height:1.15;
+      margin-bottom:.65rem;
+      letter-spacing:-.02em;
+    }
+
+    .uc-card p{
+      color:var(--text-soft);
+      font-size:.93rem;
+      line-height:1.75;
+      margin-bottom:.9rem;
+    }
+
+    .uc-sub{
+      font-family:var(--serif);
+      font-size:1rem;
+      margin:.85rem 0 .4rem;
+      color:var(--text);
+    }
+
+    .uc-points{
+      display:flex;
+      flex-direction:column;
+      gap:.48rem;
+      margin-bottom:.85rem;
+    }
+
+    .uc-point{
+      position:relative;
+      padding-left:1rem;
+      color:var(--text-dim);
+      font-size:.85rem;
+      line-height:1.65;
+    }
+
+    .uc-point::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:.72rem;
+      width:5px;
+      height:5px;
+      border-radius:50%;
+      background:var(--brand);
+      opacity:.75;
+    }
+
+    .uc-outcome{
+      margin-top:.8rem;
+      padding:1rem;
+      border-radius:16px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.07);
+    }
+
+    .uc-outcome strong{
+      display:block;
+      margin-bottom:.3rem;
+      color:var(--text);
+      font-size:.88rem;
+    }
+
+    .uc-outcome span{
+      display:block;
+      color:var(--text-soft);
+      font-size:.88rem;
+      line-height:1.65;
+    }
+
+    .uc-empty{
+      display:none;
+      border:1px dashed rgba(255,255,255,.12);
+      border-radius:22px;
+      padding:1.4rem;
+      color:var(--text-dim);
+      text-align:center;
+      background:rgba(255,255,255,.02);
+    }
+
+    /* CROSS INDUSTRY */
     .usecase-grid{
+      display:grid;
       grid-template-columns:repeat(3, minmax(0,1fr));
       gap:18px;
     }
@@ -888,6 +1066,7 @@
       .hero{padding:7.75rem 0 4.8rem}
       .section{padding:4.8rem 0}
       .section-head{margin-bottom:2rem}
+      .uc-grid{grid-template-columns:1fr}
     }
 
     @media (max-width: 680px){
@@ -911,6 +1090,7 @@
       .quote-block{font-size:1.15rem}
       .cta-actions{flex-direction:column;align-items:stretch}
       .primary-btn,.secondary-btn{width:100%}
+      .uc-card{padding:1.15rem}
     }
 
     @media (max-width: 420px){
@@ -1435,14 +1615,208 @@
 
             <div class="hero-actions" style="margin-top:1.2rem">
               <a href="/contact" class="primary-btn">Discuss a Similar Challenge</a>
-              <a href="#cross-industry-use-cases" class="secondary-btn">See More Use Cases</a>
+              <a href="#industry-use-cases" class="secondary-btn">See More Use Cases</a>
             </div>
           </aside>
         </div>
       </div>
     </section>
 
-    <section class="section" id="cross-industry-use-cases">
+    <section class="section" id="industry-use-cases">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-head-main">
+            <div class="eyebrow">Illustrative Use Cases</div>
+            <h2 class="title">Sector-specific examples with a <em>UAE-first lens</em></h2>
+          </div>
+        </div>
+
+        <div class="uc-filter-bar">
+          <div class="uc-filter-copy">
+            <p>
+              These are representative use cases designed to show how Ecosystem Intelligence Group could create
+              measurable value across different industries. Most are framed around UAE priorities, with some
+              transferable globally.
+            </p>
+          </div>
+
+          <div class="uc-filter-control">
+            <select class="uc-select" id="industryUseCaseFilter">
+              <option value="all">All industries</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="education">Education</option>
+              <option value="manufacturing">Manufacturing</option>
+              <option value="logistics">Logistics & Supply Chain</option>
+              <option value="food">Food & Beverage / Food Security</option>
+              <option value="energy">Energy & Utilities</option>
+              <option value="finance">Financial Services</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="uc-grid" id="industryUseCaseGrid">
+          <article class="uc-card" data-industry="healthcare">
+            <div class="uc-top">
+              <span class="uc-industry">Healthcare</span>
+              <span class="uc-geo">UAE / Abu Dhabi</span>
+            </div>
+            <h3>Connecting patient flow, capacity and workforce visibility across a healthcare network</h3>
+            <p>
+              A health authority or provider group needed a clearer view of capacity gaps, patient demand,
+              service performance, workforce pressure and referral bottlenecks across multiple facilities.
+            </p>
+            <div class="uc-sub">How EIG would help</div>
+            <div class="uc-points">
+              <div class="uc-point">Build an ecosystem view across hospitals, clinics, specialties and support services</div>
+              <div class="uc-point">Create executive dashboards for patient flow, occupancy, waiting time and workforce pressure</div>
+              <div class="uc-point">Identify value leakage in scheduling, referrals, utilisation and reporting cycles</div>
+            </div>
+            <div class="uc-outcome">
+              <strong>Likely outcome</strong>
+              <span>Faster operational decisions, clearer visibility of service bottlenecks, stronger patient experience and better value-for-money across the care network.</span>
+            </div>
+          </article>
+
+          <article class="uc-card" data-industry="education">
+            <div class="uc-top">
+              <span class="uc-industry">Education</span>
+              <span class="uc-geo">UAE</span>
+            </div>
+            <h3>Aligning higher education, employability and future skills through connected intelligence</h3>
+            <p>
+              A higher education group or public education authority wanted better visibility into enrolment,
+              learner outcomes, faculty capacity, industry alignment and graduate employability.
+            </p>
+            <div class="uc-sub">How EIG would help</div>
+            <div class="uc-points">
+              <div class="uc-point">Connect academic, operational and labour-market data into one strategic reporting layer</div>
+              <div class="uc-point">Map programme performance against future skills demand and employer needs</div>
+              <div class="uc-point">Create an AI and digital transformation roadmap for learner services and institutional decision-making</div>
+            </div>
+            <div class="uc-outcome">
+              <strong>Likely outcome</strong>
+              <span>Stronger programme prioritisation, better workforce alignment, improved performance visibility and a clearer case for digital transformation.</span>
+            </div>
+          </article>
+
+          <article class="uc-card" data-industry="manufacturing">
+            <div class="uc-top">
+              <span class="uc-industry">Manufacturing</span>
+              <span class="uc-geo">UAE / Industrial Clusters</span>
+            </div>
+            <h3>Improving industrial performance across a manufacturing ecosystem</h3>
+            <p>
+              An advanced manufacturing platform or industrial group needed to connect production performance,
+              supply resilience, energy use, workforce capability and investment decisions across multiple sites.
+            </p>
+            <div class="uc-sub">How EIG would help</div>
+            <div class="uc-points">
+              <div class="uc-point">Build a unified intelligence layer across plant operations, suppliers and industrial support functions</div>
+              <div class="uc-point">Identify value leakage across downtime, planning, inventory, procurement and reporting</div>
+              <div class="uc-point">Prioritise AI, automation and advanced technology use cases linked to measurable productivity gains</div>
+            </div>
+            <div class="uc-outcome">
+              <strong>Likely outcome</strong>
+              <span>Better production visibility, stronger resilience, clearer capital prioritisation and improved competitiveness in line with industrial growth agendas.</span>
+            </div>
+          </article>
+
+          <article class="uc-card" data-industry="logistics">
+            <div class="uc-top">
+              <span class="uc-industry">Logistics & Supply Chain</span>
+              <span class="uc-geo">UAE / Dubai + Global Trade</span>
+            </div>
+            <h3>Creating real-time supply chain visibility across ports, warehousing and inland distribution</h3>
+            <p>
+              A logistics operator or trade ecosystem leader needed a single view of cargo flow, capacity,
+              service levels, disruption risk, supplier performance and infrastructure constraints.
+            </p>
+            <div class="uc-sub">How EIG would help</div>
+            <div class="uc-points">
+              <div class="uc-point">Connect port, transport, warehousing and customer data into one operational intelligence model</div>
+              <div class="uc-point">Introduce disruption indicators and early-warning signals across the network</div>
+              <div class="uc-point">Support leadership with decision dashboards for flow, utilisation and service risk</div>
+            </div>
+            <div class="uc-outcome">
+              <strong>Likely outcome</strong>
+              <span>Faster response to disruption, stronger customer performance, better network coordination and improved end-to-end trade visibility.</span>
+            </div>
+          </article>
+
+          <article class="uc-card" data-industry="food">
+            <div class="uc-top">
+              <span class="uc-industry">Food & Beverage / Food Security</span>
+              <span class="uc-geo">UAE</span>
+            </div>
+            <h3>Strengthening food resilience through better visibility across sourcing, storage and local production</h3>
+            <p>
+              A food platform, agribusiness group or public-sector food-security programme needed to connect
+              supply risk, inventory, local production capability, water use, storage and market demand.
+            </p>
+            <div class="uc-sub">How EIG would help</div>
+            <div class="uc-points">
+              <div class="uc-point">Design ecosystem dashboards across imports, local production, storage and distribution</div>
+              <div class="uc-point">Identify where operational losses, waste and margin erosion occur</div>
+              <div class="uc-point">Create an intelligence layer for investment prioritisation in resilient food infrastructure</div>
+            </div>
+            <div class="uc-outcome">
+              <strong>Likely outcome</strong>
+              <span>Better resilience, lower value leakage, more evidence-based investment decisions and stronger long-term food system planning.</span>
+            </div>
+          </article>
+
+          <article class="uc-card" data-industry="energy">
+            <div class="uc-top">
+              <span class="uc-industry">Energy & Utilities</span>
+              <span class="uc-geo">UAE + Global Transferability</span>
+            </div>
+            <h3>Connecting clean energy transition, asset performance and infrastructure decisions</h3>
+            <p>
+              A utility, infrastructure platform or energy developer needed a clearer view of asset performance,
+              project pipeline, demand growth, emissions, resilience risk and investment trade-offs.
+            </p>
+            <div class="uc-sub">How EIG would help</div>
+            <div class="uc-points">
+              <div class="uc-point">Integrate operational, financial, sustainability and infrastructure data into one executive layer</div>
+              <div class="uc-point">Support decision-making across clean energy investments, asset utilisation and system resilience</div>
+              <div class="uc-point">Build a roadmap linking sustainability economics to measurable operational value</div>
+            </div>
+            <div class="uc-outcome">
+              <strong>Likely outcome</strong>
+              <span>Stronger visibility of transition priorities, better capital allocation, improved resilience and clearer measurement of clean-energy progress.</span>
+            </div>
+          </article>
+
+          <article class="uc-card" data-industry="finance">
+            <div class="uc-top">
+              <span class="uc-industry">Financial Services</span>
+              <span class="uc-geo">UAE / DIFC / Regional Hub</span>
+            </div>
+            <h3>Building an intelligence layer across growth, risk, innovation and client performance</h3>
+            <p>
+              A financial institution, innovation platform or regulated financial ecosystem needed better
+              visibility across product performance, customer segments, operational risk, compliance and innovation activity.
+            </p>
+            <div class="uc-sub">How EIG would help</div>
+            <div class="uc-points">
+              <div class="uc-point">Create connected reporting across revenue, risk, customer, product and operating-model data</div>
+              <div class="uc-point">Support innovation and AI-readiness decisions with stronger governance and measurable use-case prioritisation</div>
+              <div class="uc-point">Identify where faster decisions can improve growth, compliance efficiency and client value</div>
+            </div>
+            <div class="uc-outcome">
+              <strong>Likely outcome</strong>
+              <span>Better strategic visibility, improved risk and growth decision-making, and a clearer pathway for digital and AI-enabled transformation.</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="uc-empty" id="industryUseCaseEmpty">
+          No use cases match this filter yet.
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="cross-industry-use-cases">
       <div class="container">
         <div class="section-head">
           <div class="section-head-main">
@@ -1588,6 +1962,9 @@
     mobMenu?.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => mobMenu.classList.remove('open'));
     });
-  </script>
-</body>
-</html>
+
+    const industryUseCaseFilter = document.getElementById('industryUseCaseFilter');
+    const industryUseCaseGrid = document.getElementById('industryUseCaseGrid');
+    const industryUseCaseEmpty = document.getElementById('industryUseCaseEmpty');
+
+    function filterIndustryUse
