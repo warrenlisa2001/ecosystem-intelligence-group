@@ -1074,7 +1074,33 @@
       box-shadow:var(--shadow-md);
       display:flex;
       align-items:center;
-      justify-content:space-between;
+      <ul class="nav-links">
+  <li><a href="/">Home</a></li>
+  <li><a href="/about">About</a></li>
+  <li><a href="/approach">Approach</a></li>
+
+  <li class="nav-item has-dropdown">
+    <a href="/industries" class="active">Industries</a>
+    <div class="nav-dropdown">
+      <a href="/industries">Industries Overview</a>
+      <a href="/industry-government">Government & Public Sector</a>
+      <a href="/industry-healthcare">Healthcare</a>
+      <a href="/industry-education">Education</a>
+      <a href="/industry-manufacturing">Manufacturing</a>
+      <a href="/industry-logistics">Logistics & Supply Chain</a>
+      <a href="/industry-food">Food & Beverage</a>
+      <a href="/industry-energy">Energy & Utilities</a>
+      <a href="/industry-infrastructure">Infrastructure</a>
+      <a href="/industry-financial-services">Financial Services</a>
+      <a href="/use-cases">Use Cases</a>
+    </div>
+  </li>
+
+  <li><a href="/insights">Insights</a></li>
+  <li><a href="/leadership">Leadership</a></li>
+  <li><a href="/contact">Contact</a></li>
+</ul>
+justify-content:space-between;
       gap:1.5rem;
       flex-wrap:wrap;
     }
@@ -1164,7 +1190,27 @@
   </style>
 </head>
 <body>
-  <nav id="nav">
+  <div class="mob-menu" id="mobMenu">
+  <a href="/">Home</a>
+  <a href="/about">About</a>
+  <a href="/approach">Approach</a>
+  <a href="/industries">Industries Overview</a>
+  <a href="/industry-government">Government & Public Sector</a>
+  <a href="/industry-healthcare">Healthcare</a>
+  <a href="/industry-education">Education</a>
+  <a href="/industry-manufacturing">Manufacturing</a>
+  <a href="/industry-logistics">Logistics & Supply Chain</a>
+  <a href="/industry-food">Food & Beverage</a>
+  <a href="/industry-energy">Energy & Utilities</a>
+  <a href="/industry-infrastructure">Infrastructure</a>
+  <a href="/industry-financial-services">Financial Services</a>
+  <a href="/use-cases">Use Cases</a>
+  <a href="/insights">Insights</a>
+  <a href="/leadership">Leadership</a>
+  <a href="/contact">Contact</a>
+  <a href="/contact">Schedule Consultation</a>
+</div>
+<nav id="nav">
     <div class="nav-inner">
       <a class="nav-logo" href="/">
         <div class="nav-mark">EIG</div>
