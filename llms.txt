@@ -36,3 +36,14 @@ Better Intelligence. Better Decisions. Better Outcomes. Where Intelligence Creat
 - About: about.html
 - Leadership: leadership.html
 - Contact: contact.html
+
+## Blog Posts
+
+- Agentic AI: The Next Competitive Advantage Is Not AI. It Is Intelligence. — blog-agentic-ai.html
+
+## Social
+
+- LinkedIn: https://www.linkedin.com/company/128274012
+- From Experimentation to Execution: Building AI Readiness — blog-ai-readiness.html
+- The Commercial Case for Sustainability: Moving Beyond Reporting — blog-sustainability.html
+- Ecosystem Intelligence: How Governments Are Using Data — blog-ecosystem-gov.html
