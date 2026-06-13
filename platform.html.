@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Platform | Ecosystem Intelligence Group</title>
+  <meta name="description" content="Explore the Ecosystem Intelligence Group platform — intelligence architecture built to structure complexity, surface signal, and convert fragmented pressure into executive decision advantage." />
+  <meta name="keywords" content="EIG platform, Ecosystem Intelligence Group platform, ecosystem intelligence, executive intelligence platform, decision advantage, strategic intelligence, leadership briefing, intelligence architecture" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#08111f" />
+  <link rel="canonical" href="https://ecosystemintelligencegroup.com/platform.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Platform | Ecosystem Intelligence Group" />
+  <meta property="og:description" content="Intelligence architecture built for action — structure complexity, surface signal, and move leadership with confidence." />
+  <meta property="og:url" content="https://ecosystemintelligencegroup.com/platform.html" />
+  <meta property="og:image" content="https://ecosystemintelligencegroup.com/assets/img/og-home.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Platform | Ecosystem Intelligence Group" />
+  <meta name="twitter:description" content="EIG's platform turns fragmented information into executive clarity and measurable decision advantage." />
+  <meta name="twitter:image" content="https://ecosystemintelligencegroup.com/assets/img/og-home.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#050b14;
+      --bg-2:#08111f;
+      --bg-3:#0d1828;
+      --panel:#0d1727;
+      --panel-2:#101c2f;
+      --line:rgba(127,167,255,.18);
+      --line-strong:rgba(127,167,255,.32);
+      --text:#eef4ff;
+      --muted:#9ca9c4;
+      --soft:#c5d0e6;
+      --blue:#58a6ff;
+      --blue-2:#7dc3ff;
+      --cyan:#71e4ff;
+      --green:#00e676;
+      --red:#d60a17;
+      --gold:#d8b36a;
+      --shadow:0 24px 70px rgba(0,0,0,.35);
+      --radius:22px;
+      --radius-sm:14px;
+      --container:min(1220px, calc(100vw - 40px));
+      --nav-h:84px;
+      --transition:220ms ease;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(88,166,255,.16), transparent 30%),
+        radial-gradient(circle at 85% 10%, rgba(113,228,255,.08), transparent 22%),
+        linear-gradient(180deg, #07111d 0%, #050b14 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit}
+    .container{width:var(--container);margin:0 auto}
+
+    .skip-link{
+      position:absolute;
+      left:-9999px;
+      top:auto;
+      width:1px;
+      height:1px;
+      overflow:hidden;
+    }
+    .skip-link:focus{
+      left:20px;
+      top:20px;
+      width:auto;
+      height:auto;
+      padding:12px 16px;
+      z-index:9999;
+      background:#fff;
+      color:#000;
+      border-radius:10px;
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      backdrop-filter:blur(16px) saturate(140%);
+      background:rgba(6,12,21,.62);
+      border-bottom:1px solid transparent;
+      transition:background var(--transition), border-color var(--transition), box-shadow var(--transition);
+    }
+    .site-header.scrolled{
+      background:rgba(6,12,21,.86);
+      border-color:rgba(127,167,255,.14);
+      box-shadow:0 12px 40px rgba(0,0,0,.18);
+    }
+
+    .nav-shell{
+      min-height:var(--nav-h);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .nav-logo{
+      display:inline-flex;
+      align-items:center;
+      flex:0 0 auto;
+      padding:8px 0;
+    }
+    .nav-logo img{
+      height:62px;
+      width:auto;
+      object-fit:contain;
+      display:block;
+      filter:drop-shadow(0 10px 20px rgba(0,0,0,.2));
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:30px;
+      margin-left:auto;
+      margin-right:24px;
+    }
+    .nav-links a{
+      color:var(--soft);
+      font-size:.96rem;
+      font-weight:500;
+      letter-spacing:.01em;
+      position:relative;
+      transition:color var(--transition);
+      white-space:nowrap;
+    }
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:#fff;
+    }
+    .nav-links a.active::after,
+    .nav-links a:hover::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-10px;
+      width:100%;
+      height:2px;
+      background:linear-gradient(90deg, var(--blue), var(--cyan));
+      border-radius:999px;
+    }
+
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex:0 0 auto;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      min-height:48px;
+      padding:0 18px;
+      border-radius:999px;
+      border:1px solid transparent;
+      font-weight:700;
+      letter-spacing:.01em;
+      transition:transform var(--transition), box-shadow var(--transition), border-color var(--transition), background var(--transition), color var(--transition);
+      cursor:pointer;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{
+      color:#06101d;
+      background:linear-gradient(135deg, #90d5ff 0%, #58a6ff 56%, #71e4ff 100%);
+      box-shadow:0 18px 38px rgba(88,166,255,.24);
+    }
+    .btn-primary:hover{box-shadow:0 22px 48px rgba(88,166,255,.32)}
+    .btn-secondary{
+      color:#fff;
+      border-color:rgba(127,167,255,.24);
+      background:rgba(255,255,255,.03);
+    }
+    .btn-secondary:hover{
+      border-color:rgba(127,167,255,.4);
+      background:rgba(255,255,255,.05);
+    }
+
+    .hb{
+      display:none;
+      width:50px;
+      height:50px;
+      border-radius:14px;
+      border:1px solid rgba(127,167,255,.18);
+      background:rgba(255,255,255,.03);
+      align-items:center;
+      justify-content:center;
+      padding:0;
+      cursor:pointer;
+    }
+    .hb span{
+      display:block;
+      width:20px;
+      height:2px;
+      background:#fff;
+      margin:3px auto;
+      border-radius:999px;
+      transition:transform var(--transition), opacity var(--transition);
+    }
+
+    .mobile-nav{
+      display:none;
+      border-top:1px solid rgba(127,167,255,.12);
+      background:rgba(7,14,24,.96);
+    }
+    .mobile-nav.open{display:block}
+    .mobile-nav-inner{
+      width:var(--container);
+      margin:0 auto;
+      padding:18px 0 24px;
+      display:grid;
+      gap:10px;
+    }
+    .mobile-nav a,
+    .mobile-nav .btn{
+      width:100%;
+    }
+    .mobile-nav a.link{
+      color:var(--soft);
+      font-weight:600;
+      padding:14px 0;
+      border-bottom:1px solid rgba(127,167,255,.08);
+    }
+    .mobile-actions{
+      display:grid;
+      gap:12px;
+      margin-top:12px;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding:72px 0 28px;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(88,166,255,.18), transparent 28%),
+        radial-gradient(circle at 82% 12%, rgba(113,228,255,.08), transparent 20%);
+      pointer-events:none;
+    }
+
+    .hero-grid{
+      position:relative;
+      display:grid;
+      grid-template-columns:minmax(0, 1.06fr) minmax(360px, .74fr);
+      gap:30px;
+      align-items:stretch;
+    }
+
+    .hero-copy,
+    .hero-rail{
+      position:relative;
+      z-index:1;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:9px 14px;
+      border-radius:999px;
+      border:1px solid rgba(127,167,255,.18);
+      background:rgba(255,255,255,.03);
+      color:#d7e6ff;
+      font-size:.78rem;
+      font-weight:700;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .eyebrow::before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:linear-gradient(135deg, var(--blue), var(--cyan));
+      box-shadow:0 0 0 6px rgba(88,166,255,.12);
+    }
+
+    h1,h2,h3,h4{
+      margin:0;
+      line-height:1.03;
+      font-family:"Playfair Display", Georgia, serif;
+      letter-spacing:-.02em;
+    }
+
+    .hero h1{
+      margin-top:22px;
+      font-size:clamp(3rem, 5vw, 5.2rem);
+      max-width:12ch;
+    }
+
+    .hero-lead{
+      margin:22px 0 0;
+      max-width:720px;
+      font-size:1.12rem;
+      line-height:1.72;
+      color:var(--soft);
+    }
+
+    .hero-sub{
+      margin-top:18px;
+      max-width:700px;
+      color:var(--muted);
+      font-size:1rem;
+      line-height:1.74;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:28px;
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:14px;
+      margin-top:34px;
+    }
+
+    .metric{
+      padding:18px 18px 16px;
+      border-radius:18px;
+      border:1px solid rgba(127,167,255,.12);
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+    }
+    .metric strong{
+      display:block;
+      font-size:1.45rem;
+      margin-bottom:8px;
+      color:#fff;
+    }
+    .metric span{
+      color:var(--muted);
+      font-size:.95rem;
+      line-height:1.5;
+    }
+
+    .dashboard{
+      height:100%;
+      border-radius:28px;
+      border:1px solid rgba(127,167,255,.16);
+      background:
+        linear-gradient(180deg, rgba(12,22,36,.96), rgba(8,15,25,.98)),
+        radial-gradient(circle at top right, rgba(88,166,255,.18), transparent 32%);
+      box-shadow:var(--shadow);
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      position:relative;
+      overflow:hidden;
+    }
+    .dashboard::after{
+      content:"";
+      position:absolute;
+      inset:auto -40px -40px auto;
+      width:220px;
+      height:220px;
+      background:radial-gradient(circle, rgba(88,166,255,.16), transparent 60%);
+      pointer-events:none;
+    }
+
+    .dash-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .dash-label{
+      font-size:.76rem;
+      font-weight:800;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#d9e6ff;
+    }
+    .dash-pulse{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--muted);
+      font-size:.82rem;
+      white-space:nowrap;
+    }
+    .dash-pulse::before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 0 6px rgba(0,230,118,.1);
+    }
+
+    .dash-quote{
+      font-family:"Playfair Display", Georgia, serif;
+      font-style:italic;
+      font-size:2rem;
+      line-height:1.16;
+      color:#fff;
+      max-width:12ch;
+    }
+
+    .dash-copy{
+      color:var(--muted);
+      line-height:1.7;
+      margin-top:-6px;
+    }
+
+    .stack{
+      display:grid;
+      gap:12px;
+    }
+
+    .stack-card{
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      gap:12px;
+      align-items:center;
+      padding:14px 14px;
+      border-radius:16px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(127,167,255,.1);
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:var(--blue);
+      box-shadow:0 0 0 6px rgba(88,166,255,.1);
+    }
+    .dot.green{
+      background:var(--green);
+      box-shadow:0 0 0 6px rgba(0,230,118,.08);
+    }
+    .dot.red{
+      background:var(--red);
+      box-shadow:0 0 0 6px rgba(214,10,23,.08);
+    }
+
+    .stack-card strong{
+      display:block;
+      font-size:.98rem;
+      color:#fff;
+    }
+    .stack-card span{
+      display:block;
+      color:var(--muted);
+      font-size:.86rem;
+      margin-top:4px;
+      line-height:1.5;
+    }
+
+    .status{
+      min-width:74px;
+      text-align:center;
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:.72rem;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      border:1px solid transparent;
+    }
+    .status.active{
+      color:#9cd1ff;
+      background:rgba(88,166,255,.1);
+      border-color:rgba(88,166,255,.24);
+    }
+    .status.live{
+      color:#81f2b8;
+      background:rgba(0,230,118,.1);
+      border-color:rgba(0,230,118,.22);
+    }
+    .status.alert{
+      color:#ffb2b8;
+      background:rgba(214,10,23,.1);
+      border-color:rgba(214,10,23,.22);
+    }
+    .status.locked{
+      color:#dfc28a;
+      background:rgba(216,179,106,.1);
+      border-color:rgba(216,179,106,.22);
+    }
+
+    .dash-foot{
+      margin-top:auto;
+      padding-top:12px;
+      border-top:1px solid rgba(127,167,255,.12);
+      color:var(--soft);
+      font-weight:600;
+    }
+
+    section{
+      padding:34px 0;
+    }
+
+    .section-head{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) minmax(260px, .46fr);
+      gap:26px;
+      align-items:end;
+      margin-bottom:24px;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:14px;
+      color:#d7e6ff;
+      font-size:.78rem;
+      font-weight:800;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .kicker::before{
+      content:"";
+      width:18px;
+      height:1px;
+      background:linear-gradient(90deg, var(--blue), var(--cyan));
+    }
+
+    .section-head h2{
+      font-size:clamp(2rem, 3vw, 3.25rem);
+      max-width:14ch;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.72;
+      font-size:1rem;
+    }
+
+    .cards-3,
+    .cards-4{
+      display:grid;
+      gap:18px;
+    }
+    .cards-3{grid-template-columns:repeat(3, minmax(0, 1fr))}
+    .cards-4{grid-template-columns:repeat(4, minmax(0, 1fr))}
+
+    .card{
+      padding:24px;
+      border-radius:22px;
+      border:1px solid rgba(127,167,255,.12);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+      min-height:100%;
+    }
+    .card .tag{
+      display:inline-flex;
+      padding:8px 11px;
+      border-radius:999px;
+      background:rgba(88,166,255,.08);
+      border:1px solid rgba(88,166,255,.18);
+      color:#cfe6ff;
+      font-size:.75rem;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:16px;
+    }
+    .card h3{
+      font-size:1.48rem;
+      margin-bottom:12px;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.72;
+      font-size:.97rem;
+    }
+    .card ul{
+      margin:16px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    .card li{
+      color:var(--soft);
+      line-height:1.55;
+      position:relative;
+      padding-left:18px;
+    }
+    .card li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:.72em;
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:linear-gradient(135deg, var(--blue), var(--cyan));
+      transform:translateY(-50%);
+    }
+
+    .band{
+      padding:26px;
+      border-radius:26px;
+      border:1px solid rgba(127,167,255,.14);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+    }
+
+    .process{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:16px;
+      counter-reset:step;
+    }
+    .step{
+      position:relative;
+      padding:22px 20px;
+      border-radius:20px;
+      background:rgba(255,255,255,.025);
+      border:1px solid rgba(127,167,255,.12);
+      min-height:100%;
+    }
+    .step::before{
+      counter-increment:step;
+      content:"0" counter(step);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      margin-bottom:16px;
+      font-size:.9rem;
+      font-weight:800;
+      color:#06101d;
+      background:linear-gradient(135deg, #9ad8ff 0%, #58a6ff 100%);
+    }
+    .step h3{
+      font-size:1.22rem;
+      margin-bottom:10px;
+    }
+    .step p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.68;
+      font-size:.95rem;
+    }
+
+    .wide-grid{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) minmax(320px, .7fr);
+      gap:20px;
+    }
+
+    .callout{
+      padding:26px;
+      border-radius:24px;
+      border:1px solid rgba(127,167,255,.14);
+      background:linear-gradient(180deg, rgba(10,20,34,.96), rgba(8,15,25,.98));
+      box-shadow:var(--shadow);
+    }
+    .callout h3{
+      font-size:1.7rem;
+      margin-bottom:12px;
+    }
+    .callout p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.72;
+    }
+    .callout ul{
+      list-style:none;
+      padding:0;
+      margin:20px 0 0;
+      display:grid;
+      gap:12px;
+    }
+    .callout li{
+      padding-left:18px;
+      position:relative;
+      color:var(--soft);
+      line-height:1.6;
+    }
+    .callout li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:.72em;
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--green);
+      transform:translateY(-50%);
+    }
+
+    .cta{
+      padding:34px;
+      border-radius:30px;
+      border:1px solid rgba(127,167,255,.16);
+      background:
+        linear-gradient(135deg, rgba(88,166,255,.09), rgba(113,228,255,.05)),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+    }
+    .cta-grid{
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:18px;
+      align-items:center;
+    }
+    .cta h2{
+      font-size:clamp(2rem, 3vw, 3rem);
+      margin-bottom:12px;
+      max-width:12ch;
+    }
+    .cta p{
+      margin:0;
+      max-width:760px;
+      color:var(--soft);
+      line-height:1.72;
+    }
+    .cta-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:flex-end;
+    }
+
+    .site-footer{
+      padding:34px 0 46px;
+      border-top:1px solid rgba(127,167,255,.1);
+      margin-top:18px;
+    }
+    .footer-grid{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+    .footer-copy{
+      color:var(--muted);
+      font-size:.95rem;
+      line-height:1.6;
+    }
+    .footer-links{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      color:var(--soft);
+      font-weight:600;
+    }
+    .footer-links a:hover{color:#fff}
+
+    @media (max-width: 1180px){
+      .nav-links{gap:22px;margin-right:16px}
+      .hero-grid{grid-template-columns:1fr}
+      .hero h1{max-width:13ch}
+      .section-head,
+      .wide-grid,
+      .cta-grid{
+        grid-template-columns:1fr;
+      }
+      .cta-actions{justify-content:flex-start}
+      .cards-4{grid-template-columns:repeat(2, minmax(0,1fr))}
+      .process{grid-template-columns:repeat(2, minmax(0,1fr))}
+    }
+
+    @media (max-width: 960px){
+      :root{--nav-h:78px}
+      .nav-links,
+      .header-actions{
+        display:none;
+      }
+      .hb{
+        display:inline-flex;
+        margin-left:auto;
+      }
+      .nav-logo img{height:56px}
+      .hero{
+        padding:54px 0 18px;
+      }
+      .hero-points{
+        grid-template-columns:1fr;
+      }
+      .cards-3,
+      .cards-4,
+      .process{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 720px){
+      .container{width:min(calc(100vw - 28px), 1220px)}
+      .nav-logo img{height:48px}
+      .hero h1{font-size:clamp(2.4rem, 12vw, 3.35rem)}
+      .dash-quote{font-size:1.65rem}
+      .band,
+      .card,
+      .cta,
+      .dashboard{
+        padding:20px;
+        border-radius:22px;
+      }
+      .hero-actions{
+        flex-direction:column;
+      }
+      .hero-actions .btn,
+      .cta-actions .btn{
+        width:100%;
+      }
+      .footer-grid{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container nav-shell">
+      <a href="/index.html" class="nav-logo" aria-label="Ecosystem Intelligence Group home">
+        <img src="/assets/img/eig-logo.png" alt="EIG" />
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="/index.html">Home</a>
+        <a href="/platform.html" class="active">Platform</a>
+        <a href="/domains.html">Intelligence Areas</a>
+        <a href="/leadership.html">Leadership</a>
+        <a href="/initiatives.html">Initiatives</a>
+        <a href="/briefing.html">Briefing</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="/leadership.html" class="btn btn-secondary">Meet the Leaders</a>
+        <a href="/briefing.html" class="btn btn-primary">Request Briefing</a>
+      </div>
+
+      <button class="hb" aria-label="Open mobile menu" aria-expanded="false" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-inner">
+        <a class="link" href="/index.html">Home</a>
+        <a class="link" href="/platform.html">Platform</a>
+        <a class="link" href="/domains.html">Intelligence Areas</a>
+        <a class="link" href="/leadership.html">Leadership</a>
+        <a class="link" href="/initiatives.html">Initiatives</a>
+        <a class="link" href="/briefing.html">Briefing</a>
+        <div class="mobile-actions">
+          <a href="/leadership.html" class="btn btn-secondary">Meet the Leaders</a>
+          <a href="/briefing.html" class="btn btn-primary">Request Briefing</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Platform Architecture</span>
+          <h1>One platform. Multiple pressure points. One decision advantage.</h1>
+          <p class="hero-lead">
+            The EIG platform is built for leaders who need more than dashboards, fragmented reporting, or disconnected expert inputs. It structures complexity, surfaces signal, and converts pressure into executive clarity.
+          </p>
+          <p class="hero-sub">
+            Market movement, policy disruption, sustainability exposure, value creation, transformation risk, and operational pressure do not move in isolation. The platform is designed to help leadership see those forces together, interpret them faster, and act before they compound.
+          </p>
+
+          <div class="hero-actions">
+            <a href="/briefing.html" class="btn btn-primary">Request Briefing</a>
+            <a href="/domains.html" class="btn btn-secondary">Explore Intelligence Areas</a>
+          </div>
+
+          <div class="hero-points">
+            <div class="metric">
+              <strong>Signal</strong>
+              <span>Aggregate strategic, operational, and ecosystem-level inputs before noise becomes drag.</span>
+            </div>
+            <div class="metric">
+              <strong>Structure</strong>
+              <span>Translate fragmented information into usable executive views aligned to real decisions.</span>
+            </div>
+            <div class="metric">
+              <strong>Movement</strong>
+              <span>Turn intelligence into action through decision-grade outputs built for leadership teams.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-rail">
+          <div class="dashboard">
+            <div class="dash-top">
+              <div class="dash-label">Platform Signal Stack</div>
+              <div class="dash-pulse">Live architecture</div>
+            </div>
+
+            <div class="dash-quote">Better intelligence. Better decisions. Better outcomes.</div>
+            <div class="dash-copy">
+              The platform is not a reporting layer. It is an intelligence architecture designed to structure signal, connect pressure points, and move leadership with confidence.
+            </div>
+
+            <div class="stack">
+              <div class="stack-card">
+                <span class="dot"></span>
+                <div>
+                  <strong>Ecosystem Intelligence</strong>
+                  <span>Map dependencies, pressure transfer, and system interaction.</span>
+                </div>
+                <span class="status active">Active</span>
+              </div>
+
+              <div class="stack-card">
+                <span class="dot green"></span>
+                <div>
+                  <strong>AI &amp; Digital Transformation</strong>
+                  <span>Track capability shifts, exposure points, and implementation pressure.</span>
+                </div>
+                <span class="status live">Live</span>
+              </div>
+
+              <div class="stack-card">
+                <span class="dot"></span>
+                <div>
+                  <strong>Value Creation</strong>
+                  <span>Connect strategic action to measurable performance outcomes.</span>
+                </div>
+                <span class="status active">Active</span>
+              </div>
+
+              <div class="stack-card">
+                <span class="dot green"></span>
+                <div>
+                  <strong>Sustainability Economics</strong>
+                  <span>Bring cost, compliance, competitiveness, and resilience into one view.</span>
+                </div>
+                <span class="status live">Live</span>
+              </div>
+
+              <div class="stack-card">
+                <span class="dot red"></span>
+                <div>
+                  <strong>Critical Alert Monitor</strong>
+                  <span>Escalate leadership-relevant shifts before exposure becomes consequence.</span>
+                </div>
+                <span class="status alert">Alert</span>
+              </div>
+
+              <div class="stack-card">
+                <span class="dot"></span>
+                <div>
+                  <strong>Executive Briefing Layer</strong>
+                  <span>Convert complex analysis into concise, decision-grade outputs.</span>
+                </div>
+                <span class="status locked">Access</span>
+              </div>
+            </div>
+
+            <div class="dash-foot">Built for leadership teams that cannot afford slow interpretation.</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">What the platform does</div>
+            <h2>Intelligence architecture built for action.</h2>
+          </div>
+          <p>
+            The platform brings together fragmented strategic inputs, structures them around leadership priorities, and produces usable decision views. It does not chase volume. It sharpens relevance.
+          </p>
+        </div>
+
+        <div class="cards-3">
+          <article class="card">
+            <div class="tag">Aggregate</div>
+            <h3>Capture the right signal</h3>
+            <p>
+              Pull together market, policy, technology, sustainability, operational, and organisational pressure into one structured environment.
+            </p>
+            <ul>
+              <li>Reduce blind spots across connected systems</li>
+              <li>Surface pressure before it compounds</li>
+              <li>Keep leadership focused on material movement</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="tag">Structure</div>
+            <h3>Turn complexity into executive clarity</h3>
+            <p>
+              The platform translates fragmented inputs into usable views built around priority decisions, not abstract reporting.
+            </p>
+            <ul>
+              <li>Frame issues around consequences and options</li>
+              <li>Show interdependencies leaders actually need to see</li>
+              <li>Separate signal from noise at speed</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="tag">Move</div>
+            <h3>Support decisions that hold</h3>
+            <p>
+              Intelligence becomes valuable when it drives aligned action. The platform feeds briefings, leadership dialogue, and execution priorities.
+            </p>
+            <ul>
+              <li>Strengthen strategic alignment</li>
+              <li>Improve timing and confidence of response</li>
+              <li>Link insight to measurable outcomes</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="band">
+          <div class="section-head" style="margin-bottom:22px;">
+            <div>
+              <div class="kicker">How it works</div>
+              <h2>From signal capture to leadership movement.</h2>
+            </div>
+            <p>
+              The platform is designed to keep pace with executive decision cycles — fast enough to matter, structured enough to trust, and disciplined enough to stay accountable.
+            </p>
+          </div>
+
+          <div class="process">
+            <div class="step">
+              <h3>Detect</h3>
+              <p>Capture the strategic, operational, policy, and market signals that are shaping the decision environment.</p>
+            </div>
+            <div class="step">
+              <h3>Interpret</h3>
+              <p>Connect those inputs across systems, dependencies, stakeholders, and value drivers to reveal what actually matters.</p>
+            </div>
+            <div class="step">
+              <h3>Prioritise</h3>
+              <p>Separate material exposure from noise and frame the consequences, timing, and strategic options for leadership.</p>
+            </div>
+            <div class="step">
+              <h3>Mobilise</h3>
+              <p>Convert insight into executive briefings, action direction, and decision-grade outputs that move people and capital.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Platform components</div>
+            <h2>The system behind the signal.</h2>
+          </div>
+          <p>
+            Every component exists to answer one question: what does leadership need to see now to protect value, move faster, and make the next decision with conviction?
+          </p>
+        </div>
+
+        <div class="cards-4">
+          <article class="card">
+            <div class="tag">01</div>
+            <h3>Signal Intake</h3>
+            <p>Capture information from multiple pressure points without burying leadership under volume.</p>
+          </article>
+
+          <article class="card">
+            <div class="tag">02</div>
+            <h3>Intelligence Mapping</h3>
+            <p>Connect policy, markets, operations, technology, and leadership implications across the same decision frame.</p>
+          </article>
+
+          <article class="card">
+            <div class="tag">03</div>
+            <h3>Decision Views</h3>
+            <p>Translate complexity into concise executive views focused on exposure, timing, options, and consequences.</p>
+          </article>
+
+          <article class="card">
+            <div class="tag">04</div>
+            <h3>Briefing Output</h3>
+            <p>Deliver intelligence in a format leadership can use immediately — concise, credible, and aligned to action.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container wide-grid">
+        <div class="callout">
+          <div class="kicker">Built for real pressure</div>
+          <h3>Where the platform earns its place.</h3>
+          <p>
+            EIG is designed for environments where decisions cannot wait for perfect information and where fragmented interpretation creates cost, delay, or strategic drift.
+          </p>
+          <ul>
+            <li>Leadership teams facing cross-functional pressure with no single source of truth</li>
+            <li>Transformation programmes where technology, operations, and commercial value must move together</li>
+            <li>Boards and executives needing concise briefings, not sprawling analysis</li>
+            <li>Industries exposed to policy shifts, sustainability pressure, supply chain volatility, or strategic uncertainty</li>
+          </ul>
+        </div>
+
+        <div class="callout">
+          <div class="kicker">Trust signals</div>
+          <h3>Built for senior decision-makers.</h3>
+          <p>
+            The platform reflects EIG's operating standard: strategic judgement, executive discipline, and measurable accountability. It is built to support leadership teams that need clarity, not theatre.
+          </p>
+          <ul>
+            <li>Outcome-led architecture focused on what will be achieved</li>
+            <li>Executive-grade framing built for high-trust environments</li>
+            <li>Cross-disciplinary visibility across economics, AI, sustainability, supply chain, and transformation</li>
+            <li>Aligned with over 100 years of combined senior-level executive judgement</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Connected to the wider site</div>
+            <h2>The platform is the engine. The rest of the site shows where it goes.</h2>
+          </div>
+          <p>
+            Intelligence Areas show what the platform sees. Initiatives show where momentum is being built. Briefing is where signal becomes a leadership-ready output.
+          </p>
+        </div>
+
+        <div class="cards-3">
+          <article class="card">
+            <div class="tag">Intelligence Areas</div>
+            <h3>See what the platform covers</h3>
+            <p>
+              Explore the pressure points, themes, and connected systems the platform helps leadership interpret.
+            </p>
+            <ul>
+              <li>AI &amp; digital transformation</li>
+              <li>Sustainability economics</li>
+              <li>Value creation and performance</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="tag">Initiatives</div>
+            <h3>See where the work is moving</h3>
+            <p>
+              Understand how intelligence is translated into strategic direction, capability building, and forward motion.
+            </p>
+            <ul>
+              <li>Leadership alignment</li>
+              <li>Commercial clarity</li>
+              <li>Cross-system execution</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="tag">Briefing</div>
+            <h3>Move from platform to decision</h3>
+            <p>
+              When the decision matters, the output must be concise, credible, and built for action. That is the role of the briefing layer.
+            </p>
+            <ul>
+              <li>Decision-grade outputs</li>
+              <li>Executive-ready framing</li>
+              <li>Immediate strategic relevance</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta">
+          <div class="cta-grid">
+            <div>
+              <div class="kicker">Platform access</div>
+              <h2>Bring the right signal into the room.</h2>
+              <p>
+                If the decision carries strategic weight, the platform should sharpen it. Request a briefing to see how EIG structures complexity, surfaces what matters, and helps leadership move with confidence.
+              </p>
+            </div>
+
+            <div class="cta-actions">
+              <a href="/briefing.html" class="btn btn-primary">Request Briefing</a>
+              <a href="/leadership.html" class="btn btn-secondary">Meet the Leaders</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-copy">
+        © <span id="year"></span> Ecosystem Intelligence Group. All rights reserved.
+      </div>
+      <div class="footer-links">
+        <a href="/index.html">Home</a>
+        <a href="/platform.html">Platform</a>
+        <a href="/domains.html">Intelligence Areas</a>
+        <a href="/initiatives.html">Initiatives</a>
+        <a href="/briefing.html">Briefing</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const siteHeader = document.getElementById('site-header');
+    const mobileNav = document.getElementById('mobileNav');
+    const hb = document.querySelector('.hb');
+
+    function handleHeaderScroll() {
+      if (window.scrollY > 12) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
+    }
+
+    function toggleMenu() {
+      mobileNav.classList.toggle('open');
+      const expanded = mobileNav.classList.contains('open');
+      hb.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    }
+
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+        mobileNav.classList.remove('open');
+        hb.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    window.addEventListener('scroll', handleHeaderScroll);
+    handleHeaderScroll();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
