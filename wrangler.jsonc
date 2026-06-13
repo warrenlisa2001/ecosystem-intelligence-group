@@ -1,7 +1,9 @@
 {
+  "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "ecosystem-intelligence-group",
   "compatibility_date": "2026-06-13",
   "assets": {
-    "directory": "."
+    "directory": "./public",
+    "not_found_handling": "404-page"
   }
 }
