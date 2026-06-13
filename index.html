@@ -40,6 +40,7 @@
       --glow:0 20px 60px rgba(0,0,0,.34);
       --container:min(1240px, calc(100vw - 40px));
       --transition:220ms ease;
+      --header-h:82px;
     }
 
     *{box-sizing:border-box}
@@ -60,6 +61,7 @@
     a{color:inherit;text-decoration:none}
     img{display:block;max-width:100%}
     h1,h2,h3,h4,p{margin:0}
+    button{font:inherit}
 
     .container{width:var(--container);margin-inline:auto}
 
@@ -72,6 +74,7 @@
       border-bottom:1px solid transparent;
       transition:all var(--transition);
     }
+
     .site-header.scrolled{
       border-bottom-color:var(--line);
       background:rgba(6,16,29,.92);
@@ -79,7 +82,7 @@
     }
 
     .nav{
-      min-height:82px;
+      min-height:var(--header-h);
       display:grid;
       grid-template-columns:auto 1fr auto auto;
       align-items:center;
@@ -183,12 +186,64 @@
       background:rgba(255,255,255,.03);
       color:#fff;
       cursor:pointer;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      gap:5px;
+      padding:0;
+    }
+
+    .menu-btn span{
+      width:18px;
+      height:2px;
+      background:#fff;
+      border-radius:999px;
+      transition:all var(--transition);
+    }
+
+    .menu-btn[aria-expanded="true"] span:nth-child(1){
+      transform:translateY(7px) rotate(45deg);
+    }
+    .menu-btn[aria-expanded="true"] span:nth-child(2){
+      opacity:0;
+    }
+    .menu-btn[aria-expanded="true"] span:nth-child(3){
+      transform:translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-nav{
+      display:none;
+      border-top:1px solid var(--line);
+      background:rgba(6,16,29,.96);
+    }
+
+    .mobile-nav.open{display:block}
+
+    .mobile-nav-inner{
+      width:var(--container);
+      margin-inline:auto;
+      padding:14px 0 20px;
+      display:grid;
+      gap:8px;
+    }
+
+    .mobile-nav a{
+      display:block;
+      padding:14px 4px;
+      color:var(--muted);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
+
+    .mobile-actions{
+      display:grid;
+      gap:10px;
+      padding-top:12px;
     }
 
     .hero{
       position:relative;
       overflow:hidden;
-      min-height:calc(100vh - 82px);
+      min-height:calc(100vh - var(--header-h));
       display:flex;
       align-items:center;
       padding:56px 0 68px;
@@ -536,8 +591,7 @@
         display:none;
       }
       .menu-btn{
-        display:inline-grid;
-        place-items:center;
+        display:inline-flex;
       }
       .grid-3{
         grid-template-columns:1fr;
@@ -583,8 +637,8 @@
   <header class="site-header" id="siteHeader">
     <div class="container">
       <nav class="nav" aria-label="Primary">
-        <a href="/" class="logo" aria-label="Ecosystem Intelligence Group home">
-          <img src="/assets/img/eig-logo.png" alt="Ecosystem Intelligence Group" class="logo-img" />
+        <a href="/" class="logo" aria-label="EIG home">
+          <img src="/assets/img/eig-logo.png" alt="EIG logo" class="logo-img" />
         </a>
 
         <div class="nav-links">
@@ -601,8 +655,28 @@
           <a href="/briefing.html" class="btn btn-primary">Request Briefing</a>
         </div>
 
-        <button class="menu-btn" type="button" aria-label="Menu">☰</button>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </nav>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <div class="mobile-nav-inner">
+        <a href="/">Home</a>
+        <a href="/platform.html">Platform</a>
+        <a href="/domains.html">Intelligence Areas</a>
+        <a href="/leadership.html">Leadership</a>
+        <a href="/initiatives.html">Initiatives</a>
+        <a href="/briefing.html">Briefing</a>
+
+        <div class="mobile-actions">
+          <a href="/leadership.html" class="btn btn-secondary">Meet the Leaders</a>
+          <a href="/briefing.html" class="btn btn-primary">Request Briefing</a>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -772,10 +846,31 @@
   <script>
     (function () {
       const header = document.getElementById('siteHeader');
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileNav = document.getElementById('mobileNav');
+      const mobileLinks = mobileNav.querySelectorAll('a');
+
       function onScroll() {
         header.classList.toggle('scrolled', window.scrollY > 12);
       }
+
+      function closeMenu() {
+        mobileNav.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      function toggleMenu() {
+        const open = mobileNav.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+
+      menuBtn.addEventListener('click', toggleMenu);
+      mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
       window.addEventListener('scroll', onScroll, { passive: true });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeMenu();
+      });
+
       document.getElementById('year').textContent = new Date().getFullYear();
       onScroll();
     })();
