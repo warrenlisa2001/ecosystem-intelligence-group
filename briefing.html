@@ -18,13 +18,17 @@
   <meta name="twitter:title" content="Briefing | Ecosystem Intelligence Group" />
   <meta name="twitter:description" content="Request an executive briefing from Ecosystem Intelligence Group — concise, decision-grade outputs built to align leadership and drive action." />
   <meta name="twitter:image" content="https://ecosystemintelligencegroup.com/assets/img/og-home.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
 
+  <style>
     :root{--bg:#050b14;--bg2:#08111f;--bg3:#0d1828;--panel:#0d1727;--line:rgba(127,167,255,.16);--line2:rgba(127,167,255,.28);--text:#eef4ff;--muted:#9ca9c4;--soft:#c7d3ea;--blue:#58a6ff;--cyan:#71e4ff;--green:#00e676;--red:#d60a17;--gold:#d8b36a;--radius:24px;--shadow:0 24px 70px rgba(0,0,0,.32);--container:min(1220px,calc(100vw - 40px));--navh:84px;--tr:220ms ease;}
     *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at top left, rgba(88,166,255,.14), transparent 28%),radial-gradient(circle at 85% 10%, rgba(113,228,255,.08), transparent 20%),linear-gradient(180deg,#07111d 0%,#050b14 100%);color:var(--text);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility} a{text-decoration:none;color:inherit} img{max-width:100%;display:block} .container{width:var(--container);margin:0 auto}
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}.skip-link:focus{left:20px;top:20px;width:auto;height:auto;padding:12px 16px;z-index:9999;background:#fff;color:#000;border-radius:10px}
     .site-header{position:sticky;top:0;z-index:1000;background:rgba(6,12,21,.7);backdrop-filter:blur(16px) saturate(140%);border-bottom:1px solid transparent;transition:all var(--tr)} .site-header.scrolled{background:rgba(6,12,21,.9);border-color:rgba(127,167,255,.14)}
     .nav-shell{min-height:var(--navh);display:flex;align-items:center;justify-content:space-between;gap:24px}.nav-logo{display:inline-flex;align-items:center;padding:8px 0}.nav-logo img{height:62px;width:auto;object-fit:contain}.nav-links{display:flex;align-items:center;gap:30px;margin-left:auto;margin-right:24px}.nav-links a{color:var(--soft);font-size:.96rem;font-weight:500;position:relative;white-space:nowrap}.nav-links a:hover,.nav-links a.active{color:#fff}.nav-links a.active:after,.nav-links a:hover:after{content:"";position:absolute;left:0;bottom:-10px;width:100%;height:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));border-radius:999px}.header-actions{display:flex;gap:12px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 18px;border-radius:999px;border:1px solid transparent;font-weight:700;letter-spacing:.01em;transition:all var(--tr)}.btn:hover{transform:translateY(-1px)}.btn-primary{color:#06101d;background:linear-gradient(135deg,#90d5ff 0%,#58a6ff 56%,#71e4ff 100%);box-shadow:0 18px 38px rgba(88,166,255,.24)}.btn-secondary{color:#fff;border-color:rgba(127,167,255,.24);background:rgba(255,255,255,.03)}
-    .hb{display:none;width:50px;height:50px;border-radius:14px;border:1px solid rgba(127,167,255,.18);background:rgba(255,255,255,.03);align-items:center;justify-content:center;padding:0}.hb span{display:block;width:20px;height:2px;background:#fff;margin:3px auto;border-radius:999px}.mobile-nav{display:none;border-top:1px solid rgba(127,167,255,.12);background:rgba(7,14,24,.96)}.mobile-nav.open{display:block}.mobile-nav-inner{width:var(--container);margin:0 auto;padding:18px 0 24px;display:grid;gap:10px}.mobile-nav a.link{color:var(--soft);font-weight:600;padding:14px 0;border-bottom:1px solid rgba(127,167,255,.08)}.mobile-actions{display:grid;gap:12px;margin-top:12px}
+    .hb{display:none;width:50px;height:50px;border-radius:14px;border:1px solid rgba(127,167,255,.18);background:rgba(255,255,255,.03);align-items:center;justify-content:center;padding:0;cursor:pointer}.hb span{display:block;width:20px;height:2px;background:#fff;margin:3px auto;border-radius:999px}.mobile-nav{display:none;border-top:1px solid rgba(127,167,255,.12);background:rgba(7,14,24,.96)}.mobile-nav.open{display:block}.mobile-nav-inner{width:var(--container);margin:0 auto;padding:18px 0 24px;display:grid;gap:10px}.mobile-nav a.link{color:var(--soft);font-weight:600;padding:14px 0;border-bottom:1px solid rgba(127,167,255,.08)}.mobile-actions{display:grid;gap:12px;margin-top:12px}
     .hero{padding:72px 0 34px;position:relative;overflow:hidden}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 15%, rgba(88,166,255,.18), transparent 28%),radial-gradient(circle at 82% 12%, rgba(113,228,255,.08), transparent 20%);pointer-events:none}.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(320px,.66fr);gap:28px;align-items:stretch}.eyebrow,.kicker{display:inline-flex;align-items:center;gap:10px;color:#d7e6ff;font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.eyebrow{padding:9px 14px;border-radius:999px;border:1px solid rgba(127,167,255,.18);background:rgba(255,255,255,.03)} .eyebrow:before,.kicker:before{content:"";width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--cyan));box-shadow:0 0 0 6px rgba(88,166,255,.12)} .kicker:before{width:18px;height:1px;border-radius:0;box-shadow:none}
     h1,h2,h3,h4{margin:0;line-height:1.04;font-family:"Playfair Display",Georgia,serif;letter-spacing:-.02em}.hero h1{margin-top:22px;font-size:clamp(3rem,5vw,5rem);max-width:12ch}.hero-lead{margin:22px 0 0;max-width:760px;font-size:1.12rem;line-height:1.72;color:var(--soft)} .hero-sub{margin-top:18px;max-width:720px;color:var(--muted);font-size:1rem;line-height:1.72}.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
     .panel{height:100%;border-radius:28px;border:1px solid rgba(127,167,255,.16);background:linear-gradient(180deg,rgba(12,22,36,.96),rgba(8,15,25,.98));box-shadow:var(--shadow);padding:24px}.panel h3{font-size:1.5rem;margin-bottom:12px}.panel p{margin:0;color:var(--muted);line-height:1.68}.panel .list{margin-top:18px;display:grid;gap:12px}.mini{padding:14px;border-radius:16px;border:1px solid rgba(127,167,255,.1);background:rgba(255,255,255,.03)}.mini strong{display:block;color:#fff}.mini span{display:block;margin-top:6px;color:var(--muted);font-size:.9rem;line-height:1.5}.status{display:inline-flex;align-items:center;gap:8px;margin-top:16px;color:var(--soft);font-weight:600}.status:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(0,230,118,.1)}
@@ -39,52 +43,19 @@
     @media (max-width:720px){.container{width:min(calc(100vw - 28px),1220px)}.nav-logo img{height:48px}.hero h1{font-size:clamp(2.4rem,12vw,3.35rem)}.panel,.card,.cta,.quote,.stat{padding:20px;border-radius:22px}.hero-actions,.cta-actions{flex-direction:column}.hero-actions .btn,.cta-actions .btn{width:100%}.footer-grid{flex-direction:column;align-items:flex-start}}
   </style>
 
-  <a href="#main-content" class="skip-link">Skip to content</a>
-  <header class="site-header" id="site-header">
-    <div class="container nav-shell">
-      <a href="/index.html" class="nav-logo" aria-label="Ecosystem Intelligence Group home"><img src="/assets/img/eig-logo.png" alt="EIG" /></a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="/index.html" {home_active}>Home</a>
-        <a href="/platform.html" {platform_active}>Platform</a>
-        <a href="/domains.html" {domains_active}>Intelligence Areas</a>
-        <a href="/leadership.html" {leadership_active}>Leadership</a>
-        <a href="/initiatives.html" {initiatives_active}>Initiatives</a>
-        <a href="/briefing.html" {briefing_active}>Briefing</a>
-      </nav>
-      <div class="header-actions">
-        <a href="/leadership.html" class="btn btn-secondary">Meet the Leaders</a>
-        <a href="/briefing.html" class="btn btn-primary">Request Briefing</a>
-      </div>
-      <button class="hb" aria-label="Open mobile menu" aria-expanded="false" onclick="toggleMenu()"><span></span><span></span><span></span></button>
-    </div>
-    <div class="mobile-nav" id="mobileNav">
-      <div class="mobile-nav-inner">
-        <a class="link" href="/index.html">Home</a>
-        <a class="link" href="/platform.html">Platform</a>
-        <a class="link" href="/domains.html">Intelligence Areas</a>
-        <a class="link" href="/leadership.html">Leadership</a>
-        <a class="link" href="/initiatives.html">Initiatives</a>
-        <a class="link" href="/briefing.html">Briefing</a>
-        <div class="mobile-actions">
-          <a href="/leadership.html" class="btn btn-secondary">Meet the Leaders</a>
-          <a href="/briefing.html" class="btn btn-primary">Request Briefing</a>
-        </div>
-      </div>
-    </div>
-  </header>
-  <main id="main-content">
 </head>
 <body>
+
   <a href="#main-content" class="skip-link">Skip to content</a>
   <header class="site-header" id="site-header">
     <div class="container nav-shell">
       <a href="/index.html" class="nav-logo" aria-label="Ecosystem Intelligence Group home"><img src="/assets/img/eig-logo.png" alt="EIG" /></a>
       <nav class="nav-links" aria-label="Primary navigation">
-        <a href="/index.html" >Home</a>
-        <a href="/platform.html" >Platform</a>
-        <a href="/domains.html" >Intelligence Areas</a>
-        <a href="/leadership.html" >Leadership</a>
-        <a href="/initiatives.html" >Initiatives</a>
+        <a href="/index.html">Home</a>
+        <a href="/platform.html">Platform</a>
+        <a href="/domains.html">Intelligence Areas</a>
+        <a href="/leadership.html">Leadership</a>
+        <a href="/initiatives.html">Initiatives</a>
         <a href="/briefing.html" class="active">Briefing</a>
       </nav>
       <div class="header-actions">
@@ -110,35 +81,11 @@
   </header>
   <main id="main-content">
 
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Briefing</span>
-          <h1>Decision-grade outputs for moments that matter.</h1>
-          <p class="hero-lead">The EIG briefing is built for high-stakes leadership conversations. It brings the right signal into the room, frames the issue clearly, and drives aligned next-step action.</p>
-          <p class="hero-sub">This is where intelligence becomes a leadership tool — concise enough to use, strong enough to hold, and precise enough to move the decision.</p>
-          <div class="hero-actions">
-            <a href="/briefing.html" class="btn btn-primary">Request Briefing</a>
-            <a href="/leadership.html" class="btn btn-secondary">Meet the Leaders</a>
-          </div>
-        </div>
-        <aside>
-          <div class="panel">
-            <div class="kicker">Executive signal</div>
-            <h3>Briefing layer</h3>
-            <p>When the issue is material and the timing is compressed, the output has to be executive-ready. That is the job of the briefing.</p>
-            <div class="list"><div class="mini"><strong>Concise framing</strong><span>Define the issue without drowning it in volume.</span></div><div class="mini"><strong>Connected analysis</strong><span>Show how pressure moves across the system.</span></div><div class="mini"><strong>Action direction</strong><span>Support decisions that hold under scrutiny.</span></div></div>
-            <div class="status">Leadership-grade output</div>
-          </div>
-        </aside>
-      </div>
-    </section>
-    
-<section><div class="container"><div class="section-head"><div><div class="kicker">Briefing</div><h2>Executive outputs that drive movement.</h2></div><p>The EIG briefing is where platform signal becomes decision-grade output — concise, credible, and built for leadership use under pressure.</p></div><div class="cards-3"><article class="card"><div class="tag">Concise</div><h3>Sharpen the issue</h3><p>Frame what is changing, why it matters now, and what the decision environment demands.</p><ul><li>Clear strategic issue definition</li><li>Relevant context only</li><li>Signal over volume</li></ul></article><article class="card"><div class="tag">Credible</div><h3>Ground the judgement</h3><p>Bring together the right strategic, operational, and ecosystem-level inputs so leadership can trust the frame.</p><ul><li>Connected pressure analysis</li><li>Executive-grade interpretation</li><li>Outcome-led recommendations</li></ul></article><article class="card"><div class="tag">Actionable</div><h3>Move the room</h3><p>Give leadership a briefing that supports alignment, timing, and decisive follow-through.</p><ul><li>Decision options</li><li>Consequence visibility</li><li>Next-step clarity</li></ul></article></div></div></section>
-<section><div class="container"><div class="quote"><blockquote>If the decision matters, the briefing should too.</blockquote><p>This line is already live on the homepage and should remain the conversion heartbeat of the briefing page.</p></div></div></section>
-<section><div class="container"><div class="cards-2"><article class="card"><div class="tag">Ideal use cases</div><h3>When to call for a briefing</h3><ul><li>Leadership decisions carrying performance or reputation risk</li><li>Transformation moments requiring alignment across functions</li><li>Market, policy, or operational shifts that need rapid interpretation</li><li>Board or executive sessions that need concise strategic framing</li></ul></article><article class="card"><div class="tag">What leaders get</div><h3>What the output is built to do</h3><ul><li>Clarify what matters most</li><li>Show pressure transfer across the system</li><li>Support faster, stronger decisions</li><li>Turn analysis into aligned action</li></ul></article></div></div></section>
-<section><div class="container"><div class="cta"><div class="cta-grid"><div><div class="kicker">Request access</div><h2>Bring the right signal into the room.</h2><p>Request a briefing when the issue is material, the timing is compressed, and the leadership room needs clarity that can hold.</p></div><div class="cta-actions"><a href="/briefing.html" class="btn btn-primary">Request Briefing</a><a href="/platform.html" class="btn btn-secondary">Explore Platform</a></div></div></div></div></section>
-
+    <section class="hero"><div class="container hero-grid"><div><span class="eyebrow">Briefing</span><h1>Decision-grade outputs for moments that matter.</h1><p class="hero-lead">The EIG briefing is built for high-stakes leadership conversations. It brings the right signal into the room, frames the issue clearly, and drives aligned next-step action.</p><p class="hero-sub">This is where intelligence becomes a leadership tool — concise enough to use, strong enough to hold, and precise enough to move the decision.</p><div class="hero-actions"><a href="/briefing.html" class="btn btn-primary">Request Briefing</a><a href="/platform.html" class="btn btn-secondary">Explore Platform</a></div></div><aside><div class="panel"><div class="kicker">Briefing layer</div><h3>Executive outputs that drive movement.</h3><p>When the issue is material and the timing is compressed, the output has to be executive-ready. That is the job of the briefing.</p><div class="list"><div class="mini"><strong>Concise framing</strong><span>Define the issue without drowning it in volume.</span></div><div class="mini"><strong>Connected analysis</strong><span>Show how pressure moves across the system.</span></div><div class="mini"><strong>Action direction</strong><span>Support decisions that hold under scrutiny.</span></div></div><div class="status">Leadership-grade output</div></div></aside></div></section>
+    <section><div class="container"><div class="section-head"><div><div class="kicker">Briefing</div><h2>Executive outputs that drive movement.</h2></div><p>The EIG briefing is where platform signal becomes decision-grade output — concise, credible, and built for leadership use under pressure.</p></div><div class="cards-3"><article class="card"><div class="tag">Concise</div><h3>Sharpen the issue</h3><p>Frame what is changing, why it matters now, and what the decision environment demands.</p><ul><li>Clear strategic issue definition</li><li>Relevant context only</li><li>Signal over volume</li></ul></article><article class="card"><div class="tag">Credible</div><h3>Ground the judgement</h3><p>Bring together the right strategic, operational, and ecosystem-level inputs so leadership can trust the frame.</p><ul><li>Connected pressure analysis</li><li>Executive-grade interpretation</li><li>Outcome-led recommendations</li></ul></article><article class="card"><div class="tag">Actionable</div><h3>Move the room</h3><p>Give leadership a briefing that supports alignment, timing, and decisive follow-through.</p><ul><li>Decision options</li><li>Consequence visibility</li><li>Next-step clarity</li></ul></article></div></div></section>
+    <section><div class="container"><div class="quote"><blockquote>If the decision matters, the briefing should too.</blockquote><p>This line is already live on the homepage and should remain the conversion heartbeat of the briefing page.</p></div></div></section>
+    <section><div class="container"><div class="cards-2"><article class="card"><div class="tag">Ideal use cases</div><h3>When to call for a briefing</h3><ul><li>Leadership decisions carrying performance or reputation risk</li><li>Transformation moments requiring alignment across functions</li><li>Market, policy, or operational shifts that need rapid interpretation</li><li>Board or executive sessions that need concise strategic framing</li></ul></article><article class="card"><div class="tag">What leaders get</div><h3>What the output is built to do</h3><ul><li>Clarify what matters most</li><li>Show pressure transfer across the system</li><li>Support faster, stronger decisions</li><li>Turn analysis into aligned action</li></ul></article></div></div></section>
+    <section><div class="container"><div class="cta"><div class="cta-grid"><div><div class="kicker">Request access</div><h2>Bring the right signal into the room.</h2><p>Request a briefing when the issue is material, the timing is compressed, and the leadership room needs clarity that can hold.</p></div><div class="cta-actions"><a href="/briefing.html" class="btn btn-primary">Request Briefing</a><a href="/platform.html" class="btn btn-secondary">Explore Platform</a></div></div></div></div></section>
 
   </main>
   <footer class="site-footer">
