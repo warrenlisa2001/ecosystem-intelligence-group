@@ -1093,6 +1093,12 @@ h1.hero-h em{
 
 
 /* ===== FALCONSOC DEMO SECTION ===== */
+  import { createClient } from '@base44/sdk';
+const base44 = createClient({
+  appId: "6a2d58f7c0519b55ebc67140",
+  headers: { "api_key": "816f4463e8c746c99172db463927694b" }
+});
+// Then: base44.data.threats.list(), base44.data.domains.get(), etc.
 .demo-section {
   background: var(--black);
   padding: 96px 0;
