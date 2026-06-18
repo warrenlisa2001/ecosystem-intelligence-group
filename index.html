@@ -12,32 +12,65 @@
 
 <style>
 /* HOME HERO */
-#home-hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:93px}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 90% 70% at 55% 35%,rgba(0,102,255,0.07),transparent 65%),radial-gradient(ellipse 50% 50% at 85% 75%,rgba(214,10,23,0.04),transparent 60%),var(--black)}
+#home-hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:93px;background:var(--black)}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 45%,rgba(0,102,255,0.05),transparent 65%)}
 .hero-dots{position:absolute;inset:0;opacity:0.022;background-image:radial-gradient(rgba(0,102,255,1) 1px,transparent 1px);background-size:48px 48px}
-.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 400px;gap:5rem;align-items:center;width:100%}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;width:100%}
 .hero-tag{display:inline-flex;align-items:center;gap:0.6rem;border:1px solid rgba(0,102,255,0.3);padding:0.3rem 0.9rem;border-radius:100px;font-size:10.5px;letter-spacing:0.16em;color:var(--blue);text-transform:uppercase;font-weight:600;margin-bottom:1.75rem}
 .hpulse{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
-h1.hero-h{font-family:var(--serif);font-size:clamp(2.8rem,5.5vw,4.5rem);font-weight:700;line-height:1.08;letter-spacing:-0.015em;margin-bottom:1.5rem}
-h1.hero-h em{font-style:italic;color:var(--blue)}
-.hero-sub{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:540px;margin-bottom:2.5rem;font-weight:300}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
-.hero-rule{height:1px;background:rgba(255,255,255,0.06);margin-bottom:2rem}
-.hero-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-.hm-num{font-family:var(--serif);font-size:2rem;font-weight:700;line-height:1}
-.hm-num sup{font-size:0.9rem;color:var(--blue)}
-.hm-lbl{font-size:10.5px;letter-spacing:0.1em;color:var(--mgrey);text-transform:uppercase;margin-top:0.2rem}
-.hero-visual{display:flex;flex-direction:column;align-items:center;gap:1.5rem}
-.hero-logo-wrap{position:relative;width:300px;height:300px;display:flex;align-items:center;justify-content:center}
-.hring{position:absolute;inset:0;border-radius:50%;border:1px solid rgba(0,102,255,0.16);animation:spin 22s linear infinite}
-.hring2{position:absolute;inset:22px;border-radius:50%;border:1px solid rgba(0,102,255,0.07);animation:spin 32s linear infinite reverse}
-@keyframes spin{to{transform:rotate(360deg)}}
-.hero-logo-wrap .eig-orbital{font-family:var(--serif);font-size:3rem;font-weight:700;color:var(--white);position:relative;z-index:1;text-shadow:0 0 40px rgba(0,102,255,0.4)}
-.hero-logo-wrap .eig-orbital span{color:var(--blue)}
-.hero-teamsib{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(139,148,158,0.45);text-align:center}
-.hero-teamsib a{color:rgba(0,102,255,0.55);text-decoration:none}
+h1.hero-h{font-family:var(--sans);font-size:clamp(2.2rem,3.8vw,2.95rem);font-weight:800;line-height:1.15;letter-spacing:-0.02em;margin-bottom:1.5rem;color:rgba(255,255,255,0.92)}
+h1.hero-h .dim{color:rgba(220,224,230,0.78)}
+h1.hero-h .pop{color:var(--blue);display:block}
+.hero-sub{font-size:16.5px;color:var(--mgrey);line-height:1.8;max-width:540px;margin-bottom:2.25rem;font-weight:300}
+.hero-sub b{color:var(--white);font-weight:600}
+.hero-sub .accent{color:var(--blue2);font-weight:600;display:block;margin-top:0.3rem}
+.hero-audience{display:flex;align-items:stretch;gap:0;margin-bottom:2.25rem;flex-wrap:wrap}
+.ha-item{display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:0 1.1rem;border-right:1px solid rgba(255,255,255,0.08);color:rgba(139,148,158,0.85);cursor:default}
+.ha-item:first-child{padding-left:0}
+.ha-item:last-child{border-right:none}
+.ha-item svg{width:22px;height:22px;stroke:currentColor}
+.ha-item span{font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600}
+.ha-item.active{color:var(--blue)}
+.ha-item.active span{position:relative}
+.ha-item.active span::after{content:'';position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--blue)}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
 
+/* GLOBE VISUAL */
+.hero-visual{position:relative;height:560px;display:flex;align-items:center;justify-content:center}
+.globe-wrap{position:relative;width:370px;height:370px}
+.globe-img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+.globe-glow{position:absolute;inset:-30px;border-radius:50%;background:radial-gradient(circle,rgba(0,102,255,0.18),transparent 70%);z-index:-1}
+.orbit-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.orbit-svg path{fill:none;stroke:rgba(0,102,255,0.35);stroke-width:1}
+.node{position:absolute;display:flex;flex-direction:column;align-items:center;gap:0.6rem;width:140px;transform:translate(-50%,-50%)}
+.node-ico{width:38px;height:38px;border-radius:10px;border:1px solid rgba(0,102,255,0.4);background:rgba(2,6,13,0.6);display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(0,102,255,0.25)}
+.node-ico svg{width:19px;height:19px;stroke:var(--blue2);fill:none}
+.node-lbl{font-size:10.5px;letter-spacing:0.07em;text-transform:uppercase;font-weight:700;color:var(--white);text-align:center;line-height:1.4;text-shadow:0 1px 6px rgba(2,6,13,0.95),0 1px 12px rgba(2,6,13,0.9)}
+.node-lbl em{font-style:normal;color:#7ab2ff}
+.node-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:#9ec8ff;box-shadow:0 0 10px 2px rgba(158,200,255,0.7)}
+
+.n-ai{top:-2%;left:50%}
+.n-ai .node-dot{top:64px;left:50%;transform:translateX(-50%)}
+.n-sus{top:18%;left:104%}
+.n-sus .node-dot{bottom:18px;left:-6px}
+.n-it{top:32%;left:-6%}
+.n-it .node-dot{bottom:10px;right:-6px}
+.n-sc{top:50%;left:114%}
+.n-sc .node-dot{bottom:30px;left:6px}
+.n-sp{top:68%;left:-8%}
+.n-sp .node-dot{top:10px;right:0}
+.n-hc{top:80%;left:104%}
+.n-hc .node-dot{top:12px;left:0}
+.n-arch{top:101%;left:50%}
+.n-arch .node-dot{top:-10px;left:50%;transform:translateX(-50%)}
+
+.hero-tagline{position:absolute;right:0;bottom:-1.5rem;text-align:right;padding-right:0.5rem;border-right:2px solid var(--blue);padding-right:1rem}
+.hero-tagline p{font-size:13px;letter-spacing:0.03em;color:rgba(139,148,158,0.85);line-height:1.6}
+.hero-tagline p b{color:var(--blue2);font-weight:600;display:block}
+</style>
+
+<style>
 /* SECTOR HUB */
 .sector-hub{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;background:rgba(255,255,255,0.04)}
 .sh-card{background:var(--black);padding:1.75rem 1.25rem;position:relative;overflow:hidden;cursor:pointer;transition:background 0.2s;text-align:center;text-decoration:none}
@@ -118,9 +151,17 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
   .sector-hub{grid-template-columns:1fr 1fr}
   .dash-body{grid-template-columns:1fr}
   .hero-meta{grid-template-columns:1fr 1fr}
+  h1.hero-h{font-size:clamp(1.7rem,7vw,2.4rem)}
+  .hero-audience{gap:0.5rem 0}
+  .ha-item{padding:0 0.7rem;border-right:none;flex:0 0 auto}
 }
 @media(max-width:480px){
   .sector-hub{grid-template-columns:1fr}
+  h1.hero-h{font-size:clamp(1.5rem,8vw,2rem)}
+  .hero-sub{font-size:15px}
+  .hero-audience{justify-content:space-between}
+  .ha-item{padding:0 0.3rem}
+  .ha-item span{font-size:9px}
 }
 </style>
 
@@ -148,7 +189,7 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
 </div><nav id="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <span class="logo-text">EIG<span>.</span></span>
+      <img src="assets/images/eig-logo.png" alt="EIG — Ecosystem Intelligence Group" class="logo-img">
     </a>
     <div class="nav-menu">
       <div class="nav-item"><a href="platform.html">Platform</a></div>
@@ -235,27 +276,79 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
   <div class="container hero-inner">
     <div>
       <div class="hero-tag"><span class="hpulse"></span> Multi-Sector Intelligence Platform</div>
-      <h1 class="hero-h">Ecosystem Intelligence<br><em>Group</em></h1>
-      <p class="hero-sub">Connecting domain leaders across AI, sustainability, supply chain, architecture, education, healthcare, IT and strategic planning — delivering integrated intelligence and execution at scale.</p>
-      <div class="hero-actions">
-        <a href="platform.html" class="btn-p">Explore Platform</a>
-        <a href="briefing.html" class="btn-g">Executive Briefing</a>
+      <h1 class="hero-h">Smarter Intelligence.<br><span class="dim">Stronger Decisions.</span><br><span class="pop">Greater Impact.</span></h1>
+      <p class="hero-sub">Actionable intelligence across AI, sustainability, supply chain, <b>architecture, healthcare</b>, IT and strategic planning — <span class="accent">empowering leaders to execute with confidence at scale.</span></p>
+      <div class="hero-audience">
+        <div class="ha-item active">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
+          <span>C-Suite</span>
+        </div>
+        <div class="ha-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 17l4-5 4 3 5-7 3 3"/></svg>
+          <span>CEO</span>
+        </div>
+        <div class="ha-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3 19c0-3 2.5-5.5 6-5.5s6 2.5 6 5.5"/><circle cx="17" cy="9" r="2.3"/><path d="M16 13.2c2.5 0.3 4 2 4 5"/></svg>
+          <span>COO</span>
+        </div>
+        <div class="ha-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="6" y="4" width="12" height="16" rx="1.5"/><path d="M9 9h6M9 12.5l1.5 1.5L15 10"/></svg>
+          <span>Directors</span>
+        </div>
+        <div class="ha-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 12l4-1 2 2 3-4 3 4 2-2 4 1"/><path d="M7 11v6M17 11v6"/></svg>
+          <span>Stakeholders</span>
+        </div>
       </div>
-      <div class="hero-rule"></div>
-      <div class="hero-meta">
-        <div><div class="hm-num">8<sup>+</sup></div><div class="hm-lbl">Intelligence Domains</div></div>
-        <div><div class="hm-num">46</div><div class="hm-lbl">Global Markets</div></div>
-        <div><div class="hm-num">12</div><div class="hm-lbl">Strategic Partners</div></div>
-        <div><div class="hm-num">∞</div><div class="hm-lbl">Cross-Domain Value</div></div>
+      <div class="hero-actions">
+        <a href="platform.html" class="btn-p">Explore Platform →</a>
+        <a href="briefing.html" class="btn-g">Executive Briefing →</a>
       </div>
     </div>
     <div class="hero-visual">
-      <div class="hero-logo-wrap">
-        <div class="hring"></div>
-        <div class="hring2"></div>
-        <div class="eig-orbital">EIG<span>.</span></div>
+      <div class="globe-wrap">
+        <div class="globe-glow"></div>
+        <img src="assets/images/hero-globe.png" alt="EIG global intelligence network" class="globe-img">
+
+        <div class="node n-ai">
+          <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><rect x="8" y="8" width="8" height="8" rx="1"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div>
+          <div class="node-lbl"><em>AI &amp;</em><br>Technology</div>
+          <div class="node-dot"></div>
+        </div>
+        <div class="node n-sus">
+          <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 22s7-4.5 7-11a7 7 0 0 0-14 0c0 6.5 7 11 7 11Z"/><path d="M12 13V7"/></svg></div>
+          <div class="node-lbl">Sustainability</div>
+          <div class="node-dot"></div>
+        </div>
+        <div class="node n-it">
+          <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M7 17a4 4 0 1 1 .6-7.96A5 5 0 0 1 17 11a3.5 3.5 0 0 1 0 7H7Z"/><path d="M12 12v5M9.5 14.5L12 12l2.5 2.5"/></svg></div>
+          <div class="node-lbl">IT &amp; Digital<br>Transformation</div>
+          <div class="node-dot"></div>
+        </div>
+        <div class="node n-sc">
+          <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="M4 7.5L12 12l8-4.5M12 12v9"/></svg></div>
+          <div class="node-lbl">Supply Chain</div>
+          <div class="node-dot"></div>
+        </div>
+        <div class="node n-sp">
+          <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 4v3M19.07 7.5l-2.6 1.5"/></svg></div>
+          <div class="node-lbl">Strategic<br>Planning</div>
+          <div class="node-dot"></div>
+        </div>
+        <div class="node n-hc">
+          <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 20s-7-4.4-9-9.2C1.6 7.6 3.4 5 6.4 5 8.6 5 10 6.3 12 8.2 14 6.3 15.4 5 17.6 5c3 0 4.8 2.6 3.4 5.8-2 4.8-9 9.2-9 9.2Z"/><path d="M7 11h2l1.5-2.5L12 13l1.5-2.5H17"/></svg></div>
+          <div class="node-lbl">Healthcare</div>
+          <div class="node-dot"></div>
+        </div>
+        <div class="node n-arch">
+          <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M4 21V9l5-4 5 4v12M14 21v-8l4-3 2 1.5V21"/><path d="M7 13h2M7 17h2"/></svg></div>
+          <div class="node-lbl"><em>Architecture &amp;</em><br>Infrastructure</div>
+          <div class="node-dot"></div>
+        </div>
       </div>
-      <div class="hero-teamsib">A <a href="#">SIB Group</a> Company</div>
+      <div class="hero-tagline">
+        <p>Connecting domain leaders.<br><b>Driving integrated outcomes.</b></p>
+      </div>
     </div>
   </div>
 </section>
@@ -466,6 +559,7 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
 <footer>
   <div class="footer-inner">
     <a href="index.html" class="footer-brand">
+      <img src="assets/images/eig-logo.png" alt="EIG" class="logo-img">
       <span class="logo-text">Ecosystem Intelligence <span>Group</span></span>
     </a>
     <div class="footer-links">
