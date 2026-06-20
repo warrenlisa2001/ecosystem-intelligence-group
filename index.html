@@ -127,29 +127,14 @@ h1.hero-h .pop{color:var(--blue);display:block}
 .sh-card[data-sector="plan"] .sh-owner{color:var(--c-plan)}
 
 /* DASHBOARD */
-.dash-wrap{background:var(--navy);border:1px solid rgba(0,102,255,0.12);border-radius:3px;overflow:hidden}
-.dash-header{background:rgba(2,6,13,0.8);padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(0,102,255,0.1)}
-.dash-title{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mgrey);font-weight:600}
-.dash-live{display:flex;align-items:center;gap:0.4rem;font-size:10.5px;color:var(--green);letter-spacing:0.1em;text-transform:uppercase}
-.dash-live-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite}
-.dash-body{padding:1.5rem;display:grid;grid-template-columns:auto 1fr;gap:1.5rem}
-.matrix{overflow-x:auto}
-.matrix table{border-collapse:collapse;font-size:11px;width:100%}
-.matrix th{padding:0.4rem 0.6rem;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey);font-weight:600;text-align:center;white-space:nowrap}
-.matrix th.row-h{text-align:left;min-width:100px}
-.matrix td{padding:0.4rem 0.6rem;text-align:center;border:1px solid rgba(255,255,255,0.04)}
-.matrix td.lname{text-align:left;font-size:11px;font-weight:600;color:var(--white);white-space:nowrap;padding-left:0}
-.mcel{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin:auto;cursor:pointer;transition:transform 0.2s}
-.mcel.lead{background:rgba(0,102,255,0.25);color:var(--blue);border:1px solid rgba(0,102,255,0.4)}
-.mcel.collab{background:rgba(255,255,255,0.06);color:var(--mgrey);border:1px solid rgba(255,255,255,0.08)}
-.mcel.none{background:transparent;border:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.12)}
-.mcel:hover{transform:scale(1.15)}
-.dash-feed{display:flex;flex-direction:column;gap:0.75rem;max-height:320px;overflow-y:auto}
-.feed-item{padding:0.75rem 1rem;border:1px solid rgba(255,255,255,0.06);border-radius:2px;transition:border-color 0.3s}
-.feed-tag{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;margin-bottom:0.25rem}
-.feed-text{font-size:12.5px;color:var(--mgrey);line-height:1.5}
-.feed-leaders{display:flex;gap:0.35rem;margin-top:0.5rem;flex-wrap:wrap}
-.feed-pip{font-size:9.5px;padding:2px 7px;border-radius:100px;font-weight:600;border:1px solid currentColor}
+.xd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.xd-card{border:1px solid rgba(255,255,255,0.07);border-radius:3px;padding:1.4rem 1.3rem;background:rgba(255,255,255,0.015);transition:border-color 0.25s,transform 0.25s}
+.xd-card:hover{border-color:rgba(0,102,255,0.25);transform:translateY(-3px)}
+.xd-pair{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.9rem}
+.xd-leader{font-size:12.5px;font-weight:700;padding:0.25rem 0.65rem;border-radius:100px;border:1px solid currentColor}
+.xd-x{font-size:12px;color:var(--mgrey)}
+.xd-tag{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;margin-bottom:0.6rem}
+.xd-card p{font-size:13.5px;color:var(--mgrey);line-height:1.6;margin:0}
 
 /* INSIGHTS PREVIEW */
 .insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
@@ -175,10 +160,10 @@ h1.hero-h .pop{color:var(--blue);display:block}
   .hero-visual{display:none}
   .sector-hub{grid-template-columns:repeat(2,1fr)}
   .insights-grid{grid-template-columns:1fr}
+  .xd-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
   .sector-hub{grid-template-columns:1fr 1fr}
-  .dash-body{grid-template-columns:1fr}
   .hero-meta{grid-template-columns:1fr 1fr}
   h1.hero-h{font-size:clamp(1.7rem,7vw,2.4rem)}
   .hero-audience{gap:0.5rem 0}
@@ -186,6 +171,7 @@ h1.hero-h .pop{color:var(--blue);display:block}
 }
 @media(max-width:480px){
   .sector-hub{grid-template-columns:1fr}
+  .xd-grid{grid-template-columns:1fr}
   h1.hero-h{font-size:clamp(1.5rem,8vw,2rem)}
   .hero-sub{font-size:15px}
   .hero-audience{justify-content:space-between}
@@ -476,64 +462,48 @@ h1.hero-h .pop{color:var(--blue);display:block}
 
 <div class="divider"></div>
 
-<!-- DASHBOARD -->
+<!-- CROSS-DOMAIN INITIATIVES -->
 <section class="sec">
   <div class="container">
-    <div class="eyebrow">Live Intelligence</div>
-    <h2 class="title">Cross-Domain <em>Collaboration</em> Matrix</h2>
-    <p class="lead" style="margin-bottom:2.5rem">Real-time mapping of leadership collaboration across all eight intelligence domains. Click any node to explore active initiatives.</p>
-    <div class="dash-wrap">
-      <div class="dash-header">
-        <div class="dash-title">Leadership Collaboration Matrix</div>
-        <div class="dash-live"><span class="dash-live-dot"></span>Live</div>
+    <div class="eyebrow">Cross-Domain Work</div>
+    <h2 class="title">Where Domains <em>Intersect</em></h2>
+    <p class="lead" style="margin-bottom:2.5rem">The most valuable work happens at the intersections — where two leaders bring complementary expertise to the same problem.</p>
+    <div class="xd-grid">
+      <div class="xd-card">
+        <div class="xd-pair">
+          <span class="xd-leader" style="color:var(--c-lisa);border-color:var(--c-lisa)">Lisa</span>
+          <span class="xd-x">×</span>
+          <span class="xd-leader" style="color:var(--c-manish);border-color:var(--c-manish)">Manish</span>
+        </div>
+        <div class="xd-tag" style="color:var(--blue)">AI &amp; Healthcare</div>
+        <p>Joint initiative on predictive health analytics using federated learning models.</p>
       </div>
-      <div class="dash-body">
-        <div class="matrix">
-          <table>
-            <tr><th class="row-h">Leader</th><th>AI</th><th>Sus</th><th>SC</th><th>Arch</th><th>Edu</th><th>Health</th><th>IT</th><th>Plan</th></tr>
-            <tr><td class="lname">Lisa (AI/IT)</td><td><div class="mcel lead">L</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel none">-</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel lead">L</div></td><td><div class="mcel collab">C</div></td></tr>
-            <tr><td class="lname">Ivano (Sus)</td><td><div class="mcel collab">C</div></td><td><div class="mcel lead">L</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td></tr>
-            <tr><td class="lname">Patrick (SC)</td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel lead">L</div></td><td><div class="mcel none">-</div></td><td><div class="mcel none">-</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td></tr>
-            <tr><td class="lname">Keith (Arch)</td><td><div class="mcel none">-</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel none">-</div></td><td><div class="mcel lead">L</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td></tr>
-            <tr><td class="lname">Bill (Edu)</td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel none">-</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel lead">L</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td></tr>
-            <tr><td class="lname">Alex (Plan)</td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel lead">L</div></td></tr>
-            <tr><td class="lname">Manish (Health)</td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel lead">L</div></td><td><div class="mcel collab">C</div></td><td><div class="mcel collab">C</div></td></tr>
-          </table>
+      <div class="xd-card">
+        <div class="xd-pair">
+          <span class="xd-leader" style="color:var(--c-ivano);border-color:var(--c-ivano)">Ivano</span>
+          <span class="xd-x">×</span>
+          <span class="xd-leader" style="color:var(--c-keith);border-color:var(--c-keith)">Keith</span>
         </div>
-        <div class="dash-feed">
-          <div class="feed-item">
-            <div class="feed-tag" style="color:var(--blue)">AI × Healthcare</div>
-            <div class="feed-text">Lisa and Manish launching joint initiative on predictive health analytics using federated learning models.</div>
-            <div class="feed-leaders">
-              <span class="feed-pip" style="color:var(--c-lisa);border-color:var(--c-lisa)">Lisa</span>
-              <span class="feed-pip" style="color:var(--c-manish);border-color:var(--c-manish)">Manish</span>
-            </div>
-          </div>
-          <div class="feed-item">
-            <div class="feed-tag" style="color:var(--green)">Sustainability × Architecture</div>
-            <div class="feed-text">Ivano and Keith co-developing net-zero building standards for commercial real estate portfolios.</div>
-            <div class="feed-leaders">
-              <span class="feed-pip" style="color:var(--c-ivano);border-color:var(--c-ivano)">Ivano</span>
-              <span class="feed-pip" style="color:var(--c-keith);border-color:var(--c-keith)">Keith</span>
-            </div>
-          </div>
-          <div class="feed-item">
-            <div class="feed-tag" style="color:var(--red)">Supply Chain × IT</div>
-            <div class="feed-text">Patrick and Lisa deploying blockchain-enabled traceability for pharmaceutical cold chains.</div>
-            <div class="feed-leaders">
-              <span class="feed-pip" style="color:var(--c-patrick);border-color:var(--c-patrick)">Patrick</span>
-              <span class="feed-pip" style="color:var(--c-lisa);border-color:var(--c-lisa)">Lisa</span>
-            </div>
-          </div>
-          <div class="feed-item">
-            <div class="feed-tag" style="color:var(--amber)">Education × AI</div>
-            <div class="feed-text">Bill and Lisa piloting adaptive learning platforms for STEM education in emerging markets.</div>
-            <div class="feed-leaders">
-              <span class="feed-pip" style="color:var(--c-bill);border-color:var(--c-bill)">Bill</span>
-              <span class="feed-pip" style="color:var(--c-lisa);border-color:var(--c-lisa)">Lisa</span>
-            </div>
-          </div>
+        <div class="xd-tag" style="color:var(--green)">Sustainability &amp; Architecture</div>
+        <p>Co-developing net-zero building standards for commercial real estate portfolios.</p>
+      </div>
+      <div class="xd-card">
+        <div class="xd-pair">
+          <span class="xd-leader" style="color:var(--c-patrick);border-color:var(--c-patrick)">Patrick</span>
+          <span class="xd-x">×</span>
+          <span class="xd-leader" style="color:var(--c-lisa);border-color:var(--c-lisa)">Lisa</span>
         </div>
+        <div class="xd-tag" style="color:var(--red)">Supply Chain &amp; IT</div>
+        <p>Deploying blockchain-enabled traceability for pharmaceutical cold chains.</p>
+      </div>
+      <div class="xd-card">
+        <div class="xd-pair">
+          <span class="xd-leader" style="color:var(--c-bill);border-color:var(--c-bill)">Bill</span>
+          <span class="xd-x">×</span>
+          <span class="xd-leader" style="color:var(--c-lisa);border-color:var(--c-lisa)">Lisa</span>
+        </div>
+        <div class="xd-tag" style="color:var(--amber)">Education &amp; AI</div>
+        <p>Piloting adaptive learning platforms for STEM education in emerging markets.</p>
       </div>
     </div>
   </div>

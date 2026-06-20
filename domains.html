@@ -11,20 +11,99 @@
 <link rel="stylesheet" href="assets/shared.css">
 
 <style>
-.content-hero{min-height:50vh;display:flex;align-items:center;padding-top:120px;padding-bottom:60px;position:relative;overflow:hidden}
-.content-hero .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(0,102,255,0.06),transparent 70%),var(--black)}
-.content-hero .container{position:relative;z-index:2}
-.content-hero h1{font-family:var(--serif);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.01em;margin-bottom:1rem}
+.content-hero{min-height:auto;padding-top:130px;padding-bottom:50px;position:relative;overflow:hidden;background:var(--black)}
+.content-hero .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 30%,rgba(0,102,255,0.06),transparent 65%)}
+.content-hero .hero-dots{position:absolute;inset:0;opacity:0.022;background-image:radial-gradient(rgba(0,102,255,1) 1px,transparent 1px);background-size:48px 48px}
+.content-hero .container{position:relative;z-index:2;max-width:760px}
+.hero-tag{display:inline-flex;align-items:center;gap:0.6rem;border:1px solid rgba(0,102,255,0.3);padding:0.3rem 0.9rem;border-radius:100px;font-size:10.5px;letter-spacing:0.16em;color:var(--blue);text-transform:uppercase;font-weight:600;margin-bottom:1.5rem}
+.hpulse{width:6px;height:6px;border-radius:50%;background:var(--blue);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
+.content-hero h1{font-family:var(--serif);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.01em;margin-bottom:1.1rem}
 .content-hero h1 em{font-style:italic;color:var(--blue)}
-.content-hero p{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:640px;font-weight:300}
-.content-body{padding:60px 0 100px}
+.content-hero p{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:620px;font-weight:300}
+
+.content-body{padding:50px 0 100px}
 .content-body h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin:2.5rem 0 1rem;color:var(--white)}
 .content-body p{font-size:15.5px;color:var(--mgrey);line-height:1.82;margin-bottom:1.2rem}
-.content-body ul{margin:1rem 0 1.5rem 1.5rem}
-.content-body li{font-size:15px;color:var(--mgrey);line-height:1.9;margin-bottom:0.3rem}
 .content-body strong{color:var(--white);font-weight:600}
-.content-body blockquote{border-left:2px solid var(--blue);padding-left:1.5rem;margin:2rem 0;font-style:italic;font-family:var(--serif);font-size:1.1rem;color:var(--mgrey)}
-.content-body blockquote strong{color:var(--white)}
+
+.da-intro{display:grid;grid-template-columns:1.1fr 0.9fr;gap:3rem;align-items:start;margin-bottom:3.5rem;padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.07)}
+.da-intro h3{margin-top:0}
+.da-stat-block{display:flex;flex-direction:column;gap:1.3rem;padding-top:0.2rem}
+.da-stat{display:flex;align-items:baseline;gap:0.9rem;border-left:2px solid var(--blue);padding-left:1rem}
+.da-stat b{font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--white);line-height:1}
+.da-stat span{font-size:12.5px;color:var(--mgrey);letter-spacing:0.02em}
+
+.domain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;background:rgba(255,255,255,0.04)}
+.domain-card{background:var(--black);padding:2rem 1.6rem;position:relative;overflow:hidden;text-decoration:none;display:block;transition:background 0.2s}
+.domain-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;transform:scaleX(0);transform-origin:left;transition:transform 0.35s}
+.domain-card:hover{background:rgba(255,255,255,0.025)}
+.domain-card:hover::before{transform:scaleX(1)}
+.domain-card .dm-icon{width:42px;height:42px;margin-bottom:1.1rem;display:flex;align-items:center;justify-content:center;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.025);transition:border-color 0.25s,background 0.25s}
+.domain-card:hover .dm-icon{background:rgba(255,255,255,0.05)}
+.domain-card .dm-icon svg{width:21px;height:21px;fill:none;stroke:var(--mgrey);transition:stroke 0.25s}
+.domain-card .dm-num{font-family:var(--serif);font-size:11px;font-weight:700;letter-spacing:0.08em;margin-bottom:0.6rem}
+.domain-card h3{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--white);margin:0 0 0.6rem;line-height:1.3}
+.domain-card .dm-claim{font-size:13.5px;font-weight:600;color:rgba(230,233,237,0.85);margin-bottom:0.6rem;line-height:1.4}
+.domain-card p{font-size:13px;color:var(--mgrey);line-height:1.65;margin:0}
+.domain-card .dm-owner{font-size:11px;letter-spacing:0.04em;color:var(--mgrey);margin-top:1rem;display:flex;align-items:center;gap:0.4rem}
+.domain-card .dm-owner-dot{width:5px;height:5px;border-radius:50%}
+
+.domain-card[data-sector="ai"]::before{background:var(--c-ai)}
+.domain-card[data-sector="ai"]:hover .dm-icon{border-color:var(--c-ai)}
+.domain-card[data-sector="ai"] .dm-icon svg{stroke:var(--c-ai)}
+.domain-card[data-sector="ai"] .dm-num{color:var(--c-ai)}
+.domain-card[data-sector="ai"] .dm-owner-dot{background:var(--c-ai)}
+
+.domain-card[data-sector="sus"]::before{background:var(--c-sus)}
+.domain-card[data-sector="sus"]:hover .dm-icon{border-color:var(--c-sus)}
+.domain-card[data-sector="sus"] .dm-icon svg{stroke:var(--c-sus)}
+.domain-card[data-sector="sus"] .dm-num{color:var(--c-sus)}
+.domain-card[data-sector="sus"] .dm-owner-dot{background:var(--c-sus)}
+
+.domain-card[data-sector="sc"]::before{background:var(--c-sc)}
+.domain-card[data-sector="sc"]:hover .dm-icon{border-color:var(--c-sc)}
+.domain-card[data-sector="sc"] .dm-icon svg{stroke:var(--c-sc)}
+.domain-card[data-sector="sc"] .dm-num{color:var(--c-sc)}
+.domain-card[data-sector="sc"] .dm-owner-dot{background:var(--c-sc)}
+
+.domain-card[data-sector="arch"]::before{background:var(--c-arch)}
+.domain-card[data-sector="arch"]:hover .dm-icon{border-color:var(--c-arch)}
+.domain-card[data-sector="arch"] .dm-icon svg{stroke:var(--c-arch)}
+.domain-card[data-sector="arch"] .dm-num{color:var(--c-arch)}
+.domain-card[data-sector="arch"] .dm-owner-dot{background:var(--c-arch)}
+
+.domain-card[data-sector="edu"]::before{background:var(--c-edu)}
+.domain-card[data-sector="edu"]:hover .dm-icon{border-color:var(--c-edu)}
+.domain-card[data-sector="edu"] .dm-icon svg{stroke:var(--c-edu)}
+.domain-card[data-sector="edu"] .dm-num{color:var(--c-edu)}
+.domain-card[data-sector="edu"] .dm-owner-dot{background:var(--c-edu)}
+
+.domain-card[data-sector="health"]::before{background:var(--c-health)}
+.domain-card[data-sector="health"]:hover .dm-icon{border-color:var(--c-health)}
+.domain-card[data-sector="health"] .dm-icon svg{stroke:var(--c-health)}
+.domain-card[data-sector="health"] .dm-num{color:var(--c-health)}
+.domain-card[data-sector="health"] .dm-owner-dot{background:var(--c-health)}
+
+.domain-card[data-sector="it"]::before{background:var(--c-it)}
+.domain-card[data-sector="it"]:hover .dm-icon{border-color:var(--c-it)}
+.domain-card[data-sector="it"] .dm-icon svg{stroke:var(--c-it)}
+.domain-card[data-sector="it"] .dm-num{color:var(--c-it)}
+.domain-card[data-sector="it"] .dm-owner-dot{background:var(--c-it)}
+
+.domain-card[data-sector="plan"]::before{background:var(--c-plan)}
+.domain-card[data-sector="plan"]:hover .dm-icon{border-color:var(--c-plan)}
+.domain-card[data-sector="plan"] .dm-icon svg{stroke:var(--c-plan)}
+.domain-card[data-sector="plan"] .dm-num{color:var(--c-plan)}
+.domain-card[data-sector="plan"] .dm-owner-dot{background:var(--c-plan)}
+
+@media(max-width:1100px){
+  .domain-grid{grid-template-columns:repeat(2,1fr)}
+  .da-intro{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .domain-grid{grid-template-columns:1fr}
+}
 </style>
 
 </head>
@@ -134,7 +213,9 @@
 
 <section class="content-hero">
   <div class="hero-bg"></div>
+  <div class="hero-dots"></div>
   <div class="container">
+    <div class="hero-tag"><span class="hpulse"></span> Eight Domains. One Intelligence Layer.</div>
     <h1>Critical expertise. Direct ownership. <em>Measured impact.</em></h1>
     <p>Ecosystem Intelligence Group operates in the domains that matter when the stakes are high. Leadership-level disciplines, each led with authority.</p>
   </div>
@@ -142,59 +223,79 @@
 
 <section class="content-body">
   <div class="container">
-    
-<div class="eyebrow">Intelligence Areas</div>
-<h2 class="title" style="margin-bottom:2rem">Critical expertise. Direct ownership. <em>Measured impact.</em></h2>
 
-<p>Ecosystem Intelligence Group operates in the domains that matter when the stakes are high. These are not loose areas of interest. They are leadership-level disciplines. Each one carries strategic weight. Each one shapes performance. Each one demands judgement.</p>
+    <div class="da-intro">
+      <div>
+        <p>Ecosystem Intelligence Group operates in the domains that matter when the stakes are high. These are not loose areas of interest. They are leadership-level disciplines. Each one carries strategic weight. Each one shapes performance. Each one demands judgement.</p>
+        <h3>We Operate Where Decisions Have Consequence</h3>
+        <p>Where complexity is rising. Where pressure is real. Where weak alignment creates cost. Where execution determines whether strategy becomes value.</p>
+        <p><strong>Each domain is led with authority.</strong> Most organisations do not struggle from lack of effort. They struggle from fragmentation. Disconnected thinking. Misaligned execution. Missed signals between functions. EIG closes those gaps. Part of the SIB Group, we connect intelligence to execution with greater continuity, stronger accountability, and real-world delivery discipline.</p>
+      </div>
+      <div class="da-stat-block">
+        <div class="da-stat"><b>8</b><span>Leadership-led domains, each with direct ownership</span></div>
+        <div class="da-stat"><b>1</b><span>Intelligence layer connecting every domain to execution</span></div>
+        <div class="da-stat"><b>0</b><span>Signals lost between functions</span></div>
+      </div>
+    </div>
 
-<h3>We Operate Where Decisions Have Consequence</h3>
-<p>Where complexity is rising. Where pressure is real. Where weak alignment creates cost. Where execution determines whether strategy becomes value.</p>
-
-<p><strong>Each domain is led with authority.</strong> Most organisations do not struggle from lack of effort. They struggle from fragmentation. Disconnected thinking. Misaligned execution. Missed signals between functions. EIG closes those gaps. Part of the SIB Group, we connect intelligence to execution with greater continuity, stronger accountability, and real-world delivery discipline.</p>
-
-<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:3rem">
-  <a href="industry-ai.html" class="card" style="text-decoration:none;border-left:3px solid var(--c-ai)">
-    <div class="tag" style="color:var(--c-ai)">01 — Agentic Artificial Intelligence</div>
-    <h3>Capability is everywhere. Advantage is not.</h3>
-    <p>AI has moved beyond attention. Now it is about application, control, and value. EIG helps organisations identify where agentic AI creates real commercial and operational impact.</p>
-  </a>
-  <a href="industry-sustainability.html" class="card" style="text-decoration:none;border-left:3px solid var(--c-sus)">
-    <div class="tag" style="color:var(--c-sus)">02 — Sustainability</div>
-    <h3>This is now a performance issue.</h3>
-    <p>Sustainability affects cost, resilience, capital, reputation, and growth. EIG helps organisations connect sustainability to strategic value.</p>
-  </a>
-  <a href="industry-supply-chain.html" class="card" style="text-decoration:none;border-left:3px solid var(--c-sc)">
-    <div class="tag" style="color:var(--c-sc)">03 — Supply Chain & Process</div>
-    <h3>Performance lives in the system.</h3>
-    <p>It is won in flow, control, visibility, and execution discipline. EIG helps organisations strengthen supply chain performance and improve operational resilience.</p>
-  </a>
-  <a href="industry-architecture.html" class="card" style="text-decoration:none;border-left:3px solid var(--c-arch)">
-    <div class="tag" style="color:var(--c-arch)">04 — Architecture & Interior Design</div>
-    <h3>Environment shapes performance.</h3>
-    <p>It shapes how organisations work, how brands are experienced, how people move, and how value is felt. EIG connects strategic intent to physical environments.</p>
-  </a>
-  <a href="industry-education.html" class="card" style="text-decoration:none;border-left:3px solid var(--c-edu)">
-    <div class="tag" style="color:var(--c-edu)">05 — Education</div>
-    <h3>Institutions are under pressure to evolve.</h3>
-    <p>Expectations are changing. Delivery models are shifting. Outcomes matter more than ever. EIG helps education institutions define stronger strategy and practical transformation pathways.</p>
-  </a>
-  <a href="industry-healthcare.html" class="card" style="text-decoration:none;border-left:3px solid var(--c-health)">
-    <div class="tag" style="color:var(--c-health)">06 — Healthcare</div>
-    <h3>Complexity at full scale.</h3>
-    <p>Few environments combine strategy, infrastructure, technology, process, service delivery, and human consequence the way healthcare does. EIG brings structured intelligence to navigate that complexity.</p>
-  </a>
-  <a href="industry-it.html" class="card" style="text-decoration:none;border-left:3px solid var(--c-it)">
-    <div class="tag" style="color:var(--c-it)">07 — Information Technology</div>
-    <h3>Technology must move the business forward.</h3>
-    <p>It must support speed, visibility, control, and decision quality. EIG helps organisations align technology decisions with operating reality and strategic intent.</p>
-  </a>
-  <a href="industry-strategic-planning.html" class="card" style="text-decoration:none;border-left:3px solid var(--c-plan)">
-    <div class="tag" style="color:var(--c-plan)">08 — Strategic Planning</div>
-    <h3>Direction comes first.</h3>
-    <p>Strong organisations do not drift. They choose, align, and execute. EIG helps leadership teams set priorities, frame decisions, and define a path that holds under pressure.</p>
-  </a>
-</div>
+    <div class="domain-grid">
+      <a href="industry-ai.html" class="domain-card" data-sector="ai">
+        <div class="dm-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><rect x="8" y="8" width="8" height="8" rx="1"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div>
+        <div class="dm-num">01 — AGENTIC AI</div>
+        <h3>Capability is everywhere. Advantage is not.</h3>
+        <p>AI has moved beyond attention. Now it is about application, control, and value. EIG helps organisations identify where agentic AI creates real commercial and operational impact.</p>
+        <div class="dm-owner"><span class="dm-owner-dot"></span>Lisa Warren</div>
+      </a>
+      <a href="industry-sustainability.html" class="domain-card" data-sector="sus">
+        <div class="dm-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 22s7-4.5 7-11a7 7 0 0 0-14 0c0 6.5 7 11 7 11Z"/><path d="M12 13V7"/></svg></div>
+        <div class="dm-num">02 — SUSTAINABILITY</div>
+        <h3>This is now a performance issue.</h3>
+        <p>Sustainability affects cost, resilience, capital, reputation, and growth. EIG helps organisations connect sustainability to strategic value.</p>
+        <div class="dm-owner"><span class="dm-owner-dot"></span>Ivano Iannelli</div>
+      </a>
+      <a href="industry-supply-chain.html" class="domain-card" data-sector="sc">
+        <div class="dm-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="M4 7.5L12 12l8-4.5M12 12v9"/></svg></div>
+        <div class="dm-num">03 — SUPPLY CHAIN</div>
+        <h3>Performance lives in the system.</h3>
+        <p>It is won in flow, control, visibility, and execution discipline. EIG helps organisations strengthen supply chain performance and improve operational resilience.</p>
+        <div class="dm-owner"><span class="dm-owner-dot"></span>Dr. Patrick McCrudden</div>
+      </a>
+      <a href="industry-architecture.html" class="domain-card" data-sector="arch">
+        <div class="dm-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M4 21V9l5-4 5 4v12M14 21v-8l4-3 2 1.5V21"/><path d="M7 13h2M7 17h2"/></svg></div>
+        <div class="dm-num">04 — ARCHITECTURE</div>
+        <h3>Environment shapes performance.</h3>
+        <p>It shapes how organisations work, how brands are experienced, how people move, and how value is felt. EIG connects strategic intent to physical environments.</p>
+        <div class="dm-owner"><span class="dm-owner-dot"></span>Keith Elliott</div>
+      </a>
+      <a href="industry-education.html" class="domain-card" data-sector="edu">
+        <div class="dm-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 4 2 8.5 12 13l10-4.5L12 4Z"/><path d="M6 10.7v5c0 1.3 2.7 2.8 6 2.8s6-1.5 6-2.8v-5"/><path d="M21 8.5v6"/></svg></div>
+        <div class="dm-num">05 — EDUCATION</div>
+        <h3>Institutions are under pressure to evolve.</h3>
+        <p>Expectations are changing. Delivery models are shifting. Outcomes matter more than ever. EIG helps education institutions define stronger strategy and practical transformation pathways.</p>
+        <div class="dm-owner"><span class="dm-owner-dot"></span>Dr. Bill Lehal</div>
+      </a>
+      <a href="industry-healthcare.html" class="domain-card" data-sector="health">
+        <div class="dm-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 20s-7-4.4-9-9.2C1.6 7.6 3.4 5 6.4 5 8.6 5 10 6.3 12 8.2 14 6.3 15.4 5 17.6 5c3 0 4.8 2.6 3.4 5.8-2 4.8-9 9.2-9 9.2Z"/><path d="M7 11h2l1.5-2.5L12 13l1.5-2.5H17"/></svg></div>
+        <div class="dm-num">06 — HEALTHCARE</div>
+        <h3>Complexity at full scale.</h3>
+        <p>Few environments combine strategy, infrastructure, technology, process, service delivery, and human consequence the way healthcare does. EIG brings structured intelligence to navigate that complexity.</p>
+        <div class="dm-owner"><span class="dm-owner-dot"></span>Dr. Manish Mehrotra</div>
+      </a>
+      <a href="industry-it.html" class="domain-card" data-sector="it">
+        <div class="dm-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M7 17a4 4 0 1 1 .6-7.96A5 5 0 0 1 17 11a3.5 3.5 0 0 1 0 7H7Z"/><path d="M12 12v5M9.5 14.5L12 12l2.5 2.5"/></svg></div>
+        <div class="dm-num">07 — INFORMATION TECHNOLOGY</div>
+        <h3>Technology must move the business forward.</h3>
+        <p>It must support speed, visibility, control, and decision quality. EIG helps organisations align technology decisions with operating reality and strategic intent.</p>
+        <div class="dm-owner"><span class="dm-owner-dot"></span>Lisa Warren</div>
+      </a>
+      <a href="industry-strategic-planning.html" class="domain-card" data-sector="plan">
+        <div class="dm-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 4v3M19.07 7.5l-2.6 1.5"/></svg></div>
+        <div class="dm-num">08 — STRATEGIC PLANNING</div>
+        <h3>Direction comes first.</h3>
+        <p>Strong organisations do not drift. They choose, align, and execute. EIG helps leadership teams set priorities, frame decisions, and define a path that holds under pressure.</p>
+        <div class="dm-owner"><span class="dm-owner-dot"></span>Dr. Alex Jones</div>
+      </a>
+    </div>
 
   </div>
 </section>
