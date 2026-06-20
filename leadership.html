@@ -34,6 +34,34 @@
   .leader-card{grid-template-columns:1fr}
   .leader-img{min-height:180px}
 }
+.leader-card{cursor:pointer}
+.leader-info .read-more{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue2);font-weight:600;margin-top:0.9rem;display:inline-flex;align-items:center;gap:0.35rem}
+.leader-info .read-more::after{content:'→';transition:transform 0.2s}
+.leader-card:hover .read-more::after{transform:translateX(3px)}
+
+.bio-modal-overlay{position:fixed;inset:0;background:rgba(2,6,13,0.82);backdrop-filter:blur(4px);z-index:999;display:none;align-items:flex-start;justify-content:center;padding:6vh 1.5rem 4rem;overflow-y:auto}
+.bio-modal-overlay.open{display:flex}
+.bio-modal{background:var(--navy);border:1px solid rgba(255,255,255,0.08);border-radius:4px;max-width:760px;width:100%;position:relative;animation:bioIn 0.25s ease}
+@keyframes bioIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.bio-modal-close{position:absolute;top:1.1rem;right:1.1rem;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);background:transparent;color:var(--mgrey);font-size:18px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:2}
+.bio-modal-close:hover{border-color:rgba(255,255,255,0.3);color:var(--white)}
+.bio-modal-head{display:flex;gap:1.5rem;padding:2.5rem 2.5rem 1.5rem;align-items:flex-start;border-bottom:1px solid rgba(255,255,255,0.06)}
+.bio-modal-photo{width:96px;height:96px;border-radius:4px;background:var(--black);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.bio-modal-photo img{width:100%;height:100%;object-fit:cover}
+.bio-modal-photo .placeholder{font-family:var(--serif);font-size:2rem;font-weight:700;color:rgba(255,255,255,0.1)}
+.bio-modal-headtext .domain-tag{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;margin-bottom:0.5rem}
+.bio-modal-headtext h2{font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--white);margin-bottom:0.2rem}
+.bio-modal-headtext .role{font-size:13px;color:var(--mgrey);font-weight:500}
+.bio-modal-body{padding:1.8rem 2.5rem 2.5rem;font-size:14.5px;line-height:1.85;color:var(--mgrey)}
+.bio-modal-body p{margin-bottom:1.1rem}
+.bio-modal-body p:last-child{margin-bottom:0}
+.bio-modal-body .pull-quote{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--white);border-left:2px solid var(--blue);padding-left:1.1rem;margin:1.6rem 0}
+.bio-modal-body .expertise{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.6rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,0.06)}
+.bio-modal-body .expertise span{font-size:10.5px;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.1);border-radius:100px;color:var(--mgrey);letter-spacing:0.05em}
+@media(max-width:600px){
+  .bio-modal-head{flex-direction:column;padding:2rem 1.5rem 1.2rem}
+  .bio-modal-body{padding:1.5rem 1.5rem 2rem}
+}
 </style>
 
 </head>
@@ -158,7 +186,7 @@
 <p><strong>Every leader at EIG is a recognised authority in their domain.</strong> No layers. No account managers. Direct access to the expertise that matters.</p>
 
 <div class="leaders-grid">
-  <a href="leadership.html#lisa" class="leader-card" style="border-left:3px solid var(--c-lisa)">
+  <div class="leader-card" data-leader="lisa" style="border-left:3px solid var(--c-lisa)">
     <div class="leader-img"><img src="assets/images/leaders/lisa-warren.png" alt="Lisa Warren" class="avatar"></div>
     <div class="leader-info">
       <div class="domain-tag" style="color:var(--c-lisa)">Agentic AI & IT</div>
@@ -168,10 +196,11 @@
       <div class="expertise">
         <span>Agentic AI strategy</span><span>Enterprise adoption</span><span>Digital transformation</span><span>Growth execution</span>
       </div>
+      <span class="read-more">Read full bio</span>
     </div>
-  </a>
+  </div>
 
-  <a href="leadership.html#ivano" class="leader-card" style="border-left:3px solid var(--c-ivano)">
+  <div class="leader-card" data-leader="ivano" style="border-left:3px solid var(--c-ivano)">
     <div class="leader-img"><img src="assets/images/leaders/ivano-iannelli.png" alt="Ivano Iannelli" class="avatar"></div>
     <div class="leader-info">
       <div class="domain-tag" style="color:var(--c-ivano)">Sustainability</div>
@@ -181,11 +210,12 @@
       <div class="expertise">
         <span>Sustainability strategy</span><span>ESG value creation</span><span>Carbon markets</span><span>Transition planning</span>
       </div>
+      <span class="read-more">Read full bio</span>
     </div>
-  </a>
+  </div>
 
-  <a href="leadership.html#patrick" class="leader-card" style="border-left:3px solid var(--c-patrick)">
-    <div class="leader-img"><img src="assets/images/leaders/patrick-mccrudden.png" alt="Dr. Patrick McCrudden" class="avatar"></div>
+  <div class="leader-card" data-leader="patrick" style="border-left:3px solid var(--c-patrick)">
+    <div class="leader-img"><img src="assets/images/leaders/patrick-mccrudden.png" alt="Dr. Patrick McCrudden" class="avatar" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>PM</div>'"></div>
     <div class="leader-info">
       <div class="domain-tag" style="color:var(--c-patrick)">Supply Chain</div>
       <h3>Dr. Patrick McCrudden</h3>
@@ -194,11 +224,12 @@
       <div class="expertise">
         <span>Supply chain strategy</span><span>Global value chains</span><span>Procurement</span><span>Operations leadership</span>
       </div>
+      <span class="read-more">Read full bio</span>
     </div>
-  </a>
+  </div>
 
-  <a href="leadership.html#keith" class="leader-card" style="border-left:3px solid var(--c-keith)">
-    <div class="leader-img"><img src="assets/images/leaders/keith-elliott.png" alt="Keith Elliott" class="avatar"></div>
+  <div class="leader-card" data-leader="keith" style="border-left:3px solid var(--c-keith)">
+    <div class="leader-img"><img src="assets/images/leaders/keith-elliott.png" alt="Keith Elliott" class="avatar" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>KE</div>'"></div>
     <div class="leader-info">
       <div class="domain-tag" style="color:var(--c-keith)">Architecture</div>
       <h3>Keith Elliott</h3>
@@ -207,11 +238,12 @@
       <div class="expertise">
         <span>Workplace strategy</span><span>Architecture</span><span>Interior design</span><span>Spatial planning</span>
       </div>
+      <span class="read-more">Read full bio</span>
     </div>
-  </a>
+  </div>
 
-  <a href="leadership.html#bill" class="leader-card" style="border-left:3px solid var(--c-bill)">
-    <div class="leader-img"><img src="assets/images/leaders/bill-lehal.png" alt="Dr. Bill Lehal" class="avatar"></div>
+  <div class="leader-card" data-leader="bill" style="border-left:3px solid var(--c-bill)">
+    <div class="leader-img"><img src="assets/images/leaders/bill-lehal.png" alt="Dr. Bill Lehal" class="avatar" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>BL</div>'"></div>
     <div class="leader-info">
       <div class="domain-tag" style="color:var(--c-bill)">Education</div>
       <h3>Dr. Bill Lehal</h3>
@@ -220,11 +252,12 @@
       <div class="expertise">
         <span>Institutional strategy</span><span>Quality assurance</span><span>Capability development</span><span>Transformation support</span>
       </div>
+      <span class="read-more">Read full bio</span>
     </div>
-  </a>
+  </div>
 
-  <a href="leadership.html#alex" class="leader-card" style="border-left:3px solid var(--c-alex)">
-    <div class="leader-img"><img src="assets/images/leaders/alex-jones.png" alt="Dr. Alex Jones" class="avatar"></div>
+  <div class="leader-card" data-leader="alex" style="border-left:3px solid var(--c-alex)">
+    <div class="leader-img"><img src="assets/images/leaders/alex-jones.png" alt="Dr. Alex Jones" class="avatar" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>AJ</div>'"></div>
     <div class="leader-info">
       <div class="domain-tag" style="color:var(--c-alex)">Strategic Planning</div>
       <h3>Dr. Alex Jones</h3>
@@ -233,11 +266,12 @@
       <div class="expertise">
         <span>Strategic direction</span><span>Executive alignment</span><span>Growth priorities</span><span>Decision support</span>
       </div>
+      <span class="read-more">Read full bio</span>
     </div>
-  </a>
+  </div>
 
-  <a href="leadership.html#manish" class="leader-card" style="border-left:3px solid var(--c-manish)">
-    <div class="leader-img"><img src="assets/images/leaders/manish-mehrotra.png" alt="Dr. Manish Mehrotra" class="avatar"></div>
+  <div class="leader-card" data-leader="manish" style="border-left:3px solid var(--c-manish)">
+    <div class="leader-img"><img src="assets/images/leaders/manish-mehrotra.png" alt="Dr. Manish Mehrotra" class="avatar" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>MM</div>'"></div>
     <div class="leader-info">
       <div class="domain-tag" style="color:var(--c-manish)">Healthcare</div>
       <h3>Dr. Manish Mehrotra</h3>
@@ -246,11 +280,12 @@
       <div class="expertise">
         <span>Healthcare strategy</span><span>Clinical governance</span><span>Service transformation</span><span>Hospital planning</span>
       </div>
+      <span class="read-more">Read full bio</span>
     </div>
-  </a>
+  </div>
 
-  <a href="leadership.html#christopher" class="leader-card" style="border-left:3px solid var(--c-christopher)">
-    <div class="leader-img"><img src="assets/images/leaders/christopher-morley.png" alt="Christopher Morley" class="avatar"></div>
+  <div class="leader-card" data-leader="christopher" style="border-left:3px solid var(--c-christopher)">
+    <div class="leader-img"><img src="assets/images/leaders/christopher-morley.png" alt="Christopher Morley" class="avatar" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>CM</div>'"></div>
     <div class="leader-info">
       <div class="domain-tag" style="color:var(--c-christopher)">Information Technology</div>
       <h3>Christopher Morley</h3>
@@ -259,8 +294,9 @@
       <div class="expertise">
         <span>IT infrastructure</span><span>Systems governance</span><span>Technology strategy</span><span>Operational resilience</span>
       </div>
+      <span class="read-more">Read full bio</span>
     </div>
-  </a>
+  </div>
 </div>
 
 <div style="text-align:center;margin-top:4rem">
@@ -292,6 +328,208 @@
     </div>
   </div>
 </footer>
+<div class="bio-modal-overlay" id="bioModalOverlay">
+  <div class="bio-modal" id="bioModal" role="dialog" aria-modal="true">
+    <button class="bio-modal-close" id="bioModalClose" aria-label="Close">&times;</button>
+    <div class="bio-modal-head">
+      <div class="bio-modal-photo" id="bioModalPhoto"></div>
+      <div class="bio-modal-headtext">
+        <div class="domain-tag" id="bioModalDomain"></div>
+        <h2 id="bioModalName"></h2>
+        <div class="role" id="bioModalRole"></div>
+      </div>
+    </div>
+    <div class="bio-modal-body" id="bioModalBody"></div>
+  </div>
+</div>
+
 <script src="assets/shared.js"></script>
+<script>
+(function(){
+  var LEADERS = {
+    lisa: {
+      name: "Lisa Warren",
+      role: "Director, AI & Ecosystem Intelligence",
+      domain: "Agentic AI & IT",
+      color: "var(--c-lisa)",
+      img: "assets/images/leaders/lisa-warren.png",
+      initials: "LW",
+      expertise: ["Intelligence Architecture","AI Readiness & Transformation Strategy","Agentic AI & Future Operating Models","Executive Decision Frameworks","Data & Intelligence Strategy","Digital Transformation","Revenue Growth & Value Creation","Customer & Market Intelligence","Operational Visibility & Performance Improvement","Ecosystem Intelligence"],
+      bio: [
+        "Lisa Warren is Director of Intelligence Architecture and an AI Transformation leader with more than 20 years of experience helping organisations navigate complexity, improve decision-making, and unlock measurable business value.",
+        "Her work sits at the intersection of strategy, intelligence, digital transformation, operational performance, and emerging technologies. She specialises in helping leadership teams understand where value is being lost, where opportunities exist, and how data, intelligence, and AI can be used to create sustainable competitive advantage.",
+        "Lisa believes that most organisations do not have a technology problem &mdash; they have an intelligence problem. While businesses continue to invest heavily in systems, platforms, and data, many still struggle with fragmented information, disconnected decision-making, and limited visibility across their operations. Her focus is on designing the intelligence architecture that transforms information into insight, insight into decisions, and decisions into measurable outcomes.",
+        "As Founder of Neural Horizons AI and a Director of Ecosystem Intelligence Group, Lisa works with organisations across government, economic development, logistics, manufacturing, healthcare, and the private sector to design future-ready operating models that connect operations, sustainability, finance, technology, and future AI capabilities into a single decision-making framework.",
+        "Lisa is particularly passionate about helping organisations prepare for the next generation of enterprise transformation, where competitive advantage will increasingly be determined by the quality and speed of decision-making rather than the size of infrastructure alone. Her approach combines strategic thinking with practical execution, helping leadership teams identify value leakage, improve organisational visibility, strengthen governance, and build the foundations required for future automation and AI-enabled operations.",
+        "<div class='pull-quote'>Systems tell us what happened. Intelligence tells us why. AI helps determine what happens next.</div>",
+        "Today, Lisa works with boards, executive teams, and public sector leaders to design the operating, value, and intelligence architectures required to thrive in an increasingly connected, data-driven, and AI-enabled world."
+      ]
+    },
+    ivano: {
+      name: "Ivano Iannelli",
+      role: "Director, ESG and Climate Intelligence",
+      domain: "Sustainability",
+      color: "var(--c-ivano)",
+      img: "assets/images/leaders/ivano-iannelli.png",
+      initials: "II",
+      expertise: ["Sustainability strategy","ESG value creation","Carbon markets","Transition planning"],
+      bio: [
+        "Ivano Iannelli brings sustainability and economic logic together, helping organisations connect ESG, decarbonisation, and resilience planning to measurable commercial outcomes rather than treating them as a compliance exercise.",
+        "His work focuses on translating climate and sustainability commitments into operational strategy &mdash; helping leadership teams understand carbon exposure, build credible transition plans, and identify where sustainability investment creates genuine business value.",
+        "At EIG, Ivano leads engagements that link environmental performance to financial and operational resilience, supporting clients across government, industry, and the private sector as they navigate an increasingly regulated and resource-constrained operating environment."
+      ]
+    },
+    patrick: {
+      name: "Dr. Patrick McCrudden",
+      role: "Supply Chain & Process Lead",
+      domain: "Supply Chain",
+      color: "var(--c-patrick)",
+      img: "assets/images/leaders/patrick-mccrudden.png",
+      initials: "PM",
+      expertise: ["Global value chain strategy","Supply chain & operations management","Procurement governance","International logistics","Quality & food safety systems"],
+      bio: [
+        "Dr Patrick McCrudden brings over three decades of international supply chain and logistics leadership to Ecosystem Intelligence Group, having operated across some of the world's most demanding commercial and infrastructure environments in Asia, the Philippines, Europe, and the Middle East.",
+        "His career spans end-to-end supply chain management across multiple sectors and continents &mdash; from managing regional dairy logistics for a major UK retailer across a network of 400 dedicated farmers, to directing procurement and inbound logistics for the construction of a dual-unit power station serving Manila's international airport complex. At Johnson Electric in Hong Kong, he led a six-month, multi-million-dollar procurement and fit-out programme for 25,000 workers across 14 production buildings during the SARS crisis, delivering on time and within budget amid considerable operational uncertainty.",
+        "His international vendor management experience spans local, regional, and global supply markets &mdash; sourcing specialist IT infrastructure for UK-wide operational delivery, managing equipment supply chains for major retail expansion programmes, and introducing process innovations that reduced commissioning timescales by more than 50%.",
+        "Patrick holds a PhD in Global Supply Chain and Operations Management from the University of Salford, alongside an MSc in Procurement, Logistics and Supply Chain Management. He is a qualified ISO 9001 Quality Management Auditor and a certified HACCP Food Safety Manager.",
+        "At EIG, Patrick's role bridges global value chain strategy, procurement governance, and operational delivery &mdash; ensuring projects are supported by robust sourcing frameworks, international logistics intelligence, and the supply chain rigour that protects client value at every stage of execution."
+      ]
+    },
+    keith: {
+      name: "Keith Elliott",
+      role: "Architecture & Interior Design Lead",
+      domain: "Architecture",
+      color: "var(--c-keith)",
+      img: "assets/images/leaders/keith-elliott.png",
+      initials: "KE",
+      expertise: ["Interior architecture","Project planning & management","Commercial real estate","Construction & facilities management","Business strategy & development"],
+      bio: [
+        "Keith Elliott is a results-driven leader with deep expertise in interior architecture, commercial real estate, and large-scale project delivery, connecting strategic intent to spatial outcomes that support long-term business value.",
+        "Across more than 20 years in the industry, Keith has delivered commercial, retail, and food & beverage projects throughout Asia, the Middle East, the United States, and the United Kingdom. His experience includes major international groups, and since 2008 he has been delivering projects across Dubai for some of the world's best-known banking institutions and Fortune 500 companies.",
+        "His expertise spans the full project lifecycle &mdash; from interior design and construction management through to contract management, property and facilities management, and strategic business planning &mdash; giving him a rare ability to align workplace and spatial decisions with broader commercial and operational objectives.",
+        "At EIG, Keith leads engagements where architecture, interior design, and workplace strategy intersect with performance, ensuring that physical environments are designed not just for aesthetics but for measurable long-term value."
+      ]
+    },
+    bill: {
+      name: "Dr. Bill Lehal",
+      role: "Education Lead",
+      domain: "Education",
+      color: "var(--c-bill)",
+      img: "assets/images/leaders/bill-lehal.png",
+      initials: "BL",
+      expertise: ["Institutional strategy & governance","Quality assurance & accreditation (MOE, CAA, KHDA, QAA, OfS)","Curriculum design & development","Institutional effectiveness & KPIs","Faculty & research capacity building"],
+      bio: [
+        "Dr Bilhar (Bill) Lehal is a dedicated, results-driven academic leader with a proven track record in institutional strategy, quality assurance, and accreditation across UK and UAE higher education.",
+        "He currently serves as a Board-Level Academic & Institutional Strategy Consultant for a UAE branch campus of an international university, where he led the full establishment and operationalisation of the campus &mdash; overseeing licensing, academic framework design, governance architecture, and first-cohort launch &mdash; while advising the governing board on regulatory compliance and sustainable growth. He has also directed academic quality and institutional effectiveness for a Dubai-based university, building quality management systems aligned with UAE and international higher education standards from the ground up.",
+        "His earlier roles include Director of Quality Assurance for an aviation technical college in Riyadh, where he managed a 26-person team across academic development, student services, and quality functions, and Head of Academic Quality at a performing arts academy in the UAE, where mentoring and student-success initiatives lifted freshman retention significantly. In the UK, Bill held senior academic leadership posts at Bath Spa University and the University of South Wales, including Associate Dean roles spanning teacher education, technology-enhanced learning, and institutional research.",
+        "Bill holds a Doctorate of Education from the University of Hertfordshire, a Master of Arts in Education (Teaching and Learning) from Middlesex University, and is a Senior Fellow of the Advance Higher Education Academy. He is a qualified ISO 9001:2015 Quality Management Systems Lead Auditor and has served as an external QAA reviewer and HE/FE inspector across the UK and internationally.",
+        "At EIG, Bill brings institutional rigour to education sector engagements &mdash; helping organisations strengthen quality frameworks, navigate accreditation, and build the governance and performance systems required for sustainable growth."
+      ]
+    },
+    alex: {
+      name: "Dr. Alex Jones",
+      role: "Strategic Planning Lead",
+      domain: "Strategic Planning",
+      color: "var(--c-alex)",
+      img: "assets/images/leaders/alex-jones.png",
+      initials: "AJ",
+      expertise: ["Strategic direction & executive alignment","Leadership & organisational development","Negotiation & critical thinking","Coaching & psychometrics","Entrepreneurship & innovation"],
+      bio: [
+        "Dr Alex Jones is a Ph.D.-qualified leadership and management academic with close to two decades of experience across faculty leadership, executive education, and corporate training in the UAE and the United States.",
+        "He currently serves as Associate Professor of Leadership and Management and Director of the Neuroeconomics Research Center at Plekhanov Russian University of Economics in Dubai, alongside adjunct faculty roles in Tashkent and San Diego. His prior academic leadership positions span institutions including Skyline University College, the Swiss School of Management, the American University in the Emirates, and Walden University, where he has taught and mentored across organisational behaviour, strategic management, negotiation, and leadership.",
+        "Alex is a prolific researcher and author, with more than twenty peer-reviewed journal articles indexed in Scopus and Thomson Reuters, two published books on leadership and SME strategy, and a regular contributing voice for Forbes Coaches Council, of which he is an official member by invitation. His research and writing span leadership styles, emotional intelligence, knowledge management, and critical thinking in organisational contexts.",
+        "Beyond academia, Alex has trained and consulted executives and teams across retail, insurance, gaming, and semi-government sectors throughout the UAE, Saudi Arabia, Oman, and Armenia, and is a Certified Coach, Trainer, and Psychometrics Consultant with the John Maxwell organisation.",
+        "Alex holds a Ph.D. in Leadership from Alliant International University, a Master's in International Business from the University of Wollongong, and a Bachelor of Arts in English Language from the University of Basra.",
+        "At EIG, Alex helps organisations sharpen priorities, align leadership teams, and turn strategic intent into focused, executable plans."
+      ]
+    },
+    manish: {
+      name: "Dr. Manish Mehrotra",
+      role: "Healthcare Lead",
+      domain: "Healthcare",
+      color: "var(--c-manish)",
+      img: "assets/images/leaders/manish-mehrotra.png",
+      initials: "MM",
+      expertise: ["Healthcare strategy & transformation","Clinical governance & operations","Hospital & primary care planning","Medical training & e-learning","Public-private health partnerships"],
+      bio: [
+        "Dr Manish Mehrotra is a senior medical and healthcare consulting leader with more than 32 years of experience spanning clinical medicine, critical care, healthcare operations, medical training, and large-scale public-private health programmes across India and the UAE.",
+        "An Army veteran doctor and former Professor of Anaesthesiology & Intensive Care, Manish currently serves as Director of Medical Training & Operations at a major healthcare services group in the UAE, advising senior leadership on medical operations and strategy within a portfolio reported at a $150 million operating budget. His work has included leading the deployment of nearly 3,000 clinicians into Abu Dhabi's Covid-19 response, managing medical partnering arrangements for the development of six primary healthcare centres and a multispecialty hospital, and directing one of the Department of Health Abu Dhabi's largest clinical e-learning programmes, reaching more than 78,000 clinicians.",
+        "Earlier in his career, Manish served for 24 years across Indian Army hospitals, progressing from resident to Senior Consultant, Professor, and Head of Anaesthesia & Intensive Care, leading trauma care capacity-building and emergency response systems and building strategic alliances with government bodies, donor agencies, and academic institutions in disaster and humanitarian contexts.",
+        "He holds an MBBS and MD in Anaesthesia from the Armed Forces Medical College, Pune, a postgraduate diploma in Hospital & Health Care Management from the Symbiosis Institute of Medical Sciences, and has completed executive education in AI in Healthcare at the National University of Singapore. His recognitions include a research award from the International Trauma & Critical Care Society for battlefield trauma management techniques, and a Chief of Army Staff Commendation for distinguished service.",
+        "At EIG, Manish brings rare clinical depth combined with consulting capability &mdash; supporting healthcare transformation, hospital and primary care planning, and stakeholder engagement with regulators and academic institutions across the region."
+      ]
+    },
+    christopher: {
+      name: "Christopher Morley",
+      role: "Director, IT",
+      domain: "Information Technology",
+      color: "var(--c-christopher)",
+      img: "assets/images/leaders/christopher-morley.png",
+      initials: "CM",
+      expertise: ["IT infrastructure","Systems governance","Technology strategy","Operational resilience"],
+      bio: [
+        "Christopher Morley leads EIG's Information Technology practice, helping organisations build resilient infrastructure and align technology investment with business priorities.",
+        "His focus is on systems governance and operational resilience &mdash; ensuring that technology platforms remain stable, secure, and scalable as organisations grow, and that IT investment decisions are grounded in measurable business outcomes rather than short-term fixes.",
+        "At EIG, Christopher works alongside other domain leaders to ensure that technology strategy supports, rather than constrains, the broader transformation and intelligence work the organisation delivers for clients."
+      ]
+    }
+  };
+
+  var overlay = document.getElementById('bioModalOverlay');
+  var modal = document.getElementById('bioModal');
+  var els = {
+    photo: document.getElementById('bioModalPhoto'),
+    domain: document.getElementById('bioModalDomain'),
+    name: document.getElementById('bioModalName'),
+    role: document.getElementById('bioModalRole'),
+    body: document.getElementById('bioModalBody')
+  };
+
+  function openLeader(key){
+    var L = LEADERS[key];
+    if(!L) return;
+    els.photo.innerHTML = '<img src="'+L.img+'" alt="'+L.name+'" onerror="this.parentElement.innerHTML=\'<div class=&quot;placeholder&quot;>'+L.initials+'</div>\'">';
+    els.domain.textContent = L.domain;
+    els.domain.style.color = L.color;
+    els.name.textContent = L.name;
+    els.role.textContent = L.role;
+    var html = L.bio.map(function(p){
+      return p.indexOf('<div') === 0 ? p : '<p>'+p+'</p>';
+    }).join('');
+    if(L.expertise && L.expertise.length){
+      html += '<div class="expertise">' + L.expertise.map(function(e){ return '<span>'+e+'</span>'; }).join('') + '</div>';
+    }
+    els.body.innerHTML = html;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    overlay.scrollTop = 0;
+  }
+
+  function closeModal(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.leader-card[data-leader]').forEach(function(card){
+    card.addEventListener('click', function(){
+      openLeader(card.getAttribute('data-leader'));
+    });
+  });
+
+  document.getElementById('bioModalClose').addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){
+    if(e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+  });
+
+  // Support deep-linking via #lisa, #ivano, etc.
+  if(location.hash){
+    var key = location.hash.replace('#','');
+    if(LEADERS[key]) openLeader(key);
+  }
+})();
+</script>
 </body>
 </html>
