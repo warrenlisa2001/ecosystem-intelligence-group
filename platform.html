@@ -25,6 +25,59 @@
 .content-body strong{color:var(--white);font-weight:600}
 .content-body blockquote{border-left:2px solid var(--blue);padding-left:1.5rem;margin:2rem 0;font-style:italic;font-family:var(--serif);font-size:1.1rem;color:var(--mgrey)}
 .content-body blockquote strong{color:var(--white)}
+
+/* PLATFORM HERO — FLOW DIAGRAM */
+.plat-hero{min-height:auto;padding-top:130px;padding-bottom:70px}
+.plat-hero-inner{display:grid;grid-template-columns:1.05fr 1fr;gap:2.5rem;align-items:center}
+.plat-flow{position:relative;height:460px;display:flex;align-items:center;justify-content:center}
+.flow-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.6rem;width:230px;flex-shrink:0;position:relative}
+.flow-node{display:flex;align-items:center;gap:0.55rem;padding:0.55rem 0.7rem;border:1px solid rgba(255,255,255,0.08);border-radius:6px;background:rgba(255,255,255,0.02);transition:border-color 0.25s,background 0.25s;position:relative}
+.flow-node:hover{background:rgba(255,255,255,0.045)}
+.flow-node .fn-ico{width:24px;height:24px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.flow-node .fn-ico svg{width:13px;height:13px;fill:none;stroke-width:1.8}
+.flow-node .fn-label{font-size:10.5px;letter-spacing:0.03em;font-weight:600;color:rgba(255,255,255,0.82);line-height:1.25}
+.flow-node::after{content:'';position:absolute;top:50%;right:-0.7rem;width:0.7rem;height:1px;background:rgba(0,102,255,0.3);transform:translateY(-50%)}
+.flow-grid > .flow-node:nth-child(even)::after{display:none}
+.flow-connector{width:34px;height:2px;flex-shrink:0;position:relative;background:linear-gradient(90deg,rgba(255,255,255,0.0),rgba(0,102,255,0.5))}
+.flow-connector::before,.flow-connector::after{content:'';position:absolute;width:5px;height:5px;border-radius:50%;background:var(--blue2);top:50%;transform:translateY(-50%);box-shadow:0 0 8px 1px rgba(61,139,255,0.6);animation:flowtravel 2.6s linear infinite}
+.flow-connector::after{animation-delay:1.3s}
+@keyframes flowtravel{0%{left:0;opacity:0}10%{opacity:1}90%{opacity:1}100%{left:calc(100% - 5px);opacity:0}}
+
+.flow-hub{position:relative;width:128px;height:128px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(0,102,255,0.22),rgba(10,17,30,0.9));border:1px solid rgba(0,102,255,0.5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.3rem;box-shadow:0 0 0 1px rgba(0,102,255,0.08),0 0 40px rgba(0,102,255,0.28);flex-shrink:0;z-index:2;animation:hubpulse 4s ease-in-out infinite}
+@keyframes hubpulse{0%,100%{box-shadow:0 0 0 1px rgba(0,102,255,0.08),0 0 40px rgba(0,102,255,0.28)}50%{box-shadow:0 0 0 1px rgba(0,102,255,0.14),0 0 56px rgba(0,102,255,0.4)}}
+.flow-hub .fh-eyebrow{font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue2);font-weight:700}
+.flow-hub .fh-title{font-family:var(--serif);font-size:0.95rem;font-weight:700;color:var(--white);text-align:center;line-height:1.2;padding:0 0.6rem}
+
+.flow-out{display:flex;flex-direction:column;align-items:center;gap:0.9rem;flex-shrink:0}
+.flow-out-arrow{width:46px;height:2px;background:linear-gradient(90deg,rgba(0,102,255,0.6),rgba(0,230,118,0.7));position:relative}
+.flow-out-arrow::after{content:'';position:absolute;right:-1px;top:50%;width:7px;height:7px;border-radius:50%;background:var(--green);transform:translateY(-50%);box-shadow:0 0 10px 2px rgba(0,230,118,0.6)}
+.flow-out-card{width:120px;text-align:center;padding:0.85rem 0.7rem;border:1px solid rgba(0,230,118,0.35);border-radius:8px;background:rgba(0,230,118,0.04)}
+.flow-out-card .fo-eyebrow{font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:0.3rem}
+.flow-out-card .fo-title{font-family:var(--serif);font-size:0.92rem;font-weight:700;color:var(--white);line-height:1.25}
+
+.plat-flow-row{display:flex;align-items:center;justify-content:center;gap:1.4rem;width:100%}
+
+.plat-stats{display:flex;gap:2rem;margin-top:1.75rem;flex-wrap:wrap}
+.plat-stat b{display:block;font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--white);line-height:1.1}
+.plat-stat span{font-size:11px;letter-spacing:0.05em;color:var(--mgrey);text-transform:uppercase;font-weight:600}
+
+@media(max-width:980px){
+  .plat-hero-inner{grid-template-columns:1fr}
+  .plat-flow{height:auto;padding:2rem 0}
+  .plat-flow-row{flex-direction:column;gap:1.75rem}
+  .flow-connector{width:2px;height:28px}
+  .flow-connector::before,.flow-connector::after{left:50%;top:0;transform:translateX(-50%);animation:flowtravelv 2.6s linear infinite}
+  .flow-connector::after{animation-delay:1.3s}
+  .flow-out-arrow{width:2px;height:32px}
+  .flow-out-arrow::after{right:50%;top:auto;bottom:-1px;transform:translateX(50%)}
+}
+@keyframes flowtravelv{0%{top:0;opacity:0}10%{opacity:1}90%{opacity:1}100%{top:calc(100% - 5px);opacity:0}}
+@media(max-width:560px){
+  .flow-grid{width:100%;grid-template-columns:repeat(2,1fr)}
+}
+@media(prefers-reduced-motion:reduce){
+  .flow-connector::before,.flow-connector::after,.flow-hub{animation:none}
+}
 </style>
 
 </head>
@@ -132,11 +185,47 @@
   <a href="contact.html">Contact</a>
 </div>
 
-<section class="content-hero">
+<section class="content-hero plat-hero">
   <div class="hero-bg"></div>
-  <div class="container">
-    <h1>How the Platform <em>Works</em></h1>
-    <p>Most firms separate disciplines. Most real problems do not. EIG connects intelligence to execution across every domain.</p>
+  <div class="container plat-hero-inner">
+    <div>
+      <h1>How the Platform <em>Works</em></h1>
+      <p>Most firms separate disciplines. Most real problems do not. EIG connects intelligence to execution across every domain.</p>
+      <div class="plat-stats">
+        <div class="plat-stat"><b>8</b><span>Connected Domains</span></div>
+        <div class="plat-stat"><b>1</b><span>Intelligence Layer</span></div>
+        <div class="plat-stat"><b>0</b><span>Layers Lost in Translation</span></div>
+      </div>
+    </div>
+    <div class="plat-flow">
+      <div class="plat-flow-row">
+        <div class="flow-grid">
+          <div class="flow-node"><div class="fn-ico" style="background:rgba(0,102,255,0.12)"><svg viewBox="0 0 24 24" stroke="var(--c-ai)"><rect x="8" y="8" width="8" height="8" rx="1"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></div><div class="fn-label">Agentic AI</div></div>
+          <div class="flow-node"><div class="fn-ico" style="background:rgba(0,135,90,0.12)"><svg viewBox="0 0 24 24" stroke="var(--c-sus)"><path d="M12 22s7-4.5 7-11a7 7 0 0 0-14 0c0 6.5 7 11 7 11Z"/></svg></div><div class="fn-label">Sustainability</div></div>
+          <div class="flow-node"><div class="fn-ico" style="background:rgba(214,10,23,0.12)"><svg viewBox="0 0 24 24" stroke="var(--c-sc)"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3Z"/></svg></div><div class="fn-label">Supply Chain</div></div>
+          <div class="flow-node"><div class="fn-ico" style="background:rgba(123,79,212,0.12)"><svg viewBox="0 0 24 24" stroke="var(--c-arch)"><path d="M4 21V9l5-4 5 4v12M14 21v-8l4-3 2 1.5V21"/></svg></div><div class="fn-label">Architecture</div></div>
+          <div class="flow-node"><div class="fn-ico" style="background:rgba(212,120,10,0.12)"><svg viewBox="0 0 24 24" stroke="var(--c-edu)"><path d="M12 4 2 8.5 12 13l10-4.5L12 4Z"/><path d="M6 10.7v5c0 1.3 2.7 2.8 6 2.8s6-1.5 6-2.8v-5"/></svg></div><div class="fn-label">Education</div></div>
+          <div class="flow-node"><div class="fn-ico" style="background:rgba(2,132,199,0.12)"><svg viewBox="0 0 24 24" stroke="var(--c-health)"><path d="M12 20s-7-4.4-9-9.2C1.6 7.6 3.4 5 6.4 5 8.6 5 10 6.3 12 8.2 14 6.3 15.4 5 17.6 5c3 0 4.8 2.6 3.4 5.8-2 4.8-9 9.2-9 9.2Z"/></svg></div><div class="fn-label">Healthcare</div></div>
+          <div class="flow-node"><div class="fn-ico" style="background:rgba(5,150,105,0.12)"><svg viewBox="0 0 24 24" stroke="var(--c-it)"><path d="M7 17a4 4 0 1 1 .6-7.96A5 5 0 0 1 17 11a3.5 3.5 0 0 1 0 7H7Z"/></svg></div><div class="fn-label">IT</div></div>
+          <div class="flow-node"><div class="fn-ico" style="background:rgba(139,148,158,0.12)"><svg viewBox="0 0 24 24" stroke="var(--c-plan)"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/></svg></div><div class="fn-label">Strategic Planning</div></div>
+        </div>
+
+        <div class="flow-connector"></div>
+
+        <div class="flow-hub">
+          <div class="fh-eyebrow">EIG</div>
+          <div class="fh-title">Intelligence<br>Layer</div>
+        </div>
+
+        <div class="flow-out">
+          <div class="flow-out-arrow"></div>
+          <div class="flow-out-card">
+            <div class="fo-eyebrow">Outcome</div>
+            <div class="fo-title">Execution</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
