@@ -43,27 +43,38 @@ h1.hero-h .pop{color:var(--blue);display:block}
 .globe-glow{position:absolute;inset:-30px;border-radius:50%;background:radial-gradient(circle,rgba(0,102,255,0.18),transparent 70%);z-index:-1}
 .orbit-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .orbit-svg path{fill:none;stroke:rgba(0,102,255,0.35);stroke-width:1}
-.node{position:absolute;display:flex;flex-direction:column;align-items:center;gap:0.6rem;width:140px;transform:translate(-50%,-50%)}
-.node-ico{width:38px;height:38px;border-radius:10px;border:1px solid rgba(0,102,255,0.4);background:rgba(2,6,13,0.6);display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(0,102,255,0.25)}
+.node{position:absolute;display:flex;flex-direction:column;align-items:center;gap:0.6rem;width:140px;transform:translate(-50%,-50%);text-decoration:none;color:inherit;cursor:pointer;transition:transform 0.25s}
+.node:hover{transform:translate(-50%,-50%) scale(1.08)}
+.node-ico{width:38px;height:38px;border-radius:10px;border:1px solid rgba(0,102,255,0.4);background:rgba(2,6,13,0.6);display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(0,102,255,0.25);transition:box-shadow 0.25s,border-color 0.25s}
+.node:hover .node-ico{border-color:rgba(0,102,255,0.85);box-shadow:0 0 26px rgba(0,102,255,0.45)}
 .node-ico svg{width:19px;height:19px;stroke:var(--blue2);fill:none}
 .node-lbl{font-size:10.5px;letter-spacing:0.07em;text-transform:uppercase;font-weight:700;color:var(--white);text-align:center;line-height:1.4;text-shadow:0 1px 6px rgba(2,6,13,0.95),0 1px 12px rgba(2,6,13,0.9)}
 .node-lbl em{font-style:normal;color:#7ab2ff}
 .node-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:#9ec8ff;box-shadow:0 0 10px 2px rgba(158,200,255,0.7)}
 
-.n-ai{top:-2%;left:50%}
+.orbit-ring{position:absolute;inset:-2px;border-radius:50%;border:1px dashed rgba(0,102,255,0.18);animation:orbitspin 90s linear infinite;pointer-events:none}
+.orbit-ring--rev{inset:18px;border-color:rgba(113,228,255,0.12);animation:orbitspin 130s linear infinite reverse;pointer-events:none}
+@keyframes orbitspin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.globe-sphere{width:100%;height:100%;border-radius:50%;animation:globepivot 12s ease-in-out infinite}
+@keyframes globepivot{0%,100%{transform:rotate(-2deg) scale(1)}50%{transform:rotate(2deg) scale(1.015)}}
+@media(prefers-reduced-motion:reduce){.orbit-ring,.orbit-ring--rev,.globe-sphere{animation:none}}
+
+.n-ai{top:-3%;left:50%}
 .n-ai .node-dot{top:64px;left:50%;transform:translateX(-50%)}
-.n-sus{top:18%;left:104%}
-.n-sus .node-dot{bottom:18px;left:-6px}
-.n-it{top:32%;left:-6%}
-.n-it .node-dot{bottom:10px;right:-6px}
-.n-sc{top:50%;left:114%}
-.n-sc .node-dot{bottom:30px;left:6px}
-.n-sp{top:68%;left:-8%}
-.n-sp .node-dot{top:10px;right:0}
-.n-hc{top:80%;left:104%}
-.n-hc .node-dot{top:12px;left:0}
-.n-arch{top:101%;left:50%}
+.n-sus{top:12.5%;left:87.5%}
+.n-sus .node-dot{bottom:22px;left:-2px}
+.n-sc{top:50%;left:103%}
+.n-sc .node-dot{bottom:0;left:6px}
+.n-hc{top:87.5%;left:87.5%}
+.n-hc .node-dot{top:14px;left:0}
+.n-arch{top:103%;left:50%}
 .n-arch .node-dot{top:-10px;left:50%;transform:translateX(-50%)}
+.n-edu{top:87.5%;left:12.5%}
+.n-edu .node-dot{top:14px;right:0}
+.n-sp{top:50%;left:-3%}
+.n-sp .node-dot{bottom:0;right:6px}
+.n-it{top:12.5%;left:12.5%}
+.n-it .node-dot{bottom:22px;right:-2px}
 
 .hero-tagline{position:absolute;right:0;bottom:-1.5rem;text-align:right;padding-right:0.5rem;border-right:2px solid var(--blue);padding-right:1rem}
 .hero-tagline p{font-size:13px;letter-spacing:0.03em;color:rgba(139,148,158,0.85);line-height:1.6}
@@ -77,7 +88,25 @@ h1.hero-h .pop{color:var(--blue);display:block}
 .sh-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;transform:scaleX(0);transform-origin:left;transition:transform 0.35s}
 .sh-card:hover{background:rgba(255,255,255,0.025)}
 .sh-card:hover::before{transform:scaleX(1)}
-.sh-icon{font-size:1.8rem;margin-bottom:0.75rem;display:block}
+.sh-icon{width:42px;height:42px;margin:0 auto 0.9rem;display:flex;align-items:center;justify-content:center;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.025);transition:border-color 0.25s,background 0.25s}
+.sh-icon svg{width:21px;height:21px;fill:none;stroke:var(--mgrey);transition:stroke 0.25s}
+.sh-card:hover .sh-icon{background:rgba(255,255,255,0.05)}
+.sh-card[data-sector="ai"]:hover .sh-icon{border-color:var(--c-ai)}
+.sh-card[data-sector="ai"] .sh-icon svg{stroke:var(--c-ai)}
+.sh-card[data-sector="sus"]:hover .sh-icon{border-color:var(--c-sus)}
+.sh-card[data-sector="sus"] .sh-icon svg{stroke:var(--c-sus)}
+.sh-card[data-sector="sc"]:hover .sh-icon{border-color:var(--c-sc)}
+.sh-card[data-sector="sc"] .sh-icon svg{stroke:var(--c-sc)}
+.sh-card[data-sector="arch"]:hover .sh-icon{border-color:var(--c-arch)}
+.sh-card[data-sector="arch"] .sh-icon svg{stroke:var(--c-arch)}
+.sh-card[data-sector="edu"]:hover .sh-icon{border-color:var(--c-edu)}
+.sh-card[data-sector="edu"] .sh-icon svg{stroke:var(--c-edu)}
+.sh-card[data-sector="health"]:hover .sh-icon{border-color:var(--c-health)}
+.sh-card[data-sector="health"] .sh-icon svg{stroke:var(--c-health)}
+.sh-card[data-sector="it"]:hover .sh-icon{border-color:var(--c-it)}
+.sh-card[data-sector="it"] .sh-icon svg{stroke:var(--c-it)}
+.sh-card[data-sector="plan"]:hover .sh-icon{border-color:var(--c-plan)}
+.sh-card[data-sector="plan"] .sh-icon svg{stroke:var(--c-plan)}
 .sh-name{font-family:var(--serif);font-size:0.88rem;font-weight:600;margin-bottom:0.35rem;line-height:1.3;color:var(--white)}
 .sh-owner{font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600}
 .sh-card[data-sector="ai"]::before{background:var(--c-ai)}
@@ -308,43 +337,52 @@ h1.hero-h .pop{color:var(--blue);display:block}
     <div class="hero-visual">
       <div class="globe-wrap">
         <div class="globe-glow"></div>
-        <img src="assets/images/hero-globe.png" alt="EIG global intelligence network" class="globe-img">
+        <div class="orbit-ring"></div>
+        <div class="orbit-ring orbit-ring--rev"></div>
+        <div class="globe-sphere">
+          <img src="assets/images/hero-globe.png" alt="EIG global intelligence network" class="globe-img">
+        </div>
 
-        <div class="node n-ai">
+        <a href="industry-ai.html" class="node n-ai">
           <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><rect x="8" y="8" width="8" height="8" rx="1"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div>
           <div class="node-lbl"><em>AI &amp;</em><br>Technology</div>
           <div class="node-dot"></div>
-        </div>
-        <div class="node n-sus">
+        </a>
+        <a href="industry-sustainability.html" class="node n-sus">
           <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 22s7-4.5 7-11a7 7 0 0 0-14 0c0 6.5 7 11 7 11Z"/><path d="M12 13V7"/></svg></div>
           <div class="node-lbl">Sustainability</div>
           <div class="node-dot"></div>
-        </div>
-        <div class="node n-it">
-          <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M7 17a4 4 0 1 1 .6-7.96A5 5 0 0 1 17 11a3.5 3.5 0 0 1 0 7H7Z"/><path d="M12 12v5M9.5 14.5L12 12l2.5 2.5"/></svg></div>
-          <div class="node-lbl">IT &amp; Digital<br>Transformation</div>
-          <div class="node-dot"></div>
-        </div>
-        <div class="node n-sc">
+        </a>
+        <a href="industry-supply-chain.html" class="node n-sc">
           <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="M4 7.5L12 12l8-4.5M12 12v9"/></svg></div>
           <div class="node-lbl">Supply Chain</div>
           <div class="node-dot"></div>
-        </div>
-        <div class="node n-sp">
-          <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 4v3M19.07 7.5l-2.6 1.5"/></svg></div>
-          <div class="node-lbl">Strategic<br>Planning</div>
-          <div class="node-dot"></div>
-        </div>
-        <div class="node n-hc">
+        </a>
+        <a href="industry-healthcare.html" class="node n-hc">
           <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 20s-7-4.4-9-9.2C1.6 7.6 3.4 5 6.4 5 8.6 5 10 6.3 12 8.2 14 6.3 15.4 5 17.6 5c3 0 4.8 2.6 3.4 5.8-2 4.8-9 9.2-9 9.2Z"/><path d="M7 11h2l1.5-2.5L12 13l1.5-2.5H17"/></svg></div>
           <div class="node-lbl">Healthcare</div>
           <div class="node-dot"></div>
-        </div>
-        <div class="node n-arch">
+        </a>
+        <a href="industry-architecture.html" class="node n-arch">
           <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M4 21V9l5-4 5 4v12M14 21v-8l4-3 2 1.5V21"/><path d="M7 13h2M7 17h2"/></svg></div>
           <div class="node-lbl"><em>Architecture &amp;</em><br>Infrastructure</div>
           <div class="node-dot"></div>
-        </div>
+        </a>
+        <a href="industry-education.html" class="node n-edu">
+          <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 4 2 8.5 12 13l10-4.5L12 4Z"/><path d="M6 10.7v5c0 1.3 2.7 2.8 6 2.8s6-1.5 6-2.8v-5"/><path d="M21 8.5v6"/></svg></div>
+          <div class="node-lbl">Education</div>
+          <div class="node-dot"></div>
+        </a>
+        <a href="industry-strategic-planning.html" class="node n-sp">
+          <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 4v3M19.07 7.5l-2.6 1.5"/></svg></div>
+          <div class="node-lbl">Strategic<br>Planning</div>
+          <div class="node-dot"></div>
+        </a>
+        <a href="industry-it.html" class="node n-it">
+          <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M7 17a4 4 0 1 1 .6-7.96A5 5 0 0 1 17 11a3.5 3.5 0 0 1 0 7H7Z"/><path d="M12 12v5M9.5 14.5L12 12l2.5 2.5"/></svg></div>
+          <div class="node-lbl">IT &amp; Digital<br>Transformation</div>
+          <div class="node-dot"></div>
+        </a>
       </div>
       <div class="hero-tagline">
         <p>Connecting domain leaders.<br><b>Driving integrated outcomes.</b></p>
@@ -358,42 +396,42 @@ h1.hero-h .pop{color:var(--blue);display:block}
   <div class="container">
     <div class="sector-hub">
       <a href="industry-ai.html" class="sh-card" data-sector="ai">
-        <span class="sh-icon">🤖</span>
+        <span class="sh-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><rect x="8" y="8" width="8" height="8" rx="1"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></span>
         <div class="sh-name">Agentic AI</div>
         <div class="sh-owner">Lisa Warren</div>
       </a>
       <a href="industry-sustainability.html" class="sh-card" data-sector="sus">
-        <span class="sh-icon">🌿</span>
+        <span class="sh-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 22s7-4.5 7-11a7 7 0 0 0-14 0c0 6.5 7 11 7 11Z"/><path d="M12 13V7"/></svg></span>
         <div class="sh-name">Sustainability</div>
         <div class="sh-owner">Ivano Iannelli</div>
       </a>
       <a href="industry-supply-chain.html" class="sh-card" data-sector="sc">
-        <span class="sh-icon">⚙️</span>
+        <span class="sh-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="M4 7.5L12 12l8-4.5M12 12v9"/></svg></span>
         <div class="sh-name">Supply Chain</div>
         <div class="sh-owner">Dr. Patrick McCrudden</div>
       </a>
       <a href="industry-architecture.html" class="sh-card" data-sector="arch">
-        <span class="sh-icon">🏗️</span>
+        <span class="sh-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M4 21V9l5-4 5 4v12M14 21v-8l4-3 2 1.5V21"/><path d="M7 13h2M7 17h2"/></svg></span>
         <div class="sh-name">Architecture</div>
         <div class="sh-owner">Keith Elliott</div>
       </a>
       <a href="industry-education.html" class="sh-card" data-sector="edu">
-        <span class="sh-icon">📚</span>
+        <span class="sh-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 4 2 8.5 12 13l10-4.5L12 4Z"/><path d="M6 10.7v5c0 1.3 2.7 2.8 6 2.8s6-1.5 6-2.8v-5"/><path d="M21 8.5v6"/></svg></span>
         <div class="sh-name">Education</div>
         <div class="sh-owner">Dr. Bill Lehal</div>
       </a>
       <a href="industry-healthcare.html" class="sh-card" data-sector="health">
-        <span class="sh-icon">🏥</span>
+        <span class="sh-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 20s-7-4.4-9-9.2C1.6 7.6 3.4 5 6.4 5 8.6 5 10 6.3 12 8.2 14 6.3 15.4 5 17.6 5c3 0 4.8 2.6 3.4 5.8-2 4.8-9 9.2-9 9.2Z"/><path d="M7 11h2l1.5-2.5L12 13l1.5-2.5H17"/></svg></span>
         <div class="sh-name">Healthcare</div>
         <div class="sh-owner">Dr. Manish Mehrotra</div>
       </a>
       <a href="industry-it.html" class="sh-card" data-sector="it">
-        <span class="sh-icon">💻</span>
+        <span class="sh-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M7 17a4 4 0 1 1 .6-7.96A5 5 0 0 1 17 11a3.5 3.5 0 0 1 0 7H7Z"/><path d="M12 12v5M9.5 14.5L12 12l2.5 2.5"/></svg></span>
         <div class="sh-name">IT</div>
         <div class="sh-owner">Lisa Warren</div>
       </a>
       <a href="industry-strategic-planning.html" class="sh-card" data-sector="plan">
-        <span class="sh-icon">🎯</span>
+        <span class="sh-icon"><svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 4v3M19.07 7.5l-2.6 1.5"/></svg></span>
         <div class="sh-name">Strategic Planning</div>
         <div class="sh-owner">Dr. Alex Jones</div>
       </a>
