@@ -3,32 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Artificial Intelligence | EIG</title>
+<title>Intelligence, Growth & Transformation | EIG</title>
+<meta name="description" content="Ecosystem Intelligence Group helps organisations understand where they are today, where they want to go, and what it takes to convert intelligence into better decisions, growth, and transformation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/shared.css">
 
 <style>
-.domain-hero{min-height:55vh;display:flex;align-items:center;padding-top:120px;padding-bottom:60px;position:relative;overflow:hidden}
-.domain-hero .hero-bg{position:absolute;inset:0;opacity:0.05;background:var(--c-ai)}
-.domain-hero .container{position:relative;z-index:2}
-.domain-hero .icon{font-size:3rem;margin-bottom:1rem}
-.domain-hero h1{font-family:var(--serif);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.01em;margin-bottom:1rem}
-.domain-hero h1 em{font-style:italic;color:var(--c-ai)}
-.domain-hero p{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:640px;font-weight:300;margin-bottom:2rem}
-.content-body{padding:60px 0 100px}
-.content-body h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin:2.5rem 0 1rem;color:var(--white)}
-.content-body h3 em{font-style:italic;color:var(--c-ai)}
-.content-body p{font-size:15.5px;color:var(--mgrey);line-height:1.82;margin-bottom:1.2rem}
-.content-body ul{margin:1rem 0 1.5rem 1.5rem}
-.content-body li{font-size:15px;color:var(--mgrey);line-height:1.9;margin-bottom:0.3rem}
-.content-body strong{color:var(--white);font-weight:600}
-.leader-cta{background:var(--navy);border:1px solid rgba(255,255,255,0.07);border-radius:2px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:3rem}
-.leader-cta h4{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin-bottom:0.5rem;color:var(--white)}
-.leader-cta p{font-size:14px;color:var(--mgrey);line-height:1.7}
+/* HERO — two column, flow-diagram signature */
+.ai-hero{min-height:auto;padding-top:130px;padding-bottom:60px;position:relative;overflow:hidden}
+.ai-hero .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 78% 30%,rgba(0,102,255,0.1),transparent 70%),var(--black)}
+.ai-hero .container{position:relative;z-index:2}
+.ai-hero-inner{display:grid;grid-template-columns:1.1fr 0.9fr;gap:3rem;align-items:center}
+.ai-eyebrow-row{display:flex;align-items:center;gap:0.7rem;margin-bottom:1.4rem}
+.ai-eyebrow-row .dot{width:7px;height:7px;border-radius:50%;background:var(--c-ai);box-shadow:0 0 10px 2px rgba(0,102,255,0.6);animation:dotpulse 2.4s ease-in-out infinite}
+@keyframes dotpulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.ai-eyebrow-row span{font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue2);font-weight:700}
+.ai-hero h1{font-family:var(--serif);font-size:clamp(2.6rem,4.6vw,4rem);font-weight:700;line-height:1.06;letter-spacing:-0.015em;margin-bottom:1.25rem}
+.ai-hero h1 em{font-style:italic;color:var(--c-ai)}
+.ai-hero p{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:560px;font-weight:300;margin-bottom:1.75rem}
+.ai-hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap}
+
+/* WHERE LISA SITS — credential plate */
+.sits-plate{margin-top:2.5rem;border:1px solid rgba(0,102,255,0.22);border-left:3px solid var(--c-ai);border-radius:3px;background:linear-gradient(135deg,rgba(0,102,255,0.06),transparent 60%);padding:1.4rem 1.6rem;max-width:560px}
+.sits-plate .sp-label{font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--blue2);font-weight:700;margin-bottom:0.55rem}
+.sits-plate p{font-size:14px;color:rgba(220,224,230,0.85);line-height:1.65;margin:0;font-weight:300;max-width:none}
+.sits-plate strong{color:var(--white);font-weight:600}
+
+/* HERO VISUAL — compact flow preview */
+.hero-flow-preview{position:relative;display:flex;flex-direction:column;align-items:center;gap:0}
+.hfp-q{font-family:var(--serif);font-style:italic;font-size:0.95rem;color:rgba(255,255,255,0.5);text-align:center;margin-bottom:1.2rem;line-height:1.4}
+.hfp-stage{width:240px;padding:0.9rem 1.1rem;border-radius:6px;border:1px solid;text-align:center;position:relative}
+.hfp-stage .hs-title{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:0.25rem}
+.hfp-stage .hs-sub{font-size:10px;color:var(--mgrey);letter-spacing:0.02em;line-height:1.4}
+.hfp-stage.s1{border-color:rgba(0,230,118,0.4);background:rgba(0,230,118,0.045)}
+.hfp-stage.s2{border-color:rgba(0,102,255,0.45);background:rgba(0,102,255,0.06)}
+.hfp-stage.s3{border-color:rgba(123,79,212,0.4);background:rgba(123,79,212,0.05)}
+.hfp-arrow{width:2px;height:26px;background:linear-gradient(180deg,rgba(255,255,255,0.05),rgba(0,102,255,0.5));position:relative}
+.hfp-arrow::after{content:'';position:absolute;left:50%;bottom:-1px;width:6px;height:6px;border-radius:50%;background:var(--blue2);transform:translateX(-50%);box-shadow:0 0 8px 2px rgba(61,139,255,0.55);animation:hfptravel 2.8s linear infinite}
+@keyframes hfptravel{0%{top:0;opacity:0}10%{opacity:1}90%{opacity:1}100%{top:calc(100% - 6px);opacity:0}}
+.hfp-result{margin-top:1.1rem;font-family:var(--serif);font-size:0.92rem;font-style:italic;color:rgba(255,255,255,0.55);text-align:center}
+
+/* CONTENT — two column with sticky flow rail */
+.content-body{padding:70px 0 110px}
+.ai-content-inner{display:grid;grid-template-columns:200px 1fr;gap:3.5rem;align-items:start}
+.flow-rail{position:sticky;top:130px;display:flex;flex-direction:column;gap:0}
+.fr-stage{display:flex;flex-direction:column;gap:0.4rem;padding:0.9rem 0 0.9rem 1.1rem;border-left:2px solid rgba(255,255,255,0.08);position:relative;transition:border-color 0.3s}
+.fr-stage::before{content:'';position:absolute;left:-5px;top:1.15rem;width:8px;height:8px;border-radius:50%;background:var(--black);border:2px solid rgba(255,255,255,0.18);transition:all 0.3s}
+.fr-stage.active{border-left-color:var(--blue2)}
+.fr-stage.active::before{background:var(--blue2);border-color:var(--blue2);box-shadow:0 0 10px 2px rgba(61,139,255,0.5)}
+.fr-stage .fr-label{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:var(--mgrey);transition:color 0.3s}
+.fr-stage.active .fr-label{color:var(--blue2)}
+.fr-stage .fr-name{font-family:var(--serif);font-size:0.95rem;font-weight:700;color:rgba(255,255,255,0.4);transition:color 0.3s}
+.fr-stage.active .fr-name{color:var(--white)}
+
+.ai-main h2.section-mark{font-family:var(--serif);font-size:0.78rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--c-ai);margin:0 0 0.6rem}
+.ai-main .lede{font-size:18px;color:rgba(230,233,237,0.92);line-height:1.7;font-weight:300;margin-bottom:1.4rem}
+.ai-main h3{font-family:var(--serif);font-size:1.85rem;font-weight:700;margin:3.5rem 0 1.1rem;color:var(--white);letter-spacing:-0.01em}
+.ai-main h3:first-of-type{margin-top:0}
+.ai-main h3 em{font-style:italic;color:var(--c-ai)}
+.ai-main p{font-size:15.5px;color:var(--mgrey);line-height:1.85;margin-bottom:1.2rem;max-width:680px}
+.ai-main ul{margin:1.1rem 0 1.6rem;list-style:none;display:flex;flex-direction:column;gap:0.55rem;max-width:680px}
+.ai-main li{font-size:14.5px;color:rgba(220,224,230,0.85);line-height:1.6;padding-left:1.3rem;position:relative}
+.ai-main li::before{content:'';position:absolute;left:0;top:0.55em;width:6px;height:6px;border-radius:50%;background:var(--c-ai)}
+.ai-main strong{color:var(--white);font-weight:600}
+.ai-main .pull{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--white);border-left:2px solid var(--c-ai);padding-left:1.4rem;margin:1.8rem 0;line-height:1.5}
+
+.section-divider{height:1px;background:linear-gradient(90deg,rgba(0,102,255,0.25),transparent);margin:3.5rem 0;max-width:680px}
+
+.proof-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin:1.8rem 0}
+.proof-stats .pcard{border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:1.4rem 1rem;text-align:center;background:rgba(255,255,255,0.015);transition:border-color 0.2s}
+.proof-stats .pcard:hover{border-color:rgba(0,102,255,0.3)}
+.proof-stats .pnum{font-family:var(--serif);font-size:2.1rem;font-weight:700;color:var(--c-ai);margin-bottom:0.4rem;line-height:1}
+.proof-stats .plabel{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey);font-weight:600}
+
+.outcome-band{margin-top:3.5rem;padding:2.2rem 2.2rem;border-radius:6px;background:linear-gradient(135deg,rgba(0,230,118,0.06),rgba(0,102,255,0.04));border:1px solid rgba(0,230,118,0.18)}
+.outcome-band .ob-eyebrow{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:0.8rem}
+.outcome-band .ob-list{display:flex;flex-wrap:wrap;gap:0.6rem 1.4rem;margin-bottom:1.3rem}
+.outcome-band .ob-list span{font-size:14px;color:rgba(255,255,255,0.88);font-weight:500}
+.outcome-band .ob-tagline{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--white);margin:0}
+
+.leader-cta{background:var(--navy);border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:2.2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:3.5rem;max-width:760px}
+.leader-cta h4{font-family:var(--serif);font-size:1.35rem;font-weight:600;margin-bottom:0.5rem;color:var(--white)}
+.leader-cta p{font-size:14px;color:var(--mgrey);line-height:1.7;max-width:none}
+
+@media(max-width:1080px){
+  .ai-hero-inner{grid-template-columns:1fr}
+  .hero-flow-preview{display:none}
+  .ai-content-inner{grid-template-columns:1fr}
+  .flow-rail{position:static;flex-direction:row;gap:1.5rem;margin-bottom:1rem;overflow-x:auto}
+  .fr-stage{border-left:none;border-top:2px solid rgba(255,255,255,0.08);padding:1rem 0 0;flex-shrink:0}
+  .fr-stage::before{left:1.15rem;top:-5px}
+  .proof-stats{grid-template-columns:repeat(2,1fr)}
+}
 @media(max-width:768px){
   .leader-cta{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  .ai-eyebrow-row .dot,.hfp-arrow::after{animation:none}
 }
 </style>
 
@@ -137,74 +210,171 @@
   <a href="contact.html">Contact</a>
 </div>
 
-<section class="domain-hero">
+<section class="ai-hero">
   <div class="hero-bg"></div>
-  <div class="container">
-    <div class="icon">🤖</div>
-    <h1>Agentic AI. <em>Where Capability Becomes Advantage.</em></h1>
-    <p>AI has moved beyond attention. The real question is application, control, and value. EIG helps organisations identify where agentic AI creates real commercial and operational impact.</p>
-    <a href="leadership.html" class="btn-p" style="background:var(--c-ai)">Work with Lisa Warren</a>
+  <div class="container ai-hero-inner">
+    <div>
+      <div class="ai-eyebrow-row"><span class="dot"></span><span>Agentic AI &amp; Ecosystem Intelligence</span></div>
+      <h1>Intelligence, Growth <em>&amp; AI Transformation</em></h1>
+      <p>The organisations that lead the next decade will not necessarily have the most data, the most technology, or the largest budgets. They will have the ability to make better decisions, faster than their competitors — and increasingly, agentic AI is how that speed is built.</p>
+      <div class="ai-hero-actions">
+        <a href="leadership.html" class="btn-p" style="background:var(--c-ai)">Work with Lisa Warren</a>
+        <a href="#proof" class="btn-g">See FalconSOC in Action</a>
+      </div>
+
+      <div class="sits-plate">
+        <div class="sp-label">Where Lisa Sits</div>
+        <p>Between strategy, intelligence, and transformation — helping organisations understand where they are today, where they could go next, and what must change to get there. <strong>Agentic AI is the capability she builds with; intelligence and transformation are the outcomes she's accountable for.</strong></p>
+      </div>
+    </div>
+
+    <div class="hero-flow-preview">
+      <div class="hfp-q">"What should the organisation become?"</div>
+      <div class="hfp-stage s1">
+        <div class="hs-title">Future Growth</div>
+        <div class="hs-sub">Market shifts · Revenue streams · Competitive advantage</div>
+      </div>
+      <div class="hfp-arrow"></div>
+      <div class="hfp-stage s2">
+        <div class="hs-title">Intelligence</div>
+        <div class="hs-sub">Data · Insight · Visibility · AI readiness</div>
+      </div>
+      <div class="hfp-arrow"></div>
+      <div class="hfp-stage s3">
+        <div class="hs-title">Transformation</div>
+        <div class="hs-sub">Operating model · Governance · Execution</div>
+      </div>
+      <div class="hfp-result">Better decisions. Stronger growth.<br>Future-ready organisations.</div>
+    </div>
   </div>
 </section>
 
 <section class="content-body">
-  <div class="container">
-    
-<div class="eyebrow">Agentic Artificial Intelligence</div>
-<h2 class="title" style="margin-bottom:2rem">Agentic AI. <em>Where Capability Becomes Advantage.</em></h2>
+  <div class="container ai-content-inner">
 
-<p>AI has moved beyond attention. The real question is application, control, and value. EIG helps organisations identify where agentic AI creates real commercial and operational impact — and what it takes to convert capability into advantage.</p>
-
-<h3>What Lisa Warren Brings</h3>
-<ul>
-<li><strong>AI Strategy</strong> — Defining where agentic AI creates real business value and how to sequence the path to advantage.</li>
-<li><strong>Enterprise Adoption</strong> — Moving from pilot to production, building the operating model, governance, and execution discipline that makes AI stick.</li>
-<li><strong>AI Governance</strong> — Frameworks for responsible AI deployment that build trust, reduce risk, and create competitive differentiation.</li>
-<li><strong>Operational Integration</strong> — Connecting AI capability to real workflows, decision systems, and measurable business outcomes.</li>
-</ul>
-
-<h3>Cross-Domain Connections</h3>
-<p><strong>Supply Chain</strong> — AI-powered visibility and decision support across complex logistics environments.</p>
-<p><strong>Healthcare</strong> — Clinical AI and digital health transformation grounded in operational reality.</p>
-<p><strong>Information Technology</strong> — Technology alignment that makes AI adoption faster and more durable.</p>
-
-<h3>Live Application</h3>
-<p><strong>FalconSOC</strong> — AI-Driven Security Operations Centre. A live, production-grade Agentic AI platform built by Neural Horizons AI for UAE and GCC organisations. Not a prototype.</p>
-
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2rem">
-  <div class="card" style="text-align:center">
-    <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--c-ai);margin-bottom:0.5rem">47</div>
-    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)">Threats Today</div>
-  </div>
-  <div class="card" style="text-align:center">
-    <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--c-ai);margin-bottom:0.5rem">44</div>
-    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)">Resolved</div>
-  </div>
-  <div class="card" style="text-align:center">
-    <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--c-ai);margin-bottom:0.5rem">1.4s</div>
-    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)">Avg Response</div>
-  </div>
-  <div class="card" style="text-align:center">
-    <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--c-ai);margin-bottom:0.5rem">6/8</div>
-    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)">Agents Active</div>
-  </div>
-</div>
-
-<h3>Use Cases</h3>
-<p>Selected work from the Agentic Artificial Intelligence domain:</p>
-<ul>
-<li><strong>FranchiseDirect</strong> — AI-powered lead generation and sales automation across 15 international markets.</li>
-<li><strong>SecurityHQ</strong> — AI threat detection and SOC automation across UK, UAE, India, Australia, Americas, and South Africa.</li>
-<li><strong>Retail Transformation</strong> — AI-powered personalisation, omnichannel optimisation, and demand forecasting across FMCG and fashion.</li>
-<li><strong>Amundi Asset Management</strong> — Digital transformation and sales enablement across multi-jurisdictional European operations (€2.24T AUM).</li>
-</ul>
-
-    <div class="leader-cta">
-      <div>
-        <h4>Work with Lisa Warren on Agentic Artificial Intelligence</h4>
-        <p>Request a briefing to discuss how this domain expertise can support your organisation.</p>
+    <div class="flow-rail" id="flowRail">
+      <div class="fr-stage" data-rail="growth">
+        <div class="fr-label">Stage 01</div>
+        <div class="fr-name">Future Growth</div>
       </div>
-      <a href="contact.html" class="btn-p" style="background:var(--c-ai)">Request Briefing</a>
+      <div class="fr-stage" data-rail="intelligence">
+        <div class="fr-label">Stage 02</div>
+        <div class="fr-name">Intelligence</div>
+      </div>
+      <div class="fr-stage" data-rail="transformation">
+        <div class="fr-label">Stage 03</div>
+        <div class="fr-name">Transformation</div>
+      </div>
+    </div>
+
+    <div class="ai-main">
+
+      <h2 class="section-mark">The Starting Point</h2>
+      <p class="lede">The organisations that will lead the next decade will not necessarily have the most data, the most technology, or the largest budgets. They will have the ability to make better decisions, faster than their competitors.</p>
+      <p>Across every industry, leaders are facing increasing complexity. Markets are shifting. Customer expectations are changing. Technology is accelerating. Regulation is evolving. New competitors are emerging.</p>
+      <p>The challenge is no longer access to information. <strong>The challenge is understanding what matters, where value exists, and what actions should be taken next.</strong></p>
+
+      <div class="section-divider"></div>
+
+      <h3>The Challenge</h3>
+      <p>Most organisations operate through functional silos. Operations focuses on efficiency. Finance focuses on performance. Technology focuses on systems. Sustainability focuses on reporting. Leadership is left trying to connect the dots.</p>
+      <p>The result is often:</p>
+      <ul>
+        <li>Fragmented information</li>
+        <li>Conflicting priorities</li>
+        <li>Slow decision-making</li>
+        <li>Missed opportunities</li>
+        <li>Unclear ownership</li>
+        <li>Reduced organisational agility</li>
+      </ul>
+      <div class="pull">The issue is rarely capability. The issue is alignment.</div>
+
+      <h3>Our Perspective</h3>
+      <p>We believe the next generation of competitive advantage will come from the quality of decisions an organisation can make. The organisations creating the most value are those that can:</p>
+      <ul>
+        <li>Identify opportunities faster</li>
+        <li>Respond to change more effectively</li>
+        <li>Connect information across functions</li>
+        <li>Allocate resources more intelligently</li>
+        <li>Convert insight into action</li>
+      </ul>
+      <p>Technology plays an important role. Agentic AI plays an important role. But neither creates value on its own. <strong>Value is created when intelligence improves decision-making.</strong></p>
+
+      <div data-stage="growth" style="height:1px"></div>
+      <h3 style="margin-top:4.5rem"><em>01 ·</em> Growth &amp; Future Readiness</h3>
+      <p>The future belongs to organisations that can anticipate change rather than react to it. We help leadership teams explore:</p>
+      <ul>
+        <li>Emerging market opportunities</li>
+        <li>Future revenue streams</li>
+        <li>Industry disruption</li>
+        <li>Competitive positioning</li>
+        <li>AI readiness</li>
+        <li>Digital transformation priorities</li>
+        <li>Long-term value creation</li>
+      </ul>
+      <p>The question is not whether change is coming. <strong>The question is whether your organisation is prepared to benefit from it.</strong></p>
+
+      <div data-stage="intelligence" style="height:1px"></div>
+      <h3 style="margin-top:4.5rem"><em>02 ·</em> What We Do</h3>
+      <p>Ecosystem Intelligence Group helps organisations understand:</p>
+      <ul>
+        <li><strong>Where they are today</strong> — Operational performance, organisational capability, and strategic position.</li>
+        <li><strong>Where they want to go</strong> — Future growth opportunities, market positioning, and competitive advantage.</li>
+        <li><strong>What is preventing progress</strong> — Operational constraints, information gaps, governance challenges, and execution barriers.</li>
+        <li><strong>What capabilities need to be built</strong> — Operating, value, and intelligence capabilities required for future success.</li>
+      </ul>
+
+      <h3>Intelligence <em>Architecture</em></h3>
+      <p>Most organisations have systems. Few have an intelligence architecture.</p>
+      <p>An intelligence architecture connects information, people, processes, and decision-making into a single framework. It provides leadership with visibility across the organisation and creates the foundation for future automation, agentic AI adoption, and scalable growth.</p>
+      <div class="pull">The objective is not more data. The objective is better decisions.</div>
+
+      <div data-stage="transformation" style="height:1px"></div>
+      <h3 style="margin-top:4.5rem"><em>03 ·</em> Our Role</h3>
+      <p>We provide an independent perspective on:</p>
+      <ul>
+        <li>Where value is being created</li>
+        <li>Where value is being lost</li>
+        <li>What opportunities are emerging</li>
+        <li>What strategic choices exist</li>
+        <li>What capabilities are required to compete successfully over the next decade</li>
+      </ul>
+      <p>Our role is not to implement technology. <strong>Our role is to help organisations understand where they are today, where they could be tomorrow, and what is required to get there.</strong></p>
+
+      <h3 id="proof">Proof in Practice</h3>
+      <p>Where this thinking is already at work: <strong>FalconSOC</strong>, a live, production-grade Agentic AI platform built by Neural Horizons AI for UAE and GCC organisations — not a prototype, but intelligence architecture applied to real-time security decision-making.</p>
+
+      <div class="proof-stats">
+        <div class="pcard"><div class="pnum">47</div><div class="plabel">Threats Today</div></div>
+        <div class="pcard"><div class="pnum">44</div><div class="plabel">Resolved</div></div>
+        <div class="pcard"><div class="pnum">1.4s</div><div class="plabel">Avg Response</div></div>
+        <div class="pcard"><div class="pnum">6/8</div><div class="plabel">Agents Active</div></div>
+      </div>
+
+      <p style="margin-top:0.5rem">Selected work across the broader intelligence and transformation practice:</p>
+      <ul>
+        <li><strong>FranchiseDirect</strong> — AI-powered lead generation and sales automation across 15 international markets.</li>
+        <li><strong>SecurityHQ</strong> — AI threat detection and SOC automation across UK, UAE, India, Australia, the Americas, and South Africa.</li>
+        <li><strong>Retail Transformation</strong> — AI-powered personalisation, omnichannel optimisation, and demand forecasting across FMCG and fashion.</li>
+        <li><strong>Amundi Asset Management</strong> — Digital transformation and sales enablement across multi-jurisdictional European operations (€2.24T AUM).</li>
+      </ul>
+
+      <div class="outcome-band">
+        <div class="ob-eyebrow">The Outcome</div>
+        <div class="ob-list">
+          <span>Better visibility</span><span>·</span><span>Better decisions</span><span>·</span><span>Better alignment</span><span>·</span><span>Greater agility</span><span>·</span><span>Stronger competitive advantage</span><span>·</span><span>Sustainable long-term value</span>
+        </div>
+        <p class="ob-tagline">Defining the future. Identifying the opportunity. Creating the conditions for growth.</p>
+      </div>
+
+      <div class="leader-cta">
+        <div>
+          <h4>Work with Lisa Warren on Intelligence, Growth &amp; AI Transformation</h4>
+          <p>Request a briefing to discuss how this domain expertise can support your organisation.</p>
+        </div>
+        <a href="contact.html" class="btn-p" style="background:var(--c-ai)">Request Briefing</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -233,5 +403,30 @@
   </div>
 </footer>
 <script src="assets/shared.js"></script>
+<script>
+(function(){
+  var rail = document.getElementById('flowRail');
+  if(!rail) return;
+  var railStages = rail.querySelectorAll('.fr-stage');
+  var markers = document.querySelectorAll('[data-stage]');
+  if(!markers.length) return;
+
+  function setActive(key){
+    railStages.forEach(function(s){
+      s.classList.toggle('active', s.getAttribute('data-rail') === key);
+    });
+  }
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        setActive(entry.target.getAttribute('data-stage'));
+      }
+    });
+  }, {rootMargin: '-45% 0px -45% 0px'});
+
+  markers.forEach(function(m){ observer.observe(m); });
+})();
+</script>
 </body>
 </html>
