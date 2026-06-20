@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lisa Warren | Intelligence, Growth & AI Transformation | EIG</title>
+<meta name="description" content="Lisa Warren helps organisations understand where they are today, where they could be tomorrow, and what must change to get there — connecting intelligence architecture, growth strategy, and AI transformation into better decisions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shared.css">
+
+<style>
+.content-body strong{color:var(--white);font-weight:600}
+
+/* ===== LISA HERO — PHOTO + QUOTE OVERLAY ===== */
+.lw-hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;padding-top:93px;overflow:hidden;background:var(--black)}
+.lw-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.lw-hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,6,13,0.15) 0%,rgba(2,6,13,0.05) 35%,rgba(2,6,13,0.65) 70%,rgba(2,6,13,0.94) 100%)}
+.lw-hero-inner{position:relative;z-index:2;width:100%;padding-bottom:4rem}
+.lw-eyebrow{display:inline-flex;align-items:center;gap:0.6rem;border:1px solid rgba(0,102,255,0.35);padding:0.3rem 0.9rem;border-radius:100px;font-size:10.5px;letter-spacing:0.16em;color:var(--blue2);text-transform:uppercase;font-weight:600;margin-bottom:1.5rem;background:rgba(2,6,13,0.4)}
+.lw-quote{font-family:var(--serif);font-size:clamp(1.6rem,3.2vw,2.5rem);font-weight:600;line-height:1.3;color:var(--white);max-width:840px;margin-bottom:1.5rem;letter-spacing:-0.01em}
+.lw-attrib{display:flex;align-items:center;gap:0.9rem}
+.lw-attrib-line{width:32px;height:2px;background:var(--blue2)}
+.lw-attrib b{font-size:14px;color:var(--white);font-weight:700;letter-spacing:0.02em}
+.lw-attrib span{font-size:12.5px;color:var(--mgrey)}
+
+@media(max-width:700px){
+  .lw-hero{min-height:100vh}
+  .lw-hero-img{object-position:center 8%}
+  .lw-hero-scrim{background:linear-gradient(180deg,rgba(2,6,13,0.1) 0%,rgba(2,6,13,0.05) 30%,rgba(2,6,13,0.6) 58%,rgba(2,6,13,0.97) 80%,rgba(2,6,13,1) 100%)}
+  .lw-eyebrow{margin-top:1rem}
+  .lw-quote{font-size:1.5rem}
+  .lw-hero-inner{padding-bottom:2.5rem}
+}
+
+/* ===== ZONE SYSTEM (shared with Platform page) ===== */
+.pb-zone{padding:5rem 0}
+.pb-zone .container{max-width:1180px}
+.pb-zone--dark{background:var(--black)}
+.pb-zone--navy{background:var(--navy)}
+
+.pb-eyebrow{font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem}
+.pb-eyebrow::before{content:'';width:24px;height:1px;background:currentColor}
+.pb-h2{font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.01em;line-height:1.15;margin-bottom:1.3rem;color:var(--white)}
+.pb-h2 em{font-style:italic}
+.pb-lede{font-size:16.5px;color:rgba(220,224,230,0.82);line-height:1.8;font-weight:300;max-width:760px;margin-bottom:1rem}
+
+/* ZONE 1 — The Problem (red/amber tension) */
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:2.5rem}
+.problem-stack{display:flex;flex-direction:column;gap:0.7rem}
+.problem-stack .ps-line{font-size:14.5px;color:rgba(220,224,230,0.78);padding:0.7rem 1rem;border-left:2px solid rgba(214,10,23,0.4);background:rgba(214,10,23,0.04);border-radius:0 4px 4px 0}
+.problem-result{border:1px solid rgba(214,10,23,0.25);border-radius:6px;padding:1.6rem 1.8rem;background:rgba(214,10,23,0.03)}
+.problem-result .pr-label{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:0.9rem}
+.problem-result p{font-size:15px;color:rgba(220,224,230,0.85);line-height:1.75;margin-bottom:0.9rem}
+.problem-result .pull-final{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--white);margin-top:1.2rem;line-height:1.5}
+
+/* ZONE 2 — Three Questions (blue) */
+.qcards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.qcards--five{grid-template-columns:repeat(3,1fr)}
+.qcard{border:1px solid rgba(0,102,255,0.18);border-radius:8px;padding:1.8rem 1.6rem;background:linear-gradient(160deg,rgba(0,102,255,0.05),transparent 65%);transition:border-color 0.25s,transform 0.25s}
+.qcard:hover{border-color:rgba(0,102,255,0.4);transform:translateY(-3px)}
+.qcard .qc-num{font-family:var(--serif);font-size:2.2rem;font-weight:700;color:rgba(61,139,255,0.3);line-height:1;margin-bottom:0.8rem}
+.qcard h3{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:0.7rem;line-height:1.3}
+.qcard p{font-size:14px;color:var(--mgrey);line-height:1.7}
+
+/* ZONE 3 — Three Disciplines (distinct colours each) */
+.disc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;margin-top:2.5rem;background:rgba(255,255,255,0.04)}
+.disc-card{background:var(--black);padding:2.2rem 1.8rem;position:relative;overflow:hidden}
+.disc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.disc-card.d1::before{background:var(--sky)}
+.disc-card.d2::before{background:var(--teal)}
+.disc-card.d3::before{background:var(--purple)}
+.disc-card .dc-tag{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;margin-bottom:1rem}
+.disc-card.d1 .dc-tag{color:var(--sky)}
+.disc-card.d2 .dc-tag{color:var(--teal)}
+.disc-card.d3 .dc-tag{color:var(--purple)}
+.disc-card h3{font-family:var(--serif);font-size:1.35rem;font-weight:700;color:var(--white);margin-bottom:0.6rem;line-height:1.25}
+.disc-card .dc-desc{font-size:14px;color:var(--mgrey);line-height:1.65;margin-bottom:1.1rem}
+.disc-card .dc-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.disc-card .dc-tags span{font-size:10px;padding:0.25rem 0.65rem;border-radius:100px;letter-spacing:0.03em;font-weight:600}
+.disc-card.d1 .dc-tags span{background:rgba(2,132,199,0.12);color:var(--sky)}
+.disc-card.d2 .dc-tags span{background:rgba(0,135,90,0.12);color:var(--teal)}
+.disc-card.d3 .dc-tags span{background:rgba(123,79,212,0.12);color:var(--purple)}
+.disc-foot{text-align:center;margin-top:2rem;font-family:var(--serif);font-style:italic;font-size:1.1rem;color:rgba(255,255,255,0.7)}
+.disc-foot strong{color:var(--white);font-style:normal}
+
+/* ZONE 4 — Our Perspective (split layout, blue accent) */
+.persp-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:3rem;align-items:start;margin-top:2.5rem}
+.persp-claim{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--white);line-height:1.4}
+.persp-claim em{color:var(--blue2);font-style:italic}
+.persp-list{display:flex;flex-direction:column;gap:0.1rem}
+.persp-list .pl-item{display:flex;align-items:center;gap:0.9rem;padding:0.85rem 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.persp-list .pl-item:last-child{border-bottom:none}
+.persp-list .pl-num{font-family:var(--serif);font-size:0.85rem;font-weight:700;color:var(--blue2);width:24px;flex-shrink:0}
+.persp-list .pl-text{font-size:14.5px;color:rgba(220,224,230,0.85);font-weight:500}
+
+/* ZONE 5 — Enterprise Intelligence Layer (purple, hub visual) */
+.eil-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:2.5rem}
+.eil-compare{display:flex;flex-direction:column;gap:1.2rem}
+.eil-have,.eil-few{border-radius:6px;padding:1.3rem 1.5rem}
+.eil-have{border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.015)}
+.eil-few{border:1px solid rgba(123,79,212,0.35);background:rgba(123,79,212,0.05)}
+.eil-have .eh-label,.eil-few .eh-label{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:0.6rem}
+.eil-have .eh-label{color:var(--mgrey)}
+.eil-few .eh-label{color:var(--purple)}
+.eil-have .eh-items{display:flex;gap:0.6rem;flex-wrap:wrap}
+.eil-have .eh-items span{font-size:13px;color:rgba(220,224,230,0.6)}
+.eil-few p{font-size:14.5px;color:rgba(220,224,230,0.88);line-height:1.7;margin:0}
+.eil-visual{display:flex;flex-direction:column;align-items:center;gap:0}
+.eil-ring{width:100%;max-width:280px;border:1px solid rgba(123,79,212,0.4);border-radius:50%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;background:radial-gradient(circle at 40% 30%,rgba(123,79,212,0.14),transparent 70%)}
+.eil-ring-inner{text-align:center}
+.eil-ring-inner .eri-eyebrow{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple);font-weight:700;margin-bottom:0.4rem}
+.eil-ring-inner .eri-title{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--white);line-height:1.3}
+.eil-q{margin-top:1.3rem;display:flex;flex-direction:column;gap:0.5rem;width:100%;max-width:280px}
+.eil-q span{font-size:12.5px;color:rgba(220,224,230,0.7);padding:0.5rem 0.8rem;border-left:2px solid var(--purple);background:rgba(123,79,212,0.04)}
+
+/* ZONE 6 — How We Work (amber, negative-space statement) */
+.how-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:2.5rem}
+.how-not{display:flex;flex-direction:column;gap:0.6rem}
+.how-not .hn-item{font-size:15px;color:rgba(220,224,230,0.5);text-decoration:line-through;text-decoration-color:rgba(214,10,23,0.5);text-decoration-thickness:1px}
+.how-yes{border-left:3px solid var(--amber);padding-left:1.5rem}
+.how-yes .hy-label{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:0.8rem}
+.how-yes .hy-items{display:flex;flex-direction:column;gap:0.5rem}
+.how-yes .hy-items span{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--white)}
+
+/* ZONE 7 — The Outcome (green, full-width band) */
+.outcome-zone{padding:5rem 0;background:linear-gradient(160deg,rgba(0,230,118,0.06),var(--black) 60%);text-align:center}
+.outcome-pills{display:flex;justify-content:center;flex-wrap:wrap;gap:0.7rem;margin:2rem 0}
+.outcome-pills span{font-size:13.5px;font-weight:600;color:var(--white);border:1px solid rgba(0,230,118,0.3);background:rgba(0,230,118,0.06);padding:0.5rem 1.2rem;border-radius:100px}
+.outcome-tagline{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--white);margin-top:1.5rem;line-height:1.6}
+
+@media(max-width:900px){
+  .problem-grid,.persp-grid,.eil-grid,.how-grid{grid-template-columns:1fr}
+  .qcards{grid-template-columns:1fr}
+  .disc-row{grid-template-columns:1fr}
+}
+</style>
+
+</head>
+<body>
+<div id="ticker">
+  <div class="ticker-track">
+    <div class="t-item"><b>AI</b>Agentic Artificial Intelligence</div>
+    <div class="t-item"><b>SUS</b>Sustainability</div>
+    <div class="t-item"><b>SC</b>Supply Chain & Process</div>
+    <div class="t-item"><b>ARCH</b>Architecture & Interior Design</div>
+    <div class="t-item"><b>EDU</b>Education</div>
+    <div class="t-item"><b>HEALTH</b>Healthcare</div>
+    <div class="t-item"><b>IT</b>Information Technology</div>
+    <div class="t-item"><b>PLAN</b>Strategic Planning</div>
+    <div class="t-item"><b>AI</b>Agentic Artificial Intelligence</div>
+    <div class="t-item"><b>SUS</b>Sustainability</div>
+    <div class="t-item"><b>SC</b>Supply Chain & Process</div>
+    <div class="t-item"><b>ARCH</b>Architecture & Interior Design</div>
+    <div class="t-item"><b>EDU</b>Education</div>
+    <div class="t-item"><b>HEALTH</b>Healthcare</div>
+    <div class="t-item"><b>IT</b>Information Technology</div>
+    <div class="t-item"><b>PLAN</b>Strategic Planning</div>
+  </div>
+</div>
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="logo-text">EIG<span>.</span></span>
+    </a>
+    <div class="nav-menu">
+      <div class="nav-item"><a href="platform.html">Platform</a></div>
+      <div class="nav-item">
+        <button>Intelligence <span class="arr">▼</span></button>
+        <div class="dd">
+          <div class="dd-section">Areas</div>
+          <a href="domains.html"><span class="dd-dot" style="background:var(--blue)"></span>Intelligence Areas</a>
+          <a href="industry-ai.html"><span class="dd-dot" style="background:var(--c-ai)"></span>Agentic AI</a>
+          <a href="industry-sustainability.html"><span class="dd-dot" style="background:var(--c-sus)"></span>Sustainability</a>
+          <a href="industry-supply-chain.html"><span class="dd-dot" style="background:var(--c-sc)"></span>Supply Chain</a>
+          <a href="industry-architecture.html"><span class="dd-dot" style="background:var(--c-arch)"></span>Architecture</a>
+          <a href="industry-education.html"><span class="dd-dot" style="background:var(--c-edu)"></span>Education</a>
+          <a href="industry-healthcare.html"><span class="dd-dot" style="background:var(--c-health)"></span>Healthcare</a>
+          <a href="industry-it.html"><span class="dd-dot" style="background:var(--c-it)"></span>IT</a>
+          <a href="industry-strategic-planning.html"><span class="dd-dot" style="background:var(--c-plan)"></span>Strategic Planning</a>
+          <div class="dd-divider"></div>
+          <div class="dd-section">Services</div>
+          <a href="services-ai.html">AI & Machine Learning</a>
+          <a href="services-sustainability.html">Sustainability Consulting</a>
+          <a href="services-supply-chain.html">Supply Chain Optimization</a>
+          <a href="services-architecture.html">Architecture & Design</a>
+          <a href="services-education.html">Education Solutions</a>
+          <a href="services-healthcare.html">Healthcare Innovation</a>
+          <a href="services-it.html">IT & Digital Transformation</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="leadership.html" style="color:var(--white)">Leadership</a></div>
+      <div class="nav-item"><a href="initiatives.html">Initiatives</a></div>
+      <div class="nav-item">
+        <button>Insights <span class="arr">▼</span></button>
+        <div class="dd">
+          <a href="briefing.html">Executive Briefing</a>
+          <a href="brief-ai-trends.html">AI Trends 2026</a>
+          <a href="brief-sustainability.html">Sustainability Report</a>
+          <a href="brief-supply-chain.html">Supply Chain Resilience</a>
+          <a href="brief-healthcare.html">Healthcare Innovation</a>
+          <a href="brief-digital.html">Digital Transformation</a>
+          <div class="dd-divider"></div>
+          <a href="blog-1.html">Blog: Agentic AI Future</a>
+          <a href="blog-2.html">Blog: Sustainable Supply Chains</a>
+          <a href="blog-3.html">Blog: Healthcare Architecture</a>
+          <a href="blog-4.html">Blog: EdTech Revolution</a>
+          <a href="blog-5.html">Blog: Green Building Standards</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="about.html">About</a></div>
+    </div>
+    <div class="nav-right">
+      <a href="contact.html" class="nav-cta">Contact</a>
+    </div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div class="mobile-nav">
+  <button class="mn-close">&times;</button>
+  <div class="mn-section">Navigation</div>
+  <a href="index.html">Home</a>
+  <a href="platform.html">Platform</a>
+  <a href="domains.html">Intelligence Areas</a>
+  <a href="leadership.html">Leadership</a>
+  <a href="initiatives.html">Initiatives</a>
+  <a href="briefing.html">Executive Briefing</a>
+  <div class="mn-section">Industries</div>
+  <a href="industry-ai.html">Agentic AI</a>
+  <a href="industry-sustainability.html">Sustainability</a>
+  <a href="industry-supply-chain.html">Supply Chain</a>
+  <a href="industry-architecture.html">Architecture</a>
+  <a href="industry-education.html">Education</a>
+  <a href="industry-healthcare.html">Healthcare</a>
+  <a href="industry-it.html">IT</a>
+  <a href="industry-strategic-planning.html">Strategic Planning</a>
+  <a href="industry-government.html">Government</a>
+  <div class="mn-section">Company</div>
+  <a href="about.html">About</a>
+  <a href="approach.html">Our Approach</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<section class="lw-hero">
+  <img src="assets/images/leaders/lisa-warren-hero.jpg" alt="Lisa Warren" class="lw-hero-img">
+  <div class="lw-hero-scrim"></div>
+  <div class="container lw-hero-inner">
+    <div class="lw-eyebrow"><span class="hpulse" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--blue2)"></span> Intelligence, Growth &amp; AI Transformation</div>
+    <div class="lw-quote">"The future does not belong to the organisations with the most data. It belongs to the organisations that understand what to do with it."</div>
+    <div class="lw-attrib">
+      <div class="lw-attrib-line"></div>
+      <div>
+        <b>Lisa Warren</b><br>
+        <span>Director of Intelligence Architecture &amp; AI Transformation, EIG</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE 1: UNDERSTANDING WHAT COMES NEXT -->
+<section class="pb-zone pb-zone--dark">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--blue2)">Understanding What Comes Next</div>
+    <h2 class="pb-h2">Most organisations don't fail from a lack of talent or technology.<br><em style="color:var(--blue2)">They fail using yesterday's assumptions.</em></h2>
+    <p class="pb-lede">Markets change. Industries evolve. Customer expectations shift. Technology accelerates. Competitive advantage moves.</p>
+    <p style="font-size:15px;color:var(--mgrey);line-height:1.8;max-width:760px">The organisations that succeed are not always the largest, the fastest growing, or the most technologically advanced. They are the organisations that see change earlier, make better decisions, and adapt faster than everyone else. <strong>That is where I work.</strong></p>
+  </div>
+</section>
+
+<!-- ZONE 2: THE QUESTION BEHIND EVERY TRANSFORMATION -->
+<section class="pb-zone pb-zone--navy">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--blue2)">The Question Behind Every Transformation</div>
+    <h2 class="pb-h2">The organisations I work with rarely ask<br><em style="color:var(--mgrey)">"How do we implement AI?"</em></h2>
+    <p class="pb-lede">The real questions are far more important — and they are leadership questions, not technology questions.</p>
+    <div class="qcards qcards--five">
+      <div class="qcard">
+        <div class="qc-num">01</div>
+        <h3>What are we not seeing?</h3>
+        <p>Surfacing the blind spots that shape every other decision.</p>
+      </div>
+      <div class="qcard">
+        <div class="qc-num">02</div>
+        <h3>Where will future growth come from?</h3>
+        <p>Identifying where value is moving before competitors do.</p>
+      </div>
+      <div class="qcard">
+        <div class="qc-num">03</div>
+        <h3>What opportunities are we missing?</h3>
+        <p>Connecting signals that sit in different departments and different meetings.</p>
+      </div>
+      <div class="qcard">
+        <div class="qc-num">04</div>
+        <h3>What is preventing us from moving faster?</h3>
+        <p>Naming the fragmentation, not just the symptoms of it.</p>
+      </div>
+      <div class="qcard">
+        <div class="qc-num">05</div>
+        <h3>What capabilities do we need to build today to compete tomorrow?</h3>
+        <p>Defining what the organisation needs to become next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE 3: WHERE AI FITS -->
+<section class="pb-zone pb-zone--dark">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--white)">Where AI Fits</div>
+    <h2 class="pb-h2">Agentic AI is part of what I do.<br><em style="color:var(--mgrey)">It is not all of it.</em></h2>
+    <p class="pb-lede">My work sits across three disciplines. AI Transformation is one of them — built on the other two, not separate from them.</p>
+    <div class="disc-row">
+      <div class="disc-card d1">
+        <div class="dc-tag">Where I Start</div>
+        <h3>Intelligence Architecture</h3>
+        <p class="dc-desc">Connecting information, people, processes, and decision-making into a single framework — visibility leadership can actually act on.</p>
+        <div class="dc-tags"><span>Systems Thinking</span><span>Decision Frameworks</span><span>Visibility</span><span>Governance</span></div>
+      </div>
+      <div class="disc-card d2">
+        <div class="dc-tag">Where I'm Looking</div>
+        <h3>Growth &amp; Future Readiness</h3>
+        <p class="dc-desc">Understanding where value is moving before competitors do — market shifts, new revenue models, capability gaps.</p>
+        <div class="dc-tags"><span>Market Intelligence</span><span>Future Revenue</span><span>Competitive Position</span><span>Capability Gaps</span></div>
+      </div>
+      <div class="disc-card d3">
+        <div class="dc-tag">Where AI Comes In</div>
+        <h3>Agentic AI Transformation</h3>
+        <p class="dc-desc">Once "where can we create more value?" is answered, AI becomes a strategic enabler — not an isolated technology initiative.</p>
+        <div class="dc-tags"><span>Agentic AI</span><span>Decision-Making</span><span>AI Readiness</span><span>Strategic Enablement</span></div>
+      </div>
+    </div>
+    <div class="disc-foot">The organisations creating the greatest value from AI aren't implementing more tools. <strong>They're building better decision-making capabilities.</strong></div>
+  </div>
+</section>
+
+<!-- ZONE 4: MY PERSPECTIVE -->
+<section class="pb-zone pb-zone--navy">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--blue2)">My Perspective</div>
+    <div class="persp-grid">
+      <div>
+        <div class="persp-claim">I believe the next generation of competitive advantage will not be created through technology alone. <em>It will be created through the quality of decisions organisations make.</em></div>
+      </div>
+      <div class="persp-list">
+        <div class="pl-item"><div class="pl-num">→</div><div class="pl-text">Technology provides information.</div></div>
+        <div class="pl-item"><div class="pl-num">→</div><div class="pl-text">Intelligence creates understanding.</div></div>
+        <div class="pl-item"><div class="pl-num">→</div><div class="pl-text">Leadership creates action.</div></div>
+        <div class="pl-item" style="border-bottom:none;margin-top:0.5rem"><div class="pl-num" style="color:var(--white)">=</div><div class="pl-text" style="font-weight:700;color:var(--white)">The organisations that connect all three outperform their competitors. Every time.</div></div>
+      </div>
+    </div>
+    <div style="margin-top:3rem;border-left:2px solid var(--blue2);padding-left:1.6rem;max-width:680px">
+      <p style="font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--white);line-height:1.55;margin-bottom:1rem">"Systems tell us what happened. Intelligence tells us why. Leadership determines what happens next."</p>
+      <p style="font-size:13px;color:var(--mgrey);margin:0">— Lisa Warren</p>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE 5: INTELLIGENCE ARCHITECTURE -->
+<section class="pb-zone pb-zone--dark">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--purple)">Intelligence Architecture</div>
+    <h2 class="pb-h2">Most organisations have systems.<br><em style="color:var(--purple)">Few have a framework for what those systems are trying to tell them.</em></h2>
+    <div class="eil-grid">
+      <div class="eil-compare">
+        <div class="eil-have">
+          <div class="eh-label">Where Things Sit Today</div>
+          <div class="eh-items"><span>Data in different platforms</span><span>·</span><span>Information in different departments</span><span>·</span><span>Decisions in different meetings</span></div>
+        </div>
+        <div class="eil-few">
+          <div class="eh-label">My Role</div>
+          <p>Helping leadership teams create the intelligence architecture that connects information, insight, and decision-making into a single framework. Not more reports. Not more dashboards. Better decisions.</p>
+        </div>
+      </div>
+      <div class="eil-visual">
+        <div class="eil-ring">
+          <div class="eil-ring-inner">
+            <div class="eri-eyebrow">LISA</div>
+            <div class="eri-title">Intelligence<br>Architecture</div>
+          </div>
+        </div>
+        <div class="eil-q">
+          <span>Future growth opportunities</span>
+          <span>Market and industry shifts</span>
+          <span>Emerging risks and competitive threats</span>
+          <span>AI readiness and capability gaps</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE 6: WHY ORGANISATIONS ENGAGE ME -->
+<section class="pb-zone pb-zone--navy">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--amber)">Why Organisations Engage Me</div>
+    <div class="how-grid">
+      <div class="how-not">
+        <div class="hn-item">Not to ask "what happened?"</div>
+        <div class="hn-item">Not to implement more tools.</div>
+        <div class="hn-item">Not to run another technology pilot.</div>
+      </div>
+      <div class="how-yes">
+        <div class="hy-label">To Help Leadership Teams</div>
+        <div class="hy-items">
+          <span>Provide an independent perspective</span>
+          <span>Challenge assumptions</span>
+          <span>Identify opportunities</span>
+          <span>Connect the dots across operations, technology, sustainability, and growth</span>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:15px;color:var(--mgrey);line-height:1.8;margin-top:2.2rem;max-width:680px">Because the most valuable question in any organisation is not "What happened?" It is <strong>"What should happen next?"</strong></p>
+  </div>
+</section>
+
+<!-- ZONE 7: THE OUTCOME -->
+<section class="outcome-zone">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--green);justify-content:center">The Outcome</div>
+    <h2 class="pb-h2" style="text-align:center">Strategic clarity. <em style="color:var(--green)">Sustainable advantage.</em></h2>
+    <div class="outcome-pills">
+      <span>Strategic Clarity</span>
+      <span>Better Decisions</span>
+      <span>Stronger Alignment</span>
+      <span>Future-Ready Organisations</span>
+      <span>Sustainable Competitive Advantage</span>
+    </div>
+    <div class="outcome-tagline">Understanding what comes next. Defining future opportunity.<br>Creating the conditions for growth.</div>
+    <div style="margin-top:2.5rem">
+      <a href="contact.html" class="btn-p">Work With Lisa Warren</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <a href="index.html" class="footer-brand">
+      <span class="logo-text">Ecosystem Intelligence <span>Group</span></span>
+    </a>
+    <div class="footer-links">
+      <a href="platform.html">Platform</a>
+      <a href="domains.html">Intelligence Areas</a>
+      <a href="leadership.html">Leadership</a>
+      <a href="initiatives.html">Initiatives</a>
+      <a href="briefing.html">Briefing</a>
+      <a href="about.html">About</a>
+      <a href="approach.html">Approach</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-r">
+      <div class="footer-copy">© 2026 Ecosystem Intelligence Group. All rights reserved.</div>
+      <div class="footer-sib">A <a href="#">SIB Group</a> Company</div>
+    </div>
+  </div>
+</footer>
+<script src="assets/shared.js"></script>
+</body>
+</html>
