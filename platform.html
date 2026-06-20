@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Platform | EIG</title>
-<meta name="description" content="Ecosystem Intelligence Group - A multi-sector intelligence and delivery platform connecting domain leaders across AI, sustainability, supply chain, architecture, education, healthcare, IT and strategic planning.">
+<title>The EIG Platform | How We Work | EIG</title>
+<meta name="description" content="The EIG Platform connects operational performance, value creation, and intelligence & transformation into a single enterprise intelligence layer — helping organisations understand where they are, where they're going, and what it takes to get there.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -17,14 +17,7 @@
 .content-hero h1{font-family:var(--serif);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.01em;margin-bottom:1rem}
 .content-hero h1 em{font-style:italic;color:var(--blue)}
 .content-hero p{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:640px;font-weight:300}
-.content-body{padding:60px 0 100px}
-.content-body h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin:2.5rem 0 1rem;color:var(--white)}
-.content-body p{font-size:15.5px;color:var(--mgrey);line-height:1.82;margin-bottom:1.2rem}
-.content-body ul{margin:1rem 0 1.5rem 1.5rem}
-.content-body li{font-size:15px;color:var(--mgrey);line-height:1.9;margin-bottom:0.3rem}
 .content-body strong{color:var(--white);font-weight:600}
-.content-body blockquote{border-left:2px solid var(--blue);padding-left:1.5rem;margin:2rem 0;font-style:italic;font-family:var(--serif);font-size:1.1rem;color:var(--mgrey)}
-.content-body blockquote strong{color:var(--white)}
 
 /* PLATFORM HERO — FLOW DIAGRAM */
 .plat-hero{min-height:auto;padding-top:130px;padding-bottom:70px}
@@ -77,6 +70,107 @@
 }
 @media(prefers-reduced-motion:reduce){
   .flow-connector::before,.flow-connector::after,.flow-hub{animation:none}
+}
+
+/* ===== PLATFORM BODY — COLOURED, BROKEN-UP SECTIONS ===== */
+.pb-zone{padding:5rem 0}
+.pb-zone .container{max-width:1180px}
+.pb-zone--dark{background:var(--black)}
+.pb-zone--navy{background:var(--navy)}
+
+.pb-eyebrow{font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem}
+.pb-eyebrow::before{content:'';width:24px;height:1px;background:currentColor}
+.pb-h2{font-family:var(--serif);font-size:clamp(1.9rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.01em;line-height:1.15;margin-bottom:1.3rem;color:var(--white)}
+.pb-h2 em{font-style:italic}
+.pb-lede{font-size:16.5px;color:rgba(220,224,230,0.82);line-height:1.8;font-weight:300;max-width:680px;margin-bottom:1rem}
+
+/* ZONE 1 — The Problem (red/amber tension) */
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:2.5rem}
+.problem-stack{display:flex;flex-direction:column;gap:0.7rem}
+.problem-stack .ps-line{font-size:14.5px;color:rgba(220,224,230,0.78);padding:0.7rem 1rem;border-left:2px solid rgba(214,10,23,0.4);background:rgba(214,10,23,0.04);border-radius:0 4px 4px 0}
+.problem-result{border:1px solid rgba(214,10,23,0.25);border-radius:6px;padding:1.6rem 1.8rem;background:rgba(214,10,23,0.03)}
+.problem-result .pr-label{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:0.9rem}
+.problem-result p{font-size:15px;color:rgba(220,224,230,0.85);line-height:1.75;margin-bottom:0.9rem}
+.problem-result .pull-final{font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--white);margin-top:1.2rem;line-height:1.5}
+
+/* ZONE 2 — Three Questions (blue) */
+.qcards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.qcard{border:1px solid rgba(0,102,255,0.18);border-radius:8px;padding:1.8rem 1.6rem;background:linear-gradient(160deg,rgba(0,102,255,0.05),transparent 65%);transition:border-color 0.25s,transform 0.25s}
+.qcard:hover{border-color:rgba(0,102,255,0.4);transform:translateY(-3px)}
+.qcard .qc-num{font-family:var(--serif);font-size:2.2rem;font-weight:700;color:rgba(61,139,255,0.3);line-height:1;margin-bottom:0.8rem}
+.qcard h3{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:0.7rem;line-height:1.3}
+.qcard p{font-size:14px;color:var(--mgrey);line-height:1.7}
+
+/* ZONE 3 — Three Disciplines (distinct colours each) */
+.disc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;margin-top:2.5rem;background:rgba(255,255,255,0.04)}
+.disc-card{background:var(--black);padding:2.2rem 1.8rem;position:relative;overflow:hidden}
+.disc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.disc-card.d1::before{background:var(--sky)}
+.disc-card.d2::before{background:var(--teal)}
+.disc-card.d3::before{background:var(--purple)}
+.disc-card .dc-tag{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;margin-bottom:1rem}
+.disc-card.d1 .dc-tag{color:var(--sky)}
+.disc-card.d2 .dc-tag{color:var(--teal)}
+.disc-card.d3 .dc-tag{color:var(--purple)}
+.disc-card h3{font-family:var(--serif);font-size:1.35rem;font-weight:700;color:var(--white);margin-bottom:0.6rem;line-height:1.25}
+.disc-card .dc-desc{font-size:14px;color:var(--mgrey);line-height:1.65;margin-bottom:1.1rem}
+.disc-card .dc-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.disc-card .dc-tags span{font-size:10px;padding:0.25rem 0.65rem;border-radius:100px;letter-spacing:0.03em;font-weight:600}
+.disc-card.d1 .dc-tags span{background:rgba(2,132,199,0.12);color:var(--sky)}
+.disc-card.d2 .dc-tags span{background:rgba(0,135,90,0.12);color:var(--teal)}
+.disc-card.d3 .dc-tags span{background:rgba(123,79,212,0.12);color:var(--purple)}
+.disc-foot{text-align:center;margin-top:2rem;font-family:var(--serif);font-style:italic;font-size:1.1rem;color:rgba(255,255,255,0.7)}
+.disc-foot strong{color:var(--white);font-style:normal}
+
+/* ZONE 4 — Our Perspective (split layout, blue accent) */
+.persp-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:3rem;align-items:start;margin-top:2.5rem}
+.persp-claim{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--white);line-height:1.4}
+.persp-claim em{color:var(--blue2);font-style:italic}
+.persp-list{display:flex;flex-direction:column;gap:0.1rem}
+.persp-list .pl-item{display:flex;align-items:center;gap:0.9rem;padding:0.85rem 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.persp-list .pl-item:last-child{border-bottom:none}
+.persp-list .pl-num{font-family:var(--serif);font-size:0.85rem;font-weight:700;color:var(--blue2);width:24px;flex-shrink:0}
+.persp-list .pl-text{font-size:14.5px;color:rgba(220,224,230,0.85);font-weight:500}
+
+/* ZONE 5 — Enterprise Intelligence Layer (purple, hub visual) */
+.eil-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:2.5rem}
+.eil-compare{display:flex;flex-direction:column;gap:1.2rem}
+.eil-have,.eil-few{border-radius:6px;padding:1.3rem 1.5rem}
+.eil-have{border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.015)}
+.eil-few{border:1px solid rgba(123,79,212,0.35);background:rgba(123,79,212,0.05)}
+.eil-have .eh-label,.eil-few .eh-label{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:0.6rem}
+.eil-have .eh-label{color:var(--mgrey)}
+.eil-few .eh-label{color:var(--purple)}
+.eil-have .eh-items{display:flex;gap:0.6rem;flex-wrap:wrap}
+.eil-have .eh-items span{font-size:13px;color:rgba(220,224,230,0.6)}
+.eil-few p{font-size:14.5px;color:rgba(220,224,230,0.88);line-height:1.7;margin:0}
+.eil-visual{display:flex;flex-direction:column;align-items:center;gap:0}
+.eil-ring{width:100%;max-width:280px;border:1px solid rgba(123,79,212,0.4);border-radius:50%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative;background:radial-gradient(circle at 40% 30%,rgba(123,79,212,0.14),transparent 70%)}
+.eil-ring-inner{text-align:center}
+.eil-ring-inner .eri-eyebrow{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple);font-weight:700;margin-bottom:0.4rem}
+.eil-ring-inner .eri-title{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--white);line-height:1.3}
+.eil-q{margin-top:1.3rem;display:flex;flex-direction:column;gap:0.5rem;width:100%;max-width:280px}
+.eil-q span{font-size:12.5px;color:rgba(220,224,230,0.7);padding:0.5rem 0.8rem;border-left:2px solid var(--purple);background:rgba(123,79,212,0.04)}
+
+/* ZONE 6 — How We Work (amber, negative-space statement) */
+.how-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:2.5rem}
+.how-not{display:flex;flex-direction:column;gap:0.6rem}
+.how-not .hn-item{font-size:15px;color:rgba(220,224,230,0.5);text-decoration:line-through;text-decoration-color:rgba(214,10,23,0.5);text-decoration-thickness:1px}
+.how-yes{border-left:3px solid var(--amber);padding-left:1.5rem}
+.how-yes .hy-label{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:0.8rem}
+.how-yes .hy-items{display:flex;flex-direction:column;gap:0.5rem}
+.how-yes .hy-items span{font-family:var(--serif);font-size:1.15rem;font-weight:600;color:var(--white)}
+
+/* ZONE 7 — The Outcome (green, full-width band) */
+.outcome-zone{padding:5rem 0;background:linear-gradient(160deg,rgba(0,230,118,0.06),var(--black) 60%);text-align:center}
+.outcome-pills{display:flex;justify-content:center;flex-wrap:wrap;gap:0.7rem;margin:2rem 0}
+.outcome-pills span{font-size:13.5px;font-weight:600;color:var(--white);border:1px solid rgba(0,230,118,0.3);background:rgba(0,230,118,0.06);padding:0.5rem 1.2rem;border-radius:100px}
+.outcome-tagline{font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--white);margin-top:1.5rem;line-height:1.6}
+
+@media(max-width:900px){
+  .problem-grid,.persp-grid,.eil-grid,.how-grid{grid-template-columns:1fr}
+  .qcards{grid-template-columns:1fr}
+  .disc-row{grid-template-columns:1fr}
 }
 </style>
 
@@ -189,8 +283,8 @@
   <div class="hero-bg"></div>
   <div class="container plat-hero-inner">
     <div>
-      <h1>How the Platform <em>Works</em></h1>
-      <p>Most firms separate disciplines. Most real problems do not. EIG connects intelligence to execution across every domain.</p>
+      <h1>The EIG Platform. <em>How We Work.</em></h1>
+      <p>Realising strategic potential through intelligence, value, and performance. Most organisations do not suffer from a lack of capability — they suffer from complexity.</p>
       <div class="plat-stats">
         <div class="plat-stat"><b>8</b><span>Connected Domains</span></div>
         <div class="plat-stat"><b>1</b><span>Intelligence Layer</span></div>
@@ -229,55 +323,179 @@
   </div>
 </section>
 
-<section class="content-body">
+<!-- ZONE 1: THE PROBLEM -->
+<section class="pb-zone pb-zone--dark">
   <div class="container">
-    
-<div class="eyebrow">The EIG Platform</div>
-<h2 class="title" style="margin-bottom:2rem">How the Platform <em>Works</em></h2>
-
-<p>Most firms separate disciplines. Most real problems do not. Opportunity sits between domains. So does risk. Between strategy and operations. Between sustainability and economics. Between technology and adoption. Between environment and performance.</p>
-
-<p><strong>EIG is designed for that reality.</strong> We connect the domains. We surface what others miss. We bring the right expertise into the room early. We keep the line from intelligence to execution intact.</p>
-
-<h3>What Clients Get</h3>
-<ul>
-<li>Sharper judgement in high-stakes decisions</li>
-<li>Stronger ownership with direct accountability</li>
-<li>Clearer priorities across complex environments</li>
-<li>Better cross-domain visibility</li>
-<li>Execution logic that holds beyond the boardroom</li>
-<li>Measurable impact that stands up in real operating environments</li>
-</ul>
-
-<blockquote>"Intelligence matters when it changes outcomes. We focus on decision-useful insight, practical execution logic, accountable ownership, and results that stand up in real operating environments."</blockquote>
-
-<h3>One Platform. Domain-Led Intelligence.</h3>
-<p>EIG provides the intelligence layer. The wider SIB platform extends the execution capability behind it — creating a continuous path from strategic understanding to real-world outcome.</p>
-
-<h3>A Cross-Domain View of Value</h3>
-<p>Most organisations are structured in functions. Most opportunities and risks are not. They sit between strategy and operations, between technology and adoption, between sustainability and economics. EIG is designed to work in those intersections.</p>
-
-<h3>Leadership That Starts at the Right Level</h3>
-<p>EIG is led by domain owners. The conversation starts closer to the real issue — with people who bring subject depth, executive judgement, and the authority to move decisions forward.</p>
-
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem">
-  <div class="card">
-    <div class="tag" style="color:var(--blue)">Ecosystem Advisory</div>
-    <h3>Understanding Systems</h3>
-    <p>How systems, dependencies and value drivers interact across your entire organisation.</p>
+    <div class="pb-eyebrow" style="color:var(--red)">The Reality</div>
+    <h2 class="pb-h2">Most organisations don't suffer from a lack of capability.<br><em style="color:var(--red)">They suffer from complexity.</em></h2>
+    <div class="problem-grid">
+      <div class="problem-stack">
+        <div class="ps-line">Data exists across multiple systems.</div>
+        <div class="ps-line">Information sits across departments.</div>
+        <div class="ps-line">Decisions are made in silos.</div>
+        <div class="ps-line">Opportunities remain hidden.</div>
+        <div class="ps-line">Leadership teams are left trying to connect the dots.</div>
+      </div>
+      <div class="problem-result">
+        <div class="pr-label">The Result</div>
+        <p>Slower decisions. Missed opportunities. Fragmented execution. Unrealised value.</p>
+        <p>The challenge is not a lack of information.</p>
+        <div class="pull-final">The challenge is understanding what matters, what is changing, and what should happen next.</div>
+      </div>
+    </div>
   </div>
-  <div class="card">
-    <div class="tag" style="color:var(--green)">Measurable Value</div>
-    <h3>Accountable Outcomes</h3>
-    <p>Every engagement tracked, verified and accountable to real outcomes — not hours billed or reports produced.</p>
-  </div>
-  <div class="card">
-    <div class="tag" style="color:var(--amber)">Practical Execution</div>
-    <h3>Bridging Strategy to Delivery</h3>
-    <p>Bridging strategic design and real-world implementation — we stay until delivery is real.</p>
-  </div>
-</div>
+</section>
 
+<!-- ZONE 2: WHY EIG EXISTS -->
+<section class="pb-zone pb-zone--navy">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--blue2)">Why EIG Exists</div>
+    <h2 class="pb-h2">Three questions sit at the centre of<br>every <em style="color:var(--blue2)">transformation, growth strategy and leadership decision.</em></h2>
+    <div class="qcards">
+      <div class="qcard">
+        <div class="qc-num">01</div>
+        <h3>What should we become?</h3>
+        <p>Understanding future opportunities, emerging trends, competitive shifts, and long-term growth potential.</p>
+      </div>
+      <div class="qcard">
+        <div class="qc-num">02</div>
+        <h3>What's preventing us from getting there?</h3>
+        <p>Identifying operational constraints, organisational barriers, capability gaps, and execution challenges.</p>
+      </div>
+      <div class="qcard">
+        <div class="qc-num">03</div>
+        <h3>How do we create more value?</h3>
+        <p>Connecting performance, sustainability, intelligence, and strategic decision-making into a single framework.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE 3: THE EIG PLATFORM — THREE DISCIPLINES -->
+<section class="pb-zone pb-zone--dark">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--white)">The EIG Platform</div>
+    <h2 class="pb-h2">Three disciplines, <em style="color:var(--mgrey)">often treated separately.</em></h2>
+    <p class="pb-lede">Individually, these disciplines create improvement. Together, they create competitive advantage.</p>
+    <div class="disc-row">
+      <div class="disc-card d1">
+        <div class="dc-tag">How We Perform Today</div>
+        <h3>Operational Performance</h3>
+        <p class="dc-desc">How the organisation performs today.</p>
+        <div class="dc-tags"><span>Supply Chain</span><span>Operations</span><span>Execution</span><span>Governance</span><span>Performance</span></div>
+      </div>
+      <div class="disc-card d2">
+        <div class="dc-tag">How We Build Value</div>
+        <h3>Value Creation</h3>
+        <p class="dc-desc">How the organisation creates sustainable long-term value.</p>
+        <div class="dc-tags"><span>Sustainability</span><span>Economics</span><span>Capital Efficiency</span><span>Resilience</span><span>Future Value</span></div>
+      </div>
+      <div class="disc-card d3">
+        <div class="dc-tag">How We Prepare for What's Next</div>
+        <h3>Intelligence &amp; Transformation</h3>
+        <p class="dc-desc">How the organisation understands change and prepares for the future.</p>
+        <div class="dc-tags"><span>Growth</span><span>Market Intelligence</span><span>AI Readiness</span><span>Decision-Making</span><span>Transformation</span></div>
+      </div>
+    </div>
+    <div class="disc-foot">Individually, improvement. <strong>Together, competitive advantage.</strong></div>
+  </div>
+</section>
+
+<!-- ZONE 4: OUR PERSPECTIVE -->
+<section class="pb-zone pb-zone--navy">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--blue2)">Our Perspective</div>
+    <div class="persp-grid">
+      <div>
+        <div class="persp-claim">The organisations that lead the next decade will not necessarily have the most data, the largest budgets, or the most advanced technology. <em>They will be the organisations that make better decisions — faster, with greater confidence, across increasingly complex environments.</em></div>
+      </div>
+      <div class="persp-list">
+        <div class="pl-item"><div class="pl-num">01</div><div class="pl-text">Connect information</div></div>
+        <div class="pl-item"><div class="pl-num">02</div><div class="pl-text">Anticipate change</div></div>
+        <div class="pl-item"><div class="pl-num">03</div><div class="pl-text">Identify opportunities early</div></div>
+        <div class="pl-item"><div class="pl-num">04</div><div class="pl-text">Allocate resources intelligently</div></div>
+        <div class="pl-item"><div class="pl-num">05</div><div class="pl-text">Execute effectively</div></div>
+        <div class="pl-item"><div class="pl-num">06</div><div class="pl-text">Create value consistently</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE 5: ENTERPRISE INTELLIGENCE LAYER -->
+<section class="pb-zone pb-zone--dark">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--purple)">The Enterprise Intelligence Layer</div>
+    <h2 class="pb-h2">Most organisations have systems.<br><em style="color:var(--purple)">Few have an intelligence layer.</em></h2>
+    <div class="eil-grid">
+      <div class="eil-compare">
+        <div class="eil-have">
+          <div class="eh-label">What Most Organisations Have</div>
+          <div class="eh-items"><span>Systems</span><span>·</span><span>Reports</span><span>·</span><span>Dashboards</span><span>·</span><span>Data</span></div>
+        </div>
+        <div class="eil-few">
+          <div class="eh-label">What Few Have</div>
+          <p>An enterprise intelligence layer that connects operations, value creation, and future growth into a single decision-making framework — creating the foundation for better governance, stronger performance, future AI capabilities, and sustainable growth.</p>
+        </div>
+      </div>
+      <div class="eil-visual">
+        <div class="eil-ring">
+          <div class="eil-ring-inner">
+            <div class="eri-eyebrow">EIG</div>
+            <div class="eri-title">Intelligence<br>Layer</div>
+          </div>
+        </div>
+        <div class="eil-q">
+          <span>What is happening</span>
+          <span>Why it is happening</span>
+          <span>What it means</span>
+          <span>What should happen next</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE 6: HOW WE WORK -->
+<section class="pb-zone pb-zone--navy">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--amber)">How We Work</div>
+    <div class="how-grid">
+      <div class="how-not">
+        <div class="hn-item">We do not begin with technology.</div>
+        <div class="hn-item">We do not begin with software.</div>
+        <div class="hn-item">We do not begin with implementation.</div>
+      </div>
+      <div class="how-yes">
+        <div class="hy-label">We Begin With</div>
+        <div class="hy-items">
+          <span>Understanding the organisation</span>
+          <span>Understanding the opportunities</span>
+          <span>Understanding the constraints</span>
+          <span>Understanding the strategic choices available</span>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:15px;color:var(--mgrey);line-height:1.8;margin-top:2.2rem;max-width:680px">Only then do we define the capabilities, priorities, and roadmap required to move forward.</p>
+  </div>
+</section>
+
+<!-- ZONE 7: THE OUTCOME -->
+<section class="outcome-zone">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--green);justify-content:center">The Outcome</div>
+    <h2 class="pb-h2" style="text-align:center">Better decisions. <em style="color:var(--green)">Sustainable advantage.</em></h2>
+    <div class="outcome-pills">
+      <span>Greater Visibility</span>
+      <span>Stronger Alignment</span>
+      <span>Better Decisions</span>
+      <span>Improved Performance</span>
+      <span>Sustainable Value Creation</span>
+      <span>Long-Term Competitive Advantage</span>
+    </div>
+    <div class="outcome-tagline">Defining the future. Identifying the opportunity.<br>Creating the conditions for growth.</div>
+    <div style="margin-top:2.5rem">
+      <a href="contact.html" class="btn-p">Request a Briefing</a>
+    </div>
   </div>
 </section>
 
