@@ -10,23 +10,89 @@
 <link rel="stylesheet" href="assets/shared.css">
 
 <style>
-.domain-hero{min-height:55vh;display:flex;align-items:center;padding-top:120px;padding-bottom:60px;position:relative;overflow:hidden}
-.domain-hero .hero-bg{position:absolute;inset:0;opacity:0.05;background:var(--c-edu)}
-.domain-hero .container{position:relative;z-index:2}
-.domain-hero .icon{font-size:3rem;margin-bottom:1rem}
-.domain-hero h1{font-family:var(--serif);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.01em;margin-bottom:1rem}
-.domain-hero h1 em{font-style:italic;color:var(--c-edu)}
-.domain-hero p{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:640px;font-weight:300;margin-bottom:2rem}
-.content-body{padding:60px 0 100px}
-.content-body h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin:2.5rem 0 1rem;color:var(--white)}
-.content-body h3 em{font-style:italic;color:var(--c-edu)}
-.content-body p{font-size:15.5px;color:var(--mgrey);line-height:1.82;margin-bottom:1.2rem}
-.content-body ul{margin:1rem 0 1.5rem 1.5rem}
-.content-body li{font-size:15px;color:var(--mgrey);line-height:1.9;margin-bottom:0.3rem}
-.content-body strong{color:var(--white);font-weight:600}
-.leader-cta{background:var(--navy);border:1px solid rgba(255,255,255,0.07);border-radius:2px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:3rem}
-.leader-cta h4{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin-bottom:0.5rem;color:var(--white)}
-.leader-cta p{font-size:14px;color:var(--mgrey);line-height:1.7}
+/* HERO — overlay visual, institutional framework theme */
+.edu-hero{min-height:auto;padding-top:140px;padding-bottom:60px;position:relative;overflow:hidden;background:var(--black)}
+.edu-hero .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 78% 30%,rgba(212,120,10,0.09),transparent 65%)}
+.edu-hero-bgvisual{opacity:0.45;pointer-events:none}
+.edu-hero-bgvisual svg{display:block;position:absolute;top:50%;right:0;transform:translateY(-50%);width:380px;height:380px}
+.edu-hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,var(--black) 0%,var(--black) 34%,rgba(2,6,13,0.7) 54%,rgba(2,6,13,0.2) 76%,rgba(2,6,13,0.5) 100%)}
+.edu-hero .container{position:relative;z-index:2}
+.edu-eyebrow{display:flex;align-items:center;gap:0.7rem;margin-bottom:1.4rem}
+.edu-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--c-edu);box-shadow:0 0 10px 2px rgba(212,120,10,0.6);animation:edudot 2.4s ease-in-out infinite}
+@keyframes edudot{0%,100%{opacity:1}50%{opacity:0.4}}
+.edu-eyebrow span{font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-edu);font-weight:700}
+.edu-hero h1{font-family:var(--serif);font-size:clamp(2.6rem,4.4vw,3.8rem);font-weight:700;line-height:1.08;letter-spacing:-0.015em;margin-bottom:1.25rem}
+.edu-hero h1 em{font-style:italic;color:var(--c-edu)}
+.edu-hero p{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:600px;font-weight:300;margin-bottom:1.75rem}
+.edu-hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap}
+.edu-orbit{animation:edu-spin 95s linear infinite;transform-origin:center}
+.edu-orbit2{animation:edu-spin 140s linear infinite reverse;transform-origin:center}
+@keyframes edu-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.edu-pulse{animation:edu-pulse 3.4s ease-in-out infinite}
+@keyframes edu-pulse{0%,100%{opacity:0.35}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.edu-orbit,.edu-orbit2,.edu-pulse{animation:none}}
+@media(max-width:900px){.edu-hero-bgvisual{display:none}}
+
+/* ===== ZONE SYSTEM ===== */
+.edu-zone{padding:4.5rem 0}
+.edu-zone--dark{background:var(--black)}
+.edu-zone--navy{background:var(--navy)}
+.edu-eyebrow2{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;margin-bottom:0.9rem;display:flex;align-items:center;gap:0.6rem}
+.edu-eyebrow2::before{content:'';width:20px;height:1px;background:currentColor}
+.edu-h2{font-family:var(--serif);font-size:clamp(1.7rem,2.7vw,2.3rem);font-weight:700;letter-spacing:-0.01em;line-height:1.2;margin-bottom:1.1rem;color:var(--white)}
+.edu-h2 em{font-style:italic}
+.edu-lede{font-size:16px;color:rgba(230,233,237,0.88);line-height:1.75;font-weight:300;max-width:700px;margin-bottom:1rem}
+.edu-text{font-size:15px;color:var(--mgrey);line-height:1.8;margin-bottom:1.1rem;max-width:700px}
+.edu-text strong{color:var(--white);font-weight:600}
+
+/* Differentiation comparison — us vs typical */
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+.diff-card{border-radius:6px;padding:1.7rem 1.8rem}
+.diff-card.typical{border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.015)}
+.diff-card.eig{border:1px solid rgba(212,120,10,0.3);background:rgba(212,120,10,0.05)}
+.diff-card .dc-label{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:1rem}
+.diff-card.typical .dc-label{color:var(--mgrey)}
+.diff-card.eig .dc-label{color:var(--c-edu)}
+.diff-row{display:flex;gap:0.7rem;padding:0.6rem 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.diff-row:last-child{border-bottom:none}
+.diff-row .dr-mark{flex-shrink:0;width:16px;font-weight:700}
+.diff-card.typical .dr-mark{color:rgba(220,224,230,0.3)}
+.diff-card.eig .dr-mark{color:var(--c-edu)}
+.diff-row .dr-text{font-size:13.5px;color:rgba(220,224,230,0.82);line-height:1.5}
+
+/* Expertise cards with specifics */
+.edu-exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2px;margin:1.8rem 0;background:rgba(255,255,255,0.04)}
+.edu-exp-card{background:var(--navy);padding:1.7rem 1.6rem}
+.edu-zone--dark .edu-exp-card{background:var(--black)}
+.edu-exp-card .ec-tag{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-edu);font-weight:700;margin-bottom:0.7rem}
+.edu-exp-card h4{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;line-height:1.3}
+.edu-exp-card p{font-size:13.5px;color:var(--mgrey);line-height:1.6;margin:0}
+
+/* Track record stat cards with real specifics */
+.edu-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2px;margin-top:1.8rem;background:rgba(255,255,255,0.04)}
+.edu-stat-card{background:var(--black);padding:2rem 1.5rem}
+.edu-stat-card .sc-num{font-family:var(--serif);font-size:1.9rem;font-weight:700;color:var(--c-edu);margin-bottom:0.5rem;line-height:1.1}
+.edu-stat-card .sc-label{font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--mgrey);font-weight:600;margin-bottom:0.6rem}
+.edu-stat-card p{font-size:12.5px;color:rgba(220,224,230,0.65);line-height:1.55;margin:0}
+
+/* Accreditation badges */
+.accred-row{display:flex;flex-wrap:wrap;gap:0.6rem;margin:1.6rem 0}
+.accred-badge{font-size:11.5px;font-weight:700;letter-spacing:0.04em;padding:0.45rem 0.9rem;border-radius:100px;border:1px solid rgba(212,120,10,0.3);color:var(--c-edu);background:rgba(212,120,10,0.06)}
+
+/* Cross-domain connections */
+.edu-conn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin:1.8rem 0}
+.edu-conn-card{border:1px solid rgba(212,120,10,0.22);border-left:3px solid var(--c-edu);border-radius:4px;padding:1.4rem 1.5rem;background:rgba(212,120,10,0.04)}
+.edu-conn-card .cn-tag{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-edu);font-weight:700;margin-bottom:0.6rem}
+.edu-conn-card p{font-size:14px;color:rgba(220,224,230,0.85);line-height:1.65;margin:0}
+
+.leader-cta{background:var(--navy);border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:2.2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:2.5rem;max-width:780px}
+.leader-cta h4{font-family:var(--serif);font-size:1.35rem;font-weight:600;margin-bottom:0.5rem;color:var(--white)}
+.leader-cta p{font-size:14px;color:var(--mgrey);line-height:1.7;max-width:none}
+
+@media(max-width:1080px){
+  .diff-grid,.edu-exp-grid,.edu-conn-grid{grid-template-columns:1fr}
+  .edu-stat-grid{grid-template-columns:1fr}
+}
 @media(max-width:768px){
   .leader-cta{grid-template-columns:1fr}
 }
@@ -126,49 +192,132 @@
   <a href="contact.html">Contact</a>
 </div>
 
-<section class="domain-hero">
+<section class="edu-hero">
   <div class="hero-bg"></div>
+  <div class="edu-hero-bgvisual">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <g class="edu-orbit">
+        <circle cx="200" cy="200" r="170" fill="none" stroke="rgba(212,120,10,0.14)" stroke-width="1" stroke-dasharray="2 8"/>
+      </g>
+      <g class="edu-orbit2">
+        <circle cx="200" cy="200" r="138" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="1 6"/>
+      </g>
+
+      <!-- institutional framework: governance hub -> 4 pillars -->
+      <g stroke="rgba(212,120,10,0.4)" stroke-width="1.5">
+        <line x1="200" y1="200" x2="200" y2="90"/>
+        <line x1="200" y1="200" x2="310" y2="200"/>
+        <line x1="200" y1="200" x2="200" y2="310"/>
+        <line x1="200" y1="200" x2="90" y2="200"/>
+      </g>
+
+      <circle class="edu-pulse" cx="200" cy="90" r="7" fill="#D4780A" style="animation-delay:0s"/>
+      <circle class="edu-pulse" cx="310" cy="200" r="7" fill="#FFFFFF" style="animation-delay:0.5s"/>
+      <circle class="edu-pulse" cx="200" cy="310" r="7" fill="#D4780A" style="animation-delay:1s"/>
+      <circle class="edu-pulse" cx="90" cy="200" r="7" fill="#FFFFFF" style="animation-delay:1.5s"/>
+
+      <!-- central governance hub -->
+      <circle cx="200" cy="200" r="42" fill="rgba(212,120,10,0.1)" stroke="#D4780A" stroke-width="1.5"/>
+      <circle class="edu-pulse" cx="200" cy="200" r="56" fill="none" stroke="rgba(212,120,10,0.3)" stroke-width="1"/>
+      <circle cx="200" cy="200" r="6" fill="#FFFFFF"/>
+    </svg>
+  </div>
+  <div class="edu-hero-scrim"></div>
   <div class="container">
-    <div class="icon">📚</div>
-    <h1>Education. <em>Strategy for Better Outcomes.</em></h1>
-    <p>Education systems are under pressure to modernise, differentiate, and improve outcomes at pace. EIG helps institutions shape stronger strategy.</p>
-    <a href="leadership.html" class="btn-p" style="background:var(--c-edu)">Work with Dr. Bill Lehal</a>
+    <div class="edu-eyebrow"><span class="dot"></span><span>Education &amp; Institutional Strategy</span></div>
+    <h1>Strategy for <em>better outcomes.</em></h1>
+    <p>Education systems are under pressure to modernise, differentiate, and improve outcomes at pace — while satisfying regulators who don't move at startup speed. EIG helps institutions build strategy and governance that hold up under real accreditation scrutiny, not just internal review.</p>
+    <div class="edu-hero-actions">
+      <a href="leadership.html#bill" class="btn-p" style="background:var(--c-edu)">Work with Dr. Bill Lehal</a>
+      <a href="contact.html" class="btn-g">Request a Briefing</a>
+    </div>
   </div>
 </section>
 
-<section class="content-body">
+<!-- ZONE 1: THE REAL PROBLEM -->
+<section class="edu-zone edu-zone--dark">
   <div class="container">
-    
-<div class="eyebrow">Education</div>
-<h2 class="title" style="margin-bottom:2rem">Education. <em>Strategy for Better Outcomes.</em></h2>
-
-<p>Education systems are under pressure to modernise, differentiate, and improve outcomes at pace. EIG helps institutions and education-focused organisations shape stronger strategy, clearer positioning, and practical transformation pathways that hold over time.</p>
-
-<h3>What Dr. Bill Lehal Brings</h3>
-<ul>
-<li><strong>Institutional Strategy</strong> — Direction, positioning, and priority-setting for education organisations navigating change and performance pressure.</li>
-<li><strong>Quality Assurance</strong> — Curriculum planning, learning quality, and accreditation frameworks that improve institutional performance.</li>
-<li><strong>Capability Development</strong> — Building the internal capability required to sustain improvement and deliver on strategic commitments.</li>
-<li><strong>Transformation Support</strong> — Practical pathways from current state to improved performance — designed to hold across complex institutional environments.</li>
-</ul>
-
-<h3>Cross-Domain Connections</h3>
-<p><strong>Agentic AI</strong> — AI-enhanced learning systems and institutional data intelligence.</p>
-
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem">
-  <div class="card" style="text-align:center">
-    <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--c-edu);margin-bottom:0.5rem">20+</div>
-    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)">Years Experience</div>
+    <div class="edu-eyebrow2" style="color:var(--c-edu)">The Real Problem</div>
+    <h2 class="edu-h2">Most education strategy advice<br><em style="color:var(--c-edu)">has never sat in front of a regulator.</em></h2>
+    <p class="edu-lede">Strategy decks are easy to write. Surviving a KHDA inspection, an OfS review, or a CAA licensing process while delivering on that strategy is a different discipline entirely.</p>
+    <p class="edu-text">Most education consultants understand pedagogy or marketing, not the regulatory architecture that actually determines whether an institution can open, stay accredited, or expand. <strong>That gap is invisible until the inspection — and then it's the only thing that matters.</strong></p>
   </div>
-  <div class="card" style="text-align:center">
-    <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--c-edu);margin-bottom:0.5rem">50+</div>
-    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)">Institutions</div>
+</section>
+
+<!-- ZONE 2: WHY EIG IS DIFFERENT -->
+<section class="edu-zone edu-zone--navy">
+  <div class="container">
+    <div class="edu-eyebrow2" style="color:var(--white)">Why EIG Is Different</div>
+    <h2 class="edu-h2">Not a different pitch.<br><em style="color:var(--mgrey)">A different starting point.</em></h2>
+    <div class="diff-grid">
+      <div class="diff-card typical">
+        <div class="dc-label">Typical Education Consulting</div>
+        <div class="diff-row"><span class="dr-mark">—</span><span class="dr-text">Strategy and branding specialists with limited exposure to actual regulatory licensing</span></div>
+        <div class="diff-row"><span class="dr-mark">—</span><span class="dr-text">Generic quality frameworks, not built against specific MOE, KHDA, CAA, QAA, or OfS requirements</span></div>
+        <div class="diff-row"><span class="dr-mark">—</span><span class="dr-text">Advisors who have reviewed institutions, not built and licensed one from scratch</span></div>
+        <div class="diff-row"><span class="dr-mark">—</span><span class="dr-text">Education treated as its own silo, disconnected from broader institutional intelligence</span></div>
+      </div>
+      <div class="diff-card eig">
+        <div class="dc-label">EIG</div>
+        <div class="diff-row"><span class="dr-mark">✓</span><span class="dr-text">A named EdD-level leader who has personally led full campus licensing and launch, not just advised on it</span></div>
+        <div class="diff-row"><span class="dr-mark">✓</span><span class="dr-text">Direct accreditation experience across MOE, CAA, KHDA, QAA, and OfS — by name, not by category</span></div>
+        <div class="diff-row"><span class="dr-mark">✓</span><span class="dr-text">A qualified ISO 9001:2015 Lead Auditor and external QAA reviewer, not a self-declared quality expert</span></div>
+        <div class="diff-row"><span class="dr-mark">✓</span><span class="dr-text">Education connected to EIG's wider strategic planning and AI practices — one accountable view</span></div>
+      </div>
+    </div>
   </div>
-  <div class="card" style="text-align:center">
-    <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--c-edu);margin-bottom:0.5rem">Global</div>
-    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)">Track Record</div>
+</section>
+
+<!-- ZONE 3: WHAT BILL BRINGS -->
+<section class="edu-zone edu-zone--dark">
+  <div class="container">
+    <div class="edu-eyebrow2" style="color:var(--c-edu)">What Dr. Bill Lehal Brings</div>
+    <h2 class="edu-h2">Built and licensed an institution.<br><em style="color:var(--c-edu)">Not just advised on one.</em></h2>
+    <div class="edu-exp-grid">
+      <div class="edu-exp-card"><div class="ec-tag">Institutional Strategy</div><h4>From Licensing to Launch</h4><p>Led the full establishment of a UAE branch campus — licensing, academic framework design, governance architecture, and first-cohort launch — not a strategy document handed to someone else to execute.</p></div>
+      <div class="edu-exp-card"><div class="ec-tag">Quality Assurance</div><h4>Built From the Ground Up</h4><p>Directed academic quality and institutional effectiveness for a Dubai-based university, building quality management systems aligned with UAE and international standards from scratch.</p></div>
+      <div class="edu-exp-card"><div class="ec-tag">Capability Development</div><h4>Teams That Deliver</h4><p>Managed a 26-person team across academic development, student services, and quality functions at an aviation technical college in Riyadh.</p></div>
+      <div class="edu-exp-card"><div class="ec-tag">Transformation Support</div><h4>Measurable Retention Gains</h4><p>Mentoring and student-success initiatives that lifted freshman retention significantly at a UAE performing arts academy — a result you can measure, not just describe.</p></div>
+    </div>
+    <div class="accred-row">
+      <span class="accred-badge">MOE</span>
+      <span class="accred-badge">CAA</span>
+      <span class="accred-badge">KHDA</span>
+      <span class="accred-badge">QAA</span>
+      <span class="accred-badge">OfS</span>
+      <span class="accred-badge">ISO 9001:2015 Lead Auditor</span>
+    </div>
   </div>
-</div>
+</section>
+
+<!-- ZONE 4: TRACK RECORD -->
+<section class="edu-zone edu-zone--navy">
+  <div class="container">
+    <div class="edu-eyebrow2" style="color:var(--white)">Track Record</div>
+    <h2 class="edu-h2">Specific. Verifiable. Not generic claims.</h2>
+    <div class="edu-stat-grid">
+      <div class="edu-stat-card"><div class="sc-num">1</div><div class="sc-label">Campus Licensed &amp; Launched</div><p>Full establishment of a UAE branch campus of an international university — licensing through first-cohort launch.</p></div>
+      <div class="edu-stat-card"><div class="sc-num">26</div><div class="sc-label">Team Members Led</div><p>Cross-functional team spanning academic development, student services, and quality at an aviation technical college.</p></div>
+      <div class="edu-stat-card"><div class="sc-num">5</div><div class="sc-label">Regulatory Bodies</div><p>Direct accreditation and inspection experience across MOE, CAA, KHDA, QAA, and OfS in the UK and UAE.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE 5: CROSS-DOMAIN CONNECTIONS -->
+<section class="edu-zone edu-zone--dark">
+  <div class="container">
+    <div class="edu-eyebrow2" style="color:var(--c-edu)">Cross-Domain Connections</div>
+    <h2 class="edu-h2">Institutional strategy doesn't<br><em style="color:var(--c-edu)">operate in isolation. Neither do we.</em></h2>
+    <div class="edu-conn-grid">
+      <div class="edu-conn-card">
+        <div class="cn-tag">Agentic AI</div>
+        <p>AI-enhanced learning systems and institutional data intelligence — built jointly with EIG's AI practice, grounded in real governance requirements.</p>
+      </div>
+      <div class="edu-conn-card">
+        <div class="cn-tag">Strategic Planning</div>
+        <p>Governance architecture and institutional effectiveness frameworks connected to EIG's broader strategic planning practice for long-term institutional resilience.</p>
+      </div>
+    </div>
 
     <div class="leader-cta">
       <div>
@@ -199,7 +348,7 @@
     </div>
     <div class="footer-r">
       <div class="footer-copy">© 2026 Ecosystem Intelligence Group. All rights reserved.</div>
-      <div class="footer-sib">A <a href="#">SIB Group</a> Company</div>
+      <div class="footer-sib">An Independent Consultancy</div>
     </div>
   </div>
 </footer>
