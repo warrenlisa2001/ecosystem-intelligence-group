@@ -10,23 +10,73 @@
 <link rel="stylesheet" href="assets/shared.css">
 
 <style>
-.domain-hero{min-height:55vh;display:flex;align-items:center;padding-top:120px;padding-bottom:60px;position:relative;overflow:hidden}
-.domain-hero .hero-bg{position:absolute;inset:0;opacity:0.05;background:var(--c-sus)}
-.domain-hero .container{position:relative;z-index:2}
-.domain-hero .icon{font-size:3rem;margin-bottom:1rem}
-.domain-hero h1{font-family:var(--serif);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.01em;margin-bottom:1rem}
-.domain-hero h1 em{font-style:italic;color:var(--c-sus)}
-.domain-hero p{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:640px;font-weight:300;margin-bottom:2rem}
-.content-body{padding:60px 0 100px}
-.content-body h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin:2.5rem 0 1rem;color:var(--white)}
-.content-body h3 em{font-style:italic;color:var(--c-sus)}
-.content-body p{font-size:15.5px;color:var(--mgrey);line-height:1.82;margin-bottom:1.2rem}
-.content-body ul{margin:1rem 0 1.5rem 1.5rem}
-.content-body li{font-size:15px;color:var(--mgrey);line-height:1.9;margin-bottom:0.3rem}
-.content-body strong{color:var(--white);font-weight:600}
-.leader-cta{background:var(--navy);border:1px solid rgba(255,255,255,0.07);border-radius:2px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:3rem}
-.leader-cta h4{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin-bottom:0.5rem;color:var(--white)}
-.leader-cta p{font-size:14px;color:var(--mgrey);line-height:1.7}
+/* HERO — two column, ecosystem cycle visual */
+.sus-hero{min-height:auto;padding-top:140px;padding-bottom:60px;position:relative;overflow:hidden;background:var(--black)}
+.sus-hero .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 75% 30%,rgba(0,135,90,0.1),transparent 70%)}
+.sus-hero .container{position:relative;z-index:2}
+.sus-hero-inner{display:grid;grid-template-columns:1.1fr 0.9fr;gap:3rem;align-items:center}
+.sus-eyebrow{display:flex;align-items:center;gap:0.7rem;margin-bottom:1.4rem}
+.sus-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--c-sus);box-shadow:0 0 10px 2px rgba(0,135,90,0.6);animation:susdot 2.4s ease-in-out infinite}
+@keyframes susdot{0%,100%{opacity:1}50%{opacity:0.4}}
+.sus-eyebrow span{font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-sus);font-weight:700}
+.sus-hero h1{font-family:var(--serif);font-size:clamp(2.6rem,4.6vw,4rem);font-weight:700;line-height:1.06;letter-spacing:-0.015em;margin-bottom:1.25rem}
+.sus-hero h1 em{font-style:italic;color:var(--c-sus)}
+.sus-hero p{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:560px;font-weight:300;margin-bottom:1.75rem}
+.sus-hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap}
+
+/* Ecosystem cycle visual */
+.sus-visual{position:relative;height:480px;display:flex;align-items:center;justify-content:center}
+.sv-svg{width:100%;height:100%;max-width:460px}
+.sv-orbit{animation:sv-spin 80s linear infinite;transform-origin:center}
+.sv-orbit2{animation:sv-spin 120s linear infinite reverse;transform-origin:center}
+@keyframes sv-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.sv-pulse{animation:sv-pulse 3.4s ease-in-out infinite}
+@keyframes sv-pulse{0%,100%{opacity:0.35}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){
+  .sv-orbit,.sv-orbit2,.sv-pulse{animation:none}
+}
+
+/* ===== ZONE SYSTEM ===== */
+.sus-zone{padding:4.5rem 0}
+.sus-zone--dark{background:var(--black)}
+.sus-zone--navy{background:var(--navy)}
+.sus-eyebrow2{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;margin-bottom:0.9rem;display:flex;align-items:center;gap:0.6rem}
+.sus-eyebrow2::before{content:'';width:20px;height:1px;background:currentColor}
+.sus-h2{font-family:var(--serif);font-size:clamp(1.6rem,2.6vw,2.1rem);font-weight:700;letter-spacing:-0.01em;line-height:1.2;margin-bottom:1.1rem;color:var(--white)}
+.sus-h2 em{font-style:italic}
+.sus-lede{font-size:16px;color:rgba(230,233,237,0.88);line-height:1.75;font-weight:300;max-width:680px;margin-bottom:1rem}
+.sus-text{font-size:15px;color:var(--mgrey);line-height:1.8;margin-bottom:1.1rem;max-width:680px}
+.sus-text strong{color:var(--white);font-weight:600}
+
+/* Expertise cards */
+.exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2px;margin:1.8rem 0;background:rgba(255,255,255,0.04)}
+.exp-card{background:var(--navy);padding:1.6rem 1.5rem}
+.sus-zone--dark .exp-card{background:var(--black)}
+.exp-card .ec-tag{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-sus);font-weight:700;margin-bottom:0.6rem}
+.exp-card p{font-size:13.5px;color:var(--mgrey);line-height:1.6;margin:0}
+
+/* Cross-domain connection cards */
+.conn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin:1.8rem 0}
+.conn-card{border:1px solid rgba(0,135,90,0.22);border-left:3px solid var(--c-sus);border-radius:4px;padding:1.4rem 1.5rem;background:rgba(0,135,90,0.04)}
+.conn-card .cn-tag{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-sus);font-weight:700;margin-bottom:0.6rem}
+.conn-card p{font-size:14px;color:rgba(220,224,230,0.85);line-height:1.65;margin:0}
+
+/* Achievement stat cards */
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2px;margin-top:1.8rem;background:rgba(255,255,255,0.04)}
+.stat-card{background:var(--black);padding:2rem 1.5rem;text-align:center}
+.stat-card .sc-num{font-family:var(--serif);font-size:2.2rem;font-weight:700;color:var(--c-sus);margin-bottom:0.5rem;line-height:1}
+.stat-card .sc-label{font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey);font-weight:600}
+
+.leader-cta{background:var(--navy);border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:2.2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:2.5rem;max-width:760px}
+.leader-cta h4{font-family:var(--serif);font-size:1.35rem;font-weight:600;margin-bottom:0.5rem;color:var(--white)}
+.leader-cta p{font-size:14px;color:var(--mgrey);line-height:1.7;max-width:none}
+
+@media(max-width:1080px){
+  .sus-hero-inner{grid-template-columns:1fr}
+  .sus-visual{height:340px;order:-1}
+  .exp-grid,.conn-grid{grid-template-columns:1fr}
+  .stat-grid{grid-template-columns:1fr}
+}
 @media(max-width:768px){
   .leader-cta{grid-template-columns:1fr}
 }
@@ -128,51 +178,114 @@
   <a href="contact.html">Contact</a>
 </div>
 
-<section class="domain-hero">
+<section class="sus-hero">
   <div class="hero-bg"></div>
-  <div class="container">
-    <div class="icon">🌿</div>
-    <h1>Sustainability. <em>Not Reporting. Performance.</em></h1>
-    <p>Sustainability now shapes cost, resilience, capital access, reputation, and long-term growth. EIG connects sustainability ambition to strategic value.</p>
-    <a href="leadership.html" class="btn-p" style="background:var(--c-sus)">Work with Ivano Iannelli</a>
+  <div class="container sus-hero-inner">
+    <div>
+      <div class="sus-eyebrow"><span class="dot"></span><span>Sustainability &amp; ESG Value Creation</span></div>
+      <h1>Not reporting. <em>Performance.</em></h1>
+      <p>Sustainability now shapes cost, resilience, capital access, reputation, and long-term growth. EIG connects sustainability ambition to strategic value — not as a side agenda, but as a business variable that determines who competes and who doesn't.</p>
+      <div class="sus-hero-actions">
+        <a href="leadership.html#ivano" class="btn-p" style="background:var(--c-sus)">Work with Ivano Iannelli</a>
+        <a href="contact.html" class="btn-g">Request a Briefing</a>
+      </div>
+    </div>
+
+    <div class="sus-visual">
+      <svg class="sv-svg" viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg">
+        <g class="sv-orbit">
+          <circle cx="230" cy="230" r="195" fill="none" stroke="rgba(0,135,90,0.18)" stroke-width="1" stroke-dasharray="2 8"/>
+        </g>
+        <g class="sv-orbit2">
+          <circle cx="230" cy="230" r="160" fill="none" stroke="rgba(2,132,199,0.14)" stroke-width="1" stroke-dasharray="1 6"/>
+        </g>
+
+        <!-- cycle ring connecting 5 value stages -->
+        <circle cx="230" cy="230" r="120" fill="none" stroke="rgba(0,135,90,0.3)" stroke-width="1.5"/>
+
+        <!-- connecting spokes -->
+        <g stroke="rgba(0,135,90,0.35)" stroke-width="1">
+          <line x1="230" y1="230" x2="230" y2="110"/>
+          <line x1="230" y1="230" x2="344" y2="193"/>
+          <line x1="230" y1="230" x2="306" y2="318"/>
+          <line x1="230" y1="230" x2="154" y2="318"/>
+          <line x1="230" y1="230" x2="116" y2="193"/>
+        </g>
+
+        <!-- central node -->
+        <circle cx="230" cy="230" r="46" fill="rgba(0,135,90,0.12)" stroke="#00875A" stroke-width="1.5"/>
+        <circle class="sv-pulse" cx="230" cy="230" r="60" fill="none" stroke="rgba(0,135,90,0.3)" stroke-width="1"/>
+        <circle cx="230" cy="230" r="6" fill="#00875A"/>
+
+        <!-- 5 value-cycle nodes: Capital, Resilience, Reputation, Growth, Cost -->
+        <circle class="sv-pulse" cx="230" cy="110" r="7" fill="#00875A" style="animation-delay:0s"/>
+        <circle class="sv-pulse" cx="344" cy="193" r="6" fill="#0284C7" style="animation-delay:0.4s"/>
+        <circle class="sv-pulse" cx="306" cy="318" r="6" fill="#00E676" style="animation-delay:0.8s"/>
+        <circle class="sv-pulse" cx="154" cy="318" r="6" fill="#0284C7" style="animation-delay:1.2s"/>
+        <circle class="sv-pulse" cx="116" cy="193" r="6" fill="#00E676" style="animation-delay:1.6s"/>
+
+        <!-- orbiting marker -->
+        <g class="sv-orbit">
+          <circle cx="425" cy="230" r="6" fill="#0284C7"/>
+          <circle cx="425" cy="230" r="12" fill="none" stroke="#0284C7" stroke-width="1" opacity="0.5"/>
+        </g>
+      </svg>
+    </div>
   </div>
 </section>
 
-<section class="content-body">
+<!-- ZONE 1: THE SHIFT -->
+<section class="sus-zone sus-zone--dark">
   <div class="container">
-    
-<div class="eyebrow">Sustainability</div>
-<h2 class="title" style="margin-bottom:2rem">Sustainability. <em>Not Reporting. Performance.</em></h2>
-
-<p>Sustainability now shapes cost, resilience, capital access, reputation, and long-term growth. EIG connects sustainability ambition to strategic value — not as a side agenda, but as a business variable that shapes long-term competitiveness.</p>
-
-<h3>What Ivano Iannelli Brings</h3>
-<ul>
-<li><strong>Sustainability Strategy</strong> — Connecting sustainability to business strategy, capital decisions, and long-term competitive position.</li>
-<li><strong>ESG Value Creation</strong> — Turning ESG frameworks from compliance exercises into sources of financial and operational advantage.</li>
-<li><strong>Decarbonisation Pathways</strong> — Practical transition plans that hold in real operating conditions — economically grounded, operationally executable.</li>
-<li><strong>Carbon Markets</strong> — GHG inventories, Article 6 frameworks, ITMO registries, and carbon abatement strategy for real-world deployment.</li>
-</ul>
-
-<h3>Cross-Domain Connections</h3>
-<p><strong>Supply Chain</strong> — Scope 3 emissions, supplier decarbonisation, and sustainable procurement frameworks.</p>
-<p><strong>Agentic AI</strong> — AI-driven carbon liability prediction, ESG reporting automation, and green investment optimisation.</p>
-
-<h3>Key Achievements</h3>
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem">
-  <div class="card" style="text-align:center">
-    <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--c-sus);margin-bottom:0.5rem">$65M</div>
-    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)">Dubai Carbon Enterprise</div>
+    <div class="sus-eyebrow2" style="color:var(--c-sus)">The Shift</div>
+    <h2 class="sus-h2">Sustainability stopped being a reporting<br><em style="color:var(--c-sus)">exercise the moment capital started pricing it in.</em></h2>
+    <p class="sus-lede">Investors price climate risk. Lenders price transition exposure. Customers price supply chain integrity. Regulators price disclosure quality.</p>
+    <p class="sus-text">The organisations that treat sustainability as a compliance checkbox are absorbing all of that cost with none of the advantage. <strong>The organisations that treat it as a strategic capability are converting the same requirements into competitive position.</strong></p>
   </div>
-  <div class="card" style="text-align:center">
-    <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--c-sus);margin-bottom:0.5rem">$27BN</div>
-    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)">Dubai Green Fund</div>
+</section>
+
+<!-- ZONE 2: WHAT IVANO BRINGS -->
+<section class="sus-zone sus-zone--navy">
+  <div class="container">
+    <div class="sus-eyebrow2" style="color:var(--white)">What Ivano Iannelli Brings</div>
+    <h2 class="sus-h2">Three decades turning sustainability<br><em style="color:var(--mgrey)">into measurable financial advantage.</em></h2>
+    <div class="exp-grid">
+      <div class="exp-card"><div class="ec-tag">Sustainability Strategy</div><p>Connecting sustainability to business strategy, capital decisions, and long-term competitive position.</p></div>
+      <div class="exp-card"><div class="ec-tag">ESG Value Creation</div><p>Turning ESG frameworks from compliance exercises into sources of financial and operational advantage.</p></div>
+      <div class="exp-card"><div class="ec-tag">Decarbonisation Pathways</div><p>Practical transition plans that hold in real operating conditions — economically grounded, operationally executable.</p></div>
+      <div class="exp-card"><div class="ec-tag">Carbon Markets</div><p>GHG inventories, Article 6 frameworks, ITMO registries, and carbon abatement strategy for real-world deployment.</p></div>
+    </div>
   </div>
-  <div class="card" style="text-align:center">
-    <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--c-sus);margin-bottom:0.5rem">30+</div>
-    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)">Years Experience</div>
+</section>
+
+<!-- ZONE 3: CROSS-DOMAIN CONNECTIONS -->
+<section class="sus-zone sus-zone--dark">
+  <div class="container">
+    <div class="sus-eyebrow2" style="color:var(--c-sus)">Cross-Domain Connections</div>
+    <h2 class="sus-h2">Sustainability doesn't sit in its own lane.<br><em style="color:var(--c-sus)">It runs through every other domain.</em></h2>
+    <div class="conn-grid">
+      <div class="conn-card">
+        <div class="cn-tag">Supply Chain</div>
+        <p>Scope 3 emissions, supplier decarbonisation, and sustainable procurement frameworks — built jointly with EIG's supply chain practice.</p>
+      </div>
+      <div class="conn-card">
+        <div class="cn-tag">Agentic AI</div>
+        <p>AI-driven carbon liability prediction, ESG reporting automation, and green investment optimisation — built jointly with EIG's AI practice.</p>
+      </div>
+    </div>
   </div>
-</div>
+</section>
+
+<!-- ZONE 4: KEY ACHIEVEMENTS -->
+<section class="sus-zone sus-zone--navy">
+  <div class="container">
+    <div class="sus-eyebrow2" style="color:var(--white)">Key Achievements</div>
+    <h2 class="sus-h2">Delivery, not theory.</h2>
+    <div class="stat-grid">
+      <div class="stat-card"><div class="sc-num">$65M</div><div class="sc-label">Dubai Carbon Enterprise</div></div>
+      <div class="stat-card"><div class="sc-num">$27BN</div><div class="sc-label">Dubai Green Fund</div></div>
+      <div class="stat-card"><div class="sc-num">30+</div><div class="sc-label">Years Experience</div></div>
+    </div>
 
     <div class="leader-cta">
       <div>
@@ -203,7 +316,7 @@
     </div>
     <div class="footer-r">
       <div class="footer-copy">© 2026 Ecosystem Intelligence Group. All rights reserved.</div>
-      <div class="footer-sib">A <a href="#">SIB Group</a> Company</div>
+      <div class="footer-sib">An Independent Consultancy</div>
     </div>
   </div>
 </footer>
