@@ -3,28 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About | EIG</title>
-<meta name="description" content="Ecosystem Intelligence Group - A multi-sector intelligence and delivery platform connecting domain leaders across AI, sustainability, supply chain, architecture, education, healthcare, IT and strategic planning.">
+<title>About EIG | Independent Strategic Intelligence Consultancy</title>
+<meta name="description" content="Ecosystem Intelligence Group (EIG) is an independent strategic intelligence and transformation consultancy, bringing together expertise in operational performance, sustainability, intelligence and growth. Delivery partnerships include SIB Consulting and a network of specialist advisors.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/shared.css">
 
 <style>
-.content-hero{min-height:50vh;display:flex;align-items:center;padding-top:120px;padding-bottom:60px;position:relative;overflow:hidden}
-.content-hero .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(0,102,255,0.06),transparent 70%),var(--black)}
-.content-hero .container{position:relative;z-index:2}
-.content-hero h1{font-family:var(--serif);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.01em;margin-bottom:1rem}
-.content-hero h1 em{font-style:italic;color:var(--blue)}
-.content-hero p{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:640px;font-weight:300}
-.content-body{padding:60px 0 100px}
-.content-body h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin:2.5rem 0 1rem;color:var(--white)}
-.content-body p{font-size:15.5px;color:var(--mgrey);line-height:1.82;margin-bottom:1.2rem}
-.content-body ul{margin:1rem 0 1.5rem 1.5rem}
-.content-body li{font-size:15px;color:var(--mgrey);line-height:1.9;margin-bottom:0.3rem}
-.content-body strong{color:var(--white);font-weight:600}
-.content-body blockquote{border-left:2px solid var(--blue);padding-left:1.5rem;margin:2rem 0;font-style:italic;font-family:var(--serif);font-size:1.1rem;color:var(--mgrey)}
-.content-body blockquote strong{color:var(--white)}
+.content-hero{min-height:auto;padding-top:140px;padding-bottom:60px;position:relative;overflow:hidden;background:var(--black)}
+.content-hero .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 75% 25%,rgba(0,102,255,0.08),transparent 65%)}
+.content-hero .container{position:relative;z-index:2;max-width:880px}
+.hero-tag{display:inline-flex;align-items:center;gap:0.6rem;border:1px solid rgba(0,102,255,0.3);padding:0.3rem 0.9rem;border-radius:100px;font-size:10.5px;letter-spacing:0.16em;color:var(--blue2);text-transform:uppercase;font-weight:600;margin-bottom:1.5rem}
+.hpulse{width:6px;height:6px;border-radius:50%;background:var(--blue2);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
+.content-hero h1{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3.4rem);font-weight:700;line-height:1.12;letter-spacing:-0.01em;margin-bottom:1.3rem}
+.content-hero h1 em{font-style:italic;color:var(--blue2)}
+.sib-lead{border-left:3px solid var(--blue2);padding-left:1.6rem;margin-top:1.8rem;max-width:760px}
+.sib-lead p{font-size:17px;color:rgba(230,233,237,0.92);line-height:1.7;font-weight:400;margin-bottom:0.9rem}
+.sib-lead p:last-child{margin-bottom:0}
+.sib-lead strong{color:var(--white);font-weight:700}
+
+/* ===== ZONE SYSTEM ===== */
+.pb-zone{padding:4.5rem 0}
+.pb-zone .container{max-width:1180px}
+.pb-zone--dark{background:var(--black)}
+.pb-zone--navy{background:var(--navy)}
+.pb-eyebrow{font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;font-weight:700;margin-bottom:1rem;display:flex;align-items:center;gap:0.6rem}
+.pb-eyebrow::before{content:'';width:24px;height:1px;background:currentColor}
+.pb-h2{font-family:var(--serif);font-size:clamp(1.8rem,2.8vw,2.4rem);font-weight:700;letter-spacing:-0.01em;line-height:1.2;margin-bottom:1.2rem;color:var(--white)}
+.pb-h2 em{font-style:italic}
+.pb-lede{font-size:16px;color:rgba(230,233,237,0.88);line-height:1.78;font-weight:300;max-width:720px;margin-bottom:1rem}
+.pb-text{font-size:15px;color:var(--mgrey);line-height:1.8;margin-bottom:1.1rem;max-width:720px}
+.pb-text strong{color:var(--white);font-weight:600}
+
+/* Philosophy pull-quote */
+.philo-quote{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--white);line-height:1.5;border-left:2px solid var(--blue2);padding-left:1.8rem;margin-top:1.6rem;max-width:760px}
+
+/* Compliance vs Intelligence comparison */
+.cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.8rem}
+.cmp-card{border-radius:6px;padding:1.6rem 1.7rem}
+.cmp-card.from{border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.015)}
+.cmp-card.to{border:1px solid rgba(0,102,255,0.3);background:rgba(0,102,255,0.05)}
+.cmp-card .cc-label{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:0.8rem}
+.cmp-card.from .cc-label{color:var(--mgrey)}
+.cmp-card.to .cc-label{color:var(--blue2)}
+.cmp-card h4{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:0.7rem;line-height:1.3}
+.cmp-card p{font-size:13.5px;color:rgba(220,224,230,0.82);line-height:1.65;margin:0}
+
+/* Three pillars - reuse disc pattern */
+.disc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;margin-top:2rem;background:rgba(255,255,255,0.04)}
+.disc-card{background:var(--black);padding:2rem 1.7rem;position:relative;overflow:hidden}
+.pb-zone--navy .disc-card{background:var(--navy)}
+.disc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.disc-card.d1::before{background:var(--sky)}
+.disc-card.d2::before{background:var(--teal)}
+.disc-card.d3::before{background:var(--amber)}
+.disc-card .dc-tag{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;margin-bottom:0.9rem}
+.disc-card.d1 .dc-tag{color:var(--sky)}
+.disc-card.d2 .dc-tag{color:var(--teal)}
+.disc-card.d3 .dc-tag{color:var(--amber)}
+.disc-card h3{font-family:var(--serif);font-size:1.25rem;font-weight:700;color:var(--white);margin-bottom:0.6rem;line-height:1.3}
+.disc-card p{font-size:13.5px;color:var(--mgrey);line-height:1.65;margin:0}
+
+/* SIB relationship band - closing emphasis */
+.sib-band{border:1px solid rgba(0,102,255,0.25);border-radius:8px;padding:2.4rem 2.6rem;margin-top:2rem;background:linear-gradient(135deg,rgba(0,102,255,0.06),transparent 60%)}
+.sib-band .sb-label{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue2);font-weight:700;margin-bottom:1rem}
+.sib-band p{font-size:16px;color:rgba(230,233,237,0.92);line-height:1.7;margin-bottom:0.9rem;max-width:none}
+.sib-band p:last-child{margin-bottom:0}
+.sib-band strong{color:var(--white);font-weight:700}
+
+/* Purpose / Vision pair */
+.pv-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem}
+.pv-card{border-left:2px solid var(--amber);padding-left:1.4rem}
+.pv-card .pv-label{font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--amber);font-weight:700;margin-bottom:0.6rem}
+.pv-card p{font-size:14.5px;color:rgba(220,224,230,0.85);line-height:1.7;margin:0}
+
+.about-cta{padding:4rem 0;text-align:center;background:linear-gradient(160deg,rgba(0,102,255,0.06),var(--black) 60%)}
+.about-cta h2{font-family:var(--serif);font-size:clamp(1.6rem,2.6vw,2.1rem);font-weight:700;color:var(--white);margin-bottom:1.5rem}
+
+@media(max-width:900px){
+  .cmp-grid,.disc-row,.pv-grid{grid-template-columns:1fr}
+}
 </style>
 
 </head>
@@ -126,64 +186,118 @@
 <section class="content-hero">
   <div class="hero-bg"></div>
   <div class="container">
+    <div class="hero-tag"><span class="hpulse"></span> About EIG</div>
     <h1>Understanding complexity. <em>Creating measurable value.</em></h1>
-    <p>Ecosystem Intelligence Group works at the intersection of economic performance, operational excellence, sustainability, artificial intelligence and organisational transformation.</p>
+    <div class="sib-lead">
+      <p><strong>Ecosystem Intelligence Group is an independent strategic intelligence and transformation consultancy</strong>, bringing together expertise in operational performance, sustainability, intelligence and growth.</p>
+      <p>Delivery partnerships include SIB Consulting and a network of specialist advisors.</p>
+    </div>
   </div>
 </section>
 
-<section class="content-body">
+<!-- ZONE 1: WHAT WE ARE -->
+<section class="pb-zone pb-zone--dark">
   <div class="container">
-    
-<div class="eyebrow">About EIG</div>
-<h2 class="title" style="margin-bottom:2rem">Understanding complexity. <em>Creating measurable value.</em></h2>
-
-<p>Ecosystem Intelligence Group works at the intersection of economic performance, operational excellence, sustainability, artificial intelligence and organisational transformation — helping organisations see more clearly, decide more confidently, and perform more effectively.</p>
-
-<h3>What We Are</h3>
-<p><strong>Built on one powerful observation.</strong> Ecosystem Intelligence Group was built on a simple but powerful observation: most advisory firms help organisations solve individual problems. <strong>We help them understand the entire system.</strong></p>
-
-<p>We work with organisations navigating genuine complexity — where decisions in one part of the business ripple unpredictably through supply chains, sustainability commitments, workforce capability and economic performance.</p>
-
-<p>Combining more than <strong>100 years of combined leadership experience</strong> across economic development, sustainability economics, supply chain, architecture, interior design, education, healthcare, IT, AI and strategic planning, EIG delivers measurable impact where it matters most.</p>
-
-<p>Our team has worked across government, healthcare, manufacturing, logistics, education, energy, economic development, architecture and information technology — bringing <strong>practical expertise, not theoretical frameworks</strong>, to every engagement across the GCC and internationally.</p>
-
-<h3>Our Philosophy</h3>
-<blockquote>"Strategy is easy. Delivery is where value is won. We measure what we promise, and we stay until delivery is real."</blockquote>
-
-<h3>The Data You Already Have Is More Valuable Than You Know</h3>
-<p>Every organisation already generates the data required to transform its decision-making. The barrier is not access to information — it is the intelligence architecture required to connect it, contextualise it and make it actionable at the speed of business.</p>
-
-<h3>Where Most Organisations Are Today</h3>
-<p><strong>Compliance-Driven Data Collection.</strong> Data collected to satisfy regulatory requirements and reporting obligations. Sits in silos — answers the questions of yesterday. Tells you what happened — not what to do next. Treated as a cost and reporting burden, not a strategic asset. Leadership tolerates it rather than relies on it.</p>
-
-<h3>Where EIG Takes You</h3>
-<p><strong>Ecosystem Intelligence. Strategic Advantage.</strong> Data becomes the foundation of strategic decision-making. Connected across operations, supply chains, sustainability and financial performance. Creates a living picture of how the organisation creates value. Every decision faster, clearer and more confident. Leadership relies on it — competitive advantage, not compliance cost.</p>
-
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem">
-  <div class="card">
-    <div class="tag" style="color:var(--blue)">01</div>
-    <h3>Better Decisions</h3>
-    <p>The organisations that outperform are not those with the most data. They are those with the clearest understanding of how that data connects to decisions.</p>
+    <div class="pb-eyebrow" style="color:var(--blue2)">What We Are</div>
+    <h2 class="pb-h2">Built on one powerful observation.<br><em style="color:var(--blue2)">Most firms solve problems. We understand systems.</em></h2>
+    <p class="pb-text">Ecosystem Intelligence Group was built on a simple but powerful observation: most advisory firms help organisations solve individual problems. <strong>We help them understand the entire system.</strong></p>
+    <p class="pb-text">We work with organisations navigating genuine complexity — where decisions in one part of the business ripple unpredictably through supply chains, sustainability commitments, workforce capability and economic performance.</p>
+    <p class="pb-text">Combining more than <strong>100 years of combined leadership experience</strong> across economic development, sustainability economics, supply chain, architecture, interior design, education, healthcare, IT, AI and strategic planning, EIG delivers measurable impact where it matters most.</p>
+    <p class="pb-text">Our team has worked across government, healthcare, manufacturing, logistics, education, energy, economic development, architecture and information technology — bringing <strong>practical expertise, not theoretical frameworks</strong>, to every engagement across the GCC and internationally.</p>
   </div>
-  <div class="card">
-    <div class="tag" style="color:var(--green)">02</div>
-    <h3>Ecosystem Visibility</h3>
-    <p>Compliance data looks inward and backward. Ecosystem intelligence looks outward and forward — mapping the relationships that determine where value is being created.</p>
+</section>
+
+<!-- ZONE 2: OUR PHILOSOPHY -->
+<section class="pb-zone pb-zone--navy">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--amber)">Our Philosophy</div>
+    <h2 class="pb-h2">Strategy is easy.<br><em style="color:var(--amber)">Delivery is where value is won.</em></h2>
+    <div class="philo-quote">"We measure what we promise, and we stay until delivery is real."</div>
   </div>
-  <div class="card">
-    <div class="tag" style="color:var(--amber)">03</div>
-    <h3>Long-Term Value Creation</h3>
-    <p>Compliance satisfies today's requirements. Intelligence creates tomorrow's advantage. When data is transformed into a strategic asset, it compounds over time.</p>
+</section>
+
+<!-- ZONE 3: THE DATA YOU ALREADY HAVE -->
+<section class="pb-zone pb-zone--dark">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--blue2)">The Asset You Already Have</div>
+    <h2 class="pb-h2">The data you already have is more valuable<br><em style="color:var(--blue2)">than you know.</em></h2>
+    <p class="pb-lede">Every organisation already generates the data required to transform its decision-making. The barrier is not access to information — it is the intelligence architecture required to connect it, contextualise it and make it actionable at the speed of business.</p>
   </div>
-</div>
+</section>
 
-<h3 style="margin-top:3rem">What We Stand For</h3>
-<p><strong>Our purpose</strong> is to help organisations understand complexity, identify opportunity and create measurable value across interconnected systems.</p>
-<p><strong>Our vision</strong> is to become the trusted intelligence and transformation partner for organisations, industries and governments seeking sustainable growth, resilience and long-term value creation.</p>
+<!-- ZONE 4: WHERE MOST ARE vs WHERE EIG TAKES YOU -->
+<section class="pb-zone pb-zone--navy">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--white)">From Compliance to Advantage</div>
+    <h2 class="pb-h2">Where most organisations are today<br><em style="color:var(--mgrey)">— and where EIG takes you.</em></h2>
+    <div class="cmp-grid">
+      <div class="cmp-card from">
+        <div class="cc-label">Where Most Are Today</div>
+        <h4>Compliance-Driven Data Collection</h4>
+        <p>Data collected to satisfy regulatory requirements and reporting obligations. Sits in silos — answers the questions of yesterday. Tells you what happened, not what to do next. Treated as a cost and reporting burden, not a strategic asset. Leadership tolerates it rather than relies on it.</p>
+      </div>
+      <div class="cmp-card to">
+        <div class="cc-label">Where EIG Takes You</div>
+        <h4>Ecosystem Intelligence. Strategic Advantage.</h4>
+        <p>Data becomes the foundation of strategic decision-making. Connected across operations, supply chains, sustainability and financial performance. Creates a living picture of how the organisation creates value. Every decision faster, clearer and more confident. Leadership relies on it — competitive advantage, not compliance cost.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<p>Ecosystem Intelligence Group is part of the <strong>SIB Group</strong> — a multidisciplinary organisation bringing together expertise across economic development, sustainability, intelligence, transformation, procurement and operational performance. The SIB Group includes <strong>TeamSIB</strong>, the architecture, interior design and strategic planning practice — where TeamSIB designs and delivers physical spaces and strategic frameworks, EIG provides the intelligence layer that connects decisions across interconnected systems, markets and disciplines. Together they represent a fully integrated capability from strategy to execution.</p>
+<!-- ZONE 5: THREE PILLARS -->
+<section class="pb-zone pb-zone--dark">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--blue2)">Why It Matters</div>
+    <h2 class="pb-h2">From data to <em style="color:var(--blue2)">durable advantage.</em></h2>
+    <div class="disc-row">
+      <div class="disc-card d1">
+        <div class="dc-tag">01 — Decisions</div>
+        <h3>Better Decisions</h3>
+        <p>The organisations that outperform are not those with the most data. They are those with the clearest understanding of how that data connects to decisions.</p>
+      </div>
+      <div class="disc-card d2">
+        <div class="dc-tag">02 — Visibility</div>
+        <h3>Ecosystem Visibility</h3>
+        <p>Compliance data looks inward and backward. Ecosystem intelligence looks outward and forward — mapping the relationships that determine where value is being created.</p>
+      </div>
+      <div class="disc-card d3">
+        <div class="dc-tag">03 — Compounding</div>
+        <h3>Long-Term Value Creation</h3>
+        <p>Compliance satisfies today's requirements. Intelligence creates tomorrow's advantage. When data is transformed into a strategic asset, it compounds over time.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ZONE 6: PURPOSE, VISION & THE SIB RELATIONSHIP -->
+<section class="pb-zone pb-zone--navy">
+  <div class="container">
+    <div class="pb-eyebrow" style="color:var(--amber)">What We Stand For</div>
+    <div class="pv-grid">
+      <div class="pv-card">
+        <div class="pv-label">Our Purpose</div>
+        <p>To help organisations understand complexity, identify opportunity and create measurable value across interconnected systems.</p>
+      </div>
+      <div class="pv-card">
+        <div class="pv-label">Our Vision</div>
+        <p>To become the trusted intelligence and transformation partner for organisations, industries and governments seeking sustainable growth, resilience and long-term value creation.</p>
+      </div>
+    </div>
+
+    <div class="sib-band">
+      <div class="sb-label">Independence &amp; Delivery Partnerships</div>
+      <p><strong>Ecosystem Intelligence Group is an independent strategic intelligence and transformation consultancy</strong>, bringing together expertise in operational performance, sustainability, intelligence and growth.</p>
+      <p>Delivery partnerships include <strong>SIB Consulting</strong> and a network of specialist advisors — extending EIG's intelligence work into practical, on-the-ground delivery wherever it's needed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="about-cta">
+  <div class="container">
+    <h2>Ready to understand your organisation's intelligence layer?</h2>
+    <a href="contact.html" class="btn-p">Request a Briefing</a>
   </div>
 </section>
 
@@ -206,7 +320,7 @@
     </div>
     <div class="footer-r">
       <div class="footer-copy">© 2026 Ecosystem Intelligence Group. All rights reserved.</div>
-      <div class="footer-sib">A <a href="#">SIB Group</a> Company</div>
+      <div class="footer-sib">An Independent Consultancy</div>
     </div>
   </div>
 </footer>
