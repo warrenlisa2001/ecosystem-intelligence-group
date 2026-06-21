@@ -104,6 +104,22 @@
 @media(max-width:560px){
   .domain-grid{grid-template-columns:1fr}
 }
+
+.dh-hero-bgvisual{opacity:0.5;pointer-events:none}
+.dh-hero-bgvisual svg{display:block;position:absolute;top:50%;right:0;transform:translateY(-50%);width:360px;height:360px}
+.dh-hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,var(--black) 0%,var(--black) 32%,rgba(2,6,13,0.7) 52%,rgba(2,6,13,0.2) 75%,rgba(2,6,13,0.5) 100%)}
+.content-hero .container{position:relative;z-index:2}
+.dh-orbit{animation:dh-spin 90s linear infinite;transform-origin:center}
+.dh-orbit2{animation:dh-spin 130s linear infinite reverse;transform-origin:center}
+@keyframes dh-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.dh-pulse{animation:dh-pulse 3.6s ease-in-out infinite}
+@keyframes dh-pulse{0%,100%{opacity:0.35}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){
+  .dh-orbit,.dh-orbit2,.dh-pulse{animation:none}
+}
+@media(max-width:900px){
+  .dh-hero-bgvisual{display:none}
+}
 </style>
 
 </head>
@@ -151,7 +167,6 @@
         </div>
       </div>
       <div class="nav-item"><a href="leadership.html">Leadership</a></div>
-      <div class="nav-item"><a href="initiatives.html">Initiatives</a></div>
       <div class="nav-item">
         <button>Insights <span class="arr">▼</span></button>
         <div class="dd">
@@ -184,7 +199,6 @@
   <a href="platform.html">Platform</a>
   <a href="domains.html">Intelligence Areas</a>
   <a href="leadership.html">Leadership</a>
-  <a href="initiatives.html">Initiatives</a>
   <a href="briefing.html">Executive Briefing</a>
   <div class="mn-section">Industries</div>
   <a href="industry-ai.html">Agentic AI</a>
@@ -205,6 +219,44 @@
 <section class="content-hero">
   <div class="hero-bg"></div>
   <div class="hero-dots"></div>
+  <div class="dh-hero-bgvisual">
+    <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <g class="dh-orbit">
+        <circle cx="300" cy="300" r="250" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="2 8"/>
+      </g>
+      <g class="dh-orbit2">
+        <circle cx="300" cy="300" r="205" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="1 6"/>
+      </g>
+
+      <!-- spokes to 8 domain nodes -->
+      <g stroke="rgba(255,255,255,0.16)" stroke-width="1">
+        <line x1="300" y1="300" x2="300" y2="80"/>
+        <line x1="300" y1="300" x2="456" y2="144"/>
+        <line x1="300" y1="300" x2="520" y2="300"/>
+        <line x1="300" y1="300" x2="456" y2="456"/>
+        <line x1="300" y1="300" x2="300" y2="520"/>
+        <line x1="300" y1="300" x2="144" y2="456"/>
+        <line x1="300" y1="300" x2="80" y2="300"/>
+        <line x1="300" y1="300" x2="144" y2="144"/>
+      </g>
+
+      <!-- central intelligence layer hub -->
+      <circle cx="300" cy="300" r="50" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+      <circle class="dh-pulse" cx="300" cy="300" r="66" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+      <circle cx="300" cy="300" r="6" fill="#FFFFFF"/>
+
+      <!-- 8 domain nodes, one per accent color -->
+      <circle class="dh-pulse" cx="300" cy="80" r="7" fill="#0066FF" style="animation-delay:0s"/>
+      <circle class="dh-pulse" cx="456" cy="144" r="7" fill="#00875A" style="animation-delay:0.3s"/>
+      <circle class="dh-pulse" cx="520" cy="300" r="7" fill="#D60A17" style="animation-delay:0.6s"/>
+      <circle class="dh-pulse" cx="456" cy="456" r="7" fill="#7B4FD4" style="animation-delay:0.9s"/>
+      <circle class="dh-pulse" cx="300" cy="520" r="7" fill="#D4780A" style="animation-delay:1.2s"/>
+      <circle class="dh-pulse" cx="144" cy="456" r="7" fill="#0284C7" style="animation-delay:1.5s"/>
+      <circle class="dh-pulse" cx="80" cy="300" r="7" fill="#059669" style="animation-delay:1.8s"/>
+      <circle class="dh-pulse" cx="144" cy="144" r="7" fill="#8B949E" style="animation-delay:2.1s"/>
+    </svg>
+  </div>
+  <div class="dh-hero-scrim"></div>
   <div class="container">
     <div class="hero-tag"><span class="hpulse"></span> Eight Domains. One Intelligence Layer.</div>
     <h1>Critical expertise. Direct ownership. <em>Measured impact.</em></h1>
@@ -301,8 +353,7 @@
       <a href="platform.html">Platform</a>
       <a href="domains.html">Intelligence Areas</a>
       <a href="leadership.html">Leadership</a>
-      <a href="initiatives.html">Initiatives</a>
-      <a href="briefing.html">Briefing</a>
+          <a href="briefing.html">Briefing</a>
       <a href="about.html">About</a>
       <a href="approach.html">Approach</a>
       <a href="contact.html">Contact</a>
