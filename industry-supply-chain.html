@@ -10,23 +10,85 @@
 <link rel="stylesheet" href="assets/shared.css">
 
 <style>
-.domain-hero{min-height:55vh;display:flex;align-items:center;padding-top:120px;padding-bottom:60px;position:relative;overflow:hidden}
-.domain-hero .hero-bg{position:absolute;inset:0;opacity:0.05;background:var(--c-sc)}
-.domain-hero .container{position:relative;z-index:2}
-.domain-hero .icon{font-size:3rem;margin-bottom:1rem}
-.domain-hero h1{font-family:var(--serif);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.01em;margin-bottom:1rem}
-.domain-hero h1 em{font-style:italic;color:var(--c-sc)}
-.domain-hero p{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:640px;font-weight:300;margin-bottom:2rem}
-.content-body{padding:60px 0 100px}
-.content-body h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin:2.5rem 0 1rem;color:var(--white)}
-.content-body h3 em{font-style:italic;color:var(--c-sc)}
-.content-body p{font-size:15.5px;color:var(--mgrey);line-height:1.82;margin-bottom:1.2rem}
-.content-body ul{margin:1rem 0 1.5rem 1.5rem}
-.content-body li{font-size:15px;color:var(--mgrey);line-height:1.9;margin-bottom:0.3rem}
-.content-body strong{color:var(--white);font-weight:600}
-.leader-cta{background:var(--navy);border:1px solid rgba(255,255,255,0.07);border-radius:2px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:3rem}
-.leader-cta h4{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin-bottom:0.5rem;color:var(--white)}
-.leader-cta p{font-size:14px;color:var(--mgrey);line-height:1.7}
+/* HERO — overlay visual, network flow theme */
+.sc-hero{min-height:auto;padding-top:140px;padding-bottom:60px;position:relative;overflow:hidden;background:var(--black)}
+.sc-hero .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 78% 30%,rgba(214,10,23,0.09),transparent 65%)}
+.sc-hero-bgvisual{opacity:0.45;pointer-events:none}
+.sc-hero-bgvisual svg{display:block;position:absolute;top:50%;right:0;transform:translateY(-50%);width:380px;height:380px}
+.sc-hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,var(--black) 0%,var(--black) 34%,rgba(2,6,13,0.7) 54%,rgba(2,6,13,0.2) 76%,rgba(2,6,13,0.5) 100%)}
+.sc-hero .container{position:relative;z-index:2}
+.sc-eyebrow{display:flex;align-items:center;gap:0.7rem;margin-bottom:1.4rem}
+.sc-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--c-sc);box-shadow:0 0 10px 2px rgba(214,10,23,0.6);animation:scdot 2.4s ease-in-out infinite}
+@keyframes scdot{0%,100%{opacity:1}50%{opacity:0.4}}
+.sc-eyebrow span{font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-sc);font-weight:700}
+.sc-hero h1{font-family:var(--serif);font-size:clamp(2.6rem,4.4vw,3.8rem);font-weight:700;line-height:1.08;letter-spacing:-0.015em;margin-bottom:1.25rem}
+.sc-hero h1 em{font-style:italic;color:var(--c-sc)}
+.sc-hero p{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:600px;font-weight:300;margin-bottom:1.75rem}
+.sc-hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap}
+.sc-orbit{animation:sc-spin 95s linear infinite;transform-origin:center}
+.sc-orbit2{animation:sc-spin 140s linear infinite reverse;transform-origin:center}
+@keyframes sc-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.sc-pulse{animation:sc-pulse 3.4s ease-in-out infinite}
+@keyframes sc-pulse{0%,100%{opacity:0.35}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.sc-orbit,.sc-orbit2,.sc-pulse{animation:none}}
+@media(max-width:900px){.sc-hero-bgvisual{display:none}}
+
+/* ===== ZONE SYSTEM ===== */
+.sc-zone{padding:4.5rem 0}
+.sc-zone--dark{background:var(--black)}
+.sc-zone--navy{background:var(--navy)}
+.sc-eyebrow2{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;margin-bottom:0.9rem;display:flex;align-items:center;gap:0.6rem}
+.sc-eyebrow2::before{content:'';width:20px;height:1px;background:currentColor}
+.sc-h2{font-family:var(--serif);font-size:clamp(1.7rem,2.7vw,2.3rem);font-weight:700;letter-spacing:-0.01em;line-height:1.2;margin-bottom:1.1rem;color:var(--white)}
+.sc-h2 em{font-style:italic}
+.sc-lede{font-size:16px;color:rgba(230,233,237,0.88);line-height:1.75;font-weight:300;max-width:700px;margin-bottom:1rem}
+.sc-text{font-size:15px;color:var(--mgrey);line-height:1.8;margin-bottom:1.1rem;max-width:700px}
+.sc-text strong{color:var(--white);font-weight:600}
+
+/* Differentiation comparison — us vs typical */
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+.diff-card{border-radius:6px;padding:1.7rem 1.8rem}
+.diff-card.typical{border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.015)}
+.diff-card.eig{border:1px solid rgba(214,10,23,0.3);background:rgba(214,10,23,0.05)}
+.diff-card .dc-label{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:1rem}
+.diff-card.typical .dc-label{color:var(--mgrey)}
+.diff-card.eig .dc-label{color:var(--c-sc)}
+.diff-row{display:flex;gap:0.7rem;padding:0.6rem 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.diff-row:last-child{border-bottom:none}
+.diff-row .dr-mark{flex-shrink:0;width:16px;font-weight:700}
+.diff-card.typical .dr-mark{color:rgba(220,224,230,0.3)}
+.diff-card.eig .dr-mark{color:var(--c-sc)}
+.diff-row .dr-text{font-size:13.5px;color:rgba(220,224,230,0.82);line-height:1.5}
+
+/* Expertise cards with specifics */
+.sc-exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2px;margin:1.8rem 0;background:rgba(255,255,255,0.04)}
+.sc-exp-card{background:var(--navy);padding:1.7rem 1.6rem}
+.sc-zone--dark .sc-exp-card{background:var(--black)}
+.sc-exp-card .ec-tag{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-sc);font-weight:700;margin-bottom:0.7rem}
+.sc-exp-card h4{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;line-height:1.3}
+.sc-exp-card p{font-size:13.5px;color:var(--mgrey);line-height:1.6;margin:0}
+
+/* Track record stat cards with real specifics */
+.sc-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2px;margin-top:1.8rem;background:rgba(255,255,255,0.04)}
+.sc-stat-card{background:var(--black);padding:2rem 1.5rem}
+.sc-stat-card .sc-num{font-family:var(--serif);font-size:1.9rem;font-weight:700;color:var(--c-sc);margin-bottom:0.5rem;line-height:1.1}
+.sc-stat-card .sc-label{font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--mgrey);font-weight:600;margin-bottom:0.6rem}
+.sc-stat-card p{font-size:12.5px;color:rgba(220,224,230,0.65);line-height:1.55;margin:0}
+
+/* Cross-domain connections */
+.sc-conn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin:1.8rem 0}
+.sc-conn-card{border:1px solid rgba(214,10,23,0.22);border-left:3px solid var(--c-sc);border-radius:4px;padding:1.4rem 1.5rem;background:rgba(214,10,23,0.04)}
+.sc-conn-card .cn-tag{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-sc);font-weight:700;margin-bottom:0.6rem}
+.sc-conn-card p{font-size:14px;color:rgba(220,224,230,0.85);line-height:1.65;margin:0}
+
+.leader-cta{background:var(--navy);border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:2.2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:2.5rem;max-width:780px}
+.leader-cta h4{font-family:var(--serif);font-size:1.35rem;font-weight:600;margin-bottom:0.5rem;color:var(--white)}
+.leader-cta p{font-size:14px;color:var(--mgrey);line-height:1.7;max-width:none}
+
+@media(max-width:1080px){
+  .diff-grid,.sc-exp-grid,.sc-conn-grid{grid-template-columns:1fr}
+  .sc-stat-grid{grid-template-columns:1fr}
+}
 @media(max-width:768px){
   .leader-cta{grid-template-columns:1fr}
 }
@@ -126,54 +188,131 @@
   <a href="contact.html">Contact</a>
 </div>
 
-<section class="domain-hero">
+<section class="sc-hero">
   <div class="hero-bg"></div>
+  <div class="sc-hero-bgvisual">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <g class="sc-orbit">
+        <circle cx="200" cy="200" r="170" fill="none" stroke="rgba(214,10,23,0.14)" stroke-width="1" stroke-dasharray="2 8"/>
+      </g>
+      <g class="sc-orbit2">
+        <circle cx="200" cy="200" r="138" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="1 6"/>
+      </g>
+
+      <!-- supply chain flow: source -> logistics -> hub -> distribution -->
+      <g stroke="rgba(214,10,23,0.4)" stroke-width="1.5">
+        <line x1="70" y1="140" x2="200" y2="200"/>
+        <line x1="70" y1="260" x2="200" y2="200"/>
+        <line x1="200" y1="200" x2="330" y2="140"/>
+        <line x1="200" y1="200" x2="330" y2="260"/>
+      </g>
+
+      <circle class="sc-pulse" cx="70" cy="140" r="8" fill="none" stroke="#D60A17" stroke-width="1.5" style="animation-delay:0s"/>
+      <circle cx="70" cy="140" r="5" fill="#D60A17"/>
+      <circle class="sc-pulse" cx="70" cy="260" r="8" fill="none" stroke="#D60A17" stroke-width="1.5" style="animation-delay:0.5s"/>
+      <circle cx="70" cy="260" r="5" fill="#D60A17"/>
+
+      <!-- central hub -->
+      <circle cx="200" cy="200" r="42" fill="rgba(214,10,23,0.1)" stroke="#D60A17" stroke-width="1.5"/>
+      <circle class="sc-pulse" cx="200" cy="200" r="56" fill="none" stroke="rgba(214,10,23,0.3)" stroke-width="1"/>
+      <circle cx="200" cy="200" r="6" fill="#FFFFFF"/>
+
+      <circle class="sc-pulse" cx="330" cy="140" r="6" fill="#FFFFFF" style="animation-delay:1s"/>
+      <circle class="sc-pulse" cx="330" cy="260" r="6" fill="#FFFFFF" style="animation-delay:1.5s"/>
+    </svg>
+  </div>
+  <div class="sc-hero-scrim"></div>
   <div class="container">
-    <div class="icon">⚙️</div>
-    <h1>Supply Chain. <em>Where Resilience Meets Execution.</em></h1>
-    <p>Supply chain performance is won in the flow between decisions, systems, suppliers, and execution. EIG helps organisations improve visibility and unlock performance.</p>
-    <a href="leadership.html" class="btn-p" style="background:var(--c-sc)">Work with Dr. Patrick McCrudden</a>
+    <div class="sc-eyebrow"><span class="dot"></span><span>Supply Chain &amp; Process</span></div>
+    <h1>Where resilience <em>meets execution.</em></h1>
+    <p>Supply chain performance is won in the flow between decisions, systems, suppliers, and execution — not in the slide deck. EIG helps organisations improve visibility, strengthen resilience, and unlock performance under real operating conditions, not just ideal ones.</p>
+    <div class="sc-hero-actions">
+      <a href="leadership.html#patrick" class="btn-p" style="background:var(--c-sc)">Work with Dr. Patrick McCrudden</a>
+      <a href="contact.html" class="btn-g">Request a Briefing</a>
+    </div>
   </div>
 </section>
 
-<section class="content-body">
+<!-- ZONE 1: THE REAL PROBLEM -->
+<section class="sc-zone sc-zone--dark">
   <div class="container">
-    
-<div class="eyebrow">Supply Chain & Process</div>
-<h2 class="title" style="margin-bottom:2rem">Supply Chain. <em>Where Resilience Meets Execution.</em></h2>
-
-<p>Supply chain performance is won in the flow between decisions, systems, suppliers, and execution. EIG helps organisations improve visibility, strengthen resilience, and unlock performance across supply chain and process environments.</p>
-
-<h3>What Dr. Patrick McCrudden Brings</h3>
-<ul>
-<li><strong>Supply Chain Intelligence</strong> — Visibility across suppliers, logistics, and demand signals that supports faster, more confident operational decisions.</li>
-<li><strong>Process Optimisation</strong> — Reducing friction, improving throughput, and aligning process design to strategic performance requirements.</li>
-<li><strong>Procurement Leadership</strong> — Strategic procurement discipline that converts supplier relationships into competitive advantage.</li>
-<li><strong>Risk and Resilience</strong> — Building supply chain structures that perform under pressure — not just in ideal conditions.</li>
-</ul>
-
-<h3>Cross-Domain Connections</h3>
-<p><strong>Agentic AI</strong> — AI-powered demand forecasting, inventory optimisation, and supplier risk monitoring.</p>
-<p><strong>Sustainability</strong> — Scope 3 emissions, green procurement, and supply chain decarbonisation.</p>
-
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem">
-  <div class="card" style="text-align:center">
-    <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--c-sc);margin-bottom:0.5rem">30+</div>
-    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)">Years Experience</div>
+    <div class="sc-eyebrow2" style="color:var(--c-sc)">The Real Problem</div>
+    <h2 class="sc-h2">Most supply chain advice is written<br><em style="color:var(--c-sc)">for conditions that don't exist anymore.</em></h2>
+    <p class="sc-lede">Frameworks built for stable demand, predictable lead times, and cooperative suppliers don't survive contact with a port closure, a single-source failure, or a regional crisis.</p>
+    <p class="sc-text">Most supply chain consulting is delivered by people who have modelled disruption, not managed their way through it in real time, with real budgets and real workers depending on the outcome. <strong>That gap shows up exactly when it matters most — under pressure, not in the pitch.</strong></p>
   </div>
-  <div class="card" style="text-align:center">
-    <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--c-sc);margin-bottom:0.5rem">PhD</div>
-    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)">Supply Chain</div>
+</section>
+
+<!-- ZONE 2: WHY EIG IS DIFFERENT -->
+<section class="sc-zone sc-zone--navy">
+  <div class="container">
+    <div class="sc-eyebrow2" style="color:var(--white)">Why EIG Is Different</div>
+    <h2 class="sc-h2">Not a different pitch.<br><em style="color:var(--mgrey)">A different starting point.</em></h2>
+    <div class="diff-grid">
+      <div class="diff-card typical">
+        <div class="dc-label">Typical Supply Chain Consulting</div>
+        <div class="diff-row"><span class="dr-mark">—</span><span class="dr-text">A team of generalists, branded as "supply chain experts," with no single accountable senior leader</span></div>
+        <div class="diff-row"><span class="dr-mark">—</span><span class="dr-text">Frameworks built for normal conditions, untested against real disruption</span></div>
+        <div class="diff-row"><span class="dr-mark">—</span><span class="dr-text">Supply chain treated as its own silo, disconnected from sustainability or technology strategy</span></div>
+        <div class="diff-row"><span class="dr-mark">—</span><span class="dr-text">Recommendations handed off; delivery risk becomes the client's problem</span></div>
+      </div>
+      <div class="diff-card eig">
+        <div class="dc-label">EIG</div>
+        <div class="diff-row"><span class="dr-mark">✓</span><span class="dr-text">A named PhD-level leader with three decades of direct, hands-on accountability — not a rotating account team</span></div>
+        <div class="diff-row"><span class="dr-mark">✓</span><span class="dr-text">A track record forged during actual crises: SARS-era procurement for 25,000 workers, delivered on time and on budget</span></div>
+        <div class="diff-row"><span class="dr-mark">✓</span><span class="dr-text">Supply chain connected directly to EIG's AI and Sustainability practices — one team, one accountable view</span></div>
+        <div class="diff-row"><span class="dr-mark">✓</span><span class="dr-text">Built on operational delivery experience, not just advisory frameworks</span></div>
+      </div>
+    </div>
   </div>
-  <div class="card" style="text-align:center">
-    <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--c-sc);margin-bottom:0.5rem">Intl</div>
-    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)">Track Record</div>
+</section>
+
+<!-- ZONE 3: WHAT PATRICK BRINGS -->
+<section class="sc-zone sc-zone--dark">
+  <div class="container">
+    <div class="sc-eyebrow2" style="color:var(--c-sc)">What Dr. Patrick McCrudden Brings</div>
+    <h2 class="sc-h2">Three decades, multiple continents,<br><em style="color:var(--c-sc)">delivered under real pressure.</em></h2>
+    <div class="sc-exp-grid">
+      <div class="sc-exp-card"><div class="ec-tag">Supply Chain Intelligence</div><h4>Visibility That Drives Decisions</h4><p>Visibility across suppliers, logistics, and demand signals that supports faster, more confident operational decisions — not just better-looking reports.</p></div>
+      <div class="sc-exp-card"><div class="ec-tag">Process Optimisation</div><h4>Built for Throughput</h4><p>Reducing friction and aligning process design to strategic performance requirements. Past work cut commissioning timescales by more than 50%.</p></div>
+      <div class="sc-exp-card"><div class="ec-tag">Procurement Leadership</div><h4>Vendor Relationships as Advantage</h4><p>Strategic procurement discipline spanning local, regional, and global supply markets — converting supplier relationships into competitive advantage.</p></div>
+      <div class="sc-exp-card"><div class="ec-tag">Risk &amp; Resilience</div><h4>Tested Under Pressure</h4><p>Structures built to perform when conditions are not ideal — proven across crisis conditions, not just modelled in a spreadsheet.</p></div>
+    </div>
   </div>
-</div>
+</section>
+
+<!-- ZONE 4: TRACK RECORD -->
+<section class="sc-zone sc-zone--navy">
+  <div class="container">
+    <div class="sc-eyebrow2" style="color:var(--white)">Track Record</div>
+    <h2 class="sc-h2">Specific. Verifiable. Not generic claims.</h2>
+    <div class="sc-stat-grid">
+      <div class="sc-stat-card"><div class="sc-num">25,000</div><div class="sc-label">Workers Supported</div><p>Multi-million-dollar procurement and fit-out across 14 production buildings, delivered during the SARS crisis — on time, on budget.</p></div>
+      <div class="sc-stat-card"><div class="sc-num">400</div><div class="sc-label">Farmer Network</div><p>Regional dairy logistics managed end-to-end for a major UK retailer across a complex, distributed supplier base.</p></div>
+      <div class="sc-stat-card"><div class="sc-num">50%+</div><div class="sc-label">Faster Commissioning</div><p>Process innovations that reduced commissioning timescales by more than half on major operational programmes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE 5: CROSS-DOMAIN CONNECTIONS -->
+<section class="sc-zone sc-zone--dark">
+  <div class="container">
+    <div class="sc-eyebrow2" style="color:var(--c-sc)">Cross-Domain Connections</div>
+    <h2 class="sc-h2">Supply chain doesn't operate alone.<br><em style="color:var(--c-sc)">Neither do we.</em></h2>
+    <div class="sc-conn-grid">
+      <div class="sc-conn-card">
+        <div class="cn-tag">Agentic AI</div>
+        <p>AI-powered demand forecasting, inventory optimisation, and supplier risk monitoring — built jointly with EIG's AI practice, not bolted on afterward.</p>
+      </div>
+      <div class="sc-conn-card">
+        <div class="cn-tag">Sustainability</div>
+        <p>Scope 3 emissions, green procurement, and supply chain decarbonisation — built jointly with EIG's sustainability practice.</p>
+      </div>
+    </div>
 
     <div class="leader-cta">
       <div>
-        <h4>Work with Dr. Patrick McCrudden on Supply Chain & Process</h4>
+        <h4>Work with Dr. Patrick McCrudden on Supply Chain &amp; Process</h4>
         <p>Request a briefing to discuss how this domain expertise can support your organisation.</p>
       </div>
       <a href="contact.html" class="btn-p" style="background:var(--c-sc)">Request Briefing</a>
@@ -200,7 +339,7 @@
     </div>
     <div class="footer-r">
       <div class="footer-copy">© 2026 Ecosystem Intelligence Group. All rights reserved.</div>
-      <div class="footer-sib">A <a href="#">SIB Group</a> Company</div>
+      <div class="footer-sib">An Independent Consultancy</div>
     </div>
   </div>
 </footer>
