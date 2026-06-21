@@ -106,15 +106,6 @@
           <a href="industry-healthcare.html"><span class="dd-dot" style="background:var(--c-health)"></span>Healthcare</a>
           <a href="industry-it.html"><span class="dd-dot" style="background:var(--c-it)"></span>IT</a>
           <a href="industry-strategic-planning.html"><span class="dd-dot" style="background:var(--c-plan)"></span>Strategic Planning</a>
-          <div class="dd-divider"></div>
-          <div class="dd-section">Services</div>
-          <a href="services-ai.html">AI & Machine Learning</a>
-          <a href="services-sustainability.html">Sustainability Consulting</a>
-          <a href="services-supply-chain.html">Supply Chain Optimization</a>
-          <a href="services-architecture.html">Architecture & Design</a>
-          <a href="services-education.html">Education Solutions</a>
-          <a href="services-healthcare.html">Healthcare Innovation</a>
-          <a href="services-it.html">IT & Digital Transformation</a>
         </div>
       </div>
       <div class="nav-item"><a href="leadership.html" style="color:var(--white)">Leadership</a></div>
@@ -217,12 +208,12 @@
   <div class="leader-card" data-leader="lisa" style="border-left:3px solid var(--c-lisa)">
     <div class="leader-img"><img src="assets/images/leaders/lisa-warren.png" alt="Lisa Warren" class="avatar" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>LW</div>'"></div>
     <div class="leader-info">
-      <div class="domain-tag" style="color:var(--c-lisa)">Agentic AI & IT</div>
+      <div class="domain-tag" style="color:var(--c-lisa)">Agentic Intelligence &amp; Growth</div>
       <h3>Lisa Warren</h3>
-      <div class="role">Director, AI & Ecosystem Intelligence</div>
-      <div class="bio">AI strategy with commercial intent. Lisa helps organisations turn agentic AI, digital transformation, and enterprise technology into practical business advantage.</div>
+      <div class="role">Director of Intelligence Architecture &amp; AI Transformation</div>
+      <div class="bio">AI strategy with commercial intent. Lisa helps organisations turn agentic AI, intelligence architecture, and growth strategy into practical business advantage.</div>
       <div class="expertise">
-        <span>Agentic AI strategy</span><span>Enterprise adoption</span><span>Digital transformation</span><span>Growth execution</span>
+        <span>Agentic AI strategy</span><span>Intelligence architecture</span><span>Growth &amp; future readiness</span><span>AI transformation</span>
       </div>
       <span class="read-more">Read full bio</span>
     </div>
@@ -349,8 +340,8 @@
   var LEADERS = {
     lisa: {
       name: "Lisa Warren",
-      role: "Director, AI & Ecosystem Intelligence",
-      domain: "Agentic AI & IT",
+      role: "Director of Intelligence Architecture & AI Transformation",
+      domain: "Agentic Intelligence & Growth",
       color: "var(--c-lisa)",
       img: "assets/images/leaders/lisa-warren.png",
       initials: "LW",
@@ -523,6 +514,11 @@
   document.addEventListener('keydown', function(e){
     if(e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
   });
+
+  var hashKey = window.location.hash.replace('#','');
+  if(hashKey && LEADERS[hashKey]){
+    openLeader(hashKey);
+  }
 
   // Support deep-linking via #lisa, #ivano, etc.
   if(location.hash){

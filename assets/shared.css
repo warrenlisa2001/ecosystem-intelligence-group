@@ -8,7 +8,7 @@
   --c-ai:#0066FF;--c-sus:#00875A;--c-sc:#D60A17;--c-arch:#7B4FD4;
   --c-edu:#D4780A;--c-health:#0284C7;--c-it:#059669;--c-plan:#8B949E;
   --c-lisa:#0066FF;--c-ivano:#00875A;--c-patrick:#D60A17;--c-keith:#7B4FD4;
-  --c-bill:#D4780A;--c-alex:#8B949E;--c-manish:#0284C7;
+  --c-bill:#D4780A;--c-alex:#8B949E;--c-manish:#0284C7;--c-christopher:#059669;
 }
 html{scroll-behavior:smooth}
 body{background:var(--black);color:var(--white);font-family:var(--sans);font-size:16px;line-height:1.7;overflow-x:hidden}
