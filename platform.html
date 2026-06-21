@@ -104,6 +104,16 @@
 /* ZONE 3 — Three Disciplines (distinct colours each) */
 .disc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;margin-top:2.5rem;background:rgba(255,255,255,0.04)}
 .disc-card{background:var(--black);padding:2.2rem 1.8rem;position:relative;overflow:hidden}
+.dc-example-toggle{display:inline-flex;align-items:center;gap:0.4rem;margin-top:1.1rem;font-size:11.5px;font-weight:600;letter-spacing:0.03em;cursor:pointer;background:none;border:none;padding:0;font-family:inherit;transition:opacity 0.2s}
+.dc-example-toggle:hover{opacity:0.75}
+.dc-example-toggle .dc-arrow{display:inline-block;transition:transform 0.25s;font-size:10px}
+.dc-example-toggle.open .dc-arrow{transform:rotate(90deg)}
+.disc-card.d1 .dc-example-toggle{color:var(--sky)}
+.disc-card.d2 .dc-example-toggle{color:var(--teal)}
+.disc-card.d3 .dc-example-toggle{color:var(--purple)}
+.dc-example{max-height:0;overflow:hidden;transition:max-height 0.35s ease,opacity 0.3s,margin-top 0.35s;opacity:0}
+.dc-example.open{max-height:140px;opacity:1;margin-top:0.9rem}
+.dc-example p{font-size:13px;color:rgba(220,224,230,0.75);line-height:1.65;margin:0;padding-top:0.9rem;border-top:1px solid rgba(255,255,255,0.06)}
 .disc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
 .disc-card.d1::before{background:var(--sky)}
 .disc-card.d2::before{background:var(--teal)}
@@ -150,7 +160,13 @@
 .eil-ring-inner .eri-eyebrow{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple);font-weight:700;margin-bottom:0.4rem}
 .eil-ring-inner .eri-title{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--white);line-height:1.3}
 .eil-q{margin-top:1.3rem;display:flex;flex-direction:column;gap:0.5rem;width:100%;max-width:280px}
-.eil-q span{font-size:12.5px;color:rgba(220,224,230,0.7);padding:0.5rem 0.8rem;border-left:2px solid var(--purple);background:rgba(123,79,212,0.04)}
+.eil-q button{font:inherit;text-align:left;font-size:12.5px;color:rgba(220,224,230,0.7);padding:0.5rem 0.8rem;border-left:2px solid var(--purple);background:rgba(123,79,212,0.04);border-top:none;border-right:none;border-bottom:none;cursor:pointer;transition:background 0.25s,color 0.25s,border-left-width 0.25s;width:100%}
+.eil-q button:hover{background:rgba(123,79,212,0.09);color:rgba(255,255,255,0.9)}
+.eil-q button.active{background:rgba(123,79,212,0.16);color:var(--white);border-left-width:4px;font-weight:600}
+.eil-ring{cursor:default;transition:box-shadow 0.4s}
+.eil-ring.pulse-glow{box-shadow:0 0 0 1px rgba(123,79,212,0.15),0 0 50px rgba(123,79,212,0.35)}
+.eri-eyebrow,.eri-title{transition:opacity 0.2s}
+.eil-answer{margin-top:1.1rem;font-size:12.5px;color:rgba(220,224,230,0.75);line-height:1.6;max-width:280px;min-height:54px;padding:0 0.2rem;transition:opacity 0.25s}
 
 /* ZONE 6 — How We Work (amber, negative-space statement) */
 .how-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-top:2.5rem}
@@ -372,23 +388,43 @@
         <h3>Operational Performance</h3>
         <p class="dc-desc">How the organisation performs today.</p>
         <div class="dc-tags"><span>Supply Chain</span><span>Operations</span><span>Execution</span><span>Governance</span><span>Performance</span></div>
+        <button type="button" class="dc-example-toggle" data-target="dcEx1"><span class="dc-arrow">▶</span> See it in practice</button>
+        <div class="dc-example" id="dcEx1"><p>A logistics network with three regional warehouses making independent reorder decisions — each optimising locally, none seeing the system-wide cost. EIG maps the actual flow of goods and decisions, not the org chart, to find where coordination is quietly costing the most.</p></div>
       </div>
       <div class="disc-card d2">
         <div class="dc-tag">How We Build Value</div>
         <h3>Value Creation</h3>
         <p class="dc-desc">How the organisation creates sustainable long-term value.</p>
         <div class="dc-tags"><span>Sustainability</span><span>Economics</span><span>Capital Efficiency</span><span>Resilience</span><span>Future Value</span></div>
+        <button type="button" class="dc-example-toggle" data-target="dcEx2"><span class="dc-arrow">▶</span> See it in practice</button>
+        <div class="dc-example" id="dcEx2"><p>A sustainability commitment sitting in a compliance report, disconnected from the capital allocation decisions it should be informing. EIG connects the two, so ESG targets shape where investment actually goes instead of describing it after the fact.</p></div>
       </div>
       <div class="disc-card d3">
         <div class="dc-tag">How We Prepare for What's Next</div>
         <h3>Intelligence &amp; Transformation</h3>
         <p class="dc-desc">How the organisation understands change and prepares for the future.</p>
         <div class="dc-tags"><span>Growth</span><span>Market Intelligence</span><span>AI Readiness</span><span>Decision-Making</span><span>Transformation</span></div>
+        <button type="button" class="dc-example-toggle" data-target="dcEx3"><span class="dc-arrow">▶</span> See it in practice</button>
+        <div class="dc-example" id="dcEx3"><p>An organisation with strong data but no clear view of which signals actually predict where the market is heading. EIG builds the intelligence architecture that turns existing data into early, actionable read on where to move next — before competitors do.</p></div>
       </div>
     </div>
     <div class="disc-foot">Individually, improvement. <strong>Together, competitive advantage.</strong></div>
   </div>
 </section>
+
+<script>
+(function(){
+  document.querySelectorAll('.dc-example-toggle').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var target = document.getElementById(btn.getAttribute('data-target'));
+      var isOpen = target.classList.contains('open');
+      target.classList.toggle('open', !isOpen);
+      btn.classList.toggle('open', !isOpen);
+      btn.lastChild.textContent = isOpen ? ' See it in practice' : ' Hide example';
+    });
+  });
+})();
+</script>
 
 <!-- ZONE 4: OUR PERSPECTIVE -->
 <section class="pb-zone pb-zone--navy">
@@ -427,22 +463,70 @@
         </div>
       </div>
       <div class="eil-visual">
-        <div class="eil-ring">
+        <div class="eil-ring" id="eilRing">
           <div class="eil-ring-inner">
-            <div class="eri-eyebrow">EIG</div>
-            <div class="eri-title">Intelligence<br>Layer</div>
+            <div class="eri-eyebrow" id="eilEyebrow">EIG</div>
+            <div class="eri-title" id="eilTitle">Intelligence<br>Layer</div>
           </div>
         </div>
-        <div class="eil-q">
-          <span>What is happening</span>
-          <span>Why it is happening</span>
-          <span>What it means</span>
-          <span>What should happen next</span>
+        <div class="eil-q" id="eilQ">
+          <button type="button" class="active" data-stage="0">What is happening</button>
+          <button type="button" data-stage="1">Why it is happening</button>
+          <button type="button" data-stage="2">What it means</button>
+          <button type="button" data-stage="3">What should happen next</button>
         </div>
+        <div class="eil-answer" id="eilAnswer">Real-time visibility into operations, performance, and emerging signals across every connected domain.</div>
       </div>
     </div>
   </div>
 </section>
+
+<script>
+(function(){
+  var stages = [
+    {eyebrow:'STAGE 01',title:'What Is<br>Happening',answer:'Real-time visibility into operations, performance, and emerging signals across every connected domain.'},
+    {eyebrow:'STAGE 02',title:'Why It Is<br>Happening',answer:'Root-cause context that connects symptoms across functions — so a supply chain delay and a sustainability gap stop looking unrelated.'},
+    {eyebrow:'STAGE 03',title:'What It<br>Means',answer:'Translating signals into strategic implications: what this changes for growth, risk, and competitive position.'},
+    {eyebrow:'STAGE 04',title:'What Happens<br>Next',answer:'A clear, prioritised set of decisions and actions — not another dashboard to interpret.'}
+  ];
+  var buttons = document.querySelectorAll('#eilQ button');
+  var eyebrowEl = document.getElementById('eilEyebrow');
+  var titleEl = document.getElementById('eilTitle');
+  var answerEl = document.getElementById('eilAnswer');
+  var ringEl = document.getElementById('eilRing');
+
+  function setStage(i){
+    buttons.forEach(function(b){ b.classList.remove('active'); });
+    buttons[i].classList.add('active');
+    eyebrowEl.style.opacity = 0;
+    titleEl.style.opacity = 0;
+    answerEl.style.opacity = 0;
+    setTimeout(function(){
+      eyebrowEl.innerHTML = stages[i].eyebrow;
+      titleEl.innerHTML = stages[i].title;
+      answerEl.innerHTML = stages[i].answer;
+      eyebrowEl.style.opacity = 1;
+      titleEl.style.opacity = 1;
+      answerEl.style.opacity = 1;
+    }, 180);
+    ringEl.classList.add('pulse-glow');
+    setTimeout(function(){ ringEl.classList.remove('pulse-glow'); }, 600);
+  }
+
+  buttons.forEach(function(b){
+    b.addEventListener('click', function(){
+      clearInterval(auto);
+      setStage(parseInt(b.getAttribute('data-stage'), 10));
+    });
+  });
+
+  var auto = setInterval(function(){
+    var current = document.querySelector('#eilQ button.active');
+    var next = (parseInt(current.getAttribute('data-stage'), 10) + 1) % 4;
+    setStage(next);
+  }, 5000);
+})();
+</script>
 
 <!-- ZONE 6: HOW WE WORK -->
 <section class="pb-zone pb-zone--navy">
