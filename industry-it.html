@@ -10,23 +10,77 @@
 <link rel="stylesheet" href="assets/shared.css">
 
 <style>
-.domain-hero{min-height:55vh;display:flex;align-items:center;padding-top:120px;padding-bottom:60px;position:relative;overflow:hidden}
-.domain-hero .hero-bg{position:absolute;inset:0;opacity:0.05;background:var(--c-it)}
-.domain-hero .container{position:relative;z-index:2}
-.domain-hero .icon{font-size:3rem;margin-bottom:1rem}
-.domain-hero h1{font-family:var(--serif);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.01em;margin-bottom:1rem}
-.domain-hero h1 em{font-style:italic;color:var(--c-it)}
-.domain-hero p{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:640px;font-weight:300;margin-bottom:2rem}
-.content-body{padding:60px 0 100px}
-.content-body h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin:2.5rem 0 1rem;color:var(--white)}
-.content-body h3 em{font-style:italic;color:var(--c-it)}
-.content-body p{font-size:15.5px;color:var(--mgrey);line-height:1.82;margin-bottom:1.2rem}
-.content-body ul{margin:1rem 0 1.5rem 1.5rem}
-.content-body li{font-size:15px;color:var(--mgrey);line-height:1.9;margin-bottom:0.3rem}
-.content-body strong{color:var(--white);font-weight:600}
-.leader-cta{background:var(--navy);border:1px solid rgba(255,255,255,0.07);border-radius:2px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:3rem}
-.leader-cta h4{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin-bottom:0.5rem;color:var(--white)}
-.leader-cta p{font-size:14px;color:var(--mgrey);line-height:1.7}
+/* HERO — overlay visual, systems architecture theme */
+.it-hero{min-height:auto;padding-top:140px;padding-bottom:60px;position:relative;overflow:hidden;background:var(--black)}
+.it-hero .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 78% 30%,rgba(5,150,105,0.09),transparent 65%)}
+.it-hero-bgvisual{opacity:0.45;pointer-events:none}
+.it-hero-bgvisual svg{display:block;position:absolute;top:50%;right:0;transform:translateY(-50%);width:380px;height:380px}
+.it-hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,var(--black) 0%,var(--black) 34%,rgba(2,6,13,0.7) 54%,rgba(2,6,13,0.2) 76%,rgba(2,6,13,0.5) 100%)}
+.it-hero .container{position:relative;z-index:2}
+.it-eyebrow{display:flex;align-items:center;gap:0.7rem;margin-bottom:1.4rem}
+.it-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--c-it);box-shadow:0 0 10px 2px rgba(5,150,105,0.6);animation:itdot 2.4s ease-in-out infinite}
+@keyframes itdot{0%,100%{opacity:1}50%{opacity:0.4}}
+.it-eyebrow span{font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--c-it);font-weight:700}
+.it-hero h1{font-family:var(--serif);font-size:clamp(2.6rem,4.4vw,3.8rem);font-weight:700;line-height:1.08;letter-spacing:-0.015em;margin-bottom:1.25rem}
+.it-hero h1 em{font-style:italic;color:var(--c-it)}
+.it-hero p{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:600px;font-weight:300;margin-bottom:1.75rem}
+.it-hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap}
+.it-orbit{animation:it-spin 95s linear infinite;transform-origin:center}
+.it-orbit2{animation:it-spin 140s linear infinite reverse;transform-origin:center}
+@keyframes it-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.it-pulse{animation:it-pulse 3.4s ease-in-out infinite}
+@keyframes it-pulse{0%,100%{opacity:0.35}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.it-orbit,.it-orbit2,.it-pulse{animation:none}}
+@media(max-width:900px){.it-hero-bgvisual{display:none}}
+
+/* ===== ZONE SYSTEM ===== */
+.it-zone{padding:4.5rem 0}
+.it-zone--dark{background:var(--black)}
+.it-zone--navy{background:var(--navy)}
+.it-eyebrow2{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;margin-bottom:0.9rem;display:flex;align-items:center;gap:0.6rem}
+.it-eyebrow2::before{content:'';width:20px;height:1px;background:currentColor}
+.it-h2{font-family:var(--serif);font-size:clamp(1.7rem,2.7vw,2.3rem);font-weight:700;letter-spacing:-0.01em;line-height:1.2;margin-bottom:1.1rem;color:var(--white)}
+.it-h2 em{font-style:italic}
+.it-lede{font-size:16px;color:rgba(230,233,237,0.88);line-height:1.75;font-weight:300;max-width:700px;margin-bottom:1rem}
+.it-text{font-size:15px;color:var(--mgrey);line-height:1.8;margin-bottom:1.1rem;max-width:700px}
+.it-text strong{color:var(--white);font-weight:600}
+
+/* Differentiation comparison — us vs typical */
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+.diff-card{border-radius:6px;padding:1.7rem 1.8rem}
+.diff-card.typical{border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.015)}
+.diff-card.eig{border:1px solid rgba(5,150,105,0.3);background:rgba(5,150,105,0.05)}
+.diff-card .dc-label{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:1rem}
+.diff-card.typical .dc-label{color:var(--mgrey)}
+.diff-card.eig .dc-label{color:var(--c-it)}
+.diff-row{display:flex;gap:0.7rem;padding:0.6rem 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.diff-row:last-child{border-bottom:none}
+.diff-row .dr-mark{flex-shrink:0;width:16px;font-weight:700}
+.diff-card.typical .dr-mark{color:rgba(220,224,230,0.3)}
+.diff-card.eig .dr-mark{color:var(--c-it)}
+.diff-row .dr-text{font-size:13.5px;color:rgba(220,224,230,0.82);line-height:1.5}
+
+/* Expertise cards */
+.it-exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2px;margin:1.8rem 0;background:rgba(255,255,255,0.04)}
+.it-exp-card{background:var(--navy);padding:1.7rem 1.6rem}
+.it-zone--dark .it-exp-card{background:var(--black)}
+.it-exp-card .ec-tag{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-it);font-weight:700;margin-bottom:0.7rem}
+.it-exp-card h4{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;line-height:1.3}
+.it-exp-card p{font-size:13.5px;color:var(--mgrey);line-height:1.6;margin:0}
+
+/* Cross-domain connections */
+.it-conn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin:1.8rem 0}
+.it-conn-card{border:1px solid rgba(5,150,105,0.22);border-left:3px solid var(--c-it);border-radius:4px;padding:1.4rem 1.5rem;background:rgba(5,150,105,0.04)}
+.it-conn-card .cn-tag{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--c-it);font-weight:700;margin-bottom:0.6rem}
+.it-conn-card p{font-size:14px;color:rgba(220,224,230,0.85);line-height:1.65;margin:0}
+
+.leader-cta{background:var(--navy);border:1px solid rgba(255,255,255,0.07);border-radius:4px;padding:2.2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:2.5rem;max-width:780px}
+.leader-cta h4{font-family:var(--serif);font-size:1.35rem;font-weight:600;margin-bottom:0.5rem;color:var(--white)}
+.leader-cta p{font-size:14px;color:var(--mgrey);line-height:1.7;max-width:none}
+
+@media(max-width:1080px){
+  .diff-grid,.it-exp-grid,.it-conn-grid{grid-template-columns:1fr}
+}
 @media(max-width:768px){
   .leader-cta{grid-template-columns:1fr}
 }
@@ -126,34 +180,111 @@
   <a href="contact.html">Contact</a>
 </div>
 
-<section class="domain-hero">
+<section class="it-hero">
   <div class="hero-bg"></div>
+  <div class="it-hero-bgvisual">
+    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      <g class="it-orbit">
+        <circle cx="200" cy="200" r="170" fill="none" stroke="rgba(5,150,105,0.14)" stroke-width="1" stroke-dasharray="2 8"/>
+      </g>
+      <g class="it-orbit2">
+        <circle cx="200" cy="200" r="138" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="1 6"/>
+      </g>
+
+      <!-- systems architecture: stable hub with grounded connections -->
+      <g stroke="rgba(5,150,105,0.4)" stroke-width="1.5">
+        <line x1="200" y1="200" x2="130" y2="120"/>
+        <line x1="200" y1="200" x2="270" y2="120"/>
+        <line x1="200" y1="200" x2="130" y2="280"/>
+        <line x1="200" y1="200" x2="270" y2="280"/>
+      </g>
+
+      <circle class="it-pulse" cx="130" cy="120" r="6" fill="#059669" style="animation-delay:0s"/>
+      <circle class="it-pulse" cx="270" cy="120" r="6" fill="#FFFFFF" style="animation-delay:0.4s"/>
+      <circle class="it-pulse" cx="130" cy="280" r="6" fill="#FFFFFF" style="animation-delay:0.8s"/>
+      <circle class="it-pulse" cx="270" cy="280" r="6" fill="#059669" style="animation-delay:1.2s"/>
+
+      <!-- stable central hub, rectangular to suggest infrastructure not a network -->
+      <rect x="170" y="170" width="60" height="60" rx="8" fill="rgba(5,150,105,0.1)" stroke="#059669" stroke-width="1.5"/>
+      <circle class="it-pulse" cx="200" cy="200" r="44" fill="none" stroke="rgba(5,150,105,0.3)" stroke-width="1"/>
+      <circle cx="200" cy="200" r="5" fill="#FFFFFF"/>
+    </svg>
+  </div>
+  <div class="it-hero-scrim"></div>
   <div class="container">
-    <div class="icon">💻</div>
-    <h1>Information Technology. <em>Systems Aligned to Business Reality.</em></h1>
-    <p>Technology should enable momentum, not create drag. EIG helps organisations align technology decisions with business priorities.</p>
-    <a href="leadership.html#christopher" class="btn-p" style="background:var(--c-it)">Work with Christopher Morley</a>
+    <div class="it-eyebrow"><span class="dot"></span><span>Information Technology</span></div>
+    <h1>Systems aligned to <em>business reality.</em></h1>
+    <p>Technology should enable momentum, not create drag. EIG helps organisations align technology decisions with business priorities, operational needs, and long-term capability development. The goal is not more systems — it is stronger performance.</p>
+    <div class="it-hero-actions">
+      <a href="leadership.html#christopher" class="btn-p" style="background:var(--c-it)">Work with Christopher Morley</a>
+      <a href="contact.html" class="btn-g">Request a Briefing</a>
+    </div>
   </div>
 </section>
 
-<section class="content-body">
+<!-- ZONE 1: THE REAL PROBLEM -->
+<section class="it-zone it-zone--dark">
   <div class="container">
-    
-<div class="eyebrow">Information Technology</div>
-<h2 class="title" style="margin-bottom:2rem">Information Technology. <em>Systems Aligned to Business Reality.</em></h2>
+    <div class="it-eyebrow2" style="color:var(--c-it)">The Real Problem</div>
+    <h2 class="it-h2">Most IT advice is written by people<br><em style="color:var(--c-it)">who only see the IT side of the decision.</em></h2>
+    <p class="it-lede">Technology investment decided in isolation tends to optimise for the system, not the business it's meant to serve. The result is infrastructure that's technically sound and strategically disconnected.</p>
+    <p class="it-text">Most IT consulting comes from pure technologists — strong on architecture, thin on what the rest of the organisation actually needs from that architecture. <strong>That gap shows up as expensive systems nobody asked for, and missing ones everybody needed.</strong></p>
+  </div>
+</section>
 
-<p>Technology should enable momentum, not create drag. EIG helps organisations align technology decisions with business priorities, operational needs, and long-term capability development. The goal is not more systems — it is stronger performance.</p>
+<!-- ZONE 2: WHY EIG IS DIFFERENT -->
+<section class="it-zone it-zone--navy">
+  <div class="container">
+    <div class="it-eyebrow2" style="color:var(--white)">Why EIG Is Different</div>
+    <h2 class="it-h2">Not a different pitch.<br><em style="color:var(--mgrey)">A different starting point.</em></h2>
+    <div class="diff-grid">
+      <div class="diff-card typical">
+        <div class="dc-label">Typical IT Consulting</div>
+        <div class="diff-row"><span class="dr-mark">—</span><span class="dr-text">Technologists who recommend systems in isolation from the rest of the business</span></div>
+        <div class="diff-row"><span class="dr-mark">—</span><span class="dr-text">IT investment justified by technical merit, not measurable business outcomes</span></div>
+        <div class="diff-row"><span class="dr-mark">—</span><span class="dr-text">A standalone practice with no structural connection to strategy, AI, or operations</span></div>
+        <div class="diff-row"><span class="dr-mark">—</span><span class="dr-text">Resilience addressed after the fact, once something has already gone wrong</span></div>
+      </div>
+      <div class="diff-card eig">
+        <div class="dc-label">EIG</div>
+        <div class="diff-row"><span class="dr-mark">✓</span><span class="dr-text">IT decisions made alongside EIG's other domain leaders, not handed down from a technology silo</span></div>
+        <div class="diff-row"><span class="dr-mark">✓</span><span class="dr-text">Every investment decision grounded in measurable business outcomes, not short-term technical fixes</span></div>
+        <div class="diff-row"><span class="dr-mark">✓</span><span class="dr-text">Technology strategy structurally connected to EIG's AI, transformation, and intelligence practice</span></div>
+        <div class="diff-row"><span class="dr-mark">✓</span><span class="dr-text">Operational resilience built in from the start — stable, secure, and scalable as the organisation grows</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h3>What Christopher Morley Brings</h3>
-<ul>
-<li><strong>IT Strategy</strong> — Connecting technology decisions to business priorities, operating requirements, and competitive positioning.</li>
-<li><strong>Systems Alignment</strong> — Ensuring technology architecture supports rather than constrains the organisation's strategic intent.</li>
-<li><strong>Digital Transformation</strong> — Practical transformation programmes that improve performance, capability, and decision quality across the business.</li>
-<li><strong>Technology Governance</strong> — Frameworks for technology decision-making, investment prioritisation, and risk management.</li>
-</ul>
+<!-- ZONE 3: WHAT CHRISTOPHER BRINGS -->
+<section class="it-zone it-zone--dark">
+  <div class="container">
+    <div class="it-eyebrow2" style="color:var(--c-it)">What Christopher Morley Brings</div>
+    <h2 class="it-h2">Technology decisions, judged by<br><em style="color:var(--c-it)">business outcomes — not technical elegance.</em></h2>
+    <div class="it-exp-grid">
+      <div class="it-exp-card"><div class="ec-tag">IT Strategy</div><h4>Connected to Business Priorities</h4><p>Connecting technology decisions to business priorities, operating requirements, and competitive positioning — not technology for its own sake.</p></div>
+      <div class="it-exp-card"><div class="ec-tag">Systems Alignment</div><h4>Architecture That Supports, Not Constrains</h4><p>Ensuring technology architecture supports the organisation's strategic intent rather than quietly limiting what's possible.</p></div>
+      <div class="it-exp-card"><div class="ec-tag">Digital Transformation</div><h4>Practical, Not Theoretical</h4><p>Transformation programmes that improve performance, capability, and decision quality across the business — not just the IT department.</p></div>
+      <div class="it-exp-card"><div class="ec-tag">Technology Governance</div><h4>Investment Discipline</h4><p>Frameworks for technology decision-making, investment prioritisation, and risk management that hold up under scrutiny.</p></div>
+    </div>
+  </div>
+</section>
 
-<h3>Cross-Domain Connections</h3>
-<p><strong>Agentic AI</strong> — AI infrastructure, data architecture, and technology platforms for AI-ready operations.</p>
+<!-- ZONE 4: CROSS-DOMAIN CONNECTIONS -->
+<section class="it-zone it-zone--navy">
+  <div class="container">
+    <div class="it-eyebrow2" style="color:var(--white)">Cross-Domain Connections</div>
+    <h2 class="it-h2">IT doesn't sit apart from the rest<br><em style="color:var(--mgrey)">of the organisation. Here, it never does.</em></h2>
+    <div class="it-conn-grid">
+      <div class="it-conn-card">
+        <div class="cn-tag">Agentic AI</div>
+        <p>AI infrastructure, data architecture, and technology platforms built for AI-ready operations — designed jointly with EIG's AI practice from the start, not retrofitted.</p>
+      </div>
+      <div class="it-conn-card">
+        <div class="cn-tag">Intelligence &amp; Transformation</div>
+        <p>Christopher works directly alongside EIG's other domain leaders to ensure technology strategy supports, rather than constrains, the broader transformation work EIG delivers.</p>
+      </div>
+    </div>
 
     <div class="leader-cta">
       <div>
@@ -184,7 +315,7 @@
     </div>
     <div class="footer-r">
       <div class="footer-copy">© 2026 Ecosystem Intelligence Group. All rights reserved.</div>
-      <div class="footer-sib">A <a href="#">SIB Group</a> Company</div>
+      <div class="footer-sib">An Independent Consultancy</div>
     </div>
   </div>
 </footer>
