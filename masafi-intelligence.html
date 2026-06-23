@@ -1714,6 +1714,7 @@ buildRecs(SIM_STATES['2030'].recs);
 </div>
 
 <script>
+
 // ── DATA ─────────────────────────────────────
 const ROUTES = {
   ALN:['AL-001 — Al Ain Industrial Zone','AL-002 — Al Ain City Centre','AL-003 — Bawadi Mall Area','AL-004 — Al Ain Oasis District'],
@@ -1914,10 +1915,6 @@ function toggleAlgo(id){
   el.classList.toggle('open',!open);
   arr.textContent=open?'▼':'▲';
 }
-</script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function(){
 
 // ── CHANNEL CONFIG ────────────────────────────
 const CH_CONFIG = {
@@ -2482,7 +2479,15 @@ document.addEventListener('change', function(e){
 switchChannel('mt');
 if(typeof buildSlots === 'function') buildSlots(); // legacy compat
 
+// ── INIT ──
+document.addEventListener('DOMContentLoaded', function(){
+  buildTicker();
+  buildSlotsFor('b2c-slots', false);
+  switchChannel('mt');
 });
+
 </script>
+
+
 </body>
 </html>
