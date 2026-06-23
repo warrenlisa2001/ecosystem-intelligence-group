@@ -1830,68 +1830,11 @@ function updateOrderBtn(){
 }
 
 // ── PLACE ORDER & RUN AGENT 01 ────────────────
-function placeOrder(){
-  if(!selSku||!selSlot)return;
-
-  const orderVal=qty*selPrice;
-  const eddDate=new Date(selSlot);
-  const dow=eddDate.getDay();
-  const isFri=dow===5;
-
-  // Min order rules by SKU type
-  const minQty = selSku==='w500'||selSku==='w1500'?1:1; // e-commerce min is 1 unit for consumers
-  // For B2B Modern Trade via CS the min would be higher — but app orders are consumer/SME
-  const stockRatio=qty/selStock;
-  const stockFail=stockRatio>1.0;
-  const stockWarn=stockRatio>0.85&&!stockFail;
-  const eddFail=isFri;
-  // Simulate duplicate: if qty is exactly 100 (common test quantity)
-  const dupFlag=qty===100;
-  const hasIssues=stockFail||eddFail||dupFlag;
-
-  const steps=[
-    {cls:'sb-ai',i:'◈',
-     n:'Agent 01 — order received from Masafi App',
-     d:`${qty} × ${selName} ordered by Masafi Group HQ. Order entered Mobiato via app integration. Beginning validation sequence.`},
-    {cls:'sb-ok',i:'✓',
-     n:'SKU eligibility — passed',
-     d:`${selName} is active, in catalogue, and eligible for this account type. Pricing validated against account contract.`},
-    {cls:stockFail?'sb-warn':stockWarn?'sb-warn':'sb-ok',
-     i:stockFail?'✕':stockWarn?'!':'✓',
-     n:`DC stock check — ${stockFail?'FAILED':stockWarn?'WARNING':'passed'}`,
-     d:`DC inventory: ${selStock.toLocaleString()} units. Order: ${qty}. Utilisation: ${(stockRatio*100).toFixed(0)}%.${stockFail?' Insufficient stock — auto stock transfer request triggered to Factory DC.':stockWarn?' Above 85% threshold — partial fulfilment risk noted.':' Stock confirmed available.'}`},
-    {cls:eddFail?'sb-warn':'sb-ok',
-     i:eddFail?'✕':'✓',
-     n:`Delivery slot — ${eddFail?'INVALID':'confirmed'}`,
-     d:eddFail?`${selSlot} is a Friday — no Masafi deliveries are scheduled on Fridays. Agent is suggesting next available slot (Saturday or Sunday depending on route).`:`Slot ${selSlot} is confirmed open. Order placed before DC cutoff (20:00). Route and driver can be assigned.`},
-    {cls:dupFlag?'sb-warn':'sb-ok',
-     i:dupFlag?'!':'✓',
-     n:`Duplicate check — ${dupFlag?'FLAG':'clear'}`,
-     d:dupFlag?'An order for the same SKU and quantity was detected on this account within the last 24 hours. Possible duplicate entry. CS team alerted to confirm with customer before processing.':'No duplicate orders found for this account and SKU in the past 24 hours.'},
-    {cls:hasIssues?'sb-warn':'sb-ok',
-     i:hasIssues?'✕':'✓',
-     n:hasIssues?'ORDER HELD — issues require resolution':'ORDER CONFIRMED — released to DC',
-     d:hasIssues?`Order held. ${[stockFail&&'Insufficient stock',eddFail&&'Invalid delivery slot',dupFlag&&'Possible duplicate'].filter(Boolean).join(', ')}. Customer will receive notification. Order will not proceed to warehouse until resolved.`:`Order AED ${orderVal.toLocaleString()} confirmed and pushed to Mobiato. DC will pick and pack for ${selSlot}. Locus route assignment next.`},
-  ];
-
-  let html='<div class="ai-header">Agent 01 — Validation sequence running</div><div class="steps">';
-  steps.forEach((s,i)=>{
-    html+=`<div class="step" id="s1_${i}"><span class="s-badge ${s.cls}">${s.i}</span><div><div class="s-name">${s.n}</div><div class="s-detail">${s.d}</div></div></div>`;
-  });
-  html+='</div>';
-
-  const vc=hasIssues?'fail':'pass';
-  const vt=hasIssues?`Order held — ${[stockFail&&'stock issue',eddFail&&'invalid slot',dupFlag&&'duplicate flag'].filter(Boolean).join(' · ')}`:'Order confirmed — processing to DC';
-  const vb=hasIssues?`AED ${orderVal.toLocaleString()} protected from becoming a cancellation. This order would have appeared in Masafi's AED 23.7M cancellation total without Agent 01.`:`AED ${orderVal.toLocaleString()} confirmed. Pushed to Mobiato for DC processing. Driver will be assigned via Locus. 3-way reconciliation: App ✓ Mobiato ✓ Locus pending.`;
-  html+=`<div class="verdict ${vc}" id="a1v"><div class="vt">${vt}</div><div class="vb">${vb}</div></div>`;
-
-  document.getElementById('a1-result').innerHTML=html;
-  steps.forEach((_,i)=>setTimeout(()=>{const el=document.getElementById(`s1_${i}`);if(el)el.classList.add('show');},i*500+80));
-  setTimeout(()=>{const v=document.getElementById('a1v');if(v)v.classList.add('show');},steps.length*500+150);
-
-  proc++;
-  if(hasIssues){caught++;saved+=orderVal;}
-  setTimeout(updSession,steps.length*500+200);
+function placeOrder(ch){
+  if(ch==='b2c')     runValidation_B2C();
+  else if(ch==='mt') runValidation_MT();
+  else if(ch==='hod')runValidation_HOD();
+  else if(ch==='exp')runValidation_EXP();
 }
 
 // ── SESSION COUNTERS ─────────────────────────
@@ -2247,6 +2190,286 @@ function selectB2BAcct(el,id,moq,name,type){
   if(activeChannel==='hod'){hodState={...hodState,acct:id,moq,acctName:name,acctType:type,isFOC:(id==='hod-govt')};updReadiness('hod');}
   if(activeChannel==='export'){expState={...expState,market:id,marketName:name,acctType:type};updReadiness('export');}
 }
+
+// ══════════════════════════════════════════════════════════
+// VALIDATION ENGINE — ALL FUNCTIONS
+// ══════════════════════════════════════════════════════════
+
+function updMTBtn(){
+  const ok = mtState.acct && mtState.sku && mtState.slot;
+  const btn = document.getElementById('mt-place');
+  if(!btn) return;
+  btn.disabled = !ok;
+  btn.textContent = ok
+    ? `Submit order — AED ${(mtState.qty * mtState.price).toLocaleString()}`
+    : 'Select account, product & date';
+  updReadiness('mt');
+}
+
+function updHODBtn(){
+  const ok = hodState.acct && hodState.sku && hodState.slot;
+  const btn = document.getElementById('hod-place');
+  if(!btn) return;
+  btn.disabled = !ok;
+  btn.textContent = ok
+    ? `Confirm delivery — ${hodState.isFOC ? 'FOC' : 'AED ' + (hodState.qty * hodState.price).toLocaleString()}`
+    : 'Select account, product & slot';
+  updReadiness('hod');
+}
+
+function updReadiness(ch){
+  const panel = document.getElementById('ai-readiness');
+  if(!panel) return;
+  const checksEl = document.getElementById('readiness-checks');
+  const hintEl   = document.getElementById('readiness-hint');
+  if(!checksEl || !hintEl) return;
+
+  let checks = [], hint = '';
+
+  if(ch === 'b2c'){
+    checks = [
+      {ok: !!b2cState.sku,  label:'Product selected',  val: b2cState.name || ''},
+      {ok: !!b2cState.slot, label:'Delivery slot',      val: b2cState.slot || ''},
+      {ok: true,            label:'Min. order',         val: 'No minimum — B2C channel'},
+    ];
+    hint = (b2cState.sku && b2cState.slot)
+      ? '✓ Ready — press Place Order to run Agent 01 validation'
+      : 'Select a product and delivery slot to continue.';
+  }
+  else if(ch === 'mt'){
+    const moqOk  = mtState.acct ? mtState.qty >= mtState.moq : false;
+    const moqGap = mtState.moq - mtState.qty;
+    checks = [
+      {ok: !!mtState.acct, label:'Account selected',          val: mtState.acctName || ''},
+      {ok: !!mtState.sku,  label:'Product selected',          val: mtState.sku || ''},
+      {ok: moqOk,          label:`MOQ: ${mtState.moq||'?'} cases min`, val: moqOk ? `${mtState.qty} cases ✓` : (mtState.acct ? `${mtState.qty} cases — ${moqGap} below min` : '')},
+      {ok: !!mtState.slot, label:'Delivery date',             val: mtState.slot || ''},
+    ];
+    if(!mtState.acct)       hint = 'Select an account first. MOQ and rules depend on the account.';
+    else if(!mtState.sku)   hint = `${mtState.acctName} selected (MOQ: ${mtState.moq} cases). Select a product.`;
+    else if(!moqOk)         hint = `⚠ Qty ${mtState.qty} is below the ${mtState.moq}-case minimum for ${mtState.acctName}. Submit to see Agent 01 catch this — or increase quantity.`;
+    else if(!mtState.slot)  hint = `Order AED ${(mtState.qty*mtState.price).toLocaleString()}. Select a delivery date.`;
+    else                    hint = `✓ Ready — AED ${(mtState.qty*mtState.price).toLocaleString()} for ${mtState.acctName}. Press Submit to validate.`;
+  }
+  else if(ch === 'hod'){
+    checks = [
+      {ok: !!hodState.acct, label:'Account type',   val: hodState.acctName || ''},
+      {ok: !!hodState.sku,  label:'Product',         val: hodState.sku || ''},
+      {ok: !!hodState.slot, label:'Delivery slot',   val: hodState.slot || ''},
+      {ok: true,            label:'FOC flag',        val: hodState.isFOC ? 'Govt — zero price' : 'Standard pricing'},
+    ];
+    hint = (hodState.acct && hodState.sku && hodState.slot)
+      ? '✓ Ready — press Confirm to validate'
+      : 'Select account type, product and delivery slot.';
+  }
+  else if(ch === 'export'){
+    checks = [
+      {ok: !!expState.market, label:'Export market', val: expState.marketName || ''},
+      {ok: !!expState.sku,    label:'Product',       val: expState.sku || ''},
+      {ok: !!expState.market, label:'Incoterm',      val: expState.market === 'pakistan' ? 'Ex-works' : expState.market === 'oman' ? 'DDP road' : expState.market ? 'Sea via JAFZA' : ''},
+      {ok: false,             label:'Vehicle placement', val: 'Confirmed by buyer after order'},
+    ];
+    hint = (expState.market && expState.sku)
+      ? `✓ Ready — AED ${(expState.qty*expState.price).toLocaleString()} export to ${expState.marketName}. Press Submit.`
+      : 'Select market and product.';
+  }
+
+  checksEl.innerHTML = checks.map(c => `
+    <div style="display:flex;align-items:center;gap:8px;font-size:11px">
+      <span style="width:18px;height:18px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;
+        ${c.ok ? 'background:rgba(0,200,83,0.15);color:var(--green);border:1px solid rgba(0,200,83,0.3)' : 'background:rgba(255,255,255,0.04);color:var(--mgrey);border:1px solid rgba(255,255,255,0.1)'}">
+        ${c.ok ? '✓' : '○'}
+      </span>
+      <span style="color:${c.ok ? 'var(--white)' : 'var(--mgrey)'};font-weight:${c.ok ? '600' : '400'}">${c.label}</span>
+      ${c.val ? `<span style="margin-left:auto;font-size:10px;color:${c.ok ? 'rgba(0,200,83,0.8)' : 'var(--mgrey)'};max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.val}</span>` : ''}
+    </div>`).join('');
+
+  hintEl.style.color = hint.startsWith('✓') ? 'rgba(0,200,83,0.9)' : hint.startsWith('⚠') ? 'var(--amber)' : 'var(--mgrey)';
+  hintEl.textContent = hint;
+}
+
+function showSteps(steps, verdict){
+  let html = '<div class="ai-header">Agent 01 — Validation sequence running</div><div class="steps">';
+  steps.forEach((s,i) => {
+    html += `<div class="step" id="vs_${i}">
+      <span class="s-badge ${s.cls}">${s.i}</span>
+      <div><div class="s-name">${s.n}</div><div class="s-detail">${s.d}</div></div>
+    </div>`;
+  });
+  html += `</div><div class="verdict ${verdict.cls}" id="a1v">
+    <div class="vt">${verdict.title}</div>
+    <div class="vb">${verdict.body}</div>
+  </div>`;
+  document.getElementById('a1-result').innerHTML = html;
+  steps.forEach((_,i) => setTimeout(() => {
+    const el = document.getElementById(`vs_${i}`); if(el) el.classList.add('show');
+  }, i * 480 + 80));
+  setTimeout(() => { const v = document.getElementById('a1v'); if(v) v.classList.add('show'); }, steps.length * 480 + 150);
+}
+
+function runValidation_B2C(){
+  const s = b2cState;
+  if(!s.sku || !s.slot) return;
+  const val = s.qty * s.price;
+  const dow = new Date(s.slot).getDay();
+  const eddFail  = (dow === 5);
+  const stockFail = s.qty > s.stock;
+  const dupFlag  = s.qty === 100;
+  const hasIssues = eddFail || stockFail || dupFlag;
+  const steps = [
+    {cls:'sb-ai', i:'◈', n:'Agent 01 — B2C order received (Masafi App)',
+     d:`${s.qty}× ${s.name}. Consumer account. EDD: ${s.slot}. Validation starting.`},
+    {cls:'sb-ok', i:'✓', n:'SKU active & in catalogue',
+     d:`${s.name} is active, available for consumer purchase, correctly priced.`},
+    {cls: stockFail?'sb-warn':'sb-ok', i: stockFail?'✕':'✓',
+     n:`DC stock — ${stockFail?'HOLD: insufficient':'confirmed'}`,
+     d: stockFail ? `Only ${s.stock.toLocaleString()} units available. Auto stock transfer request triggered to Factory DC.`
+                  : `${s.stock.toLocaleString()} units at DC. Order of ${s.qty} confirmed available.`},
+    {cls: eddFail?'sb-warn':'sb-ok', i: eddFail?'✕':'✓',
+     n:`Delivery slot — ${eddFail?'INVALID: Friday':'confirmed'}`,
+     d: eddFail ? `${s.slot} is a Friday — no Masafi deliveries. Agent pushing EDD to next available slot.`
+                : `Slot ${s.slot} open. Order placed before 20:00 DC cutoff. Route assigned.`},
+    {cls: dupFlag?'sb-warn':'sb-ok', i: dupFlag?'!':'✓',
+     n:`Duplicate check — ${dupFlag?'FLAG: possible duplicate':'clear'}`,
+     d: dupFlag ? `Qty of 100 matches another open order on this account within T-24hrs. CS team notified.`
+                : `No duplicate orders found for this account and SKU in the past 24 hours.`},
+    {cls: hasIssues?'sb-warn':'sb-ok', i: hasIssues?'✕':'✓',
+     n: hasIssues ? 'ORDER HELD' : 'ORDER CONFIRMED — pushed to Mobiato',
+     d: hasIssues
+       ? `Issues: ${[eddFail&&'invalid EDD', stockFail&&'insufficient stock', dupFlag&&'duplicate flag'].filter(Boolean).join(', ')}. Customer notification sent.`
+       : `AED ${val.toLocaleString()} confirmed. Pushed to Mobiato. DC will pick for ${s.slot}. 3-way reconciliation: App ✓ Mobiato ✓ Locus pending.`},
+  ];
+  showSteps(steps, {
+    cls: hasIssues ? 'fail' : 'pass',
+    title: hasIssues
+      ? `B2C order held — ${[eddFail&&'invalid slot', stockFail&&'stock issue', dupFlag&&'duplicate'].filter(Boolean).join(' · ')}`
+      : 'B2C order confirmed — processing to DC',
+    body: hasIssues
+      ? `AED ${val.toLocaleString()} protected from becoming a cancellation.`
+      : `Consumer order confirmed. Delivery: ${s.slot}.`
+  });
+  updSess(hasIssues, val);
+}
+
+function runValidation_MT(){
+  const s = mtState;
+  if(!s.acct || !s.sku || !s.slot) return;
+  const val     = s.qty * s.price;
+  const moqFail = s.qty < s.moq;
+  const dow     = new Date(s.slot).getDay();
+  const eddFail = (dow === 5 || dow === 6);
+  const bulkFlag = s.qty >= 1000;
+  const hasIssues = moqFail || eddFail;
+  const steps = [
+    {cls:'sb-ai', i:'◈',
+     n:`Agent 01 — B2B MT order: ${s.acctName}`,
+     d:`${s.qty} cases ${s.sku} submitted. Contracted B2B rate: AED ${s.price}/case. Total: AED ${val.toLocaleString()}.`},
+    {cls: moqFail?'sb-warn':'sb-ok', i: moqFail?'✕':'✓',
+     n:`MOQ check — ${moqFail ? `FAILED: ${s.qty} below minimum ${s.moq}` : `passed: ${s.qty} ≥ MOQ ${s.moq}`}`,
+     d: moqFail
+       ? `${s.acctName} requires minimum ${s.moq} cases. Order is ${s.qty}. This is the primary cancellation cause in MT — responsible for the majority of Masafi's AED 19.7M MT cancellation total. Rejected at entry, not at DC.`
+       : `Order quantity ${s.qty} meets the ${s.moq}-case minimum for ${s.acctName}.`},
+    {cls:'sb-ok', i:'✓',
+     n:'Contracted price validated',
+     d:`B2B contracted rate AED ${s.price}/case confirmed for ${s.acctName}. No CS correction needed.`},
+    {cls: eddFail?'sb-warn':'sb-ok', i: eddFail?'✕':'✓',
+     n:`Delivery calendar — ${eddFail?'INVALID: no MT delivery Fri/Sat':'confirmed'}`,
+     d: eddFail
+       ? `${s.slot} is a Friday or Saturday. Most MT accounts do not accept deliveries on these days. Agent suggesting next valid MT delivery slot.`
+       : `${s.slot} is a valid MT delivery day for this account.`},
+    {cls: bulkFlag?'sb-warn':'sb-ok', i: bulkFlag?'!':'✓',
+     n: bulkFlag ? 'BULK ORDER: route to Factory DC direct' : 'Standard DC routing',
+     d: bulkFlag
+       ? `Order of ${s.qty} cases meets bulk threshold (≥1,000 cases). Auto-set shipping site to Masafi Factory DC — NOT the city DC.`
+       : `Order of ${s.qty} cases routes through standard DC.`},
+    {cls: hasIssues?'sb-warn':'sb-ok', i: hasIssues?'✕':'✓',
+     n: hasIssues ? 'B2B MT ORDER HELD' : 'B2B MT ORDER APPROVED — to supervisor',
+     d: hasIssues
+       ? `Order held. ${[moqFail&&'Below MOQ', eddFail&&'Invalid delivery day'].filter(Boolean).join(', ')}. CS team notified to correct before resubmission.`
+       : `AED ${val.toLocaleString()} MT order passed to supervisor queue. Pre-scored — only genuine decisions required.${bulkFlag?' Routed to Factory DC (bulk).':''}`},
+  ];
+  showSteps(steps, {
+    cls: hasIssues ? 'fail' : 'pass',
+    title: hasIssues
+      ? `MT order held — ${[moqFail&&'below MOQ', eddFail&&'invalid slot'].filter(Boolean).join(' · ')}`
+      : `MT order approved — AED ${val.toLocaleString()} to ${s.acctName}`,
+    body: hasIssues
+      ? `This order would have become part of the AED 19.7M MT cancellation total. Agent caught it at entry.`
+      : `Order passed to supervisor.${bulkFlag?' Routed to Factory DC (bulk threshold met).':' Standard DC routing confirmed.'}`
+  });
+  updSess(hasIssues, val);
+}
+
+function runValidation_HOD(){
+  const s = hodState;
+  if(!s.acct || !s.sku) return;
+  const val = s.isFOC ? 0 : s.qty * s.price;
+  const steps = [
+    {cls:'sb-ai', i:'◈', n:`Agent 01 — HOD order: ${s.acctName}`,
+     d:`${s.qty} units ${s.sku}. ${s.isFOC?'FOC — Government account.':'Subscription account.'}`},
+    {cls:'sb-ok', i:'✓', n:'Subscription status — active',
+     d:`${s.acctName} subscription is active and not paused. Account in good standing.`},
+    {cls: s.isFOC?'sb-warn':'sb-ok', i: s.isFOC?'!':'✓',
+     n: s.isFOC ? 'FOC FLAG — Finance approval required' : 'Pricing validated',
+     d: s.isFOC
+       ? `Government/FOC account. Zero-price order routed to Finance approval gate before processing.`
+       : `Price AED ${s.price}/unit confirmed against HOD subscription rate.`},
+    {cls:'sb-ok', i:'✓', n:'Product eligibility confirmed',
+     d:`${s.sku} eligible for this HOD account type. Delivery address confirmed.`},
+    {cls:'sb-ok', i:'✓', n:'Empty gallon reconciliation — clear',
+     d:`Previous delivery empties reconciled. No discrepancy. Order quantity ${s.qty} units confirmed.`},
+    {cls:'sb-ok', i:'✓', n:'HOD ORDER CONFIRMED — assigned to HOD vehicle pool',
+     d:`${s.isFOC?'Pending Finance approval (FOC).':'Driver will receive on HHD before route start.'} Subscription auto-renews next cycle.`},
+  ];
+  showSteps(steps, {
+    cls: 'pass',
+    title: `HOD order confirmed — ${s.acctName}`,
+    body: s.isFOC
+      ? `FOC order routed to Finance approval. Zero revenue impact — compliance step.`
+      : `AED ${val.toLocaleString()} HOD order confirmed. Return rate for HOD: 4–13% — most stable channel in Masafi's network.`
+  });
+  updSess(false, val);
+}
+
+function runValidation_EXP(){
+  const s = expState;
+  if(!s.market || !s.sku) {
+    document.getElementById('a1-result').innerHTML='<div class="verdict fail show"><div class="vt">Select market and product</div></div>';
+    return;
+  }
+  const val = s.qty * s.price;
+  const isSeaFreight = ['kuwait','jordan','bahrain','maldives'].includes(s.market);
+  const isExWorks    = s.market === 'pakistan';
+  const steps = [
+    {cls:'sb-ai', i:'◈', n:`Agent 01 — Export order: ${s.marketName}`,
+     d:`${s.qty} cases ${s.sku}. Market: ${s.marketName}. Incoterm: ${isExWorks?'Ex-works':isSeaFreight?'Sea freight via JAFZA':'DDP road transport'}. Total: AED ${val.toLocaleString()}.`},
+    {cls:'sb-ok', i:'✓', n:'Market eligibility confirmed',
+     d:`${s.marketName} is an approved export destination. ${isSeaFreight?'Sea freight via JAFZA.':isExWorks?'Ex-works — buyer arranges collection.':'DDP — Masafi bears transport cost to Oman.'}`},
+    {cls:'sb-ok', i:'✓', n:'Export pricing validated',
+     d:`Export price AED ${s.price}/case confirmed against ${s.marketName} price list.`},
+    {cls:'sb-ok', i:'✓', n:'Production lead time — checking',
+     d:`Order sent to Production schedule review. Vehicle placement date from buyer will become the EDD in Oracle.`},
+    {cls: isSeaFreight?'sb-warn':'sb-ok', i: isSeaFreight?'!':'✓',
+     n: isSeaFreight ? 'JAFZA ROUTING FLAG — sea freight' : 'Road transport routing confirmed',
+     d: isSeaFreight
+       ? `${s.marketName} order auto-routed to JAFZA. Shipping site set to JAFZA in Oracle. JAFZA coordinator notified.`
+       : `Oman DDP — road transport. Driver transit permit and cargo strapping certificates required in cab.`},
+    {cls:'sb-ok', i:'✓', n:'EXPORT ORDER CONFIRMED — pending vehicle placement',
+     d:`Status: "Confirmed — pending EDD". EDD set when ${s.marketName} buyer confirms vehicle placement. Five export documents required.`},
+  ];
+  showSteps(steps, {
+    cls: 'pass',
+    title: `Export order confirmed — ${s.marketName} · AED ${val.toLocaleString()}`,
+    body: `${isSeaFreight?'JAFZA coordination initiated.':isExWorks?'Buyer collection arranged.':'DDP road transport — driver compliance check required.'}`
+  });
+  updSess(false, val);
+}
+
+function updSess(hasIssue, val){
+  proc++; if(hasIssue){ caught++; saved += val; }
+  setTimeout(updSession, 200);
+}
+
 
 // Patch product selects to trigger readiness
 document.addEventListener('change', function(e){
