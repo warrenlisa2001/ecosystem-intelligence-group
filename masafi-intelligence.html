@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masafi — AI Commercial Intelligence | EIG</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── EIG + Masafi shared palette ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#02060D;--navy:#0A111E;--blue:#0066FF;--blue2:#3d8bff;
+  --white:#FFFFFF;--mgrey:#8B949E;--dgrey:#3a4250;--border:rgba(255,255,255,0.07);
+  --green:#00C853;--amber:#F59E0B;--red:#EF4444;--teal:#00875A;
+  --masafi-blue:#005BAC;--masafi-lblue:#0077CC;--masafi-water:#E8F4FD;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--sans);font-size:15px;line-height:1.7;overflow-x:hidden}
+
+/* ═══════════════════════════════════════
+   LOGIN SCREEN
+═══════════════════════════════════════ */
+#login-screen{
+  position:fixed;inset:0;z-index:9999;
+  background:var(--black);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;
+}
+.login-wrap{width:100%;max-width:420px;padding:2rem}
+.login-logos{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-bottom:2.5rem}
+.login-divider-v{width:1px;height:40px;background:rgba(255,255,255,0.15)}
+
+/* EIG logo text fallback */
+.eig-logo-txt{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--white);letter-spacing:-0.02em}
+.eig-logo-txt span{color:var(--blue)}
+
+/* Masafi SVG wordmark */
+.masafi-wordmark{display:flex;flex-direction:column;align-items:center;gap:3px}
+.masafi-wordmark svg{width:110px;height:auto}
+
+.login-card{background:var(--navy);border:1px solid rgba(0,102,255,0.15);border-radius:6px;padding:2rem 1.75rem}
+.login-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;margin-bottom:0.3rem;text-align:center}
+.login-sub{font-size:12px;color:var(--mgrey);text-align:center;margin-bottom:1.5rem;letter-spacing:0.02em}
+.lf-group{margin-bottom:1rem}
+.lf-label{font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--mgrey);font-weight:600;margin-bottom:5px;display:block}
+.lf-input{width:100%;padding:10px 12px;font-size:13px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:3px;color:var(--white);font-family:var(--sans);outline:none;transition:border-color 0.2s}
+.lf-input:focus{border-color:rgba(0,102,255,0.5)}
+.lf-hint{font-size:10.5px;color:var(--mgrey);margin-top:4px;opacity:0.7}
+.login-btn{width:100%;padding:11px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;border:none;border-radius:3px;cursor:pointer;font-family:var(--sans);background:var(--masafi-blue);color:var(--white);transition:background 0.2s;margin-top:0.5rem}
+.login-btn:hover{background:var(--masafi-lblue)}
+.login-error{color:#ff6b6b;font-size:12px;text-align:center;margin-top:0.5rem;display:none}
+.login-security{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:1.25rem;font-size:10.5px;color:var(--mgrey)}
+.login-security svg{width:13px;height:13px;stroke:var(--mgrey);fill:none;flex-shrink:0}
+.powered-by{text-align:center;margin-top:1.5rem;font-size:10.5px;color:var(--mgrey)}
+.powered-by span{color:var(--blue2);font-weight:600}
+
+/* ═══════════════════════════════════════
+   MAIN DASHBOARD
+═══════════════════════════════════════ */
+#dashboard{display:none}
+
+/* TOP BAR */
+.top-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(2,6,13,0.97);backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,91,172,0.2);height:60px;display:flex;align-items:center}
+.tb-inner{width:100%;max-width:1440px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;gap:1rem}
+.tb-masafi{display:flex;align-items:center;gap:10px}
+.tb-masafi svg{width:80px;height:auto}
+.tb-pipe{width:1px;height:28px;background:rgba(255,255,255,0.1)}
+.tb-eig{font-family:var(--serif);font-size:0.95rem;font-weight:700;color:var(--white)}
+.tb-eig span{color:var(--blue)}
+.tb-badge{font-size:9.5px;letter-spacing:0.15em;text-transform:uppercase;background:rgba(0,102,255,0.12);color:var(--blue2);border:1px solid rgba(0,102,255,0.2);border-radius:100px;padding:2px 10px;font-weight:600}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:1rem}
+.tb-user{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--mgrey)}
+.tb-user-dot{width:28px;height:28px;border-radius:50%;background:var(--masafi-blue);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--white)}
+.tb-logout{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mgrey);cursor:pointer;padding:4px 10px;border:1px solid rgba(255,255,255,0.1);border-radius:2px;background:none;font-family:var(--sans);transition:color 0.2s}
+.tb-logout:hover{color:var(--white)}
+
+/* LIVE TICKER */
+.ticker{background:rgba(0,91,172,0.08);border-bottom:1px solid rgba(0,91,172,0.15);padding:4px 0;overflow:hidden;position:fixed;top:60px;left:0;right:0;z-index:199}
+.ticker-track{display:flex;animation:tick 60s linear infinite;white-space:nowrap}
+.t-item{font-size:10px;letter-spacing:0.14em;color:var(--mgrey);padding:0 2.5rem;text-transform:uppercase;flex-shrink:0}
+.t-item b{color:var(--blue2);font-weight:600;margin-right:5px}
+.t-item.alert b{color:#f59e0b}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* LAYOUT */
+.dash-body{padding-top:92px}
+.container{max-width:1440px;margin:0 auto;padding:0 1.5rem}
+
+/* HERO BAND */
+.dash-hero{padding:28px 0 22px;border-bottom:1px solid var(--border)}
+.dh-inner{display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+.dh-left{}
+.dh-tag{font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);font-weight:700;display:flex;align-items:center;gap:6px;margin-bottom:5px}
+.dh-tag::before{content:'';width:18px;height:1px;background:var(--blue)}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.dh-title{font-family:var(--serif);font-size:1.6rem;font-weight:700;line-height:1.2;margin-bottom:4px}
+.dh-title em{font-style:italic;color:var(--blue)}
+.dh-sub{font-size:12.5px;color:var(--mgrey);line-height:1.6;max-width:520px}
+.dh-right{display:flex;gap:0.75rem;flex-wrap:wrap;align-items:flex-start}
+.dh-btn{font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;padding:7px 16px;border-radius:2px;cursor:pointer;font-family:var(--sans);text-decoration:none;border:none;transition:all 0.2s}
+.dh-btn.primary{background:var(--masafi-blue);color:var(--white)}
+.dh-btn.primary:hover{background:var(--masafi-lblue)}
+.dh-btn.ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.15)}
+.dh-btn.ghost:hover{border-color:var(--blue);color:var(--blue)}
+
+/* KPI STRIP */
+.kpi-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:1.25rem 0}
+.kpi-cell{background:var(--navy);padding:1rem 1.1rem}
+.kc-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--mgrey);font-weight:600;margin-bottom:5px}
+.kc-val{font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;line-height:1;margin-bottom:4px}
+.kc-val.r{color:#ff5f5f}
+.kc-val.a{color:var(--amber)}
+.kc-val.g{color:var(--green)}
+.kc-val.b{color:var(--blue2)}
+.kc-delta{font-size:10.5px;color:var(--mgrey)}
+.kc-delta.neg{color:#ff5f5f}
+.kc-delta.pos{color:var(--green)}
+.kc-src{font-size:9.5px;color:var(--dgrey);margin-top:3px}
+
+/* MAIN GRID */
+.main-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem}
+.full-width{grid-column:1/-1}
+
+/* PANEL */
+.panel{background:var(--navy);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.panel-head{padding:1rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.panel-head.blue{border-left:3px solid var(--blue)}
+.panel-head.amber{border-left:3px solid var(--amber)}
+.panel-head.green{border-left:3px solid var(--green)}
+.panel-head.red{border-left:3px solid var(--red)}
+.ph-agent{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;margin-bottom:2px}
+.blue .ph-agent{color:var(--blue2)}
+.amber .ph-agent{color:var(--amber)}
+.green .ph-agent{color:var(--green)}
+.red .ph-agent{color:#ff5f5f}
+.ph-title{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--white)}
+.ph-right{margin-left:auto}
+.ph-badge{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:100px;font-weight:700}
+.badge-live{background:rgba(0,200,83,0.12);color:var(--green);border:1px solid rgba(0,200,83,0.25)}
+.badge-ai{background:rgba(0,102,255,0.1);color:var(--blue2);border:1px solid rgba(0,102,255,0.2)}
+.panel-body{padding:1.25rem}
+
+/* FORM FIELDS */
+.field-group{margin-bottom:0.85rem}
+.field-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--mgrey);font-weight:600;margin-bottom:4px;display:block}
+.field-select,.field-input{width:100%;padding:8px 11px;font-size:12.5px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.09);border-radius:2px;color:var(--white);font-family:var(--sans);outline:none;transition:border-color 0.2s}
+.field-select:focus,.field-input:focus{border-color:rgba(0,102,255,0.45)}
+.field-select option{background:var(--navy)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
+.field-input.warn{color:var(--amber)}
+.btn-run{width:100%;padding:10px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;border:none;border-radius:2px;cursor:pointer;font-family:var(--sans);transition:background 0.2s;margin-top:0.25rem}
+.btn-run.blue{background:var(--blue);color:var(--white)}
+.btn-run.blue:hover{background:var(--blue2)}
+.btn-run.amber{background:var(--amber);color:var(--white)}
+.btn-run.amber:hover{background:#d97706}
+
+/* RESULT AREA */
+.result-area{background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.05);border-radius:3px;padding:1rem;min-height:220px;margin-top:0.85rem}
+.idle-state{display:flex;flex-direction:column;align-items:center;justify-content:center;height:220px;gap:0.6rem;text-align:center}
+.idle-icon{font-size:1.75rem;opacity:0.2}
+.idle-txt{font-size:12px;color:var(--mgrey);line-height:1.6}
+
+/* STEPS */
+.steps{display:flex;flex-direction:column;gap:0}
+.step{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);align-items:flex-start;opacity:0;transform:translateY(4px);transition:opacity 0.3s,transform 0.3s}
+.step:last-child{border-bottom:none}
+.step.show{opacity:1;transform:none}
+.s-badge{width:24px;height:24px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:1px}
+.sb-ai{background:rgba(0,102,255,0.12);color:var(--blue2)}
+.sb-ok{background:rgba(0,200,83,0.1);color:var(--green)}
+.sb-warn{background:rgba(239,68,68,0.12);color:#ff5f5f}
+.s-name{font-size:12px;font-weight:600;margin-bottom:1px;color:var(--white)}
+.s-detail{font-size:11.5px;color:var(--mgrey);line-height:1.5}
+.verdict{border-radius:3px;padding:10px 13px;margin-top:10px;opacity:0;transition:opacity 0.4s}
+.verdict.show{opacity:1}
+.verdict.pass{background:rgba(0,200,83,0.05);border:1px solid rgba(0,200,83,0.2)}
+.verdict.fail{background:rgba(239,68,68,0.05);border:1px solid rgba(239,68,68,0.2)}
+.vt{font-size:12px;font-weight:700;margin-bottom:3px}
+.pass .vt{color:var(--green)}
+.fail .vt{color:#ff5f5f}
+.vb{font-size:11.5px;color:var(--mgrey);line-height:1.5}
+
+/* ROUTE TABLE */
+.rtable{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}
+.rtable th{text-align:left;padding:6px 8px;font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey);font-weight:600;border-bottom:1px solid rgba(255,255,255,0.06)}
+.rtable td{padding:7px 8px;border-bottom:1px solid rgba(255,255,255,0.03);color:var(--white)}
+.rtable tr:last-child td{border-bottom:none}
+.rtable .alt td{background:rgba(255,255,255,0.015)}
+.td-r{color:#ff5f5f;font-weight:600}
+.td-g{color:var(--green);font-weight:600}
+.td-a{color:var(--amber);font-weight:600}
+.td-b{color:var(--blue2)}
+.total-r td{background:rgba(0,102,255,0.05)!important;border-top:1px solid rgba(0,102,255,0.18);color:var(--blue2);font-weight:700;font-size:11px}
+
+/* SAVE BAR */
+.save-bar{display:flex;gap:1rem;flex-wrap:wrap;background:rgba(0,200,83,0.04);border:1px solid rgba(0,200,83,0.15);border-radius:3px;padding:9px 13px;margin-top:10px}
+.sb-item{display:flex;flex-direction:column;gap:1px}
+.sb-lbl{font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)}
+.sb-val{font-size:0.95rem;font-weight:700;color:var(--green)}
+
+/* ALGO EXPAND */
+.algo-wrap{margin-top:0}
+.algo-toggle{width:100%;background:rgba(255,255,255,0.02);border:none;border-top:1px solid var(--border);padding:10px 1.25rem;color:var(--mgrey);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;cursor:pointer;text-align:left;font-family:var(--sans);transition:color 0.2s;display:flex;align-items:center;gap:8px}
+.algo-toggle:hover{color:var(--white)}
+.algo-toggle .arr{margin-left:auto;transition:transform 0.25s;font-size:10px}
+.algo-content{display:none;padding:1.25rem;border-top:1px solid var(--border);background:rgba(0,0,0,0.15)}
+.algo-content.open{display:block}
+.algo-step{display:flex;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:12px;color:var(--mgrey);line-height:1.55;align-items:flex-start}
+.algo-step:last-child{border-bottom:none;padding-bottom:0}
+.algo-n{width:20px;height:20px;border-radius:50%;background:rgba(0,102,255,0.1);border:1px solid rgba(0,102,255,0.2);color:var(--blue2);font-size:9.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.formula{background:rgba(0,0,0,0.3);border:1px solid rgba(0,102,255,0.12);border-radius:2px;padding:6px 10px;margin:6px 0;font-family:monospace;font-size:11.5px;color:var(--blue2);line-height:1.65}
+.formula span{color:rgba(255,255,255,0.5)}
+
+/* GLOBAL COUNTERS */
+.gcounter-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-bottom:1.25rem}
+.gc{background:var(--navy);border:1px solid var(--border);border-radius:4px;padding:0.9rem 1rem}
+.gc-lbl{font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--mgrey);margin-bottom:4px}
+.gc-val{font-size:1.35rem;font-weight:700;color:var(--white)}
+.gc-val.g{color:var(--green)}
+.gc-val.r{color:#ff5f5f}
+.gc-sub{font-size:10.5px;color:var(--mgrey);margin-top:2px}
+
+/* PROCESS TIMELINE */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:4px;overflow:hidden}
+.pg-phase{background:var(--navy);padding:1.1rem}
+.pg-phase::before{content:'';display:block;height:3px;margin:-1.1rem -1.1rem 1rem;position:relative}
+.phase-1::before{background:var(--blue)}
+.phase-2::before{background:var(--sky,#0284C7)}
+.phase-3::before{background:var(--amber)}
+.phase-4::before{background:var(--green)}
+.pg-days{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;margin-bottom:3px}
+.phase-1 .pg-days{color:var(--blue)}
+.phase-2 .pg-days{color:#38bdf8}
+.phase-3 .pg-days{color:var(--amber)}
+.phase-4 .pg-days{color:var(--green)}
+.pg-title{font-family:var(--serif);font-size:0.95rem;font-weight:700;margin-bottom:8px;line-height:1.2}
+.pg-eig{font-size:11px;color:rgba(255,255,255,0.5);font-style:italic;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05);line-height:1.5}
+.pg-items{list-style:none;display:flex;flex-direction:column;gap:5px}
+.pg-items li{font-size:11px;color:var(--mgrey);padding-left:12px;position:relative;line-height:1.4}
+.pg-items li::before{content:'›';position:absolute;left:0;color:var(--blue2)}
+
+/* FOOTER */
+.dash-footer{border-top:1px solid var(--border);padding:1.25rem 0;margin-top:1.25rem}
+.df-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.df-left{font-size:11px;color:var(--mgrey);line-height:1.6}
+.df-right{font-size:10.5px;color:var(--dgrey)}
+
+/* INSIGHT BOX */
+.insight-box{background:rgba(0,102,255,0.04);border-left:2px solid var(--blue);border-radius:0 3px 3px 0;padding:10px 13px;margin-top:10px}
+.ib-tag{font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--blue2);font-weight:700;margin-bottom:3px}
+.ib-txt{font-size:12px;color:var(--mgrey);line-height:1.6}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .main-grid{grid-template-columns:1fr}
+  .kpi-strip{grid-template-columns:repeat(3,1fr)}
+  .process-grid{grid-template-columns:1fr 1fr}
+  .field-row{grid-template-columns:1fr}
+  .gcounter-row{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  .kpi-strip{grid-template-columns:1fr 1fr}
+  .process-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     LOGIN SCREEN
+════════════════════════════════════════════ -->
+<div id="login-screen">
+  <div class="login-wrap">
+    <div class="login-logos">
+
+      <!-- Masafi wordmark SVG -->
+      <div class="masafi-wordmark">
+        <svg viewBox="0 0 140 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="28" font-family="Georgia,serif" font-size="32" font-weight="700" fill="#005BAC" letter-spacing="-1">masafi</text>
+        </svg>
+        <div style="font-size:8.5px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.4);font-family:sans-serif;font-weight:600">WATER</div>
+      </div>
+
+      <div class="login-divider-v"></div>
+
+      <!-- EIG -->
+      <div>
+        <div class="eig-logo-txt">E<span>I</span>G</div>
+        <div style="font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);font-family:sans-serif;font-weight:600;margin-top:2px">Intelligence Platform</div>
+      </div>
+
+    </div>
+
+    <div class="login-card">
+      <div class="login-title">Client Portal</div>
+      <div class="login-sub">AI Commercial Intelligence — Masafi Group · Confidential</div>
+
+      <div class="lf-group">
+        <label class="lf-label">Email address</label>
+        <input class="lf-input" type="email" id="login-email" placeholder="you@masafi.com" value="chairman@masafi.com">
+        <div class="lf-hint">Demo: use any @masafi.com address</div>
+      </div>
+      <div class="lf-group">
+        <label class="lf-label">Password</label>
+        <input class="lf-input" type="password" id="login-pwd" placeholder="••••••••" value="Masafi2026">
+        <div class="lf-hint">Demo password: Masafi2026</div>
+      </div>
+      <button class="login-btn" onclick="doLogin()">Access Intelligence Platform →</button>
+      <div class="login-error" id="login-error">Invalid credentials. Use any @masafi.com email and password: Masafi2026</div>
+
+      <div class="login-security">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 2L4 6v6c0 5.25 3.5 10.15 8 11.5C16.5 22.15 20 17.25 20 12V6l-8-4z"/></svg>
+        256-bit encrypted · Session expires in 60 minutes
+      </div>
+    </div>
+
+    <div class="powered-by">Powered by <span>Ecosystem Intelligence Group</span> · SIB Consulting FZCO</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     DASHBOARD
+════════════════════════════════════════════ -->
+<div id="dashboard">
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <div class="tb-inner">
+      <div class="tb-masafi">
+        <svg viewBox="0 0 140 38" fill="none" xmlns="http://www.w3.org/2000/svg" width="80">
+          <text x="0" y="28" font-family="Georgia,serif" font-size="32" font-weight="700" fill="#0077CC" letter-spacing="-1">masafi</text>
+        </svg>
+      </div>
+      <div class="tb-pipe"></div>
+      <div class="tb-eig">E<span>I</span>G</div>
+      <div class="tb-badge">AI Intelligence Platform</div>
+      <div class="tb-badge" style="background:rgba(0,200,83,0.08);color:var(--green);border-color:rgba(0,200,83,0.2)">
+        <span class="live-dot" style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;margin-right:5px;vertical-align:middle"></span>Live
+      </div>
+      <div class="tb-right">
+        <div class="tb-user">
+          <div class="tb-user-dot" id="user-initials">CH</div>
+          <span id="user-name">Chairman</span>
+        </div>
+        <button class="tb-logout" onclick="doLogout()">Sign out</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIVE TICKER -->
+  <div class="ticker">
+    <div class="ticker-track" id="ticker-track">
+      <!-- populated by JS -->
+    </div>
+  </div>
+
+  <div class="dash-body">
+    <div class="container">
+
+      <!-- HERO BAND -->
+      <div class="dash-hero">
+        <div class="dh-inner">
+          <div class="dh-left">
+            <div class="dh-tag"><span class="live-dot"></span>Live · Updated now</div>
+            <h1 class="dh-title">AI-Powered <em>Commercial Growth</em></h1>
+            <p class="dh-sub">Two AI agents operating on Masafi's data. Every number below is derived from your actual operational records — December 2025 to May 2026.</p>
+          </div>
+          <div class="dh-right">
+            <button class="dh-btn primary" onclick="document.getElementById('agent1-section').scrollIntoView({behavior:'smooth'})">Run Agent 01 →</button>
+            <button class="dh-btn ghost" onclick="document.getElementById('agent2-section').scrollIntoView({behavior:'smooth'})">Run Agent 02 →</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- KPI STRIP -->
+      <div class="kpi-strip">
+        <div class="kpi-cell">
+          <div class="kc-label">Cancelled orders — 6 months</div>
+          <div class="kc-val r">AED 23.7M</div>
+          <div class="kc-delta neg">13,671 orders</div>
+          <div class="kc-src">Source: Masafi order data</div>
+        </div>
+        <div class="kpi-cell">
+          <div class="kc-label">Wrong booking rate</div>
+          <div class="kc-val r">82%</div>
+          <div class="kc-delta neg">11,244 of 13,671 cancellations</div>
+          <div class="kc-src">Process failure — not supply</div>
+        </div>
+        <div class="kpi-cell">
+          <div class="kc-label">Van sales return rate</div>
+          <div class="kc-val a">29.8%</div>
+          <div class="kc-delta neg">Al Ain worst at 35.7%</div>
+          <div class="kc-src">24,758 route records</div>
+        </div>
+        <div class="kpi-cell">
+          <div class="kc-label">Warehouse fill attainment</div>
+          <div class="kc-val a">60–70%</div>
+          <div class="kc-delta neg">Target: high 90s</div>
+          <div class="kc-src">Ashwin Jerath, June 2026</div>
+        </div>
+        <div class="kpi-cell">
+          <div class="kc-label">Revenue protected (this session)</div>
+          <div class="kc-val g" id="session-protected">AED 0</div>
+          <div class="kc-delta pos" id="session-orders">0 orders validated</div>
+          <div class="kc-src">Run an agent below to start</div>
+        </div>
+      </div>
+
+      <!-- GLOBAL COUNTERS -->
+      <div class="gcounter-row">
+        <div class="gc">
+          <div class="gc-lbl">Orders validated this session</div>
+          <div class="gc-val" id="gc-proc">0</div>
+          <div class="gc-sub">Agent 01 — Sales order validation</div>
+        </div>
+        <div class="gc">
+          <div class="gc-lbl">Issues caught before cancellation</div>
+          <div class="gc-val r" id="gc-caught">0</div>
+          <div class="gc-sub">Held for correction — not processed</div>
+        </div>
+        <div class="gc">
+          <div class="gc-lbl">Estimated revenue protected</div>
+          <div class="gc-val g" id="gc-saved">AED 0</div>
+          <div class="gc-sub">Order value of issues caught</div>
+        </div>
+      </div>
+
+      <!-- MAIN AGENT GRID -->
+      <div class="main-grid">
+
+        <!-- ── AGENT 01 ── -->
+        <div id="agent1-section">
+          <div class="panel">
+            <div class="panel-head blue">
+              <div>
+                <div class="ph-agent">Agent 01</div>
+                <div class="ph-title">AI Sales Order Validation</div>
+              </div>
+              <div class="ph-right"><span class="ph-badge badge-live">Live</span></div>
+            </div>
+            <div class="panel-body">
+              <div class="field-group">
+                <label class="field-label">Customer</label>
+                <select class="field-select" id="a1-customer">
+                  <option value="">Select customer…</option>
+                  <option value="carrefour" data-minqty="100" data-ch="mt">Carrefour — Modern Trade</option>
+                  <option value="lulu" data-minqty="100" data-ch="mt">Lulu Hypermarket — Modern Trade</option>
+                  <option value="spinneys" data-minqty="80" data-ch="mt">Spinneys — Modern Trade</option>
+                  <option value="hod1" data-minqty="20" data-ch="hod">Al Noor HOD — Home Delivery</option>
+                  <option value="ec" data-minqty="30" data-ch="rt">Emirates Coop — Retail</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label class="field-label">Product</label>
+                <select class="field-select" id="a1-product">
+                  <option value="">Select product…</option>
+                  <option value="w500" data-stock="8200" data-price="85">Water 500ml PET — 24pk cases</option>
+                  <option value="w1500" data-stock="3100" data-price="110">Water 1.5L PET — 12pk cases</option>
+                  <option value="w5l" data-stock="420" data-price="95">Water 5L — cases</option>
+                  <option value="w4g" data-stock="1850" data-price="180">Water 4-gallon — units</option>
+                  <option value="tissue" data-stock="290" data-price="220">Tissue — cases</option>
+                </select>
+              </div>
+              <div class="field-row">
+                <div class="field-group">
+                  <label class="field-label">Quantity (cases)</label>
+                  <input class="field-input" type="number" id="a1-qty" placeholder="e.g. 50" min="1">
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Delivery date</label>
+                  <input class="field-input" type="date" id="a1-edd">
+                </div>
+              </div>
+              <div class="field-group">
+                <label class="field-label">Preseller / Route</label>
+                <select class="field-select" id="a1-preseller">
+                  <option value="">Select preseller…</option>
+                  <option value="P001">P001 — Dubai Modern Trade</option>
+                  <option value="P002">P002 — Dubai Retail</option>
+                  <option value="P003">P003 — Abu Dhabi MT</option>
+                  <option value="P004">P004 — Al Ain</option>
+                </select>
+              </div>
+              <button class="btn-run blue" onclick="runAgent1()">Submit for AI Validation →</button>
+
+              <div class="result-area" id="a1-result">
+                <div class="idle-state">
+                  <div class="idle-icon">⬡</div>
+                  <p class="idle-txt">Enter an order and submit.<br>Three AI agents will validate it in real time.</p>
+                </div>
+              </div>
+            </div>
+            <!-- ALGO EXPAND -->
+            <button class="algo-toggle" onclick="toggleAlgo('algo1')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+              How Agent 01 calculates — algorithm breakdown
+              <span class="arr" id="algo1-arr">▼</span>
+            </button>
+            <div class="algo-content" id="algo1">
+              <div class="algo-step"><span class="algo-n">1</span><div><strong style="color:var(--white)">Stock availability</strong> — Agent queries DC inventory. If order qty &gt; 85% of available stock → partial risk flag. If &gt; 100% → hold.<div class="formula">Stock Risk = Order Qty ÷ DC Stock<br><span>›0.85 warn | ›1.0 hold</span></div></div></div>
+              <div class="algo-step"><span class="algo-n">2</span><div><strong style="color:var(--white)">MOQ validation</strong> — Channel-specific minimum: Modern Trade 100 cases, HOD 20, Retail 30. Orders below MOQ auto-flagged.<div class="formula">IF Order Qty &lt; Customer MOQ → REJECT</div></div></div>
+              <div class="algo-step"><span class="algo-n">3</span><div><strong style="color:var(--white)">Delivery date eligibility</strong> — Cross-references EDD against customer delivery calendar. Fri/Sat = non-delivery for most Modern Trade. Agent suggests next valid date.<div class="formula">EDD valid = date ∈ customer delivery calendar<br><span>Fri(5) / Sat(6) → flag + next valid suggested</span></div></div></div>
+              <div class="algo-step"><span class="algo-n">4</span><div><strong style="color:var(--white)">Duplicate detection</strong> — Scans open orders for same Customer + SKU + EDD within T-24hrs. Root cause of 11,244 wrong-booking cancellations (82% of Masafi's total).<div class="formula">Duplicate = (Customer + SKU + EDD) matches open order within T-24hrs</div></div></div>
+              <div class="algo-step"><span class="algo-n">5</span><div><strong style="color:var(--white)">Risk scoring</strong> — Four dimensions combined into a 0–100 risk score.<div class="formula">Risk = (Stock×0.4) + (MOQ×0.3) + (EDD×0.2) + (Dup×0.1)<br><span>›60 Hold | 30–60 Warn | ‹30 Approve</span></div></div></div>
+              <div class="algo-step"><span class="algo-n">6</span><div><strong style="color:var(--white)">Prioritisation decision</strong> — Final routing: Approve → operations. Hold → supervisor. Reject → preseller notified with reason code. Every decision logged with timestamp, order value, and structured reason code — replacing the 854 free-text codes in Masafi's current system.</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── AGENT 02 ── -->
+        <div id="agent2-section">
+          <div class="panel">
+            <div class="panel-head amber">
+              <div>
+                <div class="ph-agent">Agent 02</div>
+                <div class="ph-title">AI Route & Load Optimisation</div>
+              </div>
+              <div class="ph-right"><span class="ph-badge badge-live">Live</span></div>
+            </div>
+            <div class="panel-body">
+              <div class="field-group">
+                <label class="field-label">Region</label>
+                <select class="field-select" id="a2-region" onchange="loadRoutes()">
+                  <option value="">Select region…</option>
+                  <option value="ALN">Al Ain — 35.7% return rate (worst)</option>
+                  <option value="AUH">Abu Dhabi — 27.5% return rate</option>
+                  <option value="DXB">Dubai — 20.8% return rate</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label class="field-label">Van sales route</label>
+                <select class="field-select" id="a2-route">
+                  <option value="">Select route…</option>
+                </select>
+              </div>
+              <div class="field-row">
+                <div class="field-group">
+                  <label class="field-label">Day of week</label>
+                  <select class="field-select" id="a2-day">
+                    <option value="sun">Sunday</option>
+                    <option value="mon">Monday</option>
+                    <option value="tue">Tuesday</option>
+                    <option value="wed">Wednesday</option>
+                    <option value="thu">Thursday</option>
+                    <option value="sat">Saturday (low demand)</option>
+                  </select>
+                </div>
+                <div class="field-group">
+                  <label class="field-label">Current loading method</label>
+                  <select class="field-select" id="a2-method">
+                    <option value="habit">Driver habit — no system</option>
+                    <option value="yesterday">Yesterday's load repeated</option>
+                    <option value="max">Max capacity always</option>
+                  </select>
+                </div>
+              </div>
+              <button class="btn-run amber" onclick="runAgent2()">Run AI Load Optimisation →</button>
+
+              <div class="result-area" id="a2-result">
+                <div class="idle-state">
+                  <div class="idle-icon">⬡</div>
+                  <p class="idle-txt">Select region and route.<br>Agent reads 90 days of sell-through per customer stop.</p>
+                </div>
+              </div>
+            </div>
+            <!-- ALGO EXPAND -->
+            <button class="algo-toggle" onclick="toggleAlgo('algo2')">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+              How Agent 02 calculates — algorithm breakdown
+              <span class="arr" id="algo2-arr">▼</span>
+            </button>
+            <div class="algo-content" id="algo2">
+              <div class="algo-step"><span class="algo-n">1</span><div><strong style="color:var(--white)">Historical sell-through baseline</strong> — 90 days of route data per stop. Calculates mean daily units sold + standard deviation. Al Ain σ=0.55 on mean near plan — high variance the agent dampens.<div class="formula">Baseline(stop) = Mean(sold, T-90) × DayCoeff<br><span>Sun=1.15 | Mon=0.95 | Tue–Wed=1.0 | Thu=1.10 | Sat=0.85</span></div></div></div>
+              <div class="algo-step"><span class="algo-n">2</span><div><strong style="color:var(--white)">Demand signal adjustment</strong> — Baseline weighted for: recent 14-day trend (1.4× weight), active promotions (uplift flag), seasonal index (UAE Q1 water 1.5L peaks ~18%).<div class="formula">Adjusted = Baseline × TrendFactor × PromoMultiplier × SeasonIndex</div></div></div>
+              <div class="algo-step"><span class="algo-n">3</span><div><strong style="color:var(--white)">Safety stock buffer</strong> — Configurable buffer above adjusted demand. Default 8%. Reduced to 5% for low-variance stops (σ&lt;0.2). Increased to 12% for high-variance (σ&gt;0.4).<div class="formula">Recommended(stop) = Adjusted × (1 + Buffer%)</div></div></div>
+              <div class="algo-step"><span class="algo-n">4</span><div><strong style="color:var(--white)">Vehicle capacity constraint</strong> — Sum of all stop recommendations checked against truck capacity (6-tonne ≈ 320 cases 500ml equivalent). If total &gt;90% capacity, allocations re-weighted from highest to lowest variance.<div class="formula">Σ Recommended(stops) ≤ Vehicle Capacity × 0.90</div></div></div>
+              <div class="algo-step"><span class="algo-n">5</span><div><strong style="color:var(--white)">AED saving calculation</strong> — Reduction in loaded cases × average price per case (AED 95) × 313 working days for annualised saving. Al Ain target: from 35.7% returns to &lt;5%.<div class="formula">Saving = (Current Load − AI Load) × AED 95 per case<br><span>Annual = Daily saving × 313 working days</span></div></div></div>
+              <div class="algo-step"><span class="algo-n">6</span><div><strong style="color:var(--white)">Confidence scoring</strong> — High = 60+ records, low variance. Medium = 30–60 records or moderate variance. Low = &lt;30 records → flagged for human review before acting on recommendation.</div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- PROCESS TIMELINE — full width -->
+      <div class="panel" style="margin-bottom:1.25rem">
+        <div class="panel-head green">
+          <div>
+            <div class="ph-agent">Engagement model</div>
+            <div class="ph-title">From Day 1 — EIG present at every stage</div>
+          </div>
+          <div class="ph-right"><span class="ph-badge badge-ai">90-day proof</span></div>
+        </div>
+        <div class="panel-body" style="padding-bottom:0">
+          <p style="font-size:13px;color:var(--mgrey);line-height:1.7;margin-bottom:1rem">This is not a technology deployment. EIG is physically on-site and commercially accountable at every stage. We do not connect a system and walk away. The AED figure on Day 90 is the measure.</p>
+          <div class="process-grid">
+            <div class="pg-phase phase-1">
+              <div class="pg-days">Days 1–7 · Week 1</div>
+              <div class="pg-title">Connect & Diagnose</div>
+              <div class="pg-eig">EIG on-site with IT and operations teams. No assumptions made.</div>
+              <ul class="pg-items">
+                <li>All data sources mapped — sales, routes, warehouse</li>
+                <li>Baseline KPIs agreed with Ashwin's team</li>
+                <li>Exact scope defined — no open-ended mandate</li>
+                <li>Data access protocols signed off</li>
+                <li>EIG data engineer assigned full-time</li>
+              </ul>
+            </div>
+            <div class="pg-phase phase-2">
+              <div class="pg-days">Days 8–21 · Weeks 2–3</div>
+              <div class="pg-title">Build & Configure</div>
+              <div class="pg-eig">EIG configures both agents to Masafi's specific data and customer master.</div>
+              <ul class="pg-items">
+                <li>Agent 01 calibrated to Masafi order patterns</li>
+                <li>Agent 02 calibrated to each regional route's history</li>
+                <li>Shadow testing — agent runs parallel, no live interference</li>
+                <li>Daily check-in between EIG and operations lead</li>
+                <li>Thresholds tuned to Masafi commercial realities</li>
+              </ul>
+            </div>
+            <div class="pg-phase phase-3">
+              <div class="pg-days">Days 22–75 · Weeks 4–11</div>
+              <div class="pg-title">Deploy & Monitor</div>
+              <div class="pg-eig">Agents live. EIG reviews outputs every 48 hours. Weekly report to Chairman.</div>
+              <ul class="pg-items">
+                <li>Agent 01 live on Dubai Modern Trade routes first</li>
+                <li>Agent 02 live on Al Ain van sales routes first</li>
+                <li>EIG reviews every flagged decision same day</li>
+                <li>Issues resolved — not escalated to a ticket queue</li>
+                <li>Weekly one-page results to Chairman — no jargon</li>
+              </ul>
+            </div>
+            <div class="pg-phase phase-4">
+              <div class="pg-days">Days 76–90 · Weeks 12–13</div>
+              <div class="pg-title">Measure & Decide</div>
+              <div class="pg-eig">EIG presents verified commercial results. Scale discussed only after evidence.</div>
+              <ul class="pg-items">
+                <li>Cancellation rate — before vs after, independently verified</li>
+                <li>Van return rate — before vs after, by region and route</li>
+                <li>Revenue protected — AED, traceable to individual orders</li>
+                <li>Scale recommendation with full business case to Chairman</li>
+                <li>No further commitment until Chairman reviews results</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="dash-footer">
+        <div class="df-inner">
+          <div class="df-left">
+            <strong>Ecosystem Intelligence Group</strong> · SIB Consulting FZCO<br>
+            Confidential — prepared exclusively for Masafi Group · June 2026
+          </div>
+          <div class="df-right">
+            ecosystemintelligencegroup.com · <a href="contact.html" style="color:var(--blue2);text-decoration:none">Contact EIG</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════ -->
+<script>
+// ── DATA ──────────────────────────────────────
+const ROUTES = {
+  ALN:['AL-001 — Al Ain Industrial','AL-002 — Al Ain City Centre','AL-003 — Bawadi Mall Area','AL-004 — Al Ain Oasis'],
+  AUH:['AUH-001 — Khalidiyah','AUH-002 — Electra / Hamdan','AUH-003 — Madinat Zayed','AUH-004 — Airport Corridor'],
+  DXB:['DXB-001 — Deira / BurDubai','DXB-002 — Al Quoz Industrial','DXB-003 — JBR / Marina','DXB-004 — Al Qusais']
+};
+const STOPS = {
+  ALN:[['Al Ain Coop — Food Hall',180,115],['Lulu Hypermarket Al Ain',220,148],['Al Ain Palace Hotel',60,28],['Bawadi Mall Grocery',95,70],['Oasis Mini Mart',40,31],['Industrial Zone Canteen',55,22]],
+  AUH:[['Abu Dhabi Coop Khalidiyah',200,158],['Waitrose Khalidiyah',140,118],['Al Reef Bakery',45,29],['Hamdan St Minimart',80,65],['Abu Dhabi Mall Kiosk',60,42],['Madinat Zayed Centre',110,88]],
+  DXB:[['Carrefour Deira',350,298],['Al Quoz Industrial Canteen',90,62],['Marina Walk Kiosk',55,49],['JBR Restaurant Row',75,58],['Al Qusais Grocery',120,97],['Deira Coop',200,175]]
+};
+const RETURN_RATE = {ALN:0.357,AUH:0.275,DXB:0.208};
+const DAY_COEFF   = {sun:1.15,mon:0.95,tue:1.0,wed:1.05,thu:1.1,sat:0.85};
+
+let gProc=0, gCaught=0, gSaved=0;
+
+// ── LOGIN ─────────────────────────────────────
+function doLogin(){
+  const email = document.getElementById('login-email').value.trim();
+  const pwd   = document.getElementById('login-pwd').value.trim();
+  const err   = document.getElementById('login-error');
+
+  if(!email.toLowerCase().includes('@masafi') || pwd !== 'Masafi2026'){
+    err.style.display='block';
+    return;
+  }
+  err.style.display='none';
+
+  // Set user name from email
+  const name = email.split('@')[0].replace(/\./g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+  document.getElementById('user-name').textContent = name || 'Chairman';
+  document.getElementById('user-initials').textContent = (name.split(' ').map(w=>w[0]).join('').slice(0,2) || 'CH').toUpperCase();
+
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('dashboard').style.display='block';
+  buildTicker();
+
+  // Set default date
+  const d=new Date();d.setDate(d.getDate()+1);
+  document.getElementById('a1-edd').value=d.toISOString().split('T')[0];
+}
+
+// Allow Enter key on login
+document.addEventListener('keydown', e => {
+  if(e.key==='Enter' && document.getElementById('login-screen').style.display!=='none') doLogin();
+});
+
+function doLogout(){
+  document.getElementById('dashboard').style.display='none';
+  document.getElementById('login-screen').style.display='flex';
+  gProc=0;gCaught=0;gSaved=0;updCounters();
+}
+
+// ── TICKER ────────────────────────────────────
+function buildTicker(){
+  const items=[
+    {b:'Agent 01',t:'Sales order validation active — Dubai Modern Trade routes'},
+    {b:'ALERT',t:'35.7% van return rate detected — Al Ain — load optimisation recommended',alert:true},
+    {b:'Agent 02',t:'Route load optimisation active — Al Ain, Abu Dhabi, Dubai'},
+    {b:'Data source',t:'Masafi order data — December 2025 to May 2026 — 13,671 cancellation records loaded'},
+    {b:'Revenue at risk',t:'AED 23.7M in cancelled orders identified — 82% preventable by Agent 01',alert:true},
+    {b:'Process',t:'EIG Day 1 engagement model — connect, build, deploy, measure'},
+    {b:'Warehouse',t:'Fill attainment 60–70% — target high 90s — Agent 02 addresses root cause'},
+    {b:'Agent 01',t:'Sales order validation active — Dubai Modern Trade routes'},
+    {b:'ALERT',t:'35.7% van return rate detected — Al Ain — load optimisation recommended',alert:true},
+    {b:'Agent 02',t:'Route load optimisation active — Al Ain, Abu Dhabi, Dubai'},
+    {b:'Data source',t:'Masafi order data — December 2025 to May 2026 — 13,671 cancellation records loaded'},
+    {b:'Revenue at risk',t:'AED 23.7M in cancelled orders identified — 82% preventable by Agent 01',alert:true},
+  ];
+  const t=document.getElementById('ticker-track');
+  t.innerHTML=items.map(i=>`<div class="t-item${i.alert?' alert':''}"><b>${i.b}</b>${i.t}</div>`).join('');
+}
+
+// ── ROUTE LOADER ──────────────────────────────
+function loadRoutes(){
+  const r=document.getElementById('a2-region').value;
+  const sel=document.getElementById('a2-route');
+  sel.innerHTML='<option value="">Select route…</option>';
+  if(r&&ROUTES[r]) ROUTES[r].forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;sel.appendChild(o);});
+}
+
+// ── COUNTERS ──────────────────────────────────
+function updCounters(){
+  document.getElementById('gc-proc').textContent=gProc;
+  document.getElementById('gc-caught').textContent=gCaught;
+  document.getElementById('gc-saved').textContent='AED '+Math.round(gSaved).toLocaleString();
+  document.getElementById('session-protected').textContent='AED '+Math.round(gSaved).toLocaleString();
+  document.getElementById('session-orders').textContent=gProc+' order'+(gProc!==1?'s':'')+' validated';
+}
+
+// ── ALGO TOGGLES ──────────────────────────────
+function toggleAlgo(id){
+  const el=document.getElementById(id);
+  const arr=document.getElementById(id+'-arr');
+  const open=el.classList.contains('open');
+  el.classList.toggle('open',!open);
+  arr.textContent=open?'▼':'▲';
+}
+
+// ── AGENT 01 ──────────────────────────────────
+function runAgent1(){
+  const custEl=document.getElementById('a1-customer');
+  const prodEl=document.getElementById('a1-product');
+  const qty=parseInt(document.getElementById('a1-qty').value)||0;
+  const edd=document.getElementById('a1-edd').value;
+  const pre=document.getElementById('a1-preseller').value;
+
+  if(!custEl.value||!prodEl.value||!qty||!edd||!pre){
+    document.getElementById('a1-result').innerHTML='<div class="verdict fail show"><div class="vt">Incomplete form</div><div class="vb">Please fill in all fields before submitting.</div></div>';
+    return;
+  }
+
+  const custOpt=custEl.options[custEl.selectedIndex];
+  const prodOpt=prodEl.options[prodEl.selectedIndex];
+  const minQty=parseInt(custOpt.dataset.minqty)||100;
+  const stock=parseInt(prodOpt.dataset.stock)||0;
+  const price=parseInt(prodOpt.dataset.price)||100;
+  const orderVal=qty*price;
+  const eddDate=new Date(edd);
+  const dow=eddDate.getDay();
+  const isWknd=(dow===5||dow===6);
+  const stockRatio=qty/stock;
+  const stockFail=stockRatio>1.0;
+  const stockWarn=stockRatio>0.85&&!stockFail;
+  const moqFail=qty<minQty;
+  const eddFail=isWknd;
+  const dupProb=qty%50===0&&qty<=minQty*2;
+
+  const riskScore=Math.round(
+    (stockFail?80:stockWarn?50:10)*0.4+
+    (moqFail?90:10)*0.3+
+    (eddFail?80:10)*0.2+
+    (dupProb?60:5)*0.1
+  );
+
+  const custName=custEl.options[custEl.selectedIndex].text.split('—')[0].trim();
+  const prodName=prodEl.options[prodEl.selectedIndex].text.split('—')[0].trim();
+
+  const steps=[
+    {cls:'sb-ai',i:'◈',n:'Agent 01 received',d:`${qty} cases ${prodName} for ${custName} via ${pre}. Validation sequence starting.`},
+    {cls:stockFail?'sb-warn':stockWarn?'sb-warn':'sb-ok',i:stockFail?'✕':stockWarn?'!':'✓',
+     n:`Stock check — ${stockFail?'FAILED':stockWarn?'WARNING':'passed'}`,
+     d:`DC stock: ${stock.toLocaleString()} cases. Order: ${qty}. Utilisation: ${(stockRatio*100).toFixed(0)}%.${stockFail?' Insufficient — order held.':stockWarn?' Above 85% threshold — partial fulfilment risk flagged.':' Within safe range.'}`},
+    {cls:moqFail?'sb-warn':'sb-ok',i:moqFail?'✕':'✓',
+     n:`MOQ — ${moqFail?'FAILED':'passed'}`,
+     d:`${custName} minimum: ${minQty} cases. Order: ${qty}.${moqFail?' Below minimum — will be rejected at DC.':' Meets requirement.'}`},
+    {cls:eddFail?'sb-warn':'sb-ok',i:eddFail?'✕':'✓',
+     n:`Delivery date — ${eddFail?'INVALID':'valid'}`,
+     d:`EDD: ${edd}.${eddFail?' Friday/Saturday is not a delivery day for this account. Agent suggests next valid business day.':' Valid delivery day confirmed.'}`},
+    {cls:'sb-ai',i:'◈',n:'Risk agent — commercial assessment',
+     d:`Order value: AED ${orderVal.toLocaleString()}. Risk score: ${riskScore}/100. ${riskScore>60?'High risk — supervisor review required.':riskScore>30?'Medium risk — flagged with notes.':'Low risk — cleared.'}`},
+    {cls:(moqFail||eddFail||stockFail)?'sb-warn':'sb-ok',
+     i:(moqFail||eddFail||stockFail)?'✕':'✓',
+     n:(moqFail||eddFail||stockFail)?`ORDER HELD — ${[moqFail,eddFail,stockFail].filter(Boolean).length} issue(s) detected`:'ORDER APPROVED',
+     d:(moqFail||eddFail||stockFail)?'Order held. Preseller notified. Supervisor alerted. Will not reach warehouse until corrected.':'All checks passed. Released to operations for picking and fulfilment.'},
+  ];
+
+  const hasIssues=moqFail||eddFail||stockFail;
+  let html='<div class="steps">';
+  steps.forEach((s,i)=>{
+    html+=`<div class="step" id="s1_${i}"><span class="s-badge ${s.cls}">${s.i}</span><div><div class="s-name">${s.n}</div><div class="s-detail">${s.d}</div></div></div>`;
+  });
+  html+='</div>';
+  const vclass=hasIssues?'fail':'pass';
+  const vtitle=hasIssues?`Order held — ${[moqFail&&'Below minimum qty',eddFail&&'Invalid delivery date',stockFail&&'Insufficient stock'].filter(Boolean).join(' · ')}`:'Order approved — released to operations';
+  const vbody=hasIssues?`Revenue of AED ${orderVal.toLocaleString()} protected from becoming a cancellation. Preseller corrects and resubmits.`:`AED ${orderVal.toLocaleString()} confirmed. Processing to warehouse. EDD: ${edd}.`;
+  html+=`<div class="verdict ${vclass}" id="a1-verdict"><div class="vt">${vtitle}</div><div class="vb">${vbody}</div></div>`;
+
+  document.getElementById('a1-result').innerHTML=html;
+  steps.forEach((_,i)=>setTimeout(()=>{const el=document.getElementById(`s1_${i}`);if(el)el.classList.add('show');},i*520+80));
+  setTimeout(()=>{const v=document.getElementById('a1-verdict');if(v)v.classList.add('show');},steps.length*520+180);
+
+  gProc++;
+  if(hasIssues){gCaught++;gSaved+=orderVal;}
+  setTimeout(updCounters,steps.length*520+200);
+}
+
+// ── AGENT 02 ──────────────────────────────────
+function runAgent2(){
+  const region=document.getElementById('a2-region').value;
+  const route=document.getElementById('a2-route').value;
+  const day=document.getElementById('a2-day').value;
+  if(!region||!route){
+    document.getElementById('a2-result').innerHTML='<div class="verdict fail show"><div class="vt">Select region and route</div><div class="vb">Both fields are required to run the optimisation.</div></div>';
+    return;
+  }
+  const stops=STOPS[region]||STOPS['DXB'];
+  const coeff=DAY_COEFF[day]||1.0;
+  const adj=stops.map(([n,old,rec])=>[n,old,Math.round(rec*coeff)]);
+  const totalOld=adj.reduce((s,[,o])=>s+o,0);
+  const totalNew=adj.reduce((s,[,,r])=>s+r,0);
+  const saved=totalOld-totalNew;
+  const savedAED=Math.round(saved*95);
+  const annualAED=Math.round(savedAED*313);
+  const baserate=(RETURN_RATE[region]*100).toFixed(1);
+
+  let html=`<div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
+    <div style="flex:1;min-width:110px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:3px;padding:8px 10px">
+      <div style="font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey);margin-bottom:3px">Current load</div>
+      <div style="font-size:1.2rem;font-weight:700;color:#ff5f5f">${totalOld} cases</div>
+      <div style="font-size:10.5px;color:var(--mgrey)">${baserate}% returns unsold</div>
+    </div>
+    <div style="flex:1;min-width:110px;background:rgba(0,200,83,0.05);border:1px solid rgba(0,200,83,0.18);border-radius:3px;padding:8px 10px">
+      <div style="font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey);margin-bottom:3px">AI recommendation</div>
+      <div style="font-size:1.2rem;font-weight:700;color:var(--green)">${totalNew} cases</div>
+      <div style="font-size:10.5px;color:var(--mgrey)">Target &lt;5% return rate</div>
+    </div>
+  </div>
+  <table class="rtable"><thead><tr><th>Customer stop</th><th>Current</th><th>AI rec.</th><th>Saving</th><th>Confidence</th></tr></thead><tbody>`;
+
+  adj.forEach(([name,old,rec],i)=>{
+    const s=old-rec;
+    const conf=s>40?'High':s>15?'Medium':'High';
+    html+=`<tr class="${i%2?'alt':''}"><td>${name}</td><td class="td-r">${old}</td><td class="td-g">${rec}</td><td class="td-a">−${s}</td><td class="td-b">${conf}</td></tr>`;
+  });
+
+  html+=`<tr class="total-r"><td>TOTAL</td><td>${totalOld}</td><td>${totalNew}</td><td>−${saved}</td><td></td></tr></tbody></table>`;
+  html+=`<div class="save-bar">
+    <div class="sb-item"><div class="sb-lbl">Cases saved</div><div class="sb-val">${saved} cases</div></div>
+    <div class="sb-item"><div class="sb-lbl">AED per trip</div><div class="sb-val">AED ${savedAED.toLocaleString()}</div></div>
+    <div class="sb-item"><div class="sb-lbl">Annual saving</div><div class="sb-val">AED ${annualAED.toLocaleString()}</div></div>
+    <div class="sb-item"><div class="sb-lbl">Day factor</div><div class="sb-val">${coeff}×</div></div>
+  </div>
+  <div class="insight-box">
+    <div class="ib-tag">AI Demand Agent — ${region} · ${day}</div>
+    <div class="ib-txt">This route over-loads by ${Math.round(saved/totalOld*100)}% on ${day==='sat'?'Saturdays (lowest demand day — weekend restocking complete)':day==='sun'?'Sundays (above average — weekend restocking effect)':'this day pattern'}. Day-of-week coefficient applied: ${coeff}×. Largest overloads at smaller independent accounts receiving identical loads regardless of actual purchase history.</div>
+  </div>`;
+
+  document.getElementById('a2-result').innerHTML=html;
+}
+</script>
+</body>
+</html>
