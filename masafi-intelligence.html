@@ -480,10 +480,27 @@ body{background:var(--black);color:var(--white);font-family:var(--sans);font-siz
                 <label class="field-label">Preseller / Route</label>
                 <select class="field-select" id="a1-preseller">
                   <option value="">Select preseller…</option>
-                  <option value="P001">P001 — Dubai Modern Trade</option>
-                  <option value="P002">P002 — Dubai Retail</option>
-                  <option value="P003">P003 — Abu Dhabi MT</option>
-                  <option value="P004">P004 — Al Ain</option>
+                  <optgroup label="── What is a preseller? ──">
+                    <option disabled>A preseller visits customers the day BEFORE delivery. They take the order on a handheld device (HHD), enter it into the system, and a supervisor approves it before the DC picks and ships it. They carry no stock — that is the delivery driver's job. Agent 01 validates what the preseller submits.</option>
+                  </optgroup>
+                  <optgroup label="Dubai — Modern Trade">
+                    <option value="P001">Ahmed K. · Dubai MT Preseller — Serves Carrefour, Lulu, Spinneys. Visits accounts Monday–Thursday. Orders entered day before delivery via HHD. Min order: 100 cases. Channel responsible for AED 12.7M of the AED 23.7M in cancellations.</option>
+                  </optgroup>
+                  <optgroup label="Dubai — Retail &amp; Convenience">
+                    <option value="P002">Mohammed R. · Dubai Retail Preseller — Serves independent grocers, convenience stores, petrol forecourts across Deira and BurDubai. Min order: 30 cases. Order cut-off: 7:15pm. Wrong bookings here are typically duplicate entries from the same customer called twice.</option>
+                  </optgroup>
+                  <optgroup label="Dubai — HOD (Home &amp; Office Delivery)">
+                    <option value="P003">Sara N. · Dubai HOD Preseller — Serves residential buildings and corporate offices on 5-gallon and 4L gallon subscriptions. Min order: 20 units. HOD orders are more stable — return rate only 4–13% vs 30% in Van Sales. Cancellations here are mostly wrong quantities on standing orders.</option>
+                  </optgroup>
+                  <optgroup label="Abu Dhabi — Modern Trade">
+                    <option value="P004">Khalid M. · Abu Dhabi MT Preseller — Serves Waitrose, Abu Dhabi Coop, Spinneys Khalidiyah. Same process as Dubai MT. Abu Dhabi DC is at 75% occupancy — stock availability checks here are more critical than other regions.</option>
+                  </optgroup>
+                  <optgroup label="Al Ain — Van Sales (different role)">
+                    <option value="P006">Tariq S. · Al Ain Van Sales Driver-Seller — NOTE: In Van Sales, preseller and driver are the SAME person. There is no advance order. This person loads the vehicle at the depot using last night's habit, drives the territory, and sells from the van. No HHD pre-order. This is why Agent 02 (load optimisation) exists — there is no structured demand input before loading. Al Ain return rate: 35.7%.</option>
+                  </optgroup>
+                  <optgroup label="Al Ain — Retail &amp; Institutional">
+                    <option value="P007">Nasser A. · Al Ain Retail Preseller — Serves hotel accounts, industrial zone canteens, small independent grocers. Al Ain shows the most extreme order variance in the network — swings from near-zero to 2.4× plan on the same account on different days. Wrong booking rate here is highest per preseller in the business.</option>
+                  </optgroup>
                 </select>
               </div>
               <button class="btn-run blue" onclick="runAgent1()">Submit for AI Validation →</button>
