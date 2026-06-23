@@ -414,477 +414,12 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
             <p class="hero-sub">Two AI agents operating on Masafi's actual data. Every number on this page is derived from your operational records — December 2025 to May 2026.</p>
           </div>
           <div class="hero-btns">
-            <a class="hbtn p" onclick="document.getElementById('a1-sec').scrollIntoView({behavior:'smooth'})">Run Agent 01 →</a>
-            <a class="hbtn g" onclick="document.getElementById('a2-sec').scrollIntoView({behavior:'smooth'})">Run Agent 02 →</a>
+            <a class="hbtn p" onclick="document.getElementById('map-sec').scrollIntoView({behavior:'smooth'})">View Live Map →</a>
+            <a class="hbtn g" onclick="document.getElementById('a1-sec').scrollIntoView({behavior:'smooth'})">Run Agent 01 →</a>
           </div>
         </div>
       </div>
 
-      <!-- REVENUE LEAKAGE STRIP -->
-      <div class="leakage-strip">
-        <div class="ls-head">
-          <div>
-            <div class="ls-head-title">Total revenue leakage — identified from your data</div>
-            <div style="font-size:10.5px;color:var(--mgrey);margin-top:1px">Three sources. One number. This is what the AI agents recover.</div>
-          </div>
-          <div class="ls-total">AED 26.4M+<span class="ls-total-lbl">identified leakage</span></div>
-        </div>
-        <div class="ls-sources">
-          <div class="ls-src c">
-            <div class="ls-label">Source 1 — Wrong bookings &amp; cancellations</div>
-            <div class="ls-val">AED 23.7M</div>
-            <div class="ls-detail">13,671 cancelled orders Dec 2025–May 2026. Traditional Trade (TT) is Masafi's largest channel at AED 169M (47% of revenue) — bigger than MT (26%) and HOD (27%) combined. 82% are wrong bookings. MT channel (AED 94.7M annual revenue) accounts for AED 19.7M of cancellations. TT (AED 169M revenue) and HOD (AED 98M) also affected. Total Masafi UAE revenue from AOP data: AED 361.7M.</div>
-            <span class="ls-agent">→ Fixed by Agent 01 · Order Validation</span>
-          </div>
-          <div class="ls-src v">
-            <div class="ls-label">Source 2 — Van sales stock returned unsold</div>
-            <div class="ls-val">AED 1.8M est.</div>
-            <div class="ls-detail">29.8% of cases loaded onto van sales vehicles return to the depot unsold every day. Al Ain at 35.7% — worst in the network. 145,000 cases cycling back daily. Working capital earning nothing. Estimated at AED 95 average per case × 313 working days.</div>
-            <span class="ls-agent">→ Fixed by Agent 02 · Load Optimisation</span>
-          </div>
-          <div class="ls-src f">
-            <div class="ls-label">Source 3 — Warehouse fill attainment gap</div>
-            <div class="ls-val">AED 0.9M est.</div>
-            <div class="ls-detail">Overall fill attainment is 60–70% against a target of high 90s. The gap between orders accepted and orders fulfilled in full means customers are receiving partial deliveries — or nothing — on a portion of confirmed orders. Root cause: demand plan built in Excel without structured sales input.</div>
-            <span class="ls-agent">→ Addressed by Demand Intelligence Agent (Phase 2)</span>
-          </div>
-        </div>
-        <div class="ls-session">
-          <div class="lss-item">Orders validated this session: <span class="lss-val" id="sess-proc" style="margin-left:6px">0</span></div>
-          <div class="lss-item">Issues caught before cancellation: <span class="lss-val" id="sess-caught" style="margin-left:6px;color:#ff5f5f">0</span></div>
-          <div class="lss-item">Revenue protected: <span class="lss-val" id="sess-saved" style="margin-left:6px">AED 0</span></div>
-        </div>
-      </div>
-
-      <!-- AGENT 01 — ORDER JOURNEY -->
-      <div class="panel" id="a1-sec" style="margin-bottom:1.1rem">
-        <div class="ph blue">
-          <div>
-            <div class="ph-agent">Agent 01</div>
-            <div class="ph-title">AI Order Validation — All Channels</div>
-          </div>
-          <div class="ph-r" style="display:flex;gap:6px">
-            <span class="badge badge-live">Live</span>
-            <span id="ch-badge" class="badge" style="background:rgba(0,102,255,0.1);color:var(--blue2);border:1px solid rgba(0,102,255,0.2)">B2C — Consumer</span>
-          </div>
-        </div>
-
-        <!-- CHANNEL SELECTOR -->
-        <div style="display:flex;gap:0;border-bottom:1px solid var(--border);background:rgba(0,0,0,0.12)">
-          <button id="ch-mt" onclick="switchChannel('mt')" class="ch-btn">
-            <span class="ch-icon">🏪</span>
-            <div>
-              <div class="ch-label">B2B — Modern Trade</div>
-              <div class="ch-sub">Carrefour · Lulu · Spinneys · AED 19.7M at risk</div>
-            </div>
-          </button>
-          <button id="ch-hod" onclick="switchChannel('hod')" class="ch-btn">
-            <span class="ch-icon">🏢</span>
-            <div>
-              <div class="ch-label">B2B — HOD</div>
-              <div class="ch-sub">Home · Office · Corporate subscriptions</div>
-            </div>
-          </button>
-          <button id="ch-export" onclick="switchChannel('export')" class="ch-btn">
-            <span class="ch-icon">✈️</span>
-            <div>
-              <div class="ch-label">B2B — Export</div>
-              <div class="ch-sub">Oman · Kuwait · Jordan · Bahrain · Pakistan</div>
-            </div>
-          </button>
-          <button id="ch-b2c" onclick="switchChannel('b2c')" class="ch-btn">
-            <span class="ch-icon">📱</span>
-            <div>
-              <div class="ch-label">B2C — Consumer</div>
-              <div class="ch-sub">App · Website · Talabat · Noon</div>
-            </div>
-          </button>
-        </div>
-
-        <!-- CHANNEL RULE STRIP -->
-        <div id="ch-rules" style="padding:10px 1.25rem;background:rgba(0,102,255,0.04);border-bottom:1px solid var(--border);display:flex;gap:0;flex-wrap:wrap;align-items:stretch"></div>
-
-        <!-- SYSTEM FLOW — updates per channel -->
-        <div style="padding:10px 1.1rem 0">
-          <div style="font-size:9.5px;color:var(--mgrey);margin-bottom:6px" id="flow-label">How Masafi's order system works — B2C consumer channel</div>
-          <div class="system-flow" id="system-flow-strip">
-            <!-- populated by JS -->
-          </div>
-        </div>
-
-        <div class="pb">
-          <div style="font-size:10.5px;color:var(--mgrey);margin-bottom:10px" id="a1-intro">Place an order below as a Masafi consumer would — Masafi App or aggregator. Agent 01 validates it before it reaches the warehouse.</div>
-          <div class="journey-wrap">
-
-            <!-- LEFT — ORDER FORM (switches per channel) -->
-            <div id="order-form-wrap">
-              <!-- B2C APP MOCKUP -->
-              <div id="form-b2c" class="app-mockup">
-                <div class="app-bar" style="background:linear-gradient(135deg,#005BAC,#0077CC)">
-                  <svg viewBox="0 0 24 24" fill="white" width="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                  <div class="app-bar-title" style="font-size:13px;letter-spacing:0.05em">masafi · Shop</div>
-                  <div style="margin-left:auto;display:flex;align-items:center;gap:6px">
-                    <div style="font-size:8px;background:rgba(255,255,255,0.2);padding:2px 7px;border-radius:10px;font-weight:700;letter-spacing:0.1em">B2C</div>
-                  </div>
-                </div>
-                <div class="app-body" style="background:#f0f6ff">
-
-                  <!-- Search bar style header -->
-                  <div style="background:white;border-radius:8px;padding:8px 12px;margin-bottom:12px;display:flex;align-items:center;gap:8px;box-shadow:0 1px 4px rgba(0,91,172,0.1);border:1px solid rgba(0,91,172,0.1)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#005BAC" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                    <span style="font-size:11px;color:#999">Search Masafi products…</span>
-                  </div>
-
-                  <div class="app-section">Choose your product</div>
-                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
-                    <div class="prod-card" onclick="selectProd(this,'w-pet',85,8200,'Water PET','b2c')" style="border-radius:10px;padding:10px 8px">
-                      <div class="prod-img" style="height:52px">
-                        <svg viewBox="0 0 40 60" fill="none"><rect x="12" y="8" width="16" height="44" rx="5" fill="url(#bottleGrad)" stroke="#005BAC" stroke-width="1"/><rect x="15" y="4" width="10" height="6" rx="2" fill="#005BAC"/><text x="20" y="36" text-anchor="middle" font-size="5.5" fill="#005BAC" font-weight="700">500ml</text><defs><linearGradient id="bottleGrad" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#e8f4fd"/><stop offset="1" stop-color="#cce4f6"/></linearGradient></defs></svg>
-                      </div>
-                      <div class="prod-name" style="font-size:10px;color:#1a2a3a;font-weight:700;margin-bottom:2px">Water PET</div>
-                      <div style="font-size:9px;color:#666;margin-bottom:4px">500ml · 1L · 1.5L</div>
-                      <div class="prod-price" style="font-size:11px;font-weight:700">AED 85</div>
-                    </div>
-                    <div class="prod-card" onclick="selectProd(this,'w-alkalife',110,980,'Alkalife Water','b2c')" style="border-radius:10px;padding:10px 8px">
-                      <div class="prod-img" style="height:52px">
-                        <svg viewBox="0 0 40 60" fill="none"><rect x="11" y="7" width="18" height="46" rx="5" fill="url(#alkGrad)" stroke="#059669" stroke-width="1"/><rect x="14" y="3" width="12" height="6" rx="2" fill="#059669"/><text x="20" y="34" text-anchor="middle" font-size="5" fill="#059669" font-weight="700">ALKA</text><defs><linearGradient id="alkGrad" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#e6f9f2"/><stop offset="1" stop-color="#c4eedd"/></linearGradient></defs></svg>
-                      </div>
-                      <div class="prod-name" style="font-size:10px;color:#1a2a3a;font-weight:700;margin-bottom:2px">Alkalife</div>
-                      <div style="font-size:9px;color:#666;margin-bottom:4px">Alkaline · pH balanced</div>
-                      <div class="prod-price" style="font-size:11px;font-weight:700;color:#059669">AED 110</div>
-                    </div>
-                    <div class="prod-card" onclick="selectProd(this,'4g',180,1850,'4-Gallon HOD','b2c')" style="border-radius:10px;padding:10px 8px">
-                      <div class="prod-img" style="height:52px">
-                        <svg viewBox="0 0 50 60" fill="none"><rect x="8" y="10" width="34" height="40" rx="7" fill="url(#galGrad)" stroke="#005BAC" stroke-width="1"/><rect x="16" y="4" width="18" height="8" rx="3" fill="#005BAC"/><text x="25" y="33" text-anchor="middle" font-size="6" fill="#005BAC" font-weight="700">4 Gal</text><defs><linearGradient id="galGrad" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d4eaf8"/><stop offset="1" stop-color="#aad4f5"/></linearGradient></defs></svg>
-                      </div>
-                      <div class="prod-name" style="font-size:10px;color:#1a2a3a;font-weight:700;margin-bottom:2px">4-Gallon HOD</div>
-                      <div style="font-size:9px;color:#666;margin-bottom:4px">Home · Office delivery</div>
-                      <div class="prod-price" style="font-size:11px;font-weight:700">AED 180</div>
-                    </div>
-                    <div class="prod-card" onclick="selectProd(this,'tissue',220,290,'Tissue Cases','b2c')" style="border-radius:10px;padding:10px 8px">
-                      <div class="prod-img" style="height:52px">
-                        <svg viewBox="0 0 50 50" fill="none"><rect x="5" y="10" width="40" height="30" rx="6" fill="#f5f5f5" stroke="#aaa" stroke-width="1"/><rect x="10" y="15" width="30" height="20" rx="3" fill="white"/><path d="M 20 25 Q 25 20 30 25" stroke="#aaa" stroke-width="1.5" fill="none"/><text x="25" y="31" text-anchor="middle" font-size="5.5" fill="#666" font-weight="700">TISSUE</text></svg>
-                      </div>
-                      <div class="prod-name" style="font-size:10px;color:#1a2a3a;font-weight:700;margin-bottom:2px">Masafi Tissue</div>
-                      <div style="font-size:9px;color:#666;margin-bottom:4px">Soft touch · carton</div>
-                      <div class="prod-price" style="font-size:11px;font-weight:700">AED 220</div>
-                    </div>
-                  </div>
-
-                  <!-- Quantity row -->
-                  <div style="background:white;border-radius:8px;padding:8px 12px;margin-bottom:8px;display:flex;align-items:center;box-shadow:0 1px 3px rgba(0,91,172,0.08)">
-                    <div class="app-section" style="margin:0;flex:1">Quantity</div>
-                    <span class="qty-lbl" id="b2c-qty-lbl" style="font-size:10px;color:#888;margin-right:8px;flex:1;text-align:center">Select product first</span>
-                    <div class="qty-ctrl">
-                      <button class="qty-btn" onclick="changeQty('b2c',-1)" style="width:26px;height:26px;font-size:16px">−</button>
-                      <span class="qty-num" id="b2c-qty-num" style="font-size:15px;min-width:30px;color:#1a2a3a">1</span>
-                      <button class="qty-btn" onclick="changeQty('b2c',1)" style="width:26px;height:26px;font-size:16px">+</button>
-                    </div>
-                  </div>
-
-                  <div class="app-section">Delivery slot</div>
-                  <div class="slot-grid" id="b2c-slots" style="margin-bottom:8px"></div>
-
-                  <!-- Deliver to -->
-                  <div style="background:white;border-radius:8px;padding:8px 12px;margin-bottom:8px;display:flex;align-items:center;gap:8px;box-shadow:0 1px 3px rgba(0,91,172,0.08)">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#005BAC"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                    <div>
-                      <div style="font-size:10px;font-weight:700;color:#1a2a3a">Home / Office delivery</div>
-                      <div style="font-size:9px;color:#888">Dubai · Account: B2C-AUTO · No minimum order</div>
-                    </div>
-                    <svg style="margin-left:auto" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#005BAC" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-                  </div>
-
-                  <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 2px;margin-bottom:8px">
-                    <span style="font-size:11px;color:#555;font-weight:600">Order total</span>
-                    <b id="b2c-total" style="font-size:13px;color:#005BAC">AED —</b>
-                  </div>
-                  <button class="place-btn" id="b2c-place" onclick="placeOrder('b2c')" disabled style="border-radius:8px;font-size:12px;letter-spacing:0.04em;padding:11px">
-                    Select product &amp; slot to continue
-                  </button>
-                </div>
-              </div>
-
-              <!-- B2B MT -->
-              <div 
-                <div class="app-bar">
-                  <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                  <div class="app-bar-title">masafi · Shop</div>
-                  <div style="margin-left:auto;font-size:8px;background:rgba(255,255,255,0.15);padding:2px 6px;border-radius:3px;font-weight:600">B2C</div>
-                </div>
-                <div class="app-body">
-                  <div class="app-section">Choose your product</div>
-                  <div class="prod-grid">
-                    <div class="prod-card" onclick="selectProd(this,'w500',85,8200,'Water 500ml × 24','b2c')">
-                      <div class="prod-img"><svg viewBox="0 0 40 60" fill="none"><rect x="12" y="8" width="16" height="44" rx="4" fill="#cce4f6" stroke="#005BAC" stroke-width="1.5"/><rect x="15" y="4" width="10" height="6" rx="2" fill="#005BAC"/><text x="20" y="34" text-anchor="middle" font-size="6" fill="#005BAC" font-weight="700">500ml</text></svg></div>
-                      <div class="prod-name">Water 500ml<br>Pack of 24</div>
-                      <div class="prod-price">AED 85</div>
-                    </div>
-                    <div class="prod-card" onclick="selectProd(this,'w1500',110,3100,'Water 1.5L × 12','b2c')">
-                      <div class="prod-img"><svg viewBox="0 0 40 60" fill="none"><rect x="10" y="6" width="20" height="46" rx="5" fill="#cce4f6" stroke="#005BAC" stroke-width="1.5"/><rect x="14" y="2" width="12" height="6" rx="2" fill="#005BAC"/><text x="20" y="34" text-anchor="middle" font-size="5.5" fill="#005BAC" font-weight="700">1.5L</text></svg></div>
-                      <div class="prod-name">Water 1.5L<br>Pack of 12</div>
-                      <div class="prod-price">AED 110</div>
-                    </div>
-                    <div class="prod-card" onclick="selectProd(this,'4g',180,1850,'4G — 4-Gallon','b2c')">
-                      <div class="prod-img"><svg viewBox="0 0 50 60" fill="none"><rect x="8" y="10" width="34" height="40" rx="6" fill="#cce4f6" stroke="#005BAC" stroke-width="1.5"/><rect x="16" y="4" width="18" height="8" rx="3" fill="#005BAC"/><text x="25" y="34" text-anchor="middle" font-size="6" fill="#005BAC" font-weight="700">4 Gal</text></svg></div>
-                      <div class="prod-name">4-Gallon HOD<br>Home &amp; Office</div>
-                      <div class="prod-price">AED 180</div>
-                    </div>
-                    <div class="prod-card" onclick="selectProd(this,'tissue',220,290,'TISSUE Cases','b2c')">
-                      <div class="prod-img"><svg viewBox="0 0 50 50" fill="none"><rect x="5" y="10" width="40" height="30" rx="4" fill="#f0f0f0" stroke="#888" stroke-width="1.5"/><rect x="10" y="15" width="30" height="20" rx="2" fill="white"/><text x="25" y="29" text-anchor="middle" font-size="6" fill="#555" font-weight="700">TISSUE</text></svg></div>
-                      <div class="prod-name">Masafi Tissue<br>Carton</div>
-                      <div class="prod-price">AED 220</div>
-                    </div>
-                  </div>
-                  <div class="app-section">Quantity</div>
-                  <div class="qty-row">
-                    <span class="qty-lbl" id="b2c-qty-lbl">Select a product first</span>
-                    <div class="qty-ctrl">
-                      <button class="qty-btn" onclick="changeQty('b2c',-1)">−</button>
-                      <span class="qty-num" id="b2c-qty-num">1</span>
-                      <button class="qty-btn" onclick="changeQty('b2c',1)">+</button>
-                    </div>
-                  </div>
-                  <div class="app-section">Delivery slot</div>
-                  <div class="slot-grid" id="b2c-slots"></div>
-                  <div class="app-section">Deliver to</div>
-                  <div class="address-box">
-                    <div class="addr-name">Home / Office delivery</div>
-                    <div class="addr-line">Dubai · Account: B2C-AUTO · No minimum order</div>
-                  </div>
-                  <div class="order-total"><span>Order total</span><b id="b2c-total">AED —</b></div>
-                  <button class="place-btn" id="b2c-place" onclick="placeOrder('b2c')" disabled>Select product &amp; slot</button>
-                </div>
-              </div>
-
-              <!-- B2B MODERN TRADE FORM -->
-              <div id="form-mt" class="app-mockup" style="display:none">
-                <div class="app-bar" style="background:#1a3a5c">
-                  <svg viewBox="0 0 24 24" fill="white" width="14"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-                  <div class="app-bar-title">CS Order Entry — Modern Trade</div>
-                  <div style="margin-left:auto;font-size:8px;background:rgba(239,68,68,0.4);padding:2px 6px;border-radius:3px;font-weight:600">B2B · HIGH VALUE</div>
-                </div>
-                <div class="app-body" style="background:#f8faff">
-                  <div class="app-section" style="color:#1a3a5c">Account</div>
-                  <div style="background:rgba(0,91,172,0.06);border:1px solid rgba(0,91,172,0.15);border-radius:5px;padding:7px 10px;margin-bottom:6px;font-size:9px;color:#555;line-height:1.5">
-                    <strong style="color:#1a3a5c">Note:</strong> Masafi's MT accounts are organised by territory route code. In the live system, individual account names (hypermarkets, supermarkets, co-ops) would appear here from the customer master. The demo uses territory segments from Masafi's AOP data.
-                  </div>
-                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px">
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-dxb-large',100,'Dubai MT — Large Format (Route 13220)','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Dubai MT — Large Format</div>
-                      <div style="font-size:8px;color:#005BAC;font-weight:600">Route 13220 · MOQ: 100 cases</div>
-                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 49.1M revenue · highest value MT</div>
-                    </div>
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-dxb-mid',80,'Dubai MT — Mid Format (Routes 13210–13215)','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Dubai MT — Mid Format</div>
-                      <div style="font-size:8px;color:#005BAC;font-weight:600">Routes 13210–13215 · MOQ: 80 cases</div>
-                      <div style="font-size:7.5px;color:#888;margin-top:1px">8 territory routes · preseller channel</div>
-                    </div>
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-auh',100,'Abu Dhabi MT (Routes 53210–53212)','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Abu Dhabi MT</div>
-                      <div style="font-size:8px;color:#005BAC;font-weight:600">Routes 53210–53212 · MOQ: 100 cases</div>
-                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 21.9M revenue · 3 territory routes</div>
-                    </div>
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-shj',80,'Sharjah MT (Routes SJ34, SJ145)','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Sharjah MT</div>
-                      <div style="font-size:8px;color:#005BAC;font-weight:600">Routes SJ34, SJ145 · MOQ: 80 cases</div>
-                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 12.0M revenue · Al Sajaa area</div>
-                    </div>
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-alain',80,'Al Ain MT (Routes 63210–63211)','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Al Ain MT</div>
-                      <div style="font-size:8px;color:#d97706;font-weight:600">Routes 63210–63211 · MOQ: 80 cases</div>
-                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 6.1M · 35.7% van return rate region</div>
-                    </div>
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-fuj-rak',50,'Fujairah + RAK MT','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Fujairah + RAK MT</div>
-                      <div style="font-size:8px;color:#059669;font-weight:600">Routes FJ36, RK56 · MOQ: 50 cases</div>
-                      <div style="font-size:7.5px;color:#888;margin-top:1px">Factory region — direct supply advantage</div>
-                    </div>
-                  </div>
-                  <div class="app-section" style="color:#1a3a5c">Product &amp; quantity</div>
-                  <select id="mt-product" onchange="updMTTotal()" style="width:100%;padding:7px;border:1px solid #cdd;border-radius:4px;font-size:12px;margin-bottom:6px;background:white">
-                    <option value="">Select product…</option>
-                    <optgroup label="── Water (dominant — 80% of MT volume) ──">
-                      <option value="w-pet" data-price="72" data-stock="8200">WATER-PET — 500ml/1L/1.5L cases · AED 72/case B2B</option>
-                      <option value="w-zero" data-price="88" data-stock="1200">WATER-ZERO — Zero calories · AED 88/case B2B</option>
-                      <option value="w-alkalife" data-price="105" data-stock="980">WATER-ALKALIFE — Premium alkaline · AED 105/case B2B</option>
-                      <option value="w-5l" data-price="80" data-stock="420">WATER-5L — 5 litre cases · AED 80/case B2B</option>
-                      <option value="rpet" data-price="78" data-stock="600">rPET — Recycled PET sustainable range · AED 78/case</option>
-                    </optgroup>
-                    <optgroup label="── 4-Gallon (HOD crossover) ──">
-                      <option value="4g" data-price="155" data-stock="1850">4G — Standard 4-gallon · AED 155/unit B2B</option>
-                      <option value="4g-zero" data-price="168" data-stock="380">4G-ZERO — Zero calorie gallon · AED 168/unit</option>
-                    </optgroup>
-                    <optgroup label="── Non-water ──">
-                      <option value="tissue" data-price="195" data-stock="290">TISSUE — Standard tissue cases · AED 195/case</option>
-                      <option value="tissue-premium" data-price="240" data-stock="85">PREMIUM TISSUE — Premium range · AED 240/case</option>
-                      <option value="wet-wipe" data-price="175" data-stock="160">WET WIPE — cases · AED 175/case</option>
-                    </optgroup>
-                  </select>
-                  <div class="qty-row" style="background:white;border:1px solid #cdd;border-radius:4px;padding:6px 10px;margin-bottom:6px">
-                    <span class="qty-lbl" id="mt-qty-lbl" style="color:#333;font-size:11px">Quantity (cases)</span>
-                    <div class="qty-ctrl">
-                      <button class="qty-btn" style="border-color:#1a3a5c;color:#1a3a5c" onclick="changeQty('mt',-10)">−</button>
-                      <span class="qty-num" id="mt-qty-num" style="color:#1a1a2e">50</span>
-                      <button class="qty-btn" style="border-color:#1a3a5c;color:#1a3a5c" onclick="changeQty('mt',10)">+</button>
-                    </div>
-                  </div>
-                  <div class="app-section" style="color:#1a3a5c">Delivery date (EDD)</div>
-                  <div class="slot-grid" id="mt-slots"></div>
-                  <div class="order-total" style="border-top:1px solid #e0e0e0"><span style="color:#333">Order value (B2B rate)</span><b id="mt-total" style="color:#1a3a5c">AED —</b></div>
-                  <button class="place-btn" id="mt-place" onclick="placeOrder('mt')" disabled style="background:#1a3a5c">Select account, product &amp; date</button>
-                </div>
-              </div>
-
-              <!-- B2B HOD FORM -->
-              <div id="form-hod" class="app-mockup" style="display:none">
-                <div class="app-bar" style="background:#004d40">
-                  <svg viewBox="0 0 24 24" fill="white" width="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-                  <div class="app-bar-title">HOD — Home &amp; Office Delivery</div>
-                  <div style="margin-left:auto;font-size:8px;background:rgba(0,200,83,0.3);padding:2px 6px;border-radius:3px;font-weight:600">B2B · SUBSCRIPTION</div>
-                </div>
-                <div class="app-body" style="background:#f0faf4">
-                  <div class="app-section" style="color:#004d40">Account type</div>
-                  <div style="background:rgba(0,77,64,0.06);border:1px solid rgba(0,135,90,0.2);border-radius:5px;padding:6px 10px;margin-bottom:6px;font-size:8.5px;color:#555;line-height:1.4">
-                    <strong style="color:#004d40">HOD:</strong> AED 98M revenue · 27% of Masafi total · Van delivery only · 7 regions · 40+ route codes (GA, GD, GL, GS prefix)
-                  </div>
-                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px">
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'hod-dxb',2,'Dubai HOD — Residential &amp; Office (GD routes)','HOD')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Dubai HOD</div>
-                      <div style="font-size:8px;color:#00875a;font-weight:600">GD routes · AED 48.5M</div>
-                      <div style="font-size:7.5px;color:#888;margin-top:1px">Largest HOD region · 15+ route codes</div>
-                    </div>
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'hod-auh',2,'Abu Dhabi HOD (GA routes)','HOD')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Abu Dhabi HOD</div>
-                      <div style="font-size:8px;color:#00875a;font-weight:600">GA routes · AED 20.6M</div>
-                      <div style="font-size:7.5px;color:#888;margin-top:1px">13 route codes · GA01–GA34</div>
-                    </div>
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'hod-shj',2,'Sharjah HOD (GS routes)','HOD')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Sharjah HOD</div>
-                      <div style="font-size:8px;color:#00875a;font-weight:600">GS routes · AED 12.9M</div>
-                      <div style="font-size:7.5px;color:#888;margin-top:1px">Al Sajaa + Sharjah city</div>
-                    </div>
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'hod-govt',2,'Government / FOC Account','HOD')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Government / FOC</div>
-                      <div style="font-size:8px;color:#7b4fd4;font-weight:600">All regions · Zero price</div>
-                      <div style="font-size:7.5px;color:#888;margin-top:1px">Finance approval required</div>
-                    </div>
-                  </div>
-                  <div class="app-section" style="color:#004d40">Product</div>
-                  <select id="hod-product" onchange="updHODTotal()" style="width:100%;padding:7px;border:1px solid #cce;border-radius:4px;font-size:12px;margin-bottom:6px;background:white">
-                    <option value="">Select product…</option>
-                    <optgroup label="── 4-Gallon (core HOD product) ──">
-                      <option value="4g" data-price="180" data-stock="1850">4G — Standard 4-gallon · AED 180/unit</option>
-                      <option value="4g-zero" data-price="195" data-stock="380">4G-ZERO — Zero calorie gallon · AED 195/unit</option>
-                    </optgroup>
-                    <optgroup label="── Water PET (HOD delivery) ──">
-                      <option value="w-pet" data-price="85" data-stock="8200">WATER-PET — 500ml–1.5L cases · AED 85/case</option>
-                      <option value="w-alkalife" data-price="210" data-stock="980">WATER-ALKALIFE — Premium alkaline · AED 210/case</option>
-                      <option value="w-zero" data-price="95" data-stock="1200">WATER-ZERO — Zero calorie · AED 95/case</option>
-                      <option value="rpet" data-price="88" data-stock="600">rPET — Recycled PET range · AED 88/case</option>
-                    </optgroup>
-                    <optgroup label="── Non-water ──">
-                      <option value="tissue" data-price="220" data-stock="290">TISSUE — Standard tissue cases · AED 220/case</option>
-                      <option value="wet-wipe" data-price="185" data-stock="160">WET WIPE — Wet wipe cases · AED 185/case</option>
-                    </optgroup>
-                  </select>
-                  <div class="qty-row" style="background:white;border:1px solid #cce;border-radius:4px;padding:6px 10px;margin-bottom:6px">
-                    <span style="font-size:11px;color:#333;font-weight:600">Units</span>
-                    <div class="qty-ctrl">
-                      <button class="qty-btn" style="border-color:#004d40;color:#004d40" onclick="changeQty('hod',-1)">−</button>
-                      <span class="qty-num" id="hod-qty-num" style="color:#1a1a2e">6</span>
-                      <button class="qty-btn" style="border-color:#004d40;color:#004d40" onclick="changeQty('hod',1)">+</button>
-                    </div>
-                  </div>
-                  <div class="app-section" style="color:#004d40">Delivery</div>
-                  <div class="slot-grid" id="hod-slots"></div>
-                  <div class="order-total" style="border-top:1px solid #e0e0e0"><span style="color:#333">Order value</span><b id="hod-total" style="color:#004d40">AED —</b></div>
-                  <button class="place-btn" id="hod-place" onclick="placeOrder('hod')" disabled style="background:#004d40">Select account, product &amp; slot</button>
-                </div>
-              </div>
-
-              <!-- B2B EXPORT FORM -->
-              <div id="form-export" class="app-mockup" style="display:none">
-                <div class="app-bar" style="background:#1a237e">
-                  <svg viewBox="0 0 24 24" fill="white" width="14"><path d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z"/></svg>
-                  <div class="app-bar-title">Export Sales — International</div>
-                  <div style="margin-left:auto;font-size:8px;background:rgba(123,79,212,0.4);padding:2px 6px;border-radius:3px;font-weight:600">B2B · EXPORT</div>
-                </div>
-                <div class="app-body" style="background:#f3f0ff">
-                  <div class="app-section" style="color:#1a237e">Destination market</div>
-                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px">
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'oman',0,'Oman DDP','EXP')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e">🇴🇲 Oman</div>
-                      <div style="font-size:8px;color:#7b4fd4;font-weight:600">DDP · Road transport</div>
-                    </div>
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'kuwait',0,'Kuwait','EXP')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e">🇰🇼 Kuwait</div>
-                      <div style="font-size:8px;color:#7b4fd4;font-weight:600">By sea · JAFZA</div>
-                    </div>
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'jordan',0,'Jordan','EXP')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e">🇯🇴 Jordan</div>
-                      <div style="font-size:8px;color:#7b4fd4;font-weight:600">By sea · JAFZA</div>
-                    </div>
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'pakistan',0,'Pakistan','EXP')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e">🇵🇰 Pakistan</div>
-                      <div style="font-size:8px;color:#7b4fd4;font-weight:600">Ex-works</div>
-                    </div>
-                  </div>
-                  <div class="app-section" style="color:#1a237e">Product &amp; volume</div>
-                  <select id="exp-product" onchange="updEXPTotal()" style="width:100%;padding:7px;border:1px solid #cce;border-radius:4px;font-size:12px;margin-bottom:6px;background:white">
-                    <option value="">Select product…</option>
-                    <option value="w500" data-price="68" data-stock="8200">Water 500ml — export price AED 68/case</option>
-                    <option value="w1500" data-price="90" data-stock="3100">Water 1.5L — export price AED 90/case</option>
-                    <option value="tissue" data-price="185" data-stock="290">Tissue — export price AED 185/case</option>
-                  </select>
-                  <div class="qty-row" style="background:white;border:1px solid #cce;border-radius:4px;padding:6px 10px;margin-bottom:6px">
-                    <span style="font-size:11px;color:#333;font-weight:600">Cases</span>
-                    <div class="qty-ctrl">
-                      <button class="qty-btn" style="border-color:#1a237e;color:#1a237e" onclick="changeQty('exp',-100)">−</button>
-                      <span class="qty-num" id="exp-qty-num" style="color:#1a1a2e">500</span>
-                      <button class="qty-btn" style="border-color:#1a237e;color:#1a237e" onclick="changeQty('exp',100)">+</button>
-                    </div>
-                  </div>
-                  <div style="background:white;border:1px solid #cce;border-radius:4px;padding:8px 10px;margin-bottom:8px;font-size:11px;color:#555;line-height:1.6">
-                    <strong style="color:#1a237e">Export docs required:</strong> Bill of lading · Commercial invoice · Packing list · Certificate of origin · RTA cargo strapping cert
-                  </div>
-                  <div class="order-total" style="border-top:1px solid #e0e0e0"><span style="color:#333">Export order value</span><b id="exp-total" style="color:#1a237e">AED —</b></div>
-                  <button class="place-btn" id="exp-place" onclick="placeOrder('exp')" disabled style="background:#1a237e">Select market &amp; product</button>
-                </div>
-              </div>
-            </div>
-
-            <!-- AI OUTPUT -->
-            <div class="ai-panel" id="a1-result">
-              <div id="ai-readiness">
-                <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.05)">
-                  <div style="width:36px;height:36px;border-radius:50%;background:rgba(0,102,255,0.1);border:1.5px solid rgba(0,102,255,0.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0">🤖</div>
-                  <div>
-                    <div style="font-size:11px;font-weight:700;color:var(--white);margin-bottom:1px">Agent 01 — Standby</div>
-                    <div style="font-size:10px;color:var(--mgrey)">Complete the form to validate</div>
-                  </div>
-                </div>
-                <div id="readiness-checks" style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px"></div>
-                <div id="readiness-hint" style="font-size:11px;color:var(--mgrey);line-height:1.6;padding:10px;background:rgba(255,255,255,0.02);border-radius:4px;border:1px solid rgba(255,255,255,0.05)"></div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- ALGORITHM (updates per channel) -->
-        <button class="algo-toggle" onclick="toggleAlgo('algo1')">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-          <span id="algo1-label">How Agent 01 validates B2C orders — algorithm breakdown</span>
-          <span class="arr" id="algo1-arr">▼</span>
-        </button>
-        <div class="algo-content" id="algo1">
-          <div id="algo1-body"><!-- populated by JS --></div>
-        </div>
-      </div>
-
-
-<!-- AGENT 02 — ROUTE LOAD -->
       <div class="panel" id="a2-sec" style="margin-bottom:1.1rem">
         <div class="ph amber">
           <div>
@@ -956,8 +491,8 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
       <div class="panel" id="map-sec" style="margin-bottom:1.1rem;overflow:visible">
         <div class="ph" style="border-left:3px solid #7B4FD4">
           <div>
-            <div class="ph-agent" style="color:#9b7bff">Agent 03 — Fleet &amp; Demand Intelligence</div>
-            <div class="ph-title">UAE Network Map — Demand, Fleet &amp; Route Optimisation</div>
+            <div class="ph-agent" style="color:#9b7bff">Live — UAE Operations Intelligence</div>
+            <div class="ph-title">Masafi Network — Demand, Fleet &amp; Route Optimisation</div>
           </div>
           <div class="ph-r" style="display:flex;gap:6px">
             <span class="badge" style="background:rgba(123,79,212,0.1);color:#9b7bff;border:1px solid rgba(123,79,212,0.2)">Live Simulation</span>
@@ -989,8 +524,8 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
         <div style="display:grid;grid-template-columns:1fr 340px;min-height:480px">
 
           <!-- SVG MAP -->
-          <div style="position:relative;background:#070f1c;overflow:hidden" id="map-container">
-            <svg id="uae-map" viewBox="0 0 820 480" width="100%" height="100%" style="display:block">
+          <div style="position:relative;background:#070f1c;overflow:hidden;min-height:520px" id="map-container">
+            <svg id="uae-map" viewBox="0 0 820 500" width="100%" height="100%" style="display:block;min-height:520px">
               <defs>
                 <!-- Glow filters -->
                 <filter id="glow-blue"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
@@ -1488,6 +1023,473 @@ buildRecs(SIM_STATES['2030'].recs);
 </script>
 
       
+      
+
+      <!-- REVENUE LEAKAGE STRIP -->
+      <div class="leakage-strip">
+        <div class="ls-head">
+          <div>
+            <div class="ls-head-title">Total revenue leakage — identified from your data</div>
+            <div style="font-size:10.5px;color:var(--mgrey);margin-top:1px">Three sources. One number. This is what the AI agents recover.</div>
+          </div>
+          <div class="ls-total">AED 26.4M+<span class="ls-total-lbl">identified leakage</span></div>
+        </div>
+        <div class="ls-sources">
+          <div class="ls-src c">
+            <div class="ls-label">Source 1 — Wrong bookings &amp; cancellations</div>
+            <div class="ls-val">AED 23.7M</div>
+            <div class="ls-detail">13,671 cancelled orders Dec 2025–May 2026. Traditional Trade (TT) is Masafi's largest channel at AED 169M (47% of revenue) — bigger than MT (26%) and HOD (27%) combined. 82% are wrong bookings. MT channel (AED 94.7M annual revenue) accounts for AED 19.7M of cancellations. TT (AED 169M revenue) and HOD (AED 98M) also affected. Total Masafi UAE revenue from AOP data: AED 361.7M.</div>
+            <span class="ls-agent">→ Fixed by Agent 01 · Order Validation</span>
+          </div>
+          <div class="ls-src v">
+            <div class="ls-label">Source 2 — Van sales stock returned unsold</div>
+            <div class="ls-val">AED 1.8M est.</div>
+            <div class="ls-detail">29.8% of cases loaded onto van sales vehicles return to the depot unsold every day. Al Ain at 35.7% — worst in the network. 145,000 cases cycling back daily. Working capital earning nothing. Estimated at AED 95 average per case × 313 working days.</div>
+            <span class="ls-agent">→ Fixed by Agent 02 · Load Optimisation</span>
+          </div>
+          <div class="ls-src f">
+            <div class="ls-label">Source 3 — Warehouse fill attainment gap</div>
+            <div class="ls-val">AED 0.9M est.</div>
+            <div class="ls-detail">Overall fill attainment is 60–70% against a target of high 90s. The gap between orders accepted and orders fulfilled in full means customers are receiving partial deliveries — or nothing — on a portion of confirmed orders. Root cause: demand plan built in Excel without structured sales input.</div>
+            <span class="ls-agent">→ Addressed by Demand Intelligence Agent (Phase 2)</span>
+          </div>
+        </div>
+        <div class="ls-session">
+          <div class="lss-item">Orders validated this session: <span class="lss-val" id="sess-proc" style="margin-left:6px">0</span></div>
+          <div class="lss-item">Issues caught before cancellation: <span class="lss-val" id="sess-caught" style="margin-left:6px;color:#ff5f5f">0</span></div>
+          <div class="lss-item">Revenue protected: <span class="lss-val" id="sess-saved" style="margin-left:6px">AED 0</span></div>
+        </div>
+      </div>
+
+      <!-- AGENT 01 — ORDER JOURNEY -->
+      <div class="panel" id="a1-sec" style="margin-bottom:1.1rem">
+        <div class="ph blue">
+          <div>
+            <div class="ph-agent">Agent 01</div>
+            <div class="ph-title">AI Order Validation — All Channels</div>
+          </div>
+          <div class="ph-r" style="display:flex;gap:6px">
+            <span class="badge badge-live">Live</span>
+            <span id="ch-badge" class="badge" style="background:rgba(0,102,255,0.1);color:var(--blue2);border:1px solid rgba(0,102,255,0.2)">B2C — Consumer</span>
+          </div>
+        </div>
+
+        <!-- CHANNEL SELECTOR -->
+        <div style="display:flex;gap:0;border-bottom:1px solid var(--border);background:rgba(0,0,0,0.12)">
+          <button id="ch-mt" onclick="switchChannel('mt')" class="ch-btn">
+            <span class="ch-icon">🏪</span>
+            <div>
+              <div class="ch-label">B2B — Modern Trade</div>
+              <div class="ch-sub">Carrefour · Lulu · Spinneys · AED 19.7M at risk</div>
+            </div>
+          </button>
+          <button id="ch-hod" onclick="switchChannel('hod')" class="ch-btn">
+            <span class="ch-icon">🏢</span>
+            <div>
+              <div class="ch-label">B2B — HOD</div>
+              <div class="ch-sub">Home · Office · Corporate subscriptions</div>
+            </div>
+          </button>
+          <button id="ch-export" onclick="switchChannel('export')" class="ch-btn">
+            <span class="ch-icon">✈️</span>
+            <div>
+              <div class="ch-label">B2B — Export</div>
+              <div class="ch-sub">Oman · Kuwait · Jordan · Bahrain · Pakistan</div>
+            </div>
+          </button>
+          <button id="ch-b2c" onclick="switchChannel('b2c')" class="ch-btn">
+            <span class="ch-icon">📱</span>
+            <div>
+              <div class="ch-label">B2C — Consumer</div>
+              <div class="ch-sub">App · Website · Talabat · Noon</div>
+            </div>
+          </button>
+        </div>
+
+        <!-- CHANNEL RULE STRIP -->
+        <div id="ch-rules" style="padding:10px 1.25rem;background:rgba(0,102,255,0.04);border-bottom:1px solid var(--border);display:flex;gap:0;flex-wrap:wrap;align-items:stretch"></div>
+
+        <!-- SYSTEM FLOW — updates per channel -->
+        <div style="padding:10px 1.1rem 0">
+          <div style="font-size:9.5px;color:var(--mgrey);margin-bottom:6px" id="flow-label">How Masafi's order system works — B2C consumer channel</div>
+          <div class="system-flow" id="system-flow-strip">
+            <!-- populated by JS -->
+          </div>
+        </div>
+
+        <div class="pb">
+          <div style="font-size:10.5px;color:var(--mgrey);margin-bottom:10px" id="a1-intro">Place an order below as a Masafi consumer would — Masafi App or aggregator. Agent 01 validates it before it reaches the warehouse.</div>
+          <div class="journey-wrap">
+
+            <!-- LEFT — ORDER FORM (switches per channel) -->
+            <div id="order-form-wrap">
+              <!-- B2C APP MOCKUP -->
+              <div id="form-b2c" class="app-mockup">
+                <div class="app-bar" style="background:linear-gradient(135deg,#005BAC,#0077CC)">
+                  <svg viewBox="0 0 24 24" fill="white" width="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  <div class="app-bar-title" style="font-size:13px;letter-spacing:0.05em">masafi · Shop</div>
+                  <div style="margin-left:auto;display:flex;align-items:center;gap:6px">
+                    <div style="font-size:8px;background:rgba(255,255,255,0.2);padding:2px 7px;border-radius:10px;font-weight:700;letter-spacing:0.1em">B2C</div>
+                  </div>
+                </div>
+                <div class="app-body" style="background:#f0f6ff">
+
+                  <!-- Search bar style header -->
+                  <div style="background:white;border-radius:8px;padding:8px 12px;margin-bottom:12px;display:flex;align-items:center;gap:8px;box-shadow:0 1px 4px rgba(0,91,172,0.1);border:1px solid rgba(0,91,172,0.1)">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#005BAC" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <span style="font-size:11px;color:#999">Search Masafi products…</span>
+                  </div>
+
+                  <div class="app-section">Choose your product</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+                    <div class="prod-card" onclick="selectProd(this,'w-pet',85,8200,'Water PET','b2c')" style="border-radius:10px;padding:10px 8px">
+                      <div class="prod-img" style="height:52px">
+                        <svg viewBox="0 0 40 60" fill="none"><rect x="12" y="8" width="16" height="44" rx="5" fill="url(#bottleGrad)" stroke="#005BAC" stroke-width="1"/><rect x="15" y="4" width="10" height="6" rx="2" fill="#005BAC"/><text x="20" y="36" text-anchor="middle" font-size="5.5" fill="#005BAC" font-weight="700">500ml</text><defs><linearGradient id="bottleGrad" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#e8f4fd"/><stop offset="1" stop-color="#cce4f6"/></linearGradient></defs></svg>
+                      </div>
+                      <div class="prod-name" style="font-size:10px;color:#1a2a3a;font-weight:700;margin-bottom:2px">Water PET</div>
+                      <div style="font-size:9px;color:#666;margin-bottom:4px">500ml · 1L · 1.5L</div>
+                      <div class="prod-price" style="font-size:11px;font-weight:700">AED 85</div>
+                    </div>
+                    <div class="prod-card" onclick="selectProd(this,'w-alkalife',110,980,'Alkalife Water','b2c')" style="border-radius:10px;padding:10px 8px">
+                      <div class="prod-img" style="height:52px">
+                        <svg viewBox="0 0 40 60" fill="none"><rect x="11" y="7" width="18" height="46" rx="5" fill="url(#alkGrad)" stroke="#059669" stroke-width="1"/><rect x="14" y="3" width="12" height="6" rx="2" fill="#059669"/><text x="20" y="34" text-anchor="middle" font-size="5" fill="#059669" font-weight="700">ALKA</text><defs><linearGradient id="alkGrad" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#e6f9f2"/><stop offset="1" stop-color="#c4eedd"/></linearGradient></defs></svg>
+                      </div>
+                      <div class="prod-name" style="font-size:10px;color:#1a2a3a;font-weight:700;margin-bottom:2px">Alkalife</div>
+                      <div style="font-size:9px;color:#666;margin-bottom:4px">Alkaline · pH balanced</div>
+                      <div class="prod-price" style="font-size:11px;font-weight:700;color:#059669">AED 110</div>
+                    </div>
+                    <div class="prod-card" onclick="selectProd(this,'4g',180,1850,'4-Gallon HOD','b2c')" style="border-radius:10px;padding:10px 8px">
+                      <div class="prod-img" style="height:52px">
+                        <svg viewBox="0 0 50 60" fill="none"><rect x="8" y="10" width="34" height="40" rx="7" fill="url(#galGrad)" stroke="#005BAC" stroke-width="1"/><rect x="16" y="4" width="18" height="8" rx="3" fill="#005BAC"/><text x="25" y="33" text-anchor="middle" font-size="6" fill="#005BAC" font-weight="700">4 Gal</text><defs><linearGradient id="galGrad" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d4eaf8"/><stop offset="1" stop-color="#aad4f5"/></linearGradient></defs></svg>
+                      </div>
+                      <div class="prod-name" style="font-size:10px;color:#1a2a3a;font-weight:700;margin-bottom:2px">4-Gallon HOD</div>
+                      <div style="font-size:9px;color:#666;margin-bottom:4px">Home · Office delivery</div>
+                      <div class="prod-price" style="font-size:11px;font-weight:700">AED 180</div>
+                    </div>
+                    <div class="prod-card" onclick="selectProd(this,'tissue',220,290,'Tissue Cases','b2c')" style="border-radius:10px;padding:10px 8px">
+                      <div class="prod-img" style="height:52px">
+                        <svg viewBox="0 0 50 50" fill="none"><rect x="5" y="10" width="40" height="30" rx="6" fill="#f5f5f5" stroke="#aaa" stroke-width="1"/><rect x="10" y="15" width="30" height="20" rx="3" fill="white"/><path d="M 20 25 Q 25 20 30 25" stroke="#aaa" stroke-width="1.5" fill="none"/><text x="25" y="31" text-anchor="middle" font-size="5.5" fill="#666" font-weight="700">TISSUE</text></svg>
+                      </div>
+                      <div class="prod-name" style="font-size:10px;color:#1a2a3a;font-weight:700;margin-bottom:2px">Masafi Tissue</div>
+                      <div style="font-size:9px;color:#666;margin-bottom:4px">Soft touch · carton</div>
+                      <div class="prod-price" style="font-size:11px;font-weight:700">AED 220</div>
+                    </div>
+                  </div>
+
+                  <!-- Quantity row -->
+                  <div style="background:white;border-radius:8px;padding:8px 12px;margin-bottom:8px;display:flex;align-items:center;box-shadow:0 1px 3px rgba(0,91,172,0.08)">
+                    <div class="app-section" style="margin:0;flex:1">Quantity</div>
+                    <span class="qty-lbl" id="b2c-qty-lbl" style="font-size:10px;color:#888;margin-right:8px;flex:1;text-align:center">Select product first</span>
+                    <div class="qty-ctrl">
+                      <button class="qty-btn" onclick="changeQty('b2c',-1)" style="width:26px;height:26px;font-size:16px">−</button>
+                      <span class="qty-num" id="b2c-qty-num" style="font-size:15px;min-width:30px;color:#1a2a3a">1</span>
+                      <button class="qty-btn" onclick="changeQty('b2c',1)" style="width:26px;height:26px;font-size:16px">+</button>
+                    </div>
+                  </div>
+
+                  <div class="app-section">Delivery slot</div>
+                  <div class="slot-grid" id="b2c-slots" style="margin-bottom:8px"></div>
+
+                  <!-- Deliver to -->
+                  <div style="background:white;border-radius:8px;padding:8px 12px;margin-bottom:8px;display:flex;align-items:center;gap:8px;box-shadow:0 1px 3px rgba(0,91,172,0.08)">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#005BAC"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <div>
+                      <div style="font-size:10px;font-weight:700;color:#1a2a3a">Home / Office delivery</div>
+                      <div style="font-size:9px;color:#888">Dubai · Account: B2C-AUTO · No minimum order</div>
+                    </div>
+                    <svg style="margin-left:auto" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#005BAC" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                  </div>
+
+                  <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 2px;margin-bottom:8px">
+                    <span style="font-size:11px;color:#555;font-weight:600">Order total</span>
+                    <b id="b2c-total" style="font-size:13px;color:#005BAC">AED —</b>
+                  </div>
+                  <button class="place-btn" id="b2c-place" onclick="placeOrder('b2c')" disabled style="border-radius:8px;font-size:12px;letter-spacing:0.04em;padding:11px">
+                    Select product &amp; slot to continue
+                  </button>
+                </div>
+              </div>
+
+              <!-- B2B MT -->
+              <div 
+                <div class="app-bar">
+                  <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  <div class="app-bar-title">masafi · Shop</div>
+                  <div style="margin-left:auto;font-size:8px;background:rgba(255,255,255,0.15);padding:2px 6px;border-radius:3px;font-weight:600">B2C</div>
+                </div>
+                <div class="app-body">
+                  <div class="app-section">Choose your product</div>
+                  <div class="prod-grid">
+                    <div class="prod-card" onclick="selectProd(this,'w500',85,8200,'Water 500ml × 24','b2c')">
+                      <div class="prod-img"><svg viewBox="0 0 40 60" fill="none"><rect x="12" y="8" width="16" height="44" rx="4" fill="#cce4f6" stroke="#005BAC" stroke-width="1.5"/><rect x="15" y="4" width="10" height="6" rx="2" fill="#005BAC"/><text x="20" y="34" text-anchor="middle" font-size="6" fill="#005BAC" font-weight="700">500ml</text></svg></div>
+                      <div class="prod-name">Water 500ml<br>Pack of 24</div>
+                      <div class="prod-price">AED 85</div>
+                    </div>
+                    <div class="prod-card" onclick="selectProd(this,'w1500',110,3100,'Water 1.5L × 12','b2c')">
+                      <div class="prod-img"><svg viewBox="0 0 40 60" fill="none"><rect x="10" y="6" width="20" height="46" rx="5" fill="#cce4f6" stroke="#005BAC" stroke-width="1.5"/><rect x="14" y="2" width="12" height="6" rx="2" fill="#005BAC"/><text x="20" y="34" text-anchor="middle" font-size="5.5" fill="#005BAC" font-weight="700">1.5L</text></svg></div>
+                      <div class="prod-name">Water 1.5L<br>Pack of 12</div>
+                      <div class="prod-price">AED 110</div>
+                    </div>
+                    <div class="prod-card" onclick="selectProd(this,'4g',180,1850,'4G — 4-Gallon','b2c')">
+                      <div class="prod-img"><svg viewBox="0 0 50 60" fill="none"><rect x="8" y="10" width="34" height="40" rx="6" fill="#cce4f6" stroke="#005BAC" stroke-width="1.5"/><rect x="16" y="4" width="18" height="8" rx="3" fill="#005BAC"/><text x="25" y="34" text-anchor="middle" font-size="6" fill="#005BAC" font-weight="700">4 Gal</text></svg></div>
+                      <div class="prod-name">4-Gallon HOD<br>Home &amp; Office</div>
+                      <div class="prod-price">AED 180</div>
+                    </div>
+                    <div class="prod-card" onclick="selectProd(this,'tissue',220,290,'TISSUE Cases','b2c')">
+                      <div class="prod-img"><svg viewBox="0 0 50 50" fill="none"><rect x="5" y="10" width="40" height="30" rx="4" fill="#f0f0f0" stroke="#888" stroke-width="1.5"/><rect x="10" y="15" width="30" height="20" rx="2" fill="white"/><text x="25" y="29" text-anchor="middle" font-size="6" fill="#555" font-weight="700">TISSUE</text></svg></div>
+                      <div class="prod-name">Masafi Tissue<br>Carton</div>
+                      <div class="prod-price">AED 220</div>
+                    </div>
+                  </div>
+                  <div class="app-section">Quantity</div>
+                  <div class="qty-row">
+                    <span class="qty-lbl" id="b2c-qty-lbl">Select a product first</span>
+                    <div class="qty-ctrl">
+                      <button class="qty-btn" onclick="changeQty('b2c',-1)">−</button>
+                      <span class="qty-num" id="b2c-qty-num">1</span>
+                      <button class="qty-btn" onclick="changeQty('b2c',1)">+</button>
+                    </div>
+                  </div>
+                  <div class="app-section">Delivery slot</div>
+                  <div class="slot-grid" id="b2c-slots"></div>
+                  <div class="app-section">Deliver to</div>
+                  <div class="address-box">
+                    <div class="addr-name">Home / Office delivery</div>
+                    <div class="addr-line">Dubai · Account: B2C-AUTO · No minimum order</div>
+                  </div>
+                  <div class="order-total"><span>Order total</span><b id="b2c-total">AED —</b></div>
+                  <button class="place-btn" id="b2c-place" onclick="placeOrder('b2c')" disabled>Select product &amp; slot</button>
+                </div>
+              </div>
+
+              <!-- B2B MODERN TRADE FORM -->
+              <div id="form-mt" class="app-mockup" style="display:none">
+                <div class="app-bar" style="background:#1a3a5c">
+                  <svg viewBox="0 0 24 24" fill="white" width="14"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                  <div class="app-bar-title">CS Order Entry — Modern Trade</div>
+                  <div style="margin-left:auto;font-size:8px;background:rgba(239,68,68,0.4);padding:2px 6px;border-radius:3px;font-weight:600">B2B · HIGH VALUE</div>
+                </div>
+                <div class="app-body" style="background:#f8faff">
+                  <div class="app-section" style="color:#1a3a5c">Account</div>
+                  <div style="background:rgba(0,91,172,0.06);border:1px solid rgba(0,91,172,0.15);border-radius:5px;padding:7px 10px;margin-bottom:6px;font-size:9px;color:#555;line-height:1.5">
+                    <strong style="color:#1a3a5c">Note:</strong> Masafi's MT accounts are organised by territory route code. In the live system, individual account names (hypermarkets, supermarkets, co-ops) would appear here from the customer master. The demo uses territory segments from Masafi's AOP data.
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px">
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-dxb-large',100,'Dubai MT — Large Format (Route 13220)','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Dubai MT — Large Format</div>
+                      <div style="font-size:8px;color:#005BAC;font-weight:600">Route 13220 · MOQ: 100 cases</div>
+                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 49.1M revenue · highest value MT</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-dxb-mid',80,'Dubai MT — Mid Format (Routes 13210–13215)','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Dubai MT — Mid Format</div>
+                      <div style="font-size:8px;color:#005BAC;font-weight:600">Routes 13210–13215 · MOQ: 80 cases</div>
+                      <div style="font-size:7.5px;color:#888;margin-top:1px">8 territory routes · preseller channel</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-auh',100,'Abu Dhabi MT (Routes 53210–53212)','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Abu Dhabi MT</div>
+                      <div style="font-size:8px;color:#005BAC;font-weight:600">Routes 53210–53212 · MOQ: 100 cases</div>
+                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 21.9M revenue · 3 territory routes</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-shj',80,'Sharjah MT (Routes SJ34, SJ145)','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Sharjah MT</div>
+                      <div style="font-size:8px;color:#005BAC;font-weight:600">Routes SJ34, SJ145 · MOQ: 80 cases</div>
+                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 12.0M revenue · Al Sajaa area</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-alain',80,'Al Ain MT (Routes 63210–63211)','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Al Ain MT</div>
+                      <div style="font-size:8px;color:#d97706;font-weight:600">Routes 63210–63211 · MOQ: 80 cases</div>
+                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 6.1M · 35.7% van return rate region</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-fuj-rak',50,'Fujairah + RAK MT','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Fujairah + RAK MT</div>
+                      <div style="font-size:8px;color:#059669;font-weight:600">Routes FJ36, RK56 · MOQ: 50 cases</div>
+                      <div style="font-size:7.5px;color:#888;margin-top:1px">Factory region — direct supply advantage</div>
+                    </div>
+                  </div>
+                  <div class="app-section" style="color:#1a3a5c">Product &amp; quantity</div>
+                  <select id="mt-product" onchange="updMTTotal()" style="width:100%;padding:7px;border:1px solid #cdd;border-radius:4px;font-size:12px;margin-bottom:6px;background:white">
+                    <option value="">Select product…</option>
+                    <optgroup label="── Water (dominant — 80% of MT volume) ──">
+                      <option value="w-pet" data-price="72" data-stock="8200">WATER-PET — 500ml/1L/1.5L cases · AED 72/case B2B</option>
+                      <option value="w-zero" data-price="88" data-stock="1200">WATER-ZERO — Zero calories · AED 88/case B2B</option>
+                      <option value="w-alkalife" data-price="105" data-stock="980">WATER-ALKALIFE — Premium alkaline · AED 105/case B2B</option>
+                      <option value="w-5l" data-price="80" data-stock="420">WATER-5L — 5 litre cases · AED 80/case B2B</option>
+                      <option value="rpet" data-price="78" data-stock="600">rPET — Recycled PET sustainable range · AED 78/case</option>
+                    </optgroup>
+                    <optgroup label="── 4-Gallon (HOD crossover) ──">
+                      <option value="4g" data-price="155" data-stock="1850">4G — Standard 4-gallon · AED 155/unit B2B</option>
+                      <option value="4g-zero" data-price="168" data-stock="380">4G-ZERO — Zero calorie gallon · AED 168/unit</option>
+                    </optgroup>
+                    <optgroup label="── Non-water ──">
+                      <option value="tissue" data-price="195" data-stock="290">TISSUE — Standard tissue cases · AED 195/case</option>
+                      <option value="tissue-premium" data-price="240" data-stock="85">PREMIUM TISSUE — Premium range · AED 240/case</option>
+                      <option value="wet-wipe" data-price="175" data-stock="160">WET WIPE — cases · AED 175/case</option>
+                    </optgroup>
+                  </select>
+                  <div class="qty-row" style="background:white;border:1px solid #cdd;border-radius:4px;padding:6px 10px;margin-bottom:6px">
+                    <span class="qty-lbl" id="mt-qty-lbl" style="color:#333;font-size:11px">Quantity (cases)</span>
+                    <div class="qty-ctrl">
+                      <button class="qty-btn" style="border-color:#1a3a5c;color:#1a3a5c" onclick="changeQty('mt',-10)">−</button>
+                      <span class="qty-num" id="mt-qty-num" style="color:#1a1a2e">50</span>
+                      <button class="qty-btn" style="border-color:#1a3a5c;color:#1a3a5c" onclick="changeQty('mt',10)">+</button>
+                    </div>
+                  </div>
+                  <div class="app-section" style="color:#1a3a5c">Delivery date (EDD)</div>
+                  <div class="slot-grid" id="mt-slots"></div>
+                  <div class="order-total" style="border-top:1px solid #e0e0e0"><span style="color:#333">Order value (B2B rate)</span><b id="mt-total" style="color:#1a3a5c">AED —</b></div>
+                  <button class="place-btn" id="mt-place" onclick="placeOrder('mt')" disabled style="background:#1a3a5c">Select account, product &amp; date</button>
+                </div>
+              </div>
+
+              <!-- B2B HOD FORM -->
+              <div id="form-hod" class="app-mockup" style="display:none">
+                <div class="app-bar" style="background:#004d40">
+                  <svg viewBox="0 0 24 24" fill="white" width="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                  <div class="app-bar-title">HOD — Home &amp; Office Delivery</div>
+                  <div style="margin-left:auto;font-size:8px;background:rgba(0,200,83,0.3);padding:2px 6px;border-radius:3px;font-weight:600">B2B · SUBSCRIPTION</div>
+                </div>
+                <div class="app-body" style="background:#f0faf4">
+                  <div class="app-section" style="color:#004d40">Account type</div>
+                  <div style="background:rgba(0,77,64,0.06);border:1px solid rgba(0,135,90,0.2);border-radius:5px;padding:6px 10px;margin-bottom:6px;font-size:8.5px;color:#555;line-height:1.4">
+                    <strong style="color:#004d40">HOD:</strong> AED 98M revenue · 27% of Masafi total · Van delivery only · 7 regions · 40+ route codes (GA, GD, GL, GS prefix)
+                  </div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px">
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'hod-dxb',2,'Dubai HOD — Residential &amp; Office (GD routes)','HOD')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Dubai HOD</div>
+                      <div style="font-size:8px;color:#00875a;font-weight:600">GD routes · AED 48.5M</div>
+                      <div style="font-size:7.5px;color:#888;margin-top:1px">Largest HOD region · 15+ route codes</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'hod-auh',2,'Abu Dhabi HOD (GA routes)','HOD')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Abu Dhabi HOD</div>
+                      <div style="font-size:8px;color:#00875a;font-weight:600">GA routes · AED 20.6M</div>
+                      <div style="font-size:7.5px;color:#888;margin-top:1px">13 route codes · GA01–GA34</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'hod-shj',2,'Sharjah HOD (GS routes)','HOD')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Sharjah HOD</div>
+                      <div style="font-size:8px;color:#00875a;font-weight:600">GS routes · AED 12.9M</div>
+                      <div style="font-size:7.5px;color:#888;margin-top:1px">Al Sajaa + Sharjah city</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'hod-govt',2,'Government / FOC Account','HOD')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Government / FOC</div>
+                      <div style="font-size:8px;color:#7b4fd4;font-weight:600">All regions · Zero price</div>
+                      <div style="font-size:7.5px;color:#888;margin-top:1px">Finance approval required</div>
+                    </div>
+                  </div>
+                  <div class="app-section" style="color:#004d40">Product</div>
+                  <select id="hod-product" onchange="updHODTotal()" style="width:100%;padding:7px;border:1px solid #cce;border-radius:4px;font-size:12px;margin-bottom:6px;background:white">
+                    <option value="">Select product…</option>
+                    <optgroup label="── 4-Gallon (core HOD product) ──">
+                      <option value="4g" data-price="180" data-stock="1850">4G — Standard 4-gallon · AED 180/unit</option>
+                      <option value="4g-zero" data-price="195" data-stock="380">4G-ZERO — Zero calorie gallon · AED 195/unit</option>
+                    </optgroup>
+                    <optgroup label="── Water PET (HOD delivery) ──">
+                      <option value="w-pet" data-price="85" data-stock="8200">WATER-PET — 500ml–1.5L cases · AED 85/case</option>
+                      <option value="w-alkalife" data-price="210" data-stock="980">WATER-ALKALIFE — Premium alkaline · AED 210/case</option>
+                      <option value="w-zero" data-price="95" data-stock="1200">WATER-ZERO — Zero calorie · AED 95/case</option>
+                      <option value="rpet" data-price="88" data-stock="600">rPET — Recycled PET range · AED 88/case</option>
+                    </optgroup>
+                    <optgroup label="── Non-water ──">
+                      <option value="tissue" data-price="220" data-stock="290">TISSUE — Standard tissue cases · AED 220/case</option>
+                      <option value="wet-wipe" data-price="185" data-stock="160">WET WIPE — Wet wipe cases · AED 185/case</option>
+                    </optgroup>
+                  </select>
+                  <div class="qty-row" style="background:white;border:1px solid #cce;border-radius:4px;padding:6px 10px;margin-bottom:6px">
+                    <span style="font-size:11px;color:#333;font-weight:600">Units</span>
+                    <div class="qty-ctrl">
+                      <button class="qty-btn" style="border-color:#004d40;color:#004d40" onclick="changeQty('hod',-1)">−</button>
+                      <span class="qty-num" id="hod-qty-num" style="color:#1a1a2e">6</span>
+                      <button class="qty-btn" style="border-color:#004d40;color:#004d40" onclick="changeQty('hod',1)">+</button>
+                    </div>
+                  </div>
+                  <div class="app-section" style="color:#004d40">Delivery</div>
+                  <div class="slot-grid" id="hod-slots"></div>
+                  <div class="order-total" style="border-top:1px solid #e0e0e0"><span style="color:#333">Order value</span><b id="hod-total" style="color:#004d40">AED —</b></div>
+                  <button class="place-btn" id="hod-place" onclick="placeOrder('hod')" disabled style="background:#004d40">Select account, product &amp; slot</button>
+                </div>
+              </div>
+
+              <!-- B2B EXPORT FORM -->
+              <div id="form-export" class="app-mockup" style="display:none">
+                <div class="app-bar" style="background:#1a237e">
+                  <svg viewBox="0 0 24 24" fill="white" width="14"><path d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z"/></svg>
+                  <div class="app-bar-title">Export Sales — International</div>
+                  <div style="margin-left:auto;font-size:8px;background:rgba(123,79,212,0.4);padding:2px 6px;border-radius:3px;font-weight:600">B2B · EXPORT</div>
+                </div>
+                <div class="app-body" style="background:#f3f0ff">
+                  <div class="app-section" style="color:#1a237e">Destination market</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px">
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'oman',0,'Oman DDP','EXP')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e">🇴🇲 Oman</div>
+                      <div style="font-size:8px;color:#7b4fd4;font-weight:600">DDP · Road transport</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'kuwait',0,'Kuwait','EXP')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e">🇰🇼 Kuwait</div>
+                      <div style="font-size:8px;color:#7b4fd4;font-weight:600">By sea · JAFZA</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'jordan',0,'Jordan','EXP')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e">🇯🇴 Jordan</div>
+                      <div style="font-size:8px;color:#7b4fd4;font-weight:600">By sea · JAFZA</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'pakistan',0,'Pakistan','EXP')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e">🇵🇰 Pakistan</div>
+                      <div style="font-size:8px;color:#7b4fd4;font-weight:600">Ex-works</div>
+                    </div>
+                  </div>
+                  <div class="app-section" style="color:#1a237e">Product &amp; volume</div>
+                  <select id="exp-product" onchange="updEXPTotal()" style="width:100%;padding:7px;border:1px solid #cce;border-radius:4px;font-size:12px;margin-bottom:6px;background:white">
+                    <option value="">Select product…</option>
+                    <option value="w500" data-price="68" data-stock="8200">Water 500ml — export price AED 68/case</option>
+                    <option value="w1500" data-price="90" data-stock="3100">Water 1.5L — export price AED 90/case</option>
+                    <option value="tissue" data-price="185" data-stock="290">Tissue — export price AED 185/case</option>
+                  </select>
+                  <div class="qty-row" style="background:white;border:1px solid #cce;border-radius:4px;padding:6px 10px;margin-bottom:6px">
+                    <span style="font-size:11px;color:#333;font-weight:600">Cases</span>
+                    <div class="qty-ctrl">
+                      <button class="qty-btn" style="border-color:#1a237e;color:#1a237e" onclick="changeQty('exp',-100)">−</button>
+                      <span class="qty-num" id="exp-qty-num" style="color:#1a1a2e">500</span>
+                      <button class="qty-btn" style="border-color:#1a237e;color:#1a237e" onclick="changeQty('exp',100)">+</button>
+                    </div>
+                  </div>
+                  <div style="background:white;border:1px solid #cce;border-radius:4px;padding:8px 10px;margin-bottom:8px;font-size:11px;color:#555;line-height:1.6">
+                    <strong style="color:#1a237e">Export docs required:</strong> Bill of lading · Commercial invoice · Packing list · Certificate of origin · RTA cargo strapping cert
+                  </div>
+                  <div class="order-total" style="border-top:1px solid #e0e0e0"><span style="color:#333">Export order value</span><b id="exp-total" style="color:#1a237e">AED —</b></div>
+                  <button class="place-btn" id="exp-place" onclick="placeOrder('exp')" disabled style="background:#1a237e">Select market &amp; product</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- AI OUTPUT -->
+            <div class="ai-panel" id="a1-result">
+              <div id="ai-readiness">
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.05)">
+                  <div style="width:36px;height:36px;border-radius:50%;background:rgba(0,102,255,0.1);border:1.5px solid rgba(0,102,255,0.2);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0">🤖</div>
+                  <div>
+                    <div style="font-size:11px;font-weight:700;color:var(--white);margin-bottom:1px">Agent 01 — Standby</div>
+                    <div style="font-size:10px;color:var(--mgrey)">Complete the form to validate</div>
+                  </div>
+                </div>
+                <div id="readiness-checks" style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px"></div>
+                <div id="readiness-hint" style="font-size:11px;color:var(--mgrey);line-height:1.6;padding:10px;background:rgba(255,255,255,0.02);border-radius:4px;border:1px solid rgba(255,255,255,0.05)"></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- ALGORITHM (updates per channel) -->
+        <button class="algo-toggle" onclick="toggleAlgo('algo1')">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          <span id="algo1-label">How Agent 01 validates B2C orders — algorithm breakdown</span>
+          <span class="arr" id="algo1-arr">▼</span>
+        </button>
+        <div class="algo-content" id="algo1">
+          <div id="algo1-body"><!-- populated by JS --></div>
+        </div>
+      </div>
+
+
+<!-- AGENT 02 — ROUTE LOAD -->
       <!-- DATA VALIDATION PHASE -->
       <div class="panel" id="data-validation-sec" style="margin-bottom:1.1rem">
         <div class="ph" style="border-left:3px solid #C8A84B">
@@ -1500,8 +1502,8 @@ buildRecs(SIM_STATES['2030'].recs);
 
         <!-- THE CHAIRMAN LINE -->
         <div style="margin:0;padding:1.1rem 1.25rem;background:rgba(200,168,75,0.05);border-bottom:1px solid rgba(200,168,75,0.15)">
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#C8A84B;margin-bottom:6px">What we say to the Chairman</div>
-          <p style="font-size:14px;color:var(--white);line-height:1.7;font-style:italic;font-family:var(--serif)">"Chairman, our prototype demonstrates what is possible using the data currently available. The next phase is not AI implementation. The next phase is establishing confidence in the information that will ultimately drive decisions, automation and future agentic capabilities."</p>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#C8A84B;margin-bottom:6px">Our position</div>
+          <p style="font-size:14px;color:var(--white);line-height:1.75;font-family:var(--serif)">Chairman, what you have seen today is built on a fraction of Masafi's data. It already identifies <strong style="color:#E8C86A">AED 26.4M in recoverable revenue</strong> — and it is directionally correct.<br><br>Before we deploy AI at scale, we owe it to you to do one thing first: <strong style="color:var(--white)">establish that the information driving those decisions can be trusted.</strong><br><br>That is not a delay. That is the difference between building on sand and building on rock.</p>
         </div>
 
         <div class="panel-body">
@@ -1623,8 +1625,8 @@ buildRecs(SIM_STATES['2030'].recs);
 
           <!-- IF HE ASKS HOW QUICKLY -->
           <div style="background:rgba(0,102,255,0.04);border-left:3px solid var(--blue);border-radius:0 4px 4px 0;padding:1rem 1.25rem">
-            <div style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:var(--blue2);margin-bottom:6px">If the Chairman asks: "How quickly can we implement this?"</div>
-            <p style="font-size:13.5px;color:var(--white);line-height:1.7;font-style:italic;font-family:var(--serif);margin-bottom:8px">"We can demonstrate value immediately. We would recommend a 4–6 week Intelligence & Data Validation phase before any large-scale AI deployment. That gives Masafi confidence that future decisions, automation and investment are built on trusted information."</p>
+            <div style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:var(--blue2);margin-bottom:6px">If the Chairman asks: "How quickly can we move?"</div>
+            <p style="font-size:13.5px;color:var(--white);line-height:1.75;font-family:var(--serif);margin-bottom:8px">Chairman, we can begin immediately. We would propose a focused 4–6 week validation phase — not to slow this down, but to make certain that every decision, every automation, and every dirham invested is built on information you can stand behind in a board meeting. <strong style="color:#E8C86A">Speed without that foundation is risk, not progress.</strong></p>
             <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:8px">
               <div style="font-size:11px;color:var(--mgrey);display:flex;align-items:center;gap:5px"><span style="color:var(--green);font-weight:700">1.</span> We built something valuable</div>
               <div style="font-size:11px;color:var(--mgrey);display:flex;align-items:center;gap:5px"><span style="color:var(--green);font-weight:700">2.</span> We found opportunities</div>
@@ -2478,6 +2480,51 @@ document.addEventListener('change', function(e){
 // Init channel — B2B Modern Trade is primary
 switchChannel('mt');
 if(typeof buildSlots === 'function') buildSlots(); // legacy compat
+
+
+// ── PRODUCT TOTAL UPDATERS ────────────────────
+function updMTTotal(){
+  const sel = document.getElementById('mt-product');
+  if(!sel || !sel.value) return;
+  const opt = sel.options[sel.selectedIndex];
+  mtState.sku   = sel.value;
+  mtState.price = parseInt(opt.dataset.price) || 0;
+  mtState.stock = parseInt(opt.dataset.stock) || 0;
+  const total = document.getElementById('mt-total');
+  if(total) total.textContent = 'AED ' + (mtState.qty * mtState.price).toLocaleString();
+  updMTBtn();
+}
+
+function updHODTotal(){
+  const sel = document.getElementById('hod-product');
+  if(!sel || !sel.value) return;
+  const opt = sel.options[sel.selectedIndex];
+  hodState.sku   = sel.value;
+  hodState.price = parseInt(opt.dataset.price) || 0;
+  hodState.stock = parseInt(opt.dataset.stock) || 0;
+  const total = document.getElementById('hod-total');
+  if(total) total.textContent = hodState.isFOC ? 'AED 0 (FOC)' : 'AED ' + (hodState.qty * hodState.price).toLocaleString();
+  updHODBtn();
+}
+
+function updEXPTotal(){
+  const sel = document.getElementById('exp-product');
+  if(!sel || !sel.value) return;
+  const opt = sel.options[sel.selectedIndex];
+  expState.sku   = sel.value;
+  expState.price = parseInt(opt.dataset.price) || 0;
+  expState.stock = parseInt(opt.dataset.stock) || 0;
+  const total = document.getElementById('exp-total');
+  if(total) total.textContent = 'AED ' + (expState.qty * expState.price).toLocaleString();
+  updReadiness('export');
+}
+
+// patch change events for product selects
+document.addEventListener('change', function(e){
+  if(e.target.id === 'mt-product')  updMTTotal();
+  if(e.target.id === 'hod-product') updHODTotal();
+  if(e.target.id === 'exp-product') updEXPTotal();
+});
 
 // ── INIT ──
 document.addEventListener('DOMContentLoaded', function(){
