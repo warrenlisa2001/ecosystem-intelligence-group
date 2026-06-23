@@ -471,13 +471,6 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
 
         <!-- CHANNEL SELECTOR -->
         <div style="display:flex;gap:0;border-bottom:1px solid var(--border);background:rgba(0,0,0,0.12)">
-          <button id="ch-b2c" onclick="switchChannel('b2c')" class="ch-btn ch-active">
-            <span class="ch-icon">📱</span>
-            <div>
-              <div class="ch-label">B2C — Consumer</div>
-              <div class="ch-sub">App · Website · Talabat · Noon</div>
-            </div>
-          </button>
           <button id="ch-mt" onclick="switchChannel('mt')" class="ch-btn">
             <span class="ch-icon">🏪</span>
             <div>
@@ -497,6 +490,13 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
             <div>
               <div class="ch-label">B2B — Export</div>
               <div class="ch-sub">Oman · Kuwait · Jordan · Bahrain · Pakistan</div>
+            </div>
+          </button>
+          <button id="ch-b2c" onclick="switchChannel('b2c')" class="ch-btn">
+            <span class="ch-icon">📱</span>
+            <div>
+              <div class="ch-label">B2C — Consumer</div>
+              <div class="ch-sub">App · Website · Talabat · Noon</div>
             </div>
           </button>
         </div>
@@ -520,6 +520,93 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
             <div id="order-form-wrap">
               <!-- B2C APP MOCKUP -->
               <div id="form-b2c" class="app-mockup">
+                <div class="app-bar" style="background:linear-gradient(135deg,#005BAC,#0077CC)">
+                  <svg viewBox="0 0 24 24" fill="white" width="16"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  <div class="app-bar-title" style="font-size:13px;letter-spacing:0.05em">masafi · Shop</div>
+                  <div style="margin-left:auto;display:flex;align-items:center;gap:6px">
+                    <div style="font-size:8px;background:rgba(255,255,255,0.2);padding:2px 7px;border-radius:10px;font-weight:700;letter-spacing:0.1em">B2C</div>
+                  </div>
+                </div>
+                <div class="app-body" style="background:#f0f6ff">
+
+                  <!-- Search bar style header -->
+                  <div style="background:white;border-radius:8px;padding:8px 12px;margin-bottom:12px;display:flex;align-items:center;gap:8px;box-shadow:0 1px 4px rgba(0,91,172,0.1);border:1px solid rgba(0,91,172,0.1)">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#005BAC" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <span style="font-size:11px;color:#999">Search Masafi products…</span>
+                  </div>
+
+                  <div class="app-section">Choose your product</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+                    <div class="prod-card" onclick="selectProd(this,'w-pet',85,8200,'Water PET','b2c')" style="border-radius:10px;padding:10px 8px">
+                      <div class="prod-img" style="height:52px">
+                        <svg viewBox="0 0 40 60" fill="none"><rect x="12" y="8" width="16" height="44" rx="5" fill="url(#bottleGrad)" stroke="#005BAC" stroke-width="1"/><rect x="15" y="4" width="10" height="6" rx="2" fill="#005BAC"/><text x="20" y="36" text-anchor="middle" font-size="5.5" fill="#005BAC" font-weight="700">500ml</text><defs><linearGradient id="bottleGrad" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#e8f4fd"/><stop offset="1" stop-color="#cce4f6"/></linearGradient></defs></svg>
+                      </div>
+                      <div class="prod-name" style="font-size:10px;color:#1a2a3a;font-weight:700;margin-bottom:2px">Water PET</div>
+                      <div style="font-size:9px;color:#666;margin-bottom:4px">500ml · 1L · 1.5L</div>
+                      <div class="prod-price" style="font-size:11px;font-weight:700">AED 85</div>
+                    </div>
+                    <div class="prod-card" onclick="selectProd(this,'w-alkalife',110,980,'Alkalife Water','b2c')" style="border-radius:10px;padding:10px 8px">
+                      <div class="prod-img" style="height:52px">
+                        <svg viewBox="0 0 40 60" fill="none"><rect x="11" y="7" width="18" height="46" rx="5" fill="url(#alkGrad)" stroke="#059669" stroke-width="1"/><rect x="14" y="3" width="12" height="6" rx="2" fill="#059669"/><text x="20" y="34" text-anchor="middle" font-size="5" fill="#059669" font-weight="700">ALKA</text><defs><linearGradient id="alkGrad" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#e6f9f2"/><stop offset="1" stop-color="#c4eedd"/></linearGradient></defs></svg>
+                      </div>
+                      <div class="prod-name" style="font-size:10px;color:#1a2a3a;font-weight:700;margin-bottom:2px">Alkalife</div>
+                      <div style="font-size:9px;color:#666;margin-bottom:4px">Alkaline · pH balanced</div>
+                      <div class="prod-price" style="font-size:11px;font-weight:700;color:#059669">AED 110</div>
+                    </div>
+                    <div class="prod-card" onclick="selectProd(this,'4g',180,1850,'4-Gallon HOD','b2c')" style="border-radius:10px;padding:10px 8px">
+                      <div class="prod-img" style="height:52px">
+                        <svg viewBox="0 0 50 60" fill="none"><rect x="8" y="10" width="34" height="40" rx="7" fill="url(#galGrad)" stroke="#005BAC" stroke-width="1"/><rect x="16" y="4" width="18" height="8" rx="3" fill="#005BAC"/><text x="25" y="33" text-anchor="middle" font-size="6" fill="#005BAC" font-weight="700">4 Gal</text><defs><linearGradient id="galGrad" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d4eaf8"/><stop offset="1" stop-color="#aad4f5"/></linearGradient></defs></svg>
+                      </div>
+                      <div class="prod-name" style="font-size:10px;color:#1a2a3a;font-weight:700;margin-bottom:2px">4-Gallon HOD</div>
+                      <div style="font-size:9px;color:#666;margin-bottom:4px">Home · Office delivery</div>
+                      <div class="prod-price" style="font-size:11px;font-weight:700">AED 180</div>
+                    </div>
+                    <div class="prod-card" onclick="selectProd(this,'tissue',220,290,'Tissue Cases','b2c')" style="border-radius:10px;padding:10px 8px">
+                      <div class="prod-img" style="height:52px">
+                        <svg viewBox="0 0 50 50" fill="none"><rect x="5" y="10" width="40" height="30" rx="6" fill="#f5f5f5" stroke="#aaa" stroke-width="1"/><rect x="10" y="15" width="30" height="20" rx="3" fill="white"/><path d="M 20 25 Q 25 20 30 25" stroke="#aaa" stroke-width="1.5" fill="none"/><text x="25" y="31" text-anchor="middle" font-size="5.5" fill="#666" font-weight="700">TISSUE</text></svg>
+                      </div>
+                      <div class="prod-name" style="font-size:10px;color:#1a2a3a;font-weight:700;margin-bottom:2px">Masafi Tissue</div>
+                      <div style="font-size:9px;color:#666;margin-bottom:4px">Soft touch · carton</div>
+                      <div class="prod-price" style="font-size:11px;font-weight:700">AED 220</div>
+                    </div>
+                  </div>
+
+                  <!-- Quantity row -->
+                  <div style="background:white;border-radius:8px;padding:8px 12px;margin-bottom:8px;display:flex;align-items:center;box-shadow:0 1px 3px rgba(0,91,172,0.08)">
+                    <div class="app-section" style="margin:0;flex:1">Quantity</div>
+                    <span class="qty-lbl" id="b2c-qty-lbl" style="font-size:10px;color:#888;margin-right:8px;flex:1;text-align:center">Select product first</span>
+                    <div class="qty-ctrl">
+                      <button class="qty-btn" onclick="changeQty('b2c',-1)" style="width:26px;height:26px;font-size:16px">−</button>
+                      <span class="qty-num" id="b2c-qty-num" style="font-size:15px;min-width:30px;color:#1a2a3a">1</span>
+                      <button class="qty-btn" onclick="changeQty('b2c',1)" style="width:26px;height:26px;font-size:16px">+</button>
+                    </div>
+                  </div>
+
+                  <div class="app-section">Delivery slot</div>
+                  <div class="slot-grid" id="b2c-slots" style="margin-bottom:8px"></div>
+
+                  <!-- Deliver to -->
+                  <div style="background:white;border-radius:8px;padding:8px 12px;margin-bottom:8px;display:flex;align-items:center;gap:8px;box-shadow:0 1px 3px rgba(0,91,172,0.08)">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#005BAC"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <div>
+                      <div style="font-size:10px;font-weight:700;color:#1a2a3a">Home / Office delivery</div>
+                      <div style="font-size:9px;color:#888">Dubai · Account: B2C-AUTO · No minimum order</div>
+                    </div>
+                    <svg style="margin-left:auto" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#005BAC" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                  </div>
+
+                  <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 2px;margin-bottom:8px">
+                    <span style="font-size:11px;color:#555;font-weight:600">Order total</span>
+                    <b id="b2c-total" style="font-size:13px;color:#005BAC">AED —</b>
+                  </div>
+                  <button class="place-btn" id="b2c-place" onclick="placeOrder('b2c')" disabled style="border-radius:8px;font-size:12px;letter-spacing:0.04em;padding:11px">
+                    Select product &amp; slot to continue
+                  </button>
+                </div>
+              </div>
+
+              <!-- B2B MT -->
+              <div 
                 <div class="app-bar">
                   <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                   <div class="app-bar-title">masafi · Shop</div>
@@ -1400,6 +1487,156 @@ function showSiteInfo(site){
 buildRecs(SIM_STATES['2030'].recs);
 </script>
 
+      
+      <!-- DATA VALIDATION PHASE -->
+      <div class="panel" id="data-validation-sec" style="margin-bottom:1.1rem">
+        <div class="ph" style="border-left:3px solid #C8A84B">
+          <div>
+            <div class="ph-agent" style="color:#E8C86A">Before AI Deployment</div>
+            <div class="ph-title">Intelligence & Data Validation — 4 to 6 Weeks</div>
+          </div>
+          <div class="ph-r"><span class="badge" style="background:rgba(200,168,75,0.1);color:#E8C86A;border:1px solid rgba(200,168,75,0.25)">Recommended Phase 0</span></div>
+        </div>
+
+        <!-- THE CHAIRMAN LINE -->
+        <div style="margin:0;padding:1.1rem 1.25rem;background:rgba(200,168,75,0.05);border-bottom:1px solid rgba(200,168,75,0.15)">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#C8A84B;margin-bottom:6px">What we say to the Chairman</div>
+          <p style="font-size:14px;color:var(--white);line-height:1.7;font-style:italic;font-family:var(--serif)">"Chairman, our prototype demonstrates what is possible using the data currently available. The next phase is not AI implementation. The next phase is establishing confidence in the information that will ultimately drive decisions, automation and future agentic capabilities."</p>
+        </div>
+
+        <div class="panel-body">
+          <p style="font-size:13px;color:var(--mgrey);line-height:1.7;margin-bottom:1.25rem">Before any large-scale AI deployment, Masafi needs a structured validation phase. Not to slow the programme — to ensure every decision, every automation, and every AED invested is built on trusted information. We are not overselling. We are saying: we built something valuable, we found opportunities, we found constraints, now we validate the foundations.</p>
+
+          <!-- 4 WEEK PHASES -->
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:4px;overflow:hidden;margin-bottom:1.25rem">
+
+            <div style="background:var(--navy2);padding:1rem">
+              <div style="font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--blue);margin-bottom:4px">Week 1</div>
+              <div style="font-family:var(--serif);font-size:1rem;font-weight:700;margin-bottom:10px;line-height:1.2">Data Discovery</div>
+              <div style="font-size:11.5px;color:rgba(255,255,255,0.5);font-style:italic;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05)">What exists and who owns it?</div>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
+                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
+                  <span style="position:absolute;left:0;color:var(--blue)">›</span>What systems exist — Oracle, Mobiato, Locus, Excel?
+                </li>
+                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
+                  <span style="position:absolute;left:0;color:var(--blue)">›</span>What reports exist and who produces them?
+                </li>
+                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
+                  <span style="position:absolute;left:0;color:var(--blue)">›</span>What data has been provided vs what data exists?
+                </li>
+                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
+                  <span style="position:absolute;left:0;color:var(--blue)">›</span>Who owns each data source — name and role?
+                </li>
+              </ul>
+            </div>
+
+            <div style="background:var(--navy2);padding:1rem">
+              <div style="font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:#38bdf8;margin-bottom:4px">Week 2</div>
+              <div style="font-family:var(--serif);font-size:1rem;font-weight:700;margin-bottom:10px;line-height:1.2">Data Validation</div>
+              <div style="font-size:11.5px;color:rgba(255,255,255,0.5);font-style:italic;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05)">Is the data clean enough to trust?</div>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
+                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
+                  <span style="position:absolute;left:0;color:#38bdf8">›</span>Missing data — what gaps exist across systems?
+                </li>
+                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
+                  <span style="position:absolute;left:0;color:#38bdf8">›</span>Duplicates — orders, accounts, SKUs, reason codes
+                </li>
+                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
+                  <span style="position:absolute;left:0;color:#38bdf8">›</span>Inconsistencies — do systems agree with each other?
+                </li>
+                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
+                  <span style="position:absolute;left:0;color:#38bdf8">›</span>Process gaps — where does data fall off the record?
+                </li>
+              </ul>
+            </div>
+
+            <div style="background:var(--navy2);padding:1rem">
+              <div style="font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--amber);margin-bottom:4px">Week 3</div>
+              <div style="font-family:var(--serif);font-size:1rem;font-weight:700;margin-bottom:10px;line-height:1.2">Business Validation</div>
+              <div style="font-size:11.5px;color:rgba(255,255,255,0.5);font-style:italic;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05)">"Does this reflect reality?"</div>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
+                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
+                  <span style="position:absolute;left:0;color:var(--amber)">›</span>Sit with Sales — do the cancellation numbers match their experience?
+                </li>
+                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
+                  <span style="position:absolute;left:0;color:var(--amber)">›</span>Sit with Supply Chain — does the inventory data reflect what they see?
+                </li>
+                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
+                  <span style="position:absolute;left:0;color:var(--amber)">›</span>Sit with Warehouse — does fill attainment match Ashwin's numbers?
+                </li>
+                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
+                  <span style="position:absolute;left:0;color:var(--amber)">›</span>Sit with Finance — do the AED figures tie to their records?
+                </li>
+              </ul>
+              <div style="margin-top:10px;padding:8px 10px;background:rgba(245,158,11,0.08);border-left:2px solid var(--amber);border-radius:0 3px 3px 0;font-size:11px;color:rgba(255,255,255,0.7);font-style:italic">Often the answer is: "No." That is not failure. That is the most valuable finding.</div>
+            </div>
+
+            <div style="background:var(--navy2);padding:1rem">
+              <div style="font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--green);margin-bottom:4px">Week 4</div>
+              <div style="font-family:var(--serif);font-size:1rem;font-weight:700;margin-bottom:10px;line-height:1.2">Intelligence Validation</div>
+              <div style="font-size:11.5px;color:rgba(255,255,255,0.5);font-style:italic;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05)">Can we trust the AI's inputs?</div>
+              <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
+                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
+                  <span style="position:absolute;left:0;color:var(--green)">›</span>Revenue leakage assumptions — is AED 23.7M the right number?
+                </li>
+                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
+                  <span style="position:absolute;left:0;color:var(--green)">›</span>Inventory assumptions — are DC stock figures reliable?
+                </li>
+                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
+                  <span style="position:absolute;left:0;color:var(--green)">›</span>Forecasting assumptions — is the AOP a valid baseline?
+                </li>
+                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
+                  <span style="position:absolute;left:0;color:var(--green)">›</span>Service level assumptions — does 60–70% fill reflect reality?
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- WEEKS 5-6 CONFIDENCE SCORING -->
+          <div style="background:rgba(200,168,75,0.04);border:1px solid rgba(200,168,75,0.15);border-radius:4px;padding:1rem;margin-bottom:1.25rem">
+            <div style="font-size:9px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:#C8A84B;margin-bottom:10px">Weeks 5–6 (Optional) — Confidence Scoring</div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+              <div style="background:rgba(0,200,83,0.06);border:1px solid rgba(0,200,83,0.2);border-radius:4px;padding:10px 12px">
+                <div style="font-size:10px;font-weight:700;color:var(--green);margin-bottom:4px;display:flex;align-items:center;gap:5px">
+                  <span style="width:16px;height:16px;border-radius:50%;background:rgba(0,200,83,0.15);border:1px solid rgba(0,200,83,0.4);display:flex;align-items:center;justify-content:center;font-size:9px">✓</span>
+                  High Confidence
+                </div>
+                <div style="font-size:11px;color:var(--mgrey);line-height:1.5">Validated by data AND by the business teams in Week 3. These findings can drive AI agent decisions and automation from Day 1 of deployment.</div>
+              </div>
+              <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:4px;padding:10px 12px">
+                <div style="font-size:10px;font-weight:700;color:var(--amber);margin-bottom:4px;display:flex;align-items:center;gap:5px">
+                  <span style="width:16px;height:16px;border-radius:50%;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.4);display:flex;align-items:center;justify-content:center;font-size:9px">~</span>
+                  Medium Confidence
+                </div>
+                <div style="font-size:11px;color:var(--mgrey);line-height:1.5">Supported by evidence but requires further validation with specific teams or systems. AI agents flag these decisions for human review rather than automating them.</div>
+              </div>
+              <div style="background:rgba(155,123,255,0.06);border:1px solid rgba(155,123,255,0.2);border-radius:4px;padding:10px 12px">
+                <div style="font-size:10px;font-weight:700;color:#9b7bff;margin-bottom:4px;display:flex;align-items:center;gap:5px">
+                  <span style="width:16px;height:16px;border-radius:50%;background:rgba(155,123,255,0.15);border:1px solid rgba(155,123,255,0.4);display:flex;align-items:center;justify-content:center;font-size:9px">?</span>
+                  Hypothesis
+                </div>
+                <div style="font-size:11px;color:var(--mgrey);line-height:1.5">Requires further investigation before acting. These are tracked as open questions — not suppressed — and resolved before any automation is built on them.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- IF HE ASKS HOW QUICKLY -->
+          <div style="background:rgba(0,102,255,0.04);border-left:3px solid var(--blue);border-radius:0 4px 4px 0;padding:1rem 1.25rem">
+            <div style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:var(--blue2);margin-bottom:6px">If the Chairman asks: "How quickly can we implement this?"</div>
+            <p style="font-size:13.5px;color:var(--white);line-height:1.7;font-style:italic;font-family:var(--serif);margin-bottom:8px">"We can demonstrate value immediately. We would recommend a 4–6 week Intelligence & Data Validation phase before any large-scale AI deployment. That gives Masafi confidence that future decisions, automation and investment are built on trusted information."</p>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:8px">
+              <div style="font-size:11px;color:var(--mgrey);display:flex;align-items:center;gap:5px"><span style="color:var(--green);font-weight:700">1.</span> We built something valuable</div>
+              <div style="font-size:11px;color:var(--mgrey);display:flex;align-items:center;gap:5px"><span style="color:var(--green);font-weight:700">2.</span> We found opportunities</div>
+              <div style="font-size:11px;color:var(--mgrey);display:flex;align-items:center;gap:5px"><span style="color:var(--green);font-weight:700">3.</span> We found constraints</div>
+              <div style="font-size:11px;color:var(--mgrey);display:flex;align-items:center;gap:5px"><span style="color:var(--green);font-weight:700">4.</span> Now we validate the foundations</div>
+              <div style="font-size:11px;color:var(--mgrey);display:flex;align-items:center;gap:5px"><span style="color:var(--green);font-weight:700">5.</span> Then we scale</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
       <!-- PROCESS TIMELINE -->
       <div class="panel" style="margin-bottom:1.1rem">
         <div class="ph green">
@@ -2007,216 +2244,6 @@ function selectB2BAcct(el,id,moq,name,type){
   el.closest('.app-body').querySelectorAll('.b2b-acct').forEach(a=>a.classList.remove('selected-acct'));
   el.classList.add('selected-acct');
   if(activeChannel==='mt'){mtState={...mtState,acct:id,moq,acctName:name,acctType:type};updMTBtn();}
-  if(activeChannel==='hod'){hodState={...hodState,acct:id,moq,acctName:name,acctType:type,isFOC:(id==='hod-govt')};}
-  if(activeChannel==='export'){expState={...expState,market:id,marketName:name,acctType:type};}
-}
-function updHODBtn(){
-  const ok=hodState.acct&&hodState.sku&&hodState.slot;
-  const btn=document.getElementById('hod-place');
-  if(!btn)return;
-  btn.disabled=!ok;
-  btn.textContent=ok?`Confirm delivery — ${hodState.isFOC?'FOC':'AED '+(hodState.qty*hodState.price).toLocaleString()}`:'Select account, product & slot';
-}
-
-function updMTTotal(){const sel=document.getElementById('mt-product');if(!sel.value)return;const o=sel.options[sel.selectedIndex];mtState.price=parseInt(o.dataset.price)||0;mtState.stock=parseInt(o.dataset.stock)||0;mtState.sku=sel.value;document.getElementById('mt-total').textContent='AED '+(mtState.qty*mtState.price).toLocaleString();updMTBtn();}
-function updMTBtn(){
-  const ok=mtState.acct&&mtState.sku&&mtState.slot;
-  const btn=document.getElementById('mt-place');
-  btn.disabled=!ok;
-  btn.textContent=ok?`Submit order — AED ${(mtState.qty*mtState.price).toLocaleString()}`:'Select account, product & date';
-  updReadiness('mt');
-}
-function updHODTotal(){const sel=document.getElementById('hod-product');if(!sel.value)return;const o=sel.options[sel.selectedIndex];hodState.price=parseInt(o.dataset.price)||0;hodState.sku=sel.value;document.getElementById('hod-total').textContent=hodState.isFOC?'AED 0 (FOC)':'AED '+(hodState.qty*hodState.price).toLocaleString();}
-function updEXPTotal(){const sel=document.getElementById('exp-product');if(!sel.value)return;const o=sel.options[sel.selectedIndex];expState.price=parseInt(o.dataset.price)||0;expState.sku=sel.value;document.getElementById('exp-total').textContent='AED '+(expState.qty*expState.price).toLocaleString();}
-
-// ── PLACE ORDER ───────────────────────────────
-function placeOrder(ch){
-  if(ch==='b2c')    runValidation_B2C();
-  else if(ch==='mt') runValidation_MT();
-  else if(ch==='hod')runValidation_HOD();
-  else if(ch==='exp')runValidation_EXP();
-}
-
-function showSteps(steps, verdict){
-  let html='<div class="ai-header">Agent 01 — Validation sequence running</div><div class="steps">';
-  steps.forEach((s,i)=>{html+=`<div class="step" id="vs_${i}"><span class="s-badge ${s.cls}">${s.i}</span><div><div class="s-name">${s.n}</div><div class="s-detail">${s.d}</div></div></div>`;});
-  html+=`</div><div class="verdict ${verdict.cls}" id="a1v"><div class="vt">${verdict.title}</div><div class="vb">${verdict.body}</div></div>`;
-  document.getElementById('a1-result').innerHTML=html;
-  steps.forEach((_,i)=>setTimeout(()=>{const el=document.getElementById(`vs_${i}`);if(el)el.classList.add('show');},i*480+80));
-  setTimeout(()=>{const v=document.getElementById('a1v');if(v)v.classList.add('show');},steps.length*480+150);
-}
-
-function updSess(hasIssue, val){
-  proc++;if(hasIssue){caught++;saved+=val;}
-  setTimeout(updSession,200);
-}
-
-function runValidation_B2C(){
-  const s=b2cState;
-  if(!s.sku||!s.slot)return;
-  const val=s.qty*s.price;
-  const dow=new Date(s.slot).getDay();
-  const eddFail=dow===5;
-  const stockFail=s.qty>s.stock;
-  const dupFlag=s.qty===100;
-  const hasIssues=eddFail||stockFail||dupFlag;
-  const steps=[
-    {cls:'sb-ai',i:'◈',n:'Agent 01 — B2C order received (Masafi App / aggregator)',d:`${s.qty}× ${s.name}. Consumer account. EDD: ${s.slot}. Entering validation sequence.`},
-    {cls:'sb-ok',i:'✓',n:'SKU active & in catalogue',d:`${s.name} is active, available for consumer purchase, and correctly priced at consumer rate.`},
-    {cls:stockFail?'sb-warn':'sb-ok',i:stockFail?'✕':'✓',n:`DC stock — ${stockFail?'HOLD: insufficient':'confirmed'}`,d:stockFail?`Only ${s.stock.toLocaleString()} units available. Order of ${s.qty} cannot be fulfilled. Auto stock transfer request triggered to Factory DC. Next available EDD suggested.`:`${s.stock.toLocaleString()} units at DC. Order of ${s.qty} confirmed available.`},
-    {cls:eddFail?'sb-warn':'sb-ok',i:eddFail?'✕':'✓',n:`Delivery slot — ${eddFail?'INVALID: Friday':'confirmed'}`,d:eddFail?`${s.slot} is a Friday. No Masafi deliveries on Fridays. Agent pushing EDD to next available slot (Saturday or Sunday).`:`Slot ${s.slot} open. Order placed before 20:00 DC cutoff. Route assigned.`},
-    {cls:dupFlag?'sb-warn':'sb-ok',i:dupFlag?'!':'✓',n:`Duplicate check — ${dupFlag?'FLAG: possible duplicate':'clear'}`,d:dupFlag?`Quantity of 100 units matches another open order on this account within T-24hrs. Possible duplicate. CS team notified.`:`No duplicate orders found for this account and SKU in the past 24 hours.`},
-    {cls:hasIssues?'sb-warn':'sb-ok',i:hasIssues?'✕':'✓',n:hasIssues?'ORDER HELD':'ORDER CONFIRMED — pushed to Mobiato',d:hasIssues?`Issues: ${[eddFail&&'invalid EDD',stockFail&&'insufficient stock',dupFlag&&'duplicate flag'].filter(Boolean).join(', ')}. Customer notification sent.`:`AED ${val.toLocaleString()} confirmed. Pushed to Mobiato. DC will pick for ${s.slot}. 3-way reconciliation: App ✓ Mobiato ✓ Locus pending.`},
-  ];
-  const vc=hasIssues?'fail':'pass';
-  showSteps(steps,{cls:vc,title:hasIssues?`B2C order held — ${[eddFail&&'invalid slot',stockFail&&'stock issue',dupFlag&&'duplicate'].filter(Boolean).join(' · ')}`:'B2C order confirmed — processing to DC',body:hasIssues?`AED ${val.toLocaleString()} protected from becoming a cancellation.`:`Consumer order confirmed. Delivery: ${s.slot}.`});
-  updSess(hasIssues,val);
-}
-
-function runValidation_MT(){
-  const s=mtState;
-  if(!s.acct||!s.sku||!s.slot)return;
-  const val=s.qty*s.price;
-  const moqFail=s.qty<s.moq;
-  const dow=new Date(s.slot).getDay();
-  const eddFail=dow===5||dow===6;
-  const bulkFlag=s.qty>=1000;
-  const hasIssues=moqFail||eddFail;
-  const steps=[
-    {cls:'sb-ai',i:'◈',n:`Agent 01 — B2B MT order: ${s.acctName}`,d:`${s.qty} cases ${s.sku} submitted by CS team. Account type: Modern Trade. Contracted B2B rate: AED ${s.price}/case. Total value: AED ${val.toLocaleString()}.`},
-    {cls:moqFail?'sb-warn':'sb-ok',i:moqFail?'✕':'✓',n:`MOQ check — ${moqFail?`FAILED: ${s.qty} cases below minimum ${s.moq}`:`passed: ${s.qty} ≥ MOQ ${s.moq}`}`,d:moqFail?`${s.acctName} requires a minimum of ${s.moq} cases. Order is ${s.qty}. This is the single largest cancellation reason in the MT channel — responsible for the majority of Masafi's AED 19.7M MT cancellation total. Agent is rejecting at entry, not at the DC.`:`Order quantity ${s.qty} meets the ${s.moq}-case minimum for ${s.acctName}.`},
-    {cls:'sb-ok',i:'✓',n:'Contracted price validated',d:`B2B contracted rate AED ${s.price}/case confirmed for ${s.acctName}. Price matches account contract — no CS correction needed.`},
-    {cls:eddFail?'sb-warn':'sb-ok',i:eddFail?'✕':'✓',n:`Delivery calendar — ${eddFail?'INVALID: no MT delivery Fri/Sat':'confirmed'}`,d:eddFail?`${s.slot} is a Friday or Saturday. Most Modern Trade accounts do not accept deliveries on these days. Agent suggesting next available MT delivery slot.`:`${s.slot} is a valid MT delivery day for this account.`},
-    {cls:bulkFlag?'sb-warn':'sb-ok',i:bulkFlag?'!':'✓',n:bulkFlag?'BULK ORDER: route to Factory DC direct':'Standard DC routing',d:bulkFlag?`Order of ${s.qty} cases meets the bulk threshold (≥1,000 cases). Agent has auto-set shipping site to Masafi Factory DC — this order should NOT route through the city DC.`:`Order of ${s.qty} cases routes through standard city DC.`},
-    {cls:hasIssues?'sb-warn':'sb-ok',i:hasIssues?'✕':'✓',n:hasIssues?'B2B MT ORDER HELD':'B2B MT ORDER APPROVED — to supervisor',d:hasIssues?`Order held. Issues: ${[moqFail&&'below MOQ',eddFail&&'invalid delivery day'].filter(Boolean).join(', ')}. CS team notified to correct before resubmission.`:`AED ${val.toLocaleString()} MT order passed to supervisor approval queue. Risk score calculated. Pre-scored for supervisor — only genuine decisions required.`},
-  ];
-  showSteps(steps,{cls:hasIssues?'fail':'pass',title:hasIssues?`MT order held — ${[moqFail&&'below MOQ',eddFail&&'invalid slot'].filter(Boolean).join(' · ')}`:`MT order approved — AED ${val.toLocaleString()} to ${s.acctName}`,body:hasIssues?`This order would have become part of the AED 19.7M MT cancellation total. Agent caught it at entry.`:`Order passed to supervisor. ${bulkFlag?'Note: routed to Factory DC (bulk threshold met).':'Standard DC routing confirmed.'}`});
-  updSess(hasIssues,val);
-}
-
-function runValidation_HOD(){
-  const s=hodState;
-  if(!s.acct||!s.sku)return;
-  const val=s.isFOC?0:s.qty*s.price;
-  const steps=[
-    {cls:'sb-ai',i:'◈',n:`Agent 01 — HOD order: ${s.acctName}`,d:`${s.qty} units ${s.sku}. Account type: ${s.acctType}. ${s.isFOC?'FOC — Government account. Zero price.':'Subscription account.'}`},
-    {cls:'sb-ok',i:'✓',n:'Subscription status — active',d:`${s.acctName} subscription is active and not paused. Account in good standing.`},
-    {cls:s.isFOC?'sb-warn':'sb-ok',i:s.isFOC?'!':'✓',n:s.isFOC?'FOC FLAG — Finance approval required':'Pricing validated',d:s.isFOC?`Government/FOC account detected. Zero-price order. Agent has routed this to Finance approval gate before processing. This step is automatic — CS does not process FOC orders directly.`:`Price AED ${s.price}/unit confirmed against HOD subscription rate.`},
-    {cls:'sb-ok',i:'✓',n:'Product eligibility confirmed',d:`${s.sku} is eligible for this HOD account type. Delivery address confirmed against most recent record.`},
-    {cls:'sb-ok',i:'✓',n:'Empty gallon reconciliation — clear',d:`Previous delivery empties reconciled. No discrepancy on record. Order quantity ${s.qty} units confirmed for dispatch.`},
-    {cls:'sb-ok',i:'✓',n:'HOD ORDER CONFIRMED — assigned to HOD vehicle pool',d:`Order pushed to HOD vehicle pool in Mobiato. ${s.isFOC?'Pending Finance approval (FOC).':'Driver will receive on HHD before route start.'} Subscription auto-renews next cycle.`},
-  ];
-  showSteps(steps,{cls:'pass',title:`HOD order confirmed — ${s.acctName}`,body:s.isFOC?`FOC order routed to Finance approval. Zero revenue impact — compliance step.`:`AED ${val.toLocaleString()} HOD order confirmed. Return rate for HOD channel: 4–13% — most stable channel in Masafi's network.`});
-  updSess(false,val);
-}
-
-function runValidation_EXP(){
-  const s=expState;
-  const needSel=!s.market||!s.sku;
-  if(needSel){document.getElementById('a1-result').innerHTML='<div class="verdict fail show"><div class="vt">Select market and product</div></div>';return;}
-  const val=s.qty*s.price;
-  const isSeaFreight=['kuwait','jordan','bahrain','maldives'].includes(s.market);
-  const isExWorks=s.market==='pakistan';
-  const steps=[
-    {cls:'sb-ai',i:'◈',n:`Agent 01 — Export order: ${s.marketName}`,d:`${s.qty} cases ${s.sku}. Market: ${s.marketName}. Incoterm: ${isExWorks?'Ex-works':isSeaFreight?'Sea freight via JAFZA':'DDP road transport'}. Total: AED ${val.toLocaleString()}.`},
-    {cls:'sb-ok',i:'✓',n:'Market eligibility confirmed',d:`${s.marketName} is an approved export destination. ${isSeaFreight?'Sea freight via JAFZA.':isExWorks?'Ex-works — buyer arranges collection.':'DDP — Masafi bears transport cost to Oman.'}`},
-    {cls:'sb-ok',i:'✓',n:'Export pricing validated',d:`Export price AED ${s.price}/case confirmed against ${s.marketName} price list. Domestic rate not applied.`},
-    {cls:'sb-ok',i:'✓',n:'Production lead time — checking',d:`Order sent to Production schedule review. Lead time requirement flagged. Vehicle placement date from buyer will become the EDD in Oracle.`},
-    {cls:isSeaFreight?'sb-warn':'sb-ok',i:isSeaFreight?'!':'✓',n:isSeaFreight?'JAFZA ROUTING FLAG — sea freight':'Road transport routing confirmed',d:isSeaFreight?`${s.marketName} order auto-routed to JAFZA for sea freight handling. Shipping site set to JAFZA in Oracle — not the domestic DC. JAFZA coordinator notified.`:`Oman DDP — road transport. Driver transit permit and vehicle registration must be current. Cargo strapping certificates in cab.`},
-    {cls:'sb-ok',i:'✓',n:'EXPORT ORDER CONFIRMED — pending vehicle placement date',d:`All validation checks passed. Order status: "Confirmed — pending EDD". EDD will be set when ${s.marketName} buyer confirms vehicle placement date. Five export documents required before shipment.`},
-  ];
-  showSteps(steps,{cls:'pass',title:`Export order confirmed — ${s.marketName} · AED ${val.toLocaleString()}`,body:`Order pending buyer vehicle placement confirmation. Production alerted. ${isSeaFreight?'JAFZA coordination initiated.':isExWorks?'Buyer collection arranged.':'DDP road transport — driver compliance check required.'}`});
-  updSess(false,val);
-}
-
-// ── READINESS TRACKER ────────────────────────
-function updReadiness(ch){
-  const panel = document.getElementById('ai-readiness');
-  if(!panel) return;
-
-  let checks = [];
-  let hint = '';
-
-  if(ch==='b2c'){
-    const hasSku = !!b2cState.sku;
-    const hasSlot = !!b2cState.slot;
-    const moqOk = true; // no MOQ for B2C
-    checks = [
-      {label:'Product selected', ok:hasSku, val:hasSku?b2cState.name:''},
-      {label:'Delivery slot', ok:hasSlot, val:hasSlot?b2cState.slot:''},
-      {label:'Min. order', ok:true, val:'No minimum — B2C channel'},
-    ];
-    hint = hasSku && hasSlot
-      ? '✓ Ready — press Place Order to run Agent 01 validation'
-      : 'Select a product and delivery slot to continue.';
-  }
-  else if(ch==='mt'){
-    const hasAcct = !!mtState.acct;
-    const hasSku  = !!mtState.sku;
-    const hasSlot = !!mtState.slot;
-    const moqOk   = hasAcct && mtState.qty >= mtState.moq;
-    const moqGap  = hasAcct ? mtState.moq - mtState.qty : 0;
-    checks = [
-      {label:'Account selected', ok:hasAcct, val:hasAcct?mtState.acctName:''},
-      {label:'Product selected', ok:hasSku,  val:hasSku?mtState.sku:''},
-      {label:`MOQ: ${mtState.moq||'?'} cases minimum`, ok:moqOk, val:moqOk?`${mtState.qty} cases ✓`:(moqGap>0?`${mtState.qty} cases — ${moqGap} below minimum`:'')},
-      {label:'Delivery date', ok:hasSlot, val:hasSlot?mtState.slot:''},
-    ];
-    if(!hasAcct) hint = 'Select an account first. MOQ and delivery rules depend on the account.';
-    else if(!hasSku) hint = `${mtState.acctName} selected (MOQ: ${mtState.moq} cases). Now select a product.`;
-    else if(!moqOk) hint = `⚠ Current quantity (${mtState.qty}) is below the ${mtState.moq}-case minimum for ${mtState.acctName}. Submit to see Agent 01 catch this — or increase quantity.`;
-    else if(!hasSlot) hint = `Order value: AED ${(mtState.qty*mtState.price).toLocaleString()}. Select a delivery date to complete.`;
-    else hint = `✓ Ready — AED ${(mtState.qty*mtState.price).toLocaleString()} order for ${mtState.acctName}. Press Submit to run Agent 01 validation.`;
-  }
-  else if(ch==='hod'){
-    const hasAcct = !!hodState.acct;
-    const hasSku  = !!hodState.sku;
-    const hasSlot = !!hodState.slot;
-    checks = [
-      {label:'Account type', ok:hasAcct, val:hasAcct?hodState.acctName:''},
-      {label:'Product', ok:hasSku, val:hasSku?hodState.sku:''},
-      {label:'Delivery slot', ok:hasSlot, val:hasSlot?hodState.slot:''},
-      {label:'FOC flag', ok:true, val:hodState.isFOC?'Government — zero price':'Standard pricing'},
-    ];
-    hint = hasAcct&&hasSku&&hasSlot?`✓ Ready — press Confirm to validate`:'Select account type, product and delivery slot.';
-  }
-  else if(ch==='export'){
-    const hasMkt = !!expState.market;
-    const hasSku = !!expState.sku;
-    checks = [
-      {label:'Export market', ok:hasMkt, val:hasMkt?expState.marketName:''},
-      {label:'Product', ok:hasSku, val:hasSku?expState.sku:''},
-      {label:'Incoterm', ok:hasMkt, val:hasMkt?(expState.market==='pakistan'?'Ex-works':expState.market==='oman'?'DDP road':'Sea via JAFZA'):''},
-      {label:'Vehicle placement', ok:false, val:'Confirmed by buyer after order'},
-    ];
-    hint = hasMkt&&hasSku?`✓ Ready — AED ${(expState.qty*expState.price).toLocaleString()} export order to ${expState.marketName}. Press Submit to validate.`:'Select market and product.';
-  }
-
-  // Render checks
-  const checksEl = document.getElementById('readiness-checks');
-  const hintEl   = document.getElementById('readiness-hint');
-  if(!checksEl||!hintEl) return;
-
-  checksEl.innerHTML = checks.map(c=>`
-    <div style="display:flex;align-items:center;gap:8px;font-size:11px">
-      <span style="width:16px;height:16px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;${c.ok?'background:rgba(0,200,83,0.15);color:var(--green);border:1px solid rgba(0,200,83,0.3)':'background:rgba(255,255,255,0.05);color:var(--mgrey);border:1px solid rgba(255,255,255,0.1)'}">${c.ok?'✓':'○'}</span>
-      <span style="color:${c.ok?'var(--white)':'var(--mgrey)'}; font-weight:${c.ok?'600':'400'}">${c.label}</span>
-      ${c.val?`<span style="margin-left:auto;color:${c.ok?'rgba(0,200,83,0.8)':'var(--mgrey)'};font-size:10px;text-align:right;max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${c.val}</span>`:''}
-    </div>`).join('');
-
-  hintEl.style.color = hint.startsWith('✓')?'rgba(0,200,83,0.9)':hint.startsWith('⚠')?'var(--amber)':'var(--mgrey)';
-  hintEl.textContent = hint;
-}
-
-// Also hook MT product change into readiness
-const origUpdMTTotal = updMTTotal;
-
-// ── PATCH selectB2BAcct to trigger readiness ──────────
-const _origSelectB2BAcct = selectB2BAcct;
-function selectB2BAcct(el,id,moq,name,type){
-  el.closest('.app-body').querySelectorAll('.b2b-acct').forEach(a=>a.classList.remove('selected-acct'));
-  el.classList.add('selected-acct');
-  if(activeChannel==='mt'){mtState={...mtState,acct:id,moq,acctName:name,acctType:type};updMTBtn();}
   if(activeChannel==='hod'){hodState={...hodState,acct:id,moq,acctName:name,acctType:type,isFOC:(id==='hod-govt')};updReadiness('hod');}
   if(activeChannel==='export'){expState={...expState,market:id,marketName:name,acctType:type};updReadiness('export');}
 }
@@ -2228,8 +2255,8 @@ document.addEventListener('change', function(e){
   if(e.target.id==='exp-product') setTimeout(()=>updReadiness('export'),50);
 });
 
-// Init channel
-switchChannel('b2c');
+// Init channel — B2B Modern Trade is primary
+switchChannel('mt');
 if(typeof buildSlots === 'function') buildSlots(); // legacy compat
 
 });
