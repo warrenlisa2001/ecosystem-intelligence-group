@@ -308,6 +308,34 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
   .system-flow{grid-template-columns:1fr 1fr}
   .prod-grid{grid-template-columns:1fr 1fr}
 }
+
+
+.ch-btn{flex:1;display:flex;align-items:center;gap:10px;padding:12px 16px;background:none;border:none;border-right:1px solid var(--border);cursor:pointer;font-family:var(--sans);text-align:left;transition:all 0.18s;color:var(--mgrey);position:relative}
+.ch-btn:last-child{border-right:none}
+.ch-btn:hover{background:rgba(255,255,255,0.025);color:var(--white)}
+.ch-active{background:rgba(0,102,255,0.08)!important;color:var(--white)!important}
+.ch-active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--blue)}
+.ch-icon{font-size:1.35rem;flex-shrink:0;line-height:1}
+.ch-label{font-size:11.5px;font-weight:700;margin-bottom:2px;color:inherit;letter-spacing:-0.01em}
+.ch-sub{font-size:9px;color:var(--mgrey);line-height:1.35;font-weight:400}
+.ch-active .ch-sub{color:rgba(255,255,255,0.5)}
+/* Channel rules strip */
+.ch-rule{display:flex;flex-direction:column;gap:2px}
+.ch-rule-lbl{font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:var(--mgrey);font-weight:700}
+.ch-rule-val{font-size:12px;font-weight:700;color:var(--white)}
+/* B2B account cards */
+.b2b-acct{transition:all 0.15s}
+.b2b-acct:hover{border-color:#005BAC!important;transform:translateY(-1px)}
+.b2b-acct.selected-acct{border-color:#005BAC!important;background:rgba(0,91,172,0.08)!important;box-shadow:0 0 0 2px rgba(0,91,172,0.2)}
+/* App mockup improvements */
+.app-mockup{border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
+/* Slot improvements */
+.slot{transition:all 0.15s;border:1.5px solid #e0e8f0}
+.slot:hover{border-color:#005BAC!important;background:rgba(0,91,172,0.04)!important}
+.slot.selected{border-color:#005BAC!important;background:rgba(0,91,172,0.08)!important;box-shadow:0 0 0 2px rgba(0,91,172,0.15)}
+/* Flow diagram */
+.sf-step{transition:background 0.15s}
+.sf-step:hover{background:rgba(255,255,255,0.02)}
 </style>
 </head>
 <body>
@@ -714,414 +742,6 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
         </div>
       </div>
 
-<style>
-.ch-btn{flex:1;display:flex;align-items:center;gap:10px;padding:12px 16px;background:none;border:none;border-right:1px solid var(--border);cursor:pointer;font-family:var(--sans);text-align:left;transition:all 0.18s;color:var(--mgrey);position:relative}
-.ch-btn:last-child{border-right:none}
-.ch-btn:hover{background:rgba(255,255,255,0.025);color:var(--white)}
-.ch-active{background:rgba(0,102,255,0.08)!important;color:var(--white)!important}
-.ch-active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--blue)}
-.ch-icon{font-size:1.35rem;flex-shrink:0;line-height:1}
-.ch-label{font-size:11.5px;font-weight:700;margin-bottom:2px;color:inherit;letter-spacing:-0.01em}
-.ch-sub{font-size:9px;color:var(--mgrey);line-height:1.35;font-weight:400}
-.ch-active .ch-sub{color:rgba(255,255,255,0.5)}
-/* Channel rules strip */
-.ch-rule{display:flex;flex-direction:column;gap:2px}
-.ch-rule-lbl{font-size:8px;letter-spacing:0.12em;text-transform:uppercase;color:var(--mgrey);font-weight:700}
-.ch-rule-val{font-size:12px;font-weight:700;color:var(--white)}
-/* B2B account cards */
-.b2b-acct{transition:all 0.15s}
-.b2b-acct:hover{border-color:#005BAC!important;transform:translateY(-1px)}
-.b2b-acct.selected-acct{border-color:#005BAC!important;background:rgba(0,91,172,0.08)!important;box-shadow:0 0 0 2px rgba(0,91,172,0.2)}
-/* App mockup improvements */
-.app-mockup{border-radius:10px;box-shadow:0 8px 32px rgba(0,0,0,0.4)}
-/* Slot improvements */
-.slot{transition:all 0.15s;border:1.5px solid #e0e8f0}
-.slot:hover{border-color:#005BAC!important;background:rgba(0,91,172,0.04)!important}
-.slot.selected{border-color:#005BAC!important;background:rgba(0,91,172,0.08)!important;box-shadow:0 0 0 2px rgba(0,91,172,0.15)}
-/* Flow diagram */
-.sf-step{transition:background 0.15s}
-.sf-step:hover{background:rgba(255,255,255,0.02)}
-</style>
-
-<script>
-// ── CHANNEL CONFIG ────────────────────────────
-const CH_CONFIG = {
-  b2c:{
-    badge:'B2C — Consumer',
-    badgeStyle:'background:rgba(0,102,255,0.1);color:var(--blue2);border:1px solid rgba(0,102,255,0.2)',
-    intro:'Place an order as a Masafi consumer — via the app, website, Talabat or Noon. No minimum order. Agent 01 validates before the order reaches the warehouse.',
-    flowLabel:'How Masafi\'s B2C order system works — consumer channel',
-    flow:[
-      {n:'1',icon:'📱',title:'Customer orders via app',detail:'Masafi App, website, Talabat, or Noon. Order auto-syncs to Mobiato with EDD set to next working day. No human involved at order stage.'},
-      {arrow:true},
-      {n:'2',icon:'🤖',title:'AI validates',detail:'Agent 01 checks stock, slot availability, duplicate orders, and SKU eligibility. Under 3 seconds. No human review required for passing orders.',highlight:true},
-      {arrow:true},
-      {n:'3',icon:'🏭',title:'DC picks & packs',detail:'Confirmed order pushed to Mobiato. Locus assigns to route. Warehouse picks.'},
-      {arrow:true},
-      {n:'4',icon:'🚚',title:'Same/next day delivery',detail:'Driver delivers to home or office. HHD mark-delivered. 3-way reconciliation: App vs Mobiato vs Locus.'},
-    ],
-    rules:[
-      {lbl:'Min. order',val:'No minimum'},
-      {lbl:'Pricing',val:'Consumer rate'},
-      {lbl:'EDD',val:'Next working day'},
-      {lbl:'Cut-off',val:'20:00 daily'},
-      {lbl:'Duplicate window',val:'T-24 hrs'},
-    ],
-    algolabel:'How Agent 01 validates B2C consumer orders',
-    algo:[
-      {n:'1',title:'SKU active & in catalogue',body:'Agent checks the SKU is active and available for consumer purchase. Inactive SKUs trigger one of Masafi\'s four documented causes of missed orders.',formula:'IF SKU.status ≠ \'active\' → REJECT with reason code'},
-      {n:'2',title:'Stock at DC — consumer qty',body:'Consumer orders are small. Stock check is fast. If zero stock → agent triggers auto stock transfer request from Factory DC and suggests next available date.',formula:'IF DC_stock = 0 → hold + auto STO trigger → suggest next EDD'},
-      {n:'3',title:'Delivery slot open',body:'App auto-sets EDD to next working day. Agent validates the slot is open and that the order was placed before 20:00 DC cutoff. Friday orders push to Sunday.',formula:'EDD valid = slot.open AND order_time < 20:00\nFriday → push EDD to Sunday'},
-      {n:'4',title:'Duplicate order check',body:'Consumer duplicate orders are common on aggregators — customer orders twice across different platforms. Agent flags same account + SKU + EDD within T-24hrs.',formula:'Duplicate = (Account + SKU + EDD) ∈ open_orders T-24hrs'},
-      {n:'5',title:'Pricing validation',body:'Consumer price checked against current active promotion and standard retail rate. Aggregator (Talabat, Noon) rates may differ — agent validates against contracted aggregator price.',formula:'IF order.price ≠ channel.current_price → flag for CS review'},
-      {n:'6',title:'Approve & push to Mobiato',body:'Passing orders auto-push to Mobiato for DC processing. No human review needed. Failed orders send structured notification to customer — not a free-text error message.',formula:'Score < 30 → auto-approve to Mobiato | ≥30 → CS review queue'},
-    ]
-  },
-  mt:{
-    badge:'B2B — Modern Trade',
-    badgeStyle:'background:rgba(214,10,23,0.12);color:#ff7070;border:1px solid rgba(214,10,23,0.25)',
-    intro:'CS team order entry for Modern Trade accounts — Carrefour, Lulu, Spinneys. This channel is responsible for AED 19.7M of the AED 23.7M in cancelled orders. Validation rules are significantly stricter than B2C.',
-    flowLabel:'How Masafi\'s B2B Modern Trade order flow works — and why it generates AED 19.7M in cancellations',
-    flow:[
-      {n:'1',icon:'📞',title:'Order received by CS',detail:'Buyer contacts CS team by phone, email, WhatsApp, or EDI. CS agent enters draft order into Mobiato — this is where wrong bookings enter the system.'},
-      {arrow:true},
-      {n:'2',icon:'🤖',title:'AI validates',detail:'Agent 01 applies MT-specific rules: MOQ, contracted pricing, delivery calendar, account eligibility, duplicate detection. AED 19.7M in cancellations are concentrated here.',highlight:true},
-      {arrow:true},
-      {n:'3',icon:'✅',title:'Supervisor approval',detail:'Orders above threshold go to supervisor. Agent pre-scores them so supervisor sees only genuine decisions — not administrative errors.'},
-      {arrow:true},
-      {n:'4',icon:'🏭',title:'DC picks & direct delivery',detail:'Full-pallet or bulk orders. No city core entry. Jebel Ali / Dubai South only. MOT-compliant delivery windows strictly observed.'},
-    ],
-    rules:[
-      {lbl:'Min. order',val:'80–100 cases'},
-      {lbl:'Pricing',val:'Contracted B2B rate'},
-      {lbl:'EDD',val:'Fixed delivery calendar'},
-      {lbl:'Bulk threshold',val:'≥1,000 cases = direct factory'},
-      {lbl:'Duplicate window',val:'T-48 hrs (MT accounts)'},
-    ],
-    algolabel:'How Agent 01 validates B2B Modern Trade orders — where AED 19.7M of risk sits',
-    algo:[
-      {n:'1',title:'Account eligibility & credit status',body:'Agent checks the account is active, credit limit is not exceeded, and the ordering contact is authorised. MT accounts have specific authorised buyer lists — orders from unauthorised contacts are a source of wrong bookings.',formula:'IF account.credit_status = \'hold\' OR contact ∉ authorised_buyers → REJECT'},
-      {n:'2',title:'MOQ enforcement — hardest rule',body:'Modern Trade minimum: 100 cases (Carrefour, Lulu), 80 cases (Spinneys), 50 cases (Emirates Coop). Orders below MOQ are the single largest cancellation reason in the MT channel. Agent enforces at entry — not at DC.',formula:'IF qty < account.MOQ → REJECT at entry\nNote: this is the fix for 11,244 of 13,671 cancellations'},
-      {n:'3',title:'Contracted price validation',body:'MT accounts have contracted rates that differ from consumer pricing. CS agents entering orders manually sometimes apply the wrong price tier. Agent validates against the account\'s contracted rate and flags any mismatch before the order proceeds.',formula:'IF order.price ≠ account.contracted_price → hold for CS correction'},
-      {n:'4',title:'Delivery calendar check',body:'MT accounts have fixed weekly delivery slots — not open next-day. Carrefour may receive Tuesday and Friday only. Spinneys may receive Monday and Thursday. Agent validates EDD against account\'s specific delivery calendar, not a generic slot grid.',formula:'EDD valid = date ∈ account.delivery_calendar\nFri/Sat = non-delivery for most MT accounts'},
-      {n:'5',title:'Bulk order routing — factory direct',body:'Orders ≥1,000 cases (water) or ≥250 cases (tissue) qualify as bulk orders and must be routed direct from the Masafi factory, not the DC. Agent checks quantity and auto-sets shipping site to Factory DC if threshold is met.',formula:'IF qty ≥ bulk_threshold → set shipping_site = Factory DC\nDo NOT route through city DC'},
-      {n:'6',title:'Duplicate detection — T-48hrs for MT',body:'MT accounts place standing orders weekly. A 24-hour duplicate window misses the common pattern of the same standing order being entered twice across two days. MT channel uses a T-48hr window.',formula:'MT Duplicate = (Account + SKU + EDD) ∈ open_orders T-48hrs'},
-    ]
-  },
-  hod:{
-    badge:'B2B — HOD',
-    badgeStyle:'background:rgba(0,135,90,0.12);color:#4ade80;border:1px solid rgba(0,135,90,0.25)',
-    intro:'Home and Office Delivery — residential, corporate, hotel, and government accounts on water subscriptions. Most stable channel: 4–13% return rate vs 30% van sales. Cancellations here are mainly wrong quantities on standing orders.',
-    flowLabel:'How Masafi\'s HOD channel works — subscription-based recurring delivery',
-    flow:[
-      {n:'1',icon:'🏢',title:'Standing order or new request',detail:'HOD accounts have recurring standing orders. Changes submitted via app, phone, or account manager. Driver visits to confirm monthly quantities.'},
-      {arrow:true},
-      {n:'2',icon:'🤖',title:'AI validates',detail:'Agent checks delivery address, subscription status, product eligibility (Alkalife vs standard), FOC flag for govt accounts, and quantity vs subscription plan.',highlight:true},
-      {arrow:true},
-      {n:'3',icon:'🚐',title:'HOD vehicle assigned',detail:'HOD deliveries use a separate vehicle pool from MT. Mobiato routes to the HOD driver assigned to that area. HHD dispatch confirmation.'},
-      {arrow:true},
-      {n:'4',icon:'🏠',title:'Doorstep delivery',detail:'Driver delivers, collects empty gallons, marks complete on HHD. Subscription auto-renews unless change request is in system.'},
-    ],
-    rules:[
-      {lbl:'Min. order',val:'2–10 units (account type)'},
-      {lbl:'Govt accounts',val:'FOC — zero price'},
-      {lbl:'Alkalife',val:'Premium — separate eligibility'},
-      {lbl:'Return rate',val:'4–13% (vs 30% Van Sales)'},
-      {lbl:'Recurring',val:'Auto-renew standing orders'},
-    ],
-    algolabel:'How Agent 01 validates HOD orders — subscription and standing order logic',
-    algo:[
-      {n:'1',title:'Subscription status check',body:'HOD accounts are on recurring plans. Agent checks the subscription is active, not paused, and not overdue on payment. A paused subscription that generates an order is a common source of cancellations in this channel.',formula:'IF account.subscription = \'paused\' OR \'overdue\' → hold for CS review'},
-      {n:'2',title:'Product eligibility — Alkalife vs standard',body:'Not all HOD accounts are eligible for Alkalife premium water. Corporate and hotel accounts may have contracted for standard only. Agent validates product eligibility against account contract before proceeding.',formula:'IF product = \'alkalife\' AND account.alkalife_eligible = false → REJECT'},
-      {n:'3',title:'FOC flag — government accounts',body:'Government and FOC accounts have zero-price orders that must be routed through a Finance approval before processing. Agent identifies FOC accounts and inserts the Finance approval step automatically — these orders bypass normal pricing validation.',formula:'IF account.type = \'govt\' OR \'FOC\' → route to Finance approval gate'},
-      {n:'4',title:'Empty gallon collection reconciliation',body:'For 4-gallon HOD, the number of units delivered must equal the number of empties collected on the previous visit. Discrepancies trigger a physical stock count flag. Agent checks the reconciliation before confirming the next delivery quantity.',formula:'IF delivered_prev ≠ empties_collected → flag for driver check before next dispatch'},
-      {n:'5',title:'Address and route confirmation',body:'HOD delivery addresses change — tenants move, offices relocate. Agent cross-references the delivery address against the most recent confirmed address in the system and flags any mismatch for CS confirmation.',formula:'IF order.address ≠ account.confirmed_address → hold for CS confirmation'},
-      {n:'6',title:'Approve and assign HOD vehicle',body:'Validated HOD orders push to the HOD vehicle pool in Mobiato — separate from the MT fleet. Driver receives the order on HHD before route start. Standing orders auto-push on the scheduled day without CS intervention.',formula:'Approved HOD → HOD vehicle pool in Mobiato → HHD dispatch'},
-    ]
-  },
-  export:{
-    badge:'B2B — Export',
-    badgeStyle:'background:rgba(123,79,212,0.12);color:#c4b5fd;border:1px solid rgba(123,79,212,0.25)',
-    intro:'International export orders — Oman (DDP road), Kuwait/Jordan/Bahrain (sea via JAFZA), Pakistan (ex-works), Maldives. Managed by the export team (Asad). Validation is document-heavy: bill of lading, certificate of origin, transit permits.',
-    flowLabel:'How Masafi\'s export order process works — B2B international channel',
-    flow:[
-      {n:'1',icon:'✉️',title:'Buyer coordination',detail:'Export team (Asad) coordinates with international buyers. Order confirmation issued. Forwarded to export operations for proforma invoice and production planning.'},
-      {arrow:true},
-      {n:'2',icon:'🤖',title:'AI validates',detail:'Agent checks export documentation completeness, production lead time availability, market-specific pricing, and customs document requirements per destination.',highlight:true},
-      {arrow:true},
-      {n:'3',icon:'📋',title:'Export docs prepared',detail:'Commercial invoice, packing list, certificate of origin, RTA cargo strapping cert prepared. For sea: JAFZA handling. For Oman: DDP — Masafi bears delivery cost.'},
-      {arrow:true},
-      {n:'4',icon:'🚢',title:'Shipment',detail:'Vehicle placement date becomes EDD. Order shipped out. Delivery confirmation from destination agent or buyer closes the order in Oracle.'},
-    ],
-    rules:[
-      {lbl:'Oman',val:'DDP — road transport'},
-      {lbl:'Kuwait / Jordan',val:'Sea freight via JAFZA'},
-      {lbl:'Pakistan',val:'Ex-works (buyer collects)'},
-      {lbl:'Lead time',val:'Customer vehicle placement = EDD'},
-      {lbl:'Docs required',val:'5 mandatory documents'},
-    ],
-    algolabel:'How Agent 01 validates export orders — document and compliance checks',
-    algo:[
-      {n:'1',title:'Market eligibility & sanctions check',body:'Agent validates the destination market is an approved export destination and not subject to trade restrictions. Each market has a specific price list and incoterm — Oman (DDP), Kuwait/Jordan/Bahrain (CIF JAFZA), Pakistan (EXW).',formula:'IF market ∉ approved_export_markets → REJECT\nIF incoterm ≠ market.standard_incoterm → flag for export team'},
-      {n:'2',title:'Production lead time availability',body:'Export orders go to Production, not the DC. Agent checks the production schedule for the required volume and whether the lead time between order confirmation and vehicle placement date is achievable. Short lead time = production conflict risk.',formula:'IF vehicle_placement_date - today < production.lead_time → flag as at-risk'},
-      {n:'3',title:'Export pricing validation',body:'Export prices differ from domestic B2B rates (typically lower). Agent validates the proforma invoice price against the market-specific export price list. A domestic price applied to an export order creates a compliance issue.',formula:'IF order.price ≠ market.export_price_list → hold for export team correction'},
-      {n:'4',title:'Documentation completeness check',body:'Five mandatory documents must be confirmed: bill of lading, commercial invoice, packing list, certificate of origin, RTA cargo strapping cert. For Abu Dhabi long-haul export legs: driver transit permit and vehicle registration must be current.',formula:'docs_complete = [BoL, invoice, packing_list, CoO, strapping_cert].all_confirmed\nIF docs_complete = false → hold — do not proceed to production'},
-      {n:'5',title:'JAFZA routing flag (sea freight)',body:'Kuwait, Jordan, Bahrain, and Maldives orders route through JAFZA for sea freight. Agent automatically flags sea-freight orders for JAFZA coordination and sets the shipping site to JAFZA in Oracle — not the domestic DC.',formula:'IF market.freight_mode = \'sea\' → set shipping_site = JAFZA\nIF market.freight_mode = \'road_oman\' → DDP — include transport cost in proforma'},
-      {n:'6',title:'EDD set from vehicle placement',body:'Unlike domestic orders where EDD is set at order entry, export EDD is set when the customer confirms the date of vehicle placement. Agent holds the order as \'confirmed pending EDD\' until vehicle placement is confirmed — this date then becomes the EDD in Oracle.',formula:'EDD = customer.vehicle_placement_confirmation_date\nOrder status: \'confirmed pending EDD\' until placement confirmed'},
-    ]
-  }
-};
-
-let activeChannel = 'b2c';
-let b2cState = {sku:null,price:0,stock:0,name:'',qty:1,slot:null};
-let mtState  = {acct:null,moq:0,acctName:'',acctType:'',sku:null,price:0,stock:0,qty:50,slot:null};
-let hodState = {acct:null,moq:2,acctName:'',acctType:'',sku:null,price:0,stock:0,qty:6,isFOC:false};
-let expState = {market:null,marketName:'',acctType:'',sku:null,price:0,stock:0,qty:500};
-
-// ── CHANNEL SWITCH ────────────────────────────
-function switchChannel(ch){
-  activeChannel = ch;
-  document.querySelectorAll('.ch-btn').forEach(b=>b.classList.remove('ch-active'));
-  document.getElementById('ch-'+ch).classList.add('ch-active');
-
-  // Hide all forms
-  ['b2c','mt','hod','export'].forEach(c=>{
-    const el = document.getElementById('form-'+c);
-    if(el) el.style.display='none';
-  });
-  const showId = ch==='export'?'form-export':'form-'+ch;
-  const showEl = document.getElementById(showId);
-  if(showEl) showEl.style.display='block';
-
-  // Reset AI panel
-  document.getElementById('a1-result').innerHTML=`<div class="ai-idle"><div class="ai-idle-icon">⬡</div><p class="ai-idle-txt">Complete the ${CH_CONFIG[ch].badge} order form<br>and submit to see Agent 01 validate it.</p></div>`;
-
-  // Update badge, intro, flow, rules, algo
-  const cfg = CH_CONFIG[ch];
-  document.getElementById('ch-badge').textContent = cfg.badge;
-  document.getElementById('ch-badge').style.cssText = cfg.badgeStyle;
-  document.getElementById('a1-intro').textContent = cfg.intro;
-  document.getElementById('flow-label').textContent = cfg.flowLabel;
-  document.getElementById('algo1-label').textContent = cfg.algolabel;
-  buildFlow(cfg.flow);
-  buildRules(cfg.rules);
-  buildAlgo(cfg.algo, ch);
-
-  // Build slots for channel
-  if(ch==='b2c') buildSlotsFor('b2c-slots', false);
-  if(ch==='mt')  buildSlotsFor('mt-slots', true);
-  if(ch==='hod') buildSlotsFor('hod-slots', false);
-}
-
-function buildFlow(flow){
-  const el = document.getElementById('system-flow-strip');
-  el.innerHTML = flow.map(s=>{
-    if(s.arrow) return `<div class="sf-arrow">→</div>`;
-    const hl = s.highlight ? 'border-left:2px solid var(--blue);background:rgba(0,102,255,0.04)' : '';
-    return `<div class="sf-step" style="${hl}">
-      <div class="sf-num" style="${s.highlight?'background:rgba(0,102,255,0.2)':''}">${s.n}</div>
-      <div class="sf-icon">${s.icon}</div>
-      <div class="sf-title">${s.title}</div>
-      <div class="sf-detail">${s.detail}</div>
-    </div>`;
-  }).join('');
-}
-
-function buildRules(rules){
-  const el = document.getElementById('ch-rules');
-  el.innerHTML = rules.map((r,i)=>`
-    <div class="ch-rule" style="padding:0 ${i===0?'20px 0 0':'20px 0'};${i>0?'border-left:1px solid var(--border);':''}">
-      <div class="ch-rule-lbl">${r.lbl}</div>
-      <div class="ch-rule-val">${r.val}</div>
-    </div>`).join('');
-}
-
-function buildAlgo(steps, ch){
-  const colors={b2c:'var(--blue)',mt:'#EF4444',hod:'var(--green)',export:'#9b7bff'};
-  const col = colors[ch]||'var(--blue)';
-  document.getElementById('algo1-body').innerHTML = steps.map(s=>`
-    <div class="algo-step">
-      <span class="algo-n" style="border-color:${col};color:${col};background:transparent">${s.n}</span>
-      <div><strong style="color:var(--white)">${s.title}</strong><br>${s.body}
-      <div class="formula">${s.formula.replace(/\n/g,'<br>')}</div></div>
-    </div>`).join('');
-}
-
-function buildSlotsFor(containerId, isMT){
-  const grid = document.getElementById(containerId);
-  if(!grid) return;
-  const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  const today = new Date();
-  let html='';
-  for(let i=1;i<=6;i++){
-    const d=new Date(today); d.setDate(today.getDate()+i);
-    const dow=d.getDay();
-    const dateStr=d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});
-    const isFri=dow===5;
-    const isSat=dow===6;
-    // MT: Fri/Sat non-delivery for most accounts
-    const unavailable = isMT ? (isFri||isSat) : isFri;
-    const dateISO=d.toISOString().split('T')[0];
-    if(unavailable){
-      html+=`<div class="slot unavailable"><div class="slot-day">${days[dow]} ${dateStr}</div><div class="slot-note">${isMT?'No MT delivery':'No delivery'}</div></div>`;
-    } else {
-      html+=`<div class="slot" onclick="selectSlotFor(this,'${containerId}','${dateISO}','${containerId.split('-')[0]}')" data-date="${dateISO}"><div class="slot-day">${days[dow]} ${dateStr}</div><div class="slot-note">${isMT?'Delivery window':'Next-day delivery'}</div></div>`;
-    }
-  }
-  grid.innerHTML=html;
-}
-
-function selectSlotFor(el, containerId, date, ch){
-  document.querySelectorAll('#'+containerId+' .slot.selected').forEach(s=>s.classList.remove('selected'));
-  el.classList.add('selected');
-  if(ch==='b2c'){b2cState.slot=date; updB2CBtn();}
-  if(ch==='mt') {mtState.slot=date; updMTBtn();}
-  if(ch==='hod'){hodState.slot=date; updHODBtn();}
-}
-
-// ── B2C ──────────────────────────────────────
-function selectProd(el,sku,price,stock,name,ch){
-  document.querySelectorAll(`#form-${ch} .prod-card`).forEach(c=>c.classList.remove('selected'));
-  el.classList.add('selected');
-  b2cState={...b2cState,sku,price,stock,name,qty:1};
-  document.getElementById('b2c-qty-lbl').textContent=name;
-  document.getElementById('b2c-qty-num').textContent=1;
-  document.getElementById('b2c-total').textContent='AED '+price.toLocaleString();
-  updB2CBtn();
-}
-function changeQty(ch,d){
-  if(ch==='b2c'){b2cState.qty=Math.max(1,Math.min(b2cState.qty+d,999));document.getElementById('b2c-qty-num').textContent=b2cState.qty;document.getElementById('b2c-total').textContent='AED '+(b2cState.qty*b2cState.price).toLocaleString();updB2CBtn();}
-  if(ch==='mt'){mtState.qty=Math.max(10,Math.min(mtState.qty+d,9999));document.getElementById('mt-qty-num').textContent=mtState.qty;updMTTotal();updMTBtn();}
-  if(ch==='hod'){hodState.qty=Math.max(1,Math.min(hodState.qty+d,999));document.getElementById('hod-qty-num').textContent=hodState.qty;updHODTotal();}
-  if(ch==='exp'){expState.qty=Math.max(100,Math.min(expState.qty+d,99999));document.getElementById('exp-qty-num').textContent=expState.qty;updEXPTotal();}
-}
-function updB2CBtn(){const ok=b2cState.sku&&b2cState.slot;const btn=document.getElementById('b2c-place');btn.disabled=!ok;btn.textContent=ok?`Place order — AED ${(b2cState.qty*b2cState.price).toLocaleString()}`:'Select product & slot';}
-
-// ── MT ───────────────────────────────────────
-function selectB2BAcct(el,id,moq,name,type){
-  el.closest('.app-body').querySelectorAll('.b2b-acct').forEach(a=>a.classList.remove('selected-acct'));
-  el.classList.add('selected-acct');
-  if(activeChannel==='mt'){mtState={...mtState,acct:id,moq,acctName:name,acctType:type};updMTBtn();}
-  if(activeChannel==='hod'){hodState={...hodState,acct:id,moq,acctName:name,acctType:type,isFOC:(id==='hod-govt')};}
-  if(activeChannel==='export'){expState={...expState,market:id,marketName:name,acctType:type};}
-}
-function updHODBtn(){
-  const ok=hodState.acct&&hodState.sku&&hodState.slot;
-  const btn=document.getElementById('hod-place');
-  if(!btn)return;
-  btn.disabled=!ok;
-  btn.textContent=ok?`Confirm delivery — ${hodState.isFOC?'FOC':'AED '+(hodState.qty*hodState.price).toLocaleString()}`:'Select account, product & slot';
-}
-
-function updMTTotal(){const sel=document.getElementById('mt-product');if(!sel.value)return;const o=sel.options[sel.selectedIndex];mtState.price=parseInt(o.dataset.price)||0;mtState.stock=parseInt(o.dataset.stock)||0;mtState.sku=sel.value;document.getElementById('mt-total').textContent='AED '+(mtState.qty*mtState.price).toLocaleString();updMTBtn();}
-function updMTBtn(){const ok=mtState.acct&&mtState.sku&&mtState.slot;const btn=document.getElementById('mt-place');btn.disabled=!ok;btn.textContent=ok?`Submit order — AED ${(mtState.qty*mtState.price).toLocaleString()}`:'Select account, product & date';}
-function updHODTotal(){const sel=document.getElementById('hod-product');if(!sel.value)return;const o=sel.options[sel.selectedIndex];hodState.price=parseInt(o.dataset.price)||0;hodState.sku=sel.value;document.getElementById('hod-total').textContent=hodState.isFOC?'AED 0 (FOC)':'AED '+(hodState.qty*hodState.price).toLocaleString();}
-function updEXPTotal(){const sel=document.getElementById('exp-product');if(!sel.value)return;const o=sel.options[sel.selectedIndex];expState.price=parseInt(o.dataset.price)||0;expState.sku=sel.value;document.getElementById('exp-total').textContent='AED '+(expState.qty*expState.price).toLocaleString();}
-
-// ── PLACE ORDER ───────────────────────────────
-function placeOrder(ch){
-  if(ch==='b2c')    runValidation_B2C();
-  else if(ch==='mt') runValidation_MT();
-  else if(ch==='hod')runValidation_HOD();
-  else if(ch==='exp')runValidation_EXP();
-}
-
-function showSteps(steps, verdict){
-  let html='<div class="ai-header">Agent 01 — Validation sequence running</div><div class="steps">';
-  steps.forEach((s,i)=>{html+=`<div class="step" id="vs_${i}"><span class="s-badge ${s.cls}">${s.i}</span><div><div class="s-name">${s.n}</div><div class="s-detail">${s.d}</div></div></div>`;});
-  html+=`</div><div class="verdict ${verdict.cls}" id="a1v"><div class="vt">${verdict.title}</div><div class="vb">${verdict.body}</div></div>`;
-  document.getElementById('a1-result').innerHTML=html;
-  steps.forEach((_,i)=>setTimeout(()=>{const el=document.getElementById(`vs_${i}`);if(el)el.classList.add('show');},i*480+80));
-  setTimeout(()=>{const v=document.getElementById('a1v');if(v)v.classList.add('show');},steps.length*480+150);
-}
-
-function updSess(hasIssue, val){
-  proc++;if(hasIssue){caught++;saved+=val;}
-  setTimeout(updSession,200);
-}
-
-function runValidation_B2C(){
-  const s=b2cState;
-  if(!s.sku||!s.slot)return;
-  const val=s.qty*s.price;
-  const dow=new Date(s.slot).getDay();
-  const eddFail=dow===5;
-  const stockFail=s.qty>s.stock;
-  const dupFlag=s.qty===100;
-  const hasIssues=eddFail||stockFail||dupFlag;
-  const steps=[
-    {cls:'sb-ai',i:'◈',n:'Agent 01 — B2C order received (Masafi App / aggregator)',d:`${s.qty}× ${s.name}. Consumer account. EDD: ${s.slot}. Entering validation sequence.`},
-    {cls:'sb-ok',i:'✓',n:'SKU active & in catalogue',d:`${s.name} is active, available for consumer purchase, and correctly priced at consumer rate.`},
-    {cls:stockFail?'sb-warn':'sb-ok',i:stockFail?'✕':'✓',n:`DC stock — ${stockFail?'HOLD: insufficient':'confirmed'}`,d:stockFail?`Only ${s.stock.toLocaleString()} units available. Order of ${s.qty} cannot be fulfilled. Auto stock transfer request triggered to Factory DC. Next available EDD suggested.`:`${s.stock.toLocaleString()} units at DC. Order of ${s.qty} confirmed available.`},
-    {cls:eddFail?'sb-warn':'sb-ok',i:eddFail?'✕':'✓',n:`Delivery slot — ${eddFail?'INVALID: Friday':'confirmed'}`,d:eddFail?`${s.slot} is a Friday. No Masafi deliveries on Fridays. Agent pushing EDD to next available slot (Saturday or Sunday).`:`Slot ${s.slot} open. Order placed before 20:00 DC cutoff. Route assigned.`},
-    {cls:dupFlag?'sb-warn':'sb-ok',i:dupFlag?'!':'✓',n:`Duplicate check — ${dupFlag?'FLAG: possible duplicate':'clear'}`,d:dupFlag?`Quantity of 100 units matches another open order on this account within T-24hrs. Possible duplicate. CS team notified.`:`No duplicate orders found for this account and SKU in the past 24 hours.`},
-    {cls:hasIssues?'sb-warn':'sb-ok',i:hasIssues?'✕':'✓',n:hasIssues?'ORDER HELD':'ORDER CONFIRMED — pushed to Mobiato',d:hasIssues?`Issues: ${[eddFail&&'invalid EDD',stockFail&&'insufficient stock',dupFlag&&'duplicate flag'].filter(Boolean).join(', ')}. Customer notification sent.`:`AED ${val.toLocaleString()} confirmed. Pushed to Mobiato. DC will pick for ${s.slot}. 3-way reconciliation: App ✓ Mobiato ✓ Locus pending.`},
-  ];
-  const vc=hasIssues?'fail':'pass';
-  showSteps(steps,{cls:vc,title:hasIssues?`B2C order held — ${[eddFail&&'invalid slot',stockFail&&'stock issue',dupFlag&&'duplicate'].filter(Boolean).join(' · ')}`:'B2C order confirmed — processing to DC',body:hasIssues?`AED ${val.toLocaleString()} protected from becoming a cancellation.`:`Consumer order confirmed. Delivery: ${s.slot}.`});
-  updSess(hasIssues,val);
-}
-
-function runValidation_MT(){
-  const s=mtState;
-  if(!s.acct||!s.sku||!s.slot)return;
-  const val=s.qty*s.price;
-  const moqFail=s.qty<s.moq;
-  const dow=new Date(s.slot).getDay();
-  const eddFail=dow===5||dow===6;
-  const bulkFlag=s.qty>=1000;
-  const hasIssues=moqFail||eddFail;
-  const steps=[
-    {cls:'sb-ai',i:'◈',n:`Agent 01 — B2B MT order: ${s.acctName}`,d:`${s.qty} cases ${s.sku} submitted by CS team. Account type: Modern Trade. Contracted B2B rate: AED ${s.price}/case. Total value: AED ${val.toLocaleString()}.`},
-    {cls:moqFail?'sb-warn':'sb-ok',i:moqFail?'✕':'✓',n:`MOQ check — ${moqFail?`FAILED: ${s.qty} cases below minimum ${s.moq}`:`passed: ${s.qty} ≥ MOQ ${s.moq}`}`,d:moqFail?`${s.acctName} requires a minimum of ${s.moq} cases. Order is ${s.qty}. This is the single largest cancellation reason in the MT channel — responsible for the majority of Masafi's AED 19.7M MT cancellation total. Agent is rejecting at entry, not at the DC.`:`Order quantity ${s.qty} meets the ${s.moq}-case minimum for ${s.acctName}.`},
-    {cls:'sb-ok',i:'✓',n:'Contracted price validated',d:`B2B contracted rate AED ${s.price}/case confirmed for ${s.acctName}. Price matches account contract — no CS correction needed.`},
-    {cls:eddFail?'sb-warn':'sb-ok',i:eddFail?'✕':'✓',n:`Delivery calendar — ${eddFail?'INVALID: no MT delivery Fri/Sat':'confirmed'}`,d:eddFail?`${s.slot} is a Friday or Saturday. Most Modern Trade accounts do not accept deliveries on these days. Agent suggesting next available MT delivery slot.`:`${s.slot} is a valid MT delivery day for this account.`},
-    {cls:bulkFlag?'sb-warn':'sb-ok',i:bulkFlag?'!':'✓',n:bulkFlag?'BULK ORDER: route to Factory DC direct':'Standard DC routing',d:bulkFlag?`Order of ${s.qty} cases meets the bulk threshold (≥1,000 cases). Agent has auto-set shipping site to Masafi Factory DC — this order should NOT route through the city DC.`:`Order of ${s.qty} cases routes through standard city DC.`},
-    {cls:hasIssues?'sb-warn':'sb-ok',i:hasIssues?'✕':'✓',n:hasIssues?'B2B MT ORDER HELD':'B2B MT ORDER APPROVED — to supervisor',d:hasIssues?`Order held. Issues: ${[moqFail&&'below MOQ',eddFail&&'invalid delivery day'].filter(Boolean).join(', ')}. CS team notified to correct before resubmission.`:`AED ${val.toLocaleString()} MT order passed to supervisor approval queue. Risk score calculated. Pre-scored for supervisor — only genuine decisions required.`},
-  ];
-  showSteps(steps,{cls:hasIssues?'fail':'pass',title:hasIssues?`MT order held — ${[moqFail&&'below MOQ',eddFail&&'invalid slot'].filter(Boolean).join(' · ')}`:`MT order approved — AED ${val.toLocaleString()} to ${s.acctName}`,body:hasIssues?`This order would have become part of the AED 19.7M MT cancellation total. Agent caught it at entry.`:`Order passed to supervisor. ${bulkFlag?'Note: routed to Factory DC (bulk threshold met).':'Standard DC routing confirmed.'}`});
-  updSess(hasIssues,val);
-}
-
-function runValidation_HOD(){
-  const s=hodState;
-  if(!s.acct||!s.sku)return;
-  const val=s.isFOC?0:s.qty*s.price;
-  const steps=[
-    {cls:'sb-ai',i:'◈',n:`Agent 01 — HOD order: ${s.acctName}`,d:`${s.qty} units ${s.sku}. Account type: ${s.acctType}. ${s.isFOC?'FOC — Government account. Zero price.':'Subscription account.'}`},
-    {cls:'sb-ok',i:'✓',n:'Subscription status — active',d:`${s.acctName} subscription is active and not paused. Account in good standing.`},
-    {cls:s.isFOC?'sb-warn':'sb-ok',i:s.isFOC?'!':'✓',n:s.isFOC?'FOC FLAG — Finance approval required':'Pricing validated',d:s.isFOC?`Government/FOC account detected. Zero-price order. Agent has routed this to Finance approval gate before processing. This step is automatic — CS does not process FOC orders directly.`:`Price AED ${s.price}/unit confirmed against HOD subscription rate.`},
-    {cls:'sb-ok',i:'✓',n:'Product eligibility confirmed',d:`${s.sku} is eligible for this HOD account type. Delivery address confirmed against most recent record.`},
-    {cls:'sb-ok',i:'✓',n:'Empty gallon reconciliation — clear',d:`Previous delivery empties reconciled. No discrepancy on record. Order quantity ${s.qty} units confirmed for dispatch.`},
-    {cls:'sb-ok',i:'✓',n:'HOD ORDER CONFIRMED — assigned to HOD vehicle pool',d:`Order pushed to HOD vehicle pool in Mobiato. ${s.isFOC?'Pending Finance approval (FOC).':'Driver will receive on HHD before route start.'} Subscription auto-renews next cycle.`},
-  ];
-  showSteps(steps,{cls:'pass',title:`HOD order confirmed — ${s.acctName}`,body:s.isFOC?`FOC order routed to Finance approval. Zero revenue impact — compliance step.`:`AED ${val.toLocaleString()} HOD order confirmed. Return rate for HOD channel: 4–13% — most stable channel in Masafi's network.`});
-  updSess(false,val);
-}
-
-function runValidation_EXP(){
-  const s=expState;
-  const needSel=!s.market||!s.sku;
-  if(needSel){document.getElementById('a1-result').innerHTML='<div class="verdict fail show"><div class="vt">Select market and product</div></div>';return;}
-  const val=s.qty*s.price;
-  const isSeaFreight=['kuwait','jordan','bahrain','maldives'].includes(s.market);
-  const isExWorks=s.market==='pakistan';
-  const steps=[
-    {cls:'sb-ai',i:'◈',n:`Agent 01 — Export order: ${s.marketName}`,d:`${s.qty} cases ${s.sku}. Market: ${s.marketName}. Incoterm: ${isExWorks?'Ex-works':isSeaFreight?'Sea freight via JAFZA':'DDP road transport'}. Total: AED ${val.toLocaleString()}.`},
-    {cls:'sb-ok',i:'✓',n:'Market eligibility confirmed',d:`${s.marketName} is an approved export destination. ${isSeaFreight?'Sea freight via JAFZA.':isExWorks?'Ex-works — buyer arranges collection.':'DDP — Masafi bears transport cost to Oman.'}`},
-    {cls:'sb-ok',i:'✓',n:'Export pricing validated',d:`Export price AED ${s.price}/case confirmed against ${s.marketName} price list. Domestic rate not applied.`},
-    {cls:'sb-ok',i:'✓',n:'Production lead time — checking',d:`Order sent to Production schedule review. Lead time requirement flagged. Vehicle placement date from buyer will become the EDD in Oracle.`},
-    {cls:isSeaFreight?'sb-warn':'sb-ok',i:isSeaFreight?'!':'✓',n:isSeaFreight?'JAFZA ROUTING FLAG — sea freight':'Road transport routing confirmed',d:isSeaFreight?`${s.marketName} order auto-routed to JAFZA for sea freight handling. Shipping site set to JAFZA in Oracle — not the domestic DC. JAFZA coordinator notified.`:`Oman DDP — road transport. Driver transit permit and vehicle registration must be current. Cargo strapping certificates in cab.`},
-    {cls:'sb-ok',i:'✓',n:'EXPORT ORDER CONFIRMED — pending vehicle placement date',d:`All validation checks passed. Order status: "Confirmed — pending EDD". EDD will be set when ${s.marketName} buyer confirms vehicle placement date. Five export documents required before shipment.`},
-  ];
-  showSteps(steps,{cls:'pass',title:`Export order confirmed — ${s.marketName} · AED ${val.toLocaleString()}`,body:`Order pending buyer vehicle placement confirmation. Production alerted. ${isSeaFreight?'JAFZA coordination initiated.':isExWorks?'Buyer collection arranged.':'DDP road transport — driver compliance check required.'}`});
-  updSess(false,val);
-}
-
-// Init channel
-switchChannel('b2c');
-if(typeof buildSlots === 'function') buildSlots(); // legacy compat
-</script>
 
 <!-- AGENT 02 — ROUTE LOAD -->
       <div class="panel" id="a2-sec" style="margin-bottom:1.1rem">
@@ -2060,6 +1680,390 @@ function toggleAlgo(id){
   el.classList.toggle('open',!open);
   arr.textContent=open?'▼':'▲';
 }
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+// ── CHANNEL CONFIG ────────────────────────────
+const CH_CONFIG = {
+  b2c:{
+    badge:'B2C — Consumer',
+    badgeStyle:'background:rgba(0,102,255,0.1);color:var(--blue2);border:1px solid rgba(0,102,255,0.2)',
+    intro:'Place an order as a Masafi consumer — via the app, website, Talabat or Noon. No minimum order. Agent 01 validates before the order reaches the warehouse.',
+    flowLabel:'How Masafi\'s B2C order system works — consumer channel',
+    flow:[
+      {n:'1',icon:'📱',title:'Customer orders via app',detail:'Masafi App, website, Talabat, or Noon. Order auto-syncs to Mobiato with EDD set to next working day. No human involved at order stage.'},
+      {arrow:true},
+      {n:'2',icon:'🤖',title:'AI validates',detail:'Agent 01 checks stock, slot availability, duplicate orders, and SKU eligibility. Under 3 seconds. No human review required for passing orders.',highlight:true},
+      {arrow:true},
+      {n:'3',icon:'🏭',title:'DC picks & packs',detail:'Confirmed order pushed to Mobiato. Locus assigns to route. Warehouse picks.'},
+      {arrow:true},
+      {n:'4',icon:'🚚',title:'Same/next day delivery',detail:'Driver delivers to home or office. HHD mark-delivered. 3-way reconciliation: App vs Mobiato vs Locus.'},
+    ],
+    rules:[
+      {lbl:'Min. order',val:'No minimum'},
+      {lbl:'Pricing',val:'Consumer rate'},
+      {lbl:'EDD',val:'Next working day'},
+      {lbl:'Cut-off',val:'20:00 daily'},
+      {lbl:'Duplicate window',val:'T-24 hrs'},
+    ],
+    algolabel:'How Agent 01 validates B2C consumer orders',
+    algo:[
+      {n:'1',title:'SKU active & in catalogue',body:'Agent checks the SKU is active and available for consumer purchase. Inactive SKUs trigger one of Masafi\'s four documented causes of missed orders.',formula:'IF SKU.status ≠ \'active\' → REJECT with reason code'},
+      {n:'2',title:'Stock at DC — consumer qty',body:'Consumer orders are small. Stock check is fast. If zero stock → agent triggers auto stock transfer request from Factory DC and suggests next available date.',formula:'IF DC_stock = 0 → hold + auto STO trigger → suggest next EDD'},
+      {n:'3',title:'Delivery slot open',body:'App auto-sets EDD to next working day. Agent validates the slot is open and that the order was placed before 20:00 DC cutoff. Friday orders push to Sunday.',formula:'EDD valid = slot.open AND order_time < 20:00\nFriday → push EDD to Sunday'},
+      {n:'4',title:'Duplicate order check',body:'Consumer duplicate orders are common on aggregators — customer orders twice across different platforms. Agent flags same account + SKU + EDD within T-24hrs.',formula:'Duplicate = (Account + SKU + EDD) ∈ open_orders T-24hrs'},
+      {n:'5',title:'Pricing validation',body:'Consumer price checked against current active promotion and standard retail rate. Aggregator (Talabat, Noon) rates may differ — agent validates against contracted aggregator price.',formula:'IF order.price ≠ channel.current_price → flag for CS review'},
+      {n:'6',title:'Approve & push to Mobiato',body:'Passing orders auto-push to Mobiato for DC processing. No human review needed. Failed orders send structured notification to customer — not a free-text error message.',formula:'Score < 30 → auto-approve to Mobiato | ≥30 → CS review queue'},
+    ]
+  },
+  mt:{
+    badge:'B2B — Modern Trade',
+    badgeStyle:'background:rgba(214,10,23,0.12);color:#ff7070;border:1px solid rgba(214,10,23,0.25)',
+    intro:'CS team order entry for Modern Trade accounts — Carrefour, Lulu, Spinneys. This channel is responsible for AED 19.7M of the AED 23.7M in cancelled orders. Validation rules are significantly stricter than B2C.',
+    flowLabel:'How Masafi\'s B2B Modern Trade order flow works — and why it generates AED 19.7M in cancellations',
+    flow:[
+      {n:'1',icon:'📞',title:'Order received by CS',detail:'Buyer contacts CS team by phone, email, WhatsApp, or EDI. CS agent enters draft order into Mobiato — this is where wrong bookings enter the system.'},
+      {arrow:true},
+      {n:'2',icon:'🤖',title:'AI validates',detail:'Agent 01 applies MT-specific rules: MOQ, contracted pricing, delivery calendar, account eligibility, duplicate detection. AED 19.7M in cancellations are concentrated here.',highlight:true},
+      {arrow:true},
+      {n:'3',icon:'✅',title:'Supervisor approval',detail:'Orders above threshold go to supervisor. Agent pre-scores them so supervisor sees only genuine decisions — not administrative errors.'},
+      {arrow:true},
+      {n:'4',icon:'🏭',title:'DC picks & direct delivery',detail:'Full-pallet or bulk orders. No city core entry. Jebel Ali / Dubai South only. MOT-compliant delivery windows strictly observed.'},
+    ],
+    rules:[
+      {lbl:'Min. order',val:'80–100 cases'},
+      {lbl:'Pricing',val:'Contracted B2B rate'},
+      {lbl:'EDD',val:'Fixed delivery calendar'},
+      {lbl:'Bulk threshold',val:'≥1,000 cases = direct factory'},
+      {lbl:'Duplicate window',val:'T-48 hrs (MT accounts)'},
+    ],
+    algolabel:'How Agent 01 validates B2B Modern Trade orders — where AED 19.7M of risk sits',
+    algo:[
+      {n:'1',title:'Account eligibility & credit status',body:'Agent checks the account is active, credit limit is not exceeded, and the ordering contact is authorised. MT accounts have specific authorised buyer lists — orders from unauthorised contacts are a source of wrong bookings.',formula:'IF account.credit_status = \'hold\' OR contact ∉ authorised_buyers → REJECT'},
+      {n:'2',title:'MOQ enforcement — hardest rule',body:'Modern Trade minimum: 100 cases (Carrefour, Lulu), 80 cases (Spinneys), 50 cases (Emirates Coop). Orders below MOQ are the single largest cancellation reason in the MT channel. Agent enforces at entry — not at DC.',formula:'IF qty < account.MOQ → REJECT at entry\nNote: this is the fix for 11,244 of 13,671 cancellations'},
+      {n:'3',title:'Contracted price validation',body:'MT accounts have contracted rates that differ from consumer pricing. CS agents entering orders manually sometimes apply the wrong price tier. Agent validates against the account\'s contracted rate and flags any mismatch before the order proceeds.',formula:'IF order.price ≠ account.contracted_price → hold for CS correction'},
+      {n:'4',title:'Delivery calendar check',body:'MT accounts have fixed weekly delivery slots — not open next-day. Carrefour may receive Tuesday and Friday only. Spinneys may receive Monday and Thursday. Agent validates EDD against account\'s specific delivery calendar, not a generic slot grid.',formula:'EDD valid = date ∈ account.delivery_calendar\nFri/Sat = non-delivery for most MT accounts'},
+      {n:'5',title:'Bulk order routing — factory direct',body:'Orders ≥1,000 cases (water) or ≥250 cases (tissue) qualify as bulk orders and must be routed direct from the Masafi factory, not the DC. Agent checks quantity and auto-sets shipping site to Factory DC if threshold is met.',formula:'IF qty ≥ bulk_threshold → set shipping_site = Factory DC\nDo NOT route through city DC'},
+      {n:'6',title:'Duplicate detection — T-48hrs for MT',body:'MT accounts place standing orders weekly. A 24-hour duplicate window misses the common pattern of the same standing order being entered twice across two days. MT channel uses a T-48hr window.',formula:'MT Duplicate = (Account + SKU + EDD) ∈ open_orders T-48hrs'},
+    ]
+  },
+  hod:{
+    badge:'B2B — HOD',
+    badgeStyle:'background:rgba(0,135,90,0.12);color:#4ade80;border:1px solid rgba(0,135,90,0.25)',
+    intro:'Home and Office Delivery — residential, corporate, hotel, and government accounts on water subscriptions. Most stable channel: 4–13% return rate vs 30% van sales. Cancellations here are mainly wrong quantities on standing orders.',
+    flowLabel:'How Masafi\'s HOD channel works — subscription-based recurring delivery',
+    flow:[
+      {n:'1',icon:'🏢',title:'Standing order or new request',detail:'HOD accounts have recurring standing orders. Changes submitted via app, phone, or account manager. Driver visits to confirm monthly quantities.'},
+      {arrow:true},
+      {n:'2',icon:'🤖',title:'AI validates',detail:'Agent checks delivery address, subscription status, product eligibility (Alkalife vs standard), FOC flag for govt accounts, and quantity vs subscription plan.',highlight:true},
+      {arrow:true},
+      {n:'3',icon:'🚐',title:'HOD vehicle assigned',detail:'HOD deliveries use a separate vehicle pool from MT. Mobiato routes to the HOD driver assigned to that area. HHD dispatch confirmation.'},
+      {arrow:true},
+      {n:'4',icon:'🏠',title:'Doorstep delivery',detail:'Driver delivers, collects empty gallons, marks complete on HHD. Subscription auto-renews unless change request is in system.'},
+    ],
+    rules:[
+      {lbl:'Min. order',val:'2–10 units (account type)'},
+      {lbl:'Govt accounts',val:'FOC — zero price'},
+      {lbl:'Alkalife',val:'Premium — separate eligibility'},
+      {lbl:'Return rate',val:'4–13% (vs 30% Van Sales)'},
+      {lbl:'Recurring',val:'Auto-renew standing orders'},
+    ],
+    algolabel:'How Agent 01 validates HOD orders — subscription and standing order logic',
+    algo:[
+      {n:'1',title:'Subscription status check',body:'HOD accounts are on recurring plans. Agent checks the subscription is active, not paused, and not overdue on payment. A paused subscription that generates an order is a common source of cancellations in this channel.',formula:'IF account.subscription = \'paused\' OR \'overdue\' → hold for CS review'},
+      {n:'2',title:'Product eligibility — Alkalife vs standard',body:'Not all HOD accounts are eligible for Alkalife premium water. Corporate and hotel accounts may have contracted for standard only. Agent validates product eligibility against account contract before proceeding.',formula:'IF product = \'alkalife\' AND account.alkalife_eligible = false → REJECT'},
+      {n:'3',title:'FOC flag — government accounts',body:'Government and FOC accounts have zero-price orders that must be routed through a Finance approval before processing. Agent identifies FOC accounts and inserts the Finance approval step automatically — these orders bypass normal pricing validation.',formula:'IF account.type = \'govt\' OR \'FOC\' → route to Finance approval gate'},
+      {n:'4',title:'Empty gallon collection reconciliation',body:'For 4-gallon HOD, the number of units delivered must equal the number of empties collected on the previous visit. Discrepancies trigger a physical stock count flag. Agent checks the reconciliation before confirming the next delivery quantity.',formula:'IF delivered_prev ≠ empties_collected → flag for driver check before next dispatch'},
+      {n:'5',title:'Address and route confirmation',body:'HOD delivery addresses change — tenants move, offices relocate. Agent cross-references the delivery address against the most recent confirmed address in the system and flags any mismatch for CS confirmation.',formula:'IF order.address ≠ account.confirmed_address → hold for CS confirmation'},
+      {n:'6',title:'Approve and assign HOD vehicle',body:'Validated HOD orders push to the HOD vehicle pool in Mobiato — separate from the MT fleet. Driver receives the order on HHD before route start. Standing orders auto-push on the scheduled day without CS intervention.',formula:'Approved HOD → HOD vehicle pool in Mobiato → HHD dispatch'},
+    ]
+  },
+  export:{
+    badge:'B2B — Export',
+    badgeStyle:'background:rgba(123,79,212,0.12);color:#c4b5fd;border:1px solid rgba(123,79,212,0.25)',
+    intro:'International export orders — Oman (DDP road), Kuwait/Jordan/Bahrain (sea via JAFZA), Pakistan (ex-works), Maldives. Managed by the export team (Asad). Validation is document-heavy: bill of lading, certificate of origin, transit permits.',
+    flowLabel:'How Masafi\'s export order process works — B2B international channel',
+    flow:[
+      {n:'1',icon:'✉️',title:'Buyer coordination',detail:'Export team (Asad) coordinates with international buyers. Order confirmation issued. Forwarded to export operations for proforma invoice and production planning.'},
+      {arrow:true},
+      {n:'2',icon:'🤖',title:'AI validates',detail:'Agent checks export documentation completeness, production lead time availability, market-specific pricing, and customs document requirements per destination.',highlight:true},
+      {arrow:true},
+      {n:'3',icon:'📋',title:'Export docs prepared',detail:'Commercial invoice, packing list, certificate of origin, RTA cargo strapping cert prepared. For sea: JAFZA handling. For Oman: DDP — Masafi bears delivery cost.'},
+      {arrow:true},
+      {n:'4',icon:'🚢',title:'Shipment',detail:'Vehicle placement date becomes EDD. Order shipped out. Delivery confirmation from destination agent or buyer closes the order in Oracle.'},
+    ],
+    rules:[
+      {lbl:'Oman',val:'DDP — road transport'},
+      {lbl:'Kuwait / Jordan',val:'Sea freight via JAFZA'},
+      {lbl:'Pakistan',val:'Ex-works (buyer collects)'},
+      {lbl:'Lead time',val:'Customer vehicle placement = EDD'},
+      {lbl:'Docs required',val:'5 mandatory documents'},
+    ],
+    algolabel:'How Agent 01 validates export orders — document and compliance checks',
+    algo:[
+      {n:'1',title:'Market eligibility & sanctions check',body:'Agent validates the destination market is an approved export destination and not subject to trade restrictions. Each market has a specific price list and incoterm — Oman (DDP), Kuwait/Jordan/Bahrain (CIF JAFZA), Pakistan (EXW).',formula:'IF market ∉ approved_export_markets → REJECT\nIF incoterm ≠ market.standard_incoterm → flag for export team'},
+      {n:'2',title:'Production lead time availability',body:'Export orders go to Production, not the DC. Agent checks the production schedule for the required volume and whether the lead time between order confirmation and vehicle placement date is achievable. Short lead time = production conflict risk.',formula:'IF vehicle_placement_date - today < production.lead_time → flag as at-risk'},
+      {n:'3',title:'Export pricing validation',body:'Export prices differ from domestic B2B rates (typically lower). Agent validates the proforma invoice price against the market-specific export price list. A domestic price applied to an export order creates a compliance issue.',formula:'IF order.price ≠ market.export_price_list → hold for export team correction'},
+      {n:'4',title:'Documentation completeness check',body:'Five mandatory documents must be confirmed: bill of lading, commercial invoice, packing list, certificate of origin, RTA cargo strapping cert. For Abu Dhabi long-haul export legs: driver transit permit and vehicle registration must be current.',formula:'docs_complete = [BoL, invoice, packing_list, CoO, strapping_cert].all_confirmed\nIF docs_complete = false → hold — do not proceed to production'},
+      {n:'5',title:'JAFZA routing flag (sea freight)',body:'Kuwait, Jordan, Bahrain, and Maldives orders route through JAFZA for sea freight. Agent automatically flags sea-freight orders for JAFZA coordination and sets the shipping site to JAFZA in Oracle — not the domestic DC.',formula:'IF market.freight_mode = \'sea\' → set shipping_site = JAFZA\nIF market.freight_mode = \'road_oman\' → DDP — include transport cost in proforma'},
+      {n:'6',title:'EDD set from vehicle placement',body:'Unlike domestic orders where EDD is set at order entry, export EDD is set when the customer confirms the date of vehicle placement. Agent holds the order as \'confirmed pending EDD\' until vehicle placement is confirmed — this date then becomes the EDD in Oracle.',formula:'EDD = customer.vehicle_placement_confirmation_date\nOrder status: \'confirmed pending EDD\' until placement confirmed'},
+    ]
+  }
+};
+
+let activeChannel = 'b2c';
+let b2cState = {sku:null,price:0,stock:0,name:'',qty:1,slot:null};
+let mtState  = {acct:null,moq:0,acctName:'',acctType:'',sku:null,price:0,stock:0,qty:50,slot:null};
+let hodState = {acct:null,moq:2,acctName:'',acctType:'',sku:null,price:0,stock:0,qty:6,isFOC:false};
+let expState = {market:null,marketName:'',acctType:'',sku:null,price:0,stock:0,qty:500};
+
+// ── CHANNEL SWITCH ────────────────────────────
+function switchChannel(ch){
+  activeChannel = ch;
+  document.querySelectorAll('.ch-btn').forEach(b=>b.classList.remove('ch-active'));
+  document.getElementById('ch-'+ch).classList.add('ch-active');
+
+  // Hide all forms
+  ['b2c','mt','hod','export'].forEach(c=>{
+    const el = document.getElementById('form-'+c);
+    if(el) el.style.display='none';
+  });
+  const showId = ch==='export'?'form-export':'form-'+ch;
+  const showEl = document.getElementById(showId);
+  if(showEl) showEl.style.display='block';
+
+  // Reset AI panel
+  document.getElementById('a1-result').innerHTML=`<div class="ai-idle"><div class="ai-idle-icon">⬡</div><p class="ai-idle-txt">Complete the ${CH_CONFIG[ch].badge} order form<br>and submit to see Agent 01 validate it.</p></div>`;
+
+  // Update badge, intro, flow, rules, algo
+  const cfg = CH_CONFIG[ch];
+  document.getElementById('ch-badge').textContent = cfg.badge;
+  document.getElementById('ch-badge').style.cssText = cfg.badgeStyle;
+  document.getElementById('a1-intro').textContent = cfg.intro;
+  document.getElementById('flow-label').textContent = cfg.flowLabel;
+  document.getElementById('algo1-label').textContent = cfg.algolabel;
+  buildFlow(cfg.flow);
+  buildRules(cfg.rules);
+  buildAlgo(cfg.algo, ch);
+
+  // Build slots for channel
+  if(ch==='b2c') buildSlotsFor('b2c-slots', false);
+  if(ch==='mt')  buildSlotsFor('mt-slots', true);
+  if(ch==='hod') buildSlotsFor('hod-slots', false);
+}
+
+function buildFlow(flow){
+  const el = document.getElementById('system-flow-strip');
+  el.innerHTML = flow.map(s=>{
+    if(s.arrow) return `<div class="sf-arrow">→</div>`;
+    const hl = s.highlight ? 'border-left:2px solid var(--blue);background:rgba(0,102,255,0.04)' : '';
+    return `<div class="sf-step" style="${hl}">
+      <div class="sf-num" style="${s.highlight?'background:rgba(0,102,255,0.2)':''}">${s.n}</div>
+      <div class="sf-icon">${s.icon}</div>
+      <div class="sf-title">${s.title}</div>
+      <div class="sf-detail">${s.detail}</div>
+    </div>`;
+  }).join('');
+}
+
+function buildRules(rules){
+  const el = document.getElementById('ch-rules');
+  el.innerHTML = rules.map((r,i)=>`
+    <div class="ch-rule" style="padding:0 ${i===0?'20px 0 0':'20px 0'};${i>0?'border-left:1px solid var(--border);':''}">
+      <div class="ch-rule-lbl">${r.lbl}</div>
+      <div class="ch-rule-val">${r.val}</div>
+    </div>`).join('');
+}
+
+function buildAlgo(steps, ch){
+  const colors={b2c:'var(--blue)',mt:'#EF4444',hod:'var(--green)',export:'#9b7bff'};
+  const col = colors[ch]||'var(--blue)';
+  document.getElementById('algo1-body').innerHTML = steps.map(s=>`
+    <div class="algo-step">
+      <span class="algo-n" style="border-color:${col};color:${col};background:transparent">${s.n}</span>
+      <div><strong style="color:var(--white)">${s.title}</strong><br>${s.body}
+      <div class="formula">${s.formula.replace(/\n/g,'<br>')}</div></div>
+    </div>`).join('');
+}
+
+function buildSlotsFor(containerId, isMT){
+  const grid = document.getElementById(containerId);
+  if(!grid) return;
+  const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const today = new Date();
+  let html='';
+  for(let i=1;i<=6;i++){
+    const d=new Date(today); d.setDate(today.getDate()+i);
+    const dow=d.getDay();
+    const dateStr=d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+    const isFri=dow===5;
+    const isSat=dow===6;
+    // MT: Fri/Sat non-delivery for most accounts
+    const unavailable = isMT ? (isFri||isSat) : isFri;
+    const dateISO=d.toISOString().split('T')[0];
+    if(unavailable){
+      html+=`<div class="slot unavailable"><div class="slot-day">${days[dow]} ${dateStr}</div><div class="slot-note">${isMT?'No MT delivery':'No delivery'}</div></div>`;
+    } else {
+      html+=`<div class="slot" onclick="selectSlotFor(this,'${containerId}','${dateISO}','${containerId.split('-')[0]}')" data-date="${dateISO}"><div class="slot-day">${days[dow]} ${dateStr}</div><div class="slot-note">${isMT?'Delivery window':'Next-day delivery'}</div></div>`;
+    }
+  }
+  grid.innerHTML=html;
+}
+
+function selectSlotFor(el, containerId, date, ch){
+  document.querySelectorAll('#'+containerId+' .slot.selected').forEach(s=>s.classList.remove('selected'));
+  el.classList.add('selected');
+  if(ch==='b2c'){b2cState.slot=date; updB2CBtn();}
+  if(ch==='mt') {mtState.slot=date; updMTBtn();}
+  if(ch==='hod'){hodState.slot=date; updHODBtn();}
+}
+
+// ── B2C ──────────────────────────────────────
+function selectProd(el,sku,price,stock,name,ch){
+  document.querySelectorAll(`#form-${ch} .prod-card`).forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  b2cState={...b2cState,sku,price,stock,name,qty:1};
+  document.getElementById('b2c-qty-lbl').textContent=name;
+  document.getElementById('b2c-qty-num').textContent=1;
+  document.getElementById('b2c-total').textContent='AED '+price.toLocaleString();
+  updB2CBtn();
+}
+function changeQty(ch,d){
+  if(ch==='b2c'){b2cState.qty=Math.max(1,Math.min(b2cState.qty+d,999));document.getElementById('b2c-qty-num').textContent=b2cState.qty;document.getElementById('b2c-total').textContent='AED '+(b2cState.qty*b2cState.price).toLocaleString();updB2CBtn();}
+  if(ch==='mt'){mtState.qty=Math.max(10,Math.min(mtState.qty+d,9999));document.getElementById('mt-qty-num').textContent=mtState.qty;updMTTotal();updMTBtn();}
+  if(ch==='hod'){hodState.qty=Math.max(1,Math.min(hodState.qty+d,999));document.getElementById('hod-qty-num').textContent=hodState.qty;updHODTotal();}
+  if(ch==='exp'){expState.qty=Math.max(100,Math.min(expState.qty+d,99999));document.getElementById('exp-qty-num').textContent=expState.qty;updEXPTotal();}
+}
+function updB2CBtn(){const ok=b2cState.sku&&b2cState.slot;const btn=document.getElementById('b2c-place');btn.disabled=!ok;btn.textContent=ok?`Place order — AED ${(b2cState.qty*b2cState.price).toLocaleString()}`:'Select product & slot';}
+
+// ── MT ───────────────────────────────────────
+function selectB2BAcct(el,id,moq,name,type){
+  el.closest('.app-body').querySelectorAll('.b2b-acct').forEach(a=>a.classList.remove('selected-acct'));
+  el.classList.add('selected-acct');
+  if(activeChannel==='mt'){mtState={...mtState,acct:id,moq,acctName:name,acctType:type};updMTBtn();}
+  if(activeChannel==='hod'){hodState={...hodState,acct:id,moq,acctName:name,acctType:type,isFOC:(id==='hod-govt')};}
+  if(activeChannel==='export'){expState={...expState,market:id,marketName:name,acctType:type};}
+}
+function updHODBtn(){
+  const ok=hodState.acct&&hodState.sku&&hodState.slot;
+  const btn=document.getElementById('hod-place');
+  if(!btn)return;
+  btn.disabled=!ok;
+  btn.textContent=ok?`Confirm delivery — ${hodState.isFOC?'FOC':'AED '+(hodState.qty*hodState.price).toLocaleString()}`:'Select account, product & slot';
+}
+
+function updMTTotal(){const sel=document.getElementById('mt-product');if(!sel.value)return;const o=sel.options[sel.selectedIndex];mtState.price=parseInt(o.dataset.price)||0;mtState.stock=parseInt(o.dataset.stock)||0;mtState.sku=sel.value;document.getElementById('mt-total').textContent='AED '+(mtState.qty*mtState.price).toLocaleString();updMTBtn();}
+function updMTBtn(){const ok=mtState.acct&&mtState.sku&&mtState.slot;const btn=document.getElementById('mt-place');btn.disabled=!ok;btn.textContent=ok?`Submit order — AED ${(mtState.qty*mtState.price).toLocaleString()}`:'Select account, product & date';}
+function updHODTotal(){const sel=document.getElementById('hod-product');if(!sel.value)return;const o=sel.options[sel.selectedIndex];hodState.price=parseInt(o.dataset.price)||0;hodState.sku=sel.value;document.getElementById('hod-total').textContent=hodState.isFOC?'AED 0 (FOC)':'AED '+(hodState.qty*hodState.price).toLocaleString();}
+function updEXPTotal(){const sel=document.getElementById('exp-product');if(!sel.value)return;const o=sel.options[sel.selectedIndex];expState.price=parseInt(o.dataset.price)||0;expState.sku=sel.value;document.getElementById('exp-total').textContent='AED '+(expState.qty*expState.price).toLocaleString();}
+
+// ── PLACE ORDER ───────────────────────────────
+function placeOrder(ch){
+  if(ch==='b2c')    runValidation_B2C();
+  else if(ch==='mt') runValidation_MT();
+  else if(ch==='hod')runValidation_HOD();
+  else if(ch==='exp')runValidation_EXP();
+}
+
+function showSteps(steps, verdict){
+  let html='<div class="ai-header">Agent 01 — Validation sequence running</div><div class="steps">';
+  steps.forEach((s,i)=>{html+=`<div class="step" id="vs_${i}"><span class="s-badge ${s.cls}">${s.i}</span><div><div class="s-name">${s.n}</div><div class="s-detail">${s.d}</div></div></div>`;});
+  html+=`</div><div class="verdict ${verdict.cls}" id="a1v"><div class="vt">${verdict.title}</div><div class="vb">${verdict.body}</div></div>`;
+  document.getElementById('a1-result').innerHTML=html;
+  steps.forEach((_,i)=>setTimeout(()=>{const el=document.getElementById(`vs_${i}`);if(el)el.classList.add('show');},i*480+80));
+  setTimeout(()=>{const v=document.getElementById('a1v');if(v)v.classList.add('show');},steps.length*480+150);
+}
+
+function updSess(hasIssue, val){
+  proc++;if(hasIssue){caught++;saved+=val;}
+  setTimeout(updSession,200);
+}
+
+function runValidation_B2C(){
+  const s=b2cState;
+  if(!s.sku||!s.slot)return;
+  const val=s.qty*s.price;
+  const dow=new Date(s.slot).getDay();
+  const eddFail=dow===5;
+  const stockFail=s.qty>s.stock;
+  const dupFlag=s.qty===100;
+  const hasIssues=eddFail||stockFail||dupFlag;
+  const steps=[
+    {cls:'sb-ai',i:'◈',n:'Agent 01 — B2C order received (Masafi App / aggregator)',d:`${s.qty}× ${s.name}. Consumer account. EDD: ${s.slot}. Entering validation sequence.`},
+    {cls:'sb-ok',i:'✓',n:'SKU active & in catalogue',d:`${s.name} is active, available for consumer purchase, and correctly priced at consumer rate.`},
+    {cls:stockFail?'sb-warn':'sb-ok',i:stockFail?'✕':'✓',n:`DC stock — ${stockFail?'HOLD: insufficient':'confirmed'}`,d:stockFail?`Only ${s.stock.toLocaleString()} units available. Order of ${s.qty} cannot be fulfilled. Auto stock transfer request triggered to Factory DC. Next available EDD suggested.`:`${s.stock.toLocaleString()} units at DC. Order of ${s.qty} confirmed available.`},
+    {cls:eddFail?'sb-warn':'sb-ok',i:eddFail?'✕':'✓',n:`Delivery slot — ${eddFail?'INVALID: Friday':'confirmed'}`,d:eddFail?`${s.slot} is a Friday. No Masafi deliveries on Fridays. Agent pushing EDD to next available slot (Saturday or Sunday).`:`Slot ${s.slot} open. Order placed before 20:00 DC cutoff. Route assigned.`},
+    {cls:dupFlag?'sb-warn':'sb-ok',i:dupFlag?'!':'✓',n:`Duplicate check — ${dupFlag?'FLAG: possible duplicate':'clear'}`,d:dupFlag?`Quantity of 100 units matches another open order on this account within T-24hrs. Possible duplicate. CS team notified.`:`No duplicate orders found for this account and SKU in the past 24 hours.`},
+    {cls:hasIssues?'sb-warn':'sb-ok',i:hasIssues?'✕':'✓',n:hasIssues?'ORDER HELD':'ORDER CONFIRMED — pushed to Mobiato',d:hasIssues?`Issues: ${[eddFail&&'invalid EDD',stockFail&&'insufficient stock',dupFlag&&'duplicate flag'].filter(Boolean).join(', ')}. Customer notification sent.`:`AED ${val.toLocaleString()} confirmed. Pushed to Mobiato. DC will pick for ${s.slot}. 3-way reconciliation: App ✓ Mobiato ✓ Locus pending.`},
+  ];
+  const vc=hasIssues?'fail':'pass';
+  showSteps(steps,{cls:vc,title:hasIssues?`B2C order held — ${[eddFail&&'invalid slot',stockFail&&'stock issue',dupFlag&&'duplicate'].filter(Boolean).join(' · ')}`:'B2C order confirmed — processing to DC',body:hasIssues?`AED ${val.toLocaleString()} protected from becoming a cancellation.`:`Consumer order confirmed. Delivery: ${s.slot}.`});
+  updSess(hasIssues,val);
+}
+
+function runValidation_MT(){
+  const s=mtState;
+  if(!s.acct||!s.sku||!s.slot)return;
+  const val=s.qty*s.price;
+  const moqFail=s.qty<s.moq;
+  const dow=new Date(s.slot).getDay();
+  const eddFail=dow===5||dow===6;
+  const bulkFlag=s.qty>=1000;
+  const hasIssues=moqFail||eddFail;
+  const steps=[
+    {cls:'sb-ai',i:'◈',n:`Agent 01 — B2B MT order: ${s.acctName}`,d:`${s.qty} cases ${s.sku} submitted by CS team. Account type: Modern Trade. Contracted B2B rate: AED ${s.price}/case. Total value: AED ${val.toLocaleString()}.`},
+    {cls:moqFail?'sb-warn':'sb-ok',i:moqFail?'✕':'✓',n:`MOQ check — ${moqFail?`FAILED: ${s.qty} cases below minimum ${s.moq}`:`passed: ${s.qty} ≥ MOQ ${s.moq}`}`,d:moqFail?`${s.acctName} requires a minimum of ${s.moq} cases. Order is ${s.qty}. This is the single largest cancellation reason in the MT channel — responsible for the majority of Masafi's AED 19.7M MT cancellation total. Agent is rejecting at entry, not at the DC.`:`Order quantity ${s.qty} meets the ${s.moq}-case minimum for ${s.acctName}.`},
+    {cls:'sb-ok',i:'✓',n:'Contracted price validated',d:`B2B contracted rate AED ${s.price}/case confirmed for ${s.acctName}. Price matches account contract — no CS correction needed.`},
+    {cls:eddFail?'sb-warn':'sb-ok',i:eddFail?'✕':'✓',n:`Delivery calendar — ${eddFail?'INVALID: no MT delivery Fri/Sat':'confirmed'}`,d:eddFail?`${s.slot} is a Friday or Saturday. Most Modern Trade accounts do not accept deliveries on these days. Agent suggesting next available MT delivery slot.`:`${s.slot} is a valid MT delivery day for this account.`},
+    {cls:bulkFlag?'sb-warn':'sb-ok',i:bulkFlag?'!':'✓',n:bulkFlag?'BULK ORDER: route to Factory DC direct':'Standard DC routing',d:bulkFlag?`Order of ${s.qty} cases meets the bulk threshold (≥1,000 cases). Agent has auto-set shipping site to Masafi Factory DC — this order should NOT route through the city DC.`:`Order of ${s.qty} cases routes through standard city DC.`},
+    {cls:hasIssues?'sb-warn':'sb-ok',i:hasIssues?'✕':'✓',n:hasIssues?'B2B MT ORDER HELD':'B2B MT ORDER APPROVED — to supervisor',d:hasIssues?`Order held. Issues: ${[moqFail&&'below MOQ',eddFail&&'invalid delivery day'].filter(Boolean).join(', ')}. CS team notified to correct before resubmission.`:`AED ${val.toLocaleString()} MT order passed to supervisor approval queue. Risk score calculated. Pre-scored for supervisor — only genuine decisions required.`},
+  ];
+  showSteps(steps,{cls:hasIssues?'fail':'pass',title:hasIssues?`MT order held — ${[moqFail&&'below MOQ',eddFail&&'invalid slot'].filter(Boolean).join(' · ')}`:`MT order approved — AED ${val.toLocaleString()} to ${s.acctName}`,body:hasIssues?`This order would have become part of the AED 19.7M MT cancellation total. Agent caught it at entry.`:`Order passed to supervisor. ${bulkFlag?'Note: routed to Factory DC (bulk threshold met).':'Standard DC routing confirmed.'}`});
+  updSess(hasIssues,val);
+}
+
+function runValidation_HOD(){
+  const s=hodState;
+  if(!s.acct||!s.sku)return;
+  const val=s.isFOC?0:s.qty*s.price;
+  const steps=[
+    {cls:'sb-ai',i:'◈',n:`Agent 01 — HOD order: ${s.acctName}`,d:`${s.qty} units ${s.sku}. Account type: ${s.acctType}. ${s.isFOC?'FOC — Government account. Zero price.':'Subscription account.'}`},
+    {cls:'sb-ok',i:'✓',n:'Subscription status — active',d:`${s.acctName} subscription is active and not paused. Account in good standing.`},
+    {cls:s.isFOC?'sb-warn':'sb-ok',i:s.isFOC?'!':'✓',n:s.isFOC?'FOC FLAG — Finance approval required':'Pricing validated',d:s.isFOC?`Government/FOC account detected. Zero-price order. Agent has routed this to Finance approval gate before processing. This step is automatic — CS does not process FOC orders directly.`:`Price AED ${s.price}/unit confirmed against HOD subscription rate.`},
+    {cls:'sb-ok',i:'✓',n:'Product eligibility confirmed',d:`${s.sku} is eligible for this HOD account type. Delivery address confirmed against most recent record.`},
+    {cls:'sb-ok',i:'✓',n:'Empty gallon reconciliation — clear',d:`Previous delivery empties reconciled. No discrepancy on record. Order quantity ${s.qty} units confirmed for dispatch.`},
+    {cls:'sb-ok',i:'✓',n:'HOD ORDER CONFIRMED — assigned to HOD vehicle pool',d:`Order pushed to HOD vehicle pool in Mobiato. ${s.isFOC?'Pending Finance approval (FOC).':'Driver will receive on HHD before route start.'} Subscription auto-renews next cycle.`},
+  ];
+  showSteps(steps,{cls:'pass',title:`HOD order confirmed — ${s.acctName}`,body:s.isFOC?`FOC order routed to Finance approval. Zero revenue impact — compliance step.`:`AED ${val.toLocaleString()} HOD order confirmed. Return rate for HOD channel: 4–13% — most stable channel in Masafi's network.`});
+  updSess(false,val);
+}
+
+function runValidation_EXP(){
+  const s=expState;
+  const needSel=!s.market||!s.sku;
+  if(needSel){document.getElementById('a1-result').innerHTML='<div class="verdict fail show"><div class="vt">Select market and product</div></div>';return;}
+  const val=s.qty*s.price;
+  const isSeaFreight=['kuwait','jordan','bahrain','maldives'].includes(s.market);
+  const isExWorks=s.market==='pakistan';
+  const steps=[
+    {cls:'sb-ai',i:'◈',n:`Agent 01 — Export order: ${s.marketName}`,d:`${s.qty} cases ${s.sku}. Market: ${s.marketName}. Incoterm: ${isExWorks?'Ex-works':isSeaFreight?'Sea freight via JAFZA':'DDP road transport'}. Total: AED ${val.toLocaleString()}.`},
+    {cls:'sb-ok',i:'✓',n:'Market eligibility confirmed',d:`${s.marketName} is an approved export destination. ${isSeaFreight?'Sea freight via JAFZA.':isExWorks?'Ex-works — buyer arranges collection.':'DDP — Masafi bears transport cost to Oman.'}`},
+    {cls:'sb-ok',i:'✓',n:'Export pricing validated',d:`Export price AED ${s.price}/case confirmed against ${s.marketName} price list. Domestic rate not applied.`},
+    {cls:'sb-ok',i:'✓',n:'Production lead time — checking',d:`Order sent to Production schedule review. Lead time requirement flagged. Vehicle placement date from buyer will become the EDD in Oracle.`},
+    {cls:isSeaFreight?'sb-warn':'sb-ok',i:isSeaFreight?'!':'✓',n:isSeaFreight?'JAFZA ROUTING FLAG — sea freight':'Road transport routing confirmed',d:isSeaFreight?`${s.marketName} order auto-routed to JAFZA for sea freight handling. Shipping site set to JAFZA in Oracle — not the domestic DC. JAFZA coordinator notified.`:`Oman DDP — road transport. Driver transit permit and vehicle registration must be current. Cargo strapping certificates in cab.`},
+    {cls:'sb-ok',i:'✓',n:'EXPORT ORDER CONFIRMED — pending vehicle placement date',d:`All validation checks passed. Order status: "Confirmed — pending EDD". EDD will be set when ${s.marketName} buyer confirms vehicle placement date. Five export documents required before shipment.`},
+  ];
+  showSteps(steps,{cls:'pass',title:`Export order confirmed — ${s.marketName} · AED ${val.toLocaleString()}`,body:`Order pending buyer vehicle placement confirmation. Production alerted. ${isSeaFreight?'JAFZA coordination initiated.':isExWorks?'Buyer collection arranged.':'DDP road transport — driver compliance check required.'}`});
+  updSess(false,val);
+}
+
+// Init channel
+switchChannel('b2c');
+if(typeof buildSlots === 'function') buildSlots(); // legacy compat
+
+});
 </script>
 </body>
 </html>
