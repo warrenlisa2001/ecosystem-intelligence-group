@@ -433,109 +433,262 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
         <div class="ph blue">
           <div>
             <div class="ph-agent">Agent 01</div>
-            <div class="ph-title">AI Order Validation — Live Customer Journey</div>
+            <div class="ph-title">AI Order Validation — All Channels</div>
           </div>
-          <div class="ph-r"><span class="badge badge-live">Live</span></div>
+          <div class="ph-r" style="display:flex;gap:6px">
+            <span class="badge badge-live">Live</span>
+            <span id="ch-badge" class="badge" style="background:rgba(0,102,255,0.1);color:var(--blue2);border:1px solid rgba(0,102,255,0.2)">B2C — Consumer</span>
+          </div>
         </div>
 
-        <!-- SYSTEM FLOW -->
+        <!-- CHANNEL SELECTOR -->
+        <div style="display:flex;gap:0;border-bottom:1px solid var(--border);background:rgba(0,0,0,0.12)">
+          <button id="ch-b2c" onclick="switchChannel('b2c')" class="ch-btn ch-active">
+            <span class="ch-icon">📱</span>
+            <div>
+              <div class="ch-label">B2C — Consumer</div>
+              <div class="ch-sub">App · Website · Talabat · Noon</div>
+            </div>
+          </button>
+          <button id="ch-mt" onclick="switchChannel('mt')" class="ch-btn">
+            <span class="ch-icon">🏪</span>
+            <div>
+              <div class="ch-label">B2B — Modern Trade</div>
+              <div class="ch-sub">Carrefour · Lulu · Spinneys · AED 19.7M at risk</div>
+            </div>
+          </button>
+          <button id="ch-hod" onclick="switchChannel('hod')" class="ch-btn">
+            <span class="ch-icon">🏢</span>
+            <div>
+              <div class="ch-label">B2B — HOD</div>
+              <div class="ch-sub">Home · Office · Corporate subscriptions</div>
+            </div>
+          </button>
+          <button id="ch-export" onclick="switchChannel('export')" class="ch-btn">
+            <span class="ch-icon">✈️</span>
+            <div>
+              <div class="ch-label">B2B — Export</div>
+              <div class="ch-sub">Oman · Kuwait · Jordan · Bahrain · Pakistan</div>
+            </div>
+          </button>
+        </div>
+
+        <!-- CHANNEL RULE STRIP -->
+        <div id="ch-rules" style="padding:8px 1.1rem;background:rgba(0,102,255,0.03);border-bottom:1px solid var(--border);display:flex;gap:1.5rem;flex-wrap:wrap"></div>
+
+        <!-- SYSTEM FLOW — updates per channel -->
         <div style="padding:10px 1.1rem 0">
-          <div style="font-size:9.5px;color:var(--mgrey);margin-bottom:6px">How Masafi's order system works — and where the AI sits</div>
-          <div class="system-flow">
-            <div class="sf-step">
-              <div class="sf-num">1</div>
-              <div class="sf-icon">📱</div>
-              <div class="sf-title">Customer orders</div>
-              <div class="sf-detail">Via Masafi App, website, Talabat, Noon, or call centre. Order enters Mobiato system automatically.</div>
-            </div>
-            <div class="sf-arrow">→</div>
-            <div class="sf-step" style="border-left:2px solid var(--blue);background:rgba(0,102,255,0.04)">
-              <div class="sf-num" style="background:rgba(0,102,255,0.2)">2</div>
-              <div class="sf-icon">🤖</div>
-              <div class="sf-title">AI validates</div>
-              <div class="sf-detail">Agent 01 checks stock, eligibility, delivery slot, duplicate — before any human reviews it. Under 3 seconds.</div>
-            </div>
-            <div class="sf-arrow">→</div>
-            <div class="sf-step">
-              <div class="sf-num">3</div>
-              <div class="sf-icon">🏭</div>
-              <div class="sf-title">DC picks &amp; packs</div>
-              <div class="sf-detail">Mobiato pushes confirmed orders to Locus for route and load assignment. Warehouse picks the order.</div>
-            </div>
-            <div class="sf-arrow">→</div>
-            <div class="sf-step">
-              <div class="sf-num">4</div>
-              <div class="sf-icon">🚚</div>
-              <div class="sf-title">Driver delivers</div>
-              <div class="sf-detail">Driver accepts load on HHD, delivers to customer, marks delivered. 3-way reconciliation: App vs Mobiato vs Locus.</div>
-            </div>
+          <div style="font-size:9.5px;color:var(--mgrey);margin-bottom:6px" id="flow-label">How Masafi's order system works — B2C consumer channel</div>
+          <div class="system-flow" id="system-flow-strip">
+            <!-- populated by JS -->
           </div>
         </div>
 
         <div class="pb">
-          <div style="font-size:10.5px;color:var(--mgrey);margin-bottom:10px">Place an order below as a Masafi customer would — through the app interface. Watch Agent 01 validate it in real time on the right before it reaches the warehouse.</div>
+          <div style="font-size:10.5px;color:var(--mgrey);margin-bottom:10px" id="a1-intro">Place an order below as a Masafi consumer would — Masafi App or aggregator. Agent 01 validates it before it reaches the warehouse.</div>
           <div class="journey-wrap">
 
-            <!-- MASAFI APP MOCKUP -->
-            <div class="app-mockup">
-              <div class="app-bar">
-                <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-                <div class="app-bar-title">masafi · Shop</div>
+            <!-- LEFT — ORDER FORM (switches per channel) -->
+            <div id="order-form-wrap">
+              <!-- B2C APP MOCKUP -->
+              <div id="form-b2c" class="app-mockup">
+                <div class="app-bar">
+                  <svg viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                  <div class="app-bar-title">masafi · Shop</div>
+                  <div style="margin-left:auto;font-size:8px;background:rgba(255,255,255,0.15);padding:2px 6px;border-radius:3px;font-weight:600">B2C</div>
+                </div>
+                <div class="app-body">
+                  <div class="app-section">Choose your product</div>
+                  <div class="prod-grid">
+                    <div class="prod-card" onclick="selectProd(this,'w500',85,8200,'Water 500ml × 24','b2c')">
+                      <div class="prod-img"><svg viewBox="0 0 40 60" fill="none"><rect x="12" y="8" width="16" height="44" rx="4" fill="#cce4f6" stroke="#005BAC" stroke-width="1.5"/><rect x="15" y="4" width="10" height="6" rx="2" fill="#005BAC"/><text x="20" y="34" text-anchor="middle" font-size="6" fill="#005BAC" font-weight="700">500ml</text></svg></div>
+                      <div class="prod-name">Water 500ml<br>Pack of 24</div>
+                      <div class="prod-price">AED 85</div>
+                    </div>
+                    <div class="prod-card" onclick="selectProd(this,'w1500',110,3100,'Water 1.5L × 12','b2c')">
+                      <div class="prod-img"><svg viewBox="0 0 40 60" fill="none"><rect x="10" y="6" width="20" height="46" rx="5" fill="#cce4f6" stroke="#005BAC" stroke-width="1.5"/><rect x="14" y="2" width="12" height="6" rx="2" fill="#005BAC"/><text x="20" y="34" text-anchor="middle" font-size="5.5" fill="#005BAC" font-weight="700">1.5L</text></svg></div>
+                      <div class="prod-name">Water 1.5L<br>Pack of 12</div>
+                      <div class="prod-price">AED 110</div>
+                    </div>
+                    <div class="prod-card" onclick="selectProd(this,'w4g',180,1850,'Water 4-Gallon','b2c')">
+                      <div class="prod-img"><svg viewBox="0 0 50 60" fill="none"><rect x="8" y="10" width="34" height="40" rx="6" fill="#cce4f6" stroke="#005BAC" stroke-width="1.5"/><rect x="16" y="4" width="18" height="8" rx="3" fill="#005BAC"/><text x="25" y="34" text-anchor="middle" font-size="6" fill="#005BAC" font-weight="700">4 Gal</text></svg></div>
+                      <div class="prod-name">4-Gallon HOD<br>Home &amp; Office</div>
+                      <div class="prod-price">AED 180</div>
+                    </div>
+                    <div class="prod-card" onclick="selectProd(this,'tissue',220,290,'Tissue Cases','b2c')">
+                      <div class="prod-img"><svg viewBox="0 0 50 50" fill="none"><rect x="5" y="10" width="40" height="30" rx="4" fill="#f0f0f0" stroke="#888" stroke-width="1.5"/><rect x="10" y="15" width="30" height="20" rx="2" fill="white"/><text x="25" y="29" text-anchor="middle" font-size="6" fill="#555" font-weight="700">TISSUE</text></svg></div>
+                      <div class="prod-name">Masafi Tissue<br>Carton</div>
+                      <div class="prod-price">AED 220</div>
+                    </div>
+                  </div>
+                  <div class="app-section">Quantity</div>
+                  <div class="qty-row">
+                    <span class="qty-lbl" id="b2c-qty-lbl">Select a product first</span>
+                    <div class="qty-ctrl">
+                      <button class="qty-btn" onclick="changeQty('b2c',-1)">−</button>
+                      <span class="qty-num" id="b2c-qty-num">1</span>
+                      <button class="qty-btn" onclick="changeQty('b2c',1)">+</button>
+                    </div>
+                  </div>
+                  <div class="app-section">Delivery slot</div>
+                  <div class="slot-grid" id="b2c-slots"></div>
+                  <div class="app-section">Deliver to</div>
+                  <div class="address-box">
+                    <div class="addr-name">Home / Office delivery</div>
+                    <div class="addr-line">Dubai · Account: B2C-AUTO · No minimum order</div>
+                  </div>
+                  <div class="order-total"><span>Order total</span><b id="b2c-total">AED —</b></div>
+                  <button class="place-btn" id="b2c-place" onclick="placeOrder('b2c')" disabled>Select product &amp; slot</button>
+                </div>
               </div>
-              <div class="app-body">
 
-                <div class="app-section">Choose your product</div>
-                <div class="prod-grid" id="prod-grid">
-                  <div class="prod-card" onclick="selectProd(this,'w500',85,8200,'Water 500ml × 24')" data-sku="w500">
-                    <div class="prod-img"><svg viewBox="0 0 40 60" fill="none"><rect x="12" y="8" width="16" height="44" rx="4" fill="#cce4f6" stroke="#005BAC" stroke-width="1.5"/><rect x="15" y="4" width="10" height="6" rx="2" fill="#005BAC"/><text x="20" y="34" text-anchor="middle" font-size="6" fill="#005BAC" font-weight="700">500ml</text></svg></div>
-                    <div class="prod-name">Water 500ml PET<br>Pack of 24</div>
-                    <div class="prod-price">AED 85 / case</div>
-                  </div>
-                  <div class="prod-card" onclick="selectProd(this,'w1500',110,3100,'Water 1.5L × 12')" data-sku="w1500">
-                    <div class="prod-img"><svg viewBox="0 0 40 60" fill="none"><rect x="10" y="6" width="20" height="46" rx="5" fill="#cce4f6" stroke="#005BAC" stroke-width="1.5"/><rect x="14" y="2" width="12" height="6" rx="2" fill="#005BAC"/><text x="20" y="34" text-anchor="middle" font-size="5.5" fill="#005BAC" font-weight="700">1.5L</text></svg></div>
-                    <div class="prod-name">Water 1.5L PET<br>Pack of 12</div>
-                    <div class="prod-price">AED 110 / case</div>
-                  </div>
-                  <div class="prod-card" onclick="selectProd(this,'w4g',180,1850,'Water 4-Gallon')" data-sku="w4g">
-                    <div class="prod-img"><svg viewBox="0 0 50 60" fill="none"><rect x="8" y="10" width="34" height="40" rx="6" fill="#cce4f6" stroke="#005BAC" stroke-width="1.5"/><rect x="16" y="4" width="18" height="8" rx="3" fill="#005BAC"/><text x="25" y="34" text-anchor="middle" font-size="6" fill="#005BAC" font-weight="700">4 Gal</text></svg></div>
-                    <div class="prod-name">Water 4-Gallon<br>Home &amp; Office</div>
-                    <div class="prod-price">AED 180 / unit</div>
-                    <div class="prod-badge">HOD</div>
-                  </div>
-                  <div class="prod-card" onclick="selectProd(this,'tissue',220,290,'Tissue Cases')" data-sku="tissue">
-                    <div class="prod-img"><svg viewBox="0 0 50 50" fill="none"><rect x="5" y="10" width="40" height="30" rx="4" fill="#f0f0f0" stroke="#888" stroke-width="1.5"/><rect x="10" y="15" width="30" height="20" rx="2" fill="white"/><text x="25" y="29" text-anchor="middle" font-size="6" fill="#555" font-weight="700">TISSUE</text></svg></div>
-                    <div class="prod-name">Masafi Tissue<br>Carton cases</div>
-                    <div class="prod-price">AED 220 / case</div>
-                  </div>
+              <!-- B2B MODERN TRADE FORM -->
+              <div id="form-mt" class="app-mockup" style="display:none">
+                <div class="app-bar" style="background:#1a3a5c">
+                  <svg viewBox="0 0 24 24" fill="white" width="14"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                  <div class="app-bar-title">CS Order Entry — Modern Trade</div>
+                  <div style="margin-left:auto;font-size:8px;background:rgba(239,68,68,0.4);padding:2px 6px;border-radius:3px;font-weight:600">B2B · HIGH VALUE</div>
                 </div>
-
-                <div class="app-section">Quantity</div>
-                <div class="qty-row">
-                  <span class="qty-lbl" id="qty-lbl">Select a product first</span>
-                  <div class="qty-ctrl">
-                    <button class="qty-btn" onclick="changeQty(-1)">−</button>
-                    <span class="qty-num" id="qty-num">1</span>
-                    <button class="qty-btn" onclick="changeQty(1)">+</button>
+                <div class="app-body" style="background:#f8faff">
+                  <div class="app-section" style="color:#1a3a5c">Account</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px">
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'carrefour',100,'Carrefour UAE','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Carrefour UAE</div>
+                      <div style="font-size:8px;color:#e05;font-weight:600">MOQ: 100 cases</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'lulu',100,'Lulu Hypermarket','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Lulu Hypermarket</div>
+                      <div style="font-size:8px;color:#e05;font-weight:600">MOQ: 100 cases</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'spinneys',80,'Spinneys UAE','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Spinneys UAE</div>
+                      <div style="font-size:8px;color:#e05;font-weight:600">MOQ: 80 cases</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'ecoop',50,'Emirates Coop','RT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Emirates Coop</div>
+                      <div style="font-size:8px;color:#d97706;font-weight:600">MOQ: 50 cases</div>
+                    </div>
                   </div>
+                  <div class="app-section" style="color:#1a3a5c">Product &amp; quantity</div>
+                  <select id="mt-product" onchange="updMTTotal()" style="width:100%;padding:7px;border:1px solid #cdd;border-radius:4px;font-size:12px;margin-bottom:6px;background:white">
+                    <option value="">Select product…</option>
+                    <option value="w500" data-price="72" data-stock="8200">Water 500ml PET — contracted AED 72/case (B2B rate)</option>
+                    <option value="w1500" data-price="95" data-stock="3100">Water 1.5L PET — contracted AED 95/case</option>
+                    <option value="w5l" data-price="80" data-stock="420">Water 5L — contracted AED 80/case</option>
+                    <option value="tissue" data-price="195" data-stock="290">Tissue — contracted AED 195/case</option>
+                  </select>
+                  <div class="qty-row" style="background:white;border:1px solid #cdd;border-radius:4px;padding:6px 10px;margin-bottom:6px">
+                    <span class="qty-lbl" id="mt-qty-lbl" style="color:#333;font-size:11px">Quantity (cases)</span>
+                    <div class="qty-ctrl">
+                      <button class="qty-btn" style="border-color:#1a3a5c;color:#1a3a5c" onclick="changeQty('mt',-10)">−</button>
+                      <span class="qty-num" id="mt-qty-num" style="color:#1a1a2e">50</span>
+                      <button class="qty-btn" style="border-color:#1a3a5c;color:#1a3a5c" onclick="changeQty('mt',10)">+</button>
+                    </div>
+                  </div>
+                  <div class="app-section" style="color:#1a3a5c">Delivery date (EDD)</div>
+                  <div class="slot-grid" id="mt-slots"></div>
+                  <div class="order-total" style="border-top:1px solid #e0e0e0"><span style="color:#333">Order value (B2B rate)</span><b id="mt-total" style="color:#1a3a5c">AED —</b></div>
+                  <button class="place-btn" id="mt-place" onclick="placeOrder('mt')" disabled style="background:#1a3a5c">Select account, product &amp; date</button>
                 </div>
+              </div>
 
-                <div class="app-section">Choose delivery slot</div>
-                <div class="slot-grid" id="slot-grid">
-                  <!-- populated by JS -->
+              <!-- B2B HOD FORM -->
+              <div id="form-hod" class="app-mockup" style="display:none">
+                <div class="app-bar" style="background:#004d40">
+                  <svg viewBox="0 0 24 24" fill="white" width="14"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                  <div class="app-bar-title">HOD — Home &amp; Office Delivery</div>
+                  <div style="margin-left:auto;font-size:8px;background:rgba(0,200,83,0.3);padding:2px 6px;border-radius:3px;font-weight:600">B2B · SUBSCRIPTION</div>
                 </div>
-
-                <div class="app-section">Deliver to</div>
-                <div class="address-box">
-                  <div class="addr-name">Masafi Group HQ</div>
-                  <div class="addr-line">Sheikh Zayed Road, Dubai Media City<br>Dubai, UAE · Account: MAS-0001</div>
+                <div class="app-body" style="background:#f0faf4">
+                  <div class="app-section" style="color:#004d40">Account type</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px">
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'hod-res',20,'Residential HOD','HOD')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e">Residential</div>
+                      <div style="font-size:8px;color:#00875a;font-weight:600">MOQ: 2 units</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'hod-corp',20,'Corporate HOD','HOD')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e">Corporate office</div>
+                      <div style="font-size:8px;color:#00875a;font-weight:600">MOQ: 5 units</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'hod-hotel',20,'Hotel HOD','HOD')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e">Hotel account</div>
+                      <div style="font-size:8px;color:#00875a;font-weight:600">MOQ: 10 units</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'hod-govt',20,'Government HOD','HOD')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e">Government / FOC</div>
+                      <div style="font-size:8px;color:#7b4fd4;font-weight:600">FOC — zero price</div>
+                    </div>
+                  </div>
+                  <div class="app-section" style="color:#004d40">Product</div>
+                  <select id="hod-product" onchange="updHODTotal()" style="width:100%;padding:7px;border:1px solid #cce;border-radius:4px;font-size:12px;margin-bottom:6px;background:white">
+                    <option value="">Select product…</option>
+                    <option value="w4g" data-price="180" data-stock="1850">Water 4-Gallon — AED 180/unit (standard HOD)</option>
+                    <option value="w5l" data-price="95" data-stock="420">Water 5L PET — AED 95/case</option>
+                    <option value="alkalife" data-price="210" data-stock="380">Alkalife Alkaline Water — AED 210/case</option>
+                  </select>
+                  <div class="qty-row" style="background:white;border:1px solid #cce;border-radius:4px;padding:6px 10px;margin-bottom:6px">
+                    <span style="font-size:11px;color:#333;font-weight:600">Units</span>
+                    <div class="qty-ctrl">
+                      <button class="qty-btn" style="border-color:#004d40;color:#004d40" onclick="changeQty('hod',-1)">−</button>
+                      <span class="qty-num" id="hod-qty-num" style="color:#1a1a2e">6</span>
+                      <button class="qty-btn" style="border-color:#004d40;color:#004d40" onclick="changeQty('hod',1)">+</button>
+                    </div>
+                  </div>
+                  <div class="app-section" style="color:#004d40">Delivery</div>
+                  <div class="slot-grid" id="hod-slots"></div>
+                  <div class="order-total" style="border-top:1px solid #e0e0e0"><span style="color:#333">Order value</span><b id="hod-total" style="color:#004d40">AED —</b></div>
+                  <button class="place-btn" id="hod-place" onclick="placeOrder('hod')" disabled style="background:#004d40">Select account &amp; product</button>
                 </div>
+              </div>
 
-                <div class="order-total">
-                  <span>Order total</span>
-                  <b id="order-total-val">AED —</b>
+              <!-- B2B EXPORT FORM -->
+              <div id="form-export" class="app-mockup" style="display:none">
+                <div class="app-bar" style="background:#1a237e">
+                  <svg viewBox="0 0 24 24" fill="white" width="14"><path d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z"/></svg>
+                  <div class="app-bar-title">Export Sales — International</div>
+                  <div style="margin-left:auto;font-size:8px;background:rgba(123,79,212,0.4);padding:2px 6px;border-radius:3px;font-weight:600">B2B · EXPORT</div>
                 </div>
-
-                <button class="place-btn" id="place-btn" onclick="placeOrder()" disabled>Select product &amp; slot to continue</button>
+                <div class="app-body" style="background:#f3f0ff">
+                  <div class="app-section" style="color:#1a237e">Destination market</div>
+                  <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px">
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'oman',0,'Oman DDP','EXP')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e">🇴🇲 Oman</div>
+                      <div style="font-size:8px;color:#7b4fd4;font-weight:600">DDP · Road transport</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'kuwait',0,'Kuwait','EXP')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e">🇰🇼 Kuwait</div>
+                      <div style="font-size:8px;color:#7b4fd4;font-weight:600">By sea · JAFZA</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'jordan',0,'Jordan','EXP')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e">🇯🇴 Jordan</div>
+                      <div style="font-size:8px;color:#7b4fd4;font-weight:600">By sea · JAFZA</div>
+                    </div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'pakistan',0,'Pakistan','EXP')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e">🇵🇰 Pakistan</div>
+                      <div style="font-size:8px;color:#7b4fd4;font-weight:600">Ex-works</div>
+                    </div>
+                  </div>
+                  <div class="app-section" style="color:#1a237e">Product &amp; volume</div>
+                  <select id="exp-product" onchange="updEXPTotal()" style="width:100%;padding:7px;border:1px solid #cce;border-radius:4px;font-size:12px;margin-bottom:6px;background:white">
+                    <option value="">Select product…</option>
+                    <option value="w500" data-price="68" data-stock="8200">Water 500ml — export price AED 68/case</option>
+                    <option value="w1500" data-price="90" data-stock="3100">Water 1.5L — export price AED 90/case</option>
+                    <option value="tissue" data-price="185" data-stock="290">Tissue — export price AED 185/case</option>
+                  </select>
+                  <div class="qty-row" style="background:white;border:1px solid #cce;border-radius:4px;padding:6px 10px;margin-bottom:6px">
+                    <span style="font-size:11px;color:#333;font-weight:600">Cases</span>
+                    <div class="qty-ctrl">
+                      <button class="qty-btn" style="border-color:#1a237e;color:#1a237e" onclick="changeQty('exp',-100)">−</button>
+                      <span class="qty-num" id="exp-qty-num" style="color:#1a1a2e">500</span>
+                      <button class="qty-btn" style="border-color:#1a237e;color:#1a237e" onclick="changeQty('exp',100)">+</button>
+                    </div>
+                  </div>
+                  <div style="background:white;border:1px solid #cce;border-radius:4px;padding:8px 10px;margin-bottom:8px;font-size:11px;color:#555;line-height:1.6">
+                    <strong style="color:#1a237e">Export docs required:</strong> Bill of lading · Commercial invoice · Packing list · Certificate of origin · RTA cargo strapping cert
+                  </div>
+                  <div class="order-total" style="border-top:1px solid #e0e0e0"><span style="color:#333">Export order value</span><b id="exp-total" style="color:#1a237e">AED —</b></div>
+                  <button class="place-btn" id="exp-place" onclick="placeOrder('exp')" disabled style="background:#1a237e">Select market &amp; product</button>
+                </div>
               </div>
             </div>
 
@@ -543,29 +696,409 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
             <div class="ai-panel" id="a1-result">
               <div class="ai-idle">
                 <div class="ai-idle-icon">⬡</div>
-                <p class="ai-idle-txt">Select a product and delivery slot<br>then place your order.<br><br>Agent 01 will validate it here<br>before it reaches the warehouse.</p>
+                <p class="ai-idle-txt">Select a channel above<br>then complete and submit an order.<br><br>Agent 01 applies different validation<br>rules for each channel.</p>
               </div>
             </div>
 
           </div>
         </div>
 
+        <!-- ALGORITHM (updates per channel) -->
         <button class="algo-toggle" onclick="toggleAlgo('algo1')">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-          How Agent 01 validates — algorithm breakdown
+          <span id="algo1-label">How Agent 01 validates B2C orders — algorithm breakdown</span>
           <span class="arr" id="algo1-arr">▼</span>
         </button>
         <div class="algo-content" id="algo1">
-          <div class="algo-step"><span class="algo-n">1</span><div><strong style="color:var(--white)">SKU eligibility &amp; active status</strong> — Agent checks the ordered SKU is active, not discontinued, and eligible for this customer's account type. Inactive SKU auto-validation failures are one of Masafi's four stated causes of missed orders in the process flow.<div class="formula">IF SKU.status ≠ 'active' OR SKU ∉ customer.eligible_skus → REJECT</div></div></div>
-          <div class="algo-step"><span class="algo-n">2</span><div><strong style="color:var(--white)">Stock availability at DC</strong> — Queries live DC inventory. If requested qty &gt; 85% of available stock → partial fulfilment risk. If &gt; 100% → hold and trigger auto stock transfer request from factory DC (as per Masafi's documented process).<div class="formula">Stock ratio = Order Qty ÷ DC Available<br><span>›0.85 → warn | ›1.0 → hold + auto STO trigger to Factory DC</span></div></div></div>
-          <div class="algo-step"><span class="algo-n">3</span><div><strong style="color:var(--white)">Delivery slot validation</strong> — Checks EDD against customer's delivery calendar. E-commerce orders via app auto-set EDD to next working day. Agent validates the slot is open, the DC cutoff (8pm) has not passed, and the customer's location is on the scheduled route for that day.<div class="formula">EDD valid = slot.status = 'open' AND order_time &lt; DC_cutoff(20:00)<br><span>Invalid slot → agent suggests next available EDD</span></div></div></div>
-          <div class="algo-step"><span class="algo-n">4</span><div><strong style="color:var(--white)">Pricing &amp; eligibility check</strong> — Validates pricing matches customer's contracted rate and that the order meets minimum value or quantity thresholds for the channel. Pricing mismatches are a documented cause of missed orders in Mobiato.<div class="formula">IF order.price ≠ customer.contracted_price → flag for CS review</div></div></div>
-          <div class="algo-step"><span class="algo-n">5</span><div><strong style="color:var(--white)">Duplicate detection</strong> — Scans open orders for same account + SKU + EDD placed within T-24hrs. Root cause of 11,244 of Masafi's 13,671 cancellations. A structured reason code is logged (replacing the 854 free-text variants currently in the system).<div class="formula">Duplicate = (Account + SKU + EDD) ∈ open_orders within T-24hrs</div></div></div>
-          <div class="algo-step"><span class="algo-n">6</span><div><strong style="color:var(--white)">Risk score &amp; routing decision</strong> — Combined risk score 0–100. Approved orders push automatically to Mobiato for DC processing. Held orders alert the CS team with a structured reason code. Every decision is logged with timestamp and order value — creating the clean audit trail Masafi currently lacks.<div class="formula">Risk = (Stock×0.4)+(EDD×0.25)+(Dup×0.2)+(Price×0.15)<br><span>‹30 → Approve to Mobiato | 30–60 → CS review | ›60 → Hold</span></div></div></div>
+          <div id="algo1-body"><!-- populated by JS --></div>
         </div>
       </div>
 
-      <!-- AGENT 02 — ROUTE LOAD -->
+<style>
+.ch-btn{flex:1;display:flex;align-items:center;gap:8px;padding:10px 14px;background:none;border:none;border-right:1px solid var(--border);cursor:pointer;font-family:var(--sans);text-align:left;transition:background 0.15s;color:var(--mgrey)}
+.ch-btn:last-child{border-right:none}
+.ch-btn:hover{background:rgba(255,255,255,0.03);color:var(--white)}
+.ch-active{background:rgba(0,102,255,0.07)!important;color:var(--white)!important;border-bottom:2px solid var(--blue)!important}
+.ch-icon{font-size:1.2rem;flex-shrink:0}
+.ch-label{font-size:11px;font-weight:600;margin-bottom:1px;color:inherit}
+.ch-sub{font-size:9.5px;color:var(--mgrey);line-height:1.3}
+.ch-active .ch-sub{color:rgba(255,255,255,0.55)}
+.ch-rule{display:flex;flex-direction:column;gap:1px}
+.ch-rule-lbl{font-size:8.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey);font-weight:600}
+.ch-rule-val{font-size:11.5px;font-weight:700;color:var(--white)}
+.b2b-acct.selected-acct{border-color:#005BAC!important;background:rgba(0,91,172,0.06)!important}
+</style>
+
+<script>
+// ── CHANNEL CONFIG ────────────────────────────
+const CH_CONFIG = {
+  b2c:{
+    badge:'B2C — Consumer',
+    badgeStyle:'background:rgba(0,102,255,0.1);color:var(--blue2);border:1px solid rgba(0,102,255,0.2)',
+    intro:'Place an order as a Masafi consumer — via the app, website, Talabat or Noon. No minimum order. Agent 01 validates before the order reaches the warehouse.',
+    flowLabel:'How Masafi\'s B2C order system works — consumer channel',
+    flow:[
+      {n:'1',icon:'📱',title:'Customer orders via app',detail:'Masafi App, website, Talabat, or Noon. Order auto-syncs to Mobiato with EDD set to next working day. No human involved at order stage.'},
+      {arrow:true},
+      {n:'2',icon:'🤖',title:'AI validates',detail:'Agent 01 checks stock, slot availability, duplicate orders, and SKU eligibility. Under 3 seconds. No human review required for passing orders.',highlight:true},
+      {arrow:true},
+      {n:'3',icon:'🏭',title:'DC picks & packs',detail:'Confirmed order pushed to Mobiato. Locus assigns to route. Warehouse picks.'},
+      {arrow:true},
+      {n:'4',icon:'🚚',title:'Same/next day delivery',detail:'Driver delivers to home or office. HHD mark-delivered. 3-way reconciliation: App vs Mobiato vs Locus.'},
+    ],
+    rules:[
+      {lbl:'Min. order',val:'No minimum'},
+      {lbl:'Pricing',val:'Consumer rate'},
+      {lbl:'EDD',val:'Next working day'},
+      {lbl:'Cut-off',val:'20:00 daily'},
+      {lbl:'Duplicate window',val:'T-24 hrs'},
+    ],
+    algolabel:'How Agent 01 validates B2C consumer orders',
+    algo:[
+      {n:'1',title:'SKU active & in catalogue',body:'Agent checks the SKU is active and available for consumer purchase. Inactive SKUs trigger one of Masafi\'s four documented causes of missed orders.',formula:'IF SKU.status ≠ \'active\' → REJECT with reason code'},
+      {n:'2',title:'Stock at DC — consumer qty',body:'Consumer orders are small. Stock check is fast. If zero stock → agent triggers auto stock transfer request from Factory DC and suggests next available date.',formula:'IF DC_stock = 0 → hold + auto STO trigger → suggest next EDD'},
+      {n:'3',title:'Delivery slot open',body:'App auto-sets EDD to next working day. Agent validates the slot is open and that the order was placed before 20:00 DC cutoff. Friday orders push to Sunday.',formula:'EDD valid = slot.open AND order_time < 20:00\nFriday → push EDD to Sunday'},
+      {n:'4',title:'Duplicate order check',body:'Consumer duplicate orders are common on aggregators — customer orders twice across different platforms. Agent flags same account + SKU + EDD within T-24hrs.',formula:'Duplicate = (Account + SKU + EDD) ∈ open_orders T-24hrs'},
+      {n:'5',title:'Pricing validation',body:'Consumer price checked against current active promotion and standard retail rate. Aggregator (Talabat, Noon) rates may differ — agent validates against contracted aggregator price.',formula:'IF order.price ≠ channel.current_price → flag for CS review'},
+      {n:'6',title:'Approve & push to Mobiato',body:'Passing orders auto-push to Mobiato for DC processing. No human review needed. Failed orders send structured notification to customer — not a free-text error message.',formula:'Score < 30 → auto-approve to Mobiato | ≥30 → CS review queue'},
+    ]
+  },
+  mt:{
+    badge:'B2B — Modern Trade',
+    badgeStyle:'background:rgba(214,10,23,0.12);color:#ff7070;border:1px solid rgba(214,10,23,0.25)',
+    intro:'CS team order entry for Modern Trade accounts — Carrefour, Lulu, Spinneys. This channel is responsible for AED 19.7M of the AED 23.7M in cancelled orders. Validation rules are significantly stricter than B2C.',
+    flowLabel:'How Masafi\'s B2B Modern Trade order flow works — and why it generates AED 19.7M in cancellations',
+    flow:[
+      {n:'1',icon:'📞',title:'Order received by CS',detail:'Buyer contacts CS team by phone, email, WhatsApp, or EDI. CS agent enters draft order into Mobiato — this is where wrong bookings enter the system.'},
+      {arrow:true},
+      {n:'2',icon:'🤖',title:'AI validates',detail:'Agent 01 applies MT-specific rules: MOQ, contracted pricing, delivery calendar, account eligibility, duplicate detection. AED 19.7M in cancellations are concentrated here.',highlight:true},
+      {arrow:true},
+      {n:'3',icon:'✅',title:'Supervisor approval',detail:'Orders above threshold go to supervisor. Agent pre-scores them so supervisor sees only genuine decisions — not administrative errors.'},
+      {arrow:true},
+      {n:'4',icon:'🏭',title:'DC picks & direct delivery',detail:'Full-pallet or bulk orders. No city core entry. Jebel Ali / Dubai South only. MOT-compliant delivery windows strictly observed.'},
+    ],
+    rules:[
+      {lbl:'Min. order',val:'80–100 cases'},
+      {lbl:'Pricing',val:'Contracted B2B rate'},
+      {lbl:'EDD',val:'Fixed delivery calendar'},
+      {lbl:'Bulk threshold',val:'≥1,000 cases = direct factory'},
+      {lbl:'Duplicate window',val:'T-48 hrs (MT accounts)'},
+    ],
+    algolabel:'How Agent 01 validates B2B Modern Trade orders — where AED 19.7M of risk sits',
+    algo:[
+      {n:'1',title:'Account eligibility & credit status',body:'Agent checks the account is active, credit limit is not exceeded, and the ordering contact is authorised. MT accounts have specific authorised buyer lists — orders from unauthorised contacts are a source of wrong bookings.',formula:'IF account.credit_status = \'hold\' OR contact ∉ authorised_buyers → REJECT'},
+      {n:'2',title:'MOQ enforcement — hardest rule',body:'Modern Trade minimum: 100 cases (Carrefour, Lulu), 80 cases (Spinneys), 50 cases (Emirates Coop). Orders below MOQ are the single largest cancellation reason in the MT channel. Agent enforces at entry — not at DC.',formula:'IF qty < account.MOQ → REJECT at entry\nNote: this is the fix for 11,244 of 13,671 cancellations'},
+      {n:'3',title:'Contracted price validation',body:'MT accounts have contracted rates that differ from consumer pricing. CS agents entering orders manually sometimes apply the wrong price tier. Agent validates against the account\'s contracted rate and flags any mismatch before the order proceeds.',formula:'IF order.price ≠ account.contracted_price → hold for CS correction'},
+      {n:'4',title:'Delivery calendar check',body:'MT accounts have fixed weekly delivery slots — not open next-day. Carrefour may receive Tuesday and Friday only. Spinneys may receive Monday and Thursday. Agent validates EDD against account\'s specific delivery calendar, not a generic slot grid.',formula:'EDD valid = date ∈ account.delivery_calendar\nFri/Sat = non-delivery for most MT accounts'},
+      {n:'5',title:'Bulk order routing — factory direct',body:'Orders ≥1,000 cases (water) or ≥250 cases (tissue) qualify as bulk orders and must be routed direct from the Masafi factory, not the DC. Agent checks quantity and auto-sets shipping site to Factory DC if threshold is met.',formula:'IF qty ≥ bulk_threshold → set shipping_site = Factory DC\nDo NOT route through city DC'},
+      {n:'6',title:'Duplicate detection — T-48hrs for MT',body:'MT accounts place standing orders weekly. A 24-hour duplicate window misses the common pattern of the same standing order being entered twice across two days. MT channel uses a T-48hr window.',formula:'MT Duplicate = (Account + SKU + EDD) ∈ open_orders T-48hrs'},
+    ]
+  },
+  hod:{
+    badge:'B2B — HOD',
+    badgeStyle:'background:rgba(0,135,90,0.12);color:#4ade80;border:1px solid rgba(0,135,90,0.25)',
+    intro:'Home and Office Delivery — residential, corporate, hotel, and government accounts on water subscriptions. Most stable channel: 4–13% return rate vs 30% van sales. Cancellations here are mainly wrong quantities on standing orders.',
+    flowLabel:'How Masafi\'s HOD channel works — subscription-based recurring delivery',
+    flow:[
+      {n:'1',icon:'🏢',title:'Standing order or new request',detail:'HOD accounts have recurring standing orders. Changes submitted via app, phone, or account manager. Driver visits to confirm monthly quantities.'},
+      {arrow:true},
+      {n:'2',icon:'🤖',title:'AI validates',detail:'Agent checks delivery address, subscription status, product eligibility (Alkalife vs standard), FOC flag for govt accounts, and quantity vs subscription plan.',highlight:true},
+      {arrow:true},
+      {n:'3',icon:'🚐',title:'HOD vehicle assigned',detail:'HOD deliveries use a separate vehicle pool from MT. Mobiato routes to the HOD driver assigned to that area. HHD dispatch confirmation.'},
+      {arrow:true},
+      {n:'4',icon:'🏠',title:'Doorstep delivery',detail:'Driver delivers, collects empty gallons, marks complete on HHD. Subscription auto-renews unless change request is in system.'},
+    ],
+    rules:[
+      {lbl:'Min. order',val:'2–10 units (account type)'},
+      {lbl:'Govt accounts',val:'FOC — zero price'},
+      {lbl:'Alkalife',val:'Premium — separate eligibility'},
+      {lbl:'Return rate',val:'4–13% (vs 30% Van Sales)'},
+      {lbl:'Recurring',val:'Auto-renew standing orders'},
+    ],
+    algolabel:'How Agent 01 validates HOD orders — subscription and standing order logic',
+    algo:[
+      {n:'1',title:'Subscription status check',body:'HOD accounts are on recurring plans. Agent checks the subscription is active, not paused, and not overdue on payment. A paused subscription that generates an order is a common source of cancellations in this channel.',formula:'IF account.subscription = \'paused\' OR \'overdue\' → hold for CS review'},
+      {n:'2',title:'Product eligibility — Alkalife vs standard',body:'Not all HOD accounts are eligible for Alkalife premium water. Corporate and hotel accounts may have contracted for standard only. Agent validates product eligibility against account contract before proceeding.',formula:'IF product = \'alkalife\' AND account.alkalife_eligible = false → REJECT'},
+      {n:'3',title:'FOC flag — government accounts',body:'Government and FOC accounts have zero-price orders that must be routed through a Finance approval before processing. Agent identifies FOC accounts and inserts the Finance approval step automatically — these orders bypass normal pricing validation.',formula:'IF account.type = \'govt\' OR \'FOC\' → route to Finance approval gate'},
+      {n:'4',title:'Empty gallon collection reconciliation',body:'For 4-gallon HOD, the number of units delivered must equal the number of empties collected on the previous visit. Discrepancies trigger a physical stock count flag. Agent checks the reconciliation before confirming the next delivery quantity.',formula:'IF delivered_prev ≠ empties_collected → flag for driver check before next dispatch'},
+      {n:'5',title:'Address and route confirmation',body:'HOD delivery addresses change — tenants move, offices relocate. Agent cross-references the delivery address against the most recent confirmed address in the system and flags any mismatch for CS confirmation.',formula:'IF order.address ≠ account.confirmed_address → hold for CS confirmation'},
+      {n:'6',title:'Approve and assign HOD vehicle',body:'Validated HOD orders push to the HOD vehicle pool in Mobiato — separate from the MT fleet. Driver receives the order on HHD before route start. Standing orders auto-push on the scheduled day without CS intervention.',formula:'Approved HOD → HOD vehicle pool in Mobiato → HHD dispatch'},
+    ]
+  },
+  export:{
+    badge:'B2B — Export',
+    badgeStyle:'background:rgba(123,79,212,0.12);color:#c4b5fd;border:1px solid rgba(123,79,212,0.25)',
+    intro:'International export orders — Oman (DDP road), Kuwait/Jordan/Bahrain (sea via JAFZA), Pakistan (ex-works), Maldives. Managed by the export team (Asad). Validation is document-heavy: bill of lading, certificate of origin, transit permits.',
+    flowLabel:'How Masafi\'s export order process works — B2B international channel',
+    flow:[
+      {n:'1',icon:'✉️',title:'Buyer coordination',detail:'Export team (Asad) coordinates with international buyers. Order confirmation issued. Forwarded to export operations for proforma invoice and production planning.'},
+      {arrow:true},
+      {n:'2',icon:'🤖',title:'AI validates',detail:'Agent checks export documentation completeness, production lead time availability, market-specific pricing, and customs document requirements per destination.',highlight:true},
+      {arrow:true},
+      {n:'3',icon:'📋',title:'Export docs prepared',detail:'Commercial invoice, packing list, certificate of origin, RTA cargo strapping cert prepared. For sea: JAFZA handling. For Oman: DDP — Masafi bears delivery cost.'},
+      {arrow:true},
+      {n:'4',icon:'🚢',title:'Shipment',detail:'Vehicle placement date becomes EDD. Order shipped out. Delivery confirmation from destination agent or buyer closes the order in Oracle.'},
+    ],
+    rules:[
+      {lbl:'Oman',val:'DDP — road transport'},
+      {lbl:'Kuwait / Jordan',val:'Sea freight via JAFZA'},
+      {lbl:'Pakistan',val:'Ex-works (buyer collects)'},
+      {lbl:'Lead time',val:'Customer vehicle placement = EDD'},
+      {lbl:'Docs required',val:'5 mandatory documents'},
+    ],
+    algolabel:'How Agent 01 validates export orders — document and compliance checks',
+    algo:[
+      {n:'1',title:'Market eligibility & sanctions check',body:'Agent validates the destination market is an approved export destination and not subject to trade restrictions. Each market has a specific price list and incoterm — Oman (DDP), Kuwait/Jordan/Bahrain (CIF JAFZA), Pakistan (EXW).',formula:'IF market ∉ approved_export_markets → REJECT\nIF incoterm ≠ market.standard_incoterm → flag for export team'},
+      {n:'2',title:'Production lead time availability',body:'Export orders go to Production, not the DC. Agent checks the production schedule for the required volume and whether the lead time between order confirmation and vehicle placement date is achievable. Short lead time = production conflict risk.',formula:'IF vehicle_placement_date - today < production.lead_time → flag as at-risk'},
+      {n:'3',title:'Export pricing validation',body:'Export prices differ from domestic B2B rates (typically lower). Agent validates the proforma invoice price against the market-specific export price list. A domestic price applied to an export order creates a compliance issue.',formula:'IF order.price ≠ market.export_price_list → hold for export team correction'},
+      {n:'4',title:'Documentation completeness check',body:'Five mandatory documents must be confirmed: bill of lading, commercial invoice, packing list, certificate of origin, RTA cargo strapping cert. For Abu Dhabi long-haul export legs: driver transit permit and vehicle registration must be current.',formula:'docs_complete = [BoL, invoice, packing_list, CoO, strapping_cert].all_confirmed\nIF docs_complete = false → hold — do not proceed to production'},
+      {n:'5',title:'JAFZA routing flag (sea freight)',body:'Kuwait, Jordan, Bahrain, and Maldives orders route through JAFZA for sea freight. Agent automatically flags sea-freight orders for JAFZA coordination and sets the shipping site to JAFZA in Oracle — not the domestic DC.',formula:'IF market.freight_mode = \'sea\' → set shipping_site = JAFZA\nIF market.freight_mode = \'road_oman\' → DDP — include transport cost in proforma'},
+      {n:'6',title:'EDD set from vehicle placement',body:'Unlike domestic orders where EDD is set at order entry, export EDD is set when the customer confirms the date of vehicle placement. Agent holds the order as \'confirmed pending EDD\' until vehicle placement is confirmed — this date then becomes the EDD in Oracle.',formula:'EDD = customer.vehicle_placement_confirmation_date\nOrder status: \'confirmed pending EDD\' until placement confirmed'},
+    ]
+  }
+};
+
+let activeChannel = 'b2c';
+let b2cState = {sku:null,price:0,stock:0,name:'',qty:1,slot:null};
+let mtState  = {acct:null,moq:0,acctName:'',acctType:'',sku:null,price:0,stock:0,qty:50,slot:null};
+let hodState = {acct:null,moq:2,acctName:'',acctType:'',sku:null,price:0,stock:0,qty:6,isFOC:false};
+let expState = {market:null,marketName:'',acctType:'',sku:null,price:0,stock:0,qty:500};
+
+// ── CHANNEL SWITCH ────────────────────────────
+function switchChannel(ch){
+  activeChannel = ch;
+  document.querySelectorAll('.ch-btn').forEach(b=>b.classList.remove('ch-active'));
+  document.getElementById('ch-'+ch).classList.add('ch-active');
+
+  // Hide all forms
+  ['b2c','mt','hod','export'].forEach(c=>{
+    const el = document.getElementById('form-'+c);
+    if(el) el.style.display='none';
+  });
+  const showId = ch==='export'?'form-export':'form-'+ch;
+  const showEl = document.getElementById(showId);
+  if(showEl) showEl.style.display='block';
+
+  // Reset AI panel
+  document.getElementById('a1-result').innerHTML=`<div class="ai-idle"><div class="ai-idle-icon">⬡</div><p class="ai-idle-txt">Complete the ${CH_CONFIG[ch].badge} order form<br>and submit to see Agent 01 validate it.</p></div>`;
+
+  // Update badge, intro, flow, rules, algo
+  const cfg = CH_CONFIG[ch];
+  document.getElementById('ch-badge').textContent = cfg.badge;
+  document.getElementById('ch-badge').style.cssText = cfg.badgeStyle;
+  document.getElementById('a1-intro').textContent = cfg.intro;
+  document.getElementById('flow-label').textContent = cfg.flowLabel;
+  document.getElementById('algo1-label').textContent = cfg.algolabel;
+  buildFlow(cfg.flow);
+  buildRules(cfg.rules);
+  buildAlgo(cfg.algo, ch);
+
+  // Build slots for channel
+  if(ch==='b2c') buildSlotsFor('b2c-slots', false);
+  if(ch==='mt')  buildSlotsFor('mt-slots', true);
+  if(ch==='hod') buildSlotsFor('hod-slots', false);
+}
+
+function buildFlow(flow){
+  const el = document.getElementById('system-flow-strip');
+  el.innerHTML = flow.map(s=>{
+    if(s.arrow) return `<div class="sf-arrow">→</div>`;
+    const hl = s.highlight ? 'border-left:2px solid var(--blue);background:rgba(0,102,255,0.04)' : '';
+    return `<div class="sf-step" style="${hl}">
+      <div class="sf-num" style="${s.highlight?'background:rgba(0,102,255,0.2)':''}">${s.n}</div>
+      <div class="sf-icon">${s.icon}</div>
+      <div class="sf-title">${s.title}</div>
+      <div class="sf-detail">${s.detail}</div>
+    </div>`;
+  }).join('');
+}
+
+function buildRules(rules){
+  const el = document.getElementById('ch-rules');
+  el.innerHTML = rules.map(r=>`<div class="ch-rule"><div class="ch-rule-lbl">${r.lbl}</div><div class="ch-rule-val">${r.val}</div></div>`).join('');
+}
+
+function buildAlgo(steps, ch){
+  const colors={b2c:'var(--blue)',mt:'#EF4444',hod:'var(--green)',export:'#9b7bff'};
+  const col = colors[ch]||'var(--blue)';
+  document.getElementById('algo1-body').innerHTML = steps.map(s=>`
+    <div class="algo-step">
+      <span class="algo-n" style="border-color:${col};color:${col};background:transparent">${s.n}</span>
+      <div><strong style="color:var(--white)">${s.title}</strong><br>${s.body}
+      <div class="formula">${s.formula.replace(/\n/g,'<br>')}</div></div>
+    </div>`).join('');
+}
+
+function buildSlotsFor(containerId, isMT){
+  const grid = document.getElementById(containerId);
+  if(!grid) return;
+  const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const today = new Date();
+  let html='';
+  for(let i=1;i<=6;i++){
+    const d=new Date(today); d.setDate(today.getDate()+i);
+    const dow=d.getDay();
+    const dateStr=d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+    const isFri=dow===5;
+    const isSat=dow===6;
+    // MT: Fri/Sat non-delivery for most accounts
+    const unavailable = isMT ? (isFri||isSat) : isFri;
+    const dateISO=d.toISOString().split('T')[0];
+    if(unavailable){
+      html+=`<div class="slot unavailable"><div class="slot-day">${days[dow]} ${dateStr}</div><div class="slot-note">${isMT?'No MT delivery':'No delivery'}</div></div>`;
+    } else {
+      html+=`<div class="slot" onclick="selectSlotFor('${containerId}','${dateISO}','${containerId.split('-')[0]}')" data-date="${dateISO}"><div class="slot-day">${days[dow]} ${dateStr}</div><div class="slot-note">${isMT?'Delivery window':'Next-day delivery'}</div></div>`;
+    }
+  }
+  grid.innerHTML=html;
+}
+
+function selectSlotFor(containerId, date, ch){
+  document.querySelectorAll(`#${containerId} .slot.selected`).forEach(s=>s.classList.remove('selected'));
+  event.target.closest('.slot').classList.add('selected');
+  if(ch==='b2c'){b2cState.slot=date; updB2CBtn();}
+  if(ch==='mt') {mtState.slot=date; updMTBtn();}
+  if(ch==='hod'){hodState.slot=date;}
+  if(ch==='exp'){expState.slot=date;}
+}
+
+// ── B2C ──────────────────────────────────────
+function selectProd(el,sku,price,stock,name,ch){
+  document.querySelectorAll(`#form-${ch} .prod-card`).forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  b2cState={...b2cState,sku,price,stock,name,qty:1};
+  document.getElementById('b2c-qty-lbl').textContent=name;
+  document.getElementById('b2c-qty-num').textContent=1;
+  document.getElementById('b2c-total').textContent='AED '+price.toLocaleString();
+  updB2CBtn();
+}
+function changeQty(ch,d){
+  if(ch==='b2c'){b2cState.qty=Math.max(1,Math.min(b2cState.qty+d,999));document.getElementById('b2c-qty-num').textContent=b2cState.qty;document.getElementById('b2c-total').textContent='AED '+(b2cState.qty*b2cState.price).toLocaleString();updB2CBtn();}
+  if(ch==='mt'){mtState.qty=Math.max(10,Math.min(mtState.qty+d,9999));document.getElementById('mt-qty-num').textContent=mtState.qty;updMTTotal();updMTBtn();}
+  if(ch==='hod'){hodState.qty=Math.max(1,Math.min(hodState.qty+d,999));document.getElementById('hod-qty-num').textContent=hodState.qty;updHODTotal();}
+  if(ch==='exp'){expState.qty=Math.max(100,Math.min(expState.qty+d,99999));document.getElementById('exp-qty-num').textContent=expState.qty;updEXPTotal();}
+}
+function updB2CBtn(){const ok=b2cState.sku&&b2cState.slot;const btn=document.getElementById('b2c-place');btn.disabled=!ok;btn.textContent=ok?`Place order — AED ${(b2cState.qty*b2cState.price).toLocaleString()}`:'Select product & slot';}
+
+// ── MT ───────────────────────────────────────
+function selectB2BAcct(el,id,moq,name,type){
+  el.closest('.app-body').querySelectorAll('.b2b-acct').forEach(a=>a.classList.remove('selected-acct'));
+  el.classList.add('selected-acct');
+  if(activeChannel==='mt'){mtState={...mtState,acct:id,moq,acctName:name,acctType:type};updMTBtn();}
+  if(activeChannel==='hod'){hodState={...hodState,acct:id,moq,acctName:name,acctType:type,isFOC:(id==='hod-govt')};}
+  if(activeChannel==='export'){expState={...expState,market:id,marketName:name,acctType:type};}
+}
+function updMTTotal(){const sel=document.getElementById('mt-product');if(!sel.value)return;const o=sel.options[sel.selectedIndex];mtState.price=parseInt(o.dataset.price)||0;mtState.stock=parseInt(o.dataset.stock)||0;mtState.sku=sel.value;document.getElementById('mt-total').textContent='AED '+(mtState.qty*mtState.price).toLocaleString();updMTBtn();}
+function updMTBtn(){const ok=mtState.acct&&mtState.sku&&mtState.slot;const btn=document.getElementById('mt-place');btn.disabled=!ok;btn.textContent=ok?`Submit order — AED ${(mtState.qty*mtState.price).toLocaleString()}`:'Select account, product & date';}
+function updHODTotal(){const sel=document.getElementById('hod-product');if(!sel.value)return;const o=sel.options[sel.selectedIndex];hodState.price=parseInt(o.dataset.price)||0;hodState.sku=sel.value;document.getElementById('hod-total').textContent=hodState.isFOC?'AED 0 (FOC)':'AED '+(hodState.qty*hodState.price).toLocaleString();}
+function updEXPTotal(){const sel=document.getElementById('exp-product');if(!sel.value)return;const o=sel.options[sel.selectedIndex];expState.price=parseInt(o.dataset.price)||0;expState.sku=sel.value;document.getElementById('exp-total').textContent='AED '+(expState.qty*expState.price).toLocaleString();}
+
+// ── PLACE ORDER ───────────────────────────────
+function placeOrder(ch){
+  if(ch==='b2c')    runValidation_B2C();
+  else if(ch==='mt') runValidation_MT();
+  else if(ch==='hod')runValidation_HOD();
+  else if(ch==='exp')runValidation_EXP();
+}
+
+function showSteps(steps, verdict){
+  let html='<div class="ai-header">Agent 01 — Validation sequence running</div><div class="steps">';
+  steps.forEach((s,i)=>{html+=`<div class="step" id="vs_${i}"><span class="s-badge ${s.cls}">${s.i}</span><div><div class="s-name">${s.n}</div><div class="s-detail">${s.d}</div></div></div>`;});
+  html+=`</div><div class="verdict ${verdict.cls}" id="a1v"><div class="vt">${verdict.title}</div><div class="vb">${verdict.body}</div></div>`;
+  document.getElementById('a1-result').innerHTML=html;
+  steps.forEach((_,i)=>setTimeout(()=>{const el=document.getElementById(`vs_${i}`);if(el)el.classList.add('show');},i*480+80));
+  setTimeout(()=>{const v=document.getElementById('a1v');if(v)v.classList.add('show');},steps.length*480+150);
+}
+
+function updSess(hasIssue, val){
+  proc++;if(hasIssue){caught++;saved+=val;}
+  setTimeout(updSession,200);
+}
+
+function runValidation_B2C(){
+  const s=b2cState;
+  if(!s.sku||!s.slot)return;
+  const val=s.qty*s.price;
+  const dow=new Date(s.slot).getDay();
+  const eddFail=dow===5;
+  const stockFail=s.qty>s.stock;
+  const dupFlag=s.qty===100;
+  const hasIssues=eddFail||stockFail||dupFlag;
+  const steps=[
+    {cls:'sb-ai',i:'◈',n:'Agent 01 — B2C order received (Masafi App / aggregator)',d:`${s.qty}× ${s.name}. Consumer account. EDD: ${s.slot}. Entering validation sequence.`},
+    {cls:'sb-ok',i:'✓',n:'SKU active & in catalogue',d:`${s.name} is active, available for consumer purchase, and correctly priced at consumer rate.`},
+    {cls:stockFail?'sb-warn':'sb-ok',i:stockFail?'✕':'✓',n:`DC stock — ${stockFail?'HOLD: insufficient':'confirmed'}`,d:stockFail?`Only ${s.stock.toLocaleString()} units available. Order of ${s.qty} cannot be fulfilled. Auto stock transfer request triggered to Factory DC. Next available EDD suggested.`:`${s.stock.toLocaleString()} units at DC. Order of ${s.qty} confirmed available.`},
+    {cls:eddFail?'sb-warn':'sb-ok',i:eddFail?'✕':'✓',n:`Delivery slot — ${eddFail?'INVALID: Friday':'confirmed'}`,d:eddFail?`${s.slot} is a Friday. No Masafi deliveries on Fridays. Agent pushing EDD to next available slot (Saturday or Sunday).`:`Slot ${s.slot} open. Order placed before 20:00 DC cutoff. Route assigned.`},
+    {cls:dupFlag?'sb-warn':'sb-ok',i:dupFlag?'!':'✓',n:`Duplicate check — ${dupFlag?'FLAG: possible duplicate':'clear'}`,d:dupFlag?`Quantity of 100 units matches another open order on this account within T-24hrs. Possible duplicate. CS team notified.`:`No duplicate orders found for this account and SKU in the past 24 hours.`},
+    {cls:hasIssues?'sb-warn':'sb-ok',i:hasIssues?'✕':'✓',n:hasIssues?'ORDER HELD':'ORDER CONFIRMED — pushed to Mobiato',d:hasIssues?`Issues: ${[eddFail&&'invalid EDD',stockFail&&'insufficient stock',dupFlag&&'duplicate flag'].filter(Boolean).join(', ')}. Customer notification sent.`:`AED ${val.toLocaleString()} confirmed. Pushed to Mobiato. DC will pick for ${s.slot}. 3-way reconciliation: App ✓ Mobiato ✓ Locus pending.`},
+  ];
+  const vc=hasIssues?'fail':'pass';
+  showSteps(steps,{cls:vc,title:hasIssues?`B2C order held — ${[eddFail&&'invalid slot',stockFail&&'stock issue',dupFlag&&'duplicate'].filter(Boolean).join(' · ')}`:'B2C order confirmed — processing to DC',body:hasIssues?`AED ${val.toLocaleString()} protected from becoming a cancellation.`:`Consumer order confirmed. Delivery: ${s.slot}.`});
+  updSess(hasIssues,val);
+}
+
+function runValidation_MT(){
+  const s=mtState;
+  if(!s.acct||!s.sku||!s.slot)return;
+  const val=s.qty*s.price;
+  const moqFail=s.qty<s.moq;
+  const dow=new Date(s.slot).getDay();
+  const eddFail=dow===5||dow===6;
+  const bulkFlag=s.qty>=1000;
+  const hasIssues=moqFail||eddFail;
+  const steps=[
+    {cls:'sb-ai',i:'◈',n:`Agent 01 — B2B MT order: ${s.acctName}`,d:`${s.qty} cases ${s.sku} submitted by CS team. Account type: Modern Trade. Contracted B2B rate: AED ${s.price}/case. Total value: AED ${val.toLocaleString()}.`},
+    {cls:moqFail?'sb-warn':'sb-ok',i:moqFail?'✕':'✓',n:`MOQ check — ${moqFail?`FAILED: ${s.qty} cases below minimum ${s.moq}`:`passed: ${s.qty} ≥ MOQ ${s.moq}`}`,d:moqFail?`${s.acctName} requires a minimum of ${s.moq} cases. Order is ${s.qty}. This is the single largest cancellation reason in the MT channel — responsible for the majority of Masafi's AED 19.7M MT cancellation total. Agent is rejecting at entry, not at the DC.`:`Order quantity ${s.qty} meets the ${s.moq}-case minimum for ${s.acctName}.`},
+    {cls:'sb-ok',i:'✓',n:'Contracted price validated',d:`B2B contracted rate AED ${s.price}/case confirmed for ${s.acctName}. Price matches account contract — no CS correction needed.`},
+    {cls:eddFail?'sb-warn':'sb-ok',i:eddFail?'✕':'✓',n:`Delivery calendar — ${eddFail?'INVALID: no MT delivery Fri/Sat':'confirmed'}`,d:eddFail?`${s.slot} is a Friday or Saturday. Most Modern Trade accounts do not accept deliveries on these days. Agent suggesting next available MT delivery slot.`:`${s.slot} is a valid MT delivery day for this account.`},
+    {cls:bulkFlag?'sb-warn':'sb-ok',i:bulkFlag?'!':'✓',n:bulkFlag?'BULK ORDER: route to Factory DC direct':'Standard DC routing',d:bulkFlag?`Order of ${s.qty} cases meets the bulk threshold (≥1,000 cases). Agent has auto-set shipping site to Masafi Factory DC — this order should NOT route through the city DC.`:`Order of ${s.qty} cases routes through standard city DC.`},
+    {cls:hasIssues?'sb-warn':'sb-ok',i:hasIssues?'✕':'✓',n:hasIssues?'B2B MT ORDER HELD':'B2B MT ORDER APPROVED — to supervisor',d:hasIssues?`Order held. Issues: ${[moqFail&&'below MOQ',eddFail&&'invalid delivery day'].filter(Boolean).join(', ')}. CS team notified to correct before resubmission.`:`AED ${val.toLocaleString()} MT order passed to supervisor approval queue. Risk score calculated. Pre-scored for supervisor — only genuine decisions required.`},
+  ];
+  showSteps(steps,{cls:hasIssues?'fail':'pass',title:hasIssues?`MT order held — ${[moqFail&&'below MOQ',eddFail&&'invalid slot'].filter(Boolean).join(' · ')}`:`MT order approved — AED ${val.toLocaleString()} to ${s.acctName}`,body:hasIssues?`This order would have become part of the AED 19.7M MT cancellation total. Agent caught it at entry.`:`Order passed to supervisor. ${bulkFlag?'Note: routed to Factory DC (bulk threshold met).':'Standard DC routing confirmed.'}`});
+  updSess(hasIssues,val);
+}
+
+function runValidation_HOD(){
+  const s=hodState;
+  if(!s.acct||!s.sku)return;
+  const val=s.isFOC?0:s.qty*s.price;
+  const steps=[
+    {cls:'sb-ai',i:'◈',n:`Agent 01 — HOD order: ${s.acctName}`,d:`${s.qty} units ${s.sku}. Account type: ${s.acctType}. ${s.isFOC?'FOC — Government account. Zero price.':'Subscription account.'}`},
+    {cls:'sb-ok',i:'✓',n:'Subscription status — active',d:`${s.acctName} subscription is active and not paused. Account in good standing.`},
+    {cls:s.isFOC?'sb-warn':'sb-ok',i:s.isFOC?'!':'✓',n:s.isFOC?'FOC FLAG — Finance approval required':'Pricing validated',d:s.isFOC?`Government/FOC account detected. Zero-price order. Agent has routed this to Finance approval gate before processing. This step is automatic — CS does not process FOC orders directly.`:`Price AED ${s.price}/unit confirmed against HOD subscription rate.`},
+    {cls:'sb-ok',i:'✓',n:'Product eligibility confirmed',d:`${s.sku} is eligible for this HOD account type. Delivery address confirmed against most recent record.`},
+    {cls:'sb-ok',i:'✓',n:'Empty gallon reconciliation — clear',d:`Previous delivery empties reconciled. No discrepancy on record. Order quantity ${s.qty} units confirmed for dispatch.`},
+    {cls:'sb-ok',i:'✓',n:'HOD ORDER CONFIRMED — assigned to HOD vehicle pool',d:`Order pushed to HOD vehicle pool in Mobiato. ${s.isFOC?'Pending Finance approval (FOC).':'Driver will receive on HHD before route start.'} Subscription auto-renews next cycle.`},
+  ];
+  showSteps(steps,{cls:'pass',title:`HOD order confirmed — ${s.acctName}`,body:s.isFOC?`FOC order routed to Finance approval. Zero revenue impact — compliance step.`:`AED ${val.toLocaleString()} HOD order confirmed. Return rate for HOD channel: 4–13% — most stable channel in Masafi's network.`});
+  updSess(false,val);
+}
+
+function runValidation_EXP(){
+  const s=expState;
+  const needSel=!s.market||!s.sku;
+  if(needSel){document.getElementById('a1-result').innerHTML='<div class="verdict fail show"><div class="vt">Select market and product</div></div>';return;}
+  const val=s.qty*s.price;
+  const isSeaFreight=['kuwait','jordan','bahrain','maldives'].includes(s.market);
+  const isExWorks=s.market==='pakistan';
+  const steps=[
+    {cls:'sb-ai',i:'◈',n:`Agent 01 — Export order: ${s.marketName}`,d:`${s.qty} cases ${s.sku}. Market: ${s.marketName}. Incoterm: ${isExWorks?'Ex-works':isSeaFreight?'Sea freight via JAFZA':'DDP road transport'}. Total: AED ${val.toLocaleString()}.`},
+    {cls:'sb-ok',i:'✓',n:'Market eligibility confirmed',d:`${s.marketName} is an approved export destination. ${isSeaFreight?'Sea freight via JAFZA.':isExWorks?'Ex-works — buyer arranges collection.':'DDP — Masafi bears transport cost to Oman.'}`},
+    {cls:'sb-ok',i:'✓',n:'Export pricing validated',d:`Export price AED ${s.price}/case confirmed against ${s.marketName} price list. Domestic rate not applied.`},
+    {cls:'sb-ok',i:'✓',n:'Production lead time — checking',d:`Order sent to Production schedule review. Lead time requirement flagged. Vehicle placement date from buyer will become the EDD in Oracle.`},
+    {cls:isSeaFreight?'sb-warn':'sb-ok',i:isSeaFreight?'!':'✓',n:isSeaFreight?'JAFZA ROUTING FLAG — sea freight':'Road transport routing confirmed',d:isSeaFreight?`${s.marketName} order auto-routed to JAFZA for sea freight handling. Shipping site set to JAFZA in Oracle — not the domestic DC. JAFZA coordinator notified.`:`Oman DDP — road transport. Driver transit permit and vehicle registration must be current. Cargo strapping certificates in cab.`},
+    {cls:'sb-ok',i:'✓',n:'EXPORT ORDER CONFIRMED — pending vehicle placement date',d:`All validation checks passed. Order status: "Confirmed — pending EDD". EDD will be set when ${s.marketName} buyer confirms vehicle placement date. Five export documents required before shipment.`},
+  ];
+  showSteps(steps,{cls:'pass',title:`Export order confirmed — ${s.marketName} · AED ${val.toLocaleString()}`,body:`Order pending buyer vehicle placement confirmation. Production alerted. ${isSeaFreight?'JAFZA coordination initiated.':isExWorks?'Buyer collection arranged.':'DDP road transport — driver compliance check required.'}`});
+  updSess(false,val);
+}
+
+// Init channel
+switchChannel('b2c');
+if(typeof buildSlots === 'function') buildSlots(); // legacy compat
+</script>
+
+<!-- AGENT 02 — ROUTE LOAD -->
       <div class="panel" id="a2-sec" style="margin-bottom:1.1rem">
         <div class="ph amber">
           <div>
