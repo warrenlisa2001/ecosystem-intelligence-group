@@ -12,6 +12,12 @@
 
 <style>
 /* HOME HERO */
+#sib-bar{background:#E8184A;padding:7px 0;position:relative;z-index:400}
+.sib-bar-inner{display:flex;align-items:center;justify-content:center;gap:1rem;max-width:1340px;margin:0 auto;padding:0 2rem}
+.sib-bar-logo{height:26px;width:auto;display:block;flex-shrink:0;border-radius:50%}
+.sib-bar-text{font-size:11px;letter-spacing:0.07em;font-weight:600;color:rgba(255,255,255,0.9);text-transform:uppercase}
+.sib-bar-text strong{color:#fff}
+@media(max-width:600px){.sib-bar-text{font-size:9.5px;letter-spacing:0.04em}}
 #home-hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:93px;background:var(--black)}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 45%,rgba(0,102,255,0.05),transparent 65%)}
 .hero-dots{position:absolute;inset:0;opacity:0.022;background-image:radial-gradient(rgba(0,102,255,1) 1px,transparent 1px);background-size:48px 48px}
@@ -61,6 +67,18 @@ h1.hero-h .pop{color:var(--blue);display:block}
 
 .n-ai{top:-3%;left:50%}
 .n-ai .node-dot{top:64px;left:50%;transform:translateX(-50%)}
+
+/* CENTRAL AGENTIC AI HUB */
+.ai-central-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;pointer-events:none}
+.ai-central-ring{width:100px;height:100px;border-radius:50%;border:2px solid rgba(0,102,255,0.6);background:radial-gradient(circle,rgba(0,66,204,0.35),rgba(0,102,255,0.12));box-shadow:0 0 40px 8px rgba(0,102,255,0.4),0 0 80px 20px rgba(0,102,255,0.15),inset 0 0 30px rgba(0,102,255,0.2);display:flex;align-items:center;justify-content:center;flex-direction:column;animation:ai-pulse-ring 3s ease-in-out infinite}
+@keyframes ai-pulse-ring{0%,100%{box-shadow:0 0 40px 8px rgba(0,102,255,0.4),0 0 80px 20px rgba(0,102,255,0.15)}50%{box-shadow:0 0 60px 16px rgba(0,102,255,0.6),0 0 120px 40px rgba(0,102,255,0.25)}}
+.ai-central-label-top{font-size:8px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.65);font-weight:700;line-height:1;margin-bottom:3px}
+.ai-central-label-main{font-size:14px;font-weight:800;letter-spacing:0.1em;color:#fff;line-height:1}
+.ai-central-label-sub{font-size:8px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(100,170,255,0.9);font-weight:700;margin-top:3px}
+.ai-outer-ring{position:absolute;top:50%;left:50%;width:136px;height:136px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(0,102,255,0.25);animation:ai-spin-slow 18s linear infinite}
+.ai-outer-ring2{position:absolute;top:50%;left:50%;width:170px;height:170px;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed rgba(0,102,255,0.15);animation:ai-spin-slow 30s linear infinite reverse}
+@keyframes ai-spin-slow{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.ai-central-ring,.ai-outer-ring,.ai-outer-ring2{animation:none}}
 .n-sus{top:12.5%;left:87.5%}
 .n-sus .node-dot{bottom:22px;left:-2px}
 .n-sc{top:50%;left:103%}
@@ -182,6 +200,12 @@ h1.hero-h .pop{color:var(--blue);display:block}
 
 </head>
 <body>
+<div id="sib-bar">
+  <div class="sib-bar-inner">
+    <img src="assets/images/sib-logo.png" alt="SIB Consulting" class="sib-bar-logo">
+    <span class="sib-bar-text"><strong>SIB Consulting</strong> &nbsp;·&nbsp; A Strategic Intelligence &amp; Transformation Practice</span>
+  </div>
+</div>
 <div id="ticker">
   <div class="ticker-track">
     <div class="t-item"><b>AI</b>Agentic Artificial Intelligence</div>
@@ -288,8 +312,10 @@ h1.hero-h .pop{color:var(--blue);display:block}
   <div class="hero-dots"></div>
   <div class="container hero-inner">
     <div>
-      <div class="hero-tag"><span class="hpulse"></span> Multi-Sector Intelligence Platform</div>
-      <h1 class="hero-h">Smarter Intelligence.<br><span class="dim">Stronger Decisions.</span><br><span class="pop">Greater Impact.</span></h1>
+      <div class="hero-tag"><span class="hpulse"></span> Strategic Intelligence &amp; Transformation Practice</div>
+      <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#E8184A;font-weight:700;margin-bottom:0.4rem">SIB Consulting</div>
+      <h1 class="hero-h">Ecosystem Intelligence<br><span class="dim">Group</span></h1>
+      <p style="font-size:13px;color:rgba(139,148,158,0.75);letter-spacing:0.05em;text-transform:uppercase;font-weight:600;margin-bottom:1.5rem;margin-top:-0.3rem">A Practice of SIB Consulting</p>
       <p class="hero-sub">Seven domains. <b>One intelligence layer.</b> EIG connects AI, sustainability, supply chain, architecture, healthcare, IT, and strategic planning into a single decision-making framework.<span class="accent">Built for leaders who execute at scale.</span></p>
       <div class="hero-audience">
         <div class="ha-item active">
@@ -325,6 +351,17 @@ h1.hero-h .pop{color:var(--blue);display:block}
         <div class="orbit-ring orbit-ring--rev"></div>
         <div class="globe-sphere">
           <img src="assets/images/hero-globe.png" alt="EIG global intelligence network" class="globe-img">
+        </div>
+
+        <!-- AGENTIC AI — CENTRAL INTELLIGENCE CORE -->
+        <div class="ai-central-hub">
+          <div class="ai-outer-ring2"></div>
+          <div class="ai-outer-ring"></div>
+          <div class="ai-central-ring">
+            <div class="ai-central-label-top">Agentic</div>
+            <div class="ai-central-label-main">AI</div>
+            <div class="ai-central-label-sub">Core</div>
+          </div>
         </div>
 
         <a href="industry-ai.html" class="node n-ai">
@@ -532,7 +569,7 @@ h1.hero-h .pop{color:var(--blue);display:block}
     </div>
     <div class="footer-r">
       <div class="footer-copy">© 2026 Ecosystem Intelligence Group. All rights reserved.</div>
-      <div class="footer-sib">An Independent Consultancy</div>
+      <div class="footer-sib">A Practice of <a href="https://sibconsulting.com" target="_blank" rel="noopener">SIB Consulting</a></div>
     </div>
   </div>
 </footer><script src="assets/shared.js"></script>
