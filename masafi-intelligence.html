@@ -457,9 +457,9 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
       <div class="hero">
         <div class="hero-inner">
           <div>
-            <div class="hero-tag"><span class="ldot"></span>Live · Masafi operational data · June 2026</div>
+            <div class="hero-tag"><span class="ldot"></span>Data period: Jun 2025 – May 2026 · 12 months · Masafi operational records</div>
             <h1 class="hero-h">AI-Powered <em>Commercial Growth</em></h1>
-            <p class="hero-sub">Two AI agents operating on Masafi's actual data. Every number on this page is derived from your operational records — December 2025 to May 2026.</p>
+            <p class="hero-sub">Two AI agents operating on Masafi's actual data. Every number on this page is derived from your operational records — June 2025 to May 2026.</p>
           </div>
           <div class="hero-btns">
             <a class="hbtn p" onclick="document.getElementById('map-sec').scrollIntoView({behavior:'smooth'})">View Live Map →</a>
@@ -483,8 +483,8 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
               <label class="field-label">Region</label>
               <select class="field-select" id="a2-region" onchange="loadRoutes()">
                 <option value="">Select region…</option>
-                <option value="ALN">Al Ain — 35.7% return rate (worst in network)</option>
-                <option value="AUH">Abu Dhabi — 27.5% return rate</option>
+                <option value="ALN">Al Ain — 32.5% return rate (worst in network)</option>
+                <option value="AUH">Abu Dhabi — 26.6% return rate</option>
                 <option value="DXB">Dubai — 20.8% return rate</option>
               </select>
             </div>
@@ -529,7 +529,7 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
           <div class="algo-step"><span class="algo-n">2</span><div><strong style="color:var(--white)">Recent trend weighting</strong> — Last 14 days weighted at 1.4× vs T-90 baseline to capture demand shifts more quickly than a flat 90-day mean. Active promotions trigger an uplift flag. UAE seasonal index applied (Q1 water 1.5L peaks ~18%).<div class="formula">Adjusted = Baseline × TrendFactor(T-14) × PromoMultiplier × SeasonIndex</div></div></div>
           <div class="algo-step"><span class="algo-n">3</span><div><strong style="color:var(--white)">Safety buffer by variance band</strong> — Buffer added above adjusted demand: 5% for low-variance stops (σ&lt;0.2), 8% default, 12% for high-variance stops (σ&gt;0.4). Prevents stockouts at high-demand stops without over-loading the vehicle.<div class="formula">Recommended(stop) = Adjusted × (1 + Buffer%)</div></div></div>
           <div class="algo-step"><span class="algo-n">4</span><div><strong style="color:var(--white)">Vehicle capacity constraint</strong> — Sum of all stop recommendations checked against truck capacity (6-tonne ≈ 320 cases 500ml equivalent). If total exceeds 90% of capacity, allocations re-weighted proportionally from highest to lowest variance stop.<div class="formula">Σ Recommended(stops) ≤ Vehicle Capacity × 0.90</div></div></div>
-          <div class="algo-step"><span class="algo-n">5</span><div><strong style="color:var(--white)">AED saving calculation</strong> — Reduction in loaded cases × AED 95 average per case × 313 working days for annualised saving. Al Ain target: from 35.7% returns to under 5%.<div class="formula">Daily saving = (Current Load − AI Load) × AED 95<br><span>Annual = Daily saving × 313 working days</span></div></div></div>
+          <div class="algo-step"><span class="algo-n">5</span><div><strong style="color:var(--white)">AED saving calculation</strong> — Reduction in loaded cases × AED 95 average per case × 313 working days for annualised saving. Al Ain target: from 32.5% returns to under 5%.<div class="formula">Daily saving = (Current Load − AI Load) × AED 95<br><span>Annual = Daily saving × 313 working days</span></div></div></div>
           <div class="algo-step"><span class="algo-n">6</span><div><strong style="color:var(--white)">Confidence scoring</strong> — High = 60+ records, low variance. Medium = 30–60 records. Low = under 30 records → flagged for supervisor review before acting on recommendation. Confidence displayed per stop in the output table.</div></div>
         </div>
       </div>
@@ -667,7 +667,7 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
                     <animate attributeName="stroke-opacity" values="0.3;0;0.3" dur="3s" repeatCount="indefinite"/>
                   </circle>
                   <text x="295" y="244" text-anchor="middle" fill="white" font-size="8.5" font-weight="700" font-family="sans-serif">DUBAI MT</text>
-                  <text x="295" y="256" text-anchor="middle" fill="#ff9999" font-size="8" font-family="sans-serif">AED 12.7M</text>
+                  <text x="295" y="256" text-anchor="middle" fill="#ff9999" font-size="8" font-family="sans-serif">AED 13.6M</text>
 
                   <!-- Abu Dhabi bubble -->
                   <circle cx="155" cy="295" r="22" fill="rgba(245,158,11,0.12)" stroke="#F59E0B" stroke-width="1.5" stroke-opacity="0.6"/>
@@ -682,7 +682,7 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
                   <!-- Al Ain bubble -->
                   <circle cx="400" cy="330" r="15" fill="rgba(61,139,255,0.1)" stroke="#3d8bff" stroke-width="1.2" stroke-opacity="0.5"/>
                   <text x="400" y="326" text-anchor="middle" fill="white" font-size="7" font-weight="700" font-family="sans-serif">AL AIN</text>
-                  <text x="400" y="337" text-anchor="middle" fill="#7ab2ff" font-size="7" font-family="sans-serif">35.7% RTN</text>
+                  <text x="400" y="337" text-anchor="middle" fill="#7ab2ff" font-size="7" font-family="sans-serif">32.5% RTN</text>
 
                   <!-- Deira bubble -->
                   <circle cx="340" cy="210" r="14" fill="rgba(239,68,68,0.1)" stroke="#EF4444" stroke-width="1" stroke-opacity="0.4"/>
@@ -1078,21 +1078,21 @@ buildRecs(SIM_STATES['2030'].recs);
         <div class="ls-head">
           <div>
             <div class="ls-head-title">Total revenue leakage — identified from your data</div>
-            <div style="font-size:10.5px;color:var(--mgrey);margin-top:1px">Three sources. One number. This is what the AI agents recover.</div>
+            <div style="font-size:10.5px;color:var(--mgrey);margin-top:1px">Three sources. One number. Data period: <strong style="color:var(--blue2)">June 2025 – May 2026 · 12 months of Masafi operational records.</strong></div>
           </div>
-          <div class="ls-total">AED 26.4M+<span class="ls-total-lbl">identified leakage</span></div>
+          <div class="ls-total">AED 32M+<span class="ls-total-lbl">Jun 2025 – May 2026</span></div>
         </div>
         <div class="ls-sources">
           <div class="ls-src c">
             <div class="ls-label">Source 1 — Wrong bookings &amp; cancellations</div>
-            <div class="ls-val">AED 23.7M</div>
-            <div class="ls-detail">13,671 cancelled orders Dec 2025–May 2026. Traditional Trade (TT) is Masafi's largest channel at AED 169M (47% of revenue) — bigger than MT (26%) and HOD (27%) combined. 82% are wrong bookings. MT channel (AED 94.7M annual revenue) accounts for AED 19.7M of cancellations. TT (AED 169M revenue) and HOD (AED 98M) also affected. Total Masafi UAE revenue from AOP data: AED 361.7M.</div>
+            <div class="ls-val">AED 30.2M</div>
+            <div class="ls-detail">22,598 cancelled orders Jun 2025–May 2026. Traditional Trade (TT) is Masafi's largest channel at AED 169M (47% of revenue) — bigger than MT (26%) and HOD (27%) combined. 63% are wrong bookings. MT channel (AED 94.7M annual revenue) accounts for AED 24.0M of cancellations. TT (AED 169M revenue) and HOD (AED 98M) also affected. Total Masafi UAE revenue from AOP data: AED 361.7M.</div>
             <span class="ls-agent">→ Fixed by Agent 01 · Order Validation</span>
           </div>
           <div class="ls-src v">
             <div class="ls-label">Source 2 — Van sales stock returned unsold</div>
             <div class="ls-val">AED 1.8M est.</div>
-            <div class="ls-detail">29.8% of cases loaded onto van sales vehicles return to the depot unsold every day. Al Ain at 35.7% — worst in the network. 145,000 cases cycling back daily. Working capital earning nothing. Estimated at AED 95 average per case × 313 working days.</div>
+            <div class="ls-detail">28.4% of cases loaded onto van sales vehicles return to the depot unsold every day. Al Ain at 32.5% — worst in the network. 145,000 cases cycling back daily. Working capital earning nothing. Estimated at AED 95 average per case × 313 working days.</div>
             <span class="ls-agent">→ Fixed by Agent 02 · Load Optimisation</span>
           </div>
           <div class="ls-src f">
@@ -1319,39 +1319,39 @@ buildRecs(SIM_STATES['2030'].recs);
                 </div>
                 <div class="app-body" style="background:#f8faff">
                   <div class="app-section" style="color:#1a3a5c">Account</div>
-                  <div style="background:rgba(0,91,172,0.06);border:1px solid rgba(0,91,172,0.15);border-radius:5px;padding:7px 10px;margin-bottom:6px;font-size:9px;color:#555;line-height:1.5">
-                    <strong style="color:#1a3a5c">Note:</strong> Masafi's MT accounts are organised by territory route code. In the live system, individual account names (hypermarkets, supermarkets, co-ops) would appear here from the customer master. The demo uses territory segments from Masafi's AOP data.
+                  <div style="background:rgba(0,91,172,0.06);border:1px solid rgba(0,91,172,0.15);border-radius:5px;padding:7px 10px;margin-bottom:6px;font-size:9px;color:#777;line-height:1.5">
+                    <strong style="color:#1a3a5c">Source:</strong> Masafi cancelled order data Jun 2025–May 2026 · 22,598 cancelled orders · AED 30.2M · Accounts ranked by cancellation value
                   </div>
                   <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:8px">
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-dxb-large',100,'Dubai MT — Large Format (Route 13220)','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Dubai MT — Large Format</div>
-                      <div style="font-size:8px;color:#005BAC;font-weight:600">Route 13220 · MOQ: 100 cases</div>
-                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 49.1M revenue · highest value MT</div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'carrefour-moe',100,'Carrefour Mall of Emirates — Dubai','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Carrefour Mall of Emirates</div>
+                      <div style="font-size:8px;color:#e05;font-weight:600">Dubai · Route 13222 · MOQ: 100 cases</div>
+                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 1.43M cancelled · 293 orders · #1 account</div>
                     </div>
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-dxb-mid',80,'Dubai MT — Mid Format (Routes 13210–13215)','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Dubai MT — Mid Format</div>
-                      <div style="font-size:8px;color:#005BAC;font-weight:600">Routes 13210–13215 · MOQ: 80 cases</div>
-                      <div style="font-size:7.5px;color:#888;margin-top:1px">8 territory routes · preseller channel</div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'carrefour-yas',100,'Carrefour Yas Mall — Abu Dhabi','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Carrefour Yas Mall</div>
+                      <div style="font-size:8px;color:#e05;font-weight:600">Abu Dhabi · Route 53212 · MOQ: 100 cases</div>
+                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 1.11M cancelled · 262 orders</div>
                     </div>
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-auh',100,'Abu Dhabi MT (Routes 53210–53212)','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Abu Dhabi MT</div>
-                      <div style="font-size:8px;color:#005BAC;font-weight:600">Routes 53210–53212 · MOQ: 100 cases</div>
-                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 21.9M revenue · 3 territory routes</div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'carrefour-festival',100,'Carrefour Festival City — Dubai','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Carrefour Festival City</div>
+                      <div style="font-size:8px;color:#e05;font-weight:600">Dubai · Route 13222 · MOQ: 100 cases</div>
+                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 1.04M cancelled · 189 orders</div>
                     </div>
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-shj',80,'Sharjah MT (Routes SJ34, SJ145)','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Sharjah MT</div>
-                      <div style="font-size:8px;color:#005BAC;font-weight:600">Routes SJ34, SJ145 · MOQ: 80 cases</div>
-                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 12.0M revenue · Al Sajaa area</div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'carrefour-ajman',80,'Carrefour Hypermarket Ajman','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Carrefour Hypermarket Ajman</div>
+                      <div style="font-size:8px;color:#005BAC;font-weight:600">Sharjah · Route SJ145 · MOQ: 80 cases</div>
+                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 1.03M cancelled · 318 orders</div>
                     </div>
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-alain',80,'Al Ain MT (Routes 63210–63211)','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Al Ain MT</div>
-                      <div style="font-size:8px;color:#d97706;font-weight:600">Routes 63210–63211 · MOQ: 80 cases</div>
-                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 6.1M · 35.7% van return rate region</div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'ibn-battuta',100,'Ibn Battuta Mall Hypermarket — Dubai','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Ibn Battuta Mall Hypermarket</div>
+                      <div style="font-size:8px;color:#e05;font-weight:600">Dubai · Route 13222 · MOQ: 100 cases</div>
+                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 0.95M cancelled · 163 orders</div>
                     </div>
-                    <div class="b2b-acct" onclick="selectB2BAcct(this,'mt-fuj-rak',50,'Fujairah + RAK MT','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
-                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Fujairah + RAK MT</div>
-                      <div style="font-size:8px;color:#059669;font-weight:600">Routes FJ36, RK56 · MOQ: 50 cases</div>
-                      <div style="font-size:7.5px;color:#888;margin-top:1px">Factory region — direct supply advantage</div>
+                    <div class="b2b-acct" onclick="selectB2BAcct(this,'lulu-uaq',80,'Lulu HM Mall of UAQ — RAK','MT')" style="cursor:pointer;background:white;border:1.5px solid #e0e0e0;border-radius:5px;padding:7px 8px">
+                      <div style="font-size:9.5px;font-weight:700;color:#1a1a2e;margin-bottom:1px">Lulu HM — Mall of UAQ</div>
+                      <div style="font-size:8px;color:#005BAC;font-weight:600">RAK · Route SJ145 · MOQ: 80 cases</div>
+                      <div style="font-size:7.5px;color:#888;margin-top:1px">AED 0.44M cancelled · 115 orders</div>
                     </div>
                   </div>
                   <div class="app-section" style="color:#1a3a5c">Product &amp; quantity</div>
@@ -1551,7 +1551,7 @@ buildRecs(SIM_STATES['2030'].recs);
         <!-- THE CHAIRMAN LINE -->
         <div style="margin:0;padding:1.1rem 1.25rem;background:rgba(200,168,75,0.05);border-bottom:1px solid rgba(200,168,75,0.15)">
           <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#C8A84B;margin-bottom:6px">Our position</div>
-          <p style="font-size:14px;color:var(--white);line-height:1.75;font-family:var(--serif)">Chairman, what you have seen today is built on a fraction of Masafi's data. It already identifies <strong style="color:#E8C86A">AED 26.4M in recoverable revenue</strong> — and it is directionally correct.<br><br>Before we deploy AI at scale, we owe it to you to do one thing first: <strong style="color:var(--white)">establish that the information driving those decisions can be trusted.</strong><br><br>That is not a delay. That is the difference between building on sand and building on rock.</p>
+          <p style="font-size:14px;color:var(--white);line-height:1.75;font-family:var(--serif)">Chairman, what you have seen today is built on a fraction of Masafi's data. It already identifies <strong style="color:#E8C86A">AED 32M in recoverable revenue</strong> — and it is directionally correct.<br><br>Before we deploy AI at scale, we owe it to you to do one thing first: <strong style="color:var(--white)">establish that the information driving those decisions can be trusted.</strong><br><br>That is not a delay. That is the difference between building on sand and building on rock.</p>
         </div>
 
         <div class="panel-body">
@@ -1627,7 +1627,7 @@ buildRecs(SIM_STATES['2030'].recs);
               <div style="font-size:11.5px;color:rgba(255,255,255,0.5);font-style:italic;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05)">Can we trust the AI's inputs?</div>
               <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
                 <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:var(--green)">›</span>Revenue leakage assumptions — is AED 23.7M the right number?
+                  <span style="position:absolute;left:0;color:var(--green)">›</span>Revenue leakage assumptions — is AED 30.2M the right number?
                 </li>
                 <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
                   <span style="position:absolute;left:0;color:var(--green)">›</span>Inventory assumptions — are DC stock figures reliable?
@@ -1754,7 +1754,7 @@ buildRecs(SIM_STATES['2030'].recs);
       <!-- FOOTER -->
       <div class="dash-footer">
         <div class="df">
-          <div class="df-l"><strong>Ecosystem Intelligence Group</strong> · SIB Consulting FZCO<br>Confidential — prepared exclusively for Masafi Group · June 2026</div>
+          <div class="df-l"><strong>Ecosystem Intelligence Group</strong> · SIB Consulting FZCO<br>Data: Jun 2025 – May 2026 · Prepared for Masafi Group · June 2026</div>
           <div class="df-r">ecosystemintelligencegroup.com · <a href="contact.html">Contact EIG</a></div>
         </div>
       </div>
@@ -1783,7 +1783,7 @@ const DC = {sun:1.15,mon:0.95,tue:1.0,wed:1.05,thu:1.1,sat:0.85};
 let proc=0,caught=0,saved=0;
 
 // Product state
-let selSku=null,selPrice=0,selStock=0,selName='',qty=1,selSlot=null,selSlotValid=true;
+
 
 // ── LOGIN ────────────────────────────────────
 function doLogin(){
@@ -1807,17 +1807,17 @@ function doLogout(){document.getElementById('dashboard').style.display='none';do
 function buildTicker(){
   const items=[
     {b:'Agent 01',t:'Order validation active — all channels: app, website, call centre, Talabat, Noon'},
-    {b:'ALERT',t:'AED 23.7M in cancelled orders identified — 82% preventable by Agent 01',a:true},
+    {b:'ALERT',t:'AED 30.2M in cancelled orders identified — 63% preventable by Agent 01',a:true},
     {b:'Agent 03',t:'Load optimisation active — Al Ain, Abu Dhabi, Dubai van sales routes'},
-    {b:'Data',t:'13,671 cancelled orders analysed — Dec 2025 to May 2026 — source: Masafi Mobiato system'},
-    {b:'ALERT',t:'Al Ain van sales return rate 35.7% — 236 cases per trip returning unsold daily',a:true},
-    {b:'Channel',t:'Modern Trade responsible for AED 19.7M of total cancellation value — Dubai accounts for AED 12.7M'},
+    {b:'Data',t:'22,598 cancelled orders — Jun 2025 to May 2026 · 12 months — Jun 2025 to May 2026 — source: Masafi Mobiato system'},
+    {b:'ALERT',t:'Al Ain van sales return rate 32.5% — 236 cases per trip returning unsold daily',a:true},
+    {b:'Channel',t:'Modern Trade responsible for AED 19.7M of total cancellation value — Dubai accounts for AED 13.6M'},
     {b:'Fill rate',t:'Warehouse fill attainment 60–70% — target high 90s — demand intelligence agent in Phase 2'},
     {b:'Agent 01',t:'Order validation active — all channels: app, website, call centre, Talabat, Noon'},
-    {b:'ALERT',t:'AED 23.7M in cancelled orders identified — 82% preventable by Agent 01',a:true},
+    {b:'ALERT',t:'AED 30.2M in cancelled orders identified — 63% preventable by Agent 01',a:true},
     {b:'Agent 03',t:'Load optimisation active — Al Ain, Abu Dhabi, Dubai van sales routes'},
-    {b:'Data',t:'13,671 cancelled orders analysed — Dec 2025 to May 2026 — source: Masafi Mobiato system'},
-    {b:'ALERT',t:'Al Ain van sales return rate 35.7% — 236 cases per trip returning unsold daily',a:true},
+    {b:'Data',t:'22,598 cancelled orders — Jun 2025 to May 2026 · 12 months — Jun 2025 to May 2026 — source: Masafi Mobiato system'},
+    {b:'ALERT',t:'Al Ain van sales return rate 32.5% — 236 cases per trip returning unsold daily',a:true},
   ];
   document.getElementById('ticker-track').innerHTML=items.map(i=>`<div class="ti${i.a?' alert':''}"><b>${i.b}</b>${i.t}</div>`).join('');
 }
@@ -1850,21 +1850,11 @@ function selectSlot(el,date,valid){
 }
 
 // ── PRODUCT SELECTION ────────────────────────
-function selectProd(el,sku,price,stock,name){
-  document.querySelectorAll('.prod-card').forEach(c=>c.classList.remove('selected'));
-  el.classList.add('selected');
-  selSku=sku; selPrice=price; selStock=stock; selName=name;
-  qty=1;
-  document.getElementById('qty-num').textContent=1;
-  document.getElementById('qty-lbl').textContent=name;
-  updateTotal(); updateOrderBtn();
-}
+// [removed: old selectProd - superseded by ch-aware version]
 
-function changeQty(d){
-  qty=Math.max(1,Math.min(qty+d,999));
-  document.getElementById('qty-num').textContent=qty;
-  updateTotal();
-}
+
+// [removed: old changeQty - superseded by ch-aware version]
+
 
 function updateTotal(){
   if(!selSku){document.getElementById('order-total-val').textContent='AED —';return;}
@@ -2002,12 +1992,12 @@ const CH_CONFIG = {
   mt:{
     badge:'B2B — Modern Trade',
     badgeStyle:'background:rgba(214,10,23,0.12);color:#ff7070;border:1px solid rgba(214,10,23,0.25)',
-    intro:'CS team order entry for Modern Trade accounts — Carrefour, Lulu, Spinneys. This channel is responsible for AED 19.7M of the AED 23.7M in cancelled orders. Validation rules are significantly stricter than B2C.',
-    flowLabel:'How Masafi\'s B2B Modern Trade order flow works — and why it generates AED 19.7M in cancellations',
+    intro:'CS team order entry for Modern Trade accounts — Carrefour, Lulu, Spinneys. This channel is responsible for AED 24.0M of the AED 30.2M in cancelled orders. Validation rules are significantly stricter than B2C.',
+    flowLabel:'How Masafi\'s B2B Modern Trade order flow works — and why it generates AED 24.0M in cancellations',
     flow:[
       {n:'1',icon:'📞',title:'Order received by CS',detail:'Buyer contacts CS team by phone, email, WhatsApp, or EDI. CS agent enters draft order into Mobiato — this is where wrong bookings enter the system.'},
       {arrow:true},
-      {n:'2',icon:'🤖',title:'AI validates',detail:'Agent 01 applies MT-specific rules: MOQ, contracted pricing, delivery calendar, account eligibility, duplicate detection. AED 19.7M in cancellations are concentrated here.',highlight:true},
+      {n:'2',icon:'🤖',title:'AI validates',detail:'Agent 01 applies MT-specific rules: MOQ, contracted pricing, delivery calendar, account eligibility, duplicate detection. AED 24.0M in cancellations are concentrated here.',highlight:true},
       {arrow:true},
       {n:'3',icon:'✅',title:'Supervisor approval',detail:'Orders above threshold go to supervisor. Agent pre-scores them so supervisor sees only genuine decisions — not administrative errors.'},
       {arrow:true},
@@ -2023,7 +2013,7 @@ const CH_CONFIG = {
     algolabel:'How Agent 01 validates B2B Modern Trade orders — where AED 19.7M of risk sits',
     algo:[
       {n:'1',title:'Account eligibility & credit status',body:'Agent checks the account is active, credit limit is not exceeded, and the ordering contact is authorised. MT accounts have specific authorised buyer lists — orders from unauthorised contacts are a source of wrong bookings.',formula:'IF account.credit_status = \'hold\' OR contact ∉ authorised_buyers → REJECT'},
-      {n:'2',title:'MOQ enforcement — hardest rule',body:'Modern Trade minimum: 100 cases (Carrefour, Lulu), 80 cases (Spinneys), 50 cases (Emirates Coop). Orders below MOQ are the single largest cancellation reason in the MT channel. Agent enforces at entry — not at DC.',formula:'IF qty < account.MOQ → REJECT at entry\nNote: this is the fix for 11,244 of 13,671 cancellations'},
+      {n:'2',title:'MOQ enforcement — hardest rule',body:'Modern Trade minimum: 100 cases (Carrefour, Lulu), 80 cases (Spinneys), 50 cases (Emirates Coop). Orders below MOQ are the single largest cancellation reason in the MT channel. Agent enforces at entry — not at DC.',formula:'IF qty < account.MOQ → REJECT at entry\nNote: this is the fix for 14,149 of 22,598 cancellations'},
       {n:'3',title:'Contracted price validation',body:'MT accounts have contracted rates that differ from consumer pricing. CS agents entering orders manually sometimes apply the wrong price tier. Agent validates against the account\'s contracted rate and flags any mismatch before the order proceeds.',formula:'IF order.price ≠ account.contracted_price → hold for CS correction'},
       {n:'4',title:'Delivery calendar check',body:'MT accounts have fixed weekly delivery slots — not open next-day. Carrefour may receive Tuesday and Friday only. Spinneys may receive Monday and Thursday. Agent validates EDD against account\'s specific delivery calendar, not a generic slot grid.',formula:'EDD valid = date ∈ account.delivery_calendar\nFri/Sat = non-delivery for most MT accounts'},
       {n:'5',title:'Bulk order routing — factory direct',body:'Orders ≥1,000 cases (water) or ≥250 cases (tissue) qualify as bulk orders and must be routed direct from the Masafi factory, not the DC. Agent checks quantity and auto-sets shipping site to Factory DC if threshold is met.',formula:'IF qty ≥ bulk_threshold → set shipping_site = Factory DC\nDo NOT route through city DC'},
@@ -2414,7 +2404,7 @@ function runValidation_MT(){
     {cls: moqFail?'sb-warn':'sb-ok', i: moqFail?'✕':'✓',
      n:`MOQ check — ${moqFail ? `FAILED: ${s.qty} below minimum ${s.moq}` : `passed: ${s.qty} ≥ MOQ ${s.moq}`}`,
      d: moqFail
-       ? `${s.acctName} requires minimum ${s.moq} cases. Order is ${s.qty}. This is the primary cancellation cause in MT — responsible for the majority of Masafi's AED 19.7M MT cancellation total. Rejected at entry, not at DC.`
+       ? `${s.acctName} requires minimum ${s.moq} cases. Order is ${s.qty}. This is the primary cancellation cause in MT — responsible for the majority of Masafi's AED 24.0M MT cancellation total. Rejected at entry, not at DC.`
        : `Order quantity ${s.qty} meets the ${s.moq}-case minimum for ${s.acctName}.`},
     {cls:'sb-ok', i:'✓',
      n:'Contracted price validated',
@@ -2441,7 +2431,7 @@ function runValidation_MT(){
       ? `MT order held — ${[moqFail&&'below MOQ', eddFail&&'invalid slot'].filter(Boolean).join(' · ')}`
       : `MT order approved — AED ${val.toLocaleString()} to ${s.acctName}`,
     body: hasIssues
-      ? `This order would have become part of the AED 19.7M MT cancellation total. Agent caught it at entry.`
+      ? `This order would have become part of the AED 24.0M MT cancellation total. Agent caught it at entry.`
       : `Order passed to supervisor.${bulkFlag?' Routed to Factory DC (bulk threshold met).':' Standard DC routing confirmed.'}`
   });
   updSess(hasIssues, val);
