@@ -79,20 +79,19 @@ h1.hero-h .pop{color:var(--blue);display:block}
 .ai-outer-ring2{position:absolute;top:50%;left:50%;width:190px;height:190px;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed rgba(232,24,74,0.15);animation:ai-spin-slow 30s linear infinite reverse}
 @keyframes ai-spin-slow{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.ai-central-ring,.ai-outer-ring,.ai-outer-ring2{animation:none}}
-.n-sus{top:12.5%;left:87.5%}
-.n-sus .node-dot{bottom:22px;left:-2px}
-.n-sc{top:50%;left:103%}
-.n-sc .node-dot{bottom:0;left:6px}
-.n-hc{top:87.5%;left:87.5%}
-.n-hc .node-dot{top:14px;left:0}
-.n-arch{top:103%;left:50%}
-.n-arch .node-dot{top:-10px;left:50%;transform:translateX(-50%)}
-.n-edu{top:87.5%;left:12.5%}
-.n-edu .node-dot{top:14px;right:0}
-.n-sp{top:50%;left:-3%}
-.n-sp .node-dot{bottom:0;right:6px}
-.n-it{top:12.5%;left:12.5%}
-.n-it .node-dot{bottom:22px;right:-2px}
+.n-sus{top:-3%;left:50%}
+.n-sus .node-dot{top:64px;left:50%;transform:translateX(-50%)}
+.n-sc{top:12.5%;left:87.5%}
+.n-sc .node-dot{bottom:22px;left:-2px}
+.n-hc{top:50%;left:103%}
+.n-hc .node-dot{bottom:0;left:6px}
+.n-arch{top:87.5%;left:87.5%}
+.n-arch .node-dot{top:14px;left:0}
+.n-edu{top:103%;left:50%}
+.n-edu .node-dot{top:-10px;left:50%;transform:translateX(-50%)}
+.n-sp{top:87.5%;left:12.5%}
+.n-sp .node-dot{top:14px;right:0}
+/* n-it removed - Digital Finance removed from globe */
 
 .hero-tagline{position:absolute;right:0;bottom:-1.5rem;text-align:right;padding-right:0.5rem;border-right:2px solid var(--blue);padding-right:1rem}
 .hero-tagline p{font-size:13px;letter-spacing:0.03em;color:rgba(139,148,158,0.85);line-height:1.6}
@@ -372,7 +371,7 @@ h1.hero-h .pop{color:var(--blue);display:block}
         </a>
         <a href="industry-supply-chain.html" class="node n-sc">
           <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="M4 7.5L12 12l8-4.5M12 12v9"/></svg></div>
-          <div class="node-lbl">Supply Chain</div>
+          <div class="node-lbl"><em>Global</em><br>Supply Chain</div>
           <div class="node-dot"></div>
         </a>
         <a href="industry-healthcare.html" class="node n-hc">
@@ -393,11 +392,6 @@ h1.hero-h .pop{color:var(--blue);display:block}
         <a href="industry-strategic-planning.html" class="node n-sp">
           <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 4v3M19.07 7.5l-2.6 1.5"/></svg></div>
           <div class="node-lbl">Strategic<br>Planning</div>
-          <div class="node-dot"></div>
-        </a>
-        <a href="industry-it.html" class="node n-it">
-          <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Z"/><path d="M15 8.5c-.83-.5-1.86-.8-3-.8-3.04 0-5 1.8-5 4.3s1.96 4.3 5 4.3c1.14 0 2.17-.3 3-.8"/><path d="M8 10h5M8 14h5"/></svg></div>
-          <div class="node-lbl">Digital<br>Finance</div>
           <div class="node-dot"></div>
         </a>
       </div>
