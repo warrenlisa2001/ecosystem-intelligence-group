@@ -380,16 +380,16 @@ h1.hero-h em{font-style:italic;color:var(--blue)}
       <div class="login-sub">AI Commercial Intelligence · Masafi Group · Confidential</div>
       <div class="lf-group">
         <label class="lf-label">Email address</label>
-        <input class="lf-input" type="email" id="login-email" placeholder="vcchairman@masafi.com" value="vcchairman@masafi.com">
-        <div class="lf-hint">Use your authorised email address</div>
+        <input class="lf-input" type="email" id="login-email" placeholder="vcchairman@masafi.com" placeholder="you@masafi.com" value="">
+        <div class="lf-hint">Use your @masafi.com email address</div>
       </div>
       <div class="lf-group">
         <label class="lf-label">Password</label>
-        <input class="lf-input" type="password" id="login-pwd" placeholder="••••••••" value="Masafi2026">
-        <div class="lf-hint">Contact EIG for access credentials</div>
+        <input class="lf-input" type="password" id="login-pwd" placeholder="••••••••" value="">
+        <div class="lf-hint">Password: Masafi2026</div>
       </div>
       <button class="login-btn" onclick="doLogin()">Access Platform →</button>
-      <div class="login-err" id="login-err">Use any @masafi.com email · password: Masafi2026</div>
+      <div class="login-err" id="login-err">Invalid credentials — use your @masafi.com email and the shared password</div>
       <div class="login-lock">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         256-bit encrypted · Session expires after 60 minutes
@@ -1485,219 +1485,6 @@ buildRecs(SIM_STATES['2030'].recs);
 
 
 <!-- AGENT 02 — ROUTE LOAD -->
-      <!-- DATA VALIDATION PHASE -->
-      <div class="panel" id="data-validation-sec" style="margin-bottom:1.1rem">
-        <div class="ph" style="border-left:3px solid #C8A84B">
-          <div>
-            <div class="ph-agent" style="color:#E8C86A">Before AI Deployment</div>
-            <div class="ph-title">Intelligence & Data Validation — 4 to 6 Weeks</div>
-          </div>
-          <div class="ph-r"><span class="badge" style="background:rgba(200,168,75,0.1);color:#E8C86A;border:1px solid rgba(200,168,75,0.25)">Recommended Phase 0</span></div>
-        </div>
-
-        <!-- THE CHAIRMAN LINE -->
-        <div style="margin:0;padding:1.1rem 1.25rem;background:rgba(200,168,75,0.05);border-bottom:1px solid rgba(200,168,75,0.15)">
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#C8A84B;margin-bottom:6px">Our position</div>
-          <p style="font-size:14px;color:var(--white);line-height:1.75;font-family:var(--serif)">Vice Chairman, what you have seen today is built on a fraction of Masafi's data. It already identifies <strong style="color:#E8C86A">AED 32M in recoverable revenue</strong> — and it is directionally correct.<br><br>Before we deploy AI at scale, we owe it to you to do one thing first: <strong style="color:var(--white)">establish that the information driving those decisions can be trusted.</strong><br><br>That is not a delay. That is the difference between building on sand and building on rock.</p>
-        </div>
-
-        <div class="panel-body">
-          <p style="font-size:13px;color:var(--mgrey);line-height:1.7;margin-bottom:1.25rem">Before any large-scale AI deployment, Masafi needs a structured validation phase. Not to slow the programme — to ensure every decision, every automation, and every AED invested is built on trusted information. We are not overselling. We are saying: we built something valuable, we found opportunities, we found constraints, now we validate the foundations.</p>
-
-          <!-- 4 WEEK PHASES -->
-          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:4px;overflow:hidden;margin-bottom:1.25rem">
-
-            <div style="background:var(--navy2);padding:1rem">
-              <div style="font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--blue);margin-bottom:4px">Week 1</div>
-              <div style="font-family:var(--serif);font-size:1rem;font-weight:700;margin-bottom:10px;line-height:1.2">Data Discovery</div>
-              <div style="font-size:11.5px;color:rgba(255,255,255,0.5);font-style:italic;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05)">What exists and who owns it?</div>
-              <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
-                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:var(--blue)">›</span>What systems exist — Oracle, Mobiato, Locus, Excel?
-                </li>
-                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:var(--blue)">›</span>What reports exist and who produces them?
-                </li>
-                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:var(--blue)">›</span>What data has been provided vs what data exists?
-                </li>
-                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:var(--blue)">›</span>Who owns each data source — name and role?
-                </li>
-              </ul>
-            </div>
-
-            <div style="background:var(--navy2);padding:1rem">
-              <div style="font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:#38bdf8;margin-bottom:4px">Week 2</div>
-              <div style="font-family:var(--serif);font-size:1rem;font-weight:700;margin-bottom:10px;line-height:1.2">Data Validation</div>
-              <div style="font-size:11.5px;color:rgba(255,255,255,0.5);font-style:italic;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05)">Is the data clean enough to trust?</div>
-              <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
-                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:#38bdf8">›</span>Missing data — what gaps exist across systems?
-                </li>
-                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:#38bdf8">›</span>Duplicates — orders, accounts, SKUs, reason codes
-                </li>
-                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:#38bdf8">›</span>Inconsistencies — do systems agree with each other?
-                </li>
-                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:#38bdf8">›</span>Process gaps — where does data fall off the record?
-                </li>
-              </ul>
-            </div>
-
-            <div style="background:var(--navy2);padding:1rem">
-              <div style="font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--amber);margin-bottom:4px">Week 3</div>
-              <div style="font-family:var(--serif);font-size:1rem;font-weight:700;margin-bottom:10px;line-height:1.2">Business Validation</div>
-              <div style="font-size:11.5px;color:rgba(255,255,255,0.5);font-style:italic;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05)">"Does this reflect reality?"</div>
-              <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
-                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:var(--amber)">›</span>Sit with Sales — do the cancellation numbers match their experience?
-                </li>
-                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:var(--amber)">›</span>Sit with Supply Chain — does the inventory data reflect what they see?
-                </li>
-                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:var(--amber)">›</span>Sit with Warehouse — does fill attainment match Ashwin's numbers?
-                </li>
-                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:var(--amber)">›</span>Sit with Finance — do the AED figures tie to their records?
-                </li>
-              </ul>
-              <div style="margin-top:10px;padding:8px 10px;background:rgba(245,158,11,0.08);border-left:2px solid var(--amber);border-radius:0 3px 3px 0;font-size:11px;color:rgba(255,255,255,0.7);font-style:italic">Often the answer is: "No." That is not failure. That is the most valuable finding.</div>
-            </div>
-
-            <div style="background:var(--navy2);padding:1rem">
-              <div style="font-size:8.5px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--green);margin-bottom:4px">Week 4</div>
-              <div style="font-family:var(--serif);font-size:1rem;font-weight:700;margin-bottom:10px;line-height:1.2">Intelligence Validation</div>
-              <div style="font-size:11.5px;color:rgba(255,255,255,0.5);font-style:italic;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05)">Can we trust the AI's inputs?</div>
-              <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
-                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:var(--green)">›</span>Revenue leakage assumptions — is AED 30.2M the right number?
-                </li>
-                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:var(--green)">›</span>Inventory assumptions — are DC stock figures reliable?
-                </li>
-                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:var(--green)">›</span>Forecasting assumptions — is the AOP a valid baseline?
-                </li>
-                <li style="font-size:11px;color:var(--mgrey);padding-left:12px;position:relative">
-                  <span style="position:absolute;left:0;color:var(--green)">›</span>Service level assumptions — does 60–70% fill reflect reality?
-                </li>
-              </ul>
-            </div>
-
-          </div>
-
-          <!-- WEEKS 5-6 CONFIDENCE SCORING -->
-          <div style="background:rgba(200,168,75,0.04);border:1px solid rgba(200,168,75,0.15);border-radius:4px;padding:1rem;margin-bottom:1.25rem">
-            <div style="font-size:9px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:#C8A84B;margin-bottom:10px">Weeks 5–6 (Optional) — Confidence Scoring</div>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
-              <div style="background:rgba(0,200,83,0.06);border:1px solid rgba(0,200,83,0.2);border-radius:4px;padding:10px 12px">
-                <div style="font-size:10px;font-weight:700;color:var(--green);margin-bottom:4px;display:flex;align-items:center;gap:5px">
-                  <span style="width:16px;height:16px;border-radius:50%;background:rgba(0,200,83,0.15);border:1px solid rgba(0,200,83,0.4);display:flex;align-items:center;justify-content:center;font-size:9px">✓</span>
-                  High Confidence
-                </div>
-                <div style="font-size:11px;color:var(--mgrey);line-height:1.5">Validated by data AND by the business teams in Week 3. These findings can drive AI agent decisions and automation from Day 1 of deployment.</div>
-              </div>
-              <div style="background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:4px;padding:10px 12px">
-                <div style="font-size:10px;font-weight:700;color:var(--amber);margin-bottom:4px;display:flex;align-items:center;gap:5px">
-                  <span style="width:16px;height:16px;border-radius:50%;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.4);display:flex;align-items:center;justify-content:center;font-size:9px">~</span>
-                  Medium Confidence
-                </div>
-                <div style="font-size:11px;color:var(--mgrey);line-height:1.5">Supported by evidence but requires further validation with specific teams or systems. AI agents flag these decisions for human review rather than automating them.</div>
-              </div>
-              <div style="background:rgba(155,123,255,0.06);border:1px solid rgba(155,123,255,0.2);border-radius:4px;padding:10px 12px">
-                <div style="font-size:10px;font-weight:700;color:#9b7bff;margin-bottom:4px;display:flex;align-items:center;gap:5px">
-                  <span style="width:16px;height:16px;border-radius:50%;background:rgba(155,123,255,0.15);border:1px solid rgba(155,123,255,0.4);display:flex;align-items:center;justify-content:center;font-size:9px">?</span>
-                  Hypothesis
-                </div>
-                <div style="font-size:11px;color:var(--mgrey);line-height:1.5">Requires further investigation before acting. These are tracked as open questions — not suppressed — and resolved before any automation is built on them.</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- IF HE ASKS HOW QUICKLY -->
-          <div style="background:rgba(0,102,255,0.04);border-left:3px solid var(--blue);border-radius:0 4px 4px 0;padding:1rem 1.25rem">
-            <div style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:var(--blue2);margin-bottom:6px">If the Vice Chairman asks: "How quickly can we move?"</div>
-            <p style="font-size:13.5px;color:var(--white);line-height:1.75;font-family:var(--serif);margin-bottom:8px">Vice Chairman, we can begin immediately. We would propose a focused 4–6 week validation phase — not to slow this down, but to make certain that every decision, every automation, and every dirham invested is built on information you can stand behind in a board meeting. <strong style="color:#E8C86A">Speed without that foundation is risk, not progress.</strong></p>
-            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:8px">
-              <div style="font-size:11px;color:var(--mgrey);display:flex;align-items:center;gap:5px"><span style="color:var(--green);font-weight:700">1.</span> We built something valuable</div>
-              <div style="font-size:11px;color:var(--mgrey);display:flex;align-items:center;gap:5px"><span style="color:var(--green);font-weight:700">2.</span> We found opportunities</div>
-              <div style="font-size:11px;color:var(--mgrey);display:flex;align-items:center;gap:5px"><span style="color:var(--green);font-weight:700">3.</span> We found constraints</div>
-              <div style="font-size:11px;color:var(--mgrey);display:flex;align-items:center;gap:5px"><span style="color:var(--green);font-weight:700">4.</span> Now we validate the foundations</div>
-              <div style="font-size:11px;color:var(--mgrey);display:flex;align-items:center;gap:5px"><span style="color:var(--green);font-weight:700">5.</span> Then we scale</div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- PROCESS TIMELINE -->
-      <div class="panel" style="margin-bottom:1.1rem">
-        <div class="ph green">
-          <div>
-            <div class="ph-agent">Engagement model</div>
-            <div class="ph-title">From Day 1 — EIG present and accountable at every stage</div>
-          </div>
-          <div class="ph-r"><span class="badge badge-ai">90-day proof</span></div>
-        </div>
-        <div class="pb">
-          <p style="font-size:12.5px;color:var(--mgrey);line-height:1.7;margin-bottom:0">This is not a technology deployment where a system is connected and left to run. EIG is on-site, reviewing outputs, and commercially accountable for the result on Day 90. The AED figure produced at the end of the engagement — not a slide — is what makes the case for scale.</p>
-          <div class="process-grid">
-            <div class="pg p1">
-              <div class="pg-days">Days 1–7 · Week 1</div>
-              <div class="pg-title">Connect &amp; Diagnose</div>
-              <div class="pg-eig">EIG on-site with IT and operations teams. Data access agreed. No assumptions made.</div>
-              <ul class="pg-items">
-                <li>All data sources mapped — Mobiato, Locus, DC inventory, route data</li>
-                <li>Baseline KPIs agreed with operations lead</li>
-                <li>Exact scope defined — no open-ended mandate</li>
-                <li>Data access protocols signed off</li>
-                <li>EIG data engineer assigned full-time</li>
-              </ul>
-            </div>
-            <div class="pg p2">
-              <div class="pg-days">Days 8–21 · Weeks 2–3</div>
-              <div class="pg-title">Build &amp; Configure</div>
-              <div class="pg-eig">EIG configures agents to Masafi's specific data structures and customer master.</div>
-              <ul class="pg-items">
-                <li>Agent 01 calibrated to Masafi's SKU, pricing, and customer eligibility data</li>
-                <li>Agent 02 calibrated to each regional route's 90-day sell-through history</li>
-                <li>Shadow testing — agents run in parallel, zero live interference</li>
-                <li>Daily check-in between EIG and operations lead</li>
-                <li>Algorithm thresholds tuned to Masafi's commercial realities</li>
-              </ul>
-            </div>
-            <div class="pg p3">
-              <div class="pg-days">Days 22–75 · Weeks 4–11</div>
-              <div class="pg-title">Deploy &amp; Monitor</div>
-              <div class="pg-eig">Agents live. EIG reviews outputs every 48 hours. Weekly results to Vice Chairman.</div>
-              <ul class="pg-items">
-                <li>Agent 01 live across all order channels — app, website, call centre</li>
-                <li>Agent 02 live on Al Ain van sales routes first</li>
-                <li>EIG reviews every flagged decision same day — not a ticket queue</li>
-                <li>Issues resolved within 24 hours</li>
-                <li>Weekly one-page results summary to Vice Chairman — no jargon</li>
-              </ul>
-            </div>
-            <div class="pg p4">
-              <div class="pg-days">Days 76–90 · Weeks 12–13</div>
-              <div class="pg-title">Measure &amp; Decide</div>
-              <div class="pg-eig">EIG presents verified commercial results. Scale discussed only after evidence.</div>
-              <ul class="pg-items">
-                <li>Cancellation rate — before vs after, independently verified</li>
-                <li>Van return rate — before vs after, by region and route</li>
-                <li>Revenue protected — AED, traceable to individual orders</li>
-                <li>Scale recommendation with full business case to Vice Chairman</li>
-                <li>No further commitment required until Vice Chairman reviews results</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- FOOTER -->
       <div class="dash-footer">
         <div class="df">
@@ -1736,13 +1523,10 @@ let proc=0,caught=0,saved=0;
 function doLogin(){
   const e=document.getElementById('login-email').value.trim();
   const p=document.getElementById('login-pwd').value.trim();
-  const allowed = [
-    'vcchairman@masafi.com',
-    'ashwin.jerath@masafi.com',
-    'lisa.warren@sibconsulting.com',
-    'lisa@ecosystemintelligencegroup.com'
-  ];
-  if(!allowed.includes(e.toLowerCase())||p!=='Masafi2026!'){
+  const validDomain = e.toLowerCase().includes('@masafi.com') || 
+                       e.toLowerCase().includes('@sibconsulting.com') ||
+                       e.toLowerCase().includes('@ecosystemintelligencegroup.com');
+  if(!validDomain || p!=='Masafi2026'){
     document.getElementById('login-err').style.display='block'; return;
   }
   document.getElementById('login-err').style.display='none';
