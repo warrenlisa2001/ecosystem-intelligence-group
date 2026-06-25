@@ -75,6 +75,36 @@
 .sc-stat-card .sc-label{font-size:10px;letter-spacing:0.06em;text-transform:uppercase;color:var(--mgrey);font-weight:600;margin-bottom:0.6rem}
 .sc-stat-card p{font-size:12.5px;color:rgba(220,224,230,0.65);line-height:1.55;margin:0}
 
+/* Bullwhip effect visual */
+.bw-diagram{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:2rem 0;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:4px;overflow:hidden}
+.bw-tier{padding:1.5rem 1.2rem;text-align:center;position:relative;border-right:1px solid rgba(255,255,255,0.06)}
+.bw-tier:last-child{border-right:none}
+.bw-tier-label{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mgrey);font-weight:700;margin-bottom:0.8rem}
+.bw-bar-wrap{display:flex;align-items:flex-end;justify-content:center;height:90px;gap:4px;margin-bottom:0.8rem}
+.bw-bar{width:22px;border-radius:2px 2px 0 0;transition:height 0.3s}
+.bw-bar.demand{background:rgba(214,10,23,0.4);border:1px solid rgba(214,10,23,0.6)}
+.bw-bar.order{background:rgba(214,10,23,0.7);border:1px solid var(--c-sc)}
+.bw-bar.order.tall{background:rgba(214,10,23,0.85)}
+.bw-amplification{font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--c-sc);line-height:1}
+.bw-sublabel{font-size:11px;color:var(--mgrey);margin-top:0.3rem}
+.bw-arrow{position:absolute;right:-12px;top:50%;transform:translateY(-50%);font-size:16px;color:rgba(214,10,23,0.5);z-index:2}
+
+/* What Agentic AI does differently — intervention cards */
+.ai-intervention{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2px;margin-top:2rem;background:rgba(255,255,255,0.04)}
+.ai-int-card{background:var(--black);padding:1.6rem 1.5rem;border-top:2px solid #E8184A}
+.sc-zone--navy .ai-int-card{background:var(--navy)}
+.ai-int-num{font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#E8184A;font-weight:700;margin-bottom:0.6rem}
+.ai-int-title{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:0.5rem;line-height:1.3}
+.ai-int-desc{font-size:13px;color:var(--mgrey);line-height:1.6;margin:0}
+
+.bw-pull{border-left:3px solid var(--c-sc);padding-left:1.4rem;margin:1.6rem 0;font-size:14.5px;color:rgba(220,224,230,0.82);line-height:1.7;max-width:720px;font-style:italic}
+
+@media(max-width:900px){
+  .bw-diagram{grid-template-columns:repeat(2,1fr)}
+  .bw-arrow{display:none}
+  .ai-intervention{grid-template-columns:1fr}
+}
+
 /* Cross-domain connections */
 .sc-conn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin:1.8rem 0}
 .sc-conn-card{border:1px solid rgba(214,10,23,0.22);border-left:3px solid var(--c-sc);border-radius:4px;padding:1.4rem 1.5rem;background:rgba(214,10,23,0.04)}
@@ -240,6 +270,92 @@
     <h2 class="sc-h2">Most supply chain advice is written<br><em style="color:var(--c-sc)">for conditions that don't exist anymore.</em></h2>
     <p class="sc-lede">Frameworks built for stable demand, predictable lead times, and cooperative suppliers don't survive contact with a port closure, a single-source failure, or a regional crisis.</p>
     <p class="sc-text">Most supply chain consulting is delivered by people who have modelled disruption, not managed their way through it in real time, with real budgets and real workers depending on the outcome. <strong>That gap shows up exactly when it matters most — under pressure, not in the pitch.</strong></p>
+  </div>
+</section>
+
+<!-- ZONE 1b: THE BULLWHIP EFFECT -->
+<section class="sc-zone sc-zone--navy">
+  <div class="container">
+    <div class="sc-eyebrow2" style="color:var(--c-sc)">The Bullwhip Effect</div>
+    <h2 class="sc-h2">Small ripples upstream become<br><em style="color:var(--c-sc)">tidal waves by the time you see them.</em></h2>
+    <p class="sc-lede">A 5% uptick in consumer demand shouldn't cripple a supply chain. But it does — repeatedly — because every tier in the chain amplifies what it sees rather than what's actually happening at the point of sale.</p>
+
+    <!-- Amplification diagram -->
+    <div class="bw-diagram">
+      <div class="bw-tier">
+        <div class="bw-tier-label">Consumer</div>
+        <div class="bw-bar-wrap">
+          <div class="bw-bar demand" style="height:48px"></div>
+          <div class="bw-bar demand" style="height:55px"></div>
+          <div class="bw-bar demand" style="height:52px"></div>
+          <div class="bw-bar demand" style="height:50px"></div>
+        </div>
+        <div class="bw-amplification" style="color:var(--mgrey)">+5%</div>
+        <div class="bw-sublabel">Real demand shift</div>
+        <div class="bw-arrow">›</div>
+      </div>
+      <div class="bw-tier">
+        <div class="bw-tier-label">Retailer Orders</div>
+        <div class="bw-bar-wrap">
+          <div class="bw-bar order" style="height:48px"></div>
+          <div class="bw-bar order" style="height:62px"></div>
+          <div class="bw-bar order" style="height:78px"></div>
+          <div class="bw-bar order" style="height:55px"></div>
+        </div>
+        <div class="bw-amplification">+15%</div>
+        <div class="bw-sublabel">+ safety stock panic</div>
+        <div class="bw-arrow">›</div>
+      </div>
+      <div class="bw-tier">
+        <div class="bw-tier-label">Distributor Orders</div>
+        <div class="bw-bar-wrap">
+          <div class="bw-bar order tall" style="height:48px"></div>
+          <div class="bw-bar order tall" style="height:72px"></div>
+          <div class="bw-bar order tall" style="height:90px"></div>
+          <div class="bw-bar order tall" style="height:60px"></div>
+        </div>
+        <div class="bw-amplification">+32%</div>
+        <div class="bw-sublabel">+ lead time buffer</div>
+        <div class="bw-arrow">›</div>
+      </div>
+      <div class="bw-tier">
+        <div class="bw-tier-label">Manufacturer Orders</div>
+        <div class="bw-bar-wrap">
+          <div class="bw-bar order tall" style="height:48px"></div>
+          <div class="bw-bar order tall" style="height:68px"></div>
+          <div class="bw-bar order tall" style="height:90px"></div>
+          <div class="bw-bar order tall" style="height:90px"></div>
+        </div>
+        <div class="bw-amplification">+45%</div>
+        <div class="bw-sublabel">Over-production, then excess</div>
+      </div>
+    </div>
+
+    <p class="sc-text">The root cause isn't bad management at any single tier. It's that every tier is forecasting from the orders it receives rather than from actual end-consumer demand. <strong>The information distorts at every handoff — and by the time it reaches the manufacturer, the signal bears almost no resemblance to reality.</strong></p>
+
+    <div class="bw-pull">Every 5% genuine demand shift that triggers a 45% production swing is a compounding cost in inventory write-offs, emergency freight, lost margin, and missed customer commitments — repeated across every planning cycle.</div>
+
+    <div class="sc-eyebrow2" style="color:#E8184A;margin-top:3rem">How Agentic AI Breaks the Cycle</div>
+    <h3 style="font-family:var(--serif);font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:0.8rem;line-height:1.25">Stop forecasting from orders.<br><span style="color:#E8184A;font-style:italic">Start forecasting from actual demand.</span></h3>
+    <p class="sc-text">Traditional planning tools react to what they're told. An Agentic AI system perceives what's actually happening — at the point of sale, at every tier, in real time — and acts without waiting for the next planning cycle to compound the distortion.</p>
+
+    <div class="ai-intervention">
+      <div class="ai-int-card">
+        <div class="ai-int-num">01 — Signal intelligence</div>
+        <div class="ai-int-title">Goes to the demand signal, not the order signal</div>
+        <div class="ai-int-desc">Continuously monitors actual point-of-sale and consumption data — not the orders placed by the next tier, which are already amplified. Forecasts from ground truth, not from distorted proxies.</div>
+      </div>
+      <div class="ai-int-card">
+        <div class="ai-int-num">02 — Spike detection</div>
+        <div class="ai-int-title">Identifies bullwhip spikes before you act on them</div>
+        <div class="ai-int-desc">Detects when an incoming order is statistically anomalous relative to underlying consumer demand — a bullwhip spike, not genuine growth. Flags it before procurement ramps production for orders that will be cancelled.</div>
+      </div>
+      <div class="ai-int-card">
+        <div class="ai-int-num">03 — Autonomous dampening</div>
+        <div class="ai-int-title">Adjusts safety stock policy in real time</div>
+        <div class="ai-int-desc">Rather than waiting for a weekly planning meeting to respond to changing demand patterns, recalculates safety stock positions continuously — dampening amplification at source rather than correcting for it downstream after the damage is done.</div>
+      </div>
+    </div>
   </div>
 </section>
 
