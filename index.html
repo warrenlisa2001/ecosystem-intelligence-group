@@ -61,7 +61,10 @@ h1.hero-h .pop{color:var(--blue);display:block}
 .orbit-ring{position:absolute;inset:-2px;border-radius:50%;border:1px dashed rgba(0,102,255,0.18);animation:orbitspin 90s linear infinite;pointer-events:none}
 .orbit-ring--rev{inset:18px;border-color:rgba(113,228,255,0.12);animation:orbitspin 130s linear infinite reverse;pointer-events:none}
 @keyframes orbitspin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.globe-sphere{width:100%;height:100%;border-radius:50%;animation:globepivot 12s ease-in-out infinite}
+.globe-img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:58% 42%;filter:brightness(0.9) saturate(1.15)}
+.globe-sphere{width:100%;height:100%;border-radius:50%;animation:globepulse 8s ease-in-out infinite;position:relative}
+.globe-sphere::after{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(232,24,74,0.2) 0%,rgba(160,8,40,0.08) 38%,transparent 62%),radial-gradient(circle at 50% 50%,transparent 68%,rgba(2,6,20,0.4) 100%);pointer-events:none}
+@keyframes globepulse{0%,100%{transform:scale(1)}50%{transform:scale(1.015)}}
 @keyframes globepivot{0%,100%{transform:rotate(-2deg) scale(1)}50%{transform:rotate(2deg) scale(1.015)}}
 @media(prefers-reduced-motion:reduce){.orbit-ring,.orbit-ring--rev,.globe-sphere{animation:none}}
 
@@ -315,7 +318,7 @@ h1.hero-h .pop{color:var(--blue);display:block}
       <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#E8184A;font-weight:700;margin-bottom:0.4rem">SIB Consulting</div>
       <h1 class="hero-h">Ecosystem Intelligence<br><span class="dim">Group</span></h1>
       <p style="font-size:13px;color:rgba(139,148,158,0.75);letter-spacing:0.04em;text-transform:none;font-weight:500;margin-bottom:1.5rem;margin-top:-0.3rem">Strategic Intelligence &amp; Transformation Practice of SIB Consulting</p>
-      <p class="hero-sub">Seven domains. <b>One intelligence layer.</b> EIG connects Agentic Intelligence, ESG, Supply Chain, Digital Transformation, Healthcare, Architecture and Strategic Planning into a single framework for growth, competitiveness and enterprise value.<span class="accent">Built for leaders who execute at scale.</span></p>
+      <p class="hero-sub">EIG is the intelligence and transformation practice connecting <b>Agentic AI, ESG, Supply Chain, Healthcare, Architecture, Digital Transformation and Strategic Planning</b> into a single enterprise framework — built for competitive advantage, sustainable growth, and measurable enterprise value.<span class="accent">If your competitors are still piloting AI, you're already behind. Let's change that.</span></p>
       <div class="hero-audience">
         <div class="ha-item active">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
