@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agentic AI — From Automation to Autonomous Intelligence | EIG</title>
+<meta name="description" content="EIG helps organisations understand and deploy Agentic AI, navigate the path to AGI, and build the intelligence architecture required for Autonomous operations. Led by Lisa Warren.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/shared.css">
+<style>
+
+/* ===== HERO ===== */
+.aai-hero{min-height:auto;padding-top:140px;padding-bottom:70px;position:relative;overflow:hidden;background:var(--black)}
+.aai-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 70% 20%,rgba(232,24,74,0.12),transparent 60%),radial-gradient(ellipse 50% 40% at 20% 80%,rgba(0,102,255,0.07),transparent 60%)}
+.aai-hero-bgvisual{opacity:0.4;pointer-events:none}
+.aai-hero-bgvisual svg{display:block;position:absolute;top:50%;right:-20px;transform:translateY(-50%);width:420px;height:420px}
+.aai-hero-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(105deg,var(--black) 0%,var(--black) 30%,rgba(2,6,13,0.72) 52%,rgba(2,6,13,0.18) 78%,rgba(2,6,13,0.45) 100%)}
+.aai-hero .container{position:relative;z-index:2}
+.aai-eyebrow{display:flex;align-items:center;gap:0.7rem;margin-bottom:1.4rem}
+.aai-eyebrow .dot{width:8px;height:8px;border-radius:50%;background:#E8184A;box-shadow:0 0 12px 3px rgba(232,24,74,0.7);animation:sibdot 2.4s ease-in-out infinite}
+@keyframes sibdot{0%,100%{opacity:1}50%{opacity:0.4}}
+.aai-eyebrow span{font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;color:#E8184A;font-weight:700}
+.aai-hero h1{font-family:var(--serif);font-size:clamp(2.8rem,5vw,4.2rem);font-weight:800;line-height:1.04;letter-spacing:-0.02em;margin-bottom:0.5rem;color:var(--white)}
+.aai-hero h1 .sib-red{color:#E8184A;font-style:italic}
+.aai-hero-sub{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:620px;font-weight:300;margin-bottom:0.5rem;margin-top:0.6rem}
+.aai-hero-trail{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(139,148,158,0.65);font-weight:600;margin-bottom:1.8rem}
+.aai-hero-trail span{color:#E8184A}
+.aai-hero-actions{display:flex;gap:0.9rem;flex-wrap:wrap}
+.btn-sib{display:inline-flex;align-items:center;padding:0.75rem 1.5rem;background:#E8184A;color:#fff;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:opacity 0.2s}
+.btn-sib:hover{opacity:0.88}
+
+/* SVG rings animation */
+.aai-ring1{animation:aai-spin 70s linear infinite;transform-origin:center}
+.aai-ring2{animation:aai-spin 110s linear infinite reverse;transform-origin:center}
+.aai-node-pulse{animation:aai-npulse 3.2s ease-in-out infinite}
+@keyframes aai-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes aai-npulse{0%,100%{opacity:0.3}50%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.aai-ring1,.aai-ring2,.aai-node-pulse{animation:none}}
+@media(max-width:900px){.aai-hero-bgvisual{display:none}}
+
+/* ===== ZONE SYSTEM ===== */
+.aai-zone{padding:4.5rem 0}
+.aai-zone--dark{background:var(--black)}
+.aai-zone--navy{background:var(--navy)}
+.aai-zone--sib{background:linear-gradient(135deg,rgba(232,24,74,0.08),rgba(2,6,13,0) 60%),var(--black)}
+.aai-ey{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-weight:700;margin-bottom:0.9rem;display:flex;align-items:center;gap:0.6rem}
+.aai-ey::before{content:'';width:20px;height:1px;background:currentColor;flex-shrink:0}
+.aai-h2{font-family:var(--serif);font-size:clamp(1.8rem,2.8vw,2.4rem);font-weight:800;letter-spacing:-0.01em;line-height:1.15;margin-bottom:1.2rem;color:var(--white)}
+.aai-h2 em{font-style:italic}
+.aai-lede{font-size:16.5px;color:rgba(230,233,237,0.9);line-height:1.75;font-weight:300;max-width:740px;margin-bottom:1.1rem}
+.aai-text{font-size:15px;color:var(--mgrey);line-height:1.82;margin-bottom:1.1rem;max-width:740px}
+.aai-text strong{color:var(--white);font-weight:600}
+
+/* Journey timeline — the three stages */
+.journey-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;margin-top:2rem;background:rgba(255,255,255,0.04)}
+.journey-card{padding:2.2rem 1.8rem;position:relative;overflow:hidden}
+.journey-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.jc-now::before{background:#0066FF}
+.jc-next::before{background:#E8184A}
+.jc-future::before{background:linear-gradient(90deg,#E8184A,#7B4FD4)}
+.aai-zone--dark .journey-card{background:var(--black)}
+.aai-zone--navy .journey-card{background:var(--navy)}
+.jc-stage{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;font-weight:700;margin-bottom:0.8rem}
+.jc-now .jc-stage{color:#0066FF}
+.jc-next .jc-stage{color:#E8184A}
+.jc-future .jc-stage{color:#7B4FD4}
+.jc-title{font-family:var(--serif);font-size:1.3rem;font-weight:700;color:var(--white);margin-bottom:0.7rem;line-height:1.25}
+.jc-def{font-size:13.5px;color:var(--mgrey);line-height:1.65;margin-bottom:0.8rem}
+.jc-examples{display:flex;flex-direction:column;gap:0.35rem;margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid rgba(255,255,255,0.06)}
+.jc-ex{font-size:12px;color:rgba(220,224,230,0.75);display:flex;gap:0.5rem;align-items:flex-start}
+.jc-ex::before{content:'→';flex-shrink:0;margin-top:0.05rem}
+
+/* Difference cards */
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+.diff-card{border-radius:6px;padding:1.8rem}
+.diff-card.old{border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02)}
+.diff-card.agentic{border:1px solid rgba(232,24,74,0.3);background:rgba(232,24,74,0.06)}
+.diff-lbl{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:1rem}
+.diff-card.old .diff-lbl{color:var(--mgrey)}
+.diff-card.agentic .diff-lbl{color:#E8184A}
+.diff-row{display:flex;gap:0.6rem;padding:0.55rem 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.diff-row:last-child{border-bottom:none}
+.diff-row .dm{flex-shrink:0;width:14px;font-weight:700;margin-top:0.05rem}
+.diff-card.old .dm{color:rgba(220,224,230,0.25)}
+.diff-card.agentic .dm{color:#E8184A}
+.diff-row .dt{font-size:13.5px;color:rgba(220,224,230,0.82);line-height:1.5}
+
+/* Pull quote */
+.aai-pull{border-left:3px solid #E8184A;padding-left:1.6rem;margin:1.8rem 0;font-family:var(--serif);font-style:italic;font-size:1.25rem;color:var(--white);line-height:1.55;max-width:700px}
+
+/* How we help — card grid */
+.help-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2px;margin-top:1.8rem;background:rgba(255,255,255,0.04)}
+.help-card{background:var(--navy);padding:1.8rem 1.7rem}
+.aai-zone--dark .help-card{background:var(--black)}
+.hc-tag{font-size:9px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:#E8184A;margin-bottom:0.7rem}
+.hc-title{font-family:var(--serif);font-size:1.08rem;font-weight:700;color:var(--white);margin-bottom:0.55rem;line-height:1.3}
+.hc-desc{font-size:13.5px;color:var(--mgrey);line-height:1.62;margin:0}
+
+/* Lisa bio band */
+.lisa-band{display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:start;margin-top:2rem;background:var(--navy);border:1px solid rgba(255,255,255,0.07);border-left:3px solid var(--c-lisa);border-radius:4px;padding:2.2rem}
+.lisa-band .lb-img{width:72px;height:72px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid rgba(0,102,255,0.3)}
+.lisa-band .lb-placeholder{width:72px;height:72px;border-radius:50%;background:rgba(0,102,255,0.15);border:2px solid rgba(0,102,255,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:1.2rem;color:var(--blue);flex-shrink:0}
+.lb-name{font-family:var(--serif);font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:0.2rem}
+.lb-role{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--c-lisa);font-weight:600;margin-bottom:0.7rem}
+.lb-bio{font-size:14px;color:var(--mgrey);line-height:1.72}
+.lb-bio strong{color:var(--white)}
+.lb-tags{display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:0.9rem}
+.lb-tag{font-size:11px;padding:0.3rem 0.7rem;border-radius:100px;border:1px solid rgba(0,102,255,0.25);color:rgba(220,224,230,0.75)}
+
+/* CTA closing band */
+.aai-cta{padding:4rem 0;background:linear-gradient(160deg,rgba(232,24,74,0.07),var(--black) 55%)}
+.aai-cta h2{font-family:var(--serif);font-size:clamp(1.6rem,2.5vw,2rem);font-weight:700;color:var(--white);margin-bottom:0.9rem}
+.aai-cta p{font-size:15px;color:var(--mgrey);max-width:560px;line-height:1.75;margin-bottom:1.6rem}
+
+@media(max-width:1080px){
+  .journey-grid{grid-template-columns:1fr}
+  .diff-grid,.help-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .lisa-band{grid-template-columns:1fr}
+  .aai-hero h1{font-size:2.4rem}
+}
+</style>
+</head>
+<body>
+
+<!-- SIB bar -->
+<div id="sib-bar" style="background:#E8184A;padding:7px 0;position:relative;z-index:400">
+  <div style="display:flex;align-items:center;justify-content:center;gap:1rem;max-width:1340px;margin:0 auto;padding:0 2rem">
+    <img src="assets/images/sib-logo.png" alt="SIB Consulting" style="height:26px;width:auto;border-radius:50%">
+    <span style="font-size:11px;letter-spacing:0.07em;font-weight:600;color:rgba(255,255,255,0.9);text-transform:uppercase"><strong style="color:#fff">SIB Consulting</strong> &nbsp;|&nbsp; Strategic Intelligence &amp; Transformation</span>
+  </div>
+</div>
+
+<!-- NAV (shared) -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/eig-logo.png" alt="EIG" class="logo-img">
+    </a>
+    <div class="nav-menu">
+      <div class="nav-item"><a href="platform.html">Platform</a></div>
+      <div class="nav-item">
+        <button>Intelligence <span class="arr">▼</span></button>
+        <div class="dd">
+          <div class="dd-section">Areas</div>
+          <a href="domains.html"><span class="dd-dot" style="background:var(--blue)"></span>Intelligence Areas</a>
+          <a href="industry-agentic-ai.html"><span class="dd-dot" style="background:#E8184A"></span>Agentic AI</a>
+          <a href="industry-sustainability.html"><span class="dd-dot" style="background:var(--c-sus)"></span>ESG</a>
+          <a href="industry-supply-chain.html"><span class="dd-dot" style="background:var(--c-sc)"></span>Supply Chain</a>
+          <a href="industry-architecture.html"><span class="dd-dot" style="background:var(--c-arch)"></span>Architecture</a>
+          <a href="industry-education.html"><span class="dd-dot" style="background:var(--c-edu)"></span>Education</a>
+          <a href="industry-healthcare.html"><span class="dd-dot" style="background:var(--c-health)"></span>Healthcare</a>
+          <a href="industry-it.html"><span class="dd-dot" style="background:var(--c-it)"></span>Digital Transformation</a>
+          <a href="industry-strategic-planning.html"><span class="dd-dot" style="background:var(--c-plan)"></span>Strategic Planning</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="leadership.html">Leadership</a></div>
+      <div class="nav-item">
+        <button>Insights <span class="arr">▼</span></button>
+        <div class="dd">
+          <a href="briefing.html">Executive Briefing</a>
+          <a href="intel-ai.html">AI Trends 2026</a>
+        </div>
+      </div>
+      <div class="nav-item"><a href="about.html">About</a></div>
+      <div class="nav-item"><a href="contact.html">Contact</a></div>
+    </div>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mobile-nav">
+  <button class="mn-close">&#10005;</button>
+  <div class="mn-section">Navigation</div>
+  <a href="index.html">Home</a>
+  <a href="platform.html">Platform</a>
+  <a href="domains.html">Intelligence Areas</a>
+  <a href="leadership.html">Leadership</a>
+  <a href="briefing.html">Executive Briefing</a>
+  <div class="mn-section">Domains</div>
+  <a href="industry-agentic-ai.html">Agentic AI</a>
+  <a href="industry-sustainability.html">ESG</a>
+  <a href="industry-supply-chain.html">Supply Chain</a>
+  <a href="industry-architecture.html">Architecture</a>
+  <a href="industry-education.html">Education</a>
+  <a href="industry-healthcare.html">Healthcare</a>
+  <a href="industry-it.html">Digital Transformation</a>
+  <a href="industry-strategic-planning.html">Strategic Planning</a>
+  <div class="mn-section">Company</div>
+  <a href="about.html">About</a>
+  <a href="approach.html">Our Approach</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- ====== HERO ====== -->
+<section class="aai-hero">
+  <div class="aai-hero-bg"></div>
+  <div class="aai-hero-bgvisual">
+    <svg viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg">
+      <g class="aai-ring1">
+        <circle cx="220" cy="220" r="190" fill="none" stroke="rgba(232,24,74,0.16)" stroke-width="1" stroke-dasharray="2 8"/>
+      </g>
+      <g class="aai-ring2">
+        <circle cx="220" cy="220" r="155" fill="none" stroke="rgba(0,102,255,0.1)" stroke-width="1" stroke-dasharray="1 6"/>
+      </g>
+      <!-- convergence spokes: many agents → central intelligence -->
+      <g stroke="rgba(232,24,74,0.35)" stroke-width="1">
+        <line x1="220" y1="220" x2="220" y2="80"/>
+        <line x1="220" y1="220" x2="320" y2="130"/>
+        <line x1="220" y1="220" x2="360" y2="220"/>
+        <line x1="220" y1="220" x2="320" y2="310"/>
+        <line x1="220" y1="220" x2="220" y2="360"/>
+        <line x1="220" y1="220" x2="120" y2="310"/>
+        <line x1="220" y1="220" x2="80" y2="220"/>
+        <line x1="220" y1="220" x2="120" y2="130"/>
+      </g>
+      <!-- central AGI hub -->
+      <circle cx="220" cy="220" r="44" fill="rgba(232,24,74,0.12)" stroke="#E8184A" stroke-width="1.5"/>
+      <circle class="aai-node-pulse" cx="220" cy="220" r="58" fill="none" stroke="rgba(232,24,74,0.28)" stroke-width="1"/>
+      <circle cx="220" cy="220" r="6" fill="#E8184A"/>
+      <!-- 8 agent nodes in different shades -->
+      <circle class="aai-node-pulse" cx="220" cy="80" r="6" fill="#E8184A" style="animation-delay:0s"/>
+      <circle class="aai-node-pulse" cx="320" cy="130" r="5" fill="#0066FF" style="animation-delay:0.3s"/>
+      <circle class="aai-node-pulse" cx="360" cy="220" r="6" fill="#0066FF" style="animation-delay:0.6s"/>
+      <circle class="aai-node-pulse" cx="320" cy="310" r="5" fill="#E8184A" style="animation-delay:0.9s"/>
+      <circle class="aai-node-pulse" cx="220" cy="360" r="5" fill="#0066FF" style="animation-delay:1.2s"/>
+      <circle class="aai-node-pulse" cx="120" cy="310" r="5" fill="#E8184A" style="animation-delay:1.5s"/>
+      <circle class="aai-node-pulse" cx="80" cy="220" r="5" fill="#0066FF" style="animation-delay:1.8s"/>
+      <circle class="aai-node-pulse" cx="120" cy="130" r="5" fill="#E8184A" style="animation-delay:2.1s"/>
+    </svg>
+  </div>
+  <div class="aai-hero-scrim"></div>
+  <div class="container">
+    <div class="aai-eyebrow"><span class="dot"></span><span>Agentic AI &amp; Autonomous Intelligence</span></div>
+    <h1>The intelligence that<br><span class="sib-red">acts on your behalf.</span></h1>
+    <p class="aai-hero-sub">Agentic AI isn't a chatbot upgrade. It's the shift from AI that answers questions to AI that takes actions — planning, deciding, and executing across your organisation's real systems, in real time, without waiting to be asked.</p>
+    <p class="aai-hero-trail">The path from Agentic AI → AGI → <span>Autonomous Enterprise</span> starts now.</p>
+    <div class="aai-hero-actions">
+      <a href="leadership.html#lisa" class="btn-sib">Work with Lisa Warren</a>
+      <a href="contact.html" class="btn-g">Request a Briefing</a>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE 1: WHAT IS AGENTIC AI -->
+<section class="aai-zone aai-zone--dark">
+  <div class="container">
+    <div class="aai-ey" style="color:#E8184A">What it actually is</div>
+    <h2 class="aai-h2">Not a smarter chatbot.<br><em>A system that thinks, plans and acts.</em></h2>
+    <p class="aai-lede">Most organisations have deployed AI that responds — tools that answer questions, summarise documents, generate text. Agentic AI is categorically different. It doesn't wait to be prompted. It perceives its environment, forms a plan, executes across multiple systems, evaluates what happened, and adjusts.</p>
+    <p class="aai-text">An Agentic AI system deployed in a supply chain doesn't just flag a disruption in a dashboard. <strong>It identifies the risk, evaluates alternative suppliers, drafts the communications, places provisional orders, and updates your planning systems — while escalating only the decisions that genuinely need a human.</strong></p>
+    <p class="aai-text">The word "agentic" comes from <em>agency</em> — the capacity to act independently in pursuit of a goal. For the first time in enterprise technology, that's what AI is starting to do. It's not a feature. It's an architectural shift in how work gets done.</p>
+
+    <div class="aai-pull">"The organisations that will win the next decade are not those that give their people better information. They are those that give their operations the ability to act on that information, faster than any competitor can."</div>
+  </div>
+</section>
+
+<!-- ZONE 2: THE THREE STAGES -->
+<section class="aai-zone aai-zone--navy">
+  <div class="container">
+    <div class="aai-ey" style="color:rgba(255,255,255,0.7)">The journey</div>
+    <h2 class="aai-h2">From Agentic AI to AGI<br><em style="color:var(--mgrey)">to Autonomous Enterprise.</em></h2>
+    <p class="aai-lede">This is not a single destination. It is a progression — and the organisations that understand where they are on this path, and plan deliberately for the next stage, will be the ones that compound advantage over time.</p>
+    <div class="journey-grid">
+      <div class="journey-card jc-now">
+        <div class="jc-stage">Stage 01 — Now</div>
+        <div class="jc-title">Agentic AI</div>
+        <div class="jc-def">AI systems that pursue specific goals autonomously within defined domains. They perceive, plan, act, and learn — across real enterprise systems, without step-by-step human instruction.</div>
+        <div class="jc-examples">
+          <div class="jc-ex">Supply chain agents that autonomously reroute logistics when disruption is detected</div>
+          <div class="jc-ex">Financial agents that monitor, reconcile, and flag anomalies without manual triggers</div>
+          <div class="jc-ex">Sales agents that qualify, engage, and nurture prospects across channels</div>
+          <div class="jc-ex">Governance agents that monitor compliance posture in real time</div>
+        </div>
+      </div>
+      <div class="journey-card jc-next">
+        <div class="jc-stage">Stage 02 — Emerging</div>
+        <div class="jc-title">Artificial General Intelligence</div>
+        <div class="jc-def">AI that matches human cognitive ability across any domain — not just trained tasks. AGI can reason about novel problems, transfer knowledge across contexts, and operate without domain-specific training for each new challenge.</div>
+        <div class="jc-examples">
+          <div class="jc-ex">A single system that understands your business deeply enough to reason across finance, operations, and strategy simultaneously</div>
+          <div class="jc-ex">Strategic planning support that genuinely models uncertainty and second-order effects</div>
+          <div class="jc-ex">Autonomous problem identification — surfacing issues nobody thought to look for</div>
+        </div>
+      </div>
+      <div class="journey-card jc-future">
+        <div class="jc-stage">Stage 03 — Horizon</div>
+        <div class="jc-title">Autonomous Enterprise</div>
+        <div class="jc-def">An organisation where entire functions operate autonomously — not just assisted by AI, but led by it. Humans set direction, values, and constraints. Autonomous systems execute, optimise, and adapt, with humans in the governance layer rather than the operational one.</div>
+        <div class="jc-examples">
+          <div class="jc-ex">Finance, procurement, and logistics running continuous optimisation without human-triggered cycles</div>
+          <div class="jc-ex">Customer experience that adapts in real time to individual signals</div>
+          <div class="jc-ex">Organisations that compound knowledge and capability faster than any human team could manually</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE 3: WHY MOST ORGANISATIONS ARE NOT READY -->
+<section class="aai-zone aai-zone--dark">
+  <div class="container">
+    <div class="aai-ey" style="color:#E8184A">The real barrier</div>
+    <h2 class="aai-h2">Most organisations can't deploy<br><em style="color:#E8184A">Agentic AI. Not because of the AI.</em></h2>
+    <p class="aai-lede">The models exist. The platforms exist. The capability is real and available. The barrier is the organisation — its data architecture, its governance structure, its decision-making logic, and its tolerance for letting systems act without human approval at every step.</p>
+    <div class="diff-grid">
+      <div class="diff-card old">
+        <div class="diff-lbl">Where most organisations are</div>
+        <div class="diff-row"><span class="dm">—</span><span class="dt">Data locked in siloed systems that can't be queried by an AI agent in real time</span></div>
+        <div class="diff-row"><span class="dm">—</span><span class="dt">Decision-making logic that lives in people's heads, not in codifiable rules or policies</span></div>
+        <div class="diff-row"><span class="dm">—</span><span class="dt">No governance framework for autonomous action — nobody has agreed what an agent is allowed to do</span></div>
+        <div class="diff-row"><span class="dm">—</span><span class="dt">Pilots that impress in demos but never connect to the systems where work actually happens</span></div>
+        <div class="diff-row"><span class="dm">—</span><span class="dt">A narrative about AI that focuses on tools rather than architecture</span></div>
+      </div>
+      <div class="diff-card agentic">
+        <div class="diff-lbl">What EIG helps you build</div>
+        <div class="diff-row"><span class="dm">✓</span><span class="dt">An intelligence architecture that connects your data so agents can perceive and act across the real organisation</span></div>
+        <div class="diff-row"><span class="dm">✓</span><span class="dt">Explicit, codified decision logic that agents can execute — and humans can audit</span></div>
+        <div class="diff-row"><span class="dm">✓</span><span class="dt">Governance frameworks that define what agents can and cannot do, at what thresholds, with what escalations</span></div>
+        <div class="diff-row"><span class="dm">✓</span><span class="dt">Deployment paths that connect AI capability to your real systems, not just your demo environment</span></div>
+        <div class="diff-row"><span class="dm">✓</span><span class="dt">A strategic roadmap from where you are today to where Agentic AI, and eventually AGI, can create durable advantage</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE 4: HOW WE HELP -->
+<section class="aai-zone aai-zone--navy">
+  <div class="container">
+    <div class="aai-ey" style="color:rgba(255,255,255,0.7)">How EIG helps</div>
+    <h2 class="aai-h2">From readiness to running.<br><em style="color:var(--mgrey)">Four ways we accelerate the journey.</em></h2>
+    <div class="help-grid">
+      <div class="help-card">
+        <div class="hc-tag">01 — Readiness Assessment</div>
+        <div class="hc-title">Where You Actually Are</div>
+        <div class="hc-desc">An honest, structured assessment of your organisation's current AI readiness — data architecture, governance maturity, decision-making infrastructure, and the gaps between where you are and what Agentic AI deployment actually requires.</div>
+      </div>
+      <div class="help-card">
+        <div class="hc-tag">02 — Intelligence Architecture</div>
+        <div class="hc-title">The Foundation Agents Need</div>
+        <div class="hc-desc">Designing the intelligence layer that makes Agentic AI possible: connected data, codified logic, real-time visibility, and the organisational structure that allows agents to act with confidence and humans to govern with clarity.</div>
+      </div>
+      <div class="help-card">
+        <div class="hc-tag">03 — Agent Design &amp; Deployment</div>
+        <div class="hc-title">From Concept to Operating Reality</div>
+        <div class="hc-desc">Identifying the highest-value agentic opportunities in your specific business, designing the agents, defining their action boundaries and escalation logic, and connecting them to the systems where your operations actually run.</div>
+      </div>
+      <div class="help-card">
+        <div class="hc-tag">04 — AGI Strategy</div>
+        <div class="hc-title">Planning for What Comes Next</div>
+        <div class="hc-desc">Helping leadership teams think clearly about the AGI horizon — what it means for their industry, their competitive position, their workforce, and their governance obligations — and what decisions made today will either compound or constrain their options.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONE 5: LISA WARREN -->
+<section class="aai-zone aai-zone--dark">
+  <div class="container">
+    <div class="aai-ey" style="color:#E8184A">Your lead</div>
+    <h2 class="aai-h2">Agentic AI requires someone who<br><em style="color:#E8184A">has built intelligence architectures before.</em></h2>
+    <p class="aai-text">Deploying Agentic AI is not primarily a technology challenge. It is a strategic, architectural, and organisational design challenge. The technology is available. The question is whether the organisation is structured, instrumented, and governed well enough to use it — and that is where Lisa's work begins.</p>
+
+    <div class="lisa-band">
+      <img src="assets/images/leaders/lisa-warren.png" alt="Lisa Warren" class="lb-img" onerror="this.outerHTML='<div class=\'lb-placeholder\'>LW</div>'">
+      <div>
+        <div class="lb-name">Lisa Warren</div>
+        <div class="lb-role">Director of Intelligence Architecture &amp; AI Transformation · EIG</div>
+        <div class="lb-bio">
+          Lisa Warren is Director of Intelligence Architecture and an AI Transformation leader with more than 20 years of experience helping organisations navigate complexity, improve decision-making, and unlock measurable business value.<br><br>
+          <strong>She believes most organisations don't have a technology problem — they have an intelligence problem.</strong> While businesses continue to invest heavily in systems, platforms, and data, many still struggle with fragmented information, disconnected decision-making, and limited visibility across their operations.<br><br>
+          Her focus is on designing the intelligence architecture that transforms information into insight, insight into decisions, and decisions into measurable outcomes — and increasingly, on building the foundations that allow Agentic AI to operate effectively inside real organisations, rather than just in controlled demonstrations.
+        </div>
+        <div class="lb-tags">
+          <span class="lb-tag">Agentic AI strategy</span>
+          <span class="lb-tag">Intelligence architecture</span>
+          <span class="lb-tag">AGI readiness</span>
+          <span class="lb-tag">AI transformation</span>
+          <span class="lb-tag">Future operating models</span>
+          <span class="lb-tag">Decision frameworks</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="aai-pull" style="margin-top:2.5rem">"Systems tell us what happened. Intelligence tells us why. AI helps determine what happens next."<br><span style="font-size:12px;font-style:normal;letter-spacing:0.06em;color:var(--mgrey)">— Lisa Warren</span></div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="aai-cta">
+  <div class="container">
+    <h2>Ready to understand where your organisation sits on the Agentic AI journey?</h2>
+    <p>The readiness gap is real — but it's closeable. The organisations that close it first will compound advantage in ways that are very difficult for later movers to replicate.</p>
+    <div class="aai-hero-actions">
+      <a href="leadership.html#lisa" class="btn-sib">Work with Lisa Warren</a>
+      <a href="contact.html" class="btn-g">Request a Briefing</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER (shared pattern) -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-brand">
+        <img src="assets/images/eig-logo.png" alt="EIG" class="logo-img">
+        <span class="logo-text">Ecosystem Intelligence <span>Group</span></span>
+      </a>
+      <p class="footer-desc">A Strategic Intelligence &amp; Transformation Practice of SIB Consulting. Connecting intelligence to execution across the GCC and beyond.</p>
+    </div>
+    <div class="footer-nav">
+      <div class="fn-col">
+        <div class="fn-head">Intelligence</div>
+        <a href="industry-agentic-ai.html">Agentic AI</a>
+        <a href="industry-sustainability.html">ESG</a>
+        <a href="industry-supply-chain.html">Supply Chain</a>
+        <a href="industry-healthcare.html">Healthcare</a>
+        <a href="industry-education.html">Education</a>
+        <a href="industry-architecture.html">Architecture</a>
+        <a href="industry-it.html">Digital Transformation</a>
+        <a href="industry-strategic-planning.html">Strategic Planning</a>
+      </div>
+      <div class="fn-col">
+        <div class="fn-head">Company</div>
+        <a href="platform.html">Platform</a>
+        <a href="leadership.html">Leadership</a>
+        <a href="about.html">About</a>
+        <a href="approach.html">Our Approach</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Ecosystem Intelligence Group. All rights reserved.</div>
+    <div class="footer-sib">A Practice of <a href="https://sibconsulting.com" target="_blank" rel="noopener">SIB Consulting</a></div>
+    <div class="footer-links">
+      <a href="platform.html">Platform</a>
+      <a href="domains.html">Intelligence Areas</a>
+      <a href="leadership.html">Leadership</a>
+      <a href="briefing.html">Briefing</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/shared.js"></script>
+</body>
+</html>
