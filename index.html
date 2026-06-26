@@ -55,7 +55,7 @@ h1.hero-h .pop{color:var(--blue);display:block}
   100%{transform:rotate3d(0.1,0,1,-23deg) scale(1)}
 }
 
-.globe-img{width:100%;height:100%;object-fit:contain;filter:saturate(1.1) contrast(1.05)}
+.globe-img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:58% 42%;filter:brightness(0.88) saturate(1.2) contrast(1.05)}
 .globe-glow{position:absolute;inset:-40px;border-radius:50%;background:radial-gradient(circle at 42% 38%,rgba(0,102,255,0.28) 0%,rgba(0,60,180,0.1) 45%,transparent 70%);z-index:-1;animation:globe-glow-pulse 7s ease-in-out infinite}
 @keyframes globe-glow-pulse{0%,100%{opacity:0.75;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
 
@@ -79,12 +79,14 @@ h1.hero-h .pop{color:var(--blue);display:block}
 .node-lbl em{font-style:normal;color:#7ab2ff}
 .node-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:#9ec8ff;box-shadow:0 0 10px 2px rgba(158,200,255,0.7)}
 
-.globe-sphere{width:100%;height:100%;position:relative}
+.globe-sphere{width:100%;height:100%;border-radius:50%;position:relative;overflow:hidden}
 .globe-sphere::after{
   content:'';position:absolute;inset:0;border-radius:50%;
   background:
-    radial-gradient(circle at 50% 50%,rgba(232,24,74,0.2) 0%,rgba(160,8,40,0.08) 30%,transparent 52%);
-  pointer-events:none;mix-blend-mode:screen
+    radial-gradient(circle at 50% 50%,rgba(232,24,74,0.2) 0%,rgba(160,8,40,0.08) 35%,transparent 58%),
+    radial-gradient(circle at 50% 50%,transparent 65%,rgba(2,6,20,0.45) 100%),
+    radial-gradient(ellipse at 34% 28%,rgba(255,255,255,0.055) 0%,transparent 36%);
+  pointer-events:none
 }
 
 @keyframes globepulse{0%,100%{transform:scale(1)}50%{transform:scale(1.015)}}
@@ -343,7 +345,7 @@ h1.hero-h .pop{color:var(--blue);display:block}
       <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#E8184A;font-weight:700;margin-bottom:0.4rem">SIB Consulting</div>
       <h1 class="hero-h">From AI that answers.<br><span class="dim">To AI that acts.</span></h1>
       <p style="font-size:13px;color:rgba(139,148,158,0.75);letter-spacing:0.04em;text-transform:none;font-weight:500;margin-bottom:1.5rem;margin-top:-0.3rem">Strategic Intelligence &amp; Transformation Practice of SIB Consulting</p>
-      <p class="hero-sub">Agentic AI <b>perceives, plans, decides and executes</b> — across your real systems, in real time, without waiting to be asked. EIG builds the intelligence architecture that makes this possible, and leads your organisation from Agentic AI through AGI to the Autonomous Enterprise.<span class="accent">Named leaders. A Practice of SIB Consulting. Measurable outcomes.</span></p>
+      <p class="hero-sub">Agentic AI <b>perceives, plans, decides and executes</b> — connecting every domain of your business into one intelligence layer that works as a system, not a set of silos. When ESG, Supply Chain, Healthcare, Architecture, Digital Transformation and Strategic Planning share the same intelligence, your organisation stops working harder and starts working smarter — with faster decisions, fewer blind spots, and compounding advantage over time.<span class="accent">Named leaders. A Practice of SIB Consulting. Measurable outcomes.</span></p>
       <div class="hero-audience">
         <div class="ha-item active">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
