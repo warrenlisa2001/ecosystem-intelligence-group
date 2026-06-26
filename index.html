@@ -43,12 +43,33 @@ h1.hero-h .pop{color:var(--blue);display:block}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
 
 /* GLOBE VISUAL */
-.hero-visual{position:relative;height:560px;display:flex;align-items:center;justify-content:center}
-.globe-wrap{position:relative;width:370px;height:370px}
-.globe-img{width:100%;height:100%;border-radius:50%;object-fit:cover}
-.globe-glow{position:absolute;inset:-30px;border-radius:50%;background:radial-gradient(circle,rgba(0,102,255,0.18),transparent 70%);z-index:-1}
+.hero-visual{position:relative;height:580px;display:flex;align-items:center;justify-content:center}
+.globe-wrap{position:relative;width:410px;height:410px;perspective:1000px}
+
+/* Axial tilt — globe tilts like Earth on its real 23.5° axis, breathing gently */
+.globe-axis{width:100%;height:100%;position:relative;transform:rotate3d(0.1,0,1,-23deg);animation:globe-breathe 16s ease-in-out infinite;transform-style:preserve-3d}
+@keyframes globe-breathe{
+  0%{transform:rotate3d(0.1,0,1,-23deg) scale(1)}
+  33%{transform:rotate3d(0.12,0.04,1,-22.5deg) scale(1.012)}
+  66%{transform:rotate3d(0.08,0.02,1,-23.5deg) scale(1.008)}
+  100%{transform:rotate3d(0.1,0,1,-23deg) scale(1)}
+}
+
+.globe-img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:58% 42%;filter:brightness(0.85) saturate(1.25) contrast(1.08)}
+.globe-glow{position:absolute;inset:-40px;border-radius:50%;background:radial-gradient(circle at 42% 38%,rgba(0,102,255,0.28) 0%,rgba(0,60,180,0.1) 45%,transparent 70%);z-index:-1;animation:globe-glow-pulse 7s ease-in-out infinite}
+@keyframes globe-glow-pulse{0%,100%{opacity:0.75;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
+
+/* Orbit rings — three planes, different speeds, feel dynamic */
+.orbit-ring{position:absolute;border-radius:50%;pointer-events:none}
+.orbit-ring.or1{inset:-3px;border:1px dashed rgba(0,102,255,0.28);animation:orbitspin 38s linear infinite}
+.orbit-ring.or2{inset:20px;border:1px dashed rgba(113,228,255,0.2);animation:orbitspin 22s linear infinite reverse}
+.orbit-ring.or3{inset:50px;border:1px solid rgba(232,24,74,0.12);animation:orbitspin 55s linear infinite}
+@keyframes orbitspin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* Orbit SVG paths for domain connections */
 .orbit-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .orbit-svg path{fill:none;stroke:rgba(0,102,255,0.35);stroke-width:1}
+
 .node{position:absolute;display:flex;flex-direction:column;align-items:center;gap:0.6rem;width:140px;transform:translate(-50%,-50%);text-decoration:none;color:inherit;cursor:pointer;transition:transform 0.25s}
 .node:hover{transform:translate(-50%,-50%) scale(1.08)}
 .node-ico{width:38px;height:38px;border-radius:10px;border:1px solid rgba(0,102,255,0.4);background:rgba(2,6,13,0.6);display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(0,102,255,0.25);transition:box-shadow 0.25s,border-color 0.25s}
@@ -58,15 +79,21 @@ h1.hero-h .pop{color:var(--blue);display:block}
 .node-lbl em{font-style:normal;color:#7ab2ff}
 .node-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:#9ec8ff;box-shadow:0 0 10px 2px rgba(158,200,255,0.7)}
 
-.orbit-ring{position:absolute;inset:-2px;border-radius:50%;border:1px dashed rgba(0,102,255,0.18);animation:orbitspin 90s linear infinite;pointer-events:none}
-.orbit-ring--rev{inset:18px;border-color:rgba(113,228,255,0.12);animation:orbitspin 130s linear infinite reverse;pointer-events:none}
-@keyframes orbitspin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.globe-img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:58% 42%;filter:brightness(0.9) saturate(1.15)}
-.globe-sphere{width:100%;height:100%;border-radius:50%;animation:globepulse 8s ease-in-out infinite;position:relative}
-.globe-sphere::after{content:'';position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 50% 50%,rgba(232,24,74,0.2) 0%,rgba(160,8,40,0.08) 38%,transparent 62%),radial-gradient(circle at 50% 50%,transparent 68%,rgba(2,6,20,0.4) 100%);pointer-events:none}
+.globe-sphere{width:100%;height:100%;border-radius:50%;position:relative}
+.globe-sphere::after{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(232,24,74,0.24) 0%,rgba(160,8,40,0.1) 32%,transparent 56%),
+    radial-gradient(circle at 50% 50%,transparent 62%,rgba(2,6,20,0.55) 100%),
+    radial-gradient(ellipse at 34% 28%,rgba(255,255,255,0.07) 0%,transparent 38%);
+  pointer-events:none
+}
+
 @keyframes globepulse{0%,100%{transform:scale(1)}50%{transform:scale(1.015)}}
-@keyframes globepivot{0%,100%{transform:rotate(-2deg) scale(1)}50%{transform:rotate(2deg) scale(1.015)}}
-@media(prefers-reduced-motion:reduce){.orbit-ring,.orbit-ring--rev,.globe-sphere{animation:none}}
+@media(prefers-reduced-motion:reduce){
+  .orbit-ring,.globe-axis,.globe-glow{animation:none}
+  .globe-axis{transform:rotate3d(0.1,0,1,-23deg)}
+}
 
 .n-ai{top:-3%;left:50%}
 .n-ai .node-dot{top:64px;left:50%;transform:translateX(-50%)}
@@ -318,7 +345,7 @@ h1.hero-h .pop{color:var(--blue);display:block}
       <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#E8184A;font-weight:700;margin-bottom:0.4rem">SIB Consulting</div>
       <h1 class="hero-h">From AI that answers.<br><span class="dim">To AI that acts.</span></h1>
       <p style="font-size:13px;color:rgba(139,148,158,0.75);letter-spacing:0.04em;text-transform:none;font-weight:500;margin-bottom:1.5rem;margin-top:-0.3rem">Strategic Intelligence &amp; Transformation Practice of SIB Consulting</p>
-      <p class="hero-sub">Agentic AI is not a chatbot upgrade. It is the shift from AI that responds to <b>AI that perceives, plans, decides and executes</b> — across your real systems, in real time, without waiting to be asked. EIG builds the intelligence architecture that makes this possible — and leads your organisation from Agentic AI through AGI to the Autonomous Enterprise.<span class="accent"> A Practice of SIB Consulting. Named leaders. Measurable outcomes.</span></p>
+      <p class="hero-sub">Agentic AI <b>perceives, plans, decides and executes</b> — across your real systems, in real time, without waiting to be asked. EIG builds the intelligence architecture that makes this possible, and leads your organisation from Agentic AI through AGI to the Autonomous Enterprise.<span class="accent">Named leaders. A Practice of SIB Consulting. Measurable outcomes.</span></p>
       <div class="hero-audience">
         <div class="ha-item active">
           <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/></svg>
@@ -349,10 +376,16 @@ h1.hero-h .pop{color:var(--blue);display:block}
     <div class="hero-visual">
       <div class="globe-wrap">
         <div class="globe-glow"></div>
-        <div class="orbit-ring"></div>
-        <div class="orbit-ring orbit-ring--rev"></div>
-        <div class="globe-sphere">
-          <img src="assets/images/hero-globe.png" alt="EIG global intelligence network" class="globe-img">
+        <!-- Three orbit rings at different speeds and planes -->
+        <div class="orbit-ring or1"></div>
+        <div class="orbit-ring or2"></div>
+        <div class="orbit-ring or3"></div>
+
+        <!-- Globe on its axis — tilted like Earth, breathing slowly -->
+        <div class="globe-axis">
+          <div class="globe-sphere">
+            <img src="assets/images/hero-globe.png" alt="EIG global intelligence network" class="globe-img">
+          </div>
         </div>
 
         <!-- AGENTIC AI — CENTRAL INTELLIGENCE CORE -->
