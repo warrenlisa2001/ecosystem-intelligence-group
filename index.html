@@ -11,16 +11,13 @@
 <link rel="stylesheet" href="assets/shared.css">
 <style>
 
-/* SIB OWNERSHIP BAR — STRONG & UNMISTAKABLE */
+/* SIB OWNERSHIP BAR */
 #sib-bar{background:#02060D;border-bottom:2px solid #E8184A;padding:10px 0;position:relative;z-index:400}
-.sib-bar-inner{display:flex;align-items:center;justify-content:space-between;max-width:1340px;margin:0 auto;padding:0 2rem}
-.sib-bar-left{display:flex;align-items:center;gap:1rem}
-.sib-bar-logo{height:40px;width:40px;display:block;flex-shrink:0;border-radius:50%;border:2px solid rgba(232,24,74,0.5);box-shadow:0 0 12px rgba(232,24,74,0.3)}
+.sib-bar-inner{display:flex;align-items:center;gap:1rem;max-width:1340px;margin:0 auto;padding:0 2rem}
 .sib-bar-identity{display:flex;flex-direction:column;gap:2px}
 .sib-bar-name{font-size:13px;font-weight:700;color:#fff;letter-spacing:0.06em;text-transform:uppercase;line-height:1}
-.sib-bar-tagline{font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.55);text-transform:uppercase;font-weight:500}
-.sib-bar-right{font-size:10px;letter-spacing:0.14em;color:rgba(232,24,74,0.85);text-transform:uppercase;font-weight:700;border:1px solid rgba(232,24,74,0.35);padding:4px 12px;border-radius:100px}
-@media(max-width:600px){.sib-bar-right{display:none}.sib-bar-logo{height:34px;width:34px}.sib-bar-name{font-size:11.5px}}
+.sib-bar-tagline{font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.5);text-transform:uppercase;font-weight:500}
+@media(max-width:600px){.sib-bar-name{font-size:11.5px}}
 
 /* HOME HERO */
 #home-hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:93px;background:var(--black)}
@@ -65,8 +62,6 @@ h1.hero-h .pop{color:var(--blue);display:block}
 .orbit-ring.or2{inset:20px;border:1px dashed rgba(113,228,255,0.2);animation:orbitspin 22s linear infinite reverse}
 .orbit-ring.or3{inset:50px;border:1px solid rgba(232,24,74,0.12);animation:orbitspin 55s linear infinite}
 @keyframes orbitspin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-.orbit-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
-.orbit-svg path{fill:none;stroke:rgba(0,102,255,0.35);stroke-width:1}
 .node{position:absolute;display:flex;flex-direction:column;align-items:center;gap:0.6rem;width:140px;transform:translate(-50%,-50%);text-decoration:none;color:inherit;cursor:pointer;transition:transform 0.25s}
 .node:hover{transform:translate(-50%,-50%) scale(1.08)}
 .node-ico{width:38px;height:38px;border-radius:10px;border:1px solid rgba(0,102,255,0.4);background:rgba(2,6,13,0.6);display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(0,102,255,0.25);transition:box-shadow 0.25s,border-color 0.25s}
@@ -84,25 +79,10 @@ radial-gradient(circle at 50% 50%,transparent 65%,rgba(2,6,20,0.45) 100%),
 radial-gradient(ellipse at 34% 28%,rgba(255,255,255,0.055) 0%,transparent 36%);
 pointer-events:none
 }
-@keyframes globepulse{0%,100%{transform:scale(1)}50%{transform:scale(1.015)}}
 @media(prefers-reduced-motion:reduce){
 .orbit-ring,.globe-axis,.globe-glow{animation:none}
 .globe-axis{transform:rotate3d(0.1,0,1,-23deg)}
 }
-.n-ai{top:-3%;left:50%}
-.n-ai .node-dot{top:64px;left:50%;transform:translateX(-50%)}
-
-/* CENTRAL AGENTIC AI HUB */
-.ai-central-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;pointer-events:none}
-.ai-central-ring{width:116px;height:116px;border-radius:50%;border:2px solid rgba(232,24,74,0.75);background:radial-gradient(circle,rgba(180,10,55,0.45),rgba(232,24,74,0.18));box-shadow:0 0 40px 10px rgba(232,24,74,0.45),0 0 80px 24px rgba(232,24,74,0.2),inset 0 0 30px rgba(232,24,74,0.25);display:flex;align-items:center;justify-content:center;flex-direction:column;animation:ai-pulse-ring 3s ease-in-out infinite}
-@keyframes ai-pulse-ring{0%,100%{box-shadow:0 0 40px 10px rgba(232,24,74,0.45),0 0 80px 24px rgba(232,24,74,0.2)}50%{box-shadow:0 0 65px 20px rgba(232,24,74,0.65),0 0 130px 45px rgba(232,24,74,0.3)}}
-.ai-central-label-top{font-size:7.5px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.72);font-weight:700;line-height:1;margin-bottom:3px}
-.ai-central-label-main{font-size:18px;font-weight:900;letter-spacing:0.06em;color:#fff;line-height:1;text-shadow:0 0 20px rgba(232,24,74,0.8)}
-.ai-central-label-sub{font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,200,210,0.9);font-weight:700;margin-top:4px;line-height:1.3;text-align:center}
-.ai-outer-ring{position:absolute;top:50%;left:50%;width:152px;height:152px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(232,24,74,0.28);animation:ai-spin-slow 18s linear infinite}
-.ai-outer-ring2{position:absolute;top:50%;left:50%;width:190px;height:190px;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed rgba(232,24,74,0.15);animation:ai-spin-slow 30s linear infinite reverse}
-@keyframes ai-spin-slow{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
-@media(prefers-reduced-motion:reduce){.ai-central-ring,.ai-outer-ring,.ai-outer-ring2{animation:none}}
 .n-sus{top:-3%;left:50%}
 .n-sus .node-dot{top:64px;left:50%;transform:translateX(-50%)}
 .n-sc{top:25%;left:93%}
@@ -115,7 +95,19 @@ pointer-events:none
 .n-edu .node-dot{top:12px;right:-4px}
 .n-sp{top:25%;left:7%}
 .n-sp .node-dot{bottom:12px;right:-4px}
-.hero-tagline{position:absolute;right:0;bottom:-1.5rem;text-align:right;padding-right:0.5rem;border-right:2px solid var(--blue);padding-right:1rem}
+
+/* CENTRAL AGENTIC AI HUB */
+.ai-central-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;pointer-events:none}
+.ai-central-ring{width:116px;height:116px;border-radius:50%;border:2px solid rgba(232,24,74,0.75);background:radial-gradient(circle,rgba(180,10,55,0.45),rgba(232,24,74,0.18));box-shadow:0 0 40px 10px rgba(232,24,74,0.45),0 0 80px 24px rgba(232,24,74,0.2),inset 0 0 30px rgba(232,24,74,0.25);display:flex;align-items:center;justify-content:center;flex-direction:column;animation:ai-pulse-ring 3s ease-in-out infinite}
+@keyframes ai-pulse-ring{0%,100%{box-shadow:0 0 40px 10px rgba(232,24,74,0.45),0 0 80px 24px rgba(232,24,74,0.2)}50%{box-shadow:0 0 65px 20px rgba(232,24,74,0.65),0 0 130px 45px rgba(232,24,74,0.3)}}
+.ai-central-label-top{font-size:7.5px;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.72);font-weight:700;line-height:1;margin-bottom:3px}
+.ai-central-label-main{font-size:18px;font-weight:900;letter-spacing:0.06em;color:#fff;line-height:1;text-shadow:0 0 20px rgba(232,24,74,0.8)}
+.ai-central-label-sub{font-size:7px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,200,210,0.9);font-weight:700;margin-top:4px;line-height:1.3;text-align:center}
+.ai-outer-ring{position:absolute;top:50%;left:50%;width:152px;height:152px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(232,24,74,0.28);animation:ai-spin-slow 18s linear infinite}
+.ai-outer-ring2{position:absolute;top:50%;left:50%;width:190px;height:190px;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed rgba(232,24,74,0.15);animation:ai-spin-slow 30s linear infinite reverse}
+@keyframes ai-spin-slow{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.ai-central-ring,.ai-outer-ring,.ai-outer-ring2{animation:none}}
+.hero-tagline{position:absolute;right:0;bottom:-1.5rem;text-align:right;border-right:2px solid var(--blue);padding-right:1rem}
 .hero-tagline p{font-size:13px;letter-spacing:0.03em;color:rgba(139,148,158,0.85);line-height:1.6}
 .hero-tagline p b{color:var(--blue2);font-weight:600;display:block}
 </style>
@@ -165,16 +157,6 @@ pointer-events:none
 .sh-card[data-sector="plan"]::before{background:var(--c-plan)}
 .sh-card[data-sector="plan"] .sh-owner{color:var(--c-plan)}
 
-/* DASHBOARD */
-.xd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
-.xd-card{border:1px solid rgba(255,255,255,0.07);border-radius:3px;padding:1.4rem 1.3rem;background:rgba(255,255,255,0.015);transition:border-color 0.25s,transform 0.25s}
-.xd-card:hover{border-color:rgba(0,102,255,0.25);transform:translateY(-3px)}
-.xd-pair{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.9rem}
-.xd-leader{font-size:12.5px;font-weight:700;padding:0.25rem 0.65rem;border-radius:100px;border:1px solid currentColor}
-.xd-x{font-size:12px;color:var(--mgrey)}
-.xd-tag{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;margin-bottom:0.6rem}
-.xd-card p{font-size:13.5px;color:var(--mgrey);line-height:1.6;margin:0}
-
 /* INSIGHTS PREVIEW */
 .insights-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
 .i-card{border:1px solid rgba(255,255,255,0.07);padding:2rem;border-radius:2px;transition:border-color 0.2s;text-decoration:none;display:block}
@@ -199,18 +181,15 @@ pointer-events:none
 .hero-visual{display:none}
 .sector-hub{grid-template-columns:repeat(2,1fr)}
 .insights-grid{grid-template-columns:1fr}
-.xd-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
 .sector-hub{grid-template-columns:1fr 1fr}
-.hero-meta{grid-template-columns:1fr 1fr}
 h1.hero-h{font-size:clamp(1.7rem,7vw,2.4rem)}
 .hero-audience{gap:0.5rem 0}
 .ha-item{padding:0 0.7rem;border-right:none;flex:0 0 auto}
 }
 @media(max-width:480px){
 .sector-hub{grid-template-columns:1fr}
-.xd-grid{grid-template-columns:1fr}
 h1.hero-h{font-size:clamp(1.5rem,8vw,2rem)}
 .hero-sub{font-size:15px}
 .hero-audience{justify-content:space-between}
@@ -218,21 +197,22 @@ h1.hero-h{font-size:clamp(1.5rem,8vw,2rem)}
 .ha-item span{font-size:9px}
 }
 </style>
-
 </head>
 <body>
 
-<!-- SIB OWNERSHIP BAR — STRONG & UNMISTAKABLE -->
+<!-- SIB OWNERSHIP BAR — INLINE SVG LOGO -->
 <div id="sib-bar">
   <div class="sib-bar-inner">
-    <div class="sib-bar-left">
-      <img src="assets/images/sib-logo-circle.png" alt="SIB Consulting" class="sib-bar-logo">
-      <div class="sib-bar-identity">
-        <div class="sib-bar-name">SIB Consulting</div>
-        <div class="sib-bar-tagline">Strategic Intelligence &amp; Transformation</div>
-      </div>
+    <!-- SIB Logo as inline SVG — no file dependency, crisp on any background -->
+    <svg width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+      <circle cx="21" cy="21" r="21" fill="#E8184A"/>
+      <text x="21" y="17" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="13" fill="white" letter-spacing="0.5">SIB</text>
+      <text x="21" y="29" text-anchor="middle" font-family="Arial, sans-serif" font-weight="600" font-size="6.5" fill="rgba(255,255,255,0.9)" letter-spacing="1">Consulting</text>
+    </svg>
+    <div class="sib-bar-identity">
+      <div class="sib-bar-name">SIB Consulting</div>
+      <div class="sib-bar-tagline">Strategic Intelligence &amp; Transformation</div>
     </div>
-    <div class="sib-bar-right">Owner &amp; Parent Organisation</div>
   </div>
 </div>
 
@@ -348,7 +328,7 @@ h1.hero-h{font-size:clamp(1.5rem,8vw,2rem)}
       <div class="hero-tag"><span class="hpulse"></span> Agentic AI &nbsp;·&nbsp; AGI Strategy &nbsp;·&nbsp; Autonomous Enterprise</div>
       <div style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#E8184A;font-weight:700;margin-bottom:0.4rem">SIB Consulting</div>
       <h1 class="hero-h">From AI that answers.<br><span class="dim">To AI that acts.</span></h1>
-      <p style="font-size:13px;color:rgba(139,148,158,0.75);letter-spacing:0.04em;text-transform:none;font-weight:500;margin-bottom:1.5rem;margin-top:-0.3rem">Strategic Intelligence &amp; Transformation Practice of SIB Consulting</p>
+      <p style="font-size:13px;color:rgba(139,148,158,0.75);letter-spacing:0.04em;font-weight:500;margin-bottom:1.5rem;margin-top:-0.3rem">Strategic Intelligence &amp; Transformation Practice of SIB Consulting</p>
       <p class="hero-sub">Agentic AI <b>perceives, plans, decides and executes</b> — connecting every domain of your business into one intelligence layer that works as a system, not a set of silos. When ESG, Supply Chain, Healthcare, Architecture, Digital Transformation and Strategic Planning share the same intelligence, your organisation stops working harder and starts working smarter — with faster decisions, fewer blind spots, and compounding advantage over time.<span class="accent">Named leaders. A Practice of SIB Consulting. Measurable outcomes.</span></p>
       <div class="hero-audience">
         <div class="ha-item active">
@@ -593,7 +573,7 @@ h1.hero-h{font-size:clamp(1.5rem,8vw,2rem)}
     </div>
     <div class="footer-r">
       <div class="footer-copy">© 2026 Ecosystem Intelligence Group. All rights reserved.</div>
-      <div class="footer-sib">A Practice of <a href="https://sibteam.com" target="_blank" rel="noopener">SIB Consulting</a></div>
+      <div class="footer-sib">A Practice of <a href="https://www.teamsib.com" target="_blank" rel="noopener">SIB Consulting</a></div>
     </div>
   </div>
 </footer>
