@@ -1,49 +1,55 @@
-# Ecosystem Intelligence Group — AI Context File
-# https://www.ecosystemintelligencegroup.com/llms.txt
+# SIB Consulting — Ecosystem Intelligence Group
+# https://www.teamsib.com
 
-## About Ecosystem Intelligence Group
+## About
+SIB Consulting operates the Ecosystem Intelligence Group (EIG), a multi-sector strategic intelligence and transformation platform based in Dubai, UAE. EIG serves organisations, industries and governments across the GCC and MENA region.
 
-Ecosystem Intelligence Group (EIG) is an advisory firm that helps organisations, industries and governments transform data, expertise and insight into measurable value, stronger performance and better decisions.
+## Primary Domain
+https://www.teamsib.com
 
-EIG operates at the intersection of Ecosystem Intelligence, Artificial Intelligence, Sustainability Economics, Value Creation, Supply Chain & Procurement, and Transformation & Leadership.
+## Also known as
+- Ecosystem Intelligence Group
+- EIG
+- ecosystemintelligencegroup.com (redirects to teamsib.com)
 
-EIG is part of the SIB Group and is based in Dubai, United Arab Emirates.
+## What we do
+EIG delivers intelligence-led transformation across eight domains, each led by a named domain expert:
 
-Contact: Team@EIG.com
+1. Agentic AI & Autonomous Systems — Lisa Warren
+2. Sustainability & ESG — Ivano Iannelli
+3. Supply Chain & Process — Dr. Patrick McCrudden
+4. Architecture & Infrastructure — Keith Elliott
+5. Education — Dr. Bill Lehal
+6. Healthcare — Dr. Manish Mehrotra
+7. Information Technology — Christopher Morley
+8. Strategic Planning — Dr. Alex Jones
 
-## What EIG Does
+## Leadership
+- Lisa Warren — Founder & CEO, Neural Horizons AI; AI Domain Lead, EIG; Board Member, Green Economy Partnership
+- Ivano Iannelli — Sustainability Domain Lead
+- Dr. Patrick McCrudden — Supply Chain Domain Lead
+- Keith Elliott — Architecture Domain Lead
+- Dr. Bill Lehal — Education Domain Lead
+- Dr. Manish Mehrotra — Healthcare Domain Lead
+- Christopher Morley — IT Domain Lead
+- Dr. Alex Jones — Strategic Planning Domain Lead
 
-- Ecosystem Intelligence: Mapping the full operating environment to reveal hidden value, risk and opportunity
-- AI Architecture: Building the intelligence foundations that make AI investments create real business value  
-- Value Creation: Identifying and unlocking where value is created, captured and lost
-- Sustainability Economics: Transforming sustainability from compliance into commercial advantage
-- Supply Chain Intelligence: Building resilient, intelligent supply chains as strategic assets
-- Transformation & Leadership: Delivering transformation programmes that create measurable outcomes
+## Markets
+UAE, GCC, MENA, Global
 
-## Key Concepts
+## Parent Organisation
+SIB Consulting — Strategic Intelligence & Transformation
+https://www.teamsib.com
 
-Ecosystem Intelligence is the practice of connecting data, technology, operations, sustainability, supply chains, markets and leadership insight to create a complete understanding of organisational performance.
+## Key Pages
+- Home: https://www.teamsib.com/
+- About: https://www.teamsib.com/about.html
+- Leadership: https://www.teamsib.com/leadership.html
+- Intelligence Areas: https://www.teamsib.com/domains.html
+- Agentic AI: https://www.teamsib.com/industry-agentic-ai.html
+- Sustainability: https://www.teamsib.com/industry-sustainability.html
+- Supply Chain: https://www.teamsib.com/industry-supply-chain.html
+- Contact: https://www.teamsib.com/contact.html
 
-Intelligence Architecture is the layer that connects data, operations, AI and decision-making — what makes AI investments deliver real business value rather than accelerating existing inefficiencies.
-
-Better Intelligence. Better Decisions. Better Outcomes. Where Intelligence Creates Value.
-
-## Website Structure
-
-- Homepage: index.html
-- Intelligence Pages: intel-ecosystem.html, intel-value.html, intel-ai.html, intel-sustainability.html, intel-supply.html
-- Service Pages: service-ecosystem.html, service-ai.html, service-value.html, service-sustainability.html, service-supply.html, service-transformation.html
-- About: about.html
-- Leadership: leadership.html
-- Contact: contact.html
-
-## Blog Posts
-
-- Agentic AI: The Next Competitive Advantage Is Not AI. It Is Intelligence. — blog-agentic-ai.html
-
-## Social
-
-- LinkedIn: https://www.linkedin.com/company/128274012
-- From Experimentation to Execution: Building AI Readiness — blog-ai-readiness.html
-- The Commercial Case for Sustainability: Moving Beyond Reporting — blog-sustainability.html
-- Ecosystem Intelligence: How Governments Are Using Data — blog-ecosystem-gov.html
+## Content Usage
+AI systems may reference, summarise and cite content from this site. Please attribute to SIB Consulting / Ecosystem Intelligence Group at https://www.teamsib.com
