@@ -9,15 +9,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/shared.css">
-
 <style>
+
+/* SIB OWNERSHIP BAR — STRONG & UNMISTAKABLE */
+#sib-bar{background:#02060D;border-bottom:2px solid #E8184A;padding:10px 0;position:relative;z-index:400}
+.sib-bar-inner{display:flex;align-items:center;justify-content:space-between;max-width:1340px;margin:0 auto;padding:0 2rem}
+.sib-bar-left{display:flex;align-items:center;gap:1rem}
+.sib-bar-logo{height:40px;width:40px;display:block;flex-shrink:0;border-radius:50%;border:2px solid rgba(232,24,74,0.5);box-shadow:0 0 12px rgba(232,24,74,0.3)}
+.sib-bar-identity{display:flex;flex-direction:column;gap:2px}
+.sib-bar-name{font-size:13px;font-weight:700;color:#fff;letter-spacing:0.06em;text-transform:uppercase;line-height:1}
+.sib-bar-tagline{font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.55);text-transform:uppercase;font-weight:500}
+.sib-bar-right{font-size:10px;letter-spacing:0.14em;color:rgba(232,24,74,0.85);text-transform:uppercase;font-weight:700;border:1px solid rgba(232,24,74,0.35);padding:4px 12px;border-radius:100px}
+@media(max-width:600px){.sib-bar-right{display:none}.sib-bar-logo{height:34px;width:34px}.sib-bar-name{font-size:11.5px}}
+
 /* HOME HERO */
-#sib-bar{background:#E8184A;padding:7px 0;position:relative;z-index:400}
-.sib-bar-inner{display:flex;align-items:center;justify-content:center;gap:1rem;max-width:1340px;margin:0 auto;padding:0 2rem}
-.sib-bar-logo{height:26px;width:auto;display:block;flex-shrink:0;border-radius:50%}
-.sib-bar-text{font-size:11px;letter-spacing:0.07em;font-weight:600;color:rgba(255,255,255,0.9);text-transform:uppercase}
-.sib-bar-text strong{color:#fff}
-@media(max-width:600px){.sib-bar-text{font-size:9.5px;letter-spacing:0.04em}}
 #home-hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:93px;background:var(--black)}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 80% 45%,rgba(0,102,255,0.05),transparent 65%)}
 .hero-dots{position:absolute;inset:0;opacity:0.022;background-image:radial-gradient(rgba(0,102,255,1) 1px,transparent 1px);background-size:48px 48px}
@@ -45,31 +50,23 @@ h1.hero-h .pop{color:var(--blue);display:block}
 /* GLOBE VISUAL */
 .hero-visual{position:relative;height:580px;display:flex;align-items:center;justify-content:center}
 .globe-wrap{position:relative;width:410px;height:410px;perspective:1000px}
-
-/* Axial tilt — globe tilts like Earth on its real 23.5° axis, breathing gently */
 .globe-axis{width:100%;height:100%;position:relative;transform:rotate3d(0.1,0,1,-23deg);animation:globe-breathe 16s ease-in-out infinite;transform-style:preserve-3d}
 @keyframes globe-breathe{
-  0%{transform:rotate3d(0.1,0,1,-23deg) scale(1)}
-  33%{transform:rotate3d(0.12,0.04,1,-22.5deg) scale(1.012)}
-  66%{transform:rotate3d(0.08,0.02,1,-23.5deg) scale(1.008)}
-  100%{transform:rotate3d(0.1,0,1,-23deg) scale(1)}
+0%{transform:rotate3d(0.1,0,1,-23deg) scale(1)}
+33%{transform:rotate3d(0.12,0.04,1,-22.5deg) scale(1.012)}
+66%{transform:rotate3d(0.08,0.02,1,-23.5deg) scale(1.008)}
+100%{transform:rotate3d(0.1,0,1,-23deg) scale(1)}
 }
-
 .globe-img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:58% 42%;filter:brightness(0.88) saturate(1.2) contrast(1.05)}
 .globe-glow{position:absolute;inset:-40px;border-radius:50%;background:radial-gradient(circle at 42% 38%,rgba(0,102,255,0.28) 0%,rgba(0,60,180,0.1) 45%,transparent 70%);z-index:-1;animation:globe-glow-pulse 7s ease-in-out infinite}
 @keyframes globe-glow-pulse{0%,100%{opacity:0.75;transform:scale(1)}50%{opacity:1;transform:scale(1.05)}}
-
-/* Orbit rings — three planes, different speeds, feel dynamic */
 .orbit-ring{position:absolute;border-radius:50%;pointer-events:none}
 .orbit-ring.or1{inset:-3px;border:1px dashed rgba(0,102,255,0.28);animation:orbitspin 38s linear infinite}
 .orbit-ring.or2{inset:20px;border:1px dashed rgba(113,228,255,0.2);animation:orbitspin 22s linear infinite reverse}
 .orbit-ring.or3{inset:50px;border:1px solid rgba(232,24,74,0.12);animation:orbitspin 55s linear infinite}
 @keyframes orbitspin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-
-/* Orbit SVG paths for domain connections */
 .orbit-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
 .orbit-svg path{fill:none;stroke:rgba(0,102,255,0.35);stroke-width:1}
-
 .node{position:absolute;display:flex;flex-direction:column;align-items:center;gap:0.6rem;width:140px;transform:translate(-50%,-50%);text-decoration:none;color:inherit;cursor:pointer;transition:transform 0.25s}
 .node:hover{transform:translate(-50%,-50%) scale(1.08)}
 .node-ico{width:38px;height:38px;border-radius:10px;border:1px solid rgba(0,102,255,0.4);background:rgba(2,6,13,0.6);display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(0,102,255,0.25);transition:box-shadow 0.25s,border-color 0.25s}
@@ -78,23 +75,20 @@ h1.hero-h .pop{color:var(--blue);display:block}
 .node-lbl{font-size:10.5px;letter-spacing:0.07em;text-transform:uppercase;font-weight:700;color:var(--white);text-align:center;line-height:1.4;text-shadow:0 1px 6px rgba(2,6,13,0.95),0 1px 12px rgba(2,6,13,0.9)}
 .node-lbl em{font-style:normal;color:#7ab2ff}
 .node-dot{position:absolute;width:6px;height:6px;border-radius:50%;background:#9ec8ff;box-shadow:0 0 10px 2px rgba(158,200,255,0.7)}
-
 .globe-sphere{width:100%;height:100%;border-radius:50%;position:relative;overflow:hidden}
 .globe-sphere::after{
-  content:'';position:absolute;inset:0;border-radius:50%;
-  background:
-    radial-gradient(circle at 50% 50%,rgba(232,24,74,0.2) 0%,rgba(160,8,40,0.08) 35%,transparent 58%),
-    radial-gradient(circle at 50% 50%,transparent 65%,rgba(2,6,20,0.45) 100%),
-    radial-gradient(ellipse at 34% 28%,rgba(255,255,255,0.055) 0%,transparent 36%);
-  pointer-events:none
+content:'';position:absolute;inset:0;border-radius:50%;
+background:
+radial-gradient(circle at 50% 50%,rgba(232,24,74,0.2) 0%,rgba(160,8,40,0.08) 35%,transparent 58%),
+radial-gradient(circle at 50% 50%,transparent 65%,rgba(2,6,20,0.45) 100%),
+radial-gradient(ellipse at 34% 28%,rgba(255,255,255,0.055) 0%,transparent 36%);
+pointer-events:none
 }
-
 @keyframes globepulse{0%,100%{transform:scale(1)}50%{transform:scale(1.015)}}
 @media(prefers-reduced-motion:reduce){
-  .orbit-ring,.globe-axis,.globe-glow{animation:none}
-  .globe-axis{transform:rotate3d(0.1,0,1,-23deg)}
+.orbit-ring,.globe-axis,.globe-glow{animation:none}
+.globe-axis{transform:rotate3d(0.1,0,1,-23deg)}
 }
-
 .n-ai{top:-3%;left:50%}
 .n-ai .node-dot{top:64px;left:50%;transform:translateX(-50%)}
 
@@ -121,8 +115,6 @@ h1.hero-h .pop{color:var(--blue);display:block}
 .n-edu .node-dot{top:12px;right:-4px}
 .n-sp{top:25%;left:7%}
 .n-sp .node-dot{bottom:12px;right:-4px}
-/* n-it removed - Digital Finance removed from globe */
-
 .hero-tagline{position:absolute;right:0;bottom:-1.5rem;text-align:right;padding-right:0.5rem;border-right:2px solid var(--blue);padding-right:1rem}
 .hero-tagline p{font-size:13px;letter-spacing:0.03em;color:rgba(139,148,158,0.85);line-height:1.6}
 .hero-tagline p b{color:var(--blue2);font-weight:600;display:block}
@@ -203,58 +195,69 @@ h1.hero-h .pop{color:var(--blue);display:block}
 .cta-sec p{font-size:17px;color:var(--mgrey);max-width:600px;margin:0 auto 2rem;line-height:1.82}
 
 @media(max-width:1100px){
-  .hero-inner{grid-template-columns:1fr}
-  .hero-visual{display:none}
-  .sector-hub{grid-template-columns:repeat(2,1fr)}
-  .insights-grid{grid-template-columns:1fr}
-  .xd-grid{grid-template-columns:repeat(2,1fr)}
+.hero-inner{grid-template-columns:1fr}
+.hero-visual{display:none}
+.sector-hub{grid-template-columns:repeat(2,1fr)}
+.insights-grid{grid-template-columns:1fr}
+.xd-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:768px){
-  .sector-hub{grid-template-columns:1fr 1fr}
-  .hero-meta{grid-template-columns:1fr 1fr}
-  h1.hero-h{font-size:clamp(1.7rem,7vw,2.4rem)}
-  .hero-audience{gap:0.5rem 0}
-  .ha-item{padding:0 0.7rem;border-right:none;flex:0 0 auto}
+.sector-hub{grid-template-columns:1fr 1fr}
+.hero-meta{grid-template-columns:1fr 1fr}
+h1.hero-h{font-size:clamp(1.7rem,7vw,2.4rem)}
+.hero-audience{gap:0.5rem 0}
+.ha-item{padding:0 0.7rem;border-right:none;flex:0 0 auto}
 }
 @media(max-width:480px){
-  .sector-hub{grid-template-columns:1fr}
-  .xd-grid{grid-template-columns:1fr}
-  h1.hero-h{font-size:clamp(1.5rem,8vw,2rem)}
-  .hero-sub{font-size:15px}
-  .hero-audience{justify-content:space-between}
-  .ha-item{padding:0 0.3rem}
-  .ha-item span{font-size:9px}
+.sector-hub{grid-template-columns:1fr}
+.xd-grid{grid-template-columns:1fr}
+h1.hero-h{font-size:clamp(1.5rem,8vw,2rem)}
+.hero-sub{font-size:15px}
+.hero-audience{justify-content:space-between}
+.ha-item{padding:0 0.3rem}
+.ha-item span{font-size:9px}
 }
 </style>
 
 </head>
 <body>
+
+<!-- SIB OWNERSHIP BAR — STRONG & UNMISTAKABLE -->
 <div id="sib-bar">
   <div class="sib-bar-inner">
-    <img src="assets/images/sib-logo.png" alt="SIB Consulting" class="sib-bar-logo">
-    <span class="sib-bar-text"><strong>SIB Consulting</strong> &nbsp;|&nbsp; Strategic Intelligence &amp; Transformation</span>
+    <div class="sib-bar-left">
+      <img src="assets/images/sib-logo-circle.png" alt="SIB Consulting" class="sib-bar-logo">
+      <div class="sib-bar-identity">
+        <div class="sib-bar-name">SIB Consulting</div>
+        <div class="sib-bar-tagline">Strategic Intelligence &amp; Transformation</div>
+      </div>
+    </div>
+    <div class="sib-bar-right">Owner &amp; Parent Organisation</div>
   </div>
 </div>
+
 <div id="ticker">
   <div class="ticker-track">
     <div class="t-item"><b>AI</b>Agentic Artificial Intelligence</div>
     <div class="t-item"><b>SUS</b>Sustainability</div>
-    <div class="t-item"><b>SC</b>Supply Chain & Process</div>
-    <div class="t-item"><b>ARCH</b>Architecture & Interior Design</div>
+    <div class="t-item"><b>SC</b>Supply Chain &amp; Process</div>
+    <div class="t-item"><b>ARCH</b>Architecture &amp; Interior Design</div>
     <div class="t-item"><b>EDU</b>Education</div>
     <div class="t-item"><b>HEALTH</b>Healthcare</div>
     <div class="t-item"><b>IT</b>Information Technology</div>
     <div class="t-item"><b>PLAN</b>Strategic Planning</div>
     <div class="t-item"><b>AI</b>Agentic Artificial Intelligence</div>
     <div class="t-item"><b>SUS</b>Sustainability</div>
-    <div class="t-item"><b>SC</b>Supply Chain & Process</div>
-    <div class="t-item"><b>ARCH</b>Architecture & Interior Design</div>
+    <div class="t-item"><b>SC</b>Supply Chain &amp; Process</div>
+    <div class="t-item"><b>ARCH</b>Architecture &amp; Interior Design</div>
     <div class="t-item"><b>EDU</b>Education</div>
     <div class="t-item"><b>HEALTH</b>Healthcare</div>
     <div class="t-item"><b>IT</b>Information Technology</div>
     <div class="t-item"><b>PLAN</b>Strategic Planning</div>
   </div>
-</div><nav id="nav">
+</div>
+
+<nav id="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
       <img src="assets/images/eig-logo.png" alt="EIG — Ecosystem Intelligence Group" class="logo-img">
@@ -276,13 +279,13 @@ h1.hero-h .pop{color:var(--blue);display:block}
           <a href="industry-strategic-planning.html"><span class="dd-dot" style="background:var(--c-plan)"></span>Strategic Planning</a>
           <div class="dd-divider"></div>
           <div class="dd-section">Services</div>
-          <a href="services-ai.html">AI & Machine Learning</a>
+          <a href="services-ai.html">AI &amp; Machine Learning</a>
           <a href="services-sustainability.html">Sustainability Consulting</a>
           <a href="services-supply-chain.html">Supply Chain Optimization</a>
-          <a href="services-architecture.html">Architecture & Design</a>
+          <a href="services-architecture.html">Architecture &amp; Design</a>
           <a href="services-education.html">Education Solutions</a>
           <a href="services-healthcare.html">Healthcare Innovation</a>
-          <a href="services-it.html">IT & Digital Transformation</a>
+          <a href="services-it.html">IT &amp; Digital Transformation</a>
         </div>
       </div>
       <div class="nav-item"><a href="leadership.html">Leadership</a></div>
@@ -311,6 +314,7 @@ h1.hero-h .pop{color:var(--blue);display:block}
     <div class="hamburger"><span></span><span></span><span></span></div>
   </div>
 </nav>
+
 <div class="mobile-nav">
   <button class="mn-close">&times;</button>
   <div class="mn-section">Navigation</div>
@@ -373,22 +377,18 @@ h1.hero-h .pop{color:var(--blue);display:block}
         <a href="industry-agentic-ai.html" class="btn-g">Agentic AI &amp; AGI →</a>
       </div>
     </div>
+
     <div class="hero-visual">
       <div class="globe-wrap">
         <div class="globe-glow"></div>
-        <!-- Three orbit rings at different speeds and planes -->
         <div class="orbit-ring or1"></div>
         <div class="orbit-ring or2"></div>
         <div class="orbit-ring or3"></div>
-
-        <!-- Globe on its axis — tilted like Earth, breathing slowly -->
         <div class="globe-axis">
           <div class="globe-sphere">
             <img src="assets/images/hero-globe.png" alt="EIG global intelligence network" class="globe-img">
           </div>
         </div>
-
-        <!-- AGENTIC AI — CENTRAL INTELLIGENCE CORE -->
         <a href="industry-agentic-ai.html" class="ai-central-hub" style="pointer-events:auto;text-decoration:none;cursor:pointer" title="Agentic AI — click to explore">
           <div class="ai-outer-ring2"></div>
           <div class="ai-outer-ring"></div>
@@ -398,8 +398,6 @@ h1.hero-h .pop{color:var(--blue);display:block}
             <div class="ai-central-label-sub">Artificial<br>Intelligence</div>
           </div>
         </a>
-
-        <!-- Agentic AI is now the central hub above — no separate orbit node needed -->
         <a href="industry-sustainability.html" class="node n-sus">
           <div class="node-ico"><svg viewBox="0 0 24 24" stroke-width="1.6"><path d="M12 22s7-4.5 7-11a7 7 0 0 0-14 0c0 6.5 7 11 7 11Z"/><path d="M12 13V7"/></svg></div>
           <div class="node-lbl">ESG</div>
@@ -586,7 +584,7 @@ h1.hero-h .pop{color:var(--blue);display:block}
       <a href="platform.html">Platform</a>
       <a href="domains.html">Intelligence Areas</a>
       <a href="leadership.html">Leadership</a>
-          <a href="briefing.html">Briefing</a>
+      <a href="briefing.html">Briefing</a>
       <a href="about.html">About</a>
       <a href="approach.html">Approach</a>
       <a href="contact.html">Contact</a>
@@ -595,9 +593,11 @@ h1.hero-h .pop{color:var(--blue);display:block}
     </div>
     <div class="footer-r">
       <div class="footer-copy">© 2026 Ecosystem Intelligence Group. All rights reserved.</div>
-      <div class="footer-sib">A Practice of <a href="https://sibconsulting.com" target="_blank" rel="noopener">SIB Consulting</a></div>
+      <div class="footer-sib">A Practice of <a href="https://sibteam.com" target="_blank" rel="noopener">SIB Consulting</a></div>
     </div>
   </div>
-</footer><script src="assets/shared.js"></script>
+</footer>
+
+<script src="assets/shared.js"></script>
 </body>
 </html>
