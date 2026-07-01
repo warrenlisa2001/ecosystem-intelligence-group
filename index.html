@@ -10,7 +10,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;background:#000;font-family:'Inter',sans-serif;overflow:hidden}
 canvas{position:fixed;inset:0;z-index:0}
-.splash{position:relative;z-index:10;width:100%;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.splash{position:relative;z-index:10;width:100%;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 2rem}
 .top-line{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#E8184A 30%,#E8184A 70%,transparent);z-index:20}
 .logo-wrap{position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:2.5rem;animation:logo-in 1.2s cubic-bezier(0.22,1,0.36,1) both}
 @keyframes logo-in{0%{opacity:0;transform:scale(0.6)}100%{opacity:1;transform:scale(1)}}
@@ -20,11 +20,12 @@ canvas{position:fixed;inset:0;z-index:0}
 .logo-glow{position:absolute;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(232,24,74,0.35) 0%,transparent 70%);animation:glow-pulse 3s ease-in-out infinite}
 @keyframes glow-pulse{0%,100%{transform:scale(1);opacity:0.8}50%{transform:scale(1.15);opacity:1}}
 .logo-img{width:130px;height:130px;border-radius:50%;object-fit:cover;display:block;position:relative;z-index:2;box-shadow:0 0 40px rgba(232,24,74,0.5),0 0 80px rgba(232,24,74,0.2)}
-.org-name{font-size:clamp(11px,1.5vw,13px);letter-spacing:0.35em;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:500;margin-bottom:1rem;animation:fade-up 1s 0.4s both}
+.org-name{font-size:clamp(11px,1.5vw,13px);letter-spacing:0.35em;text-transform:uppercase;color:rgba(255,255,255,0.4);font-weight:500;margin-bottom:1rem;animation:fade-up 1s 0.4s both;text-align:center}
 .headline{font-size:clamp(2.2rem,5vw,4rem);font-weight:900;color:#fff;letter-spacing:-0.03em;line-height:1.05;text-align:center;margin-bottom:0.6rem;animation:fade-up 1s 0.6s both}
 .headline span{color:#E8184A}
-.subheadline{font-size:clamp(13px,1.8vw,16px);color:rgba(255,255,255,0.45);font-weight:300;letter-spacing:0.06em;text-align:center;max-width:560px;line-height:1.7;margin-bottom:3.5rem;animation:fade-up 1s 0.8s both}
+.subheadline{font-size:clamp(12px,1.4vw,15px);color:rgba(255,255,255,0.45);font-weight:300;letter-spacing:0.04em;text-align:center;max-width:700px;line-height:1.9;margin-bottom:3.5rem;animation:fade-up 1s 0.8s both}
 .subheadline b{color:rgba(255,255,255,0.75);font-weight:600}
+.sub-domains{display:block;font-size:clamp(11px,1.2vw,13px);color:rgba(255,255,255,0.35);letter-spacing:0.08em;margin-top:0.3rem;font-weight:400}
 @keyframes fade-up{0%{opacity:0;transform:translateY(24px)}100%{opacity:1;transform:translateY(0)}}
 .enter-btn{position:relative;display:inline-flex;align-items:center;gap:14px;padding:16px 44px;background:transparent;border:1px solid rgba(232,24,74,0.6);color:#fff;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;text-decoration:none;cursor:pointer;overflow:hidden;transition:border-color 0.3s,box-shadow 0.3s;animation:fade-up 1s 1s both}
 .enter-btn::before{content:'';position:absolute;inset:0;background:#E8184A;transform:translateX(-101%);transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);z-index:0}
@@ -33,18 +34,17 @@ canvas{position:fixed;inset:0;z-index:0}
 .enter-btn span{position:relative;z-index:1}
 .enter-btn svg{position:relative;z-index:1;transition:transform 0.3s}
 .enter-btn:hover svg{transform:translateX(5px)}
-.domain-strip{position:fixed;bottom:2rem;left:0;right:0;display:flex;align-items:center;justify-content:center;animation:fade-up 1s 1.3s both;z-index:10}
-.ds-item{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.2);font-weight:600;padding:0 1.2rem;border-right:1px solid rgba(255,255,255,0.08)}
+.domain-strip{position:fixed;bottom:2rem;left:0;right:0;display:flex;align-items:center;justify-content:center;animation:fade-up 1s 1.3s both;z-index:10;flex-wrap:wrap;gap:0;padding:0 1rem}
+.ds-item{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.2);font-weight:600;padding:0 1rem;border-right:1px solid rgba(255,255,255,0.08)}
 .ds-item:last-child{border-right:none}
 .ds-item.active{color:rgba(232,24,74,0.7)}
 .bottom-line{position:fixed;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(232,24,74,0.3) 50%,transparent)}
-@media(max-width:600px){
+@media(max-width:768px){
   .logo-img{width:100px;height:100px}
   .logo-ring-outer{width:160px;height:160px}
   .logo-ring-mid{width:132px;height:132px}
   .logo-glow{width:124px;height:124px}
-  .domain-strip{flex-wrap:wrap;gap:0.5rem;padding:0 1rem}
-  .ds-item{border-right:none;padding:0 0.6rem}
+  .ds-item{border-right:none;padding:0 0.5rem}
 }
 </style>
 </head>
@@ -66,9 +66,8 @@ canvas{position:fixed;inset:0;z-index:0}
   <h1 class="headline">SIB <span>Consulting</span></h1>
 
   <p class="subheadline">
-    Intelligence-led transformation across <b>AI, Sustainability, Supply Chain,<br>
-    Healthcare, Architecture, Education, IT &amp; Strategic Planning.</b><br>
-    Serving UAE, GCC &amp; MENA.
+    Intelligence-led transformation across <b>AI, Sustainability, Supply Chain, Healthcare, Architecture, Education, IT &amp; Strategic Planning.</b>
+    <span class="sub-domains">Serving UAE, GCC &amp; MENA</span>
   </p>
 
   <a href="home.html" class="enter-btn">
@@ -94,48 +93,22 @@ canvas{position:fixed;inset:0;z-index:0}
 
 <script>
 (function(){
-  var canvas = document.getElementById('c');
-  var ctx = canvas.getContext('2d');
-  var W, H, particles = [];
-  function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
-  window.addEventListener('resize', resize);
-  resize();
-  for(var i = 0; i < 120; i++){
-    particles.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+0.3,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3,alpha:Math.random()*0.4+0.05,red:Math.random()>0.85});
-  }
+  var canvas=document.getElementById('c'),ctx=canvas.getContext('2d'),W,H,particles=[];
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+  window.addEventListener('resize',resize);resize();
+  for(var i=0;i<120;i++) particles.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.2+0.3,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3,alpha:Math.random()*0.4+0.05,red:Math.random()>0.85});
   function draw(){
     ctx.clearRect(0,0,W,H);
-    for(var i=0;i<particles.length;i++){
-      for(var j=i+1;j<particles.length;j++){
-        var dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist<120){
-          ctx.beginPath();
-          ctx.strokeStyle=(particles[i].red||particles[j].red)?'rgba(232,24,74,'+(0.08*(1-dist/120))+')':'rgba(255,255,255,'+(0.04*(1-dist/120))+')';
-          ctx.lineWidth=0.5;
-          ctx.moveTo(particles[i].x,particles[i].y);
-          ctx.lineTo(particles[j].x,particles[j].y);
-          ctx.stroke();
-        }
-      }
+    for(var i=0;i<particles.length;i++) for(var j=i+1;j<particles.length;j++){
+      var dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<120){ctx.beginPath();ctx.strokeStyle=(particles[i].red||particles[j].red)?'rgba(232,24,74,'+(0.08*(1-dist/120))+')':'rgba(255,255,255,'+(0.04*(1-dist/120))+')';ctx.lineWidth=0.5;ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.stroke();}
     }
-    particles.forEach(function(p){
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle=p.red?'rgba(232,24,74,'+p.alpha+')':'rgba(255,255,255,'+p.alpha+')';
-      ctx.fill();
-      p.x+=p.vx; p.y+=p.vy;
-      if(p.x<0||p.x>W) p.vx*=-1;
-      if(p.y<0||p.y>H) p.vy*=-1;
-    });
+    particles.forEach(function(p){ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.red?'rgba(232,24,74,'+p.alpha+')':'rgba(255,255,255,'+p.alpha+')';ctx.fill();p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;});
     requestAnimationFrame(draw);
   }
   draw();
   var items=document.querySelectorAll('.ds-item'),current=0;
-  setInterval(function(){
-    items[current].classList.remove('active');
-    current=(current+1)%items.length;
-    items[current].classList.add('active');
-  },1800);
+  setInterval(function(){items[current].classList.remove('active');current=(current+1)%items.length;items[current].classList.add('active');},1800);
 })();
 </script>
 </body>
