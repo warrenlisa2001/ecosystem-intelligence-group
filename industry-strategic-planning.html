@@ -3,211 +3,323 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Strategic Planning | EIG</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/shared.css">
-
+<title>Strategic Planning | SIB Consulting</title>
+<meta name="description" content="SIB Consulting Strategic Planning practice — leadership alignment, organisational design and strategic execution. Dr. Alex Jones. UAE, GCC.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.teamsib.com/industry-strategic-planning.html">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 <style>
-.domain-hero{min-height:55vh;display:flex;align-items:center;padding-top:120px;padding-bottom:60px;position:relative;overflow:hidden}
-.domain-hero .hero-bg{position:absolute;inset:0;opacity:0.05;background:var(--c-alex)}
-.domain-hero .container{position:relative;z-index:2}
-.domain-hero .icon{font-size:3rem;margin-bottom:1rem}
-.domain-hero h1{font-family:var(--serif);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.01em;margin-bottom:1rem}
-.domain-hero h1 em{font-style:italic;color:var(--c-alex)}
-.domain-hero p{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:640px;font-weight:300;margin-bottom:2rem}
-.content-body{padding:60px 0 100px}
-.content-body h3{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin:2.5rem 0 1rem;color:var(--white)}
-.content-body h3 em{font-style:italic;color:var(--c-alex)}
-.content-body p{font-size:15.5px;color:var(--mgrey);line-height:1.82;margin-bottom:1.2rem}
-.content-body ul{margin:1rem 0 1.5rem 1.5rem}
-.content-body li{font-size:15px;color:var(--mgrey);line-height:1.9;margin-bottom:0.3rem}
-.content-body strong{color:var(--white);font-weight:600}
-.leader-cta{background:var(--navy);border:1px solid rgba(255,255,255,0.07);border-radius:2px;padding:2rem;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;margin-top:3rem}
-.leader-cta h4{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin-bottom:0.5rem;color:var(--white)}
-.leader-cta p{font-size:14px;color:var(--mgrey);line-height:1.7}
-@media(max-width:768px){
-  .leader-cta{grid-template-columns:1fr}
-}
-</style>
 
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#06090f;--bg2:#0b0f1a;--bg3:#0f1420;
+  --red:#E8184A;--blue:#1a6bff;--blue2:#4d9aff;
+  --cyan:#71e4ff;--green:#00e676;--gold:#d8b36a;--purple:#9b7bff;
+  --text:#f0f4ff;--muted:#8892a4;--soft:#b8c4d8;
+  --line:rgba(255,255,255,.08);--max:1380px;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.nav{position:sticky;top:0;z-index:400;background:rgba(6,9,15,.95);backdrop-filter:blur(24px);border-bottom:1px solid var(--line);transition:border-color .3s}
+.nav-top{max-width:var(--max);margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;gap:1.5rem}
+.nav-brand{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.nav-brand img{height:52px;width:auto}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.2}
+.nav-brand-name{font-size:.95rem;font-weight:900;letter-spacing:.05em;color:#fff}
+.nav-brand-sub{font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.nav-links{display:flex;align-items:center;margin-left:auto}
+.nav-links a{font-size:.8rem;font-weight:500;color:var(--muted);padding:.5rem 1rem;border-radius:4px;transition:color .2s;white-space:nowrap;position:relative}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-links a.active::after{content:"";position:absolute;bottom:0;left:1rem;right:1rem;height:2px;background:var(--red);border-radius:1px}
+.nav-drop{position:relative}
+.nav-drop-btn{font-size:.8rem;font-weight:500;color:var(--muted);padding:.5rem 1rem;cursor:pointer;background:none;border:none;font-family:inherit;display:flex;align-items:center;gap:4px;transition:color .2s;white-space:nowrap}
+.nav-drop-btn:hover{color:#fff}
+.nav-drop-menu{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(9,13,24,.98);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.4rem;min-width:220px;opacity:0;visibility:hidden;transition:all .2s;z-index:500;backdrop-filter:blur(20px)}
+.nav-drop:hover .nav-drop-menu{opacity:1;visibility:visible}
+.nav-drop-menu a{display:block;padding:.55rem 1rem;font-size:.8rem;color:var(--muted);border-radius:4px;transition:all .15s;white-space:nowrap}
+.nav-drop-menu a:hover{background:rgba(26,107,255,.1);color:#fff}
+.nav-drop-head{font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(26,107,255,.5);padding:.5rem 1rem .25rem}
+.nav-drop-sep{height:1px;background:rgba(255,255,255,.07);margin:.3rem .5rem}
+.nav-cta{display:inline-flex;align-items:center;background:var(--red);color:#fff;font-size:.8rem;font-weight:700;padding:.55rem 1.4rem;border-radius:4px;margin-left:.75rem;transition:opacity .2s;flex-shrink:0}
+.nav-cta:hover{opacity:.88}
+.hb{display:none;flex-direction:column;gap:5px;background:none;border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:8px 10px;cursor:pointer;margin-left:auto}
+.hb span{display:block;width:20px;height:1.5px;background:#fff;border-radius:999px}
+.mob-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(6,9,15,.98);z-index:399;overflow-y:auto;padding:5rem 2rem 2rem}
+.mob-nav.open{display:block}
+.mob-nav a{display:block;font-size:1rem;color:var(--soft);padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.mob-cta{display:block;margin-top:1.5rem;background:var(--red);color:#fff!important;text-align:center;padding:1rem;border-radius:4px;font-weight:700;border:none}
+.mob-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:1px solid rgba(255,255,255,.2);color:#fff;width:36px;height:36px;border-radius:4px;cursor:pointer;font-size:1.1rem}
+.page-hero{padding:7rem 2rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.ph-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.ph-kicker{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.ph-kicker::before{content:"";width:16px;height:1.5px;border-radius:1px}
+.ph-h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.6rem,4.5vw,4.2rem);font-weight:700;line-height:1.04;letter-spacing:-.025em;margin-bottom:1rem}
+.ph-h1 em{font-style:italic;font-weight:400}
+.ph-deck{font-size:1.05rem;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:2rem;max-width:520px}
+.ph-acts{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;font-size:.88rem;font-weight:700;padding:.9rem 2rem;border-radius:4px;transition:opacity .2s}
+.btn-primary:hover{opacity:.88}
+.btn-sec{display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--soft);font-size:.88rem;font-weight:600;padding:.9rem 1.75rem;border-radius:4px;border:1px solid rgba(255,255,255,.18);transition:all .2s}
+.btn-sec:hover{border-color:rgba(255,255,255,.4);color:#fff}
+.ph-panel{background:rgba(11,15,26,.9);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:2rem}
+.ph-panel-kicker{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.5rem}
+.ph-panel h3{font-family:"Playfair Display",Georgia,serif;font-size:1.4rem;font-weight:600;margin-bottom:.75rem;line-height:1.2}
+.ph-panel p{font-size:.88rem;color:var(--muted);line-height:1.75;margin-bottom:1.25rem}
+.ph-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;border-top:1px solid var(--line);padding-top:1.25rem}
+.ph-stat-n{font-size:1.6rem;font-weight:900;color:#fff}
+.ph-stat-l{font-size:.7rem;color:var(--muted);margin-top:2px}
+.section{padding:6rem 2rem}
+.sec-inner{max-width:var(--max);margin:0 auto}
+.sec-kicker{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue2);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.sec-kicker::before{content:"";width:16px;height:1.5px;background:var(--blue2)}
+.sec-h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;line-height:1.06;letter-spacing:-.025em;margin-bottom:1rem}
+.sec-h2 em{font-style:italic;font-weight:400}
+.sec-lead{font-size:1rem;font-weight:300;color:var(--muted);line-height:1.8;max-width:680px;margin-bottom:3rem}
+.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.cards-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.cards-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:2rem;transition:border-color .2s}
+.card:hover{border-color:rgba(255,255,255,.2)}
+.card-tag{font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;padding:.3rem .7rem;border-radius:3px;display:inline-block}
+.card h3{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:.6rem;line-height:1.3}
+.card p{font-size:.85rem;color:var(--muted);line-height:1.75}
+.card ul{list-style:none;margin-top:.75rem}
+.card ul li{font-size:.83rem;color:var(--soft);padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:baseline;gap:.6rem}
+.card ul li::before{content:"";width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:.4em}
+.stat-band{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:4rem 2rem}
+.stat-band-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center}
+.stat-item{padding:2rem;border-right:1px solid var(--line)}
+.stat-item:last-child{border-right:none}
+.stat-n{font-family:"Playfair Display",Georgia,serif;font-size:2.8rem;font-weight:700;color:#fff;letter-spacing:-.03em}
+.stat-l{font-size:.78rem;color:var(--muted);margin-top:.4rem;letter-spacing:.04em}
+.leader-card{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:2rem}
+.leader-avatar{width:72px;height:72px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;color:#fff;flex-shrink:0}
+.leader-name{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.leader-title{font-size:.8rem;color:var(--muted);margin-bottom:.75rem}
+.leader-bio{font-size:.85rem;color:var(--soft);line-height:1.75}
+.cta-band{padding:6rem 2rem;text-align:center}
+.cta-inner{max-width:700px;margin:0 auto}
+.cta-h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.2rem,4vw,3.6rem);font-weight:700;line-height:1.06;letter-spacing:-.025em;margin-bottom:1rem}
+.cta-h2 em{font-style:italic;font-weight:400}
+.cta-p{font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:2rem}
+footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 2rem 2.5rem}
+.footer-grid{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
+.footer-brand img{height:48px;width:auto}
+.footer-brand-text{display:flex;flex-direction:column;line-height:1.2}
+.footer-brand-name{font-size:.9rem;font-weight:900;letter-spacing:.05em;color:#fff}
+.footer-brand-sub{font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.footer-tag{font-size:.82rem;color:var(--muted);line-height:1.7;max-width:260px}
+.footer-col h4{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,107,255,.5);margin-bottom:1.25rem}
+.footer-col a{display:block;font-size:.82rem;color:var(--muted);margin-bottom:.5rem;transition:color .2s}
+.footer-col a:hover{color:var(--blue2)}
+.footer-bot{max-width:var(--max);margin:0 auto;padding-top:2rem;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.75rem;color:rgba(255,255,255,.2)}
+@media(max-width:1100px){.ph-inner,.cards-4{grid-template-columns:1fr 1fr}.cards-3{grid-template-columns:1fr 1fr}.stat-band-inner{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem}}
+@media(max-width:768px){.nav-links,.nav-cta{display:none}.hb{display:flex}.ph-inner,.cards-2,.cards-3,.cards-4{grid-template-columns:1fr}.stat-band-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}.ph-acts{flex-direction:column}.btn-primary,.btn-sec{width:100%;justify-content:center}}
+
+:root { --accent:#E8184A; }
+.ph-kicker { color:#E8184A; }
+.ph-kicker::before { background:#E8184A; }
+.sec-h2 em { color:#E8184A; }
+</style>
 </head>
 <body>
-<div id="ticker">
-  <div class="ticker-track">
-    <div class="t-item"><b>AI</b>Agentic Artificial Intelligence</div>
-    <div class="t-item"><b>SUS</b>Sustainability</div>
-    <div class="t-item"><b>SC</b>Supply Chain & Process</div>
-    <div class="t-item"><b>ARCH</b>Architecture & Interior Design</div>
-    <div class="t-item"><b>EDU</b>Education</div>
-    <div class="t-item"><b>HEALTH</b>Healthcare</div>
-    <div class="t-item"><b>IT</b>Information Technology</div>
-    <div class="t-item"><b>PLAN</b>Strategic Planning</div>
-    <div class="t-item"><b>AI</b>Agentic Artificial Intelligence</div>
-    <div class="t-item"><b>SUS</b>Sustainability</div>
-    <div class="t-item"><b>SC</b>Supply Chain & Process</div>
-    <div class="t-item"><b>ARCH</b>Architecture & Interior Design</div>
-    <div class="t-item"><b>EDU</b>Education</div>
-    <div class="t-item"><b>HEALTH</b>Healthcare</div>
-    <div class="t-item"><b>IT</b>Information Technology</div>
-    <div class="t-item"><b>PLAN</b>Strategic Planning</div>
-  </div>
-</div>
-<nav id="nav">
-  <div class="nav-inner">
-    <a href="https://www.teamsib.com" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0">
-      <img src="data:image/png;base64,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" alt="SIB Consulting" style="width:40px;height:40px;border-radius:50%;object-fit:cover;display:block;flex-shrink:0">
-      <div style="display:flex;flex-direction:column;gap:2px">
-        <div style="font-size:12.5px;font-weight:700;color:#fff;letter-spacing:0.06em;text-transform:uppercase;line-height:1;font-family:Inter,sans-serif">SIB Consulting</div>
-        <div style="font-size:8.5px;letter-spacing:0.1em;color:rgba(255,255,255,0.4);text-transform:uppercase;font-weight:500;font-family:Inter,sans-serif">Ecosystem Intelligence Group</div>
+<nav class="nav" id="nav">
+  <div class="nav-top">
+    <div class="nav-brand">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAPhElEQVR42s1aeZBVVXr/feece+9buvv1xg6i4tDCoFEQR0BtcRR0kok1VhoNzFiFWxzHsUwmlpNKzRCMJo7rWDoaQDQY3PoRR1xQ4wKtsqjoRAUljcpgs9s03f32e885X/6479G09Hsg4zK36lW/rvvuuef3Lb9vO4QjvLilRSKZtAQwALSvWOElbnt+EnpSU9kPToGxx8PY4WCuBbPDAIgoAFG3kGKHVaKdHPU2EjWrP7zkwnenz52eBwAGCC0tgpJJcyT7oi/7QCta5EVIGgYAQdg99cppoic7i/L+DGtMU5wFMVtoZhi2MOAQcfFlEgRJAooIRAIZsgwp2xFRLwXV1a0j1i14HZZBAJ5oaZGzviSwwwbEAAEtgpA0kAI7T77kIidTuNbxzdSoJeSsRp4NGDBEAIMIANEX3sGhRpnAzOGiMkISUaGQE4zAVWt1VfTeoW898BiImNEigT5L+EoAMeYJwnwLAB1nXH529PPMv8Z8O9UagzRrBpEJ9QVxROYLWACWmWU1KZJSIuuIdblBVb8a+cail7+4hz8JELe0SEomzYu/uC1+8kvv/8bLFH4mtUWatWECCZDAV3hZsCUGV5GSRgkUYt797edNuOH0225IrWxuVtPb2vQRA+LmZkVtbfrjc6+aULut95FE3pzYZQqWCUwgia/xKgJDg/REjys29IyonTPm1fvfL+3pSwMqPfjplMtn1nWmn3B8nUix1oJI4Ru8LLOuJqUCV/Z2NcZnj1n74HOVQFElMFtOu/xHtZ2pVvYDVSBrxNeslQraMh4LSa6yPfU1Fx391gPLyoESA/pMW5v+ZNpl59Z1plqN78sCWfttgQk3SbJA1ho/oERX7xNbvjf3fGpr09zSIisCYswTlEyaLef8dFzdntQy6wcyIOav2vGPEJQIiJn9gBJ7s60fN181gZJJw/PmiQEBMUBJfEjb5y2IRbftW+b6tqaomW8dzIGgCsTWCXRV1e7uZRuunleVnP8hMZgO1lBLi5iFpLFPvnZ7Q4HHp1jrb9PMKplfmo1uKHBTzWvtd85C0qBlluhHCqVYs3Xq5WfU7e59LR8EmglfHZsRAcxfKTBi6Kjjqs4hibOPWbNwZQlDiCw5nucxC9WVulNoC0tMFTcnZZgXlDYpBCBF+d8Huu/7flGLvv+J+pKk/etXtnRLTKQN3L3dd3Jrq0QyyQAgVzY3q2O2LjFLX+i4sCEdXJcygSEqY2pCAFrD9qRDLJ4TJmfpLJDzQRG3fyBgBhcC0JA6cDYPMjbcLBE4mwcbE/7eWMBawDJgDDiVBVkurs9lAiiJAltTDzV897tbPkrseO8Dbm5WxIAgZt427qK3anN2UhraDpgFCAFk8+DGBCI/OQ/emSdBDqkHjEWwZSfyT66C/1QbhOcWpQ9wtoDojVcgfvE5KPyhHakrbgH5AThfgDr7FMSvuwgi6vWLihwYBBs+RW7JCtj/3QyqiYdgB84BTRxS9Ebke8M3PT4JRKE8O6ZddVrNrq61+cC3oAFYTQhwLg9x3Egklv4L3NFDB3xB6pEXkfnFPRDxCJD3geGNaHzzAYii+XTNvRnBM2+AIw7qnr8L3gljyptUwce+q2+HXv46KBEPtTgQKGYbczyRGpo4Y8TqhW8IAKDu3jkxS2Cick+BSaD67r8PwfhB//vaAIFG9ZyZcP9yKrg3CxCBol54z4YmRbEIYCwoEoEofoceoNwJNITnova31wGjBgOFoL//9fdRG7FgdKfmAIBov3uFJ/zgvKzVA2YOEAKcyUNNHAtvYlO4AdeBv7kDXdfcgZ7bHgErCTghKarxx4QkUGK2ksMLcYA/cOgvMiQT05NBetFypP/reZiedLhWoCGrY/DOnwJO58qTDiByVhN8fd5nd7RGVezp5yYqy2PybJgGMjcCoDXEUUNBzEV7lkjdvATBkmeBugQo6iE2ZybMni4Ufr8KVBUta/cHZZFEsHv2IXX978A9XTB3/SMS110MthbEDHXcSOQrZNEEiDwbdg2N9p9eNUlhX+/pcSsoBRgCZFnq9f0+aQOIzvo+9LoNQGcPsr+8D/lFT4NzBVAqC8Q8IFs4/KDiOZDjjgaCEXBP/E4/KudCcMgYxgQbYyHzPekzFRXM5FItXCZ/B3kO9MYtsIEOHdxYxH4wBe7Esci/vB6F51YjeOUdCGYgEQfMl2gDWIYaNRgN//NbkOdAuGEoIEfBFgIUVqyBiLqhiVZQNrMF+f5kQcYcb9iirNcxA1EPtr0D6YXL99s9Ag01tAFVP56JhsduRO2zt4FOHQfuzYSx5kslEgRZHYNwVOijHJqr7c3A5n2w4UOUokSaGdLYJkHGDtPhAuUfMRaiOobczf+JnrtbYVLZ/SRQuh85dTzql/0bxMljgUz+kJG+rGmrYpbAgBpUi4anboGYNBbI5MquyQBptgBjmGCiOgMGHaq/QATyXORufBB7v/9z7Lv2LqQWPwO9uwuQAuwHkFEP8X+6BLaUARxmm4YLAXKvrEfuxTeRe/UdmO50mFppAxmPouqf58JWNjkyYT8poYRlyYebXAYasq4avKMT/tIXUXjoWWTv+2/UL78VzohBADO8iU0QIwcDHXvKx44vrG27U+iZexOQzgHMEBPGoP6pW6DqawBmuH9xHMTwRqCzJ7SMgUiCCCLQJA7Z7SICtA5/NnIwbDYPSAEalIAYORi8eRvyz60Jf2cZojoGakiAtT58LQmCrKuGrK+GHNYAu/FT6A2f7hcIRTxQVSwMxIdYU7AgU7n1w2AhUb3wl2hY9TtULbgBlgH+vBvI5MCBhmhM9NGNZUCXAuvhM53t7IXt7IHd0QmOeqGWiwJlrUP6FhXWZIZ1FCsA+ySoMQD4ID8iAgoB6KghiMw4FQJA/IenQw6pQ/qOx2A/3o7IT85H7IdnFKVH0Lv3wm7vBLnO4dVADCDiwb34HFC+ACsFIn81De6YESH9E8F07IHdtTdkwQHWZIAViCyhR7EUOyWJRh0SPR1E2Z6C3b4HwcZP4Y0/BlwIEDn1u4g8cRNswQ+zawDwNeAqZJesAPb2hMG1tMaBf+lgycpEHHV3/PwgZoVlwJHILn0BlM4B9TVlY5wigk/YJUiKTYoEuJw4hQDlfKRvXQomCmseLlK55/Zlwa5C5slVyN2T7MuOje1zYqK+dMgYcImCmcOPNn0fLuZ5jkJ62UrkFz8Dqq0qC4bAVpEApNgkrOusp0r2biyoJg79/Dp0zb0J+Tc3wuYLfcmiFAi27kL3rxYidfXtRbMA4Lkwn+1GftW7gBAIdnQiePuj0LnTOeSfXR2+Uoq++FP8WF+j8MEn2Hf9vUhfc0e4ZmU3B5GAdZz1tO3MK6e427pWh6xUgWeFCLMA1wEdPRTyqKFAPALu7IbZtBXY0x1KsUQMFMYRjnlQk46H2dwB3vY5KOYBxoZKGDc6NM2SsRc1b/elYLfuAqWzoERVf5MtUxRJpSg7or6Ztsx7KOI9umJD3LdjcrC24gRBSSBXABsbFnDGhDWOFEA8GtZJxgKO3L85CAKncyDPBTwHHGiQIHDe34+BGGE5LgRIybB2irhgxzmcvNB6ECLjiq07Z58zXt7dtlz/w9CTmmoNnZJjUx4QEZAvgI4ehsi8S+FccCbsH3eCM3mIIfXgzh4gHg0lmsmHEq+tDmuj6hjIc2HTObhzZoaymTwOVluIs04G/3EXaMSgEEyggaH1YCFAheCQcYcBUyMcykVUa1Py33+vAIAbEo/kduy9GoZF2eguBDidQ2TOTOjn1kC//wlQWwXvZxdCHjschYdfgDz9RKgJY+A//hKosRbO+achd/PDcM88CXpXJ1zXhaivAUYMgve358LeuwxqaANM80lwZ8+A3bgF/gvr4F3x14CUyP96EZDOhhZQPv6IggDpuvijYWAFxKLX7luXVvRuFSlisKkU0W13GuLYEZATmyBGDIIYPgi6vQPqe9+FcBT81e9DTRgDk8pA1NVATTgWclAtnElNkENCyXMmB7N5W5irDa6DHN4Is3YDWBDUaROg3/4I1JsJ/c1WimVs4qSoV/H7o15f+Po8QCg0N4v5RPqKyXN/I4PsE6z1wEqyBlQTh//wCrhXXgA5fjT8+59C4DpQE5tQWPgUZNNRsNk8gqKd+K+uh3lvM3j3XsipJyBY/R4Qi4A79kA31oIDDf/FdeCcD7gKkBI2m4d3w49BngtO5Spm7ZYBR0kyNfFbichyc7Oioh2KJLfStOOXvZ3I25PT0GbAVlaxh8apHAAGVcfA+QAINKgqut/hS6zFgQY5CswM5ANQ1C3GGAn2g/CePaDRFATAkHqo6RNhO/bArt9UNhllsIlDyV5PfNC+4KcTz5o+3RKKTe5SG7Vj2t+dVbure2Uu8Mu3ggl9UjN2fw8upGqg38i7mLAe9J0PyOD7PRN2WTlXACkBRL2yvkMMHXNctXdQzbmj1y16uYSBvjhL/eyE2QuGpc2VnabwjU/r+gmMUbbRYhm6UbpqV0w+NGrjo5eW9t4vswrHKS1i/NXjo42v/t/6qpxuSkGbP7cJhAWbKkiZiaiPe2ccP+k79yANzOdSrnPgGIJb5o3nCffNT/ujBv+N78i0y0LYUoH/5wHGukxCOyqbG9rQMvae+b2lvZedsZbU9/HUy37QuCf1jPYDBMT4tgdfFmwdJijXoZ7G6gtGr1v8zEBj/opD461TLmtJfJ563PqBKBB/q0Njl0lK1+F9DdHZx7y55PHDHhoDALW1aW5uVqPXLk7uHVRzAbluqgpSWmb9jYNh1lWQUrhupmtwzY8qgSkL6EBQY9Y+8Ozno+uag6j7YYN0FTPbb8KvLNgys22QrvKjzqa9o+qbj13zwPJDHbyo6BfU1qZXNjersa/8xx/azx07ZV+1uyjmuKIaSjBbw18DMAZby9ZUQYm444l9Vc7iLWeOPu24lfe/s/IQYCo3F7847i8eHNo+9coZka7UTTHfTtbGIMPahuU8BI7w8FIxLFswizgpoaRE1qV3svXxX49as3gFEB5rm4VDHzU7suNlzGLX5Etnq3TuWi/gyZ5lZK1BgQ2YYMLgH7LiQMfLQpplLtZC0iOJmJAoCILviPU6HrnnmvUPPpIkMl/L8bIDr36SkgI7p10+3enKtLAfzIC2Y2IsEB4ALB4CBPc1HJkhQVAHHADMkQUr8Qk77sumJtI67K0HXy31KQ5XK38SoNJzK5ub5YExYPuCp2O09IVTRCZ7OhX8U2BsE1s7jBm1ItAEANZRTIQeIrEDSraTq9YjHntjxwVT1p90/SWZ0lrF+GJw+J29/df/Awx74L8laXZeAAAAAElFTkSuQmCC" alt="SIB Consulting">
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">SIB CONSULTING</span>
+        <span class="nav-brand-sub">Strategic Intelligence &amp; Transformation</span>
       </div>
-    </a>
-    <div class="nav-menu">
-      <div class="nav-item"><a href="platform.html">Platform</a></div>
-      <div class="nav-item">
-        <button>Intelligence <span class="arr">▼</span></button>
-        <div class="dd">
-          <div class="dd-section">Areas</div>
-          <a href="domains.html"><span class="dd-dot" style="background:var(--blue)"></span>Intelligence Areas</a>
-          <a href="industry-ai.html"><span class="dd-dot" style="background:var(--c-ai)"></span>Agentic AI</a>
-          <a href="industry-sustainability.html"><span class="dd-dot" style="background:var(--c-sus)"></span>Sustainability</a>
-          <a href="industry-supply-chain.html"><span class="dd-dot" style="background:var(--c-sc)"></span>Supply Chain</a>
-          <a href="industry-architecture.html"><span class="dd-dot" style="background:var(--c-arch)"></span>Architecture</a>
-          <a href="industry-education.html"><span class="dd-dot" style="background:var(--c-edu)"></span>Education</a>
-          <a href="industry-healthcare.html"><span class="dd-dot" style="background:var(--c-health)"></span>Healthcare</a>
-          <a href="industry-it.html"><span class="dd-dot" style="background:var(--c-it)"></span>IT</a>
-          <a href="industry-strategic-planning.html"><span class="dd-dot" style="background:var(--c-plan)"></span>Strategic Planning</a>
+    </div>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn">Intelligence ▾</button>
+        <div class="nav-drop-menu">
+          <div class="nav-drop-head">Practices</div>
+          <a href="industry-agentic-ai.html">Agentic AI</a>
+          <a href="industry-sustainability.html">Sustainability</a>
+          <a href="industry-supply-chain.html">Supply Chain &amp; Process</a>
+          <a href="industry-architecture.html">Architecture &amp; Interior Design</a>
+          <a href="industry-education.html">Education</a>
+          <a href="industry-healthcare.html">Healthcare</a>
+          <a href="industry-it.html">IT &amp; Digital</a>
+          <a href="industry-strategic-planning.html">Strategic Planning</a>
+          <div class="nav-drop-sep"></div>
+          <a href="domains.html">All Intelligence Areas →</a>
         </div>
       </div>
-      <div class="nav-item"><a href="leadership.html">Leadership</a></div>
-      <div class="nav-item">
-        <button>Insights <span class="arr">▼</span></button>
-        <div class="dd">
+      <div class="nav-drop">
+        <button class="nav-drop-btn">Insights ▾</button>
+        <div class="nav-drop-menu">
           <a href="briefing.html">Executive Briefing</a>
-          <a href="brief-ai-trends.html">AI Trends 2026</a>
+          <a href="brief-ai-trends.html">Agentic AI Trends 2026</a>
           <a href="brief-sustainability.html">Sustainability Report</a>
           <a href="brief-supply-chain.html">Supply Chain Resilience</a>
           <a href="brief-healthcare.html">Healthcare Innovation</a>
-          <a href="brief-digital.html">Digital Transformation</a>
-          <div class="dd-divider"></div>
-          <a href="blog-1.html">Blog: Agentic AI Future</a>
-          <a href="blog-2.html">Blog: Sustainable Supply Chains</a>
-          <a href="blog-3.html">Blog: Healthcare Architecture</a>
-          <a href="blog-4.html">Blog: EdTech Revolution</a>
-          <a href="blog-5.html">Blog: Green Building Standards</a>
         </div>
       </div>
-      <div class="nav-item"><a href="about.html">About</a></div>
+      <a href="leadership.html">Leadership</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
-    <div class="nav-right">
-      <a href="contact.html" class="nav-cta">Contact</a>
-    </div>
-    <div class="hamburger"><span></span><span></span><span></span></div>
+    <a href="contact.html" class="nav-cta">Request Briefing</a>
+    <button class="hb" onclick="openMob()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div class="mobile-nav">
-  <button class="mn-close">&times;</button>
-  <div class="mn-section">Navigation</div>
-  <a href="index.html">Home</a>
-  <a href="platform.html">Platform</a>
-  <a href="domains.html">Intelligence Areas</a>
-  <a href="leadership.html">Leadership</a>
-  <a href="briefing.html">Executive Briefing</a>
-  <div class="mn-section">Industries</div>
-  <a href="industry-ai.html">Agentic AI</a>
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="home.html">Home</a>
+  <a href="industry-agentic-ai.html">Agentic AI</a>
   <a href="industry-sustainability.html">Sustainability</a>
   <a href="industry-supply-chain.html">Supply Chain</a>
   <a href="industry-architecture.html">Architecture</a>
   <a href="industry-education.html">Education</a>
   <a href="industry-healthcare.html">Healthcare</a>
-  <a href="industry-it.html">IT</a>
+  <a href="industry-it.html">IT &amp; Digital</a>
   <a href="industry-strategic-planning.html">Strategic Planning</a>
-  <a href="industry-government.html">Government</a>
-  <div class="mn-section">Company</div>
-  <a href="about.html">About</a>
-  <a href="approach.html">Our Approach</a>
-  <a href="contact.html">Contact</a>
+  <a href="leadership.html">Leadership</a>
+  <a href="about.html">About SIB</a>
+  <a href="contact.html" class="mob-cta">Request Briefing</a>
 </div>
 
-<section class="domain-hero">
-  <div class="hero-bg"></div>
-  <div class="container">
-    <div class="icon">🎯</div>
-    <h1>Strategic Planning. <em>Direction Comes First.</em></h1>
-    <p>Strong organisations do not drift. They choose, align, and execute. EIG helps leadership teams set priorities and define a path that holds under pressure.</p>
-    <a href="leadership.html" class="btn-p" style="background:var(--c-alex)">Work with Dr. Alex Jones</a>
-  </div>
-</section>
-
-<section class="content-body">
-  <div class="container">
-    
-<div class="eyebrow">Strategic Planning</div>
-<h2 class="title" style="margin-bottom:2rem">Strategic Planning. <em>Direction Comes First.</em></h2>
-
-<p>Strong organisations do not drift. They choose. They align. They execute. EIG helps leadership teams set priorities, frame decisions, and define a path that holds under pressure. This is where clarity is created. This is where momentum begins.</p>
-
-<h3>What Dr. Alex Jones Brings</h3>
-<ul>
-<li><strong>Strategic Direction</strong> — Setting clear priorities and defining the path forward that holds under pressure.</li>
-<li><strong>Executive Alignment</strong> — Aligning leadership teams around shared priorities and decision frameworks.</li>
-<li><strong>Growth Priorities</strong> — Identifying and sequencing growth opportunities with clear execution logic.</li>
-<li><strong>Transformation Planning</strong> — Practical pathways from current state to improved performance.</li>
-<li><strong>Decision Support</strong> — Bringing structured intelligence to high-stakes leadership decisions.</li>
-</ul>
-
-<h3>Cross-Domain Connections</h3>
-<p><strong>All Domains</strong> — Strategic planning underpins every EIG domain, providing the direction and alignment that makes cross-domain execution possible.</p>
-
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2rem">
-  <div class="card" style="text-align:center">
-    <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--c-plan);margin-bottom:0.5rem">25+</div>
-    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)">Years Experience</div>
-  </div>
-  <div class="card" style="text-align:center">
-    <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--c-plan);margin-bottom:0.5rem">100+</div>
-    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)">Clients</div>
-  </div>
-  <div class="card" style="text-align:center">
-    <div style="font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--c-plan);margin-bottom:0.5rem">2</div>
-    <div style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey)">Published Books</div>
-  </div>
-</div>
-
-    <div class="leader-cta">
-      <div>
-        <h4>Work with Dr. Alex Jones on Strategic Planning</h4>
-        <p>Request a briefing to discuss how this domain expertise can support your organisation.</p>
+<section class="page-hero" style="background:radial-gradient(ellipse 60% 70% at 70% 50%,rgba(var(--accent-rgb),.06),transparent),var(--bg)">
+  <div class="ph-inner">
+    <div>
+      <div class="ph-kicker">Strategic Planning · Leadership · OD</div>
+      <h1 class="ph-h1" style="color:#fff">Strategy that<br><em>moves the organisation.</em></h1>
+      <p class="ph-deck">Leadership alignment, organisational design and strategic execution — built for the complexity of GCC enterprises and the speed of modern competition.</p>
+      <div class="ph-acts">
+        <a href="contact.html" class="btn-primary">Request Briefing →</a>
+        <a href="leadership.html" class="btn-sec">Meet the Leaders →</a>
       </div>
-      <a href="contact.html" class="btn-p" style="background:var(--c-alex)">Request Briefing</a>
+    </div>
+    <div class="ph-panel">
+      <div class="ph-panel-kicker" style="color:var(--accent)">Practice signal</div>
+      <h3>From strategy to execution</h3>
+      <p>Most strategies fail not in design but in execution. SIB Consulting's Strategic Planning practice closes the gap — aligning leadership, designing organisations and building the capability to execute.</p>
+      <div class="ph-stat-row">
+        <div><div class="ph-stat-n" style="color:var(--accent)">18yrs</div><div class="ph-stat-l">Leadership Experience</div></div>
+        <div><div class="ph-stat-n" style="color:var(--accent)">15+</div><div class="ph-stat-l">SCOPUS Publications</div></div>
+        <div><div class="ph-stat-n" style="color:var(--accent)">Forbes</div><div class="ph-stat-l">Coaches Council</div></div>
+      </div>
     </div>
   </div>
 </section>
 
+<div class="stat-band">
+  <div class="stat-band-inner"><div class="stat-item"><div class="stat-n" style="color:var(--accent)">18yrs</div><div class="stat-l">Experience</div></div><div class="stat-item"><div class="stat-n" style="color:var(--accent)">15+</div><div class="stat-l">Publications</div></div><div class="stat-item"><div class="stat-n" style="color:var(--accent)">Forbes</div><div class="stat-l">Council Member</div></div><div class="stat-item"><div class="stat-n" style="color:var(--accent)">UAE</div><div class="stat-l">Golden Visa</div></div></div>
+</div>
+
+<section class="section" style="background:var(--bg2)">
+  <div class="sec-inner">
+    <div class="sec-kicker">What we deliver</div>
+    <h2 class="sec-h2">Our Strategic Planning <em>practice.</em></h2>
+    <p class="sec-lead">Practical expertise, named leaders, measurable outcomes — across every dimension of strategic planning strategy and delivery.</p>
+    <div class="cards-4"><div class="card">
+  <div class="card-tag" style="background:rgba(255,255,255,.06);color:var(--accent)">Strategy</div>
+  <h3>Strategic Planning</h3>
+  <p>Corporate strategy, business unit strategy and strategic planning processes — built to be executed, not filed.</p>
+  <ul style="margin-top:.75rem"><li style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem;color:var(--soft)"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;margin-top:.45em"></span>Strategy development</li><li style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem;color:var(--soft)"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;margin-top:.45em"></span>Scenario planning</li><li style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem;color:var(--soft)"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;margin-top:.45em"></span>Strategic review</li>
+  </ul>
+</div><div class="card">
+  <div class="card-tag" style="background:rgba(255,255,255,.06);color:var(--accent)">Leadership</div>
+  <h3>Leadership Development</h3>
+  <p>Executive coaching, leadership programmes and leadership assessment — from individual capability to organisational culture.</p>
+  <ul style="margin-top:.75rem"><li style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem;color:var(--soft)"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;margin-top:.45em"></span>Executive coaching</li><li style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem;color:var(--soft)"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;margin-top:.45em"></span>Leadership programmes</li><li style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem;color:var(--soft)"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;margin-top:.45em"></span>360 assessment</li>
+  </ul>
+</div><div class="card">
+  <div class="card-tag" style="background:rgba(255,255,255,.06);color:var(--accent)">OD</div>
+  <h3>Organisational Design</h3>
+  <p>Operating model design, organisational structure, role design and workforce planning — built for strategic alignment.</p>
+  <ul style="margin-top:.75rem"><li style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem;color:var(--soft)"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;margin-top:.45em"></span>Operating model</li><li style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem;color:var(--soft)"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;margin-top:.45em"></span>Org structure design</li><li style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem;color:var(--soft)"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;margin-top:.45em"></span>Workforce planning</li>
+  </ul>
+</div><div class="card">
+  <div class="card-tag" style="background:rgba(255,255,255,.06);color:var(--accent)">Execution</div>
+  <h3>Strategy Execution</h3>
+  <p>OKRs, performance management, strategic KPIs and execution governance — closing the strategy-to-results gap.</p>
+  <ul style="margin-top:.75rem"><li style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem;color:var(--soft)"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;margin-top:.45em"></span>OKR frameworks</li><li style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem;color:var(--soft)"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;margin-top:.45em"></span>Performance management</li><li style="display:flex;align-items:baseline;gap:.6rem;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem;color:var(--soft)"><span style="width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0;display:inline-block;margin-top:.45em"></span>Execution governance</li>
+  </ul>
+</div></div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--bg)">
+  <div class="sec-inner">
+    <div class="sec-kicker">Named domain leader</div>
+    <h2 class="sec-h2">Led by <em>real expertise.</em></h2>
+    <p class="sec-lead">SIB Consulting's Strategic Planning practice is led by a named expert with verifiable credentials and a proven track record — not a generic team.</p>
+    <div class="leader-card" style="max-width:860px">
+      <div class="leader-avatar" style="background:var(--accent);border-color:var(--accent)">AJ</div>
+      <div>
+        <div class="leader-name">Dr. Alex Jones</div>
+        <div class="leader-title" style="color:var(--accent)">Lead — Strategic Planning & Organisational Development</div>
+        <div class="leader-bio">Dr. Alex Jones is a PhD in Leadership, Forbes Coaches Council Official Member and author of 15+ peer-reviewed papers indexed in SCOPUS. Associate Professor of Leadership at Plekhanov Russian University of Economics, Dubai, and UAE Golden Visa holder. 18 years building leadership capability across UAE, GCC and global organisations.</div>
+        <a href="leadership.html" style="display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:700;color:var(--accent);margin-top:.75rem">View full biography →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" style="background:var(--bg2)">
+  <div class="cta-inner">
+    <h2 class="cta-h2">Close the gap between<br><em>strategy and results.</em></h2>
+    <p class="cta-p">SIB Consulting's Strategic Planning practice brings academic rigour and practical delivery capability to your most important strategic challenges.</p>
+    <a href="contact.html" class="btn-primary">Request Briefing →</a>
+  </div>
+</section>
 <footer>
-  <div class="footer-inner">
-    <a href="index.html" class="footer-brand">
-      <img src="assets/images/eig-logo.png" alt="EIG" class="logo-img">
-      <span class="logo-text">Ecosystem Intelligence <span>Group</span></span>
-    </a>
-    <div class="footer-links">
-      <a href="platform.html">Platform</a>
-      <a href="domains.html">Intelligence Areas</a>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="data:image/png;base64,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" alt="SIB Consulting">
+        <div class="footer-brand-text">
+          <span class="footer-brand-name">SIB CONSULTING</span>
+          <span class="footer-brand-sub">Strategic Intelligence &amp; Transformation</span>
+        </div>
+      </div>
+      <p class="footer-tag">Where Intelligence Creates Value. Strategic Intelligence &amp; Transformation across eight domains. UAE · GCC · MENA.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Intelligence</h4>
+      <a href="industry-agentic-ai.html">Agentic AI</a>
+      <a href="industry-sustainability.html">Sustainability</a>
+      <a href="industry-supply-chain.html">Supply Chain</a>
+      <a href="industry-healthcare.html">Healthcare</a>
+      <a href="industry-architecture.html">Architecture</a>
+      <a href="industry-education.html">Education</a>
+      <a href="industry-it.html">IT &amp; Digital</a>
+      <a href="industry-strategic-planning.html">Strategic Planning</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About SIB</a>
       <a href="leadership.html">Leadership</a>
-          <a href="briefing.html">Briefing</a>
-      <a href="about.html">About</a>
-      <a href="approach.html">Approach</a>
+      <a href="briefing.html">Executive Briefing</a>
       <a href="contact.html">Contact</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
     </div>
-    <div class="footer-r">
-      <div class="footer-copy">© 2026 Ecosystem Intelligence Group. All rights reserved.</div>
-      <div class="footer-sib">A Practice of <a href="https://sibconsulting.com" target="_blank" rel="noopener">SIB Consulting</a></div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
     </div>
+  </div>
+  <div class="footer-bot">
+    <div class="footer-copy">© 2026 SIB Consulting FZCO. All rights reserved. Dubai, UAE.</div>
+    <div class="footer-copy">info@teamsib.com</div>
   </div>
 </footer>
-<script src="assets/shared.js"></script>
+<script>
+function openMob(){ document.getElementById('mobNav').classList.add('open'); }
+function closeMob(){ document.getElementById('mobNav').classList.remove('open'); }
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').style.borderBottomColor = scrollY>20?'rgba(232,24,74,0.3)':'rgba(255,255,255,0.08)';
+},{passive:true});
+</script>
 </body>
 </html>

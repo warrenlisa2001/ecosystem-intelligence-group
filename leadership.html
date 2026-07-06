@@ -3,535 +3,417 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leadership | EIG</title>
-<meta name="description" content="Ecosystem Intelligence Group - A multi-sector intelligence and delivery platform connecting domain leaders across AI, sustainability, supply chain, architecture, education, healthcare, IT and strategic planning.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/shared.css">
-
+<title>Leadership | SIB Consulting</title>
+<meta name="description" content="Meet SIB Consulting's eight named domain leaders — Agentic AI, Sustainability, Supply Chain, Healthcare, Architecture, Education, IT and Strategic Planning. UAE, GCC.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.teamsib.com/leadership.html">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
 <style>
-.content-hero{min-height:50vh;display:flex;align-items:center;padding-top:120px;padding-bottom:60px;position:relative;overflow:hidden}
-.content-hero .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(0,102,255,0.06),transparent 70%),var(--black)}
-.content-hero .container{position:relative;z-index:2}
-.content-hero h1{font-family:var(--serif);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-0.01em;margin-bottom:1rem}
-.content-hero h1 em{font-style:italic;color:var(--blue)}
-.content-hero p{font-size:17px;color:var(--mgrey);line-height:1.82;max-width:640px;font-weight:300}
-.leaders-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem;margin-top:3rem}
-.leader-card{display:grid;grid-template-columns:200px 1fr;gap:0;border:1px solid rgba(255,255,255,0.07);border-radius:2px;overflow:hidden;transition:border-color 0.2s;text-decoration:none}
-.leader-card:hover{border-color:rgba(0,102,255,0.25)}
-.leader-img{background:var(--navy);display:flex;align-items:center;justify-content:center;min-height:240px;position:relative;overflow:hidden}
-.leader-img .placeholder{font-family:var(--serif);font-size:3rem;font-weight:700;color:rgba(255,255,255,0.08)}
-.leader-info{padding:1.5rem;display:flex;flex-direction:column;justify-content:center}
-.leader-info .domain-tag{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;margin-bottom:0.5rem}
-.leader-info h3{font-family:var(--serif);font-size:1.4rem;font-weight:700;margin-bottom:0.2rem;color:var(--white)}
-.leader-info .role{font-size:12px;color:var(--mgrey);margin-bottom:0.8rem;font-weight:500}
-.leader-info .bio{font-size:13px;color:var(--mgrey);line-height:1.7;margin-bottom:1rem}
-.leader-info .expertise{display:flex;flex-wrap:wrap;gap:0.3rem}
-.leader-info .expertise span{font-size:10px;padding:0.2rem 0.6rem;border:1px solid rgba(255,255,255,0.1);border-radius:100px;color:var(--mgrey);letter-spacing:0.05em}
-@media(max-width:1100px){
-  .leaders-grid{grid-template-columns:1fr}
-  .leader-card{grid-template-columns:1fr}
-  .leader-img{min-height:180px}
-}
-.leader-card{cursor:pointer}
-.leader-info .read-more{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--blue2);font-weight:600;margin-top:0.9rem;display:inline-flex;align-items:center;gap:0.35rem}
-.leader-info .read-more::after{content:'→';transition:transform 0.2s}
-.leader-card:hover .read-more::after{transform:translateX(3px)}
 
-.bio-modal-overlay{position:fixed;inset:0;background:rgba(2,6,13,0.82);backdrop-filter:blur(4px);z-index:999;display:none;align-items:flex-start;justify-content:center;padding:6vh 1.5rem 4rem;overflow-y:auto}
-.bio-modal-overlay.open{display:flex}
-.bio-modal{background:var(--navy);border:1px solid rgba(255,255,255,0.08);border-radius:4px;max-width:760px;width:100%;position:relative;animation:bioIn 0.25s ease}
-@keyframes bioIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.bio-modal-close{position:absolute;top:1.1rem;right:1.1rem;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,0.12);background:transparent;color:var(--mgrey);font-size:18px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;z-index:2}
-.bio-modal-close:hover{border-color:rgba(255,255,255,0.3);color:var(--white)}
-.bio-modal-head{display:flex;gap:1.5rem;padding:2.5rem 2.5rem 1.5rem;align-items:flex-start;border-bottom:1px solid rgba(255,255,255,0.06)}
-.bio-modal-photo{width:96px;height:96px;border-radius:4px;background:var(--black);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.bio-modal-photo img{width:100%;height:100%;object-fit:cover}
-.bio-modal-photo .placeholder{font-family:var(--serif);font-size:2rem;font-weight:700;color:rgba(255,255,255,0.1)}
-.bio-modal-headtext .domain-tag{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;margin-bottom:0.5rem}
-.bio-modal-headtext h2{font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--white);margin-bottom:0.2rem}
-.bio-modal-headtext .role{font-size:13px;color:var(--mgrey);font-weight:500}
-.bio-modal-body{padding:1.8rem 2.5rem 2.5rem;font-size:14.5px;line-height:1.85;color:var(--mgrey)}
-.bio-modal-body p{margin-bottom:1.1rem}
-.bio-modal-body p:last-child{margin-bottom:0}
-.bio-modal-body .pull-quote{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--white);border-left:2px solid var(--blue);padding-left:1.1rem;margin:1.6rem 0}
-.bio-modal-body .expertise{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.6rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,0.06)}
-.bio-modal-body .expertise span{font-size:10.5px;padding:0.3rem 0.7rem;border:1px solid rgba(255,255,255,0.1);border-radius:100px;color:var(--mgrey);letter-spacing:0.05em}
-@media(max-width:600px){
-  .bio-modal-head{flex-direction:column;padding:2rem 1.5rem 1.2rem}
-  .bio-modal-body{padding:1.5rem 1.5rem 2rem}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#06090f;--bg2:#0b0f1a;--bg3:#0f1420;
+  --red:#E8184A;--blue:#1a6bff;--blue2:#4d9aff;
+  --cyan:#71e4ff;--green:#00e676;--gold:#d8b36a;--purple:#9b7bff;
+  --text:#f0f4ff;--muted:#8892a4;--soft:#b8c4d8;
+  --line:rgba(255,255,255,.08);--max:1380px;
 }
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+.nav{position:sticky;top:0;z-index:400;background:rgba(6,9,15,.95);backdrop-filter:blur(24px);border-bottom:1px solid var(--line);transition:border-color .3s}
+.nav-top{max-width:var(--max);margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;gap:1.5rem}
+.nav-brand{display:flex;align-items:center;gap:14px;flex-shrink:0}
+.nav-brand img{height:52px;width:auto}
+.nav-brand-text{display:flex;flex-direction:column;line-height:1.2}
+.nav-brand-name{font-size:.95rem;font-weight:900;letter-spacing:.05em;color:#fff}
+.nav-brand-sub{font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.nav-links{display:flex;align-items:center;margin-left:auto}
+.nav-links a{font-size:.8rem;font-weight:500;color:var(--muted);padding:.5rem 1rem;border-radius:4px;transition:color .2s;white-space:nowrap;position:relative}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-links a.active::after{content:"";position:absolute;bottom:0;left:1rem;right:1rem;height:2px;background:var(--red);border-radius:1px}
+.nav-drop{position:relative}
+.nav-drop-btn{font-size:.8rem;font-weight:500;color:var(--muted);padding:.5rem 1rem;cursor:pointer;background:none;border:none;font-family:inherit;display:flex;align-items:center;gap:4px;transition:color .2s;white-space:nowrap}
+.nav-drop-btn:hover{color:#fff}
+.nav-drop-menu{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:rgba(9,13,24,.98);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:.4rem;min-width:220px;opacity:0;visibility:hidden;transition:all .2s;z-index:500;backdrop-filter:blur(20px)}
+.nav-drop:hover .nav-drop-menu{opacity:1;visibility:visible}
+.nav-drop-menu a{display:block;padding:.55rem 1rem;font-size:.8rem;color:var(--muted);border-radius:4px;transition:all .15s;white-space:nowrap}
+.nav-drop-menu a:hover{background:rgba(26,107,255,.1);color:#fff}
+.nav-drop-head{font-size:.62rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(26,107,255,.5);padding:.5rem 1rem .25rem}
+.nav-drop-sep{height:1px;background:rgba(255,255,255,.07);margin:.3rem .5rem}
+.nav-cta{display:inline-flex;align-items:center;background:var(--red);color:#fff;font-size:.8rem;font-weight:700;padding:.55rem 1.4rem;border-radius:4px;margin-left:.75rem;transition:opacity .2s;flex-shrink:0}
+.nav-cta:hover{opacity:.88}
+.hb{display:none;flex-direction:column;gap:5px;background:none;border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:8px 10px;cursor:pointer;margin-left:auto}
+.hb span{display:block;width:20px;height:1.5px;background:#fff;border-radius:999px}
+.mob-nav{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(6,9,15,.98);z-index:399;overflow-y:auto;padding:5rem 2rem 2rem}
+.mob-nav.open{display:block}
+.mob-nav a{display:block;font-size:1rem;color:var(--soft);padding:1rem 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.mob-cta{display:block;margin-top:1.5rem;background:var(--red);color:#fff!important;text-align:center;padding:1rem;border-radius:4px;font-weight:700;border:none}
+.mob-close{position:absolute;top:1.5rem;right:1.5rem;background:none;border:1px solid rgba(255,255,255,.2);color:#fff;width:36px;height:36px;border-radius:4px;cursor:pointer;font-size:1.1rem}
+.page-hero{padding:7rem 2rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.ph-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.ph-kicker{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.ph-kicker::before{content:"";width:16px;height:1.5px;border-radius:1px}
+.ph-h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.6rem,4.5vw,4.2rem);font-weight:700;line-height:1.04;letter-spacing:-.025em;margin-bottom:1rem}
+.ph-h1 em{font-style:italic;font-weight:400}
+.ph-deck{font-size:1.05rem;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:2rem;max-width:520px}
+.ph-acts{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;font-size:.88rem;font-weight:700;padding:.9rem 2rem;border-radius:4px;transition:opacity .2s}
+.btn-primary:hover{opacity:.88}
+.btn-sec{display:inline-flex;align-items:center;gap:6px;background:transparent;color:var(--soft);font-size:.88rem;font-weight:600;padding:.9rem 1.75rem;border-radius:4px;border:1px solid rgba(255,255,255,.18);transition:all .2s}
+.btn-sec:hover{border-color:rgba(255,255,255,.4);color:#fff}
+.ph-panel{background:rgba(11,15,26,.9);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:2rem}
+.ph-panel-kicker{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.5rem}
+.ph-panel h3{font-family:"Playfair Display",Georgia,serif;font-size:1.4rem;font-weight:600;margin-bottom:.75rem;line-height:1.2}
+.ph-panel p{font-size:.88rem;color:var(--muted);line-height:1.75;margin-bottom:1.25rem}
+.ph-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;border-top:1px solid var(--line);padding-top:1.25rem}
+.ph-stat-n{font-size:1.6rem;font-weight:900;color:#fff}
+.ph-stat-l{font-size:.7rem;color:var(--muted);margin-top:2px}
+.section{padding:6rem 2rem}
+.sec-inner{max-width:var(--max);margin:0 auto}
+.sec-kicker{font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue2);margin-bottom:1rem;display:flex;align-items:center;gap:10px}
+.sec-kicker::before{content:"";width:16px;height:1.5px;background:var(--blue2)}
+.sec-h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;line-height:1.06;letter-spacing:-.025em;margin-bottom:1rem}
+.sec-h2 em{font-style:italic;font-weight:400}
+.sec-lead{font-size:1rem;font-weight:300;color:var(--muted);line-height:1.8;max-width:680px;margin-bottom:3rem}
+.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.cards-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.cards-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:2rem;transition:border-color .2s}
+.card:hover{border-color:rgba(255,255,255,.2)}
+.card-tag{font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;padding:.3rem .7rem;border-radius:3px;display:inline-block}
+.card h3{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:.6rem;line-height:1.3}
+.card p{font-size:.85rem;color:var(--muted);line-height:1.75}
+.card ul{list-style:none;margin-top:.75rem}
+.card ul li{font-size:.83rem;color:var(--soft);padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;align-items:baseline;gap:.6rem}
+.card ul li::before{content:"";width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:.4em}
+.stat-band{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:4rem 2rem}
+.stat-band-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center}
+.stat-item{padding:2rem;border-right:1px solid var(--line)}
+.stat-item:last-child{border-right:none}
+.stat-n{font-family:"Playfair Display",Georgia,serif;font-size:2.8rem;font-weight:700;color:#fff;letter-spacing:-.03em}
+.stat-l{font-size:.78rem;color:var(--muted);margin-top:.4rem;letter-spacing:.04em}
+.leader-card{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:center;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:2rem}
+.leader-avatar{width:72px;height:72px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;color:#fff;flex-shrink:0}
+.leader-name{font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.leader-title{font-size:.8rem;color:var(--muted);margin-bottom:.75rem}
+.leader-bio{font-size:.85rem;color:var(--soft);line-height:1.75}
+.cta-band{padding:6rem 2rem;text-align:center}
+.cta-inner{max-width:700px;margin:0 auto}
+.cta-h2{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2.2rem,4vw,3.6rem);font-weight:700;line-height:1.06;letter-spacing:-.025em;margin-bottom:1rem}
+.cta-h2 em{font-style:italic;font-weight:400}
+.cta-p{font-size:1rem;color:var(--muted);line-height:1.8;margin-bottom:2rem}
+footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 2rem 2.5rem}
+.footer-grid{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:4rem;margin-bottom:4rem}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:1rem}
+.footer-brand img{height:48px;width:auto}
+.footer-brand-text{display:flex;flex-direction:column;line-height:1.2}
+.footer-brand-name{font-size:.9rem;font-weight:900;letter-spacing:.05em;color:#fff}
+.footer-brand-sub{font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.footer-tag{font-size:.82rem;color:var(--muted);line-height:1.7;max-width:260px}
+.footer-col h4{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(26,107,255,.5);margin-bottom:1.25rem}
+.footer-col a{display:block;font-size:.82rem;color:var(--muted);margin-bottom:.5rem;transition:color .2s}
+.footer-col a:hover{color:var(--blue2)}
+.footer-bot{max-width:var(--max);margin:0 auto;padding-top:2rem;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-copy{font-size:.75rem;color:rgba(255,255,255,.2)}
+@media(max-width:1100px){.ph-inner,.cards-4{grid-template-columns:1fr 1fr}.cards-3{grid-template-columns:1fr 1fr}.stat-band-inner{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem}}
+@media(max-width:768px){.nav-links,.nav-cta{display:none}.hb{display:flex}.ph-inner,.cards-2,.cards-3,.cards-4{grid-template-columns:1fr}.stat-band-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}.ph-acts{flex-direction:column}.btn-primary,.btn-sec{width:100%;justify-content:center}}
+
+:root { --accent:#E8184A; }
+.ph-kicker { color:#E8184A; }
+.ph-kicker::before { background:#E8184A; }
+.sec-h2 em { color:#E8184A; }
 </style>
-
 </head>
 <body>
-<div id="ticker">
-  <div class="ticker-track">
-    <div class="t-item"><b>AI</b>Agentic Artificial Intelligence</div>
-    <div class="t-item"><b>SUS</b>Sustainability</div>
-    <div class="t-item"><b>SC</b>Supply Chain & Process</div>
-    <div class="t-item"><b>ARCH</b>Architecture & Interior Design</div>
-    <div class="t-item"><b>EDU</b>Education</div>
-    <div class="t-item"><b>HEALTH</b>Healthcare</div>
-    <div class="t-item"><b>IT</b>Information Technology</div>
-    <div class="t-item"><b>PLAN</b>Strategic Planning</div>
-    <div class="t-item"><b>AI</b>Agentic Artificial Intelligence</div>
-    <div class="t-item"><b>SUS</b>Sustainability</div>
-    <div class="t-item"><b>SC</b>Supply Chain & Process</div>
-    <div class="t-item"><b>ARCH</b>Architecture & Interior Design</div>
-    <div class="t-item"><b>EDU</b>Education</div>
-    <div class="t-item"><b>HEALTH</b>Healthcare</div>
-    <div class="t-item"><b>IT</b>Information Technology</div>
-    <div class="t-item"><b>PLAN</b>Strategic Planning</div>
-  </div>
-</div>
-<nav id="nav">
-  <div class="nav-inner">
-    <a href="https://www.teamsib.com" class="nav-logo" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0">
-      <img src="data:image/png;base64,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" alt="SIB Consulting" style="width:40px;height:40px;border-radius:50%;object-fit:cover;display:block;flex-shrink:0">
-      <div style="display:flex;flex-direction:column;gap:2px">
-        <div style="font-size:12.5px;font-weight:700;color:#fff;letter-spacing:0.06em;text-transform:uppercase;line-height:1;font-family:Inter,sans-serif">SIB Consulting</div>
-        <div style="font-size:8.5px;letter-spacing:0.1em;color:rgba(255,255,255,0.4);text-transform:uppercase;font-weight:500;font-family:Inter,sans-serif">Ecosystem Intelligence Group</div>
+<nav class="nav" id="nav">
+  <div class="nav-top">
+    <div class="nav-brand">
+      <img src="data:image/png;base64,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" alt="SIB Consulting">
+      <div class="nav-brand-text">
+        <span class="nav-brand-name">SIB CONSULTING</span>
+        <span class="nav-brand-sub">Strategic Intelligence &amp; Transformation</span>
       </div>
-    </a>
-    <div class="nav-menu">
-      <div class="nav-item"><a href="platform.html">Platform</a></div>
-      <div class="nav-item">
-        <button>Intelligence <span class="arr">▼</span></button>
-        <div class="dd">
-          <div class="dd-section">Areas</div>
-          <a href="domains.html"><span class="dd-dot" style="background:var(--blue)"></span>Intelligence Areas</a>
-          <a href="industry-ai.html"><span class="dd-dot" style="background:var(--c-ai)"></span>Agentic AI</a>
-          <a href="industry-sustainability.html"><span class="dd-dot" style="background:var(--c-sus)"></span>Sustainability</a>
-          <a href="industry-supply-chain.html"><span class="dd-dot" style="background:var(--c-sc)"></span>Supply Chain</a>
-          <a href="industry-architecture.html"><span class="dd-dot" style="background:var(--c-arch)"></span>Architecture</a>
-          <a href="industry-education.html"><span class="dd-dot" style="background:var(--c-edu)"></span>Education</a>
-          <a href="industry-healthcare.html"><span class="dd-dot" style="background:var(--c-health)"></span>Healthcare</a>
-          <a href="industry-it.html"><span class="dd-dot" style="background:var(--c-it)"></span>IT</a>
-          <a href="industry-strategic-planning.html"><span class="dd-dot" style="background:var(--c-plan)"></span>Strategic Planning</a>
-          <div class="dd-divider"></div>
-          <div class="dd-section">Services</div>
-          <a href="services-ai.html">AI & Machine Learning</a>
-          <a href="services-sustainability.html">Sustainability Consulting</a>
-          <a href="services-supply-chain.html">Supply Chain Optimization</a>
-          <a href="services-architecture.html">Architecture & Design</a>
-          <a href="services-education.html">Education Solutions</a>
-          <a href="services-healthcare.html">Healthcare Innovation</a>
-          <a href="services-it.html">IT & Digital Transformation</a>
+    </div>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn">Intelligence ▾</button>
+        <div class="nav-drop-menu">
+          <div class="nav-drop-head">Practices</div>
+          <a href="industry-agentic-ai.html">Agentic AI</a>
+          <a href="industry-sustainability.html">Sustainability</a>
+          <a href="industry-supply-chain.html">Supply Chain &amp; Process</a>
+          <a href="industry-architecture.html">Architecture &amp; Interior Design</a>
+          <a href="industry-education.html">Education</a>
+          <a href="industry-healthcare.html">Healthcare</a>
+          <a href="industry-it.html">IT &amp; Digital</a>
+          <a href="industry-strategic-planning.html">Strategic Planning</a>
+          <div class="nav-drop-sep"></div>
+          <a href="domains.html">All Intelligence Areas →</a>
         </div>
       </div>
-      <div class="nav-item"><a href="leadership.html" style="color:var(--white)">Leadership</a></div>
-      <div class="nav-item">
-        <button>Insights <span class="arr">▼</span></button>
-        <div class="dd">
+      <div class="nav-drop">
+        <button class="nav-drop-btn">Insights ▾</button>
+        <div class="nav-drop-menu">
           <a href="briefing.html">Executive Briefing</a>
-          <a href="brief-ai-trends.html">AI Trends 2026</a>
+          <a href="brief-ai-trends.html">Agentic AI Trends 2026</a>
           <a href="brief-sustainability.html">Sustainability Report</a>
           <a href="brief-supply-chain.html">Supply Chain Resilience</a>
           <a href="brief-healthcare.html">Healthcare Innovation</a>
-          <a href="brief-digital.html">Digital Transformation</a>
-          <div class="dd-divider"></div>
-          <a href="blog-1.html">Blog: Agentic AI Future</a>
-          <a href="blog-2.html">Blog: Sustainable Supply Chains</a>
-          <a href="blog-3.html">Blog: Healthcare Architecture</a>
-          <a href="blog-4.html">Blog: EdTech Revolution</a>
-          <a href="blog-5.html">Blog: Green Building Standards</a>
         </div>
       </div>
-      <div class="nav-item"><a href="about.html">About</a></div>
+      <a href="leadership.html">Leadership</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
-    <div class="nav-right">
-      <a href="contact.html" class="nav-cta">Contact</a>
-    </div>
-    <div class="hamburger"><span></span><span></span><span></span></div>
+    <a href="contact.html" class="nav-cta">Request Briefing</a>
+    <button class="hb" onclick="openMob()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div class="mobile-nav">
-  <button class="mn-close">&times;</button>
-  <div class="mn-section">Navigation</div>
-  <a href="index.html">Home</a>
-  <a href="platform.html">Platform</a>
-  <a href="domains.html">Intelligence Areas</a>
-  <a href="leadership.html">Leadership</a>
-  <a href="briefing.html">Executive Briefing</a>
-  <div class="mn-section">Industries</div>
-  <a href="industry-ai.html">Agentic AI</a>
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" onclick="closeMob()">✕</button>
+  <a href="home.html">Home</a>
+  <a href="industry-agentic-ai.html">Agentic AI</a>
   <a href="industry-sustainability.html">Sustainability</a>
   <a href="industry-supply-chain.html">Supply Chain</a>
   <a href="industry-architecture.html">Architecture</a>
   <a href="industry-education.html">Education</a>
   <a href="industry-healthcare.html">Healthcare</a>
-  <a href="industry-it.html">IT</a>
+  <a href="industry-it.html">IT &amp; Digital</a>
   <a href="industry-strategic-planning.html">Strategic Planning</a>
-  <a href="industry-government.html">Government</a>
-  <div class="mn-section">Company</div>
-  <a href="about.html">About</a>
-  <a href="approach.html">Our Approach</a>
-  <a href="contact.html">Contact</a>
+  <a href="leadership.html">Leadership</a>
+  <a href="about.html">About SIB</a>
+  <a href="contact.html" class="mob-cta">Request Briefing</a>
 </div>
-<section class="content-hero">
-  <div class="hero-bg"></div>
-  <div class="container">
-    <h1>Recognised expertise. <em>Direct ownership.</em></h1>
-    <p>Domain leaders with the authority to move decisions forward. Each leader is aligned to a critical domain. Each engagement begins closer to the issue.</p>
+
+<section class="page-hero" style="background:radial-gradient(ellipse 60% 70% at 60% 50%,rgba(232,24,74,.06),transparent),var(--bg)">
+  <div class="ph-inner">
+    <div>
+      <div class="ph-kicker" style="color:var(--red)">Named Domain Leaders</div>
+      <h1 class="ph-h1" style="color:#fff">Experience that<br><em style="color:var(--blue2)">creates value.</em></h1>
+      <p class="ph-deck">Eight named domain leaders. Verifiable credentials. Real track records. No generic teams, no anonymous consultants — just expertise you can hold to account.</p>
+      <div class="ph-acts">
+        <a href="contact.html" class="btn-primary">Work with Our Leaders →</a>
+        <a href="about.html" class="btn-sec">About SIB →</a>
+      </div>
+    </div>
+    <div class="ph-panel">
+      <div class="ph-panel-kicker" style="color:var(--red)">Practice signal</div>
+      <h3>Named expertise, not generic teams</h3>
+      <p>Every SIB Consulting engagement is led by a named domain expert with verifiable qualifications and a proven track record. We do not hide behind team anonymity — we stand behind our leaders.</p>
+      <div class="ph-stat-row">
+        <div><div class="ph-stat-n" style="color:var(--red)">8</div><div class="ph-stat-l">Named Leaders</div></div>
+        <div><div class="ph-stat-n" style="color:var(--red)">100+</div><div class="ph-stat-l">Years Combined</div></div>
+        <div><div class="ph-stat-n" style="color:var(--red)">GCC</div><div class="ph-stat-l">Primary Market</div></div>
+      </div>
+    </div>
   </div>
 </section>
-<section class="content-body">
-  <div class="container">
-    
-<div class="eyebrow">Leadership</div>
-<h2 class="title" style="margin-bottom:2rem">Recognised expertise. Direct ownership. <em>Leadership that carries into execution.</em></h2>
 
-<p>Domain leaders with the authority to move decisions forward. Each leader is aligned to a critical domain. Each engagement begins closer to the issue because the right expertise is already in the room.</p>
-
-<p><strong>Every leader at EIG is a recognised authority in their domain.</strong> No layers. No account managers. Direct access to the expertise that matters.</p>
-
-<div class="leaders-grid">
-  <div class="leader-card" data-leader="keith" style="border-left:3px solid var(--c-keith)">
-    <div class="leader-img"><img src="assets/images/leaders/keith-elliott.png" alt="Keith Elliott" class="avatar" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>KE</div>'"></div>
-    <div class="leader-info">
-      <div class="domain-tag" style="color:var(--c-keith)">Architecture</div>
-      <h3>Keith Elliott</h3>
-      <div class="role">Architecture & Interior Design Lead</div>
-      <div class="bio">Environment, workplace, and performance aligned. Keith connects strategic intent to architecture, interior design, and spatial outcomes that support long-term value.</div>
-      <div class="expertise">
-        <span>Workplace strategy</span><span>Architecture</span><span>Interior design</span><span>Spatial planning</span>
-      </div>
-      <span class="read-more">Read full bio</span>
+<section class="section" style="background:var(--bg)">
+  <div class="sec-inner">
+    <div class="sec-kicker">Leadership Team</div>
+    <h2 class="sec-h2">Meet the <em>domain leaders.</em></h2>
+    <p class="sec-lead" style="margin-bottom:3rem">Each leader brings deep domain expertise, verifiable credentials and a proven track record of delivery in the GCC and beyond.</p>
+    <div style="display:flex;flex-direction:column;gap:2rem"><div id="leader-lisa" style="background:var(--bg2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:2.5rem;display:grid;grid-template-columns:200px 1fr;gap:2.5rem;align-items:start;border-left:3px solid #4d9aff">
+  <div style="text-align:center">
+    <div style="width:140px;height:140px;border-radius:50%;border:3px solid #4d9aff;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);overflow:hidden;box-shadow:0 0 30px #4d9aff44"><img src="data:image/jpeg;base64,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" alt="Lisa Warren" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+    <div style="font-size:1rem;font-weight:800;color:#fff;margin-bottom:.25rem">Lisa Warren</div>
+    <div style="font-size:.7rem;font-weight:600;color:#4d9aff;margin-bottom:.5rem;letter-spacing:.04em">Agentic AI · Neural Intelligence · AI Orchestration</div>
+    <div style="display:flex;flex-direction:column;gap:.4rem;margin-top:.75rem">
+      <a href="mailto:lisa@teamsib.com" style="font-size:.72rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:.4rem">✉ lisa@teamsib.com</a>
+      <a href="tel:+971 58 573 8525" style="font-size:.72rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:.4rem">✆ +971 58 573 8525</a>
     </div>
   </div>
-
-  <div class="leader-card" data-leader="patrick" style="border-left:3px solid var(--c-patrick)">
-    <div class="leader-img"><img src="assets/images/leaders/patrick-mccrudden.png" alt="Dr. Patrick McCrudden" class="avatar" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>PM</div>'"></div>
-    <div class="leader-info">
-      <div class="domain-tag" style="color:var(--c-patrick)">Supply Chain</div>
-      <h3>Dr. Patrick McCrudden</h3>
-      <div class="role">Supply Chain & Process Lead</div>
-      <div class="bio">Global supply chain expertise. Operational control. Strategic value. Dr Patrick brings decades of international leadership across procurement, logistics, value chains, and complex operating environments.</div>
-      <div class="expertise">
-        <span>Supply chain strategy</span><span>Global value chains</span><span>Procurement</span><span>Operations leadership</span>
-      </div>
-      <span class="read-more">Read full bio</span>
-    </div>
-  </div>
-
-  <div class="leader-card" data-leader="lisa" style="border-left:3px solid var(--c-lisa)">
-    <div class="leader-img"><img src="assets/images/leaders/lisa-warren.png" alt="Lisa Warren" class="avatar"></div>
-    <div class="leader-info">
-      <div class="domain-tag" style="color:var(--c-lisa)">Agentic AI & IT</div>
-      <h3>Lisa Warren</h3>
-      <div class="role">Director, AI & Ecosystem Intelligence</div>
-      <div class="bio">AI strategy with commercial intent. Lisa helps organisations turn agentic AI, digital transformation, and enterprise technology into practical business advantage.</div>
-      <div class="expertise">
-        <span>Agentic AI strategy</span><span>Enterprise adoption</span><span>Digital transformation</span><span>Growth execution</span>
-      </div>
-      <span class="read-more">Read full bio</span>
-    </div>
-  </div>
-
-  <div class="leader-card" data-leader="ivano" style="border-left:3px solid var(--c-ivano)">
-    <div class="leader-img"><img src="assets/images/leaders/ivano-iannelli.png" alt="Ivano Iannelli" class="avatar"></div>
-    <div class="leader-info">
-      <div class="domain-tag" style="color:var(--c-ivano)">Sustainability</div>
-      <h3>Ivano Iannelli</h3>
-      <div class="role">Director, ESG and Climate Intelligence</div>
-      <div class="bio">Sustainability with economic logic. Ivano helps organisations connect sustainability, ESG, decarbonisation, and resilience to measurable business value.</div>
-      <div class="expertise">
-        <span>Sustainability strategy</span><span>ESG value creation</span><span>Carbon markets</span><span>Transition planning</span>
-      </div>
-      <span class="read-more">Read full bio</span>
-    </div>
-  </div>
-
-  <div class="leader-card" data-leader="bill" style="border-left:3px solid var(--c-bill)">
-    <div class="leader-img"><img src="assets/images/leaders/bill-lehal.png" alt="Dr. Bill Lehal" class="avatar" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>BL</div>'"></div>
-    <div class="leader-info">
-      <div class="domain-tag" style="color:var(--c-bill)">Education</div>
-      <h3>Dr. Bill Lehal</h3>
-      <div class="role">Education Lead</div>
-      <div class="bio">Institutional quality. Strategic growth. Student outcomes. Dr Bill helps education organisations strengthen performance, improve quality, and define practical pathways for growth.</div>
-      <div class="expertise">
-        <span>Institutional strategy</span><span>Quality assurance</span><span>Capability development</span><span>Transformation support</span>
-      </div>
-      <span class="read-more">Read full bio</span>
-    </div>
-  </div>
-
-  <div class="leader-card" data-leader="alex" style="border-left:3px solid var(--c-alex)">
-    <div class="leader-img"><img src="assets/images/leaders/alex-jones.png" alt="Dr. Alex Jones" class="avatar" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>AJ</div>'"></div>
-    <div class="leader-info">
-      <div class="domain-tag" style="color:var(--c-alex)">Strategic Planning</div>
-      <h3>Dr. Alex Jones</h3>
-      <div class="role">Strategic Planning Lead</div>
-      <div class="bio">Leadership clarity. Strategic direction. Better decisions. Dr Alex helps organisations sharpen priorities, align leadership, and turn strategic intent into focused execution.</div>
-      <div class="expertise">
-        <span>Strategic direction</span><span>Executive alignment</span><span>Growth priorities</span><span>Decision support</span>
-      </div>
-      <span class="read-more">Read full bio</span>
-    </div>
-  </div>
-
-  <div class="leader-card" data-leader="manish" style="border-left:3px solid var(--c-manish)">
-    <div class="leader-img"><img src="assets/images/leaders/manish-mehrotra.png" alt="Dr. Manish Mehrotra" class="avatar" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>MM</div>'"></div>
-    <div class="leader-info">
-      <div class="domain-tag" style="color:var(--c-manish)">Healthcare</div>
-      <h3>Dr. Manish Mehrotra</h3>
-      <div class="role">Healthcare Lead</div>
-      <div class="bio">Clinical depth. Operational insight. Healthcare transformation. Dr Manish brings decades of experience across medicine, healthcare operations, governance, and strategic project delivery.</div>
-      <div class="expertise">
-        <span>Healthcare strategy</span><span>Clinical governance</span><span>Service transformation</span><span>Hospital planning</span>
-      </div>
-      <span class="read-more">Read full bio</span>
-    </div>
-  </div>
-
-  <div class="leader-card" data-leader="christopher" style="border-left:3px solid var(--c-christopher)">
-    <div class="leader-img"><img src="assets/images/leaders/christopher-morley.png" alt="Christopher Morley" class="avatar" onerror="this.parentElement.innerHTML='<div class=&quot;placeholder&quot;>CM</div>'"></div>
-    <div class="leader-info">
-      <div class="domain-tag" style="color:var(--c-christopher)">Information Technology</div>
-      <h3>Christopher Morley</h3>
-      <div class="role">Director, IT</div>
-      <div class="bio">Technology that holds under pressure. Christopher helps organisations build resilient IT infrastructure, strengthen systems governance, and align technology investment with business priorities.</div>
-      <div class="expertise">
-        <span>IT infrastructure</span><span>Systems governance</span><span>Technology strategy</span><span>Operational resilience</span>
-      </div>
-      <span class="read-more">Read full bio</span>
-    </div>
+  <div>
+    <div style="font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#4d9aff;margin-bottom:.4rem">AI, Intelligence &amp; Digital Transformation</div>
+    <p style="font-size:.92rem;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:1.5rem">Lisa Warren leads SIB Consulting's Agentic AI and Neural Intelligence practice. She designs and deploys autonomous agent systems that connect strategic intent to operational execution, specialising in enterprise AI readiness, agentic orchestration and the transformation of complex organisations through intelligence-led automation.</p>
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.5rem">Career Highlights</div>
+    <div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#4d9aff;flex-shrink:0">▸</span>AI &amp; Agentic Orchestration Lead — SIB Consulting / EIG Neural (2024–Present)</div><div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#4d9aff;flex-shrink:0">▸</span>Senior AI Transformation Consultant — Multiple GCC enterprises (2020–2024)</div><div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#4d9aff;flex-shrink:0">▸</span>Digital Intelligence Lead — Strategic advisory across MENA (2018–2020)</div>
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin:.75rem 0 .5rem">Qualifications</div>
+    <div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#4d9aff;flex-shrink:0;display:inline-block;margin-top:.4em"></span>Artificial Intelligence &amp; Machine Learning — Advanced</div><div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#4d9aff;flex-shrink:0;display:inline-block;margin-top:.4em"></span>Agentic Systems Architecture</div><div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#4d9aff;flex-shrink:0;display:inline-block;margin-top:.4em"></span>Enterprise AI Readiness Framework</div>
+    <div style="margin-top:1.25rem;padding:1rem 1.25rem;background:rgba(255,255,255,.03);border-left:3px solid #4d9aff;border-radius:0 6px 6px 0;font-family:'Playfair Display',Georgia,serif;font-size:.92rem;font-style:italic;color:var(--soft);line-height:1.65">"Intelligence without action is just information. The organisations that will define the next decade are those that close the gap between knowing and doing — with AI that acts."</div>
   </div>
 </div>
-
-<div style="text-align:center;margin-top:4rem">
-  <a href="contact.html" class="btn-p">Request Briefing</a>
+<div id="leader-ivano" style="background:var(--bg2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:2.5rem;display:grid;grid-template-columns:200px 1fr;gap:2.5rem;align-items:start;border-left:3px solid #00e676">
+  <div style="text-align:center">
+    <div style="width:140px;height:140px;border-radius:50%;border:3px solid #00e676;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);overflow:hidden;box-shadow:0 0 30px #00e67644"><img src="data:image/jpeg;base64,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" alt="Ivano Iannelli" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+    <div style="font-size:1rem;font-weight:800;color:#fff;margin-bottom:.25rem">Ivano Iannelli</div>
+    <div style="font-size:.7rem;font-weight:600;color:#00e676;margin-bottom:.5rem;letter-spacing:.04em">Sustainability · Decarbonisation · ESG Strategy</div>
+    <div style="display:flex;flex-direction:column;gap:.4rem;margin-top:.75rem">
+      <a href="mailto:ivano@teamsib.com" style="font-size:.72rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:.4rem">✉ ivano@teamsib.com</a>
+      <a href="tel:+971 50 558 7503" style="font-size:.72rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:.4rem">✆ +971 50 558 7503</a>
+    </div>
+  </div>
+  <div>
+    <div style="font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#00e676;margin-bottom:.4rem">Sustainability Economics &amp; ESG</div>
+    <p style="font-size:.92rem;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:1.5rem">CEO of TRST01 and former sustainability lead on a USD 250M decarbonisation fund, Ivano Iannelli brings deep expertise connecting sustainability economics to commercial performance, ESG reporting and long-term value creation across the GCC and MENA regions.</p>
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.5rem">Career Highlights</div>
+    <div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#00e676;flex-shrink:0">▸</span>Lead — Sustainability Economics, SIB Consulting (2023–Present)</div><div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#00e676;flex-shrink:0">▸</span>CEO — TRST01, Decarbonisation Fund (USD 250M) (2018–Present)</div><div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#00e676;flex-shrink:0">▸</span>ESG Strategy Director — MENA Region (2015–2023)</div>
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin:.75rem 0 .5rem">Qualifications</div>
+    <div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#00e676;flex-shrink:0;display:inline-block;margin-top:.4em"></span>Sustainability Economics</div><div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#00e676;flex-shrink:0;display:inline-block;margin-top:.4em"></span>ESG Reporting Frameworks (TCFD, GRI, CSRD)</div><div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#00e676;flex-shrink:0;display:inline-block;margin-top:.4em"></span>Carbon Accounting &amp; Net-Zero Strategy</div>
+    <div style="margin-top:1.25rem;padding:1rem 1.25rem;background:rgba(255,255,255,.03);border-left:3px solid #00e676;border-radius:0 6px 6px 0;font-family:'Playfair Display',Georgia,serif;font-size:.92rem;font-style:italic;color:var(--soft);line-height:1.65">"Sustainability is not a reporting function. It is the architecture of long-term competitive advantage — deeply rooted in strategy, not marketing."</div>
+  </div>
 </div>
+<div id="leader-patrick" style="background:var(--bg2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:2.5rem;display:grid;grid-template-columns:200px 1fr;gap:2.5rem;align-items:start;border-left:3px solid #71e4ff">
+  <div style="text-align:center">
+    <div style="width:140px;height:140px;border-radius:50%;border:3px solid #71e4ff;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);overflow:hidden;box-shadow:0 0 30px #71e4ff44"><img src="data:image/jpeg;base64,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" alt="Dr. Patrick McCrudden" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+    <div style="font-size:1rem;font-weight:800;color:#fff;margin-bottom:.25rem">Dr. Patrick McCrudden</div>
+    <div style="font-size:.7rem;font-weight:600;color:#71e4ff;margin-bottom:.5rem;letter-spacing:.04em">Supply Chain · Procurement · Operations</div>
+    <div style="display:flex;flex-direction:column;gap:.4rem;margin-top:.75rem">
+      <a href="mailto:patrick@teamsib.com" style="font-size:.72rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:.4rem">✉ patrick@teamsib.com</a>
+      <a href="tel:+971 50 000 0000" style="font-size:.72rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:.4rem">✆ +971 50 000 0000</a>
+    </div>
+  </div>
+  <div>
+    <div style="font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#71e4ff;margin-bottom:.4rem">Global Value Chain &amp; Supply Chain Strategy</div>
+    <p style="font-size:.92rem;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:1.5rem">Thirty years of international supply chain leadership across Asia, the Philippines, Europe and the Middle East. From Fortune 500 procurement to airport infrastructure — Dr. McCrudden's expertise adds measurable strategic value to complex, multi-jurisdictional supply chain challenges.</p>
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.5rem">Career Highlights</div>
+    <div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#71e4ff;flex-shrink:0">▸</span>Lead — Supply Chain &amp; Process, SIB Consulting (2023–Present)</div><div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#71e4ff;flex-shrink:0">▸</span>Supply Chain Director — Fortune 500 organisations, Asia Pacific (1998–2023)</div><div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#71e4ff;flex-shrink:0">▸</span>PhD — Salford University (Supply Chain Management)</div>
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin:.75rem 0 .5rem">Qualifications</div>
+    <div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#71e4ff;flex-shrink:0;display:inline-block;margin-top:.4em"></span>PhD — Supply Chain Management, Salford University</div><div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#71e4ff;flex-shrink:0;display:inline-block;margin-top:.4em"></span>MSc Procurement &amp; Supply Chain</div><div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#71e4ff;flex-shrink:0;display:inline-block;margin-top:.4em"></span>ISO 9001 Lead Auditor</div><div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#71e4ff;flex-shrink:0;display:inline-block;margin-top:.4em"></span>HACCP Certification</div>
+    <div style="margin-top:1.25rem;padding:1rem 1.25rem;background:rgba(255,255,255,.03);border-left:3px solid #71e4ff;border-radius:0 6px 6px 0;font-family:'Playfair Display',Georgia,serif;font-size:.92rem;font-style:italic;color:var(--soft);line-height:1.65">"The supply chain that holds under pressure is not the most efficient one — it is the most intelligent one. Intelligence is the new resilience."</div>
+  </div>
+</div>
+<div id="leader-keith" style="background:var(--bg2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:2.5rem;display:grid;grid-template-columns:200px 1fr;gap:2.5rem;align-items:start;border-left:3px solid #9b7bff">
+  <div style="text-align:center">
+    <div style="width:140px;height:140px;border-radius:50%;border:3px solid #9b7bff;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);overflow:hidden;box-shadow:0 0 30px #9b7bff44"><img src="data:image/jpeg;base64,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" alt="Keith Elliott" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+    <div style="font-size:1rem;font-weight:800;color:#fff;margin-bottom:.25rem">Keith Elliott</div>
+    <div style="font-size:.7rem;font-weight:600;color:#9b7bff;margin-bottom:.5rem;letter-spacing:.04em">Architecture · Interior Design · Project Management</div>
+    <div style="display:flex;flex-direction:column;gap:.4rem;margin-top:.75rem">
+      <a href="mailto:ke@sib.consulting" style="font-size:.72rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:.4rem">✉ ke@sib.consulting</a>
+      <a href="tel:+971 50 816 9664" style="font-size:.72rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:.4rem">✆ +971 50 816 9664</a>
+    </div>
+  </div>
+  <div>
+    <div style="font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#9b7bff;margin-bottom:.4rem">Managing Director | Commercial, Retail &amp; Infrastructure</div>
+    <p style="font-size:.92rem;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:1.5rem">Over 20 years delivering commercial, retail and F&amp;B projects across Asia, the Middle East, US and UK. Managing Director with a track record of building Fortune 500 client relationships and delivering landmark projects across banking, retail and infrastructure. Based in Dubai since 2008.</p>
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.5rem">Career Highlights</div>
+    <div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#9b7bff;flex-shrink:0">▸</span>Managing Director — SIB Consulting, Dubai (2008–Present)</div><div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#9b7bff;flex-shrink:0">▸</span>Commercial Director — Hutchinson Whampoa (Asia Pacific)</div><div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#9b7bff;flex-shrink:0">▸</span>Senior Project Manager — Binswanger International</div>
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin:.75rem 0 .5rem">Qualifications</div>
+    <div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#9b7bff;flex-shrink:0;display:inline-block;margin-top:.4em"></span>Commercial &amp; Retail Project Management</div><div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#9b7bff;flex-shrink:0;display:inline-block;margin-top:.4em"></span>F&amp;B Concept Development</div><div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#9b7bff;flex-shrink:0;display:inline-block;margin-top:.4em"></span>Infrastructure Delivery (MENA)</div>
+    <div style="margin-top:1.25rem;padding:1rem 1.25rem;background:rgba(255,255,255,.03);border-left:3px solid #9b7bff;border-radius:0 6px 6px 0;font-family:'Playfair Display',Georgia,serif;font-size:.92rem;font-style:italic;color:var(--soft);line-height:1.65">"Great spaces don't just look exceptional — they perform. Every project I deliver is measured not just by aesthetics, but by the commercial outcome it creates for the client."</div>
+  </div>
+</div>
+<div id="leader-bill" style="background:var(--bg2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:2.5rem;display:grid;grid-template-columns:200px 1fr;gap:2.5rem;align-items:start;border-left:3px solid #4d9aff">
+  <div style="text-align:center">
+    <div style="width:140px;height:140px;border-radius:50%;border:3px solid #4d9aff;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);overflow:hidden;box-shadow:0 0 30px #4d9aff44"><img src="data:image/jpeg;base64,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" alt="Dr. Bill Lehal" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+    <div style="font-size:1rem;font-weight:800;color:#fff;margin-bottom:.25rem">Dr. Bill Lehal</div>
+    <div style="font-size:.7rem;font-weight:600;color:#4d9aff;margin-bottom:.5rem;letter-spacing:.04em">Education · Accreditation · Governance</div>
+    <div style="display:flex;flex-direction:column;gap:.4rem;margin-top:.75rem">
+      <a href="mailto:bilharlehal3@gmail.com" style="font-size:.72rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:.4rem">✉ bilharlehal3@gmail.com</a>
+      <a href="tel:+971 50 727 8598" style="font-size:.72rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:.4rem">✆ +971 50 727 8598</a>
+    </div>
+  </div>
+  <div>
+    <div style="font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#4d9aff;margin-bottom:.4rem">Director of Quality Assurance &amp; Institutional Effectiveness</div>
+    <p style="font-size:.92rem;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:1.5rem">Senior Fellow of the Higher Education Academy with a proven track record in institutional accreditation, curriculum development and academic governance across UAE, KSA and UK. Led 28 programme accreditations and multiple campus launches — one of the most experienced higher education advisors in the GCC.</p>
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.5rem">Career Highlights</div>
+    <div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#4d9aff;flex-shrink:0">▸</span>Lead — Education Practice, SIB Consulting (2023–Present)</div><div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#4d9aff;flex-shrink:0">▸</span>Dean of Academics — International American University, RAK</div><div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#4d9aff;flex-shrink:0">▸</span>Board Consultant — IAU RAK; Plekhanov Dubai; Amity Dubai</div>
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin:.75rem 0 .5rem">Qualifications</div>
+    <div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#4d9aff;flex-shrink:0;display:inline-block;margin-top:.4em"></span>Senior Fellow — Higher Education Academy (SFHEA)</div><div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#4d9aff;flex-shrink:0;display:inline-block;margin-top:.4em"></span>28 Programme Accreditations</div><div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#4d9aff;flex-shrink:0;display:inline-block;margin-top:.4em"></span>CAA, KHDA, QAA Specialist</div>
+    <div style="margin-top:1.25rem;padding:1rem 1.25rem;background:rgba(255,255,255,.03);border-left:3px solid #4d9aff;border-radius:0 6px 6px 0;font-family:'Playfair Display',Georgia,serif;font-size:.92rem;font-style:italic;color:var(--soft);line-height:1.65">"A quality institution does not just pass accreditation — it earns it through a culture of continuous improvement that serves students, staff and society."</div>
+  </div>
+</div>
+<div id="leader-manish" style="background:var(--bg2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:2.5rem;display:grid;grid-template-columns:200px 1fr;gap:2.5rem;align-items:start;border-left:3px solid #d8b36a">
+  <div style="text-align:center">
+    <div style="width:140px;height:140px;border-radius:50%;border:3px solid #d8b36a;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);overflow:hidden;box-shadow:0 0 30px #d8b36a44"><img src="data:image/jpeg;base64,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" alt="Dr. Manish Mehrotra" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+    <div style="font-size:1rem;font-weight:800;color:#fff;margin-bottom:.25rem">Dr. Manish Mehrotra</div>
+    <div style="font-size:.7rem;font-weight:600;color:#d8b36a;margin-bottom:.5rem;letter-spacing:.04em">Healthcare · Clinical Transformation · Medical Strategy</div>
+    <div style="display:flex;flex-direction:column;gap:.4rem;margin-top:.75rem">
+      <a href="mailto:drmanishmehrotra@gmail.com" style="font-size:.72rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:.4rem">✉ drmanishmehrotra@gmail.com</a>
+      <a href="tel:+971 56 307 4434" style="font-size:.72rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:.4rem">✆ +971 56 307 4434</a>
+    </div>
+  </div>
+  <div>
+    <div style="font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#d8b36a;margin-bottom:.4rem">MBBS, MD | Healthcare Strategy &amp; Medical Advisory</div>
+    <p style="font-size:.92rem;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:1.5rem">32+ years across clinical medicine, critical care and strategic healthcare project delivery. Led 3,000 clinicians in the Abu Dhabi Covid-19 response and reached 78,000+ clinicians through DoH Abu Dhabi e-learning programmes — combining clinical excellence with system-level transformation capability.</p>
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.5rem">Career Highlights</div>
+    <div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#d8b36a;flex-shrink:0">▸</span>Lead — Healthcare Practice, SIB Consulting (2023–Present)</div><div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#d8b36a;flex-shrink:0">▸</span>UAE Director — Aspen Medical (3,000 clinicians, Covid response)</div><div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#d8b36a;flex-shrink:0">▸</span>24 years — Indian Army Medical Corps (Colonel)</div>
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin:.75rem 0 .5rem">Qualifications</div>
+    <div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#d8b36a;flex-shrink:0;display:inline-block;margin-top:.4em"></span>MBBS · MD · PGDHHM · CPHHM</div><div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#d8b36a;flex-shrink:0;display:inline-block;margin-top:.4em"></span>DoH Abu Dhabi e-Learning (78,000+ clinicians)</div><div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#d8b36a;flex-shrink:0;display:inline-block;margin-top:.4em"></span>24 Years — Indian Army Medical Corps</div>
+    <div style="margin-top:1.25rem;padding:1rem 1.25rem;background:rgba(255,255,255,.03);border-left:3px solid #d8b36a;border-radius:0 6px 6px 0;font-family:'Playfair Display',Georgia,serif;font-size:.92rem;font-style:italic;color:var(--soft);line-height:1.65">"Healthcare transformation at scale requires both clinical precision and strategic courage. The best outcomes come when clinicians lead the change — not just implement it."</div>
+  </div>
+</div>
+<div id="leader-alex" style="background:var(--bg2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:2.5rem;display:grid;grid-template-columns:200px 1fr;gap:2.5rem;align-items:start;border-left:3px solid #E8184A">
+  <div style="text-align:center">
+    <div style="width:140px;height:140px;border-radius:50%;border:3px solid #E8184A;margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.05);overflow:hidden;box-shadow:0 0 30px #E8184A44"><img src="data:image/jpeg;base64,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" alt="Dr. Alex Jones" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+    <div style="font-size:1rem;font-weight:800;color:#fff;margin-bottom:.25rem">Dr. Alex Jones</div>
+    <div style="font-size:.7rem;font-weight:600;color:#E8184A;margin-bottom:.5rem;letter-spacing:.04em">Strategic Planning · Leadership · OD</div>
+    <div style="display:flex;flex-direction:column;gap:.4rem;margin-top:.75rem">
+      <a href="mailto:alex.jones.leadership@gmail.com" style="font-size:.72rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:.4rem">✉ alex.jones.leadership@gmail.com</a>
+      <a href="tel:+971 56 844 3877" style="font-size:.72rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:.4rem">✆ +971 56 844 3877</a>
+    </div>
+  </div>
+  <div>
+    <div style="font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#E8184A;margin-bottom:.4rem">PhD in Leadership | Organisational Development &amp; Coaching</div>
+    <p style="font-size:.92rem;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:1.5rem">PhD in Leadership, Forbes Coaches Council Official Member and author of 15+ peer-reviewed papers indexed in SCOPUS. Associate Professor of Leadership at Plekhanov Russian University of Economics, Dubai, and UAE Golden Visa holder. 18 years building leadership capability across UAE, GCC and global organisations.</p>
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.5rem">Career Highlights</div>
+    <div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#E8184A;flex-shrink:0">▸</span>Associate Professor &amp; Director, Neuroeconomics Research Center — PRUE Dubai (2025–Present)</div><div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#E8184A;flex-shrink:0">▸</span>Official Member — Forbes Coaches Council (2023–Present)</div><div style="font-size:.82rem;color:var(--soft);padding:.4rem 0;border-bottom:1px solid rgba(255,255,255,.05);display:flex;gap:.6rem"><span style="color:#E8184A;flex-shrink:0">▸</span>Lead — Strategic Planning Practice, SIB Consulting (2023–Present)</div>
+    <div style="font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin:.75rem 0 .5rem">Qualifications</div>
+    <div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#E8184A;flex-shrink:0;display:inline-block;margin-top:.4em"></span>PhD in Leadership — Alliant International University, San Diego</div><div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#E8184A;flex-shrink:0;display:inline-block;margin-top:.4em"></span>UAE Golden Visa — Published Writer (10 Years)</div><div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#E8184A;flex-shrink:0;display:inline-block;margin-top:.4em"></span>Forbes Coaches Council Official Member</div><div style="font-size:.78rem;color:var(--muted);padding:.3rem 0;display:flex;gap:.6rem;align-items:baseline"><span style="width:4px;height:4px;border-radius:50%;background:#E8184A;flex-shrink:0;display:inline-block;margin-top:.4em"></span>EMCC Coaching Award Winner 2022</div>
+    <div style="margin-top:1.25rem;padding:1rem 1.25rem;background:rgba(255,255,255,.03);border-left:3px solid #E8184A;border-radius:0 6px 6px 0;font-family:'Playfair Display',Georgia,serif;font-size:.92rem;font-style:italic;color:var(--soft);line-height:1.65">"Leadership is not a title. It is the daily practice of creating clarity, building trust and enabling others to perform at their best."</div>
+  </div>
+</div></div>
+  </div>
+</section>
 
+<section class="cta-band" style="background:var(--bg2)">
+  <div class="cta-inner">
+    <h2 class="cta-h2">Work with the<br><em>right expertise.</em></h2>
+    <p class="cta-p">Every SIB Consulting engagement is led by a named expert who has delivered at the highest level. Request a briefing to find out how we can help you.</p>
+    <a href="contact.html" class="btn-primary">Request Briefing →</a>
   </div>
 </section>
 <footer>
-  <div class="footer-inner">
-    <a href="index.html" class="footer-brand">
-      <img src="assets/images/eig-logo.png" alt="EIG" class="logo-img">
-      <span class="logo-text">Ecosystem Intelligence <span>Group</span></span>
-    </a>
-    <div class="footer-links">
-      <a href="platform.html">Platform</a>
-      <a href="domains.html">Intelligence Areas</a>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAPhElEQVR42s1aeZBVVXr/feece+9buvv1xg6i4tDCoFEQR0BtcRR0kok1VhoNzFiFWxzHsUwmlpNKzRCMJo7rWDoaQDQY3PoRR1xQ4wKtsqjoRAUljcpgs9s03f32e885X/6479G09Hsg4zK36lW/rvvuuef3Lb9vO4QjvLilRSKZtAQwALSvWOElbnt+EnpSU9kPToGxx8PY4WCuBbPDAIgoAFG3kGKHVaKdHPU2EjWrP7zkwnenz52eBwAGCC0tgpJJcyT7oi/7QCta5EVIGgYAQdg99cppoic7i/L+DGtMU5wFMVtoZhi2MOAQcfFlEgRJAooIRAIZsgwp2xFRLwXV1a0j1i14HZZBAJ5oaZGzviSwwwbEAAEtgpA0kAI7T77kIidTuNbxzdSoJeSsRp4NGDBEAIMIANEX3sGhRpnAzOGiMkISUaGQE4zAVWt1VfTeoW898BiImNEigT5L+EoAMeYJwnwLAB1nXH529PPMv8Z8O9UagzRrBpEJ9QVxROYLWACWmWU1KZJSIuuIdblBVb8a+cail7+4hz8JELe0SEomzYu/uC1+8kvv/8bLFH4mtUWatWECCZDAV3hZsCUGV5GSRgkUYt797edNuOH0225IrWxuVtPb2vQRA+LmZkVtbfrjc6+aULut95FE3pzYZQqWCUwgia/xKgJDg/REjys29IyonTPm1fvfL+3pSwMqPfjplMtn1nWmn3B8nUix1oJI4Ru8LLOuJqUCV/Z2NcZnj1n74HOVQFElMFtOu/xHtZ2pVvYDVSBrxNeslQraMh4LSa6yPfU1Fx391gPLyoESA/pMW5v+ZNpl59Z1plqN78sCWfttgQk3SbJA1ho/oERX7xNbvjf3fGpr09zSIisCYswTlEyaLef8dFzdntQy6wcyIOav2vGPEJQIiJn9gBJ7s60fN181gZJJw/PmiQEBMUBJfEjb5y2IRbftW+b6tqaomW8dzIGgCsTWCXRV1e7uZRuunleVnP8hMZgO1lBLi5iFpLFPvnZ7Q4HHp1jrb9PMKplfmo1uKHBTzWvtd85C0qBlluhHCqVYs3Xq5WfU7e59LR8EmglfHZsRAcxfKTBi6Kjjqs4hibOPWbNwZQlDiCw5nucxC9WVulNoC0tMFTcnZZgXlDYpBCBF+d8Huu/7flGLvv+J+pKk/etXtnRLTKQN3L3dd3Jrq0QyyQAgVzY3q2O2LjFLX+i4sCEdXJcygSEqY2pCAFrD9qRDLJ4TJmfpLJDzQRG3fyBgBhcC0JA6cDYPMjbcLBE4mwcbE/7eWMBawDJgDDiVBVkurs9lAiiJAltTDzV897tbPkrseO8Dbm5WxIAgZt427qK3anN2UhraDpgFCAFk8+DGBCI/OQ/emSdBDqkHjEWwZSfyT66C/1QbhOcWpQ9wtoDojVcgfvE5KPyhHakrbgH5AThfgDr7FMSvuwgi6vWLihwYBBs+RW7JCtj/3QyqiYdgB84BTRxS9Ebke8M3PT4JRKE8O6ZddVrNrq61+cC3oAFYTQhwLg9x3Egklv4L3NFDB3xB6pEXkfnFPRDxCJD3geGNaHzzAYii+XTNvRnBM2+AIw7qnr8L3gljyptUwce+q2+HXv46KBEPtTgQKGYbczyRGpo4Y8TqhW8IAKDu3jkxS2Cick+BSaD67r8PwfhB//vaAIFG9ZyZcP9yKrg3CxCBol54z4YmRbEIYCwoEoEofoceoNwJNITnova31wGjBgOFoL//9fdRG7FgdKfmAIBov3uFJ/zgvKzVA2YOEAKcyUNNHAtvYlO4AdeBv7kDXdfcgZ7bHgErCTghKarxx4QkUGK2ksMLcYA/cOgvMiQT05NBetFypP/reZiedLhWoCGrY/DOnwJO58qTDiByVhN8fd5nd7RGVezp5yYqy2PybJgGMjcCoDXEUUNBzEV7lkjdvATBkmeBugQo6iE2ZybMni4Ufr8KVBUta/cHZZFEsHv2IXX978A9XTB3/SMS110MthbEDHXcSOQrZNEEiDwbdg2N9p9eNUlhX+/pcSsoBRgCZFnq9f0+aQOIzvo+9LoNQGcPsr+8D/lFT4NzBVAqC8Q8IFs4/KDiOZDjjgaCEXBP/E4/KudCcMgYxgQbYyHzPekzFRXM5FItXCZ/B3kO9MYtsIEOHdxYxH4wBe7Esci/vB6F51YjeOUdCGYgEQfMl2gDWIYaNRgN//NbkOdAuGEoIEfBFgIUVqyBiLqhiVZQNrMF+f5kQcYcb9iirNcxA1EPtr0D6YXL99s9Ag01tAFVP56JhsduRO2zt4FOHQfuzYSx5kslEgRZHYNwVOijHJqr7c3A5n2w4UOUokSaGdLYJkHGDtPhAuUfMRaiOobczf+JnrtbYVLZ/SRQuh85dTzql/0bxMljgUz+kJG+rGmrYpbAgBpUi4anboGYNBbI5MquyQBptgBjmGCiOgMGHaq/QATyXORufBB7v/9z7Lv2LqQWPwO9uwuQAuwHkFEP8X+6BLaUARxmm4YLAXKvrEfuxTeRe/UdmO50mFppAxmPouqf58JWNjkyYT8poYRlyYebXAYasq4avKMT/tIXUXjoWWTv+2/UL78VzohBADO8iU0QIwcDHXvKx44vrG27U+iZexOQzgHMEBPGoP6pW6DqawBmuH9xHMTwRqCzJ7SMgUiCCCLQJA7Z7SICtA5/NnIwbDYPSAEalIAYORi8eRvyz60Jf2cZojoGakiAtT58LQmCrKuGrK+GHNYAu/FT6A2f7hcIRTxQVSwMxIdYU7AgU7n1w2AhUb3wl2hY9TtULbgBlgH+vBvI5MCBhmhM9NGNZUCXAuvhM53t7IXt7IHd0QmOeqGWiwJlrUP6FhXWZIZ1FCsA+ySoMQD4ID8iAgoB6KghiMw4FQJA/IenQw6pQ/qOx2A/3o7IT85H7IdnFKVH0Lv3wm7vBLnO4dVADCDiwb34HFC+ACsFIn81De6YESH9E8F07IHdtTdkwQHWZIAViCyhR7EUOyWJRh0SPR1E2Z6C3b4HwcZP4Y0/BlwIEDn1u4g8cRNswQ+zawDwNeAqZJesAPb2hMG1tMaBf+lgycpEHHV3/PwgZoVlwJHILn0BlM4B9TVlY5wigk/YJUiKTYoEuJw4hQDlfKRvXQomCmseLlK55/Zlwa5C5slVyN2T7MuOje1zYqK+dMgYcImCmcOPNn0fLuZ5jkJ62UrkFz8Dqq0qC4bAVpEApNgkrOusp0r2biyoJg79/Dp0zb0J+Tc3wuYLfcmiFAi27kL3rxYidfXtRbMA4Lkwn+1GftW7gBAIdnQiePuj0LnTOeSfXR2+Uoq++FP8WF+j8MEn2Hf9vUhfc0e4ZmU3B5GAdZz1tO3MK6e427pWh6xUgWeFCLMA1wEdPRTyqKFAPALu7IbZtBXY0x1KsUQMFMYRjnlQk46H2dwB3vY5KOYBxoZKGDc6NM2SsRc1b/elYLfuAqWzoERVf5MtUxRJpSg7or6Ztsx7KOI9umJD3LdjcrC24gRBSSBXABsbFnDGhDWOFEA8GtZJxgKO3L85CAKncyDPBTwHHGiQIHDe34+BGGE5LgRIybB2irhgxzmcvNB6ECLjiq07Z58zXt7dtlz/w9CTmmoNnZJjUx4QEZAvgI4ehsi8S+FccCbsH3eCM3mIIfXgzh4gHg0lmsmHEq+tDmuj6hjIc2HTObhzZoaymTwOVluIs04G/3EXaMSgEEyggaH1YCFAheCQcYcBUyMcykVUa1Py33+vAIAbEo/kduy9GoZF2eguBDidQ2TOTOjn1kC//wlQWwXvZxdCHjschYdfgDz9RKgJY+A//hKosRbO+achd/PDcM88CXpXJ1zXhaivAUYMgve358LeuwxqaANM80lwZ8+A3bgF/gvr4F3x14CUyP96EZDOhhZQPv6IggDpuvijYWAFxKLX7luXVvRuFSlisKkU0W13GuLYEZATmyBGDIIYPgi6vQPqe9+FcBT81e9DTRgDk8pA1NVATTgWclAtnElNkENCyXMmB7N5W5irDa6DHN4Is3YDWBDUaROg3/4I1JsJ/c1WimVs4qSoV/H7o15f+Po8QCg0N4v5RPqKyXN/I4PsE6z1wEqyBlQTh//wCrhXXgA5fjT8+59C4DpQE5tQWPgUZNNRsNk8gqKd+K+uh3lvM3j3XsipJyBY/R4Qi4A79kA31oIDDf/FdeCcD7gKkBI2m4d3w49BngtO5Spm7ZYBR0kyNfFbichyc7Oioh2KJLfStOOXvZ3I25PT0GbAVlaxh8apHAAGVcfA+QAINKgqut/hS6zFgQY5CswM5ANQ1C3GGAn2g/CePaDRFATAkHqo6RNhO/bArt9UNhllsIlDyV5PfNC+4KcTz5o+3RKKTe5SG7Vj2t+dVbure2Uu8Mu3ggl9UjN2fw8upGqg38i7mLAe9J0PyOD7PRN2WTlXACkBRL2yvkMMHXNctXdQzbmj1y16uYSBvjhL/eyE2QuGpc2VnabwjU/r+gmMUbbRYhm6UbpqV0w+NGrjo5eW9t4vswrHKS1i/NXjo42v/t/6qpxuSkGbP7cJhAWbKkiZiaiPe2ccP+k79yANzOdSrnPgGIJb5o3nCffNT/ujBv+N78i0y0LYUoH/5wHGukxCOyqbG9rQMvae+b2lvZedsZbU9/HUy37QuCf1jPYDBMT4tgdfFmwdJijXoZ7G6gtGr1v8zEBj/opD461TLmtJfJ563PqBKBB/q0Njl0lK1+F9DdHZx7y55PHDHhoDALW1aW5uVqPXLk7uHVRzAbluqgpSWmb9jYNh1lWQUrhupmtwzY8qgSkL6EBQY9Y+8Ozno+uag6j7YYN0FTPbb8KvLNgys22QrvKjzqa9o+qbj13zwPJDHbyo6BfU1qZXNjersa/8xx/azx07ZV+1uyjmuKIaSjBbw18DMAZby9ZUQYm444l9Vc7iLWeOPu24lfe/s/IQYCo3F7847i8eHNo+9coZka7UTTHfTtbGIMPahuU8BI7w8FIxLFswizgpoaRE1qV3svXxX49as3gFEB5rm4VDHzU7suNlzGLX5Etnq3TuWi/gyZ5lZK1BgQ2YYMLgH7LiQMfLQpplLtZC0iOJmJAoCILviPU6HrnnmvUPPpIkMl/L8bIDr36SkgI7p10+3enKtLAfzIC2Y2IsEB4ALB4CBPc1HJkhQVAHHADMkQUr8Qk77sumJtI67K0HXy31KQ5XK38SoNJzK5ub5YExYPuCp2O09IVTRCZ7OhX8U2BsE1s7jBm1ItAEANZRTIQeIrEDSraTq9YjHntjxwVT1p90/SWZ0lrF+GJw+J29/df/Awx74L8laXZeAAAAAElFTkSuQmCC" alt="SIB Consulting">
+        <div class="footer-brand-text">
+          <span class="footer-brand-name">SIB CONSULTING</span>
+          <span class="footer-brand-sub">Strategic Intelligence &amp; Transformation</span>
+        </div>
+      </div>
+      <p class="footer-tag">Where Intelligence Creates Value. Strategic Intelligence &amp; Transformation across eight domains. UAE · GCC · MENA.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Intelligence</h4>
+      <a href="industry-agentic-ai.html">Agentic AI</a>
+      <a href="industry-sustainability.html">Sustainability</a>
+      <a href="industry-supply-chain.html">Supply Chain</a>
+      <a href="industry-healthcare.html">Healthcare</a>
+      <a href="industry-architecture.html">Architecture</a>
+      <a href="industry-education.html">Education</a>
+      <a href="industry-it.html">IT &amp; Digital</a>
+      <a href="industry-strategic-planning.html">Strategic Planning</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About SIB</a>
       <a href="leadership.html">Leadership</a>
-          <a href="briefing.html">Briefing</a>
-      <a href="about.html">About</a>
-      <a href="approach.html">Approach</a>
+      <a href="briefing.html">Executive Briefing</a>
       <a href="contact.html">Contact</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
     </div>
-    <div class="footer-r">
-      <div class="footer-copy">© 2026 Ecosystem Intelligence Group. All rights reserved.</div>
-      <div class="footer-sib">A Practice of <a href="https://sibconsulting.com" target="_blank" rel="noopener">SIB Consulting</a></div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms &amp; Conditions</a>
     </div>
+  </div>
+  <div class="footer-bot">
+    <div class="footer-copy">© 2026 SIB Consulting FZCO. All rights reserved. Dubai, UAE.</div>
+    <div class="footer-copy">info@teamsib.com</div>
   </div>
 </footer>
-<div class="bio-modal-overlay" id="bioModalOverlay">
-  <div class="bio-modal" id="bioModal" role="dialog" aria-modal="true">
-    <button class="bio-modal-close" id="bioModalClose" aria-label="Close">&times;</button>
-    <div class="bio-modal-head">
-      <div class="bio-modal-photo" id="bioModalPhoto"></div>
-      <div class="bio-modal-headtext">
-        <div class="domain-tag" id="bioModalDomain"></div>
-        <h2 id="bioModalName"></h2>
-        <div class="role" id="bioModalRole"></div>
-      </div>
-    </div>
-    <div class="bio-modal-body" id="bioModalBody"></div>
-  </div>
-</div>
-
-<script src="assets/shared.js"></script>
 <script>
-(function(){
-  var LEADERS = {
-    lisa: {
-      name: "Lisa Warren",
-      role: "Director, AI & Ecosystem Intelligence",
-      domain: "Agentic AI & IT",
-      color: "var(--c-lisa)",
-      img: "assets/images/leaders/lisa-warren.png",
-      initials: "LW",
-      expertise: ["Intelligence Architecture","AI Readiness & Transformation Strategy","Agentic AI & Future Operating Models","Executive Decision Frameworks","Data & Intelligence Strategy","Digital Transformation","Revenue Growth & Value Creation","Customer & Market Intelligence","Operational Visibility & Performance Improvement","Ecosystem Intelligence"],
-      bio: [
-        "Lisa Warren is Director of Intelligence Architecture and an AI Transformation leader with more than 20 years of experience helping organisations navigate complexity, improve decision-making, and unlock measurable business value.",
-        "Her work sits at the intersection of strategy, intelligence, digital transformation, operational performance, and emerging technologies. She specialises in helping leadership teams understand where value is being lost, where opportunities exist, and how data, intelligence, and AI can be used to create sustainable competitive advantage.",
-        "Lisa believes that most organisations do not have a technology problem &mdash; they have an intelligence problem. While businesses continue to invest heavily in systems, platforms, and data, many still struggle with fragmented information, disconnected decision-making, and limited visibility across their operations. Her focus is on designing the intelligence architecture that transforms information into insight, insight into decisions, and decisions into measurable outcomes.",
-        "As Founder of Neural Horizons AI and a Director of Ecosystem Intelligence Group, Lisa works with organisations across government, economic development, logistics, manufacturing, healthcare, and the private sector to design future-ready operating models that connect operations, sustainability, finance, technology, and future AI capabilities into a single decision-making framework.",
-        "Lisa is particularly passionate about helping organisations prepare for the next generation of enterprise transformation, where competitive advantage will increasingly be determined by the quality and speed of decision-making rather than the size of infrastructure alone. Her approach combines strategic thinking with practical execution, helping leadership teams identify value leakage, improve organisational visibility, strengthen governance, and build the foundations required for future automation and AI-enabled operations.",
-        "<div class='pull-quote'>Systems tell us what happened. Intelligence tells us why. AI helps determine what happens next.</div>",
-        "Today, Lisa works with boards, executive teams, and public sector leaders to design the operating, value, and intelligence architectures required to thrive in an increasingly connected, data-driven, and AI-enabled world."
-      ]
-    },
-    ivano: {
-      name: "Ivano Iannelli",
-      role: "Director, ESG and Climate Intelligence",
-      domain: "Sustainability",
-      color: "var(--c-ivano)",
-      img: "assets/images/leaders/ivano-iannelli.png",
-      initials: "II",
-      expertise: ["Sustainability strategy","ESG value creation","Carbon markets","Transition planning"],
-      bio: [
-        "Ivano Iannelli brings sustainability and economic logic together, helping organisations connect ESG, decarbonisation, and resilience planning to measurable commercial outcomes rather than treating them as a compliance exercise.",
-        "His work focuses on translating climate and sustainability commitments into operational strategy &mdash; helping leadership teams understand carbon exposure, build credible transition plans, and identify where sustainability investment creates genuine business value.",
-        "At EIG, Ivano leads engagements that link environmental performance to financial and operational resilience, supporting clients across government, industry, and the private sector as they navigate an increasingly regulated and resource-constrained operating environment."
-      ]
-    },
-    patrick: {
-      name: "Dr. Patrick McCrudden",
-      role: "Supply Chain & Process Lead",
-      domain: "Supply Chain",
-      color: "var(--c-patrick)",
-      img: "assets/images/leaders/patrick-mccrudden.png",
-      initials: "PM",
-      expertise: ["Global value chain strategy","Supply chain & operations management","Procurement governance","International logistics","Quality & food safety systems"],
-      bio: [
-        "Dr Patrick McCrudden brings over three decades of international supply chain and logistics leadership to Ecosystem Intelligence Group, having operated across some of the world's most demanding commercial and infrastructure environments in Asia, the Philippines, Europe, and the Middle East.",
-        "His career spans end-to-end supply chain management across multiple sectors and continents &mdash; from managing regional dairy logistics for a major UK retailer across a network of 400 dedicated farmers, to directing procurement and inbound logistics for the construction of a dual-unit power station serving Manila's international airport complex. At Johnson Electric in Hong Kong, he led a six-month, multi-million-dollar procurement and fit-out programme for 25,000 workers across 14 production buildings during the SARS crisis, delivering on time and within budget amid considerable operational uncertainty.",
-        "His international vendor management experience spans local, regional, and global supply markets &mdash; sourcing specialist IT infrastructure for UK-wide operational delivery, managing equipment supply chains for major retail expansion programmes, and introducing process innovations that reduced commissioning timescales by more than 50%.",
-        "Patrick holds a PhD in Global Supply Chain and Operations Management from the University of Salford, alongside an MSc in Procurement, Logistics and Supply Chain Management. He is a qualified ISO 9001 Quality Management Auditor and a certified HACCP Food Safety Manager.",
-        "At EIG, Patrick's role bridges global value chain strategy, procurement governance, and operational delivery &mdash; ensuring projects are supported by robust sourcing frameworks, international logistics intelligence, and the supply chain rigour that protects client value at every stage of execution."
-      ]
-    },
-    keith: {
-      name: "Keith Elliott",
-      role: "Architecture & Interior Design Lead",
-      domain: "Architecture",
-      color: "var(--c-keith)",
-      img: "assets/images/leaders/keith-elliott.png",
-      initials: "KE",
-      expertise: ["Interior architecture","Project planning & management","Commercial real estate","Construction & facilities management","Business strategy & development"],
-      bio: [
-        "Keith Elliott is a results-driven leader with deep expertise in interior architecture, commercial real estate, and large-scale project delivery, connecting strategic intent to spatial outcomes that support long-term business value.",
-        "Across more than 20 years in the industry, Keith has delivered commercial, retail, and food & beverage projects throughout Asia, the Middle East, the United States, and the United Kingdom. His experience includes major international groups, and since 2008 he has been delivering projects across Dubai for some of the world's best-known banking institutions and Fortune 500 companies.",
-        "His expertise spans the full project lifecycle &mdash; from interior design and construction management through to contract management, property and facilities management, and strategic business planning &mdash; giving him a rare ability to align workplace and spatial decisions with broader commercial and operational objectives.",
-        "At EIG, Keith leads engagements where architecture, interior design, and workplace strategy intersect with performance, ensuring that physical environments are designed not just for aesthetics but for measurable long-term value."
-      ]
-    },
-    bill: {
-      name: "Dr. Bill Lehal",
-      role: "Education Lead",
-      domain: "Education",
-      color: "var(--c-bill)",
-      img: "assets/images/leaders/bill-lehal.png",
-      initials: "BL",
-      expertise: ["Institutional strategy & governance","Quality assurance & accreditation (MOE, CAA, KHDA, QAA, OfS)","Curriculum design & development","Institutional effectiveness & KPIs","Faculty & research capacity building"],
-      bio: [
-        "Dr Bilhar (Bill) Lehal is a dedicated, results-driven academic leader with a proven track record in institutional strategy, quality assurance, and accreditation across UK and UAE higher education.",
-        "He currently serves as a Board-Level Academic & Institutional Strategy Consultant for a UAE branch campus of an international university, where he led the full establishment and operationalisation of the campus &mdash; overseeing licensing, academic framework design, governance architecture, and first-cohort launch &mdash; while advising the governing board on regulatory compliance and sustainable growth. He has also directed academic quality and institutional effectiveness for a Dubai-based university, building quality management systems aligned with UAE and international higher education standards from the ground up.",
-        "His earlier roles include Director of Quality Assurance for an aviation technical college in Riyadh, where he managed a 26-person team across academic development, student services, and quality functions, and Head of Academic Quality at a performing arts academy in the UAE, where mentoring and student-success initiatives lifted freshman retention significantly. In the UK, Bill held senior academic leadership posts at Bath Spa University and the University of South Wales, including Associate Dean roles spanning teacher education, technology-enhanced learning, and institutional research.",
-        "Bill holds a Doctorate of Education from the University of Hertfordshire, a Master of Arts in Education (Teaching and Learning) from Middlesex University, and is a Senior Fellow of the Advance Higher Education Academy. He is a qualified ISO 9001:2015 Quality Management Systems Lead Auditor and has served as an external QAA reviewer and HE/FE inspector across the UK and internationally.",
-        "At EIG, Bill brings institutional rigour to education sector engagements &mdash; helping organisations strengthen quality frameworks, navigate accreditation, and build the governance and performance systems required for sustainable growth."
-      ]
-    },
-    alex: {
-      name: "Dr. Alex Jones",
-      role: "Strategic Planning Lead",
-      domain: "Strategic Planning",
-      color: "var(--c-alex)",
-      img: "assets/images/leaders/alex-jones.png",
-      initials: "AJ",
-      expertise: ["Strategic direction & executive alignment","Leadership & organisational development","Negotiation & critical thinking","Coaching & psychometrics","Entrepreneurship & innovation"],
-      bio: [
-        "Dr Alex Jones is a Ph.D.-qualified leadership and management academic with close to two decades of experience across faculty leadership, executive education, and corporate training in the UAE and the United States.",
-        "He currently serves as Associate Professor of Leadership and Management and Director of the Neuroeconomics Research Center at Plekhanov Russian University of Economics in Dubai, alongside adjunct faculty roles in Tashkent and San Diego. His prior academic leadership positions span institutions including Skyline University College, the Swiss School of Management, the American University in the Emirates, and Walden University, where he has taught and mentored across organisational behaviour, strategic management, negotiation, and leadership.",
-        "Alex is a prolific researcher and author, with more than twenty peer-reviewed journal articles indexed in Scopus and Thomson Reuters, two published books on leadership and SME strategy, and a regular contributing voice for Forbes Coaches Council, of which he is an official member by invitation. His research and writing span leadership styles, emotional intelligence, knowledge management, and critical thinking in organisational contexts.",
-        "Beyond academia, Alex has trained and consulted executives and teams across retail, insurance, gaming, and semi-government sectors throughout the UAE, Saudi Arabia, Oman, and Armenia, and is a Certified Coach, Trainer, and Psychometrics Consultant with the John Maxwell organisation.",
-        "Alex holds a Ph.D. in Leadership from Alliant International University, a Master's in International Business from the University of Wollongong, and a Bachelor of Arts in English Language from the University of Basra.",
-        "At EIG, Alex helps organisations sharpen priorities, align leadership teams, and turn strategic intent into focused, executable plans."
-      ]
-    },
-    manish: {
-      name: "Dr. Manish Mehrotra",
-      role: "Healthcare Lead",
-      domain: "Healthcare",
-      color: "var(--c-manish)",
-      img: "assets/images/leaders/manish-mehrotra.png",
-      initials: "MM",
-      expertise: ["Healthcare strategy & transformation","Clinical governance & operations","Hospital & primary care planning","Medical training & e-learning","Public-private health partnerships"],
-      bio: [
-        "Dr Manish Mehrotra is a senior medical and healthcare consulting leader with more than 32 years of experience spanning clinical medicine, critical care, healthcare operations, medical training, and large-scale public-private health programmes across India and the UAE.",
-        "An Army veteran doctor and former Professor of Anaesthesiology & Intensive Care, Manish currently serves as Director of Medical Training & Operations at a major healthcare services group in the UAE, advising senior leadership on medical operations and strategy within a portfolio reported at a $150 million operating budget. His work has included leading the deployment of nearly 3,000 clinicians into Abu Dhabi's Covid-19 response, managing medical partnering arrangements for the development of six primary healthcare centres and a multispecialty hospital, and directing one of the Department of Health Abu Dhabi's largest clinical e-learning programmes, reaching more than 78,000 clinicians.",
-        "Earlier in his career, Manish served for 24 years across Indian Army hospitals, progressing from resident to Senior Consultant, Professor, and Head of Anaesthesia & Intensive Care, leading trauma care capacity-building and emergency response systems and building strategic alliances with government bodies, donor agencies, and academic institutions in disaster and humanitarian contexts.",
-        "He holds an MBBS and MD in Anaesthesia from the Armed Forces Medical College, Pune, a postgraduate diploma in Hospital & Health Care Management from the Symbiosis Institute of Medical Sciences, and has completed executive education in AI in Healthcare at the National University of Singapore. His recognitions include a research award from the International Trauma & Critical Care Society for battlefield trauma management techniques, and a Chief of Army Staff Commendation for distinguished service.",
-        "At EIG, Manish brings rare clinical depth combined with consulting capability &mdash; supporting healthcare transformation, hospital and primary care planning, and stakeholder engagement with regulators and academic institutions across the region."
-      ]
-    },
-    christopher: {
-      name: "Christopher Morley",
-      role: "Director, IT",
-      domain: "Information Technology",
-      color: "var(--c-christopher)",
-      img: "assets/images/leaders/christopher-morley.png",
-      initials: "CM",
-      expertise: ["IT infrastructure","Systems governance","Technology strategy","Operational resilience"],
-      bio: [
-        "Christopher Morley leads EIG's Information Technology practice, helping organisations build resilient infrastructure and align technology investment with business priorities.",
-        "His focus is on systems governance and operational resilience &mdash; ensuring that technology platforms remain stable, secure, and scalable as organisations grow, and that IT investment decisions are grounded in measurable business outcomes rather than short-term fixes.",
-        "At EIG, Christopher works alongside other domain leaders to ensure that technology strategy supports, rather than constrains, the broader transformation and intelligence work the organisation delivers for clients."
-      ]
-    }
-  };
-
-  var overlay = document.getElementById('bioModalOverlay');
-  var modal = document.getElementById('bioModal');
-  var els = {
-    photo: document.getElementById('bioModalPhoto'),
-    domain: document.getElementById('bioModalDomain'),
-    name: document.getElementById('bioModalName'),
-    role: document.getElementById('bioModalRole'),
-    body: document.getElementById('bioModalBody')
-  };
-
-  function openLeader(key){
-    var L = LEADERS[key];
-    if(!L) return;
-    els.photo.innerHTML = '<img src="'+L.img+'" alt="'+L.name+'" onerror="this.parentElement.innerHTML=\'<div class=&quot;placeholder&quot;>'+L.initials+'</div>\'">';
-    els.domain.textContent = L.domain;
-    els.domain.style.color = L.color;
-    els.name.textContent = L.name;
-    els.role.textContent = L.role;
-    var html = L.bio.map(function(p){
-      return p.indexOf('<div') === 0 ? p : '<p>'+p+'</p>';
-    }).join('');
-    if(L.expertise && L.expertise.length){
-      html += '<div class="expertise">' + L.expertise.map(function(e){ return '<span>'+e+'</span>'; }).join('') + '</div>';
-    }
-    els.body.innerHTML = html;
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    overlay.scrollTop = 0;
-  }
-
-  function closeModal(){
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  document.querySelectorAll('.leader-card[data-leader]').forEach(function(card){
-    card.addEventListener('click', function(){
-      openLeader(card.getAttribute('data-leader'));
-    });
-  });
-
-  document.getElementById('bioModalClose').addEventListener('click', closeModal);
-  overlay.addEventListener('click', function(e){
-    if(e.target === overlay) closeModal();
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
-  });
-
-  // Support deep-linking via #lisa, #ivano, etc.
-  if(location.hash){
-    var key = location.hash.replace('#','');
-    if(LEADERS[key]) openLeader(key);
-  }
-})();
+function openMob(){ document.getElementById('mobNav').classList.add('open'); }
+function closeMob(){ document.getElementById('mobNav').classList.remove('open'); }
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').style.borderBottomColor = scrollY>20?'rgba(232,24,74,0.3)':'rgba(255,255,255,0.08)';
+},{passive:true});
 </script>
 </body>
 </html>
