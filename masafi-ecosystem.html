@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Masafi — The Complete Ecosystem | EIG</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#02060D;--navy:#0A111E;--navy2:#0d1a30;--blue:#0066FF;--blue2:#3d8bff;
+  --white:#FFFFFF;--mgrey:#8B949E;--dgrey:#3a4250;--border:rgba(255,255,255,0.07);
+  --green:#00C853;--amber:#F59E0B;--red:#EF4444;--teal:#00875A;
+  --masafi:#005BAC;--masafi2:#0077CC;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--black);color:var(--white);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+
+/* SIB bar */
+#sib-bar{background:#E8184A;padding:6px 0;position:fixed;top:0;left:0;right:0;z-index:300}
+#sib-bar .in{max-width:1280px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+#sib-bar span{font-size:10.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+
+/* Login */
+#login-screen{position:fixed;inset:0;z-index:9999;background:var(--black);display:flex;align-items:center;justify-content:center;padding:24px}
+.login-card{width:100%;max-width:400px;background:var(--navy);border:1px solid var(--border);border-radius:14px;padding:2.4rem 2.2rem;text-align:center}
+.lf-logo{font-family:var(--serif);font-size:26px;font-weight:700;color:#fff;margin-bottom:4px}
+.lf-logo span{color:var(--masafi2)}
+.lf-sub{font-size:11px;color:var(--mgrey);letter-spacing:.16em;text-transform:uppercase;margin-bottom:1.8rem}
+.lf-field{text-align:left;margin-bottom:1rem}
+.lf-label{display:block;font-size:10.5px;color:var(--mgrey);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.lf-input{width:100%;padding:11px 13px;background:var(--black);border:1px solid var(--border);border-radius:7px;color:#fff;font-size:14px;font-family:var(--sans);outline:none;transition:border-color .2s}
+.lf-input:focus{border-color:var(--masafi2)}
+.lf-hint{font-size:10.5px;color:var(--dgrey);margin-top:6px}
+.login-btn{width:100%;padding:12px;margin-top:.4rem;background:linear-gradient(135deg,var(--masafi),var(--masafi2));border:none;border-radius:7px;color:#fff;font-size:13.5px;font-weight:600;font-family:var(--sans);cursor:pointer}
+.login-btn:hover{filter:brightness(1.12)}
+.login-err{display:none;margin-top:.9rem;font-size:12px;color:var(--red)}
+.powered{margin-top:1.6rem;font-size:10.5px;color:var(--dgrey)}
+.powered span{color:var(--mgrey)}
+
+/* Dashboard chrome */
+#dashboard{display:none}
+#topnav{position:fixed;top:30px;left:0;right:0;z-index:250;background:rgba(10,17,30,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+#topnav .in{max-width:1280px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{font-family:var(--serif);font-size:17px;font-weight:700}
+.brand span{color:var(--masafi2)}
+.nav-right{display:flex;align-items:center;gap:14px;font-size:12px;color:var(--mgrey)}
+.live{display:flex;align-items:center;gap:6px;color:var(--green);font-weight:600;font-size:11px;letter-spacing:.08em}
+.live i{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 1.8s ease-in-out infinite;display:inline-block}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.avatar{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--masafi),var(--masafi2));display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff}
+
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+section{padding:3.2rem 0;border-bottom:1px solid var(--border)}
+.eyebrow{font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--masafi2);margin-bottom:.7rem}
+h2{font-family:var(--serif);font-size:clamp(24px,3vw,34px);font-weight:600;margin-bottom:.5rem}
+.lede{font-size:14px;color:var(--mgrey);max-width:720px;line-height:1.65}
+
+/* Hero */
+#hero{padding:7.5rem 0 2.6rem}
+#hero h1{font-family:var(--serif);font-size:clamp(32px,4.6vw,52px);font-weight:700;line-height:1.12;margin-bottom:.9rem}
+#hero h1 em{font-style:italic;color:var(--masafi2)}
+#hero .lede{font-size:15px}
+
+/* KPI band */
+.kpis{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:2.2rem}
+.kpi{background:var(--navy);padding:18px 16px}
+.kpi b{display:block;font-family:var(--serif);font-size:24px;font-weight:700;margin-bottom:3px}
+.kpi span{font-size:10.5px;color:var(--mgrey);letter-spacing:.08em;text-transform:uppercase;line-height:1.5}
+
+/* Flow */
+.flow-shell{background:var(--navy);border:1px solid var(--border);border-radius:14px;padding:1.6rem 1.2rem;margin-top:2rem;overflow-x:auto}
+#eco-flow{width:100%;min-width:900px;height:auto;display:block}
+#eco-flow .st{fill:var(--mgrey);font:600 11px var(--sans);letter-spacing:.18em}
+#eco-flow .fl{fill:none;stroke-linecap:round;opacity:.5}
+#eco-flow .l1{stroke:#005BAC}
+#eco-flow .l2{stroke:#2a6fd6;opacity:.32}
+#eco-flow .l3{stroke:#3d8bff;opacity:.22}
+#eco-flow .nd rect{fill:var(--navy2);stroke:rgba(0,119,204,.45);stroke-width:1}
+#eco-flow .nd.fac rect{fill:#0b2547;stroke:var(--masafi2);stroke-width:1.4}
+#eco-flow .nd.ch rect{fill:#0e1f38}
+#eco-flow .nd.rg rect{fill:#0c1830}
+#eco-flow .nt{fill:#fff;font:600 12.5px var(--sans)}
+#eco-flow .ns{fill:var(--mgrey);font:400 10.5px var(--sans)}
+.flow-note{font-size:11px;color:var(--dgrey);margin-top:.9rem;line-height:1.6}
+
+/* Cards / grids */
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:1.8rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:1.8rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:1.8rem}
+.card{background:var(--navy);border:1px solid var(--border);border-radius:12px;padding:20px}
+.card h4{font-size:13.5px;font-weight:600;margin-bottom:2px}
+.card .tag{font-size:10px;color:var(--masafi2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.row{display:flex;justify-content:space-between;font-size:12px;padding:6px 0;border-bottom:1px solid var(--border)}
+.row:last-child{border-bottom:none}
+.row span{color:var(--mgrey)}
+.row b{font-weight:600}
+
+/* bars */
+.bar-row{display:grid;grid-template-columns:130px 1fr 92px;gap:12px;align-items:center;padding:7px 0;font-size:12px}
+.bar-row .lbl{color:var(--mgrey)}
+.bar-row .val{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.bar{height:9px;border-radius:5px;background:var(--navy2);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--masafi),var(--blue2))}
+.bar.amber i{background:linear-gradient(90deg,#8a5a00,var(--amber))}
+.chip{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10.5px;font-weight:600;margin-left:6px}
+.chip.up{background:rgba(0,200,83,.12);color:var(--green)}
+.chip.dn{background:rgba(239,68,68,.12);color:var(--red)}
+
+/* fleet status */
+.fleet-t{width:100%;border-collapse:collapse;font-size:12px;margin-top:1.6rem}
+.fleet-t th{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mgrey);font-weight:600;text-align:left;padding:9px 12px;border-bottom:1px solid var(--border)}
+.fleet-t td{padding:9px 12px;border-bottom:1px solid var(--border);font-variant-numeric:tabular-nums}
+.fleet-t td:first-child{font-weight:600}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px}
+.d-g{background:var(--green)}.d-a{background:var(--amber)}.d-b{background:var(--dgrey)}
+
+footer{padding:2.4rem 0 3rem;font-size:11px;color:var(--dgrey);line-height:1.7}
+footer b{color:var(--mgrey);font-weight:600}
+
+@media(max-width:1000px){.kpis{grid-template-columns:repeat(4,1fr)}.grid5{grid-template-columns:repeat(2,1fr)}.grid3,.grid2{grid-template-columns:1fr}}
+@media(max-width:560px){.kpis{grid-template-columns:repeat(2,1fr)}.grid5{grid-template-columns:1fr}.bar-row{grid-template-columns:96px 1fr 78px}}
+@media(prefers-reduced-motion:reduce){.live i{animation:none}}
+</style>
+</head>
+<body>
+
+<div id="sib-bar"><div class="in"><span>SIB Consulting — Strategic Intelligence &amp; Transformation</span><span>Confidential · Client Preview</span></div></div>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-card">
+    <div class="lf-logo">Masafi <span>Ecosystem</span></div>
+    <div class="lf-sub">One View · From the Data Ocean</div>
+    <div class="lf-field">
+      <label class="lf-label" for="login-email">Email</label>
+      <input class="lf-input" type="email" id="login-email" placeholder="name@masafi.ae">
+    </div>
+    <div class="lf-field">
+      <label class="lf-label" for="login-pwd">Password</label>
+      <input class="lf-input" type="password" id="login-pwd" placeholder="••••••••">
+      <div class="lf-hint">Contact EIG for access credentials</div>
+    </div>
+    <button class="login-btn" onclick="doLogin()">Access Platform →</button>
+    <div class="login-err" id="login-err">Invalid credentials. Contact EIG for access.</div>
+    <div class="powered">Powered by <span>Ecosystem Intelligence Group</span> · SIB Consulting FZCO</div>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+  <div id="topnav"><div class="in">
+    <div class="brand">Masafi <span>Ecosystem</span></div>
+    <div class="nav-right">
+      <div class="live"><i></i>LIVE VIEW</div>
+      <span id="clock"></span>
+      <span id="user-name"></span>
+      <div class="avatar" id="user-av">M</div>
+    </div>
+  </div></div>
+
+  <div class="wrap">
+
+    <section id="hero" style="border-bottom:none;padding-bottom:1rem">
+      <div class="eyebrow">The Data Ocean · Trailing 12 Months Consolidated</div>
+      <h1>The complete ecosystem,<br><em>visible to all.</em></h1>
+      <p class="lede">Every layer of the Masafi operation — production, warehousing, fleet, people, routes and demand — drawn from a single consolidated data source: 30 sheets, 23,185 transaction rows, one picture. This is what the data ocean already knows.</p>
+      <div class="kpis">
+        <div class="kpi"><b>36.9M</b><span>Cases Sold · 12M</span></div>
+        <div class="kpi"><b>AED 362M</b><span>Net Revenue</span></div>
+        <div class="kpi"><b>152</b><span>Active Routes</span></div>
+        <div class="kpi"><b>7</b><span>Demand Regions</span></div>
+        <div class="kpi"><b>205</b><span>Operational Trucks</span></div>
+        <div class="kpi"><b>18,770</b><span>Pallet Positions</span></div>
+        <div class="kpi"><b>421</b><span>Active Manpower</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="eyebrow">Ecosystem Map</div>
+      <h2>From spring to shelf — one flow</h2>
+      <p class="lede">Volume-weighted view of the network. Line thickness reflects real throughput: truck deployment from production into the five-site distribution network, then channel volumes into the seven demand regions.</p>
+      <div class="flow-shell"><svg id="eco-flow" viewBox="0 0 1240 640" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><text class="st" x="90" y="34" text-anchor="middle">PRODUCTION</text>
+<text class="st" x="400" y="34" text-anchor="middle">DISTRIBUTION NETWORK</text>
+<text class="st" x="720" y="34" text-anchor="middle">ROUTE TO MARKET</text>
+<text class="st" x="1060" y="34" text-anchor="middle">DEMAND · 7 REGIONS</text>
+<path class="fl l1" d="M160,320.0 C241.0,320.0 241.0,90 322,90" stroke-width="16.0" />
+<path class="fl l1" d="M160,320.0 C241.0,320.0 241.0,200 322,200" stroke-width="5.333333333333333" />
+<path class="fl l1" d="M160,320.0 C241.0,320.0 241.0,310 322,310" stroke-width="7.466666666666667" />
+<path class="fl l1" d="M160,320.0 C241.0,320.0 241.0,420 322,420" stroke-width="2.3466666666666667" />
+<path class="fl l1" d="M160,320.0 C241.0,320.0 241.0,530 322,530" stroke-width="3.2" />
+<path class="fl l2" d="M478,90 C564.0,90 564.0,170 650,170" stroke-width="6.51265698240586" />
+<path class="fl l2" d="M478,90 C564.0,90 564.0,320 650,320" stroke-width="3.8750498256732144" />
+<path class="fl l2" d="M478,90 C564.0,90 564.0,470 650,470" stroke-width="3.5874484714240307" />
+<path class="fl l2" d="M478,200 C564.0,200 564.0,170 650,170" stroke-width="2.1708856608019538" />
+<path class="fl l2" d="M478,200 C564.0,200 564.0,320 650,320" stroke-width="1.2916832752244045" />
+<path class="fl l2" d="M478,200 C564.0,200 564.0,470 650,470" stroke-width="1.1958161571413433" />
+<path class="fl l2" d="M478,310 C564.0,310 564.0,170 650,170" stroke-width="3.039239925122735" />
+<path class="fl l2" d="M478,310 C564.0,310 564.0,320 650,320" stroke-width="1.8083565853141665" />
+<path class="fl l2" d="M478,310 C564.0,310 564.0,470 650,470" stroke-width="1.6741426199978808" />
+<path class="fl l2" d="M478,420 C564.0,420 564.0,170 650,170" stroke-width="1" />
+<path class="fl l2" d="M478,420 C564.0,420 564.0,320 650,320" stroke-width="1" />
+<path class="fl l2" d="M478,420 C564.0,420 564.0,470 650,470" stroke-width="1" />
+<path class="fl l2" d="M478,530 C564.0,530 564.0,170 650,170" stroke-width="1.3025313964811722" />
+<path class="fl l2" d="M478,530 C564.0,530 564.0,320 650,320" stroke-width="1" />
+<path class="fl l2" d="M478,530 C564.0,530 564.0,470 650,470" stroke-width="1" />
+<path class="fl l3" d="M790,170 C882.0,170 882.0,80 974,80" stroke-width="7.1845306188810945" />
+<path class="fl l3" d="M790,170 C882.0,170 882.0,160 974,160" stroke-width="2.946729871744067" />
+<path class="fl l3" d="M790,170 C882.0,170 882.0,240 974,240" stroke-width="2.942440599732795" />
+<path class="fl l3" d="M790,170 C882.0,170 882.0,320 974,320" stroke-width="0.8750114902995484" />
+<path class="fl l3" d="M790,170 C882.0,170 882.0,400 974,400" stroke-width="0.8535651302431868" />
+<path class="fl l3" d="M790,170 C882.0,170 882.0,480 974,480" stroke-width="0.8" />
+<path class="fl l3" d="M790,170 C882.0,170 882.0,560 974,560" stroke-width="0.8" />
+<path class="fl l3" d="M790,320 C882.0,320 882.0,80 974,80" stroke-width="4.274816591362138" />
+<path class="fl l3" d="M790,320 C882.0,320 882.0,160 974,160" stroke-width="1.753312834785546" />
+<path class="fl l3" d="M790,320 C882.0,320 882.0,240 974,240" stroke-width="1.7507607054772703" />
+<path class="fl l3" d="M790,320 C882.0,320 882.0,320 974,320" stroke-width="0.8" />
+<path class="fl l3" d="M790,320 C882.0,320 882.0,400 974,400" stroke-width="0.8" />
+<path class="fl l3" d="M790,320 C882.0,320 882.0,480 974,480" stroke-width="0.8" />
+<path class="fl l3" d="M790,320 C882.0,320 882.0,560 974,560" stroke-width="0.8" />
+<path class="fl l3" d="M790,470 C882.0,470 882.0,80 974,80" stroke-width="3.9575450474719807" />
+<path class="fl l3" d="M790,470 C882.0,470 882.0,160 974,160" stroke-width="1.6231841478288063" />
+<path class="fl l3" d="M790,470 C882.0,470 882.0,240 974,240" stroke-width="1.6208214343676293" />
+<path class="fl l3" d="M790,470 C882.0,470 882.0,320 974,320" stroke-width="0.8" />
+<path class="fl l3" d="M790,470 C882.0,470 882.0,400 974,400" stroke-width="0.8" />
+<path class="fl l3" d="M790,470 C882.0,470 882.0,480 974,480" stroke-width="0.8" />
+<path class="fl l3" d="M790,470 C882.0,470 882.0,560 974,560" stroke-width="0.8" />
+<g class="nd fac"><rect x="20.0" y="283.0" width="140" height="74" rx="9"/><text class="nt" x="90" y="316.0" text-anchor="middle">MASAFI FACTORY</text><text class="ns" x="90" y="335.0" text-anchor="middle">Production · FAC</text></g>
+<g class="nd"><rect x="322.0" y="59.0" width="156" height="62" rx="9"/><text class="nt" x="400" y="86" text-anchor="middle">Dubai DC</text><text class="ns" x="400" y="105" text-anchor="middle">75 active trucks</text></g>
+<g class="nd"><rect x="322.0" y="169.0" width="156" height="62" rx="9"/><text class="nt" x="400" y="196" text-anchor="middle">Sharjah DC</text><text class="ns" x="400" y="215" text-anchor="middle">25 active trucks</text></g>
+<g class="nd"><rect x="322.0" y="279.0" width="156" height="62" rx="9"/><text class="nt" x="400" y="306" text-anchor="middle">Abu Dhabi DC</text><text class="ns" x="400" y="325" text-anchor="middle">35 active trucks</text></g>
+<g class="nd"><rect x="322.0" y="389.0" width="156" height="62" rx="9"/><text class="nt" x="400" y="416" text-anchor="middle">Al Ain DC</text><text class="ns" x="400" y="435" text-anchor="middle">11 active trucks</text></g>
+<g class="nd"><rect x="322.0" y="499.0" width="156" height="62" rx="9"/><text class="nt" x="400" y="526" text-anchor="middle">Factory WH</text><text class="ns" x="400" y="545" text-anchor="middle">15 active trucks</text></g>
+<g class="nd ch"><rect x="650.0" y="139.0" width="140" height="62" rx="9"/><text class="nt" x="720" y="166" text-anchor="middle">Traditional Trade</text><text class="ns" x="720" y="185" text-anchor="middle">17.2M cases</text></g>
+<g class="nd ch"><rect x="650.0" y="289.0" width="140" height="62" rx="9"/><text class="nt" x="720" y="316" text-anchor="middle">Modern Trade</text><text class="ns" x="720" y="335" text-anchor="middle">10.2M cases</text></g>
+<g class="nd ch"><rect x="650.0" y="439.0" width="140" height="62" rx="9"/><text class="nt" x="720" y="466" text-anchor="middle">Home & Office</text><text class="ns" x="720" y="485" text-anchor="middle">9.5M cases</text></g>
+<g class="nd rg"><rect x="974.0" y="53.0" width="172" height="54" rx="9"/><text class="nt" x="1060" y="76" text-anchor="middle">Dubai</text><text class="ns" x="1060" y="95" text-anchor="middle">16.75M cases · 45.3%</text></g>
+<g class="nd rg"><rect x="974.0" y="133.0" width="172" height="54" rx="9"/><text class="nt" x="1060" y="156" text-anchor="middle">Abu Dhabi</text><text class="ns" x="1060" y="175" text-anchor="middle">6.87M cases · 18.6%</text></g>
+<g class="nd rg"><rect x="974.0" y="213.0" width="172" height="54" rx="9"/><text class="nt" x="1060" y="236" text-anchor="middle">Sharjah</text><text class="ns" x="1060" y="255" text-anchor="middle">6.86M cases · 18.6%</text></g>
+<g class="nd rg"><rect x="974.0" y="293.0" width="172" height="54" rx="9"/><text class="nt" x="1060" y="316" text-anchor="middle">Al Ain</text><text class="ns" x="1060" y="335" text-anchor="middle">2.04M cases · 5.5%</text></g>
+<g class="nd rg"><rect x="974.0" y="373.0" width="172" height="54" rx="9"/><text class="nt" x="1060" y="396" text-anchor="middle">RAK</text><text class="ns" x="1060" y="415" text-anchor="middle">1.99M cases · 5.4%</text></g>
+<g class="nd rg"><rect x="974.0" y="453.0" width="172" height="54" rx="9"/><text class="nt" x="1060" y="476" text-anchor="middle">Fujairah</text><text class="ns" x="1060" y="495" text-anchor="middle">1.73M cases · 4.7%</text></g>
+<g class="nd rg"><rect x="974.0" y="533.0" width="172" height="54" rx="9"/><text class="nt" x="1060" y="556" text-anchor="middle">Western</text><text class="ns" x="1060" y="575" text-anchor="middle">0.70M cases · 1.9%</text></g></svg></div>
+      <p class="flow-note">Source: Master data file — Fleet, Warehouse Info and consolidated transaction data (Month × Channel × Region × Route × Category). Site-to-channel splits are proportional estimates pending route-level site mapping; all other weights are actuals.</p>
+    </section>
+
+    <section>
+      <div class="eyebrow">Distribution Network</div>
+      <h2>Five sites, 15,246 sqm under roof</h2>
+      <div class="grid5">
+        <div class="card"><div class="tag">Dubai · DXB</div><h4>Dubai DC</h4>
+          <div class="row"><span>Area</span><b>2,900 sqm</b></div>
+          <div class="row"><span>Pallets</span><b>4,000</b></div>
+          <div class="row"><span>MHE</span><b>3 RT · 5 FL</b></div>
+          <div class="row"><span>Manpower</span><b>143 / 153</b></div>
+          <div class="row"><span>Vacancies</span><b style="color:var(--amber)">10</b></div>
+        </div>
+        <div class="card"><div class="tag">Sharjah · SHJ</div><h4>Sharjah DC</h4>
+          <div class="row"><span>Area</span><b>1,920 sqm</b></div>
+          <div class="row"><span>Pallets</span><b>720 → 2,160</b></div>
+          <div class="row"><span>MHE</span><b>2 RT · 3 FL</b></div>
+          <div class="row"><span>Manpower</span><b>65 / 77</b></div>
+          <div class="row"><span>Vacancies</span><b style="color:var(--amber)">12</b></div>
+        </div>
+        <div class="card"><div class="tag">Abu Dhabi · AUH</div><h4>Abu Dhabi DC</h4>
+          <div class="row"><span>Area</span><b>1,550 sqm</b></div>
+          <div class="row"><span>Pallets</span><b>1,250 → 2,100</b></div>
+          <div class="row"><span>MHE</span><b>2 RT · 3 FL</b></div>
+          <div class="row"><span>Manpower</span><b>75 / 95</b></div>
+          <div class="row"><span>Vacancies</span><b style="color:var(--red)">20</b></div>
+        </div>
+        <div class="card"><div class="tag">Al Ain · ALN</div><h4>Al Ain DC</h4>
+          <div class="row"><span>Area</span><b>2,626 sqm</b></div>
+          <div class="row"><span>Pallets</span><b>800</b></div>
+          <div class="row"><span>MHE</span><b>1 FL</b></div>
+          <div class="row"><span>Manpower</span><b>21 / 26</b></div>
+          <div class="row"><span>Vacancies</span><b style="color:var(--amber)">5</b></div>
+        </div>
+        <div class="card"><div class="tag">Masafi · FAC</div><h4>Factory Warehouse</h4>
+          <div class="row"><span>Area</span><b>6,250 sqm</b></div>
+          <div class="row"><span>Pallets</span><b>12,000</b></div>
+          <div class="row"><span>MHE</span><b>14 FL · 4 VNA</b></div>
+          <div class="row"><span>Manpower</span><b>99 / 112</b></div>
+          <div class="row"><span>Vacancies</span><b style="color:var(--amber)">13</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="eyebrow">Fleet Health</div>
+      <h2>205 trucks operational — where they stand</h2>
+      <p class="lede"><span class="dot d-g"></span>Active &nbsp; <span class="dot d-a"></span>Breakdown &nbsp; <span class="dot d-b"></span>Spare. Long-haul: 30 tractor heads, 32 curtain trailers, 1 flatbed. De-fleet queue: 12 repairable, 8 beyond repair.</p>
+      <table class="fleet-t">
+        <thead><tr><th>Channel</th><th>DXB</th><th>SHJ</th><th>AUH</th><th>ALN</th><th>FAC</th><th>Operational</th></tr></thead>
+        <tbody>
+          <tr><td>Retail</td><td>30 · 7 · 5</td><td>13 · 2 · 0</td><td>17 · 3 · 1</td><td>4 · 0 · 0</td><td>8 · 6 · 0</td><td>96</td></tr>
+          <tr><td>Van Sales</td><td>13 · 1 · 1</td><td>4 · 0 · 0</td><td>5 · 0 · 0</td><td>3 · 0 · 0</td><td>2 · 2 · 0</td><td>31</td></tr>
+          <tr><td>HOD</td><td>28 · 2 · 5</td><td>8 · 2 · 0</td><td>13 · 1 · 2</td><td>4 · 1 · 0</td><td>5 · 1 · 2</td><td>74</td></tr>
+          <tr><td>OTG</td><td>4 · 0 · 0</td><td>—</td><td>—</td><td>—</td><td>—</td><td>4</td></tr>
+          <tr style="color:var(--masafi2);font-weight:600"><td>Total</td><td>75 · 10 · 11</td><td>25 · 4 · 0</td><td>35 · 4 · 3</td><td>11 · 1 · 0</td><td>15 · 9 · 2</td><td>205</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <div class="eyebrow">Route to Market</div>
+      <h2>Three channels, two selling models</h2>
+      <div class="grid2">
+        <div class="card">
+          <div class="tag">Channel Volume · 12M</div>
+          <div class="bar-row"><span class="lbl">Traditional Trade</span><div class="bar"><i style="width:100%"></i></div><span class="val">17.21M</span></div>
+          <div class="bar-row"><span class="lbl">Modern Trade</span><div class="bar"><i style="width:59.5%"></i></div><span class="val">10.24M</span></div>
+          <div class="bar-row"><span class="lbl">Home &amp; Office</span><div class="bar"><i style="width:55.1%"></i></div><span class="val">9.48M</span></div>
+          <div class="row" style="margin-top:12px"><span>Net revenue split</span><b>TT 169M · HOD 98M · MT 95M</b></div>
+        </div>
+        <div class="card">
+          <div class="tag">Selling Model</div>
+          <div class="bar-row"><span class="lbl">Preseller</span><div class="bar"><i style="width:100%"></i></div><span class="val">65.3%</span></div>
+          <div class="bar-row"><span class="lbl">Vans</span><div class="bar amber"><i style="width:53.1%"></i></div><span class="val">34.7%</span></div>
+          <div class="row" style="margin-top:12px"><span>Preseller volume</span><b>24.13M cases</b></div>
+          <div class="row"><span>Van volume</span><b>12.80M cases</b></div>
+          <div class="row"><span>Routes in operation</span><b>152</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="eyebrow">Portfolio &amp; Demand</div>
+      <h2>What moves, where it grows</h2>
+      <div class="grid2">
+        <div class="card">
+          <div class="tag">Category Volume · 12M (M cases) · FY22–25 CAGR</div>
+          <div class="bar-row"><span class="lbl">Water PET<span class="chip up">+6.9%</span></span><div class="bar"><i style="width:100%"></i></div><span class="val">30.67</span></div>
+          <div class="bar-row"><span class="lbl">4G<span class="chip up">+1.3%</span></span><div class="bar"><i style="width:7%"></i></div><span class="val">2.16</span></div>
+          <div class="bar-row"><span class="lbl">Water Zero<span class="chip up">+1.9%</span></span><div class="bar"><i style="width:3.4%"></i></div><span class="val">1.05</span></div>
+          <div class="bar-row"><span class="lbl">Alkalife<span class="chip up">+15.1%</span></span><div class="bar"><i style="width:3.3%"></i></div><span class="val">1.00</span></div>
+          <div class="bar-row"><span class="lbl">Tissue<span class="chip dn">−9.3%</span></span><div class="bar"><i style="width:2.9%"></i></div><span class="val">0.88</span></div>
+          <div class="bar-row"><span class="lbl">Water Cups<span class="chip dn">−15.1%</span></span><div class="bar"><i style="width:1.8%"></i></div><span class="val">0.55</span></div>
+          <div class="bar-row"><span class="lbl">Water 5L<span class="chip up">+10.8%</span></span><div class="bar"><i style="width:0.9%"></i></div><span class="val">0.25</span></div>
+        </div>
+        <div class="card">
+          <div class="tag">Regional Demand · Volume Share</div>
+          <div class="bar-row"><span class="lbl">Dubai</span><div class="bar"><i style="width:100%"></i></div><span class="val">45.3%</span></div>
+          <div class="bar-row"><span class="lbl">Abu Dhabi</span><div class="bar"><i style="width:41%"></i></div><span class="val">18.6%</span></div>
+          <div class="bar-row"><span class="lbl">Sharjah</span><div class="bar"><i style="width:41%"></i></div><span class="val">18.6%</span></div>
+          <div class="bar-row"><span class="lbl">Al Ain</span><div class="bar"><i style="width:12.2%"></i></div><span class="val">5.5%</span></div>
+          <div class="bar-row"><span class="lbl">Ras Al Khaimah</span><div class="bar"><i style="width:11.9%"></i></div><span class="val">5.4%</span></div>
+          <div class="bar-row"><span class="lbl">Fujairah</span><div class="bar"><i style="width:10.3%"></i></div><span class="val">4.7%</span></div>
+          <div class="bar-row"><span class="lbl">Western Region</span><div class="bar"><i style="width:4.2%"></i></div><span class="val">1.9%</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section style="border-bottom:none">
+      <div class="eyebrow">Cost Signal</div>
+      <h2>External truck hiring — a rising leak</h2>
+      <p class="lede">External hiring cost (rental + helpers + tolls) climbed from zero to AED 680K in four months — the clearest single signal in the data ocean that owned capacity and demand have decoupled.</p>
+      <div class="grid3">
+        <div class="card"><div class="tag">Jan 2026</div><h4 style="font-family:var(--serif);font-size:24px">AED 21.6K</h4><div class="row"><span>vs Dec 2025</span><b>AED 0</b></div></div>
+        <div class="card"><div class="tag">Feb 2026</div><h4 style="font-family:var(--serif);font-size:24px">AED 216.2K</h4><div class="row"><span>Month-on-month</span><b style="color:var(--amber)">10×</b></div></div>
+        <div class="card"><div class="tag">Mar 2026</div><h4 style="font-family:var(--serif);font-size:24px">AED 680.0K</h4><div class="row"><span>Month-on-month</span><b style="color:var(--red)">3.1×</b></div></div>
+      </div>
+    </section>
+
+    <footer>
+      <b>Source of truth:</b> Masafi master data file — 30 sheets · 23,185 transaction rows · Warehouse, Fleet, Manpower, AOP FY27–31, Vehicle plans FY26–31, sales actuals FY22–25 and cost registers, consolidated into a single ecosystem view.<br>
+      Prepared by Ecosystem Intelligence Group · SIB Consulting FZCO · Confidential — for Masafi / Hattan Group review only.
+    </footer>
+  </div>
+</div>
+
+<script>
+function doLogin(){
+  const e=document.getElementById('login-email').value.trim();
+  const p=document.getElementById('login-pwd').value.trim();
+  if(!e.toLowerCase().includes('@masafi')||p!=='Masafi2026'){
+    document.getElementById('login-err').style.display='block'; return;
+  }
+  document.getElementById('login-err').style.display='none';
+  const name=e.split('@')[0].replace(/\./g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+  document.getElementById('user-name').textContent=name||'Guest';
+  document.getElementById('user-av').textContent=(name.split(' ').map(w=>w[0]).join('').slice(0,2)||'MA').toUpperCase();
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('dashboard').style.display='block';
+}
+document.getElementById('login-pwd').addEventListener('keydown',e=>{ if(e.key==='Enter') doLogin(); });
+function tick(){ document.getElementById('clock').textContent=new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Dubai'})+' GST'; }
+tick(); setInterval(tick,30000);
+</script>
+</body>
+</html>
