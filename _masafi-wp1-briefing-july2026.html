@@ -89,6 +89,12 @@ a{color:inherit}
 .cover-scroll{margin-top:3rem;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mgrey);display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp 0.7s 0.7s forwards}
 .cover-scroll-arrow{animation:bob 1.8s infinite}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+.decision-panel{background:rgba(0,91,172,0.06);border:1px solid rgba(0,91,172,0.22);border-radius:5px;padding:1.3rem 1.5rem;max-width:640px;margin-top:1.6rem;opacity:0;animation:fadeUp 0.7s 0.52s forwards}
+.decision-label{font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--masafi2);font-weight:700;margin-bottom:0.8rem;display:flex;align-items:center;gap:8px}
+.decision-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.decision-list li{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--mgrey);line-height:1.55}
+.decision-check{width:18px;height:18px;border-radius:4px;border:1.5px solid rgba(0,91,172,0.4);background:rgba(0,91,172,0.12);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--masafi2);margin-top:1px}
+.decision-list b{color:var(--white)}
 
 /* ── SECTION SHARED ── */
 .section{padding:4.5rem 0;border-bottom:1px solid var(--border)}
@@ -130,6 +136,28 @@ a{color:inherit}
 .wp-note{background:rgba(0,91,172,0.05);border:1px solid rgba(0,91,172,0.16);border-radius:4px;padding:0.85rem 1.1rem;font-size:11.5px;color:var(--mgrey);line-height:1.6;margin-top:1.3rem;display:none}
 .wp-note.show{display:block}
 .wp-note b{color:var(--white)}
+
+/* ── WP1 ANIMATED JOURNEY MAP ── */
+.wp1-flow{position:relative;padding:1.7rem 0 0;margin-bottom:2.2rem}
+.wp1-track{position:absolute;top:29px;left:14px;right:14px;height:2px;background:var(--border);overflow:visible}
+.wp1-pulse{position:absolute;top:50%;transform:translate(-50%,-50%);width:7px;height:7px;border-radius:50%;background:var(--masafi2);box-shadow:0 0 10px var(--masafi2);animation:moveAlong 3.6s linear infinite;left:0%}
+.wp1-pulse:nth-child(2){animation-delay:-1.2s}
+.wp1-pulse:nth-child(3){animation-delay:-2.4s}
+@keyframes moveAlong{0%{left:0%;opacity:0}8%{opacity:1}92%{opacity:1}100%{left:100%;opacity:0}}
+.wp1-nodes{display:flex;justify-content:space-between;position:relative;z-index:1}
+.wp1-node{width:30px;height:30px;border-radius:50%;background:var(--black);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--mgrey);flex-shrink:0;transition:all 0.25s}
+.wp1-node.endpoint{border-color:rgba(0,91,172,0.35);color:var(--masafi2);background:var(--navy)}
+.wp1-node.stage{border-color:var(--masafi2);background:var(--masafi);color:var(--white);cursor:pointer}
+.wp1-node.stage:hover{box-shadow:0 0 16px rgba(0,91,172,0.5);transform:scale(1.08)}
+.wp1-labels{display:flex;margin-top:11px}
+.wp1-label-item{flex:1;text-align:center;font-size:9.5px;color:var(--mgrey);padding:0 4px;line-height:1.45}
+.wp1-label-item b{display:block;color:var(--white);font-size:10.5px;margin-bottom:2px}
+@media(max-width:720px){
+  .wp1-node{width:22px;height:22px;font-size:9px}
+  .wp1-label-item{font-size:8px}
+  .wp1-label-item b{font-size:9px}
+  .wp1-track{top:22px}
+}
 
 /* ── OUTPUT CARDS ── */
 .outputs-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin-bottom:2rem}
@@ -245,6 +273,18 @@ a{color:inherit}
 
 .conf-note{display:flex;align-items:center;gap:10px;background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.14);border-radius:4px;padding:0.9rem 1.1rem;margin-top:2rem;font-size:12px;color:#ff9d9d}
 
+/* ── APPROVAL ── */
+.approval-panel{background:var(--navy);border:1px solid rgba(0,91,172,0.25);border-radius:6px;padding:2rem 2.2rem;max-width:640px;margin:0 auto}
+.approval-eyebrow{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--masafi2);font-weight:700;margin-bottom:0.6rem;text-align:center}
+.approval-title{font-family:var(--serif);font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:0.6rem;line-height:1.3}
+.approval-sub{font-size:12.5px;color:var(--mgrey);text-align:center;line-height:1.65;margin-bottom:1.8rem}
+.approval-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:1.6rem}
+.approval-sig{background:var(--navy);padding:1.1rem 1.2rem}
+.approval-sig-label{font-size:8.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--mgrey);font-weight:700;margin-bottom:14px}
+.approval-sig-line{border-bottom:1px solid rgba(255,255,255,0.15);height:22px;margin-bottom:6px}
+.approval-sig-meta{font-size:10.5px;color:var(--dgrey)}
+.approval-basis{font-size:11px;color:var(--dgrey);text-align:center;line-height:1.7}
+
 /* ── FOOTER ── */
 .briefing-footer{padding:2.5rem 0}
 .bf{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem}
@@ -318,6 +358,7 @@ a{color:inherit}
         <button class="tb-navlink" data-target="#sec-demo">IV</button>
         <button class="tb-navlink" data-target="#sec-governance">V</button>
         <button class="tb-navlink" data-target="#sec-position">VI</button>
+        <button class="tb-navlink" data-target="#sec-approval">VII</button>
       </div>
       <button class="tb-out" id="logout-btn">Log out</button>
     </div>
@@ -330,9 +371,9 @@ a{color:inherit}
       <div class="hero-bg"></div>
       <div class="cover-num">I</div>
       <div class="container">
-        <div class="cover-tag">Briefing Paper · WP1 Discovery Phase</div>
+        <div class="cover-tag">For Approval · WP1 Kick-Off</div>
         <h1>Masafi Operating<br>Intelligence <em>Programme.</em></h1>
-        <div class="cover-sub">Masafi-OS · Briefing paper on WP1</div>
+        <div class="cover-sub">Masafi-OS · Seeking Executive Committee approval to proceed with WP1</div>
         <div class="cover-meta">
           <div class="cm-item">
             <div class="cm-label">Prepared For</div>
@@ -346,6 +387,15 @@ a{color:inherit}
             <div class="cm-label">Client</div>
             <div class="cm-value">Masafi Group · since 1977</div>
           </div>
+        </div>
+        <div class="decision-panel">
+          <div class="decision-label">⬡ Decision Requested</div>
+          <ul class="decision-list">
+            <li><span class="decision-check">✓</span><span><b>Approve WP1 kick-off</b> — the 60-day Discovery Phase, comprising outputs (a)–(d).</span></li>
+            <li><span class="decision-check">✓</span><span><b>Approve the WP1 fee</b> — USD 82,000, excluding VAT.</span></li>
+            <li><span class="decision-check">✓</span><span><b>Approve payment terms</b> — 30% on kick-off, 40% at interim milestone, 30% on acceptance.</span></li>
+            <li><span class="decision-check">✓</span><span><b>No further commitment</b> — WP2 and WP3 remain independently scoped and priced on WP1 findings.</span></li>
+          </ul>
         </div>
         <div class="cover-footer">MASAFI CO LL.C · SIB Consulting FZCO &nbsp;·&nbsp; Dubai · 4 July 2026</div>
         <div class="cover-scroll">Scroll to read <span class="cover-scroll-arrow">↓</span></div>
@@ -415,6 +465,30 @@ a{color:inherit}
           <div class="sec-tag">Clause 4.2 · Discovery Phase · 60 Days</div>
           <h2 class="sec-h">Scope of Work — <em>The Discovery Phase.</em></h2>
           <p class="sec-body">Under the Consultancy Service Agreement, WP1 comprises four defined outputs delivered over sixty days. WP2 and WP3 remain out of scope until WP1 findings are reviewed.</p>
+        </div>
+
+        <div class="wp1-flow reveal">
+          <div class="wp1-track">
+            <span class="wp1-pulse"></span>
+            <span class="wp1-pulse"></span>
+            <span class="wp1-pulse"></span>
+          </div>
+          <div class="wp1-nodes">
+            <div class="wp1-node endpoint">◎</div>
+            <div class="wp1-node stage" data-jump="a">a</div>
+            <div class="wp1-node stage" data-jump="b">b</div>
+            <div class="wp1-node stage" data-jump="c">c</div>
+            <div class="wp1-node stage" data-jump="d">d</div>
+            <div class="wp1-node endpoint">✓</div>
+          </div>
+          <div class="wp1-labels">
+            <div class="wp1-label-item"><b>Today</b>Current operations</div>
+            <div class="wp1-label-item"><b>Baseline</b>Stocktake &amp; supply-chain view</div>
+            <div class="wp1-label-item"><b>Gap Analysis</b>Five planning systems</div>
+            <div class="wp1-label-item"><b>AI Matrix</b>Where agentic AI applies first</div>
+            <div class="wp1-label-item"><b>Demonstrator</b>Live capacity-planning</div>
+            <div class="wp1-label-item"><b>Decision</b>Executive Committee, day 60</div>
+          </div>
         </div>
 
         <div class="outputs-grid reveal">
@@ -645,7 +719,7 @@ a{color:inherit}
     </section>
 
     <!-- SLIDE VI — POSITION AT END OF WP1 -->
-    <section class="section" id="sec-position" style="border-bottom:none">
+    <section class="section" id="sec-position">
       <div class="container">
         <div class="sec-head reveal">
           <div class="sec-num">VI</div>
@@ -682,11 +756,35 @@ a{color:inherit}
       </div>
     </section>
 
+    <!-- SLIDE VII — APPROVAL -->
+    <section class="section" id="sec-approval" style="border-bottom:none">
+      <div class="container">
+        <div class="approval-panel reveal">
+          <div class="approval-eyebrow">VII · For Approval</div>
+          <div class="approval-title">Requesting the Committee's sign-off to proceed.</div>
+          <div class="approval-sub">Approval of this briefing authorises kick-off of WP1 under the Consultancy Service Agreement dated 4 July 2026, and the 30% advance payment due on kick-off (Clause 5.2(a)).</div>
+          <div class="approval-grid">
+            <div class="approval-sig">
+              <div class="approval-sig-label">Approved By</div>
+              <div class="approval-sig-line"></div>
+              <div class="approval-sig-meta">Name &amp; Title</div>
+            </div>
+            <div class="approval-sig">
+              <div class="approval-sig-label">Date</div>
+              <div class="approval-sig-line"></div>
+              <div class="approval-sig-meta">DD / MM / YYYY</div>
+            </div>
+          </div>
+          <div class="approval-basis">For the Vice Chairman &amp; the Executive Committee · MASAFI CO LL.C<br>Consultancy Service Agreement · Clause 1 (Consultancy) &amp; Clause 4 (Scope of Services)</div>
+        </div>
+      </div>
+    </section>
+
     <div class="briefing-footer">
       <div class="container">
         <div class="bf">
           <div class="bf-l">Consultancy Service Agreement · MASAFI CO LL.C · SIB Consulting FZCO<br>Executed for SIB Consulting FZCO by Keith Elliot, CEO · Effective 4 July 2026<br>Confidential — For the Executive Committee</div>
-          <div class="bf-r" id="page-indicator">01 / 06</div>
+          <div class="bf-r" id="page-indicator">01 / 07</div>
         </div>
       </div>
     </div>
@@ -738,12 +836,13 @@ a{color:inherit}
 
     /* scroll progress + scrollspy + page indicator */
     var sections = [
-      {el: document.getElementById('sec-cover'), page:'01 / 06', nav:'#sec-cover'},
-      {el: document.getElementById('sec-framework'), page:'02 / 06', nav:'#sec-framework'},
-      {el: document.getElementById('sec-scope'), page:'03 / 06', nav:'#sec-scope'},
-      {el: document.getElementById('sec-demo'), page:'04 / 06', nav:'#sec-demo'},
-      {el: document.getElementById('sec-governance'), page:'05 / 06', nav:'#sec-governance'},
-      {el: document.getElementById('sec-position'), page:'06 / 06', nav:'#sec-position'}
+      {el: document.getElementById('sec-cover'), page:'01 / 07', nav:'#sec-cover'},
+      {el: document.getElementById('sec-framework'), page:'02 / 07', nav:'#sec-framework'},
+      {el: document.getElementById('sec-scope'), page:'03 / 07', nav:'#sec-scope'},
+      {el: document.getElementById('sec-demo'), page:'04 / 07', nav:'#sec-demo'},
+      {el: document.getElementById('sec-governance'), page:'05 / 07', nav:'#sec-governance'},
+      {el: document.getElementById('sec-position'), page:'06 / 07', nav:'#sec-position'},
+      {el: document.getElementById('sec-approval'), page:'07 / 07', nav:'#sec-approval'}
     ];
     var navLinks = document.querySelectorAll('.tb-navlink');
     var pageIndicator = document.getElementById('page-indicator');
@@ -848,6 +947,18 @@ a{color:inherit}
         var wasOpen = card.classList.contains('open');
         document.querySelectorAll('.out-card').forEach(function(c){ c.classList.remove('open'); });
         if(!wasOpen) card.classList.add('open');
+      });
+    });
+
+    /* WP1 journey map — clicking a stage jumps to and opens its detail card */
+    document.querySelectorAll('.wp1-node.stage').forEach(function(node){
+      node.addEventListener('click', function(){
+        var target = document.querySelector('.out-card[data-out="' + node.getAttribute('data-jump') + '"]');
+        if(target){
+          document.querySelectorAll('.out-card').forEach(function(c){ c.classList.remove('open'); });
+          target.classList.add('open');
+          target.scrollIntoView({behavior:'smooth', block:'center'});
+        }
       });
     });
 
