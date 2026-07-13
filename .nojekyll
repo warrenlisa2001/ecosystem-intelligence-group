@@ -130,27 +130,40 @@ a{color:inherit}
 .pay-detail b{color:var(--white)}
 .pay-scope-note{font-size:11.5px;color:var(--dgrey);margin-top:1rem;line-height:1.6;font-style:italic}
 
-/* ── LIVE DEMONSTRATOR ── */
-.demo-wrap{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
-.demo-panel{background:var(--navy);border:1px solid var(--border);border-radius:5px;padding:1.4rem 1.5rem}
-.demo-panel-title{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mgrey);font-weight:700;margin-bottom:1.1rem}
-.demo-field{margin-bottom:1.15rem}
-.demo-field:last-of-type{margin-bottom:0}
-.demo-label{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey);font-weight:600;margin-bottom:6px;display:flex;justify-content:space-between;gap:8px}
-.demo-label b{color:var(--white);font-weight:700;text-transform:none;letter-spacing:0}
-.demo-select{width:100%;padding:8px 10px;font-size:12.5px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.09);border-radius:3px;color:var(--white);font-family:var(--sans);outline:none;transition:border-color 0.2s}
-.demo-select:focus{border-color:rgba(0,91,172,0.4)}
-.demo-select option{background:var(--navy)}
+/* ── LIVE DEMONSTRATOR (guided journey) ── */
+.demo-wrap{display:flex;justify-content:center}
+.demo-journey{width:100%;max-width:620px;background:var(--navy);border:1px solid var(--border);border-radius:6px;padding:1.8rem 2rem;overflow:hidden}
+.demo-dots{display:flex;gap:6px;margin-bottom:1.8rem}
+.demo-dot{flex:1;height:3px;border-radius:100px;background:rgba(255,255,255,0.08);transition:background 0.35s}
+.demo-dot.active,.demo-dot.done{background:var(--masafi2)}
+.demo-stage{display:none}
+.demo-stage.active{display:block;animation:stageIn 0.5s ease}
+@keyframes stageIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.demo-stage-label{font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--masafi2);font-weight:700;margin-bottom:8px}
+.demo-stage-title{font-family:var(--serif);font-size:1.35rem;font-weight:700;margin-bottom:6px;line-height:1.25}
+.demo-stage-sub{font-size:12.5px;color:var(--mgrey);margin-bottom:1.4rem;line-height:1.65;max-width:480px}
+.demo-choice-grid{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:1.4rem}
+.demo-choice{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:5px;padding:0.9rem 1.1rem;cursor:pointer;transition:all 0.2s;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.demo-choice:hover{border-color:rgba(0,91,172,0.35);background:rgba(0,91,172,0.03)}
+.demo-choice.selected{border-color:var(--masafi2);background:rgba(0,91,172,0.08)}
+.demo-choice-txt{flex:1}
+.demo-choice-name{font-size:13px;font-weight:600;margin-bottom:2px}
+.demo-choice-meta{font-size:11px;color:var(--mgrey)}
+.demo-choice-check{width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.15);flex-shrink:0;transition:all 0.2s;box-sizing:border-box}
+.demo-choice.selected .demo-choice-check{border-color:var(--masafi2);background:var(--masafi2);box-shadow:inset 0 0 0 3px var(--navy)}
+.demo-field{margin-bottom:0.4rem}
+.demo-label{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey);font-weight:600;margin-bottom:8px;display:flex;justify-content:space-between;gap:8px}
+.demo-label b{color:var(--white);font-weight:700;text-transform:none;letter-spacing:0;font-size:13px}
 .demo-range{width:100%;accent-color:var(--masafi2);cursor:pointer;display:block}
-.demo-cap-bar{height:7px;border-radius:100px;background:rgba(255,255,255,0.06);overflow:hidden;margin-top:8px}
+.demo-cap-bar{height:7px;border-radius:100px;background:rgba(255,255,255,0.06);overflow:hidden;margin-top:10px}
 .demo-cap-fill{height:100%;border-radius:100px;background:var(--masafi2);width:0%;transition:width 0.4s ease,background 0.4s ease}
-.demo-btn{width:100%;padding:11px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;border:none;border-radius:3px;cursor:pointer;font-family:var(--sans);background:var(--masafi);color:var(--white);margin-top:1.4rem;transition:background 0.2s}
+.demo-cap-caption{font-size:10.5px;color:var(--dgrey);margin-top:8px}
+.demo-stage-nav{display:flex;gap:10px;margin-top:1.6rem}
+.demo-btn{flex:1;padding:11px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;border:none;border-radius:3px;cursor:pointer;font-family:var(--sans);background:var(--masafi);color:var(--white);transition:background 0.2s}
 .demo-btn:hover{background:var(--masafi2)}
-.demo-btn:disabled{background:rgba(255,255,255,0.08);color:var(--mgrey);cursor:default}
-.demo-output{min-height:100%}
-.demo-idle{display:flex;flex-direction:column;align-items:center;justify-content:center;height:280px;gap:10px;text-align:center}
-.demo-idle-icon{font-size:1.5rem;opacity:0.2}
-.demo-idle-txt{font-size:11.5px;color:var(--mgrey);line-height:1.6;max-width:230px}
+.demo-btn:disabled{background:rgba(255,255,255,0.08);color:var(--mgrey);cursor:not-allowed}
+.demo-btn-ghost{flex:0 0 auto;padding:11px 18px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;border:1px solid rgba(255,255,255,0.12);border-radius:3px;cursor:pointer;background:none;color:var(--mgrey);font-family:var(--sans);transition:all 0.2s}
+.demo-btn-ghost:hover{color:var(--white);border-color:rgba(255,255,255,0.28)}
 .demo-step{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);align-items:flex-start;opacity:0;transform:translateY(4px);transition:opacity 0.3s,transform 0.3s}
 .demo-step:last-of-type{border-bottom:none}
 .demo-step.show{opacity:1;transform:none}
@@ -167,7 +180,7 @@ a{color:inherit}
 .demo-verdict.warn .demo-verdict-title{color:var(--amber)}
 .demo-verdict.fail .demo-verdict-title{color:#ff5f5f}
 .demo-verdict-body{font-size:11.5px;color:var(--mgrey);line-height:1.6}
-.demo-note{font-size:11px;color:var(--dgrey);margin-top:1.3rem;line-height:1.6;font-style:italic}
+.demo-note{font-size:11px;color:var(--dgrey);margin-top:1.3rem;line-height:1.6;font-style:italic;text-align:center}
 
 /* ── TIMELINE (position at end of WP1) ── */
 .tl{position:relative;padding-left:2.4rem}
@@ -363,42 +376,106 @@ a{color:inherit}
         </div>
 
         <div class="demo-wrap reveal">
-          <div class="demo-panel">
-            <div class="demo-panel-title">Scenario Inputs</div>
-
-            <div class="demo-field">
-              <label class="demo-label">Distribution Centre</label>
-              <select class="demo-select" id="demo-warehouse">
-                <option value="dubai">Dubai DC — 120,000 cases/wk capacity</option>
-                <option value="sharjah">Sharjah DC — 65,000 cases/wk capacity</option>
-                <option value="abudhabi">Abu Dhabi DC — 40,000 cases/wk capacity</option>
-              </select>
+          <div class="demo-journey">
+            <div class="demo-dots">
+              <div class="demo-dot" data-dot="1"></div>
+              <div class="demo-dot" data-dot="2"></div>
+              <div class="demo-dot" data-dot="3"></div>
+              <div class="demo-dot" data-dot="4"></div>
             </div>
 
-            <div class="demo-field">
-              <label class="demo-label">SKU Mix</label>
-              <select class="demo-select" id="demo-sku">
-                <option value="bulk">Bulk 5L / 10L bottles — low complexity</option>
-                <option value="retail">200ml / 330ml cartons — medium complexity</option>
-                <option value="mixed">Mixed pallet — dispensers + retail + bulk — high complexity</option>
-              </select>
+            <!-- STAGE 1 — WAREHOUSE -->
+            <div class="demo-stage" data-stage="1">
+              <div class="demo-stage-label">Step 1 of 4</div>
+              <div class="demo-stage-title">Choose a distribution centre</div>
+              <div class="demo-stage-sub">Pick the DC you want the agent to check requested order volume against.</div>
+              <div class="demo-choice-grid">
+                <div class="demo-choice" data-warehouse="dubai">
+                  <div class="demo-choice-txt">
+                    <div class="demo-choice-name">Dubai DC</div>
+                    <div class="demo-choice-meta">120,000 cases/wk capacity · 78% utilised</div>
+                  </div>
+                  <div class="demo-choice-check"></div>
+                </div>
+                <div class="demo-choice" data-warehouse="sharjah">
+                  <div class="demo-choice-txt">
+                    <div class="demo-choice-name">Sharjah DC</div>
+                    <div class="demo-choice-meta">65,000 cases/wk capacity · 91% utilised</div>
+                  </div>
+                  <div class="demo-choice-check"></div>
+                </div>
+                <div class="demo-choice" data-warehouse="abudhabi">
+                  <div class="demo-choice-txt">
+                    <div class="demo-choice-name">Abu Dhabi DC</div>
+                    <div class="demo-choice-meta">40,000 cases/wk capacity · 54% utilised</div>
+                  </div>
+                  <div class="demo-choice-check"></div>
+                </div>
+              </div>
+              <div class="demo-stage-nav">
+                <button class="demo-btn" id="demo-next-1" data-next="2" disabled>Continue</button>
+              </div>
             </div>
 
-            <div class="demo-field">
-              <label class="demo-label">Requested Order Volume <b id="demo-vol-label">60,000 cases</b></label>
-              <input class="demo-range" type="range" id="demo-volume" min="10000" max="150000" step="5000" value="60000">
-              <div class="demo-cap-bar"><div class="demo-cap-fill" id="demo-cap-fill"></div></div>
+            <!-- STAGE 2 — SKU MIX -->
+            <div class="demo-stage" data-stage="2">
+              <div class="demo-stage-label">Step 2 of 4</div>
+              <div class="demo-stage-title">Select the SKU mix</div>
+              <div class="demo-stage-sub">Different pallet compositions carry different sequencing complexity.</div>
+              <div class="demo-choice-grid">
+                <div class="demo-choice" data-sku="bulk">
+                  <div class="demo-choice-txt">
+                    <div class="demo-choice-name">Bulk 5L / 10L bottles</div>
+                    <div class="demo-choice-meta">Low complexity</div>
+                  </div>
+                  <div class="demo-choice-check"></div>
+                </div>
+                <div class="demo-choice" data-sku="retail">
+                  <div class="demo-choice-txt">
+                    <div class="demo-choice-name">200ml / 330ml cartons</div>
+                    <div class="demo-choice-meta">Medium complexity</div>
+                  </div>
+                  <div class="demo-choice-check"></div>
+                </div>
+                <div class="demo-choice" data-sku="mixed">
+                  <div class="demo-choice-txt">
+                    <div class="demo-choice-name">Mixed pallet</div>
+                    <div class="demo-choice-meta">Dispensers + retail + bulk · high complexity</div>
+                  </div>
+                  <div class="demo-choice-check"></div>
+                </div>
+              </div>
+              <div class="demo-stage-nav">
+                <button class="demo-btn-ghost" data-back="1">Back</button>
+                <button class="demo-btn" id="demo-next-2" data-next="3" disabled>Continue</button>
+              </div>
             </div>
 
-            <button class="demo-btn" id="demo-run">Run Capacity Check</button>
-          </div>
+            <!-- STAGE 3 — VOLUME -->
+            <div class="demo-stage" data-stage="3">
+              <div class="demo-stage-label">Step 3 of 4</div>
+              <div class="demo-stage-title">Set the requested order volume</div>
+              <div class="demo-stage-sub">Drag to see how the request compares to available headroom in real time.</div>
+              <div class="demo-field">
+                <label class="demo-label">Requested Order Volume <b id="demo-vol-label">60,000 cases</b></label>
+                <input class="demo-range" type="range" id="demo-volume" min="10000" max="150000" step="5000" value="60000">
+                <div class="demo-cap-bar"><div class="demo-cap-fill" id="demo-cap-fill"></div></div>
+                <div class="demo-cap-caption" id="demo-cap-caption"></div>
+              </div>
+              <div class="demo-stage-nav">
+                <button class="demo-btn-ghost" data-back="2">Back</button>
+                <button class="demo-btn" id="demo-run" data-next="4">Run Capacity Check</button>
+              </div>
+            </div>
 
-          <div class="demo-panel demo-output">
-            <div class="demo-panel-title">Agentic AI Output</div>
-            <div id="demo-result">
-              <div class="demo-idle">
-                <div class="demo-idle-icon">⬡</div>
-                <div class="demo-idle-txt">Configure a scenario and run the check to see the agent reason through capacity, throughput and system alignment.</div>
+            <!-- STAGE 4 — AI OUTPUT -->
+            <div class="demo-stage" data-stage="4">
+              <div class="demo-stage-label">Step 4 of 4</div>
+              <div class="demo-stage-title">Agentic AI output</div>
+              <div class="demo-stage-sub">The agent reasons through capacity, throughput and system alignment.</div>
+              <div id="demo-result"></div>
+              <div class="demo-stage-nav">
+                <button class="demo-btn-ghost" id="demo-restart">Run another scenario</button>
               </div>
             </div>
           </div>
@@ -487,6 +564,13 @@ a{color:inherit}
     loginScreen.classList.remove('hidden');
     document.getElementById('lf-pass').value = '';
   });
+
+  /* auto-enter: credentials are pre-embedded so no typing is required */
+  document.getElementById('lf-email').value = VALID_EMAIL;
+  document.getElementById('lf-pass').value = VALID_PASS;
+  loginScreen.classList.add('hidden');
+  briefing.classList.add('visible');
+  initBriefing();
 
   var briefingInitialized = false;
   function initBriefing(){
@@ -588,7 +672,7 @@ a{color:inherit}
       });
     });
 
-    /* warehouse capacity-planning demo */
+    /* warehouse capacity-planning demo — guided journey */
     var warehouses = {
       dubai:    {name:'Dubai DC',      capacity:120000, utilization:0.78},
       sharjah:  {name:'Sharjah DC',    capacity:65000,  utilization:0.91},
@@ -601,72 +685,131 @@ a{color:inherit}
       mixed:'Mixed pallet (dispensers + retail + bulk)'
     };
 
-    var whSelect = document.getElementById('demo-warehouse');
-    var skuSelect = document.getElementById('demo-sku');
-    var volInput = document.getElementById('demo-volume');
-    var volLabel = document.getElementById('demo-vol-label');
-    var capFill = document.getElementById('demo-cap-fill');
-    var runBtn = document.getElementById('demo-run');
-    var resultEl = document.getElementById('demo-result');
+    var journeyEl = document.querySelector('.demo-journey');
+    if(journeyEl){
+      var state = {warehouse:null, sku:null, volume:60000};
+      var stages = journeyEl.querySelectorAll('.demo-stage');
+      var dots = journeyEl.querySelectorAll('.demo-dot');
+      var volInput = document.getElementById('demo-volume');
+      var volLabel = document.getElementById('demo-vol-label');
+      var capFill = document.getElementById('demo-cap-fill');
+      var capCaption = document.getElementById('demo-cap-caption');
+      var runBtn = document.getElementById('demo-run');
+      var resultEl = document.getElementById('demo-result');
 
-    function updateCapPreview(){
-      var wh = warehouses[whSelect.value];
-      var vol = parseInt(volInput.value, 10);
-      volLabel.textContent = vol.toLocaleString('en-US') + ' cases';
-      var available = Math.round(wh.capacity * (1 - wh.utilization));
-      var pct = Math.min(100, Math.round((vol / wh.capacity) * 100));
-      var ratio = vol / available;
-      capFill.style.width = pct + '%';
-      capFill.style.background = ratio <= 0.85 ? '#00C853' : (ratio <= 1.05 ? '#F59E0B' : '#EF4444');
-    }
-    if(whSelect && volInput){
-      whSelect.addEventListener('change', updateCapPreview);
-      skuSelect.addEventListener('change', updateCapPreview);
-      volInput.addEventListener('input', updateCapPreview);
-      updateCapPreview();
-    }
+      function showStage(n){
+        stages.forEach(function(s){ s.classList.toggle('active', s.getAttribute('data-stage') === String(n)); });
+        dots.forEach(function(d, i){
+          d.classList.toggle('active', i === n - 1);
+          d.classList.toggle('done', i < n - 1);
+        });
+      }
+      showStage(1);
 
-    function runCapacityCheck(){
-      var wh = warehouses[whSelect.value];
-      var skuVal = skuSelect.value;
-      var vol = parseInt(volInput.value, 10);
-      var available = Math.round(wh.capacity * (1 - wh.utilization));
-      var complexity = skuComplexity[skuVal];
-      var adjusted = Math.round(vol * (1 + complexity));
-      var ratio = adjusted / available;
+      journeyEl.querySelectorAll('[data-warehouse]').forEach(function(el){
+        el.addEventListener('click', function(){
+          journeyEl.querySelectorAll('[data-warehouse]').forEach(function(c){ c.classList.remove('selected'); });
+          this.classList.add('selected');
+          state.warehouse = this.getAttribute('data-warehouse');
+          document.getElementById('demo-next-1').disabled = false;
+        });
+      });
 
-      runBtn.disabled = true;
-      runBtn.textContent = 'Running…';
+      journeyEl.querySelectorAll('[data-sku]').forEach(function(el){
+        el.addEventListener('click', function(){
+          journeyEl.querySelectorAll('[data-sku]').forEach(function(c){ c.classList.remove('selected'); });
+          this.classList.add('selected');
+          state.sku = this.getAttribute('data-sku');
+          document.getElementById('demo-next-2').disabled = false;
+        });
+      });
 
-      resultEl.innerHTML =
-        '<div class="demo-step" id="ds1"><div class="demo-step-badge">1</div><div><div class="demo-step-name">Checking real-time capacity</div><div class="demo-step-detail">' + wh.name + ': ' + available.toLocaleString('en-US') + ' cases available this week (' + Math.round((1 - wh.utilization) * 100) + '% headroom on ' + wh.capacity.toLocaleString('en-US') + ' total capacity).</div></div></div>' +
-        '<div class="demo-step" id="ds2"><div class="demo-step-badge">2</div><div><div class="demo-step-name">Cross-referencing the five planning systems</div><div class="demo-step-detail">' + skuLabels[skuVal] + ' — complexity uplift of +' + Math.round(complexity * 100) + '% applied to sequencing load. Adjusted demand: ' + adjusted.toLocaleString('en-US') + ' cases.</div></div></div>' +
-        '<div class="demo-step" id="ds3"><div class="demo-step-badge">3</div><div><div class="demo-step-name">Evaluating against agentic AI matrix</div><div class="demo-step-detail">Adjusted demand is ' + Math.round(ratio * 100) + '% of available headroom.</div></div></div>' +
-        '<div class="demo-verdict" id="dv"></div>';
+      journeyEl.querySelectorAll('[data-back]').forEach(function(btn){
+        btn.addEventListener('click', function(){ showStage(parseInt(this.getAttribute('data-back'), 10)); });
+      });
+      journeyEl.querySelectorAll('[data-next]').forEach(function(btn){
+        if(btn.id === 'demo-run') return;
+        btn.addEventListener('click', function(){ showStage(parseInt(this.getAttribute('data-next'), 10)); });
+      });
 
-      var verdict;
-      if(ratio <= 0.85){
-        verdict = {cls:'pass', title:'✓ Feasible within current capacity', body:'Requested volume fits within available headroom at ' + wh.name + '. No reallocation required — the order can proceed as scheduled.'};
-      } else if(ratio <= 1.05){
-        verdict = {cls:'warn', title:'⚠ At risk — requires sequencing', body:'Requested volume is close to available headroom at ' + wh.name + '. The agent recommends splitting the order across two dispatch windows or drawing partial capacity from a neighbouring DC.'};
-      } else {
-        verdict = {cls:'fail', title:'✕ Infeasible without reallocation', body:'Requested volume exceeds available headroom at ' + wh.name + '. The agent recommends reallocating volume to a DC with spare capacity or rephasing the order over multiple weeks.'};
+      function updateCapPreview(){
+        if(!state.warehouse) return;
+        var wh = warehouses[state.warehouse];
+        var vol = parseInt(volInput.value, 10);
+        state.volume = vol;
+        volLabel.textContent = vol.toLocaleString('en-US') + ' cases';
+        var available = Math.round(wh.capacity * (1 - wh.utilization));
+        var pct = Math.min(100, Math.round((vol / wh.capacity) * 100));
+        var ratio = vol / available;
+        capFill.style.width = pct + '%';
+        capFill.style.background = ratio <= 0.85 ? '#00C853' : (ratio <= 1.05 ? '#F59E0B' : '#EF4444');
+        capCaption.textContent = wh.name + ' has ' + available.toLocaleString('en-US') + ' cases/wk available headroom right now.';
+      }
+      if(volInput){ volInput.addEventListener('input', updateCapPreview); }
+
+      /* recalc capacity preview whenever stage 3 becomes active */
+      var stage3 = journeyEl.querySelector('[data-stage="3"]');
+      var stageObserver = new MutationObserver(function(){
+        if(stage3.classList.contains('active')) updateCapPreview();
+      });
+      stageObserver.observe(stage3, {attributes:true, attributeFilter:['class']});
+
+      function runCapacityCheck(){
+        var wh = warehouses[state.warehouse];
+        var skuVal = state.sku;
+        var vol = state.volume;
+        var available = Math.round(wh.capacity * (1 - wh.utilization));
+        var complexity = skuComplexity[skuVal];
+        var adjusted = Math.round(vol * (1 + complexity));
+        var ratio = adjusted / available;
+
+        resultEl.innerHTML =
+          '<div class="demo-step" id="ds1"><div class="demo-step-badge">1</div><div><div class="demo-step-name">Checking real-time capacity</div><div class="demo-step-detail">' + wh.name + ': ' + available.toLocaleString('en-US') + ' cases available this week (' + Math.round((1 - wh.utilization) * 100) + '% headroom on ' + wh.capacity.toLocaleString('en-US') + ' total capacity).</div></div></div>' +
+          '<div class="demo-step" id="ds2"><div class="demo-step-badge">2</div><div><div class="demo-step-name">Cross-referencing the five planning systems</div><div class="demo-step-detail">' + skuLabels[skuVal] + ' — complexity uplift of +' + Math.round(complexity * 100) + '% applied to sequencing load. Adjusted demand: ' + adjusted.toLocaleString('en-US') + ' cases.</div></div></div>' +
+          '<div class="demo-step" id="ds3"><div class="demo-step-badge">3</div><div><div class="demo-step-name">Evaluating against agentic AI matrix</div><div class="demo-step-detail">Adjusted demand is ' + Math.round(ratio * 100) + '% of available headroom.</div></div></div>' +
+          '<div class="demo-verdict" id="dv"></div>';
+
+        var verdict;
+        if(ratio <= 0.85){
+          verdict = {cls:'pass', title:'✓ Feasible within current capacity', body:'Requested volume fits within available headroom at ' + wh.name + '. No reallocation required — the order can proceed as scheduled.'};
+        } else if(ratio <= 1.05){
+          verdict = {cls:'warn', title:'⚠ At risk — requires sequencing', body:'Requested volume is close to available headroom at ' + wh.name + '. The agent recommends splitting the order across two dispatch windows or drawing partial capacity from a neighbouring DC.'};
+        } else {
+          verdict = {cls:'fail', title:'✕ Infeasible without reallocation', body:'Requested volume exceeds available headroom at ' + wh.name + '. The agent recommends reallocating volume to a DC with spare capacity or rephasing the order over multiple weeks.'};
+        }
+
+        var steps = [document.getElementById('ds1'), document.getElementById('ds2'), document.getElementById('ds3')];
+        steps.forEach(function(s, i){
+          setTimeout(function(){ s.classList.add('show'); }, 250 + i * 450);
+        });
+        setTimeout(function(){
+          var v = document.getElementById('dv');
+          v.classList.add(verdict.cls);
+          v.innerHTML = '<div class="demo-verdict-title">' + verdict.title + '</div><div class="demo-verdict-body">' + verdict.body + '</div>';
+          v.classList.add('show');
+        }, 250 + steps.length * 450 + 200);
       }
 
-      var steps = [document.getElementById('ds1'), document.getElementById('ds2'), document.getElementById('ds3')];
-      steps.forEach(function(s, i){
-        setTimeout(function(){ s.classList.add('show'); }, 250 + i * 450);
-      });
-      setTimeout(function(){
-        var v = document.getElementById('dv');
-        v.classList.add(verdict.cls);
-        v.innerHTML = '<div class="demo-verdict-title">' + verdict.title + '</div><div class="demo-verdict-body">' + verdict.body + '</div>';
-        v.classList.add('show');
-        runBtn.disabled = false;
-        runBtn.textContent = 'Run Capacity Check';
-      }, 250 + steps.length * 450 + 200);
+      if(runBtn){
+        runBtn.addEventListener('click', function(){
+          showStage(4);
+          runCapacityCheck();
+        });
+      }
+
+      var restartBtn = document.getElementById('demo-restart');
+      if(restartBtn){
+        restartBtn.addEventListener('click', function(){
+          state = {warehouse:null, sku:null, volume:60000};
+          journeyEl.querySelectorAll('.demo-choice').forEach(function(c){ c.classList.remove('selected'); });
+          document.getElementById('demo-next-1').disabled = true;
+          document.getElementById('demo-next-2').disabled = true;
+          volInput.value = 60000;
+          resultEl.innerHTML = '';
+          showStage(1);
+        });
+      }
     }
-    if(runBtn){ runBtn.addEventListener('click', runCapacityCheck); }
   }
 })();
 </script>
