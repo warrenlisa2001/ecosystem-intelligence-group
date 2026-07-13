@@ -70,8 +70,11 @@ a{color:inherit}
 .container{max-width:900px;margin:0 auto;padding:0 1.5rem}
 
 /* ── COVER ── */
-.cover{min-height:calc(100vh - 58px);display:flex;flex-direction:column;justify-content:center;padding:4rem 0;border-bottom:1px solid var(--border);position:relative}
-.cover-num{position:absolute;top:2rem;right:1.5rem;font-family:var(--serif);font-size:5rem;font-weight:700;color:rgba(0,91,172,0.08);line-height:1;user-select:none}
+.cover{min-height:calc(100vh - 58px);display:flex;flex-direction:column;justify-content:center;padding:4rem 0;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:-10%;pointer-events:none;opacity:0.55;background-image:radial-gradient(rgba(0,102,255,0.28) 1px, transparent 1.4px);background-size:36px 36px;animation:driftBg 50s linear infinite}
+@keyframes driftBg{from{transform:translate(0,0)}to{transform:translate(-36px,-36px)}}
+.cover .container{position:relative;z-index:1}
+.cover-num{position:absolute;top:2rem;right:1.5rem;font-family:var(--serif);font-size:5rem;font-weight:700;color:rgba(0,91,172,0.08);line-height:1;user-select:none;z-index:0}
 .cover-tag{font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--masafi2);font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:1.1rem;opacity:0;animation:fadeUp 0.7s 0.1s forwards}
 .cover-tag::before{content:'';width:20px;height:1px;background:var(--masafi2)}
 .cover h1{font-family:var(--serif);font-size:clamp(2.1rem,5vw,3.4rem);font-weight:700;line-height:1.12;margin-bottom:0.6rem;max-width:680px;opacity:0;animation:fadeUp 0.7s 0.22s forwards}
@@ -97,6 +100,36 @@ a{color:inherit}
 .sec-body{font-size:13.5px;color:var(--mgrey);line-height:1.75}
 .reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
 .reveal.in{opacity:1;transform:none}
+
+/* ── FRAMEWORK (hub diagram + roadmap) ── */
+.fw-diagram{position:relative;width:460px;max-width:100%;height:460px;margin:0 auto 2rem}
+.fw-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;background:radial-gradient(circle at 35% 30%, rgba(0,119,204,0.32), rgba(0,91,172,0.1));border:1.5px solid rgba(0,91,172,0.45);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px;box-shadow:0 0 40px rgba(0,91,172,0.22)}
+.fw-hub-name{font-family:var(--serif);font-size:0.95rem;font-weight:700}
+.fw-hub-sub{font-size:7.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey);margin-top:4px;line-height:1.4}
+.fw-node{position:absolute;width:112px;transform:translate(-50%,-50%);text-align:center;cursor:pointer}
+.fw-node-dot{width:52px;height:52px;border-radius:50%;background:var(--navy);border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 7px;font-size:1.1rem;transition:all 0.25s}
+.fw-node:hover .fw-node-dot,.fw-node.active .fw-node-dot{border-color:var(--masafi2);background:rgba(0,91,172,0.16);box-shadow:0 0 18px rgba(0,91,172,0.32)}
+.fw-node-label{font-size:10px;font-weight:700;letter-spacing:0.02em}
+.fw-node.active .fw-node-label{color:var(--masafi2)}
+.fw-detail{background:var(--navy);border:1px solid var(--border);border-radius:5px;padding:1rem 1.2rem;min-height:24px;font-size:12.5px;color:var(--mgrey);line-height:1.6;margin-bottom:2.2rem;transition:border-color 0.2s}
+.fw-detail b{color:var(--white)}
+.fw-list{display:none;flex-direction:column;gap:8px;margin-bottom:2.2rem}
+.fw-list-item{background:var(--navy);border:1px solid var(--border);border-radius:5px;padding:0.8rem 1rem}
+.fw-list-item b{display:block;font-size:12.5px;margin-bottom:3px}
+.fw-list-item span{font-size:11.5px;color:var(--mgrey)}
+.wp-road{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;position:relative;margin-top:1rem}
+.wp-road::before{content:'';position:absolute;top:22px;left:8%;right:8%;height:1px;background:var(--border)}
+.wp-stage{position:relative;text-align:center;padding:0 0.6rem;cursor:pointer}
+.wp-stage-dot{width:44px;height:44px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;font-size:13px;position:relative;z-index:1;border:1.5px solid var(--border);background:var(--black);transition:all 0.2s}
+.wp-stage.live .wp-stage-dot{border-color:var(--masafi2);background:var(--masafi);color:var(--white);box-shadow:0 0 20px rgba(0,91,172,0.4);animation:pulseDot 2.4s infinite}
+@keyframes pulseDot{0%,100%{box-shadow:0 0 20px rgba(0,91,172,0.4)}50%{box-shadow:0 0 30px rgba(0,91,172,0.7)}}
+.wp-stage-title{font-size:12px;font-weight:700;margin-bottom:2px}
+.wp-stage-sub{font-size:10px;color:var(--mgrey);letter-spacing:0.02em}
+.wp-stage.locked .wp-stage-title{color:var(--mgrey)}
+.wp-stage:hover .wp-stage-dot{border-color:rgba(0,91,172,0.5)}
+.wp-note{background:rgba(0,91,172,0.05);border:1px solid rgba(0,91,172,0.16);border-radius:4px;padding:0.85rem 1.1rem;font-size:11.5px;color:var(--mgrey);line-height:1.6;margin-top:1.3rem;display:none}
+.wp-note.show{display:block}
+.wp-note b{color:var(--white)}
 
 /* ── OUTPUT CARDS ── */
 .outputs-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin-bottom:2rem}
@@ -130,6 +163,72 @@ a{color:inherit}
 .pay-detail b{color:var(--white)}
 .pay-scope-note{font-size:11.5px;color:var(--dgrey);margin-top:1rem;line-height:1.6;font-style:italic}
 
+/* ── LIVE DEMONSTRATOR (guided journey) ── */
+.demo-wrap{display:flex;justify-content:center}
+.demo-journey{width:100%;max-width:620px;background:var(--navy);border:1px solid var(--border);border-radius:6px;padding:1.8rem 2rem;overflow:hidden}
+.demo-dots{display:flex;gap:6px;margin-bottom:1.8rem}
+.demo-dot{flex:1;height:3px;border-radius:100px;background:rgba(255,255,255,0.08);transition:background 0.35s}
+.demo-dot.active,.demo-dot.done{background:var(--masafi2)}
+.demo-stage{display:none}
+.demo-stage.active{display:block;animation:stageIn 0.5s ease}
+@keyframes stageIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:none}}
+.demo-stage-label{font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--masafi2);font-weight:700;margin-bottom:8px}
+.demo-stage-title{font-family:var(--serif);font-size:1.35rem;font-weight:700;margin-bottom:6px;line-height:1.25}
+.demo-stage-sub{font-size:12.5px;color:var(--mgrey);margin-bottom:1.4rem;line-height:1.65;max-width:480px}
+.demo-choice-grid{display:grid;grid-template-columns:1fr;gap:8px;margin-bottom:1.4rem}
+.demo-choice{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:5px;padding:0.9rem 1.1rem;cursor:pointer;transition:all 0.2s;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.demo-choice:hover{border-color:rgba(0,91,172,0.35);background:rgba(0,91,172,0.03)}
+.demo-choice.selected{border-color:var(--masafi2);background:rgba(0,91,172,0.08)}
+.demo-choice-txt{flex:1}
+.demo-choice-name{font-size:13px;font-weight:600;margin-bottom:2px}
+.demo-choice-meta{font-size:11px;color:var(--mgrey)}
+.demo-choice-check{width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.15);flex-shrink:0;transition:all 0.2s;box-sizing:border-box}
+.demo-choice.selected .demo-choice-check{border-color:var(--masafi2);background:var(--masafi2);box-shadow:inset 0 0 0 3px var(--navy)}
+.demo-field{margin-bottom:0.4rem}
+.demo-label{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey);font-weight:600;margin-bottom:8px;display:flex;justify-content:space-between;gap:8px}
+.demo-label b{color:var(--white);font-weight:700;text-transform:none;letter-spacing:0;font-size:13px}
+.demo-range{width:100%;accent-color:var(--masafi2);cursor:pointer;display:block}
+.demo-cap-bar{height:7px;border-radius:100px;background:rgba(255,255,255,0.06);overflow:hidden;margin-top:10px}
+.demo-cap-fill{height:100%;border-radius:100px;background:var(--masafi2);width:0%;transition:width 0.4s ease,background 0.4s ease}
+.demo-cap-caption{font-size:10.5px;color:var(--dgrey);margin-top:8px}
+.demo-stage-nav{display:flex;gap:10px;margin-top:1.6rem}
+.demo-btn{flex:1;padding:11px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;border:none;border-radius:3px;cursor:pointer;font-family:var(--sans);background:var(--masafi);color:var(--white);transition:background 0.2s}
+.demo-btn:hover{background:var(--masafi2)}
+.demo-btn:disabled{background:rgba(255,255,255,0.08);color:var(--mgrey);cursor:not-allowed}
+.demo-btn-ghost{flex:0 0 auto;padding:11px 18px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;border:1px solid rgba(255,255,255,0.12);border-radius:3px;cursor:pointer;background:none;color:var(--mgrey);font-family:var(--sans);transition:all 0.2s}
+.demo-btn-ghost:hover{color:var(--white);border-color:rgba(255,255,255,0.28)}
+.demo-step{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);align-items:flex-start;opacity:0;transform:translateY(4px);transition:opacity 0.3s,transform 0.3s}
+.demo-step:last-of-type{border-bottom:none}
+.demo-step.show{opacity:1;transform:none}
+.demo-step-badge{width:24px;height:24px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:1px;background:rgba(0,102,255,0.12);color:var(--blue2)}
+.demo-step-name{font-size:11.5px;font-weight:600;margin-bottom:2px;color:var(--white)}
+.demo-step-detail{font-size:10.5px;color:var(--mgrey);line-height:1.55}
+.demo-verdict{border-radius:4px;padding:1rem 1.1rem;margin-top:0.6rem;opacity:0;transition:opacity 0.4s}
+.demo-verdict.show{opacity:1}
+.demo-verdict.pass{background:rgba(0,200,83,0.05);border:1px solid rgba(0,200,83,0.2)}
+.demo-verdict.warn{background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.2)}
+.demo-verdict.fail{background:rgba(239,68,68,0.05);border:1px solid rgba(239,68,68,0.2)}
+.demo-verdict-title{font-size:12.5px;font-weight:700;margin-bottom:4px}
+.demo-verdict.pass .demo-verdict-title{color:var(--green)}
+.demo-verdict.warn .demo-verdict-title{color:var(--amber)}
+.demo-verdict.fail .demo-verdict-title{color:#ff5f5f}
+.demo-verdict-body{font-size:11.5px;color:var(--mgrey);line-height:1.6}
+.demo-note{font-size:11px;color:var(--dgrey);margin-top:1.3rem;line-height:1.6;font-style:italic;text-align:center}
+
+/* ── GOVERNANCE CARDS ── */
+.gov-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem}
+.gov-card{background:var(--navy);border:1px solid var(--border);border-radius:5px;padding:1.25rem 1.3rem;cursor:pointer;transition:all 0.2s}
+.gov-card:hover{border-color:rgba(0,91,172,0.35);transform:translateY(-2px)}
+.gov-card.open{border-color:rgba(0,91,172,0.5);background:rgba(0,91,172,0.05)}
+.gov-top{display:flex;align-items:center;gap:10px;margin-bottom:0.4rem}
+.gov-icon{width:30px;height:30px;border-radius:50%;background:rgba(0,91,172,0.12);border:1px solid rgba(0,91,172,0.3);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.gov-title{font-size:13.5px;font-weight:600;flex:1}
+.gov-arrow{font-size:12px;color:var(--mgrey);transition:transform 0.25s;flex-shrink:0}
+.gov-card.open .gov-arrow{transform:rotate(90deg);color:var(--masafi2)}
+.gov-clause{font-size:9.5px;color:var(--masafi2);font-weight:700;letter-spacing:0.05em;margin-left:40px}
+.gov-detail{font-size:12px;color:var(--mgrey);line-height:1.65;max-height:0;overflow:hidden;transition:max-height 0.3s ease,margin-top 0.3s ease;margin-left:0}
+.gov-card.open .gov-detail{max-height:220px;margin-top:0.7rem;padding-top:0.7rem;border-top:1px solid var(--border)}
+
 /* ── TIMELINE (position at end of WP1) ── */
 .tl{position:relative;padding-left:2.4rem}
 .tl::before{content:'';position:absolute;left:12px;top:6px;bottom:6px;width:1px;background:var(--border)}
@@ -154,10 +253,14 @@ a{color:inherit}
 
 @media(max-width:720px){
   .outputs-grid{grid-template-columns:1fr}
+  .gov-grid{grid-template-columns:1fr}
   .cover-meta{grid-template-columns:1fr}
   .tb-nav{display:none}
   .bf{flex-direction:column}
   .bf-r{text-align:left}
+  .demo-wrap{grid-template-columns:1fr}
+  .fw-diagram{display:none}
+  .fw-list{display:flex}
 }
 </style>
 </head>
@@ -210,8 +313,11 @@ a{color:inherit}
       <span class="tb-pill pill-conf">Confidential</span>
       <div class="tb-nav">
         <button class="tb-navlink" data-target="#sec-cover">I</button>
-        <button class="tb-navlink" data-target="#sec-scope">II</button>
-        <button class="tb-navlink" data-target="#sec-position">III</button>
+        <button class="tb-navlink" data-target="#sec-framework">II</button>
+        <button class="tb-navlink" data-target="#sec-scope">III</button>
+        <button class="tb-navlink" data-target="#sec-demo">IV</button>
+        <button class="tb-navlink" data-target="#sec-governance">V</button>
+        <button class="tb-navlink" data-target="#sec-position">VI</button>
       </div>
       <button class="tb-out" id="logout-btn">Log out</button>
     </div>
@@ -221,6 +327,7 @@ a{color:inherit}
 
     <!-- SLIDE I — COVER -->
     <section class="cover" id="sec-cover">
+      <div class="hero-bg"></div>
       <div class="cover-num">I</div>
       <div class="container">
         <div class="cover-tag">Briefing Paper · WP1 Discovery Phase</div>
@@ -245,12 +352,67 @@ a{color:inherit}
       </div>
     </section>
 
-    <!-- SLIDE II — SCOPE OF WORK -->
-    <section class="section" id="sec-scope">
+    <!-- SLIDE II — FRAMEWORK -->
+    <section class="section" id="sec-framework">
       <div class="container">
         <div class="sec-head reveal">
           <div class="sec-num">II</div>
-          <div class="sec-tag">Discovery Phase · 60 Days</div>
+          <div class="sec-tag">Clause 3 · Objectives</div>
+          <h2 class="sec-h">One model, <em>six functions.</em></h2>
+          <p class="sec-body">Masafi-OS is an integrated operating intelligence model spanning Masafi's commercial, supply chain, logistics, demand-planning, fleet and customer-service functions — the foundation on which agentic AI is deployed in sequenced phases.</p>
+        </div>
+
+        <div class="reveal">
+          <div class="fw-diagram" id="fw-diagram">
+            <div class="fw-hub"><div class="fw-hub-name">Masafi-OS</div><div class="fw-hub-sub">Integrated<br>Operating Model</div></div>
+            <div class="fw-node" style="top:50px;left:230px" data-domain="commercial"><div class="fw-node-dot">◆</div><div class="fw-node-label">Commercial</div></div>
+            <div class="fw-node" style="top:140px;left:386px" data-domain="supply"><div class="fw-node-dot">⬡</div><div class="fw-node-label">Supply Chain</div></div>
+            <div class="fw-node" style="top:320px;left:386px" data-domain="logistics"><div class="fw-node-dot">▲</div><div class="fw-node-label">Logistics</div></div>
+            <div class="fw-node" style="top:410px;left:230px" data-domain="demand"><div class="fw-node-dot">◈</div><div class="fw-node-label">Demand Planning</div></div>
+            <div class="fw-node" style="top:320px;left:74px" data-domain="fleet"><div class="fw-node-dot">●</div><div class="fw-node-label">Fleet</div></div>
+            <div class="fw-node" style="top:140px;left:74px" data-domain="service"><div class="fw-node-dot">✦</div><div class="fw-node-label">Customer Service</div></div>
+          </div>
+          <div class="fw-list" id="fw-list">
+            <div class="fw-list-item"><b>Commercial</b><span>Sales, pricing and channel performance brought into one operating view.</span></div>
+            <div class="fw-list-item"><b>Supply Chain</b><span>End-to-end visibility from raw material to shelf.</span></div>
+            <div class="fw-list-item"><b>Logistics</b><span>Distribution, transport and warehouse execution in real time.</span></div>
+            <div class="fw-list-item"><b>Demand Planning</b><span>Forecast and inventory decisions grounded in live data.</span></div>
+            <div class="fw-list-item"><b>Fleet</b><span>Vehicle utilisation, routing and delivery reliability.</span></div>
+            <div class="fw-list-item"><b>Customer Service</b><span>Order accuracy and service levels tied back to operations.</span></div>
+          </div>
+          <div class="fw-detail" id="fw-detail">Select a function to see how it fits the model.</div>
+        </div>
+
+        <div class="reveal">
+          <div class="pay-title">The Programme roadmap — three Work Packages</div>
+          <div class="wp-road">
+            <div class="wp-stage live" data-wp="1">
+              <div class="wp-stage-dot">I</div>
+              <div class="wp-stage-title">WP1</div>
+              <div class="wp-stage-sub">Discovery · Active</div>
+            </div>
+            <div class="wp-stage locked" data-wp="2">
+              <div class="wp-stage-dot">II</div>
+              <div class="wp-stage-title">WP2</div>
+              <div class="wp-stage-sub">Independently scoped</div>
+            </div>
+            <div class="wp-stage locked" data-wp="3">
+              <div class="wp-stage-dot">III</div>
+              <div class="wp-stage-title">WP3</div>
+              <div class="wp-stage-sub">Independently scoped</div>
+            </div>
+          </div>
+          <div class="wp-note" id="wp-note"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE III — SCOPE OF WORK -->
+    <section class="section" id="sec-scope">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-num">III</div>
+          <div class="sec-tag">Clause 4.2 · Discovery Phase · 60 Days</div>
           <h2 class="sec-h">Scope of Work — <em>The Discovery Phase.</em></h2>
           <p class="sec-body">Under the Consultancy Service Agreement, WP1 comprises four defined outputs delivered over sixty days. WP2 and WP3 remain out of scope until WP1 findings are reviewed.</p>
         </div>
@@ -306,16 +468,187 @@ a{color:inherit}
             <div class="pay-seg" data-seg="3">30%</div>
           </div>
           <div class="pay-detail" id="pay-detail"><b>Click a stage above</b> to see when it's invoiced.</div>
-          <div class="pay-scope-note">WP2 and WP3 will be independently scoped and priced on the basis of WP1 findings.</div>
+          <div class="pay-scope-note">WP2 and WP3 will be independently scoped and priced on the basis of WP1 findings. Undisputed invoices are payable within 30 days of receipt (Clause 5.4).</div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE III — POSITION AT END OF WP1 -->
+    <!-- SLIDE IV — LIVE DEMONSTRATOR -->
+    <section class="section" id="sec-demo">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-num">IV</div>
+          <div class="sec-tag">Clause 4.2(d) · Live Demonstrator</div>
+          <h2 class="sec-h">Masafi-OS — <em>Warehouse Capacity Planner.</em></h2>
+          <p class="sec-body">A preview of the working demonstrator delivered under WP1: an agentic AI check that cross-references requested order volume against real-time warehouse capacity and the five active planning systems referenced in output (b). Configure a scenario below and run the check.</p>
+        </div>
+
+        <div class="demo-wrap reveal">
+          <div class="demo-journey">
+            <div class="demo-dots">
+              <div class="demo-dot" data-dot="1"></div>
+              <div class="demo-dot" data-dot="2"></div>
+              <div class="demo-dot" data-dot="3"></div>
+              <div class="demo-dot" data-dot="4"></div>
+            </div>
+
+            <!-- STAGE 1 — WAREHOUSE -->
+            <div class="demo-stage" data-stage="1">
+              <div class="demo-stage-label">Step 1 of 4</div>
+              <div class="demo-stage-title">Choose a distribution centre</div>
+              <div class="demo-stage-sub">Pick the DC you want the agent to check requested order volume against.</div>
+              <div class="demo-choice-grid">
+                <div class="demo-choice" data-warehouse="dubai">
+                  <div class="demo-choice-txt">
+                    <div class="demo-choice-name">Dubai DC</div>
+                    <div class="demo-choice-meta">120,000 cases/wk capacity · 78% utilised</div>
+                  </div>
+                  <div class="demo-choice-check"></div>
+                </div>
+                <div class="demo-choice" data-warehouse="sharjah">
+                  <div class="demo-choice-txt">
+                    <div class="demo-choice-name">Sharjah DC</div>
+                    <div class="demo-choice-meta">65,000 cases/wk capacity · 91% utilised</div>
+                  </div>
+                  <div class="demo-choice-check"></div>
+                </div>
+                <div class="demo-choice" data-warehouse="abudhabi">
+                  <div class="demo-choice-txt">
+                    <div class="demo-choice-name">Abu Dhabi DC</div>
+                    <div class="demo-choice-meta">40,000 cases/wk capacity · 54% utilised</div>
+                  </div>
+                  <div class="demo-choice-check"></div>
+                </div>
+              </div>
+              <div class="demo-stage-nav">
+                <button class="demo-btn" id="demo-next-1" data-next="2" disabled>Continue</button>
+              </div>
+            </div>
+
+            <!-- STAGE 2 — SKU MIX -->
+            <div class="demo-stage" data-stage="2">
+              <div class="demo-stage-label">Step 2 of 4</div>
+              <div class="demo-stage-title">Select the SKU mix</div>
+              <div class="demo-stage-sub">Different pallet compositions carry different sequencing complexity.</div>
+              <div class="demo-choice-grid">
+                <div class="demo-choice" data-sku="bulk">
+                  <div class="demo-choice-txt">
+                    <div class="demo-choice-name">Bulk 5L / 10L bottles</div>
+                    <div class="demo-choice-meta">Low complexity</div>
+                  </div>
+                  <div class="demo-choice-check"></div>
+                </div>
+                <div class="demo-choice" data-sku="retail">
+                  <div class="demo-choice-txt">
+                    <div class="demo-choice-name">200ml / 330ml cartons</div>
+                    <div class="demo-choice-meta">Medium complexity</div>
+                  </div>
+                  <div class="demo-choice-check"></div>
+                </div>
+                <div class="demo-choice" data-sku="mixed">
+                  <div class="demo-choice-txt">
+                    <div class="demo-choice-name">Mixed pallet</div>
+                    <div class="demo-choice-meta">Dispensers + retail + bulk · high complexity</div>
+                  </div>
+                  <div class="demo-choice-check"></div>
+                </div>
+              </div>
+              <div class="demo-stage-nav">
+                <button class="demo-btn-ghost" data-back="1">Back</button>
+                <button class="demo-btn" id="demo-next-2" data-next="3" disabled>Continue</button>
+              </div>
+            </div>
+
+            <!-- STAGE 3 — VOLUME -->
+            <div class="demo-stage" data-stage="3">
+              <div class="demo-stage-label">Step 3 of 4</div>
+              <div class="demo-stage-title">Set the requested order volume</div>
+              <div class="demo-stage-sub">Drag to see how the request compares to available headroom in real time.</div>
+              <div class="demo-field">
+                <label class="demo-label">Requested Order Volume <b id="demo-vol-label">60,000 cases</b></label>
+                <input class="demo-range" type="range" id="demo-volume" min="10000" max="150000" step="5000" value="60000">
+                <div class="demo-cap-bar"><div class="demo-cap-fill" id="demo-cap-fill"></div></div>
+                <div class="demo-cap-caption" id="demo-cap-caption"></div>
+              </div>
+              <div class="demo-stage-nav">
+                <button class="demo-btn-ghost" data-back="2">Back</button>
+                <button class="demo-btn" id="demo-run" data-next="4">Run Capacity Check</button>
+              </div>
+            </div>
+
+            <!-- STAGE 4 — AI OUTPUT -->
+            <div class="demo-stage" data-stage="4">
+              <div class="demo-stage-label">Step 4 of 4</div>
+              <div class="demo-stage-title">Agentic AI output</div>
+              <div class="demo-stage-sub">The agent reasons through capacity, throughput and system alignment.</div>
+              <div id="demo-result"></div>
+              <div class="demo-stage-nav">
+                <button class="demo-btn-ghost" id="demo-restart">Run another scenario</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-note reveal">Illustrative only — the WP1 deliverable runs on Masafi's own live data across the five active planning systems.</div>
+      </div>
+    </section>
+
+    <!-- SLIDE V — GOVERNANCE -->
+    <section class="section" id="sec-governance">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-num">V</div>
+          <div class="sec-tag">How WP1 Is Governed</div>
+          <h2 class="sec-h">Protected on <em>both sides.</em></h2>
+          <p class="sec-body">The Consultancy Service Agreement sets out how confidentiality, ownership and exit are handled. Select a term to read it.</p>
+        </div>
+
+        <div class="gov-grid reveal">
+          <div class="gov-card" data-gov="conf">
+            <div class="gov-top">
+              <div class="gov-icon">🔒</div>
+              <div class="gov-title">Confidentiality</div>
+              <div class="gov-arrow">›</div>
+            </div>
+            <div class="gov-clause">Clause 9</div>
+            <div class="gov-detail">Mutual and ongoing. Each party keeps the other's non-public information confidential and uses it solely for the Programme — an obligation that survives termination of the Agreement.</div>
+          </div>
+          <div class="gov-card" data-gov="ip">
+            <div class="gov-top">
+              <div class="gov-icon">©</div>
+              <div class="gov-title">Intellectual Property</div>
+              <div class="gov-arrow">›</div>
+            </div>
+            <div class="gov-clause">Clause 17</div>
+            <div class="gov-detail">The Deliverables and Masafi's own operational data belong to Masafi outright. SIB retains Background IP — its AI models, frameworks and methodologies — licensed to Masafi solely as embedded in the Deliverables.</div>
+          </div>
+          <div class="gov-card" data-gov="term">
+            <div class="gov-top">
+              <div class="gov-icon">⏱</div>
+              <div class="gov-title">Termination</div>
+              <div class="gov-arrow">›</div>
+            </div>
+            <div class="gov-clause">Clause 8</div>
+            <div class="gov-detail">Either party may exit on 30 working days' written notice. Work in progress continues to be paid, and accrued rights — including SIB's right to fees already earned — are unaffected.</div>
+          </div>
+          <div class="gov-card" data-gov="law">
+            <div class="gov-top">
+              <div class="gov-icon">⚖</div>
+              <div class="gov-title">Governing Law</div>
+              <div class="gov-arrow">›</div>
+            </div>
+            <div class="gov-clause">Clause 13</div>
+            <div class="gov-detail">Governed by the laws of the Emirate of Dubai and the federal laws of the UAE. Any dispute falls under the exclusive jurisdiction of the Dubai courts.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE VI — POSITION AT END OF WP1 -->
     <section class="section" id="sec-position" style="border-bottom:none">
       <div class="container">
         <div class="sec-head reveal">
-          <div class="sec-num">III</div>
+          <div class="sec-num">VI</div>
           <div class="sec-tag">WP2 / WP3 · Independently Scoped</div>
           <h2 class="sec-h">Position at the end of WP1 — <em>At acceptance.</em></h2>
           <p class="sec-body">Masafi holds a factual operating baseline, tangible AI evidence, and the framework on which any onward investment is decided. No commitment is made ahead of validated findings.</p>
@@ -352,8 +685,8 @@ a{color:inherit}
     <div class="briefing-footer">
       <div class="container">
         <div class="bf">
-          <div class="bf-l">Consultancy Service Agreement · MASAFI CO LL.C · SIB Consulting FZCO<br>Effective 4 July 2026 · Confidential — For the Executive Committee</div>
-          <div class="bf-r" id="page-indicator">01 / 03</div>
+          <div class="bf-l">Consultancy Service Agreement · MASAFI CO LL.C · SIB Consulting FZCO<br>Executed for SIB Consulting FZCO by Keith Elliot, CEO · Effective 4 July 2026<br>Confidential — For the Executive Committee</div>
+          <div class="bf-r" id="page-indicator">01 / 06</div>
         </div>
       </div>
     </div>
@@ -391,6 +724,13 @@ a{color:inherit}
     document.getElementById('lf-pass').value = '';
   });
 
+  /* auto-enter: credentials are pre-embedded so no typing is required */
+  document.getElementById('lf-email').value = VALID_EMAIL;
+  document.getElementById('lf-pass').value = VALID_PASS;
+  loginScreen.classList.add('hidden');
+  briefing.classList.add('visible');
+  initBriefing();
+
   var briefingInitialized = false;
   function initBriefing(){
     if(briefingInitialized) return;
@@ -398,9 +738,12 @@ a{color:inherit}
 
     /* scroll progress + scrollspy + page indicator */
     var sections = [
-      {el: document.getElementById('sec-cover'), page:'01 / 03', nav:'#sec-cover'},
-      {el: document.getElementById('sec-scope'), page:'02 / 03', nav:'#sec-scope'},
-      {el: document.getElementById('sec-position'), page:'03 / 03', nav:'#sec-position'}
+      {el: document.getElementById('sec-cover'), page:'01 / 06', nav:'#sec-cover'},
+      {el: document.getElementById('sec-framework'), page:'02 / 06', nav:'#sec-framework'},
+      {el: document.getElementById('sec-scope'), page:'03 / 06', nav:'#sec-scope'},
+      {el: document.getElementById('sec-demo'), page:'04 / 06', nav:'#sec-demo'},
+      {el: document.getElementById('sec-governance'), page:'05 / 06', nav:'#sec-governance'},
+      {el: document.getElementById('sec-position'), page:'06 / 06', nav:'#sec-position'}
     ];
     var navLinks = document.querySelectorAll('.tb-navlink');
     var pageIndicator = document.getElementById('page-indicator');
@@ -466,11 +809,53 @@ a{color:inherit}
     }, {threshold:0.4});
     feeIo.observe(feeStrip);
 
+    /* framework hub diagram */
+    var fwData = {
+      commercial:{label:'Commercial', detail:'<b>Commercial.</b> Sales, pricing and channel performance brought into one operating view.'},
+      supply:{label:'Supply Chain', detail:'<b>Supply Chain.</b> End-to-end visibility from raw material to shelf.'},
+      logistics:{label:'Logistics', detail:'<b>Logistics.</b> Distribution, transport and warehouse execution in real time.'},
+      demand:{label:'Demand Planning', detail:'<b>Demand Planning.</b> Forecast and inventory decisions grounded in live data.'},
+      fleet:{label:'Fleet', detail:'<b>Fleet.</b> Vehicle utilisation, routing and delivery reliability.'},
+      service:{label:'Customer Service', detail:'<b>Customer Service.</b> Order accuracy and service levels tied back to operations.'}
+    };
+    var fwDetailEl = document.getElementById('fw-detail');
+    document.querySelectorAll('.fw-node').forEach(function(node){
+      node.addEventListener('click', function(){
+        document.querySelectorAll('.fw-node').forEach(function(n){ n.classList.remove('active'); });
+        node.classList.add('active');
+        var d = fwData[node.getAttribute('data-domain')];
+        fwDetailEl.innerHTML = d.detail;
+      });
+    });
+
+    /* Programme roadmap */
+    var wpNoteEl = document.getElementById('wp-note');
+    var wpNotes = {
+      '1': '<b>You are here.</b> WP1 — Discovery Phase, 60 days, USD 82,000 excl. VAT.',
+      '2': '<b>Independently scoped.</b> Kick-off of WP2 does not require completion of WP1 — each Work Package is financially and operationally independent.',
+      '3': '<b>Independently scoped.</b> Kick-off of WP3 does not require completion of WP1 or WP2 — each Work Package is financially and operationally independent.'
+    };
+    document.querySelectorAll('.wp-stage').forEach(function(stage){
+      stage.addEventListener('click', function(){
+        wpNoteEl.innerHTML = wpNotes[stage.getAttribute('data-wp')];
+        wpNoteEl.classList.add('show');
+      });
+    });
+
     /* output cards expand */
     document.querySelectorAll('.out-card').forEach(function(card){
       card.addEventListener('click', function(){
         var wasOpen = card.classList.contains('open');
         document.querySelectorAll('.out-card').forEach(function(c){ c.classList.remove('open'); });
+        if(!wasOpen) card.classList.add('open');
+      });
+    });
+
+    /* governance cards expand */
+    document.querySelectorAll('.gov-card').forEach(function(card){
+      card.addEventListener('click', function(){
+        var wasOpen = card.classList.contains('open');
+        document.querySelectorAll('.gov-card').forEach(function(c){ c.classList.remove('open'); });
         if(!wasOpen) card.classList.add('open');
       });
     });
@@ -489,6 +874,145 @@ a{color:inherit}
         payDetailEl.innerHTML = payDetails[seg.getAttribute('data-seg')];
       });
     });
+
+    /* warehouse capacity-planning demo — guided journey */
+    var warehouses = {
+      dubai:    {name:'Dubai DC',      capacity:120000, utilization:0.78},
+      sharjah:  {name:'Sharjah DC',    capacity:65000,  utilization:0.91},
+      abudhabi: {name:'Abu Dhabi DC',  capacity:40000,  utilization:0.54}
+    };
+    var skuComplexity = {bulk:0.05, retail:0.10, mixed:0.18};
+    var skuLabels = {
+      bulk:'Bulk 5L/10L bottles',
+      retail:'200ml/330ml cartons',
+      mixed:'Mixed pallet (dispensers + retail + bulk)'
+    };
+
+    var journeyEl = document.querySelector('.demo-journey');
+    if(journeyEl){
+      var state = {warehouse:null, sku:null, volume:60000};
+      var stages = journeyEl.querySelectorAll('.demo-stage');
+      var dots = journeyEl.querySelectorAll('.demo-dot');
+      var volInput = document.getElementById('demo-volume');
+      var volLabel = document.getElementById('demo-vol-label');
+      var capFill = document.getElementById('demo-cap-fill');
+      var capCaption = document.getElementById('demo-cap-caption');
+      var runBtn = document.getElementById('demo-run');
+      var resultEl = document.getElementById('demo-result');
+
+      function showStage(n){
+        stages.forEach(function(s){ s.classList.toggle('active', s.getAttribute('data-stage') === String(n)); });
+        dots.forEach(function(d, i){
+          d.classList.toggle('active', i === n - 1);
+          d.classList.toggle('done', i < n - 1);
+        });
+      }
+      showStage(1);
+
+      journeyEl.querySelectorAll('[data-warehouse]').forEach(function(el){
+        el.addEventListener('click', function(){
+          journeyEl.querySelectorAll('[data-warehouse]').forEach(function(c){ c.classList.remove('selected'); });
+          this.classList.add('selected');
+          state.warehouse = this.getAttribute('data-warehouse');
+          document.getElementById('demo-next-1').disabled = false;
+        });
+      });
+
+      journeyEl.querySelectorAll('[data-sku]').forEach(function(el){
+        el.addEventListener('click', function(){
+          journeyEl.querySelectorAll('[data-sku]').forEach(function(c){ c.classList.remove('selected'); });
+          this.classList.add('selected');
+          state.sku = this.getAttribute('data-sku');
+          document.getElementById('demo-next-2').disabled = false;
+        });
+      });
+
+      journeyEl.querySelectorAll('[data-back]').forEach(function(btn){
+        btn.addEventListener('click', function(){ showStage(parseInt(this.getAttribute('data-back'), 10)); });
+      });
+      journeyEl.querySelectorAll('[data-next]').forEach(function(btn){
+        if(btn.id === 'demo-run') return;
+        btn.addEventListener('click', function(){ showStage(parseInt(this.getAttribute('data-next'), 10)); });
+      });
+
+      function updateCapPreview(){
+        if(!state.warehouse) return;
+        var wh = warehouses[state.warehouse];
+        var vol = parseInt(volInput.value, 10);
+        state.volume = vol;
+        volLabel.textContent = vol.toLocaleString('en-US') + ' cases';
+        var available = Math.round(wh.capacity * (1 - wh.utilization));
+        var pct = Math.min(100, Math.round((vol / wh.capacity) * 100));
+        var ratio = vol / available;
+        capFill.style.width = pct + '%';
+        capFill.style.background = ratio <= 0.85 ? '#00C853' : (ratio <= 1.05 ? '#F59E0B' : '#EF4444');
+        capCaption.textContent = wh.name + ' has ' + available.toLocaleString('en-US') + ' cases/wk available headroom right now.';
+      }
+      if(volInput){ volInput.addEventListener('input', updateCapPreview); }
+
+      /* recalc capacity preview whenever stage 3 becomes active */
+      var stage3 = journeyEl.querySelector('[data-stage="3"]');
+      var stageObserver = new MutationObserver(function(){
+        if(stage3.classList.contains('active')) updateCapPreview();
+      });
+      stageObserver.observe(stage3, {attributes:true, attributeFilter:['class']});
+
+      function runCapacityCheck(){
+        var wh = warehouses[state.warehouse];
+        var skuVal = state.sku;
+        var vol = state.volume;
+        var available = Math.round(wh.capacity * (1 - wh.utilization));
+        var complexity = skuComplexity[skuVal];
+        var adjusted = Math.round(vol * (1 + complexity));
+        var ratio = adjusted / available;
+
+        resultEl.innerHTML =
+          '<div class="demo-step" id="ds1"><div class="demo-step-badge">1</div><div><div class="demo-step-name">Checking real-time capacity</div><div class="demo-step-detail">' + wh.name + ': ' + available.toLocaleString('en-US') + ' cases available this week (' + Math.round((1 - wh.utilization) * 100) + '% headroom on ' + wh.capacity.toLocaleString('en-US') + ' total capacity).</div></div></div>' +
+          '<div class="demo-step" id="ds2"><div class="demo-step-badge">2</div><div><div class="demo-step-name">Cross-referencing the five planning systems</div><div class="demo-step-detail">' + skuLabels[skuVal] + ' — complexity uplift of +' + Math.round(complexity * 100) + '% applied to sequencing load. Adjusted demand: ' + adjusted.toLocaleString('en-US') + ' cases.</div></div></div>' +
+          '<div class="demo-step" id="ds3"><div class="demo-step-badge">3</div><div><div class="demo-step-name">Evaluating against agentic AI matrix</div><div class="demo-step-detail">Adjusted demand is ' + Math.round(ratio * 100) + '% of available headroom.</div></div></div>' +
+          '<div class="demo-verdict" id="dv"></div>';
+
+        var verdict;
+        if(ratio <= 0.85){
+          verdict = {cls:'pass', title:'✓ Feasible within current capacity', body:'Requested volume fits within available headroom at ' + wh.name + '. No reallocation required — the order can proceed as scheduled.'};
+        } else if(ratio <= 1.05){
+          verdict = {cls:'warn', title:'⚠ At risk — requires sequencing', body:'Requested volume is close to available headroom at ' + wh.name + '. The agent recommends splitting the order across two dispatch windows or drawing partial capacity from a neighbouring DC.'};
+        } else {
+          verdict = {cls:'fail', title:'✕ Infeasible without reallocation', body:'Requested volume exceeds available headroom at ' + wh.name + '. The agent recommends reallocating volume to a DC with spare capacity or rephasing the order over multiple weeks.'};
+        }
+
+        var steps = [document.getElementById('ds1'), document.getElementById('ds2'), document.getElementById('ds3')];
+        steps.forEach(function(s, i){
+          setTimeout(function(){ s.classList.add('show'); }, 250 + i * 450);
+        });
+        setTimeout(function(){
+          var v = document.getElementById('dv');
+          v.classList.add(verdict.cls);
+          v.innerHTML = '<div class="demo-verdict-title">' + verdict.title + '</div><div class="demo-verdict-body">' + verdict.body + '</div>';
+          v.classList.add('show');
+        }, 250 + steps.length * 450 + 200);
+      }
+
+      if(runBtn){
+        runBtn.addEventListener('click', function(){
+          showStage(4);
+          runCapacityCheck();
+        });
+      }
+
+      var restartBtn = document.getElementById('demo-restart');
+      if(restartBtn){
+        restartBtn.addEventListener('click', function(){
+          state = {warehouse:null, sku:null, volume:60000};
+          journeyEl.querySelectorAll('.demo-choice').forEach(function(c){ c.classList.remove('selected'); });
+          document.getElementById('demo-next-1').disabled = true;
+          document.getElementById('demo-next-2').disabled = true;
+          volInput.value = 60000;
+          resultEl.innerHTML = '';
+          showStage(1);
+        });
+      }
+    }
   }
 })();
 </script>
