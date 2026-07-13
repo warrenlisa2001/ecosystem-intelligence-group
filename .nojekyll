@@ -130,6 +130,45 @@ a{color:inherit}
 .pay-detail b{color:var(--white)}
 .pay-scope-note{font-size:11.5px;color:var(--dgrey);margin-top:1rem;line-height:1.6;font-style:italic}
 
+/* ── LIVE DEMONSTRATOR ── */
+.demo-wrap{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.demo-panel{background:var(--navy);border:1px solid var(--border);border-radius:5px;padding:1.4rem 1.5rem}
+.demo-panel-title{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mgrey);font-weight:700;margin-bottom:1.1rem}
+.demo-field{margin-bottom:1.15rem}
+.demo-field:last-of-type{margin-bottom:0}
+.demo-label{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey);font-weight:600;margin-bottom:6px;display:flex;justify-content:space-between;gap:8px}
+.demo-label b{color:var(--white);font-weight:700;text-transform:none;letter-spacing:0}
+.demo-select{width:100%;padding:8px 10px;font-size:12.5px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.09);border-radius:3px;color:var(--white);font-family:var(--sans);outline:none;transition:border-color 0.2s}
+.demo-select:focus{border-color:rgba(0,91,172,0.4)}
+.demo-select option{background:var(--navy)}
+.demo-range{width:100%;accent-color:var(--masafi2);cursor:pointer;display:block}
+.demo-cap-bar{height:7px;border-radius:100px;background:rgba(255,255,255,0.06);overflow:hidden;margin-top:8px}
+.demo-cap-fill{height:100%;border-radius:100px;background:var(--masafi2);width:0%;transition:width 0.4s ease,background 0.4s ease}
+.demo-btn{width:100%;padding:11px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;border:none;border-radius:3px;cursor:pointer;font-family:var(--sans);background:var(--masafi);color:var(--white);margin-top:1.4rem;transition:background 0.2s}
+.demo-btn:hover{background:var(--masafi2)}
+.demo-btn:disabled{background:rgba(255,255,255,0.08);color:var(--mgrey);cursor:default}
+.demo-output{min-height:100%}
+.demo-idle{display:flex;flex-direction:column;align-items:center;justify-content:center;height:280px;gap:10px;text-align:center}
+.demo-idle-icon{font-size:1.5rem;opacity:0.2}
+.demo-idle-txt{font-size:11.5px;color:var(--mgrey);line-height:1.6;max-width:230px}
+.demo-step{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.04);align-items:flex-start;opacity:0;transform:translateY(4px);transition:opacity 0.3s,transform 0.3s}
+.demo-step:last-of-type{border-bottom:none}
+.demo-step.show{opacity:1;transform:none}
+.demo-step-badge{width:24px;height:24px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:1px;background:rgba(0,102,255,0.12);color:var(--blue2)}
+.demo-step-name{font-size:11.5px;font-weight:600;margin-bottom:2px;color:var(--white)}
+.demo-step-detail{font-size:10.5px;color:var(--mgrey);line-height:1.55}
+.demo-verdict{border-radius:4px;padding:1rem 1.1rem;margin-top:0.6rem;opacity:0;transition:opacity 0.4s}
+.demo-verdict.show{opacity:1}
+.demo-verdict.pass{background:rgba(0,200,83,0.05);border:1px solid rgba(0,200,83,0.2)}
+.demo-verdict.warn{background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.2)}
+.demo-verdict.fail{background:rgba(239,68,68,0.05);border:1px solid rgba(239,68,68,0.2)}
+.demo-verdict-title{font-size:12.5px;font-weight:700;margin-bottom:4px}
+.demo-verdict.pass .demo-verdict-title{color:var(--green)}
+.demo-verdict.warn .demo-verdict-title{color:var(--amber)}
+.demo-verdict.fail .demo-verdict-title{color:#ff5f5f}
+.demo-verdict-body{font-size:11.5px;color:var(--mgrey);line-height:1.6}
+.demo-note{font-size:11px;color:var(--dgrey);margin-top:1.3rem;line-height:1.6;font-style:italic}
+
 /* ── TIMELINE (position at end of WP1) ── */
 .tl{position:relative;padding-left:2.4rem}
 .tl::before{content:'';position:absolute;left:12px;top:6px;bottom:6px;width:1px;background:var(--border)}
@@ -158,6 +197,7 @@ a{color:inherit}
   .tb-nav{display:none}
   .bf{flex-direction:column}
   .bf-r{text-align:left}
+  .demo-wrap{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -211,7 +251,8 @@ a{color:inherit}
       <div class="tb-nav">
         <button class="tb-navlink" data-target="#sec-cover">I</button>
         <button class="tb-navlink" data-target="#sec-scope">II</button>
-        <button class="tb-navlink" data-target="#sec-position">III</button>
+        <button class="tb-navlink" data-target="#sec-demo">III</button>
+        <button class="tb-navlink" data-target="#sec-position">IV</button>
       </div>
       <button class="tb-out" id="logout-btn">Log out</button>
     </div>
@@ -311,11 +352,67 @@ a{color:inherit}
       </div>
     </section>
 
-    <!-- SLIDE III — POSITION AT END OF WP1 -->
-    <section class="section" id="sec-position" style="border-bottom:none">
+    <!-- SLIDE III — LIVE DEMONSTRATOR -->
+    <section class="section" id="sec-demo">
       <div class="container">
         <div class="sec-head reveal">
           <div class="sec-num">III</div>
+          <div class="sec-tag">Output (d) · Live Demonstrator</div>
+          <h2 class="sec-h">Masafi-OS — <em>Warehouse Capacity Planner.</em></h2>
+          <p class="sec-body">A preview of the working demonstrator delivered under WP1: an agentic AI check that cross-references requested order volume against real-time warehouse capacity and the five active planning systems referenced in output (b). Configure a scenario below and run the check.</p>
+        </div>
+
+        <div class="demo-wrap reveal">
+          <div class="demo-panel">
+            <div class="demo-panel-title">Scenario Inputs</div>
+
+            <div class="demo-field">
+              <label class="demo-label">Distribution Centre</label>
+              <select class="demo-select" id="demo-warehouse">
+                <option value="dubai">Dubai DC — 120,000 cases/wk capacity</option>
+                <option value="sharjah">Sharjah DC — 65,000 cases/wk capacity</option>
+                <option value="abudhabi">Abu Dhabi DC — 40,000 cases/wk capacity</option>
+              </select>
+            </div>
+
+            <div class="demo-field">
+              <label class="demo-label">SKU Mix</label>
+              <select class="demo-select" id="demo-sku">
+                <option value="bulk">Bulk 5L / 10L bottles — low complexity</option>
+                <option value="retail">200ml / 330ml cartons — medium complexity</option>
+                <option value="mixed">Mixed pallet — dispensers + retail + bulk — high complexity</option>
+              </select>
+            </div>
+
+            <div class="demo-field">
+              <label class="demo-label">Requested Order Volume <b id="demo-vol-label">60,000 cases</b></label>
+              <input class="demo-range" type="range" id="demo-volume" min="10000" max="150000" step="5000" value="60000">
+              <div class="demo-cap-bar"><div class="demo-cap-fill" id="demo-cap-fill"></div></div>
+            </div>
+
+            <button class="demo-btn" id="demo-run">Run Capacity Check</button>
+          </div>
+
+          <div class="demo-panel demo-output">
+            <div class="demo-panel-title">Agentic AI Output</div>
+            <div id="demo-result">
+              <div class="demo-idle">
+                <div class="demo-idle-icon">⬡</div>
+                <div class="demo-idle-txt">Configure a scenario and run the check to see the agent reason through capacity, throughput and system alignment.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-note reveal">Illustrative only — the WP1 deliverable runs on Masafi's own live data across the five active planning systems.</div>
+      </div>
+    </section>
+
+    <!-- SLIDE IV — POSITION AT END OF WP1 -->
+    <section class="section" id="sec-position" style="border-bottom:none">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-num">IV</div>
           <div class="sec-tag">WP2 / WP3 · Independently Scoped</div>
           <h2 class="sec-h">Position at the end of WP1 — <em>At acceptance.</em></h2>
           <p class="sec-body">Masafi holds a factual operating baseline, tangible AI evidence, and the framework on which any onward investment is decided. No commitment is made ahead of validated findings.</p>
@@ -353,7 +450,7 @@ a{color:inherit}
       <div class="container">
         <div class="bf">
           <div class="bf-l">Consultancy Service Agreement · MASAFI CO LL.C · SIB Consulting FZCO<br>Effective 4 July 2026 · Confidential — For the Executive Committee</div>
-          <div class="bf-r" id="page-indicator">01 / 03</div>
+          <div class="bf-r" id="page-indicator">01 / 04</div>
         </div>
       </div>
     </div>
@@ -398,9 +495,10 @@ a{color:inherit}
 
     /* scroll progress + scrollspy + page indicator */
     var sections = [
-      {el: document.getElementById('sec-cover'), page:'01 / 03', nav:'#sec-cover'},
-      {el: document.getElementById('sec-scope'), page:'02 / 03', nav:'#sec-scope'},
-      {el: document.getElementById('sec-position'), page:'03 / 03', nav:'#sec-position'}
+      {el: document.getElementById('sec-cover'), page:'01 / 04', nav:'#sec-cover'},
+      {el: document.getElementById('sec-scope'), page:'02 / 04', nav:'#sec-scope'},
+      {el: document.getElementById('sec-demo'), page:'03 / 04', nav:'#sec-demo'},
+      {el: document.getElementById('sec-position'), page:'04 / 04', nav:'#sec-position'}
     ];
     var navLinks = document.querySelectorAll('.tb-navlink');
     var pageIndicator = document.getElementById('page-indicator');
@@ -489,6 +587,86 @@ a{color:inherit}
         payDetailEl.innerHTML = payDetails[seg.getAttribute('data-seg')];
       });
     });
+
+    /* warehouse capacity-planning demo */
+    var warehouses = {
+      dubai:    {name:'Dubai DC',      capacity:120000, utilization:0.78},
+      sharjah:  {name:'Sharjah DC',    capacity:65000,  utilization:0.91},
+      abudhabi: {name:'Abu Dhabi DC',  capacity:40000,  utilization:0.54}
+    };
+    var skuComplexity = {bulk:0.05, retail:0.10, mixed:0.18};
+    var skuLabels = {
+      bulk:'Bulk 5L/10L bottles',
+      retail:'200ml/330ml cartons',
+      mixed:'Mixed pallet (dispensers + retail + bulk)'
+    };
+
+    var whSelect = document.getElementById('demo-warehouse');
+    var skuSelect = document.getElementById('demo-sku');
+    var volInput = document.getElementById('demo-volume');
+    var volLabel = document.getElementById('demo-vol-label');
+    var capFill = document.getElementById('demo-cap-fill');
+    var runBtn = document.getElementById('demo-run');
+    var resultEl = document.getElementById('demo-result');
+
+    function updateCapPreview(){
+      var wh = warehouses[whSelect.value];
+      var vol = parseInt(volInput.value, 10);
+      volLabel.textContent = vol.toLocaleString('en-US') + ' cases';
+      var available = Math.round(wh.capacity * (1 - wh.utilization));
+      var pct = Math.min(100, Math.round((vol / wh.capacity) * 100));
+      var ratio = vol / available;
+      capFill.style.width = pct + '%';
+      capFill.style.background = ratio <= 0.85 ? '#00C853' : (ratio <= 1.05 ? '#F59E0B' : '#EF4444');
+    }
+    if(whSelect && volInput){
+      whSelect.addEventListener('change', updateCapPreview);
+      skuSelect.addEventListener('change', updateCapPreview);
+      volInput.addEventListener('input', updateCapPreview);
+      updateCapPreview();
+    }
+
+    function runCapacityCheck(){
+      var wh = warehouses[whSelect.value];
+      var skuVal = skuSelect.value;
+      var vol = parseInt(volInput.value, 10);
+      var available = Math.round(wh.capacity * (1 - wh.utilization));
+      var complexity = skuComplexity[skuVal];
+      var adjusted = Math.round(vol * (1 + complexity));
+      var ratio = adjusted / available;
+
+      runBtn.disabled = true;
+      runBtn.textContent = 'Running…';
+
+      resultEl.innerHTML =
+        '<div class="demo-step" id="ds1"><div class="demo-step-badge">1</div><div><div class="demo-step-name">Checking real-time capacity</div><div class="demo-step-detail">' + wh.name + ': ' + available.toLocaleString('en-US') + ' cases available this week (' + Math.round((1 - wh.utilization) * 100) + '% headroom on ' + wh.capacity.toLocaleString('en-US') + ' total capacity).</div></div></div>' +
+        '<div class="demo-step" id="ds2"><div class="demo-step-badge">2</div><div><div class="demo-step-name">Cross-referencing the five planning systems</div><div class="demo-step-detail">' + skuLabels[skuVal] + ' — complexity uplift of +' + Math.round(complexity * 100) + '% applied to sequencing load. Adjusted demand: ' + adjusted.toLocaleString('en-US') + ' cases.</div></div></div>' +
+        '<div class="demo-step" id="ds3"><div class="demo-step-badge">3</div><div><div class="demo-step-name">Evaluating against agentic AI matrix</div><div class="demo-step-detail">Adjusted demand is ' + Math.round(ratio * 100) + '% of available headroom.</div></div></div>' +
+        '<div class="demo-verdict" id="dv"></div>';
+
+      var verdict;
+      if(ratio <= 0.85){
+        verdict = {cls:'pass', title:'✓ Feasible within current capacity', body:'Requested volume fits within available headroom at ' + wh.name + '. No reallocation required — the order can proceed as scheduled.'};
+      } else if(ratio <= 1.05){
+        verdict = {cls:'warn', title:'⚠ At risk — requires sequencing', body:'Requested volume is close to available headroom at ' + wh.name + '. The agent recommends splitting the order across two dispatch windows or drawing partial capacity from a neighbouring DC.'};
+      } else {
+        verdict = {cls:'fail', title:'✕ Infeasible without reallocation', body:'Requested volume exceeds available headroom at ' + wh.name + '. The agent recommends reallocating volume to a DC with spare capacity or rephasing the order over multiple weeks.'};
+      }
+
+      var steps = [document.getElementById('ds1'), document.getElementById('ds2'), document.getElementById('ds3')];
+      steps.forEach(function(s, i){
+        setTimeout(function(){ s.classList.add('show'); }, 250 + i * 450);
+      });
+      setTimeout(function(){
+        var v = document.getElementById('dv');
+        v.classList.add(verdict.cls);
+        v.innerHTML = '<div class="demo-verdict-title">' + verdict.title + '</div><div class="demo-verdict-body">' + verdict.body + '</div>';
+        v.classList.add('show');
+        runBtn.disabled = false;
+        runBtn.textContent = 'Run Capacity Check';
+      }, 250 + steps.length * 450 + 200);
+    }
+    if(runBtn){ runBtn.addEventListener('click', runCapacityCheck); }
   }
 })();
 </script>
