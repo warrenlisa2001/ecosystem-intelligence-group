@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masafi-OS — WP1 Executive Briefing | SIB Consulting</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#02060D;--navy:#0A111E;--navy2:#0d1a30;--blue:#0066FF;--blue2:#3d8bff;
+  --white:#FFFFFF;--mgrey:#8B949E;--dgrey:#3a4250;--border:rgba(255,255,255,0.08);
+  --green:#00C853;--amber:#F59E0B;--red:#EF4444;
+  --masafi:#005BAC;--masafi2:#0077CC;
+  --serif:'Playfair Display',Georgia,serif;--sans:'Inter',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:var(--sans);font-size:15px;line-height:1.7;overflow-x:hidden}
+a{color:inherit}
+
+/* ── SCROLL PROGRESS ── */
+#scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--masafi),var(--blue2));z-index:500;width:0%;transition:width 0.1s linear}
+
+/* ── LOGIN ── */
+#login-screen{position:fixed;inset:0;z-index:9999;background:var(--black);display:flex;align-items:center;justify-content:center;flex-direction:column}
+#login-screen.hidden{display:none}
+.login-wrap{width:100%;max-width:400px;padding:2rem}
+.login-logos{display:flex;align-items:center;justify-content:center;gap:1.25rem;margin-bottom:2.5rem}
+.login-divider-v{width:1px;height:40px;background:rgba(255,255,255,0.12)}
+.masafi-wordmark{font-family:Georgia,serif;font-size:1.9rem;font-weight:700;color:var(--masafi);letter-spacing:-1px}
+.sib-logo-txt{font-family:var(--serif);font-size:1.35rem;font-weight:700;color:var(--white)}
+.sib-logo-txt span{color:var(--masafi2)}
+.sib-sub{font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);font-weight:600;margin-top:2px;text-align:center}
+.login-card{background:var(--navy);border:1px solid rgba(0,91,172,0.18);border-radius:6px;padding:2rem 1.75rem}
+.login-title{font-family:var(--serif);font-size:1.2rem;font-weight:700;margin-bottom:3px;text-align:center}
+.login-sub{font-size:11.5px;color:var(--mgrey);text-align:center;margin-bottom:1.5rem}
+.lf-group{margin-bottom:1rem}
+.lf-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--mgrey);font-weight:600;margin-bottom:5px;display:block}
+.lf-input{width:100%;padding:10px 12px;font-size:13px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:3px;color:var(--white);font-family:var(--sans);outline:none;transition:border-color 0.2s}
+.lf-input:focus{border-color:rgba(0,91,172,0.6)}
+.login-btn{width:100%;padding:11px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;border:none;border-radius:3px;cursor:pointer;font-family:var(--sans);background:var(--masafi);color:var(--white);transition:background 0.2s;margin-top:0.5rem}
+.login-btn:hover{background:var(--masafi2)}
+.login-err{color:#ff6b6b;font-size:11.5px;text-align:center;margin-top:0.65rem;display:none}
+.login-lock{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:1.25rem;font-size:10px;color:var(--mgrey)}
+.powered{text-align:center;margin-top:1.5rem;font-size:10px;color:var(--dgrey)}
+.powered span{color:var(--masafi2)}
+
+/* ── BRIEFING ── */
+#briefing{display:none}
+#briefing.visible{display:block}
+
+.topbar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(2,6,13,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,91,172,0.18);height:58px;display:flex;align-items:center}
+.tb{width:100%;max-width:1180px;margin:0 auto;padding:0 1.5rem;display:flex;align-items:center;gap:12px}
+.tb-masafi{font-family:Georgia,serif;font-size:1.15rem;font-weight:700;color:var(--masafi)}
+.tb-pipe{width:1px;height:22px;background:rgba(255,255,255,0.1)}
+.tb-sib{font-family:var(--serif);font-size:0.85rem;font-weight:700}
+.tb-sib span{color:var(--masafi2)}
+.tb-pill{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;border-radius:100px;padding:2px 9px;font-weight:700}
+.pill-conf{background:rgba(239,68,68,0.08);color:#ff8080;border:1px solid rgba(239,68,68,0.22)}
+.tb-nav{margin-left:auto;display:flex;align-items:center;gap:2px}
+.tb-navlink{font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mgrey);padding:7px 12px;border-radius:3px;text-decoration:none;transition:all 0.2s;cursor:pointer;background:none;border:none;font-family:var(--sans)}
+.tb-navlink:hover,.tb-navlink.active{color:var(--white);background:rgba(0,91,172,0.12)}
+.tb-out{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mgrey);cursor:pointer;padding:5px 10px;border:1px solid rgba(255,255,255,0.08);border-radius:2px;background:none;font-family:var(--sans);transition:color 0.2s;margin-left:8px}
+.tb-out:hover{color:var(--white)}
+
+.briefing-body{padding-top:58px}
+.container{max-width:900px;margin:0 auto;padding:0 1.5rem}
+
+/* ── COVER ── */
+.cover{min-height:calc(100vh - 58px);display:flex;flex-direction:column;justify-content:center;padding:4rem 0;border-bottom:1px solid var(--border);position:relative}
+.cover-num{position:absolute;top:2rem;right:1.5rem;font-family:var(--serif);font-size:5rem;font-weight:700;color:rgba(0,91,172,0.08);line-height:1;user-select:none}
+.cover-tag{font-size:9.5px;letter-spacing:0.22em;text-transform:uppercase;color:var(--masafi2);font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:1.1rem;opacity:0;animation:fadeUp 0.7s 0.1s forwards}
+.cover-tag::before{content:'';width:20px;height:1px;background:var(--masafi2)}
+.cover h1{font-family:var(--serif);font-size:clamp(2.1rem,5vw,3.4rem);font-weight:700;line-height:1.12;margin-bottom:0.6rem;max-width:680px;opacity:0;animation:fadeUp 0.7s 0.22s forwards}
+.cover h1 em{font-style:italic;color:var(--masafi2)}
+.cover-sub{font-size:14.5px;color:var(--mgrey);margin-bottom:2.5rem;opacity:0;animation:fadeUp 0.7s 0.34s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.cover-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;max-width:640px;opacity:0;animation:fadeUp 0.7s 0.46s forwards}
+.cm-item{background:var(--navy);padding:1rem 1.1rem}
+.cm-label{font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mgrey);font-weight:700;margin-bottom:5px}
+.cm-value{font-size:12.5px;font-weight:600;line-height:1.4}
+.cover-footer{margin-top:2.5rem;display:flex;align-items:center;gap:1rem;font-size:11px;color:var(--dgrey);opacity:0;animation:fadeUp 0.7s 0.58s forwards}
+.cover-scroll{margin-top:3rem;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mgrey);display:flex;align-items:center;gap:8px;opacity:0;animation:fadeUp 0.7s 0.7s forwards}
+.cover-scroll-arrow{animation:bob 1.8s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+/* ── SECTION SHARED ── */
+.section{padding:4.5rem 0;border-bottom:1px solid var(--border)}
+.sec-head{margin-bottom:2.5rem;max-width:680px}
+.sec-num{font-family:var(--serif);font-size:0.85rem;font-weight:700;color:var(--masafi2);margin-bottom:0.4rem}
+.sec-tag{font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mgrey);font-weight:700;margin-bottom:0.6rem}
+.sec-h{font-family:var(--serif);font-size:clamp(1.6rem,3.4vw,2.1rem);font-weight:700;line-height:1.2;margin-bottom:0.9rem}
+.sec-h em{font-style:italic;color:var(--masafi2)}
+.sec-body{font-size:13.5px;color:var(--mgrey);line-height:1.75}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ── OUTPUT CARDS ── */
+.outputs-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin-bottom:2rem}
+.out-card{background:var(--navy);border:1px solid var(--border);border-radius:5px;padding:1.25rem 1.3rem;cursor:pointer;transition:border-color 0.2s,transform 0.2s}
+.out-card:hover{border-color:rgba(0,91,172,0.35);transform:translateY(-2px)}
+.out-card.open{border-color:rgba(0,91,172,0.5);background:rgba(0,91,172,0.05)}
+.out-top{display:flex;align-items:center;gap:10px;margin-bottom:0.6rem}
+.out-letter{width:26px;height:26px;border-radius:50%;background:rgba(0,91,172,0.12);border:1px solid rgba(0,91,172,0.3);color:var(--masafi2);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.out-title{font-size:13.5px;font-weight:600;line-height:1.35;flex:1}
+.out-arrow{font-size:12px;color:var(--mgrey);transition:transform 0.25s;flex-shrink:0}
+.out-card.open .out-arrow{transform:rotate(90deg);color:var(--masafi2)}
+.out-detail{font-size:12px;color:var(--mgrey);line-height:1.6;max-height:0;overflow:hidden;transition:max-height 0.3s ease,margin-top 0.3s ease}
+.out-card.open .out-detail{max-height:120px;margin-top:0.6rem;padding-top:0.6rem;border-top:1px solid var(--border)}
+
+/* ── FEE CALLOUT ── */
+.fee-strip{background:var(--navy);border:1px solid var(--border);border-radius:5px;padding:1.5rem 1.6rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.fee-label{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mgrey);font-weight:700;margin-bottom:6px}
+.fee-note{font-size:11px;color:var(--dgrey)}
+.fee-value{font-family:var(--serif);font-size:2.4rem;font-weight:700;color:var(--white);display:flex;align-items:baseline;gap:6px}
+.fee-value .cur{font-size:1rem;color:var(--masafi2);font-weight:600}
+
+/* ── PAYMENT TERMS ── */
+.pay-title{font-size:11.5px;font-weight:600;margin-bottom:0.9rem;color:var(--white)}
+.pay-bar{display:flex;height:34px;border-radius:4px;overflow:hidden;margin-bottom:0.9rem;border:1px solid var(--border)}
+.pay-seg{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;cursor:pointer;transition:filter 0.2s,flex 0.3s;color:var(--white);position:relative}
+.pay-seg[data-seg="1"]{flex:30;background:var(--masafi)}
+.pay-seg[data-seg="2"]{flex:40;background:var(--masafi2)}
+.pay-seg[data-seg="3"]{flex:30;background:#3fa0ff}
+.pay-seg:hover,.pay-seg.active{filter:brightness(1.25)}
+.pay-detail{background:rgba(0,91,172,0.05);border:1px solid rgba(0,91,172,0.16);border-radius:4px;padding:0.85rem 1.1rem;font-size:12px;color:var(--mgrey);line-height:1.55;min-height:20px}
+.pay-detail b{color:var(--white)}
+.pay-scope-note{font-size:11.5px;color:var(--dgrey);margin-top:1rem;line-height:1.6;font-style:italic}
+
+/* ── TIMELINE (position at end of WP1) ── */
+.tl{position:relative;padding-left:2.4rem}
+.tl::before{content:'';position:absolute;left:12px;top:6px;bottom:6px;width:1px;background:var(--border)}
+.tl-step{position:relative;margin-bottom:1.8rem}
+.tl-step:last-child{margin-bottom:0}
+.tl-dot{position:absolute;left:-2.4rem;top:2px;width:26px;height:26px;border-radius:50%;background:var(--navy);border:1px solid rgba(0,91,172,0.3);color:var(--masafi2);font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.tl-head{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--mgrey);font-weight:700;margin-bottom:4px}
+.tl-title{font-size:14.5px;font-weight:600;margin-bottom:5px}
+.tl-body{font-size:12.5px;color:var(--mgrey);line-height:1.65;margin-bottom:8px}
+.tl-tag{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:100px}
+.tl-tag.holds{background:rgba(0,200,83,0.08);color:var(--green);border:1px solid rgba(0,200,83,0.22)}
+.tl-tag.retains{background:rgba(245,158,11,0.08);color:var(--amber);border:1px solid rgba(245,158,11,0.22)}
+.tl-tag.basis{background:rgba(0,102,255,0.08);color:var(--blue2);border:1px solid rgba(0,102,255,0.22)}
+
+.conf-note{display:flex;align-items:center;gap:10px;background:rgba(239,68,68,0.04);border:1px solid rgba(239,68,68,0.14);border-radius:4px;padding:0.9rem 1.1rem;margin-top:2rem;font-size:12px;color:#ff9d9d}
+
+/* ── FOOTER ── */
+.briefing-footer{padding:2.5rem 0}
+.bf{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.bf-l{font-size:11px;color:var(--mgrey);line-height:1.7}
+.bf-r{font-size:10.5px;color:var(--dgrey);text-align:right}
+
+@media(max-width:720px){
+  .outputs-grid{grid-template-columns:1fr}
+  .cover-meta{grid-template-columns:1fr}
+  .tb-nav{display:none}
+  .bf{flex-direction:column}
+  .bf-r{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-wrap">
+    <div class="login-logos">
+      <div class="masafi-wordmark">Masafi</div>
+      <div class="login-divider-v"></div>
+      <div>
+        <div class="sib-logo-txt">SIB<span>·</span>Consulting</div>
+        <div class="sib-sub">Operating Intelligence</div>
+      </div>
+    </div>
+    <div class="login-card">
+      <div class="login-title">Executive Committee Access</div>
+      <div class="login-sub">Masafi-OS · WP1 Briefing Paper</div>
+      <form id="login-form" autocomplete="off">
+        <div class="lf-group">
+          <label class="lf-label">Email</label>
+          <input class="lf-input" id="lf-email" type="email" placeholder="you@teamsib.com" required>
+        </div>
+        <div class="lf-group">
+          <label class="lf-label">Password</label>
+          <input class="lf-input" id="lf-pass" type="password" placeholder="••••••••" required>
+        </div>
+        <button class="login-btn" type="submit">Enter Briefing</button>
+        <div class="login-err" id="login-err">Incorrect email or password.</div>
+      </form>
+      <div class="login-lock">🔒 Confidential — For the Executive Committee</div>
+    </div>
+    <div class="powered">Prepared by <span>SIB Consulting FZCO</span></div>
+  </div>
+</div>
+
+<!-- BRIEFING -->
+<div id="briefing">
+
+  <div class="topbar">
+    <div class="tb">
+      <div class="tb-masafi">Masafi</div>
+      <div class="tb-pipe"></div>
+      <div>
+        <div class="tb-sib">SIB<span>·</span>Consulting</div>
+      </div>
+      <span class="tb-pill pill-conf">Confidential</span>
+      <div class="tb-nav">
+        <button class="tb-navlink" data-target="#sec-cover">I</button>
+        <button class="tb-navlink" data-target="#sec-scope">II</button>
+        <button class="tb-navlink" data-target="#sec-position">III</button>
+      </div>
+      <button class="tb-out" id="logout-btn">Log out</button>
+    </div>
+  </div>
+
+  <div class="briefing-body">
+
+    <!-- SLIDE I — COVER -->
+    <section class="cover" id="sec-cover">
+      <div class="cover-num">I</div>
+      <div class="container">
+        <div class="cover-tag">Briefing Paper · WP1 Discovery Phase</div>
+        <h1>Masafi Operating<br>Intelligence <em>Programme.</em></h1>
+        <div class="cover-sub">Masafi-OS · Briefing paper on WP1</div>
+        <div class="cover-meta">
+          <div class="cm-item">
+            <div class="cm-label">Prepared For</div>
+            <div class="cm-value">The Vice Chairman &amp; the Executive Committee</div>
+          </div>
+          <div class="cm-item">
+            <div class="cm-label">Basis</div>
+            <div class="cm-value">Consultancy Service Agreement, in force</div>
+          </div>
+          <div class="cm-item">
+            <div class="cm-label">Client</div>
+            <div class="cm-value">Masafi Group · since 1977</div>
+          </div>
+        </div>
+        <div class="cover-footer">MASAFI CO LL.C · SIB Consulting FZCO &nbsp;·&nbsp; Dubai · 4 July 2026</div>
+        <div class="cover-scroll">Scroll to read <span class="cover-scroll-arrow">↓</span></div>
+      </div>
+    </section>
+
+    <!-- SLIDE II — SCOPE OF WORK -->
+    <section class="section" id="sec-scope">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-num">II</div>
+          <div class="sec-tag">Discovery Phase · 60 Days</div>
+          <h2 class="sec-h">Scope of Work — <em>The Discovery Phase.</em></h2>
+          <p class="sec-body">Under the Consultancy Service Agreement, WP1 comprises four defined outputs delivered over sixty days. WP2 and WP3 remain out of scope until WP1 findings are reviewed.</p>
+        </div>
+
+        <div class="outputs-grid reveal">
+          <div class="out-card" data-out="a">
+            <div class="out-top">
+              <div class="out-letter">a</div>
+              <div class="out-title">Operational stocktake and integrated supply-chain baseline</div>
+              <div class="out-arrow">›</div>
+            </div>
+            <div class="out-detail">An end-to-end factual view of how Masafi operates today.</div>
+          </div>
+          <div class="out-card" data-out="b">
+            <div class="out-top">
+              <div class="out-letter">b</div>
+              <div class="out-title">Gap analysis across the five active planning systems</div>
+              <div class="out-arrow">›</div>
+            </div>
+            <div class="out-detail">An integration-ready view of the current data and system estate.</div>
+          </div>
+          <div class="out-card" data-out="c">
+            <div class="out-top">
+              <div class="out-letter">c</div>
+              <div class="out-title">Agentic AI evaluation matrix</div>
+              <div class="out-arrow">›</div>
+            </div>
+            <div class="out-detail">A prioritised framework of where agentic AI is applied first.</div>
+          </div>
+          <div class="out-card" data-out="d">
+            <div class="out-top">
+              <div class="out-letter">d</div>
+              <div class="out-title">Live Masafi-OS warehouse capacity-planning demonstrator</div>
+              <div class="out-arrow">›</div>
+            </div>
+            <div class="out-detail">A working demonstrator built on Masafi's own data, tangible evidence of agentic AI in practice.</div>
+          </div>
+        </div>
+
+        <div class="fee-strip reveal">
+          <div>
+            <div class="fee-label">WP1 Total Fee</div>
+            <div class="fee-note">Excluding VAT — total fee for WP1.</div>
+          </div>
+          <div class="fee-value"><span class="cur">USD</span><span id="fee-counter">0</span></div>
+        </div>
+
+        <div class="reveal">
+          <div class="pay-title">Payment Terms — the total fee is invoiced in three stages</div>
+          <div class="pay-bar">
+            <div class="pay-seg" data-seg="1">30%</div>
+            <div class="pay-seg" data-seg="2">40%</div>
+            <div class="pay-seg" data-seg="3">30%</div>
+          </div>
+          <div class="pay-detail" id="pay-detail"><b>Click a stage above</b> to see when it's invoiced.</div>
+          <div class="pay-scope-note">WP2 and WP3 will be independently scoped and priced on the basis of WP1 findings.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE III — POSITION AT END OF WP1 -->
+    <section class="section" id="sec-position" style="border-bottom:none">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sec-num">III</div>
+          <div class="sec-tag">WP2 / WP3 · Independently Scoped</div>
+          <h2 class="sec-h">Position at the end of WP1 — <em>At acceptance.</em></h2>
+          <p class="sec-body">Masafi holds a factual operating baseline, tangible AI evidence, and the framework on which any onward investment is decided. No commitment is made ahead of validated findings.</p>
+        </div>
+
+        <div class="tl reveal">
+          <div class="tl-step">
+            <div class="tl-dot">01</div>
+            <div class="tl-head">Ownership &amp; IP</div>
+            <div class="tl-title">Operating baseline</div>
+            <div class="tl-body">The operational stocktake and integrated supply-chain baseline delivered under WP1 — the factual basis for executive decision.</div>
+            <div class="tl-tag holds">Masafi holds — the Deliverables and Masafi's operational data</div>
+          </div>
+          <div class="tl-step">
+            <div class="tl-dot">02</div>
+            <div class="tl-head">Ownership &amp; IP</div>
+            <div class="tl-title">System &amp; AI evidence</div>
+            <div class="tl-body">The gap analysis across the five active planning systems, together with the live Masafi-OS warehouse capacity-planning demonstrator.</div>
+            <div class="tl-tag retains">SIB retains — background IP, licensed to Masafi as embedded in the Deliverables</div>
+          </div>
+          <div class="tl-step">
+            <div class="tl-dot">03</div>
+            <div class="tl-head">Ownership &amp; IP</div>
+            <div class="tl-title">Basis for WP2 / WP3</div>
+            <div class="tl-body">The agentic AI evaluation matrix — the prioritised framework on which WP2 and WP3 are independently scoped and priced.</div>
+            <div class="tl-tag basis">Basis for future scoping — no commitment ahead of validated findings</div>
+          </div>
+        </div>
+
+        <div class="conf-note reveal">🔒 Mutual confidentiality applies.</div>
+      </div>
+    </section>
+
+    <div class="briefing-footer">
+      <div class="container">
+        <div class="bf">
+          <div class="bf-l">Consultancy Service Agreement · MASAFI CO LL.C · SIB Consulting FZCO<br>Effective 4 July 2026 · Confidential — For the Executive Committee</div>
+          <div class="bf-r" id="page-indicator">01 / 03</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  var VALID_EMAIL = "patrick@teamsib.com";
+  var VALID_PASS = "Masafi2026";
+
+  var loginScreen = document.getElementById('login-screen');
+  var briefing = document.getElementById('briefing');
+  var form = document.getElementById('login-form');
+  var err = document.getElementById('login-err');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('lf-email').value.trim().toLowerCase();
+    var pass = document.getElementById('lf-pass').value;
+    if(email === VALID_EMAIL && pass === VALID_PASS){
+      loginScreen.classList.add('hidden');
+      briefing.classList.add('visible');
+      err.style.display = 'none';
+      initBriefing();
+    } else {
+      err.style.display = 'block';
+    }
+  });
+
+  document.getElementById('logout-btn').addEventListener('click', function(){
+    briefing.classList.remove('visible');
+    loginScreen.classList.remove('hidden');
+    document.getElementById('lf-pass').value = '';
+  });
+
+  var briefingInitialized = false;
+  function initBriefing(){
+    if(briefingInitialized) return;
+    briefingInitialized = true;
+
+    /* scroll progress + scrollspy + page indicator */
+    var sections = [
+      {el: document.getElementById('sec-cover'), page:'01 / 03', nav:'#sec-cover'},
+      {el: document.getElementById('sec-scope'), page:'02 / 03', nav:'#sec-scope'},
+      {el: document.getElementById('sec-position'), page:'03 / 03', nav:'#sec-position'}
+    ];
+    var navLinks = document.querySelectorAll('.tb-navlink');
+    var pageIndicator = document.getElementById('page-indicator');
+    var progressBar = document.getElementById('scroll-progress');
+
+    function onScroll(){
+      var doc = document.documentElement;
+      var scrollTop = window.scrollY;
+      var max = doc.scrollHeight - window.innerHeight;
+      progressBar.style.width = (max > 0 ? (scrollTop / max) * 100 : 0) + '%';
+
+      var current = sections[0];
+      sections.forEach(function(s){
+        if(s.el.getBoundingClientRect().top <= window.innerHeight * 0.4) current = s;
+      });
+      pageIndicator.textContent = current.page;
+      navLinks.forEach(function(l){
+        l.classList.toggle('active', l.getAttribute('data-target') === current.nav);
+      });
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+
+    navLinks.forEach(function(l){
+      l.addEventListener('click', function(){
+        var target = document.querySelector(l.getAttribute('data-target'));
+        if(target) target.scrollIntoView({behavior:'smooth'});
+      });
+    });
+
+    /* reveal on scroll */
+    var revealEls = document.querySelectorAll('.reveal');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting) en.target.classList.add('in');
+      });
+    }, {threshold:0.15});
+    revealEls.forEach(function(el){ io.observe(el); });
+
+    /* fee counter */
+    var feeEl = document.getElementById('fee-counter');
+    var feeTarget = 82000;
+    var feeAnimated = false;
+    var feeStrip = document.querySelector('.fee-strip');
+    var feeIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting && !feeAnimated){
+          feeAnimated = true;
+          var start = null;
+          var duration = 1200;
+          function step(ts){
+            if(!start) start = ts;
+            var progress = Math.min((ts - start) / duration, 1);
+            var eased = 1 - Math.pow(1 - progress, 3);
+            var val = Math.floor(eased * feeTarget);
+            feeEl.textContent = val.toLocaleString('en-US');
+            if(progress < 1) requestAnimationFrame(step);
+            else feeEl.textContent = feeTarget.toLocaleString('en-US');
+          }
+          requestAnimationFrame(step);
+        }
+      });
+    }, {threshold:0.4});
+    feeIo.observe(feeStrip);
+
+    /* output cards expand */
+    document.querySelectorAll('.out-card').forEach(function(card){
+      card.addEventListener('click', function(){
+        var wasOpen = card.classList.contains('open');
+        document.querySelectorAll('.out-card').forEach(function(c){ c.classList.remove('open'); });
+        if(!wasOpen) card.classList.add('open');
+      });
+    });
+
+    /* payment terms interactive */
+    var payDetails = {
+      '1': '<b>30% — On kick-off.</b> Invoiced when WP1 formally begins under the Consultancy Service Agreement.',
+      '2': '<b>40% — At interim milestone.</b> Invoiced at the midpoint checkpoint of the 60-day Discovery Phase.',
+      '3': '<b>30% — On acceptance of deliverables.</b> Invoiced once the Executive Committee accepts the WP1 deliverables.'
+    };
+    var payDetailEl = document.getElementById('pay-detail');
+    document.querySelectorAll('.pay-seg').forEach(function(seg){
+      seg.addEventListener('click', function(){
+        document.querySelectorAll('.pay-seg').forEach(function(s){ s.classList.remove('active'); });
+        seg.classList.add('active');
+        payDetailEl.innerHTML = payDetails[seg.getAttribute('data-seg')];
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
