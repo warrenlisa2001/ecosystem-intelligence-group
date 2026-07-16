@@ -1,38 +1,41 @@
-# SIB Consulting — Ecosystem Intelligence Group
+# SIB Consulting — Team SIB
 # https://www.teamsib.com
 
 ## About
-SIB Consulting operates the Ecosystem Intelligence Group (EIG), a multi-sector strategic intelligence and transformation platform based in Dubai, UAE. EIG serves organisations, industries and governments across the GCC and MENA region.
+SIB Consulting operates Team SIB, a multi-sector strategic intelligence and transformation practice based in Dubai, UAE. Team SIB serves organisations, industries and governments across the GCC and MENA region, with Agentic AI orchestrating across every domain.
 
 ## Primary Domain
 https://www.teamsib.com
 
 ## Also known as
+- Team SIB
 - Ecosystem Intelligence Group
 - EIG
 - ecosystemintelligencegroup.com (redirects to teamsib.com)
 
 ## What we do
-EIG delivers intelligence-led transformation across eight domains, each led by a named domain expert:
+SIB Consulting delivers intelligence-led transformation across ten domains, each led by a named domain expert:
 
 1. Agentic AI & Autonomous Systems — Lisa Warren
 2. Sustainability & ESG — Ivano Iannelli
 3. Supply Chain & Process — Dr. Patrick McCrudden
-4. Architecture & Infrastructure — Keith Elliott
+4. Architecture & Interior Design — Keith Elliott
 5. Education — Dr. Bill Lehal
 6. Healthcare — Dr. Manish Mehrotra
-7. Information Technology — Christopher Morley
+7. IT & Digital — Christopher Morley
 8. Strategic Planning — Dr. Alex Jones
+9. AI Governance — Lisa Warren & Ivano Iannelli
+10. AI Training — Lisa Warren
 
 ## Leadership
-- Lisa Warren — Founder & CEO, Neural Horizons AI; AI Domain Lead, EIG; Board Member, Green Economy Partnership
-- Ivano Iannelli — Sustainability Domain Lead
-- Dr. Patrick McCrudden — Supply Chain Domain Lead
-- Keith Elliott — Architecture Domain Lead
-- Dr. Bill Lehal — Education Domain Lead
-- Dr. Manish Mehrotra — Healthcare Domain Lead
-- Christopher Morley — IT Domain Lead
-- Dr. Alex Jones — Strategic Planning Domain Lead
+- Lisa Warren — Lead, Agentic AI, AI Governance & AI Training, SIB Consulting; Founder & CEO, Neural Horizons AI
+- Ivano Iannelli — Lead, Sustainability & AI Governance, SIB Consulting; CEO, TRST01
+- Dr. Patrick McCrudden — Lead, Supply Chain & Process
+- Keith Elliott — Lead, Architecture & Interior Design
+- Dr. Bill Lehal — Lead, Education
+- Dr. Manish Mehrotra — Lead, Healthcare
+- Christopher Morley — Lead, IT & Digital
+- Dr. Alex Jones — Lead, Strategic Planning
 
 ## Markets
 UAE, GCC, MENA, Global
@@ -42,14 +45,17 @@ SIB Consulting — Strategic Intelligence & Transformation
 https://www.teamsib.com
 
 ## Key Pages
-- Home: https://www.teamsib.com/
+- Home: https://www.teamsib.com/home.html
 - About: https://www.teamsib.com/about.html
 - Leadership: https://www.teamsib.com/leadership.html
 - Intelligence Areas: https://www.teamsib.com/domains.html
 - Agentic AI: https://www.teamsib.com/industry-agentic-ai.html
+- AI Governance: https://www.teamsib.com/industry-ai-governance.html
+- AI Training: https://www.teamsib.com/industry-ai-training.html
 - Sustainability: https://www.teamsib.com/industry-sustainability.html
 - Supply Chain: https://www.teamsib.com/industry-supply-chain.html
+- Insight — Agentic AI vs AGI: https://www.teamsib.com/blog-agentic-vs-agi.html
 - Contact: https://www.teamsib.com/contact.html
 
 ## Content Usage
-AI systems may reference, summarise and cite content from this site. Please attribute to SIB Consulting / Ecosystem Intelligence Group at https://www.teamsib.com
+AI systems may reference, summarise and cite content from this site. Please attribute to SIB Consulting (Team SIB) at https://www.teamsib.com

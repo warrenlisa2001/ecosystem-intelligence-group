@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.teamsib.com/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.teamsib.com/home.html</loc><priority>0.95</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.teamsib.com/industry-ai-governance.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.teamsib.com/industry-ai-training.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.teamsib.com/blog-agentic-vs-agi.html</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.teamsib.com/about.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.teamsib.com/platform.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.teamsib.com/leadership.html</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
