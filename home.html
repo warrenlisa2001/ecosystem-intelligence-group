@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SIB Consulting — Strategic Intelligence & Transformation</title>
-<meta name="description" content="SIB Consulting delivers strategic intelligence and transformation across Agentic AI, Sustainability, Supply Chain, Architecture, Education, Healthcare, IT, Strategic Planning and AI Governance.">
+<meta name="description" content="SIB Consulting delivers strategic intelligence and transformation across Agentic AI, Sustainability, Supply Chain, Architecture, Education, Healthcare, IT, Strategic Planning, AI Governance and AI Training.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.teamsib.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -95,8 +95,8 @@ a{text-decoration:none;color:inherit}
 .sec-inner{max-width:var(--max);margin:0 auto}
 .sec-head{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:end;margin-bottom:4rem}
 .sec-p{font-size:.95rem;font-weight:300;color:var(--muted);line-height:1.8}
-.sectors-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.07)}
-.sc{background:var(--bg);padding:2rem 1.5rem;transition:background .2s;display:block}
+.sectors-grid{display:flex;flex-wrap:wrap;gap:1px;background:rgba(255,255,255,.07)}
+.sc{flex:1 1 260px;background:var(--bg);padding:2rem 1.5rem;transition:background .2s;display:block}
 .sc:hover{background:var(--bg3)}
 .sc-tag{font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.25rem;padding:.3rem .7rem;border-radius:3px;display:inline-block}
 .sc-name{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:.5rem;line-height:1.2}
@@ -131,17 +131,17 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 2rem 
   .hero-left{padding:4rem 2rem 2rem}
   .about-inner{grid-template-columns:1fr;gap:3rem}
   .sec-head{grid-template-columns:1fr}
-  .sectors-grid{grid-template-columns:repeat(2,1fr)}
+  .sc{flex-basis:45%}
   .footer-grid{grid-template-columns:1fr 1fr;gap:2.5rem}
 }
 @media(max-width:768px){
   .nav-links,.nav-cta{display:none}
   .hb{display:flex}
   .hero-right{height:400px}
-  .sectors-grid{grid-template-columns:repeat(2,1fr)}
+  .sc{flex-basis:45%}
 }
 @media(max-width:480px){
-  .sectors-grid{grid-template-columns:1fr}
+  .sc{flex-basis:100%}
   .footer-grid{grid-template-columns:1fr}
   .hero-acts{flex-direction:column}
   .btn-red,.btn-outline{width:100%;justify-content:center}
@@ -210,6 +210,7 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 2rem 
     <div class="ticker-item"><span class="ticker-code" style="color:#71e4ff">IT</span><span class="ticker-name">IT &amp; Digital</span></div>
     <div class="ticker-item"><span class="ticker-code" style="color:#E8184A">SP</span><span class="ticker-name">Strategic Planning</span></div>
     <div class="ticker-item"><span class="ticker-code" style="color:#ffb020">GOV</span><span class="ticker-name">AI Governance</span></div>
+    <div class="ticker-item"><span class="ticker-code" style="color:#ff5fa8">TRN</span><span class="ticker-name">AI Training</span></div>
     <div class="ticker-item"><span class="ticker-code">AI</span><span class="ticker-name">Agentic Artificial Intelligence</span></div>
     <div class="ticker-item"><span class="ticker-code" style="color:#00e676">SUS</span><span class="ticker-name">Sustainability</span></div>
     <div class="ticker-item"><span class="ticker-code" style="color:#71e4ff">SC</span><span class="ticker-name">Supply Chain &amp; Process</span></div>
@@ -228,7 +229,7 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 2rem 
     <div class="hero-byline">SIB CONSULTING</div>
     <h1 class="hero-h1">From AI that answers.<br><span>To AI that acts.</span></h1>
     <p class="hero-sub">Strategic Intelligence &amp; Transformation Practice</p>
-    <p class="hero-body">Agentic AI <strong>perceives, plans, decides and executes</strong> — connecting every domain of your business into one intelligence layer, governed end to end. When ESG, Supply Chain, Healthcare, Architecture, Digital Transformation, Strategic Planning and AI Governance share the same intelligence, your organisation stops working harder and starts working smarter.</p>
+    <p class="hero-body">Agentic AI <strong>perceives, plans, decides and executes</strong> — connecting every domain of your business into one intelligence layer, governed and trained end to end. When ESG, Supply Chain, Healthcare, Architecture, Digital Transformation, Strategic Planning, AI Governance and AI Training share the same intelligence, your organisation stops working harder and starts working smarter.</p>
     <p style="display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:700;color:#00ffb3;margin-bottom:2.5rem;margin-top:-1.5rem"><span style="width:7px;height:7px;border-radius:50%;background:#00ffb3;box-shadow:0 0 8px #00ffb3;flex-shrink:0"></span>Built to work with you, not around you. Embrace agentic AI — don't fear it.</p>
     <div class="hero-acts">
       <a href="contact.html" class="btn-red">Request Briefing →</a>
@@ -237,7 +238,7 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 2rem 
     <div class="hero-stats">
       <div><div class="hs-val">100+</div><div class="hs-lab">Years Combined</div></div>
       <div class="hs-div"></div>
-      <div><div class="hs-val">9</div><div class="hs-lab">Domain Leaders</div></div>
+      <div><div class="hs-val">10</div><div class="hs-lab">Domain Leaders</div></div>
       <div class="hs-div"></div>
       <div><div class="hs-val">GCC</div><div class="hs-lab">Primary Market</div></div>
     </div>
@@ -251,7 +252,7 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 2rem 
 
 <section style="background:var(--bg2);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:1.75rem 0">
   <div style="max-width:1380px;margin:0 auto;padding:0 2rem;display:flex;flex-wrap:wrap;align-items:center;gap:.65rem">
-    <span style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:.35rem;white-space:nowrap">Nine domains, one agentic core</span>
+    <span style="font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:.35rem;white-space:nowrap">Ten domains, one agentic core</span>
     <a href="industry-agentic-ai.html" style="display:inline-flex;align-items:center;gap:7px;padding:.4rem .9rem;border-radius:999px;border:1px solid rgba(77,154,255,.35);background:rgba(77,154,255,.1);color:#4d9aff;font-size:.75rem;font-weight:700;text-decoration:none"><span style="width:6px;height:6px;border-radius:50%;background:#4d9aff"></span>Agentic AI</a>
     <a href="industry-sustainability.html" style="display:inline-flex;align-items:center;gap:7px;padding:.4rem .9rem;border-radius:999px;border:1px solid rgba(0,230,118,.35);background:rgba(0,230,118,.1);color:#00e676;font-size:.75rem;font-weight:700;text-decoration:none"><span style="width:6px;height:6px;border-radius:50%;background:#00e676"></span>Sustainability</a>
     <a href="industry-supply-chain.html" style="display:inline-flex;align-items:center;gap:7px;padding:.4rem .9rem;border-radius:999px;border:1px solid rgba(113,228,255,.35);background:rgba(113,228,255,.1);color:#71e4ff;font-size:.75rem;font-weight:700;text-decoration:none"><span style="width:6px;height:6px;border-radius:50%;background:#71e4ff"></span>Supply Chain</a>
@@ -261,6 +262,7 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 2rem 
     <a href="industry-it.html" style="display:inline-flex;align-items:center;gap:7px;padding:.4rem .9rem;border-radius:999px;border:1px solid rgba(113,228,255,.35);background:rgba(113,228,255,.1);color:#71e4ff;font-size:.75rem;font-weight:700;text-decoration:none"><span style="width:6px;height:6px;border-radius:50%;background:#71e4ff"></span>IT &amp; Digital</a>
     <a href="industry-strategic-planning.html" style="display:inline-flex;align-items:center;gap:7px;padding:.4rem .9rem;border-radius:999px;border:1px solid rgba(232,24,74,.35);background:rgba(232,24,74,.1);color:#E8184A;font-size:.75rem;font-weight:700;text-decoration:none"><span style="width:6px;height:6px;border-radius:50%;background:#E8184A"></span>Strategic Planning</a>
     <a href="industry-ai-governance.html" style="display:inline-flex;align-items:center;gap:7px;padding:.4rem .9rem;border-radius:999px;border:1px solid rgba(255,176,32,.35);background:rgba(255,176,32,.1);color:#ffb020;font-size:.75rem;font-weight:700;text-decoration:none"><span style="width:6px;height:6px;border-radius:50%;background:#ffb020"></span>AI Governance</a>
+    <a href="industry-ai-training.html" style="display:inline-flex;align-items:center;gap:7px;padding:.4rem .9rem;border-radius:999px;border:1px solid rgba(255,95,168,.35);background:rgba(255,95,168,.1);color:#ff5fa8;font-size:.75rem;font-weight:700;text-decoration:none"><span style="width:6px;height:6px;border-radius:50%;background:#ff5fa8"></span>AI Training</a>
   </div>
 </section>
 
@@ -269,12 +271,12 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 2rem 
     <div>
       <div class="sec-kicker">About SIB Consulting</div>
       <h2 class="sec-h2">Intelligence that<br><em>acts on your behalf.</em></h2>
-      <p class="about-body">SIB Consulting delivers <strong>strategic intelligence and transformation</strong> across nine interconnected domains — combining more than 100 years of named leadership experience across economic development, sustainability, supply chain, architecture, education, healthcare, IT, AI and AI governance.<br><br>Based in the UAE and operating across the GCC, MENA and beyond.</p>
+      <p class="about-body">SIB Consulting delivers <strong>strategic intelligence and transformation</strong> across ten interconnected domains — combining more than 100 years of named leadership experience across economic development, sustainability, supply chain, architecture, education, healthcare, IT, AI, AI governance and AI training.<br><br>Based in the UAE and operating across the GCC, MENA and beyond.</p>
       <a href="about.html" class="btn-red" style="display:inline-flex">Learn More About SIB →</a>
     </div>
     <div class="stats-2x2">
       <div class="s2"><div class="s2-n">100+</div><div class="s2-l">Years Combined Leadership</div></div>
-      <div class="s2"><div class="s2-n">9</div><div class="s2-l">Named Domain Leaders</div></div>
+      <div class="s2"><div class="s2-n">10</div><div class="s2-l">Named Domain Leaders</div></div>
       <div class="s2"><div class="s2-n">GCC</div><div class="s2-l">Primary Market</div></div>
       <div class="s2"><div class="s2-n">UAE</div><div class="s2-l">Headquartered</div></div>
     </div>
@@ -286,9 +288,9 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 2rem 
     <div class="sec-head">
       <div>
         <div class="sec-kicker">Intelligence Areas</div>
-        <h2 class="sec-h2">Nine domains.<br><em>One intelligence layer.</em></h2>
+        <h2 class="sec-h2">Ten domains.<br><em>One intelligence layer.</em></h2>
       </div>
-      <p class="sec-p">When Agentic AI, ESG, Supply Chain, Healthcare, Architecture, Education, IT, Strategic Planning and AI Governance share the same intelligence layer, your organisation moves as a system — not a set of silos.</p>
+      <p class="sec-p">When Agentic AI, ESG, Supply Chain, Healthcare, Architecture, Education, IT, Strategic Planning, AI Governance and AI Training share the same intelligence layer, your organisation moves as a system — not a set of silos.</p>
     </div>
     <div class="sectors-grid">
       <a href="industry-agentic-ai.html" class="sc"><div class="sc-tag" style="background:rgba(26,107,255,.12);color:#4d9aff">AI</div><div class="sc-name">Agentic AI</div><div class="sc-desc">Autonomous agents that perceive, plan, decide and execute across your enterprise.</div><div class="sc-leader" style="color:#4d9aff">Lisa Warren →</div></a>
@@ -300,6 +302,7 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 2rem 
       <a href="industry-it.html" class="sc"><div class="sc-tag" style="background:rgba(113,228,255,.1);color:#71e4ff">IT</div><div class="sc-name">IT &amp; Digital</div><div class="sc-desc">Digital transformation and enterprise technology strategy for complex organisations.</div><div class="sc-leader" style="color:#71e4ff">Christopher Morley →</div></a>
       <a href="industry-strategic-planning.html" class="sc"><div class="sc-tag" style="background:rgba(232,24,74,.1);color:#E8184A">SP</div><div class="sc-name">Strategic Planning</div><div class="sc-desc">Leadership alignment and strategic execution across the enterprise.</div><div class="sc-leader" style="color:#E8184A">Dr. Alex Jones →</div></a>
       <a href="industry-ai-governance.html" class="sc"><div class="sc-tag" style="background:rgba(255,176,32,.12);color:#ffb020">GOV</div><div class="sc-name">AI Governance</div><div class="sc-desc">Risk, oversight and assurance frameworks for agentic AI at enterprise scale.</div><div class="sc-leader" style="color:#ffb020">Lisa Warren &amp; Ivano Iannelli →</div></a>
+      <a href="industry-ai-training.html" class="sc"><div class="sc-tag" style="background:rgba(255,95,168,.12);color:#ff5fa8">TRN</div><div class="sc-name">AI Training</div><div class="sc-desc">Practical AI fluency for boards, executives and managers — so governance keeps pace with adoption.</div><div class="sc-leader" style="color:#ff5fa8">Lisa Warren →</div></a>
     </div>
   </div>
 </section>
@@ -322,7 +325,7 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 2rem 
           <span class="footer-brand-sub">Strategic Intelligence &amp; Transformation</span>
         </div>
       </div>
-      <p class="footer-tag">Where Intelligence Creates Value. Strategic Intelligence &amp; Transformation across eight domains. UAE · GCC · MENA.</p>
+      <p class="footer-tag">Where Intelligence Creates Value. Strategic Intelligence &amp; Transformation across ten domains. UAE · GCC · MENA.</p>
     </div>
     <div class="footer-col">
       <h4>Intelligence</h4>
@@ -390,6 +393,7 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 2rem 
     {lines:['IT &','Digital'],color:'#71e4ff', lat: 62,  lon:195,  url:'industry-it.html'},
     {lines:['Sustain-','abil.'],color:'#00cc66',lat:-25, lon:315,  url:'industry-sustainability.html'},
     {lines:['AI','Gov.'],      color:'#ffb020', lat:  5,  lon:100,  url:'industry-ai-governance.html'},
+    {lines:['AI','Train'],    color:'#ff5fa8', lat:-10,  lon:250,  url:'industry-ai-training.html'},
   ];
 
   let rotY = 0, hbT = 0, pingT = 0, paused = false, manualPause = false;
