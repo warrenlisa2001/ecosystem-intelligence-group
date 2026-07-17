@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SIB Consulting | Ecosystem Intelligence Group</title>
 <meta name="robots" content="noindex">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;height:100%;background:#000;font-family:'Inter',sans-serif;overflow:hidden}
@@ -46,11 +46,18 @@ canvas{position:fixed;inset:0;z-index:0}
   .logo-glow{width:124px;height:124px}
   .ds-item{border-right:none;padding:0 0.5rem}
 }
+
+[dir="rtl"] body{font-family:'Cairo',Inter,system-ui,sans-serif}
+[dir="rtl"] .headline,[dir="rtl"] .org-name,[dir="rtl"] .subheadline{font-family:'Cairo',Inter,sans-serif}
+.lang-toggle-splash{position:fixed;top:1.5rem;right:1.5rem;z-index:30;display:inline-flex;align-items:center;background:transparent;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);font-size:.72rem;font-weight:700;letter-spacing:.1em;padding:.55rem 1.1rem;border-radius:4px;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s}
+.lang-toggle-splash:hover{border-color:rgba(232,24,74,.6);color:#fff}
+[dir="rtl"] .lang-toggle-splash{right:auto;left:1.5rem;font-family:'Cairo',Inter,sans-serif}
 </style>
 </head>
 <body>
 
 <div class="top-line"></div>
+<button class="lang-toggle-splash" onclick="toggleLang()"><span class="lang-toggle-label">العربية</span></button>
 <canvas id="c"></canvas>
 
 <div class="splash">
@@ -65,13 +72,13 @@ canvas{position:fixed;inset:0;z-index:0}
 
   <h1 class="headline">SIB <span>Consulting</span></h1>
 
-  <p class="subheadline">
+  <p class="subheadline" data-ik-html="sub.deck">
     Intelligence-led transformation across <b>AI, Sustainability, Supply Chain, Healthcare, Architecture, Education, IT &amp; Strategic Planning.</b>
     <span class="sub-domains">Serving UAE, GCC &amp; MENA</span>
   </p>
 
   <a href="home.html" class="enter-btn">
-    <span>Enter Platform</span>
+    <span data-ik="btn.enter">Enter Platform</span>
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <path d="M5 12h14M12 5l7 7-7 7"/>
     </svg>
@@ -79,14 +86,14 @@ canvas{position:fixed;inset:0;z-index:0}
 </div>
 
 <div class="domain-strip">
-  <div class="ds-item active">Agentic AI</div>
-  <div class="ds-item">Sustainability</div>
-  <div class="ds-item">Supply Chain</div>
-  <div class="ds-item">Architecture</div>
-  <div class="ds-item">Education</div>
-  <div class="ds-item">Healthcare</div>
-  <div class="ds-item">IT</div>
-  <div class="ds-item">Strategic Planning</div>
+  <div class="ds-item active" data-ik="d.ai">Agentic AI</div>
+  <div class="ds-item" data-ik="d.sus">Sustainability</div>
+  <div class="ds-item" data-ik="d.sc">Supply Chain</div>
+  <div class="ds-item" data-ik="d.arch">Architecture</div>
+  <div class="ds-item" data-ik="d.edu">Education</div>
+  <div class="ds-item" data-ik="d.health">Healthcare</div>
+  <div class="ds-item" data-ik="d.it">IT</div>
+  <div class="ds-item" data-ik="d.strategy">Strategic Planning</div>
 </div>
 
 <div class="bottom-line"></div>
@@ -109,6 +116,46 @@ canvas{position:fixed;inset:0;z-index:0}
   draw();
   var items=document.querySelectorAll('.ds-item'),current=0;
   setInterval(function(){items[current].classList.remove('active');current=(current+1)%items.length;items[current].classList.add('active');},1800);
+})();
+</script>
+
+<script>
+const AR = {
+  'sub.deck':'تحول قائم على الذكاء عبر <b>الذكاء الاصطناعي والاستدامة وسلسلة التوريد والرعاية الصحية والهندسة المعمارية والتعليم وتقنية المعلومات والتخطيط الاستراتيجي.</b>\n    <span class="sub-domains">نخدم الإمارات ودول الخليج والشرق الأوسط وشمال أفريقيا</span>',
+  'btn.enter':'ادخل إلى المنصة',
+  'd.ai':'الذكاء الوكيل',
+  'd.sus':'الاستدامة',
+  'd.sc':'سلسلة التوريد',
+  'd.arch':'الهندسة المعمارية',
+  'd.edu':'التعليم',
+  'd.health':'الرعاية الصحية',
+  'd.it':'تقنية المعلومات',
+  'd.strategy':'التخطيط الاستراتيجي',
+};
+function applyLang(lang){
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-ik]').forEach(function(el){
+    if(!el.dataset.enText) el.dataset.enText = el.textContent;
+    el.textContent = lang === 'ar' ? (AR[el.getAttribute('data-ik')] || el.dataset.enText) : el.dataset.enText;
+  });
+  document.querySelectorAll('[data-ik-html]').forEach(function(el){
+    if(!el.dataset.enHtml) el.dataset.enHtml = el.innerHTML;
+    el.innerHTML = lang === 'ar' ? (AR[el.getAttribute('data-ik-html')] || el.dataset.enHtml) : el.dataset.enHtml;
+  });
+  document.querySelectorAll('.lang-toggle-label').forEach(function(el){
+    el.textContent = lang === 'ar' ? 'English' : 'العربية';
+  });
+  window.SIB_LANG = lang;
+  try{ localStorage.setItem('sib-lang', lang); }catch(e){}
+}
+function toggleLang(){
+  applyLang(window.SIB_LANG === 'ar' ? 'en' : 'ar');
+}
+(function(){
+  var saved;
+  try{ saved = localStorage.getItem('sib-lang'); }catch(e){}
+  if(saved === 'ar') applyLang('ar');
 })();
 </script>
 </body>
