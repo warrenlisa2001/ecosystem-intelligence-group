@@ -44,7 +44,7 @@
   ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,400&family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -162,6 +162,17 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 2rem 
 .ph-kicker::before { background:#4d9aff; }
 .sec-h2 em { color:#4d9aff; }
 </style>
+<style>
+[dir="rtl"] body{font-family:'Cairo',Inter,system-ui,sans-serif}
+[dir="rtl"] .ph-h1,[dir="rtl"] .sec-h2,[dir="rtl"] .cta-h2,[dir="rtl"] .hero-h1{font-family:'Cairo',Georgia,serif}
+[dir="rtl"] .nav-links{margin-left:0;margin-right:auto}
+[dir="rtl"] .nav-cta{margin-left:0;margin-right:.75rem}
+[dir="rtl"] .nav-drop-menu{left:auto;right:50%;transform:translateX(50%)}
+.lang-toggle{display:inline-flex;align-items:center;background:transparent;border:1px solid rgba(255,255,255,.18);color:var(--soft);font-size:.75rem;font-weight:700;padding:.5rem 1rem;border-radius:4px;cursor:pointer;font-family:inherit;transition:all .2s;margin-left:.5rem;white-space:nowrap}
+.lang-toggle:hover{border-color:rgba(255,255,255,.4);color:#fff}
+[dir="rtl"] .lang-toggle{margin-left:0;margin-right:.5rem}
+.mob-lang-toggle{display:block;width:100%;text-align:center;margin-top:1rem;background:transparent;border:1px solid rgba(255,255,255,.2);color:var(--soft);font-size:.9rem;font-weight:700;padding:.85rem;border-radius:4px;cursor:pointer;font-family:inherit}
+</style>
 </head>
 <body>
 <nav class="nav" id="nav">
@@ -174,64 +185,66 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 2rem 
       </div>
     </div>
     <div class="nav-links">
-      <a href="home.html">Home</a>
+      <a href="home.html" data-ik="nav.home">Home</a>
       <div class="nav-drop">
-        <button class="nav-drop-btn">Intelligence ▾</button>
+        <button class="nav-drop-btn" data-ik="nav.intel">Intelligence ▾</button>
         <div class="nav-drop-menu">
-          <div class="nav-drop-head">Practices</div>
-          <a href="industry-agentic-ai.html">Agentic AI</a>
-          <a href="industry-sustainability.html">Sustainability</a>
-          <a href="industry-supply-chain.html">Supply Chain &amp; Process</a>
-          <a href="industry-architecture.html">Architecture &amp; Interior Design</a>
-          <a href="industry-education.html">Education</a>
-          <a href="industry-healthcare.html">Healthcare</a>
-          <a href="industry-it.html">IT &amp; Digital</a>
-          <a href="industry-strategic-planning.html">Strategic Planning</a>
-          <a href="industry-ai-governance.html">AI Governance</a>
-          <a href="industry-ai-training.html">AI Training</a>
+          <div class="nav-drop-head" data-ik="nav.practices">Practices</div>
+          <a href="industry-agentic-ai.html" data-ik="d.agentic">Agentic AI</a>
+          <a href="industry-sustainability.html" data-ik="d.sustain">Sustainability</a>
+          <a href="industry-supply-chain.html" data-ik="d.supply">Supply Chain &amp; Process</a>
+          <a href="industry-architecture.html" data-ik="d.arch">Architecture &amp; Interior Design</a>
+          <a href="industry-education.html" data-ik="d.edu">Education</a>
+          <a href="industry-healthcare.html" data-ik="d.health">Healthcare</a>
+          <a href="industry-it.html" data-ik="d.it">IT &amp; Digital</a>
+          <a href="industry-strategic-planning.html" data-ik="d.strategy">Strategic Planning</a>
+          <a href="industry-ai-governance.html" data-ik="d.gov">AI Governance</a>
+          <a href="industry-ai-training.html" data-ik="d.train">AI Training</a>
           <div class="nav-drop-sep"></div>
-          <a href="domains.html">All Intelligence Areas →</a>
+          <a href="domains.html" data-ik="nav.allareas">All Intelligence Areas →</a>
         </div>
       </div>
       <div class="nav-drop">
-        <button class="nav-drop-btn">Insights ▾</button>
+        <button class="nav-drop-btn" data-ik="nav.insights">Insights ▾</button>
         <div class="nav-drop-menu">
-          <a href="briefing.html">Executive Briefing</a>
-          <a href="blog-sustainability-economics-esg.html">ESG Reporting Isn't a Checkbox</a>
-          <a href="blog-agentic-supply-chain.html">Agentic AI &amp; the Future of Supply Chain</a>
-          <a href="blog-education-accreditation-proof.html">Accreditation Isn't Paperwork — It's Proof</a>
-          <a href="blog-ai-governance-training-jobs.html">AI Governance &amp; Training: New Roles</a>
-          <a href="blog-agentic-vs-agi.html">Agentic AI vs AGI</a>
+          <a href="briefing.html" data-ik="nav.briefing">Executive Briefing</a>
+          <a href="blog-sustainability-economics-esg.html" data-ik="blog.esg">ESG Reporting Isn't a Checkbox</a>
+          <a href="blog-agentic-supply-chain.html" data-ik="blog.supply">Agentic AI &amp; the Future of Supply Chain</a>
+          <a href="blog-education-accreditation-proof.html" data-ik="blog.edu">Accreditation Isn't Paperwork — It's Proof</a>
+          <a href="blog-ai-governance-training-jobs.html" data-ik="blog.jobs">AI Governance &amp; Training: New Roles</a>
+          <a href="blog-agentic-vs-agi.html" data-ik="blog.agi">Agentic AI vs AGI</a>
           <a href="brief-ai-trends.html">Agentic AI Trends 2026</a>
           <a href="brief-sustainability.html">Sustainability Report</a>
           <a href="brief-supply-chain.html">Supply Chain Resilience</a>
           <a href="brief-healthcare.html">Healthcare Innovation</a>
         </div>
       </div>
-      <a href="leadership.html">Leadership</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
+      <a href="leadership.html" data-ik="nav.leadership">Leadership</a>
+      <a href="about.html" data-ik="nav.about">About</a>
+      <a href="contact.html" data-ik="nav.contact">Contact</a>
     </div>
-    <a href="contact.html" class="nav-cta">Request Briefing</a>
+    <a href="contact.html" class="nav-cta" data-ik="nav.reqbrief">Request Briefing</a>
+    <button class="lang-toggle" onclick="toggleLang()"><span class="lang-toggle-label">العربية</span></button>
     <button class="hb" onclick="openMob()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="mob-nav" id="mobNav">
   <button class="mob-close" onclick="closeMob()">✕</button>
-  <a href="home.html">Home</a>
-  <a href="industry-agentic-ai.html">Agentic AI</a>
-  <a href="industry-sustainability.html">Sustainability</a>
+  <a href="home.html" data-ik="nav.home">Home</a>
+  <a href="industry-agentic-ai.html" data-ik="d.agentic">Agentic AI</a>
+  <a href="industry-sustainability.html" data-ik="d.sustain">Sustainability</a>
   <a href="industry-supply-chain.html">Supply Chain</a>
   <a href="industry-architecture.html">Architecture</a>
-  <a href="industry-education.html">Education</a>
-  <a href="industry-healthcare.html">Healthcare</a>
-  <a href="industry-it.html">IT &amp; Digital</a>
-  <a href="industry-strategic-planning.html">Strategic Planning</a>
-  <a href="industry-ai-governance.html">AI Governance</a>
-  <a href="industry-ai-training.html">AI Training</a>
-  <a href="leadership.html">Leadership</a>
-  <a href="about.html">About SIB</a>
-  <a href="contact.html" class="mob-cta">Request Briefing</a>
+  <a href="industry-education.html" data-ik="d.edu">Education</a>
+  <a href="industry-healthcare.html" data-ik="d.health">Healthcare</a>
+  <a href="industry-it.html" data-ik="d.it">IT &amp; Digital</a>
+  <a href="industry-strategic-planning.html" data-ik="d.strategy">Strategic Planning</a>
+  <a href="industry-ai-governance.html" data-ik="d.gov">AI Governance</a>
+  <a href="industry-ai-training.html" data-ik="d.train">AI Training</a>
+  <a href="leadership.html" data-ik="nav.leadership">Leadership</a>
+  <a href="about.html" data-ik="footer.aboutsib">About SIB</a>
+  <a href="contact.html" class="mob-cta" data-ik="nav.reqbrief">Request Briefing</a>
+  <button class="mob-lang-toggle" onclick="toggleLang()"><span class="lang-toggle-label">العربية</span></button>
 </div>
 
 <section class="page-hero" style="background:radial-gradient(ellipse 60% 70% at 60% 50%,rgba(26,107,255,.06),transparent),var(--bg)">
@@ -338,32 +351,32 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:5rem 2rem 
           <span class="footer-brand-sub">Strategic Intelligence &amp; Transformation</span>
         </div>
       </div>
-      <p class="footer-tag">Where Intelligence Creates Value. Strategic Intelligence &amp; Transformation across eight domains. UAE · GCC · MENA.</p>
+      <p class="footer-tag" data-ik="footer.tag">Where Intelligence Creates Value. Strategic Intelligence &amp; Transformation across ten domains. UAE · GCC · MENA.</p>
     </div>
     <div class="footer-col">
       <h4>Intelligence</h4>
-      <a href="industry-agentic-ai.html">Agentic AI</a>
-      <a href="industry-sustainability.html">Sustainability</a>
+      <a href="industry-agentic-ai.html" data-ik="d.agentic">Agentic AI</a>
+      <a href="industry-sustainability.html" data-ik="d.sustain">Sustainability</a>
       <a href="industry-supply-chain.html">Supply Chain</a>
-      <a href="industry-healthcare.html">Healthcare</a>
+      <a href="industry-healthcare.html" data-ik="d.health">Healthcare</a>
       <a href="industry-architecture.html">Architecture</a>
-      <a href="industry-education.html">Education</a>
-      <a href="industry-it.html">IT &amp; Digital</a>
-      <a href="industry-strategic-planning.html">Strategic Planning</a>
-      <a href="industry-ai-governance.html">AI Governance</a>
-      <a href="industry-ai-training.html">AI Training</a>
+      <a href="industry-education.html" data-ik="d.edu">Education</a>
+      <a href="industry-it.html" data-ik="d.it">IT &amp; Digital</a>
+      <a href="industry-strategic-planning.html" data-ik="d.strategy">Strategic Planning</a>
+      <a href="industry-ai-governance.html" data-ik="d.gov">AI Governance</a>
+      <a href="industry-ai-training.html" data-ik="d.train">AI Training</a>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
       <a href="about.html">About SIB</a>
-      <a href="leadership.html">Leadership</a>
-      <a href="briefing.html">Executive Briefing</a>
-      <a href="contact.html">Contact</a>
+      <a href="leadership.html" data-ik="nav.leadership">Leadership</a>
+      <a href="briefing.html" data-ik="nav.briefing">Executive Briefing</a>
+      <a href="contact.html" data-ik="nav.contact">Contact</a>
     </div>
     <div class="footer-col">
-      <h4>Legal</h4>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms &amp; Conditions</a>
+      <h4 data-ik="footer.h.legal">Legal</h4>
+      <a href="privacy.html" data-ik="footer.privacy">Privacy Policy</a>
+      <a href="terms.html" data-ik="footer.terms">Terms &amp; Conditions</a>
     </div>
   </div>
   <div class="footer-bot">
@@ -377,6 +390,70 @@ function closeMob(){ document.getElementById('mobNav').classList.remove('open');
 window.addEventListener('scroll',()=>{
   document.getElementById('nav').style.borderBottomColor = scrollY>20?'rgba(232,24,74,0.3)':'rgba(255,255,255,0.08)';
 },{passive:true});
+</script>
+<script>
+const AR_SHARED = {
+  'nav.home':'الرئيسية',
+  'nav.intel':'الذكاء ▾',
+  'nav.practices':'الممارسات',
+  'nav.allareas':'جميع مجالات الذكاء ←',
+  'nav.insights':'الرؤى ▾',
+  'nav.briefing':'إحاطة تنفيذية',
+  'nav.leadership':'القيادة',
+  'nav.about':'من نحن',
+  'nav.contact':'تواصل معنا',
+  'nav.reqbrief':'اطلب إحاطة',
+  'blog.esg':"تقارير الاستدامة ليست إجراءً شكليًا",
+  'blog.supply':'الذكاء الاصطناعي الوكيل ومستقبل سلسلة التوريد',
+  'blog.edu':'الاعتماد الأكاديمي ليس أوراقًا — بل إثبات',
+  'blog.jobs':'حوكمة وتدريب الذكاء الاصطناعي: وظائف جديدة',
+  'blog.agi':'الذكاء الاصطناعي الوكيل مقابل الذكاء العام',
+  'd.agentic':'الذكاء الاصطناعي الوكيل',
+  'd.sustain':'الاستدامة',
+  'd.supply':'سلسلة التوريد والعمليات',
+  'd.arch':'العمارة والتصميم الداخلي',
+  'd.edu':'التعليم',
+  'd.health':'الرعاية الصحية',
+  'd.it':'تقنية المعلومات والرقمنة',
+  'd.strategy':'التخطيط الاستراتيجي',
+  'd.gov':'حوكمة الذكاء الاصطناعي',
+  'd.train':'تدريب الذكاء الاصطناعي',
+  'pill.supply':'سلسلة التوريد',
+  'pill.arch':'العمارة',
+  'footer.tag':'حيث يصنع الذكاء القيمة. الذكاء الاستراتيجي والتحول عبر عشرة مجالات. الإمارات · دول الخليج · الشرق الأوسط وشمال أفريقيا.',
+  'footer.h.intel':'الذكاء',
+  'footer.h.company':'الشركة',
+  'footer.h.legal':'قانوني',
+  'footer.aboutsib':'عن SIB',
+  'footer.privacy':'سياسة الخصوصية',
+  'footer.terms':'الشروط والأحكام',
+};
+const AR = Object.assign({}, AR_SHARED, (typeof AR_PAGE!=='undefined'?AR_PAGE:{}));
+
+function applyLang(lang){
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang==='ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-ik]').forEach(el=>{
+    const k = el.getAttribute('data-ik');
+    if(el.dataset.enText===undefined) el.dataset.enText = el.textContent;
+    el.textContent = (lang==='ar' && AR[k]) ? AR[k] : el.dataset.enText;
+  });
+  document.querySelectorAll('[data-ik-html]').forEach(el=>{
+    const k = el.getAttribute('data-ik-html');
+    if(el.dataset.enHtml===undefined) el.dataset.enHtml = el.innerHTML;
+    el.innerHTML = (lang==='ar' && AR[k]) ? AR[k] : el.dataset.enHtml;
+  });
+  document.querySelectorAll('.lang-toggle-label').forEach(b=>{ b.textContent = lang==='ar' ? 'English' : 'العربية'; });
+  window.SIB_LANG = lang;
+  try{ localStorage.setItem('sib-lang', lang); }catch(e){}
+}
+function toggleLang(){ applyLang((window.SIB_LANG||'en')==='ar' ? 'en' : 'ar'); }
+
+(function(){
+  let saved = 'en';
+  try{ saved = localStorage.getItem('sib-lang') || 'en'; }catch(e){}
+  applyLang(saved);
+})();
 </script>
 </body>
 </html>
