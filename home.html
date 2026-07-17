@@ -906,6 +906,10 @@ function toggleLang(){ applyLang((window.SIB_LANG||'en')==='ar' ? 'en' : 'ar'); 
 (function(){
   let saved = 'en';
   try{ saved = localStorage.getItem('sib-lang') || 'en'; }catch(e){}
+  try{
+    const urlLang = new URLSearchParams(window.location.search).get('lang');
+    if(urlLang === 'ar' || urlLang === 'en') saved = urlLang;
+  }catch(e){}
   applyLang(saved);
 })();
 </script>
