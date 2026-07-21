@@ -14,7 +14,7 @@ https://www.teamsib.com
 - ecosystemintelligencegroup.com (redirects to teamsib.com)
 
 ## What we do
-SIB Consulting delivers intelligence-led transformation across ten domains, each led by a named domain expert:
+SIB Consulting delivers intelligence-led transformation across eleven domains, each led by a named domain expert:
 
 1. Agentic AI & Autonomous Systems — Lisa Warren
 2. Sustainability & ESG — Ivano Iannelli
@@ -26,6 +26,7 @@ SIB Consulting delivers intelligence-led transformation across ten domains, each
 8. Strategic Planning — Dr. Alex Jones
 9. AI Governance — Lisa Warren & Ivano Iannelli
 10. AI Training — Lisa Warren
+11. Government Relations & ESG — Ayesha Alafeefi
 
 ## Leadership
 - Lisa Warren — Lead, Agentic AI, AI Governance & AI Training, SIB Consulting; Founder & CEO, Neural Horizons AI
@@ -36,6 +37,7 @@ SIB Consulting delivers intelligence-led transformation across ten domains, each
 - Dr. Manish Mehrotra — Lead, Healthcare
 - Christopher Morley — Lead, IT & Digital
 - Dr. Alex Jones — Lead, Strategic Planning
+- Ayesha Alafeefi — Lead, Government Relations & ESG
 
 ## Markets
 UAE, GCC, MENA, Global
@@ -52,6 +54,7 @@ https://www.teamsib.com
 - Agentic AI: https://www.teamsib.com/industry-agentic-ai.html
 - AI Governance: https://www.teamsib.com/industry-ai-governance.html
 - AI Training: https://www.teamsib.com/industry-ai-training.html
+- Government Relations & ESG: https://www.teamsib.com/industry-government.html
 - Sustainability: https://www.teamsib.com/industry-sustainability.html
 - Supply Chain: https://www.teamsib.com/industry-supply-chain.html
 - Insight — Agentic AI vs AGI: https://www.teamsib.com/blog-agentic-vs-agi.html
