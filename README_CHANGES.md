@@ -1,83 +1,33 @@
-# Site update — Government Relations & ESG + full Meta/SEO/Schema/AI pass
+# SIB Consulting Website — Change Summary
 
-This package contains 88 changed files plus this README. Copy them into your local
-ecosystem-intelligence-group repo (overwriting same-named files), delete
-industry-hospitality.html (superseded — see below), then commit and push.
+## Part 1: Government Relations & ESG practice (Ayesha Alafeefi)
+- Rebuilt `industry-government.html` from scratch as a full practice page (hero, stat band, service cards, engagement model, Ayesha's leader card with her real photo, CTA, EN/AR translations, full meta/OG/Twitter/schema).
+- Updated `leadership.html`: fixed two markup bugs, retitled Ayesha's role/bio/tagline/specialisations to Government Relations & ESG, swapped her accent color to teal (`#2dd4bf`), added her real photo, added a "View Government Relations & ESG Practice" link, added Person schema for all 8 leaders + BreadcrumbList, added OG/Twitter tags.
+- Updated `home.html`: removed the old Hospitality & Tourism ticker/card/globe entries and replaced with Government Relations & ESG (teal, linked to the new page); moved the Government Relations & ESG card to sit beside the Sustainability/Ivano card in the domains grid; corrected "Eight domains" → "Nine domains" everywhere on the page; removed the stale "About SIB Consulting" stats section (outdated "8 domains/8 leaders" copy) so the Nine Domains section now sits directly under the hero; added Organization + WebSite + BreadcrumbList schema and OG/Twitter tags (previously had none).
+- Added `--c-gov:#2dd4bf` to `assets/shared.css` as the practice's official color.
+- Updated `domains.html` (the "All Intelligence Areas" hub): hero copy "Eight Domains" → "Nine Domains", added a full 9th domain-card (Government Relations & ESG, Ayesha Alafeefi) with matching CSS, updated the "8 Leadership-led domains" stat to 9, updated the meta description to include government relations & ESG.
+- Updated `llms.txt`: domain count, leadership list, and key pages entry for Government Relations & ESG.
 
-## Part 1 — Government Relations & ESG (Ayesha)
+## Part 2: Site-wide alignment ("ALL ALIGNED THROUGHOUT THE WEBSITE")
+- Relabeled 106 occurrences across 65 files of the plain "Government" anchor text (linking to `industry-government.html`) to "Government Relations & ESG" — covers every footer Intelligence column, nav dropdown, and inline reference site-wide.
+- Verified all 21 files with a full domain footer/nav list already reference `industry-government.html` — confirmed 0 gaps.
+- Fixed one remaining stale reference: `leadership.html` footer tagline "across eight domains" → "across nine domains".
+- Full sweep confirmed zero remaining "eight domain(s)" / "8 domains" / "8 named domain" references anywhere in the 110-file site.
 
-- industry-government.html: rebuilt from an old placeholder stub into a full
-  practice page (hero, stats, "what we deliver" cards, engagement-model section,
-  named-leader section) led by Ayesha Alafeefi, focused on Government Relations &
-  ESG rather than Hospitality & Tourism. Full bilingual EN/AR support.
-- industry-hospitality.html: deleted (its content is now folded into
-  industry-government.html). Nothing else links to it.
-- leadership.html: fixed two pre-existing markup bugs on Ayesha's card (a
-  duplicated <div> and a missing <div> that likely broke the layout from her card
-  onward), reframed her card around Government Relations & ESG, added her real
-  photo (from your connected Leaders folder), and added a "View practice" link.
-- home.html: ticker/showcase card/globe node renamed from Hospitality & Tourism to
-  Government Relations & ESG; domain-count copy corrected from eight to nine.
-- Navigation: "Government Relations & ESG" added to the Intelligence dropdown,
-  mobile nav, and footer across every page using the current template (~20 files),
-  each with Arabic translation strings. Footer domain-count copy corrected from
-  ten to eleven where applicable.
+## Part 3: Full Meta/SEO/Schema/AI pass (all 110 files)
+- Added missing meta description, robots, canonical, Open Graph, and Twitter Card tags to every page missing them.
+- Added BreadcrumbList JSON-LD (and Article schema for blog posts) to every page missing it.
+- `robots.txt` already allowed major AI crawlers (GPTBot, ChatGPT-User, Claude-Web, PerplexityBot, Googlebot) — left as-is.
+- `llms.txt` kept in sync with the current domain/leadership roster.
 
-## Part 2 — Site-wide Meta / SEO / Schema / AI pass (all 110 HTML files audited)
+## Ayesha Alafeefi's real photo
+- Embedded (base64, 320x320 cropped JPEG) into both `leadership.html` and `industry-government.html`, replacing the previous placeholder/initials avatar.
 
-Coverage now stands at:
-- Canonical tag: 110/110
-- Meta description: 108/110
-- Open Graph tags: 109/110
-- Twitter Card tags: 109/110
-- Schema.org structured data: 109/110
-- Robots meta: 108/110
+## Also noticed, not fixed in this pass (flagged for awareness)
+- 25 files (mostly demo/archive/case-study pages) have pre-existing unrelated `<div>`/`</div>` mismatches from before this work — not touched, out of scope.
+- `industries.html` (the separate industries-served taxonomy page) and the 8 `case-*.html` files use a different, apparently non-live root-relative-URL architecture with no domain-specific nav — intentionally left untouched to avoid scope creep, per earlier discussion.
+- A "Christopher Morley" leadership card referenced elsewhere on the site was not present in `leadership.html` — flagged, not added (no content was supplied for it).
 
-The two pages intentionally left without full tagging are industry-ai.html (an
-instant redirect stub to industry-agentic-ai.html — already has its own
-canonical) and schema-snippet.html (not a real page — it's a reference snippet
-of your own SEO head-block template, which I followed as the standard for
-everything else).
-
-What was added, file by file:
-
-- **Meta description, canonical link, Open Graph tags, Twitter Card tags** — added
-  wherever missing. Descriptions were extracted from each page's own hero
-  copy where possible (not generic filler), truncated to ~165 characters.
-- **BreadcrumbList schema** — added to every page that lacked any Schema.org data.
-- **Article schema** — added to blog-*.html posts (headline, description,
-  publisher) alongside their BreadcrumbList. I did not fabricate publish dates —
-  omitted rather than guessed.
-- **Person schema** — added for all 8 named leaders on leadership.html (name,
-  job title, employer, email/LinkedIn where known), plus a BreadcrumbList and
-  full OG/Twitter tags for the page (it had none before).
-- **Organization + WebSite schema** — added to home.html, the true homepage
-  (it had zero Open Graph tags or structured data before this pass — the single
-  biggest gap on the site). index.html (the splash/loading page) stays
-  intentionally noindexed and now has correct OG tags for social sharing.
-- **robots meta = noindex, follow** applied to content that isn't part of the
-  live SIB Consulting site and shouldn't compete in search results: the two
-  Masafi client-demo pages, museum-future-platform.html, sc-intelligence-demo.html,
-  both eig-website.html variants, and index-ashwin.html. Everything else is
-  index, follow.
-- **Accessibility/SEO**: lisa-warren.html had no <h1> at all (heading structure
-  gap) — added a visually-hidden <h1> matching its title, with no visual change.
-- **llms.txt**: updated to list eleven domains (was ten) and added Ayesha
-  Alafeefi / Government Relations & ESG to the leadership and key-pages lists.
-- **robots.txt**: already allows GPTBot, ChatGPT-User, Claude-Web, PerplexityBot
-  and Googlebot explicitly, and points to sitemap.xml — no changes needed.
-- **sitemap.xml**: already included industry-government.html from before; left
-  as-is otherwise (didn't attempt to re-audit which of the ~70 blog/case/service
-  pages should be added, to keep this pass focused).
-
-## Also noticed, not fixed (pre-existing, out of scope)
-
-- 25 files have a mismatched <div>/</div> count (off by 1, sometimes more) that
-  predates this session — most are the newer blog posts and intel-/service-*.html
-  pages. Purely a template bug, not something I introduced; flagging in case it's
-  causing layout issues you've noticed.
-- home.html and leadership.html were, before today, running on an older page
-  template (fewer practices, no Arabic toggle) than the rest of the site.
-- Christopher Morley (IT & Digital) still has no leader card on leadership.html.
-- The footer "Intelligence" column on home.html only lists 5 of the 9 (now
-  Government-inclusive) domains.
+## Delivery notes
+- This zip reflects a git diff against the live GitHub `main` branch (commit `aedea99`). I do not have push access to the repository, so these changes are delivered as a downloadable archive rather than committed live.
+- `industry-hospitality.html` was removed (superseded by `industry-government.html`) — not included in this zip.
