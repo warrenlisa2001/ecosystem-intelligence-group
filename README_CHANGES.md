@@ -44,13 +44,11 @@ pages was corrected to "eleven domains".
 Copy these files into your local ecosystem-intelligence-group repo (overwriting the
 same-named files), delete industry-hospitality.html, then commit and push.
 
-## One thing I couldn't do
+## Photo
 
-You shared a headshot photo earlier in our chat, but it wasn't accessible to me as a
-file I could embed — only visible inline. Ayesha's photo circle currently uses the
-same teal "AA" initials placeholder the site already had for her. If you attach the
-photo as a file (not pasted inline) or drop it in a connected folder, I can swap it
-into both her leadership card and the new practice page.
+Ayesha's real headshot (from your connected Leaders folder, `Ayeshya .png`) is now
+embedded in both her leadership.html card (140px circle) and the small leader-card
+avatar on industry-government.html — replacing the teal "AA" initials placeholder.
 
 ## Also noticed (not fixed, out of scope)
 
